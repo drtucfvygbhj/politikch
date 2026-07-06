@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politikch — Swiss democracy, in one place</title>
+  <meta name="description" content="An independent, non-partisan reference for Swiss democracy: parliament, parties, cantons and popular votes, in four languages.">
+  <meta name="color-scheme" content="light">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Politikch — Swiss democracy, in one place">
+  <meta property="og:description" content="Parliament, parties, cantons and popular votes across every level of Swiss democracy.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <button class="nav-logo" data-home aria-label="Politikch home">
+      <span class="nav-logo-cross" aria-hidden="true"></span>
+      <span class="nav-logo-text">Politikch</span>
+    </button>
+    <ul class="nav-links">
+      <li><button data-scroll="parliament" data-i18n="nav.parliament">Parliament</button></li>
+      <li><button data-scroll="parliament" data-i18n="nav.parties">Parties</button></li>
+      <li><button data-scroll="initiatives" data-i18n="nav.initiatives">Votes</button></li>
+      <li><button data-scroll="hero" data-i18n="nav.cantons">Cantons</button></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-lang" role="group" aria-label="Language">
+        <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+        <button class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
+        <button class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+        <button class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="map-tooltip" id="map-tooltip" role="status" aria-live="polite"></div>
+
+  <div id="load-error" style="display:none;position:fixed;inset:0;z-index:3000;background:var(--white);display:none;align-items:center;justify-content:center;text-align:center;padding:24px">
+    <div>
+      <h1 style="font-family:'Playfair Display',serif;margin-bottom:12px">Couldn't load the data</h1>
+      <p style="color:var(--mid)">This site needs to be served over HTTP. If you opened the file directly, run a local server (for example <code>python3 -m http.server</code>) and reload.</p>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- HOME -->
+    <div id="home-content">
+
+      <!-- HERO -->
+      <section id="hero">
+        <div class="hero-text">
+          <p class="hero-eyebrow" data-i18n="hero.eyebrow">Independent · Factual · Non-partisan</p>
+          <h1 class="hero-title" data-i18n="hero.title">Swiss democracy,<br><span>in one place.</span></h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">Parliament, parties, cantons and popular votes — across every level of Swiss democracy, gathered into one clear, independent reference. Pick a canton to begin.</p>
+        </div>
+
+        <div class="map-container">
+          <svg id="swiss-map" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Map of Swiss cantons"></svg>
+          <p class="map-hint" data-i18n="hero.scroll">Explore</p>
+        </div>
+
+        <button class="hero-scroll-hint" data-scroll="parliament" aria-label="Scroll to parliament">
+          <span data-i18n="hero.scroll">Explore</span>
+          <span class="scroll-line" aria-hidden="true"></span>
+        </button>
+      </section>
+
+      <!-- PARLIAMENT -->
+      <section id="parliament">
+        <div class="section-inner">
+          <p class="section-label reveal" data-i18n="parl.label">Federal Assembly</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="parl.title">The two chambers</h2>
+          <p class="section-desc reveal reveal-delay-2" data-i18n="parl.desc">The Federal Assembly has 200 seats in the National Council and 46 in the Council of States.</p>
+
+          <div class="chambers reveal reveal-delay-3">
+            <div class="chamber-card">
+              <div class="chamber-name" data-i18n="parl.nc">National Council</div>
+              <div class="chamber-sub" data-i18n="parl.ncsub">Nationalrat · 200 seats</div>
+              <div class="hemicycle" id="nc-hemicycle"></div>
+              <div class="party-legend" id="nc-legend"></div>
+            </div>
+            <div class="chamber-card">
+              <div class="chamber-name" data-i18n="parl.cs">Council of States</div>
+              <div class="chamber-sub" data-i18n="parl.cssub">Ständerat · 46 seats</div>
+              <div class="hemicycle" id="cs-hemicycle"></div>
+              <div class="party-legend" id="cs-legend"></div>
+            </div>
+          </div>
+
+          <div class="spectrum-section reveal">
+            <p class="section-label" style="color:var(--red-light)" data-i18n="spec.label">Political landscape</p>
+            <h3 class="section-title" style="color:#fff;font-size:32px" data-i18n="spec.title">Where the parties stand</h3>
+            <p class="section-desc" data-i18n="spec.desc">Each party placed by general orientation.</p>
+            <div class="spectrum-chart">
+              <div class="spectrum-chart-inner" id="spectrum-chart">
+                <div class="spectrum-axis-h"></div>
+                <div class="spectrum-axis-v"></div>
+                <span class="axis-label" style="left:8px;top:50%;transform:translateY(-50%)" data-i18n="spec.axisLeft">Left</span>
+                <span class="axis-label" style="right:8px;top:50%;transform:translateY(-50%)" data-i18n="spec.axisRight">Right</span>
+                <span class="axis-label" style="top:8px;left:50%;transform:translateX(-50%)" data-i18n="spec.axisTop">Traditional</span>
+                <span class="axis-label" style="bottom:8px;left:50%;transform:translateX(-50%)" data-i18n="spec.axisBottom">Progressive</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INITIATIVES -->
+      <section id="initiatives">
+        <div class="section-inner">
+          <p class="section-label reveal" data-i18n="init.label">Direct democracy</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n="init.title">Recent & pending national votes</h2>
+          <p class="section-desc reveal reveal-delay-2" data-i18n="init.desc">Switzerland's direct democracy lets citizens challenge laws and propose constitutional change.</p>
+
+          <div class="init-controls reveal reveal-delay-2">
+            <div class="init-filters" role="group" aria-label="Filter votes">
+              <button class="filter-btn active" data-filter="all" aria-pressed="true" data-i18n="init.filterAll">All</button>
+              <button class="filter-btn" data-filter="initiative" aria-pressed="false" data-i18n="init.filterInitiative">Initiatives</button>
+              <button class="filter-btn" data-filter="referendum" aria-pressed="false" data-i18n="init.filterReferendum">Referendums</button>
+            </div>
+            <input class="init-search" id="init-search" type="search" data-i18n-ph="init.search" placeholder="Search votes…" aria-label="Search votes">
+          </div>
+
+          <div class="initiatives-grid reveal reveal-delay-3" id="initiatives-grid"></div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <div class="footer-logo">
+          <span class="footer-cross" aria-hidden="true"></span>
+          <span class="footer-name">Politikch</span>
+        </div>
+        <p class="footer-disclaimer" data-i18n="footer.disclaimer">An independent, non-partisan civic reference.</p>
+        <div class="footer-links">
+          <a href="#" data-i18n="footer.about">About</a>
+          <a href="#" data-i18n="footer.method">Methodology</a>
+          <a href="#" data-i18n="footer.sources">Data sources</a>
+          <a href="#" data-i18n="footer.privacy">Privacy</a>
+          <a href="#" data-i18n="footer.contact">Contact</a>
+        </div>
+      </footer>
+    </div>
+
+    <!-- CANTON PAGE -->
+    <div id="canton-page" class="subpage">
+      <div class="canton-hero">
+        <div class="subpage-inner">
+          <button class="back-btn" data-home data-i18n="canton.back">Back to Switzerland</button>
+          <div class="canton-emblem" id="canton-emblem" aria-hidden="true"></div>
+          <h1 class="canton-title" id="canton-title"></h1>
+          <p class="canton-capital" id="canton-capital"></p>
+          <div class="canton-stats" id="canton-stats"></div>
+        </div>
+      </div>
+      <div class="canton-content" id="canton-content"></div>
+    </div>
+
+    <!-- PARTY PAGE -->
+    <div id="party-page" class="subpage">
+      <div class="party-hero" id="party-hero">
+        <div class="subpage-inner">
+          <button class="back-btn dark" data-home data-i18n="canton.back">Back to Switzerland</button>
+          <div id="party-abbr-badge" class="party-abbr"></div>
+          <h1 class="party-name-large" id="party-name-large"></h1>
+          <p class="party-desc-large" id="party-desc-large"></p>
+          <div class="party-positions-grid" id="party-positions"></div>
+        </div>
+      </div>
+      <div class="party-extra" id="party-extra"></div>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+      <div class="modal-type" id="modal-type"></div>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <div class="modal-body" id="modal-body"></div>
+      <a class="modal-cta" id="modal-link" href="#" target="_blank" rel="noopener">Official result ↗</a>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
