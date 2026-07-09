@@ -1,0 +1,15 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local server / logs
+*.log
+
+# Node (only if you later add tooling)
+node_modules/
+
+# Claude Code local session settings (machine-specific, not shared)
+.claude/settings.local.json
