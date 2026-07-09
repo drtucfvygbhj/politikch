@@ -1,0 +1,235 @@
+{
+  "_meta": {
+    "source": "Federal Statistical Office (BFS) / parlament.ch — 2023 federal election, 2023–2027 legislature",
+    "note": "Seat counts verified against official 2023 results. Party positions are editorial summaries based on published manifestos and parliamentary voting records; the spectrum coordinates are an interpretive approximation, not an official measure.",
+    "spectrum_axes": {
+      "x": "Economic policy: 0 = redistributive/left, 100 = market-oriented/right",
+      "y": "Social policy: 0 = progressive/libertarian, 100 = traditional/conservative"
+    }
+  },
+  "parties": {
+    "SVP": {
+      "name": { "en": "Swiss People's Party", "de": "Schweizerische Volkspartei", "fr": "Union démocratique du centre", "it": "Unione Democratica di Centro" },
+      "abbr": "SVP/UDC",
+      "color": "#4B8A3F",
+      "ncSeats": 62,
+      "csSeats": 6,
+      "spectrum": { "x": 80, "y": 78 },
+      "desc": {
+        "en": "The largest party in Switzerland. A national-conservative, right-wing party emphasising Swiss sovereignty, restrictive immigration policy and fiscal conservatism. Founded in 1971, it won the most National Council seats in 2023 and holds two Federal Council seats.",
+        "de": "Die grösste Partei der Schweiz. Eine national-konservative Partei mit Schwerpunkt auf Souveränität, restriktiver Migrationspolitik und Steuerdisziplin. 1971 gegründet, stärkste Kraft im Nationalrat 2023, mit zwei Bundesratssitzen.",
+        "fr": "Le plus grand parti de Suisse. Parti de droite national-conservateur mettant l'accent sur la souveraineté, une politique migratoire restrictive et la discipline budgétaire. Fondé en 1971, arrivé en tête au Conseil national en 2023, avec deux sièges au Conseil fédéral.",
+        "it": "Il maggior partito svizzero. Partito di destra nazional-conservatore incentrato su sovranità, politica migratoria restrittiva e disciplina fiscale. Fondato nel 1971, primo partito al Consiglio nazionale nel 2023, con due seggi in Consiglio federale."
+      },
+      "positions": [
+        { "topic": "immigration", "stance": { "en": "Strict controls, prioritise nationals", "de": "Strenge Kontrollen, Inländervorrang", "fr": "Contrôles stricts, priorité aux nationaux", "it": "Controlli severi, priorità ai cittadini svizzeri" }, "level": 90, "dir": "right" },
+        { "topic": "euRelations", "stance": { "en": "Bilateral path, no membership", "de": "Bilateraler Weg, keine Mitgliedschaft", "fr": "Voie bilatérale, pas d'adhésion", "it": "Via bilaterale, no all'adesione" }, "level": 85, "dir": "right" },
+        { "topic": "economy", "stance": { "en": "Lower taxes, less regulation", "de": "Tiefere Steuern, weniger Regulierung", "fr": "Baisse des impôts, moins de réglementation", "it": "Meno tasse, meno regolamentazione" }, "level": 80, "dir": "right" },
+        { "topic": "environment", "stance": { "en": "Market solutions over mandates", "de": "Marktlösungen statt Vorschriften", "fr": "Solutions de marché plutôt que des obligations", "it": "Soluzioni di mercato anziché obblighi" }, "level": 40, "dir": "right" },
+        { "topic": "socialPolicy", "stance": { "en": "Traditional family values", "de": "Traditionelle Familienwerte", "fr": "Valeurs familiales traditionnelles", "it": "Valori familiari tradizionali" }, "level": 75, "dir": "conservative" },
+        { "topic": "transport", "stance": { "en": "Invest in roads, oppose new fuel taxes", "de": "Strassenausbau statt neue Benzinsteuern", "fr": "Investir dans les routes, refuser de nouvelles taxes", "it": "Investire nelle strade, no a nuove tasse sui carburanti" }, "level": 70, "dir": "right" }
+      ],
+      "website": "https://www.svp.ch"
+    },
+    "SP": {
+      "name": { "en": "Social Democratic Party", "de": "Sozialdemokratische Partei", "fr": "Parti socialiste", "it": "Partito Socialista" },
+      "abbr": "SP/PS",
+      "color": "#C0392B",
+      "ncSeats": 41,
+      "csSeats": 9,
+      "spectrum": { "x": 18, "y": 30 },
+      "desc": {
+        "en": "Switzerland's main left-wing party, advocating social justice, strong public services and environmental sustainability. One of the four governing parties, it holds two Federal Council seats.",
+        "de": "Die grösste linke Partei der Schweiz. Sie setzt sich für soziale Gerechtigkeit, starke öffentliche Dienste und Nachhaltigkeit ein. Eine der vier Regierungsparteien mit zwei Bundesratssitzen.",
+        "fr": "Le principal parti de gauche suisse, défendant la justice sociale, des services publics forts et la durabilité. L'un des quatre partis gouvernementaux, avec deux sièges au Conseil fédéral.",
+        "it": "Il principale partito di sinistra svizzero, a favore della giustizia sociale, di servizi pubblici forti e della sostenibilità. Uno dei quattro partiti di governo, con due seggi in Consiglio federale."
+      },
+      "positions": [
+        { "topic": "socialWelfare", "stance": { "en": "Expand and strengthen AHV/IV", "de": "AHV/IV ausbauen und stärken", "fr": "Développer et renforcer l'AVS/AI", "it": "Potenziare e rafforzare AVS/AI" }, "level": 90, "dir": "left" },
+        { "topic": "climate", "stance": { "en": "Ambitious net-zero targets", "de": "Ambitionierte Netto-Null-Ziele", "fr": "Objectifs ambitieux de zéro émission nette", "it": "Obiettivi ambiziosi di zero netto" }, "level": 90, "dir": "left" },
+        { "topic": "taxation", "stance": { "en": "Progressive wealth taxation", "de": "Progressive Vermögensbesteuerung", "fr": "Fiscalité progressive de la fortune", "it": "Tassazione progressiva della ricchezza" }, "level": 85, "dir": "left" },
+        { "topic": "euRelations", "stance": { "en": "Close integration, open borders", "de": "Enge Anbindung, offene Grenzen", "fr": "Intégration étroite, frontières ouvertes", "it": "Integrazione stretta, frontiere aperte" }, "level": 75, "dir": "left" },
+        { "topic": "housing", "stance": { "en": "More affordable housing", "de": "Mehr bezahlbarer Wohnraum", "fr": "Plus de logements abordables", "it": "Più alloggi a prezzi accessibili" }, "level": 85, "dir": "left" },
+        { "topic": "transport", "stance": { "en": "Expand rail and public transit, cap car subsidies", "de": "Ausbau von Bahn und ÖV, Subventionen fürs Auto begrenzen", "fr": "Développer le rail et les transports publics, limiter les aides à la voiture", "it": "Potenziare ferrovia e trasporti pubblici, limitare i sussidi alle auto" }, "level": 85, "dir": "left" }
+      ],
+      "website": "https://www.sp-ps.ch"
+    },
+    "MITTE": {
+      "name": { "en": "The Centre", "de": "Die Mitte", "fr": "Le Centre", "it": "Il Centro" },
+      "abbr": "Mitte/Centre",
+      "color": "#E67E22",
+      "ncSeats": 29,
+      "csSeats": 15,
+      "spectrum": { "x": 55, "y": 58 },
+      "desc": {
+        "en": "Formed from the 2021 merger of the CVP and BDP, The Centre occupies the political middle ground, balancing social and economic concerns. It is the strongest party in the Council of States and holds one Federal Council seat.",
+        "de": "2021 aus der Fusion von CVP und BDP entstanden. Die Mitte besetzt das politische Zentrum und wägt soziale und wirtschaftliche Anliegen ab. Stärkste Kraft im Ständerat mit einem Bundesratssitz.",
+        "fr": "Née en 2021 de la fusion du PDC et du PBD, Le Centre occupe le milieu de l'échiquier, conciliant préoccupations sociales et économiques. Premier parti au Conseil des États, avec un siège au Conseil fédéral.",
+        "it": "Nato nel 2021 dalla fusione di PPD e PBD, Il Centro occupa il centro dello spettro, bilanciando esigenze sociali ed economiche. Primo partito al Consiglio degli Stati, con un seggio in Consiglio federale."
+      },
+      "positions": [
+        { "topic": "socialPolicy", "stance": { "en": "Family-centred, subsidiarity", "de": "Familienzentriert, Subsidiarität", "fr": "Centré sur la famille, subsidiarité", "it": "Centrato sulla famiglia, sussidiarietà" }, "level": 60, "dir": "centre" },
+        { "topic": "economy", "stance": { "en": "Social market economy", "de": "Soziale Marktwirtschaft", "fr": "Économie sociale de marché", "it": "Economia sociale di mercato" }, "level": 55, "dir": "centre" },
+        { "topic": "environment", "stance": { "en": "Balanced ecological transition", "de": "Ausgewogener ökologischer Wandel", "fr": "Transition écologique équilibrée", "it": "Transizione ecologica equilibrata" }, "level": 65, "dir": "centre" },
+        { "topic": "euRelations", "stance": { "en": "Pragmatic bilateral approach", "de": "Pragmatischer bilateraler Ansatz", "fr": "Approche bilatérale pragmatique", "it": "Approccio bilaterale pragmatico" }, "level": 55, "dir": "centre" },
+        { "topic": "healthcare", "stance": { "en": "Sustainable premium relief", "de": "Nachhaltige Prämienentlastung", "fr": "Allègement durable des primes", "it": "Sgravio sostenibile dei premi" }, "level": 70, "dir": "centre" },
+        { "topic": "transport", "stance": { "en": "Balanced investment in rail and roads", "de": "Ausgewogene Investitionen in Schiene und Strasse", "fr": "Investissements équilibrés entre rail et route", "it": "Investimenti equilibrati tra ferrovia e strada" }, "level": 55, "dir": "centre" }
+      ],
+      "website": "https://www.die-mitte.ch"
+    },
+    "FDP": {
+      "name": { "en": "FDP.The Liberals", "de": "FDP.Die Liberalen", "fr": "PLR.Les Libéraux-Radicaux", "it": "PLR.I Liberali Radicali" },
+      "abbr": "FDP/PLR",
+      "color": "#2471A3",
+      "ncSeats": 28,
+      "csSeats": 11,
+      "spectrum": { "x": 70, "y": 45 },
+      "desc": {
+        "en": "A centre-right liberal party championing economic freedom, entrepreneurship and individual liberty. One of the four Federal Council parties, it holds two Federal Council seats and has historically represented Swiss business.",
+        "de": "Eine liberale Mitte-rechts-Partei für wirtschaftliche Freiheit, Unternehmertum und individuelle Freiheit. Eine der vier Bundesratsparteien mit zwei Sitzen, traditionell wirtschaftsnah.",
+        "fr": "Parti libéral de centre-droit défendant la liberté économique, l'entrepreneuriat et les libertés individuelles. L'un des quatre partis gouvernementaux, avec deux sièges au Conseil fédéral, traditionnellement proche de l'économie.",
+        "it": "Partito liberale di centro-destra a favore di libertà economica, imprenditorialità e libertà individuali. Uno dei quattro partiti di governo, con due seggi in Consiglio federale, storicamente vicino all'economia."
+      },
+      "positions": [
+        { "topic": "economy", "stance": { "en": "Free markets, low taxes", "de": "Freie Märkte, tiefe Steuern", "fr": "Marchés libres, impôts bas", "it": "Mercati liberi, tasse basse" }, "level": 85, "dir": "right" },
+        { "topic": "euRelations", "stance": { "en": "Open bilateral agreements", "de": "Offene bilaterale Abkommen", "fr": "Accords bilatéraux ouverts", "it": "Accordi bilaterali aperti" }, "level": 70, "dir": "centre" },
+        { "topic": "digitalPolicy", "stance": { "en": "Innovation-first regulation", "de": "Regulierung mit Innovationsvorrang", "fr": "Réglementation favorisant l'innovation", "it": "Regolamentazione a favore dell'innovazione" }, "level": 80, "dir": "right" },
+        { "topic": "socialWelfare", "stance": { "en": "Targeted, not universal", "de": "Gezielt statt universell", "fr": "Ciblée plutôt qu'universelle", "it": "Mirata, non universale" }, "level": 45, "dir": "right" },
+        { "topic": "environment", "stance": { "en": "Technology-driven solutions", "de": "Technologiegetriebene Lösungen", "fr": "Solutions axées sur la technologie", "it": "Soluzioni basate sulla tecnologia" }, "level": 55, "dir": "centre" },
+        { "topic": "transport", "stance": { "en": "User-funded infrastructure, ease bottlenecks", "de": "Nutzerfinanzierte Infrastruktur, Engpässe beseitigen", "fr": "Infrastructures financées par les usagers, éliminer les goulets d'étranglement", "it": "Infrastrutture finanziate dagli utenti, eliminare i colli di bottiglia" }, "level": 65, "dir": "right" }
+      ],
+      "website": "https://www.fdp.ch"
+    },
+    "GPS": {
+      "name": { "en": "Green Party", "de": "Grüne Partei", "fr": "Les Vert-e-s", "it": "I Verdi" },
+      "abbr": "GPS/PES",
+      "color": "#27AE60",
+      "ncSeats": 23,
+      "csSeats": 3,
+      "spectrum": { "x": 22, "y": 22 },
+      "desc": {
+        "en": "Switzerland's Green Party prioritises ecological protection, climate justice and biodiversity. Despite losing seats in 2023, it remains a significant progressive force in the National Council.",
+        "de": "Die Grüne Partei setzt Umweltschutz, Klimagerechtigkeit und Biodiversität an erste Stelle. Trotz Sitzverlusten 2023 bleibt sie eine bedeutende progressive Kraft im Nationalrat.",
+        "fr": "Les Vert-e-s privilégient la protection de l'environnement, la justice climatique et la biodiversité. Malgré des pertes en 2023, ils restent une force progressiste importante au Conseil national.",
+        "it": "I Verdi danno priorità a protezione ambientale, giustizia climatica e biodiversità. Nonostante le perdite del 2023, restano una forza progressista rilevante al Consiglio nazionale."
+      },
+      "positions": [
+        { "topic": "climate", "stance": { "en": "Climate emergency, rapid action", "de": "Klimanotstand, rasches Handeln", "fr": "Urgence climatique, action rapide", "it": "Emergenza climatica, azione rapida" }, "level": 98, "dir": "left" },
+        { "topic": "biodiversity", "stance": { "en": "Strong habitat protection", "de": "Starker Schutz der Lebensräume", "fr": "Forte protection des habitats", "it": "Forte protezione degli habitat" }, "level": 95, "dir": "left" },
+        { "topic": "energy", "stance": { "en": "100% renewable by 2035", "de": "100% erneuerbar bis 2035", "fr": "100% renouvelable d'ici 2035", "it": "100% rinnovabile entro il 2035" }, "level": 95, "dir": "left" },
+        { "topic": "economy", "stance": { "en": "Circular economy focus", "de": "Fokus auf Kreislaufwirtschaft", "fr": "Priorité à l'économie circulaire", "it": "Focus sull'economia circolare" }, "level": 80, "dir": "left" },
+        { "topic": "socialPolicy", "stance": { "en": "Progressive rights expansion", "de": "Ausbau progressiver Rechte", "fr": "Extension progressiste des droits", "it": "Estensione progressista dei diritti" }, "level": 85, "dir": "progressive" },
+        { "topic": "transport", "stance": { "en": "No new highways, invest in rail and cycling", "de": "Keine neuen Autobahnen, Ausbau von Bahn und Velo", "fr": "Pas de nouvelles autoroutes, investir dans le rail et le vélo", "it": "Niente nuove autostrade, investire in ferrovia e ciclabilità" }, "level": 95, "dir": "left" }
+      ],
+      "website": "https://www.gruene.ch"
+    },
+    "GLP": {
+      "name": { "en": "Green Liberal Party", "de": "Grünliberale Partei", "fr": "Parti vert'libéral", "it": "Partito Verde Liberale" },
+      "abbr": "GLP/PVL",
+      "color": "#8BC34A",
+      "ncSeats": 10,
+      "csSeats": 1,
+      "spectrum": { "x": 52, "y": 35 },
+      "desc": {
+        "en": "The GLP combines ecological ambition with market-liberal economics, seeking climate solutions through innovation, carbon pricing and economic incentives rather than mandates.",
+        "de": "Die GLP verbindet ökologischen Anspruch mit marktliberaler Wirtschaftspolitik und sucht Klimalösungen über Innovation, CO₂-Bepreisung und Anreize statt Verbote.",
+        "fr": "Le PVL allie ambition écologique et économie libérale de marché, cherchant des solutions climatiques par l'innovation, la tarification du carbone et les incitations plutôt que les interdictions.",
+        "it": "Il PVL unisce ambizione ecologica ed economia liberale di mercato, cercando soluzioni climatiche tramite innovazione, prezzo del carbonio e incentivi anziché divieti."
+      },
+      "positions": [
+        { "topic": "climate", "stance": { "en": "Carbon pricing, market tools", "de": "CO2-Bepreisung, marktwirtschaftliche Instrumente", "fr": "Tarification du carbone, outils de marché", "it": "Prezzo del carbonio, strumenti di mercato" }, "level": 85, "dir": "centre" },
+        { "topic": "economy", "stance": { "en": "Liberal with green limits", "de": "Liberal mit ökologischen Grenzen", "fr": "Libéral avec des limites écologiques", "it": "Liberale con limiti ecologici" }, "level": 65, "dir": "centre" },
+        { "topic": "digitalPolicy", "stance": { "en": "Data protection + innovation", "de": "Datenschutz und Innovation", "fr": "Protection des données et innovation", "it": "Protezione dei dati e innovazione" }, "level": 70, "dir": "centre" },
+        { "topic": "socialPolicy", "stance": { "en": "Individual freedom, equity", "de": "Individuelle Freiheit, Chancengleichheit", "fr": "Liberté individuelle, équité", "it": "Libertà individuale, equità" }, "level": 72, "dir": "progressive" },
+        { "topic": "euRelations", "stance": { "en": "Pragmatic, open relationship", "de": "Pragmatische, offene Beziehung", "fr": "Relation pragmatique et ouverte", "it": "Relazione pragmatica e aperta" }, "level": 65, "dir": "centre" },
+        { "topic": "transport", "stance": { "en": "Mobility pricing, incentives for electric transport", "de": "Mobility Pricing, Anreize für elektrische Mobilität", "fr": "Tarification de la mobilité, incitations pour la mobilité électrique", "it": "Mobility pricing, incentivi per la mobilità elettrica" }, "level": 75, "dir": "centre" }
+      ],
+      "website": "https://www.grunliberale.ch"
+    },
+    "EVP": {
+      "name": { "en": "Evangelical People's Party", "de": "Evangelische Volkspartei", "fr": "Parti évangélique", "it": "Partito Evangelico" },
+      "abbr": "EVP/PEV",
+      "color": "#9B59B6",
+      "ncSeats": 2,
+      "csSeats": 0,
+      "spectrum": { "x": 45, "y": 55 },
+      "desc": {
+        "en": "A Christian centre party combining social-liberal policy with Christian values, advocating social justice, peace and environmental stewardship from an explicitly evangelical perspective.",
+        "de": "Eine christliche Mittepartei, die sozialliberale Politik mit christlichen Werten verbindet und sich für soziale Gerechtigkeit, Frieden und Bewahrung der Schöpfung einsetzt.",
+        "fr": "Un parti chrétien du centre associant politique sociale-libérale et valeurs chrétiennes, défendant justice sociale, paix et protection de la création.",
+        "it": "Un partito cristiano di centro che unisce politica social-liberale e valori cristiani, a favore di giustizia sociale, pace e salvaguardia del creato."
+      },
+      "positions": [
+        { "topic": "socialPolicy", "stance": { "en": "Christian social ethics", "de": "Christlich-soziale Ethik", "fr": "Éthique sociale chrétienne", "it": "Etica sociale cristiana" }, "level": 65, "dir": "centre" },
+        { "topic": "environment", "stance": { "en": "Stewardship of creation", "de": "Bewahrung der Schöpfung", "fr": "Préservation de la création", "it": "Custodia del creato" }, "level": 70, "dir": "centre" },
+        { "topic": "economy", "stance": { "en": "Fair, ethical markets", "de": "Faire, ethische Märkte", "fr": "Marchés équitables et éthiques", "it": "Mercati equi ed etici" }, "level": 55, "dir": "centre" },
+        { "topic": "foreignPolicy", "stance": { "en": "Peace, humanitarian focus", "de": "Frieden, humanitärer Fokus", "fr": "Paix, priorité humanitaire", "it": "Pace, priorità umanitaria" }, "level": 75, "dir": "progressive" },
+        { "topic": "transport", "stance": { "en": "Sustainable mobility, accessible public transport", "de": "Nachhaltige Mobilität, zugänglicher öffentlicher Verkehr", "fr": "Mobilité durable, transports publics accessibles", "it": "Mobilità sostenibile, trasporti pubblici accessibili" }, "level": 60, "dir": "centre" }
+      ],
+      "website": "https://www.evppev.ch"
+    },
+    "EDU": {
+      "name": { "en": "Federal Democratic Union", "de": "Eidgenössisch-Demokratische Union", "fr": "Union démocratique fédérale", "it": "Unione Democratica Federale" },
+      "abbr": "EDU/UDF",
+      "color": "#34495E",
+      "ncSeats": 2,
+      "csSeats": 0,
+      "spectrum": { "x": 68, "y": 90 },
+      "desc": {
+        "en": "A small conservative Christian party on the right, emphasising biblical values, national sovereignty and social conservatism. It gained a seat in the 2023 National Council election.",
+        "de": "Eine kleine konservativ-christliche Partei am rechten Rand, die biblische Werte, nationale Souveränität und gesellschaftlichen Konservatismus betont. 2023 gewann sie einen Sitz hinzu.",
+        "fr": "Un petit parti chrétien conservateur de droite, mettant l'accent sur les valeurs bibliques, la souveraineté nationale et le conservatisme social. Il a gagné un siège en 2023.",
+        "it": "Un piccolo partito cristiano conservatore di destra, incentrato su valori biblici, sovranità nazionale e conservatorismo sociale. Ha guadagnato un seggio nel 2023."
+      },
+      "positions": [
+        { "topic": "socialPolicy", "stance": { "en": "Biblical, traditional values", "de": "Biblische, traditionelle Werte", "fr": "Valeurs bibliques et traditionnelles", "it": "Valori biblici e tradizionali" }, "level": 92, "dir": "conservative" },
+        { "topic": "sovereignty", "stance": { "en": "National independence", "de": "Nationale Unabhängigkeit", "fr": "Indépendance nationale", "it": "Indipendenza nazionale" }, "level": 85, "dir": "right" },
+        { "topic": "economy", "stance": { "en": "Conservative, family-oriented", "de": "Konservativ, familienorientiert", "fr": "Conservatrice, orientée famille", "it": "Conservatrice, orientata alla famiglia" }, "level": 60, "dir": "right" },
+        { "topic": "transport", "stance": { "en": "Maintain road capacity, reject new mobility taxes", "de": "Strassenkapazität erhalten, keine neuen Mobilitätsabgaben", "fr": "Maintenir la capacité routière, refuser de nouvelles taxes sur la mobilité", "it": "Mantenere la capacità stradale, no a nuove tasse sulla mobilità" }, "level": 55, "dir": "right" }
+      ],
+      "website": "https://www.edu-schweiz.ch"
+    },
+    "LEGA": {
+      "name": { "en": "Ticino League", "de": "Lega dei Ticinesi", "fr": "Ligue des Tessinois", "it": "Lega dei Ticinesi" },
+      "abbr": "Lega",
+      "color": "#641E16",
+      "ncSeats": 1,
+      "csSeats": 0,
+      "spectrum": { "x": 82, "y": 72 },
+      "desc": {
+        "en": "A Ticino-based right-wing regionalist party defending Ticino's interests and autonomy within the confederation, with a strong stance on cross-border worker regulation. It sits within the SVP parliamentary group.",
+        "de": "Eine rechte, regionalistische Partei aus dem Tessin, die Tessiner Interessen und Autonomie verteidigt und für strenge Regeln bei Grenzgängern eintritt. Sie gehört zur SVP-Fraktion.",
+        "fr": "Un parti régionaliste de droite tessinois défendant les intérêts et l'autonomie du Tessin, avec une position ferme sur les frontaliers. Il siège dans le groupe UDC.",
+        "it": "Un partito regionalista di destra ticinese che difende interessi e autonomia del Ticino, con una posizione ferma sui frontalieri. Siede nel gruppo UDC."
+      },
+      "positions": [
+        { "topic": "regionalism", "stance": { "en": "Ticino autonomy and identity", "de": "Autonomie und Identität des Tessins", "fr": "Autonomie et identité du Tessin", "it": "Autonomia e identità del Ticino" }, "level": 95, "dir": "right" },
+        { "topic": "immigration", "stance": { "en": "Strict border controls", "de": "Strenge Grenzkontrollen", "fr": "Contrôles frontaliers stricts", "it": "Controlli di frontiera severi" }, "level": 90, "dir": "right" },
+        { "topic": "economy", "stance": { "en": "Local business protection", "de": "Schutz lokaler Unternehmen", "fr": "Protection des entreprises locales", "it": "Protezione delle imprese locali" }, "level": 65, "dir": "right" },
+        { "topic": "transport", "stance": { "en": "Better north-south links for Ticino", "de": "Bessere Nord-Süd-Verbindungen für das Tessin", "fr": "Meilleures liaisons nord-sud pour le Tessin", "it": "Migliori collegamenti nord-sud per il Ticino" }, "level": 70, "dir": "right" }
+      ],
+      "website": "https://legaticinesi.ch"
+    },
+    "MCG": {
+      "name": { "en": "Geneva Citizens' Movement", "de": "Genfer Bürgerbewegung", "fr": "Mouvement Citoyens Genevois", "it": "Movimento dei Cittadini Ginevrini" },
+      "abbr": "MCG",
+      "color": "#884EA0",
+      "ncSeats": 2,
+      "csSeats": 1,
+      "spectrum": { "x": 72, "y": 68 },
+      "desc": {
+        "en": "A Geneva-based right-wing regionalist party focused on protecting Geneva residents' interests, particularly around cross-border workers and housing affordability. It won a Council of States seat in 2023.",
+        "de": "Eine rechte, regionalistische Partei aus Genf, die sich für die Interessen der Genfer Bevölkerung einsetzt, besonders bei Grenzgängern und Wohnkosten. 2023 gewann sie einen Ständeratssitz.",
+        "fr": "Un parti régionaliste de droite genevois centré sur la défense des résidents genevois, notamment sur les frontaliers et le logement. Il a gagné un siège au Conseil des États en 2023.",
+        "it": "Un partito regionalista di destra ginevrino incentrato sulla difesa dei residenti ginevrini, in particolare su frontalieri e alloggi. Nel 2023 ha vinto un seggio al Consiglio degli Stati."
+      },
+      "positions": [
+        { "topic": "regionalism", "stance": { "en": "Geneva residents first", "de": "Genfer Einwohner zuerst", "fr": "Priorité aux résidents genevois", "it": "Priorità ai residenti ginevrini" }, "level": 90, "dir": "right" },
+        { "topic": "housing", "stance": { "en": "Priority for local residents", "de": "Vorrang für Einheimische", "fr": "Priorité aux résidents locaux", "it": "Priorità ai residenti locali" }, "level": 80, "dir": "right" },
+        { "topic": "crossBorderWorkers", "stance": { "en": "Stricter regulation", "de": "Strengere Regulierung", "fr": "Réglementation plus stricte", "it": "Regolamentazione più severa" }, "level": 85, "dir": "right" },
+        { "topic": "transport", "stance": { "en": "Ease cross-border congestion, priority for local commuters", "de": "Grenzüberschreitenden Verkehr entlasten, Vorrang für einheimische Pendler", "fr": "Réduire les embouteillages transfrontaliers, priorité aux pendulaires locaux", "it": "Alleggerire il traffico transfrontaliero, priorità ai pendolari locali" }, "level": 75, "dir": "right" }
+      ],
+      "website": "https://mcge.ch"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "source": "Federal Chancellery (Bundeskanzlei) — official vote results and pending items. Official authority texts are not subject to copyright (Art. 5 URG).",
+    "note": "This is a curated selection of notable recent and pending federal items, not an exhaustive list. Outcomes are recorded as officially declared."
+  },
+  "initiatives": [
+    {
+      "id": "13th-ahv",
+      "type": "initiative",
+      "title": {
+        "en": "For a Better Life in Retirement (13th AHV pension)",
+        "de": "Für ein besseres Leben im Alter (13. AHV-Rente)",
+        "fr": "Mieux vivre à la retraite (13e rente AVS)",
+        "it": "Per una vita migliore in pensione (13a rendita AVS)"
+      },
+      "desc": {
+        "en": "A trade-union initiative to add a 13th monthly AHV pension payment each year. In a rare success against Federal Council and parliamentary opposition, voters approved it, the first expansion of old-age benefits in decades.",
+        "de": "Eine Gewerkschaftsinitiative für eine jährliche 13. AHV-Rente. Gegen den Willen von Bundesrat und Parlament angenommen, die erste Ausweitung der Altersvorsorge seit Jahrzehnten.",
+        "fr": "Une initiative syndicale pour une 13e rente AVS annuelle. Adoptée contre l'avis du Conseil fédéral et du Parlement, première extension des prestations vieillesse depuis des décennies.",
+        "it": "Un'iniziativa sindacale per una 13a rendita AVS annuale. Approvata contro il parere di Consiglio federale e Parlamento, prima estensione delle prestazioni di vecchiaia da decenni."
+      },
+      "status": "adopted",
+      "date": { "en": "Voted 3 March 2024", "de": "Abstimmung 3. März 2024", "fr": "Votation du 3 mars 2024", "it": "Votazione del 3 marzo 2024" },
+      "outcome": { "en": "Adopted (58.2% yes)", "de": "Angenommen (58,2% Ja)", "fr": "Acceptée (58,2% oui)", "it": "Accettata (58,2% sì)" },
+      "author": "Swiss Trade Union Federation (SGB/USS)",
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240303/index.html"
+    },
+    {
+      "id": "pension-age",
+      "type": "initiative",
+      "title": {
+        "en": "For a Secure and Sustainable Pension System (Pension Initiative)",
+        "de": "Für eine sichere und nachhaltige Altersvorsorge (Renteninitiative)",
+        "fr": "Pour une prévoyance sûre et durable (initiative sur les rentes)",
+        "it": "Per una previdenza sicura e sostenibile (iniziativa sulle rendite)"
+      },
+      "desc": {
+        "en": "A Young Liberals initiative proposing to raise the retirement age to 66 and then link it automatically to life expectancy, rather than setting it through parliament, aiming at the long-term finances of the AHV.",
+        "de": "Eine Initiative der Jungfreisinnigen, das Rentenalter auf 66 zu erhöhen und danach automatisch an die Lebenserwartung zu koppeln, statt es im Parlament festzulegen.",
+        "fr": "Une initiative des Jeunes libéraux-radicaux visant à porter l'âge de la retraite à 66 ans, puis à le lier automatiquement à l'espérance de vie.",
+        "it": "Un'iniziativa dei Giovani liberali radicali per portare l'età pensionabile a 66 anni e collegarla poi automaticamente alla speranza di vita."
+      },
+      "status": "rejected",
+      "date": { "en": "Voted 3 March 2024", "de": "Abstimmung 3. März 2024", "fr": "Votation du 3 mars 2024", "it": "Votazione del 3 marzo 2024" },
+      "outcome": { "en": "Rejected (74.7% no)", "de": "Abgelehnt (74,7% Nein)", "fr": "Rejetée (74,7% non)", "it": "Respinta (74,7% no)" },
+      "author": "Young Liberals (Jungfreisinnige)",
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240303/index.html"
+    },
+    {
+      "id": "biodiversity",
+      "type": "initiative",
+      "title": {
+        "en": "For the Future of Our Nature and Landscape (Biodiversity Initiative)",
+        "de": "Für die Zukunft unserer Natur und Landschaft (Biodiversitätsinitiative)",
+        "fr": "Pour l'avenir de notre nature et de notre paysage (initiative biodiversité)",
+        "it": "Per il futuro della nostra natura e del nostro paesaggio (iniziativa biodiversità)"
+      },
+      "desc": {
+        "en": "A popular initiative demanding that the Confederation and cantons significantly increase resources and protected areas for biodiversity, nature and landscape. Parliament and the Federal Council opposed it.",
+        "de": "Eine Volksinitiative, die von Bund und Kantonen deutlich mehr Mittel und Schutzflächen für Biodiversität, Natur und Landschaft verlangt. Bundesrat und Parlament lehnten sie ab.",
+        "fr": "Une initiative populaire demandant à la Confédération et aux cantons davantage de moyens et de surfaces protégées pour la biodiversité, la nature et le paysage.",
+        "it": "Un'iniziativa popolare che chiede a Confederazione e cantoni più mezzi e superfici protette per biodiversità, natura e paesaggio."
+      },
+      "status": "rejected",
+      "date": { "en": "Voted 22 September 2024", "de": "Abstimmung 22. September 2024", "fr": "Votation du 22 septembre 2024", "it": "Votazione del 22 settembre 2024" },
+      "outcome": { "en": "Rejected (63.0% no)", "de": "Abgelehnt (63,0% Nein)", "fr": "Rejetée (63,0% non)", "it": "Respinta (63,0% no)" },
+      "author": "Pro Natura, BirdLife, Sassociation and others",
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240922/index.html"
+    },
+    {
+      "id": "cost-brake",
+      "type": "initiative",
+      "title": {
+        "en": "For Lower Premiums (Cost Brake Initiative)",
+        "de": "Für tiefere Prämien (Kostenbremse-Initiative)",
+        "fr": "Pour des primes plus basses (initiative pour un frein aux coûts)",
+        "it": "Per premi più bassi (iniziativa freno ai costi)"
+      },
+      "desc": {
+        "en": "The Centre's initiative to require federal action to contain health-insurance costs whenever premium growth outpaces wages and the economy. Voters rejected it, though a parliamentary counterproposal on cost containment took effect.",
+        "de": "Die Initiative der Mitte, die Bundesmassnahmen zur Kostendämpfung verlangt, wenn die Prämien stärker steigen als Löhne und Wirtschaft. Abgelehnt; ein Gegenvorschlag trat in Kraft.",
+        "fr": "L'initiative du Centre exigeant des mesures fédérales pour freiner les coûts lorsque les primes progressent plus vite que les salaires. Rejetée; un contre-projet est entré en vigueur.",
+        "it": "L'iniziativa del Centro che chiede misure federali per contenere i costi quando i premi crescono più di salari ed economia. Respinta; un controprogetto è entrato in vigore."
+      },
+      "status": "rejected",
+      "date": { "en": "Voted 9 June 2024", "de": "Abstimmung 9. Juni 2024", "fr": "Votation du 9 juin 2024", "it": "Votazione del 9 giugno 2024" },
+      "outcome": { "en": "Rejected (62.8% no)", "de": "Abgelehnt (62,8% Nein)", "fr": "Rejetée (62,8% non)", "it": "Respinta (62,8% no)" },
+      "author": "The Centre (Die Mitte)",
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240609/index.html"
+    },
+    {
+      "id": "electricity-act",
+      "type": "referendum",
+      "title": {
+        "en": "Electricity Act (secure supply from renewables)",
+        "de": "Stromgesetz (sichere Versorgung mit erneuerbarer Energie)",
+        "fr": "Loi sur l'électricité (approvisionnement sûr en énergies renouvelables)",
+        "it": "Legge sull'elettricità (approvvigionamento sicuro da rinnovabili)"
+      },
+      "desc": {
+        "en": "An optional referendum on the law to expand domestic renewable electricity and strengthen supply security. Backed by a broad coalition, it was approved by voters.",
+        "de": "Ein fakultatives Referendum zum Gesetz für den Ausbau der einheimischen erneuerbaren Stromproduktion und mehr Versorgungssicherheit. Von den Stimmenden angenommen.",
+        "fr": "Un référendum facultatif sur la loi visant à développer l'électricité renouvelable indigène et la sécurité d'approvisionnement. Acceptée par le peuple.",
+        "it": "Un referendum facoltativo sulla legge per ampliare l'elettricità rinnovabile indigena e la sicurezza dell'approvvigionamento. Accettata dal popolo."
+      },
+      "status": "adopted",
+      "date": { "en": "Voted 9 June 2024", "de": "Abstimmung 9. Juni 2024", "fr": "Votation du 9 juin 2024", "it": "Votazione del 9 giugno 2024" },
+      "outcome": { "en": "Adopted (68.7% yes)", "de": "Angenommen (68,7% Ja)", "fr": "Acceptée (68,7% oui)", "it": "Accettata (68,7% sì)" },
+      "author": "Federal Assembly (referendum by opponents)",
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240609/index.html"
+    },
+    {
+      "id": "ahv-21",
+      "type": "referendum",
+      "title": {
+        "en": "AHV 21 — Stabilisation of Old-Age Insurance",
+        "de": "AHV 21 — Stabilisierung der Altersvorsorge",
+        "fr": "AVS 21 — Stabilisation de l'assurance-vieillesse",
+        "it": "AVS 21 — Stabilizzazione dell'assicurazione vecchiaia"
+      },
+      "desc": {
+        "en": "A reform package, subject to referendum, that harmonised the reference retirement age for women at 65 and raised VAT to help fund the AHV. Voters narrowly approved both parts in 2022.",
+        "de": "Ein Reformpaket (mit Referendum), das das Referenzalter der Frauen auf 65 angleicht und die Mehrwertsteuer zur AHV-Finanzierung erhöht. 2022 knapp angenommen.",
+        "fr": "Un paquet de réforme (soumis au référendum) harmonisant l'âge de référence des femmes à 65 ans et relevant la TVA pour financer l'AVS. Accepté de justesse en 2022.",
+        "it": "Un pacchetto di riforma (con referendum) che porta a 65 anni l'età di riferimento delle donne e aumenta l'IVA per finanziare l'AVS. Approvato di stretta misura nel 2022."
+      },
+      "status": "adopted",
+      "date": { "en": "Voted 25 September 2022", "de": "Abstimmung 25. September 2022", "fr": "Votation du 25 septembre 2022", "it": "Votazione del 25 settembre 2022" },
+      "outcome": { "en": "Adopted (50.6% yes)", "de": "Angenommen (50,6% Ja)", "fr": "Acceptée (50,6% oui)", "it": "Accettata (50,6% sì)" },
+      "author": "Federal Council / Parliament",
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20220925/index.html"
+    }
+  ]
+}

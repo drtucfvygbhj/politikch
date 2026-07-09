@@ -176,23 +176,27 @@
           <div id="party-abbr-badge" class="party-abbr"></div>
           <h1 class="party-name-large" id="party-name-large"></h1>
           <p class="party-desc-large" id="party-desc-large"></p>
+          <h3 class="canton-section-title" data-i18n="party.positionsTitle">Key positions</h3>
+          <p class="party-positions-desc" data-i18n="party.positionsDesc">Bar length shows how central each issue is to the party's platform, based on published manifestos and voting records.</p>
           <div class="party-positions-grid" id="party-positions"></div>
         </div>
       </div>
       <div class="party-extra" id="party-extra"></div>
     </div>
-  </main>
 
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal" id="modal">
-      <button class="modal-close" id="modal-close" aria-label="Close">×</button>
-      <div class="modal-type" id="modal-type"></div>
-      <h3 class="modal-title" id="modal-title"></h3>
-      <div class="modal-body" id="modal-body"></div>
-      <a class="modal-cta" id="modal-link" href="#" target="_blank" rel="noopener">Official result ↗</a>
+    <!-- INITIATIVE PAGE -->
+    <div id="initiative-page" class="subpage">
+      <div class="canton-hero">
+        <div class="subpage-inner">
+          <button class="back-btn" data-home data-i18n="canton.back">Back to Switzerland</button>
+          <div id="initiative-type-badge"></div>
+          <h1 class="canton-title" id="initiative-title"></h1>
+          <p class="canton-capital" id="initiative-date"></p>
+        </div>
+      </div>
+      <div class="canton-content" id="initiative-content"></div>
     </div>
-  </div>
+  </main>
 
   <script type="module" src="js/app.js"></script>
 </body>
