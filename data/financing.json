@@ -1,432 +1,420 @@
 {
   "_meta": {
     "source": "Federal Audit Office (EFK) — https://politikfinanzierung.efk.admin.ch",
-    "fetchedAt": "2026-08-24T04:37:45Z",
+    "fetchedAt": "2026-08-31T10:18:58Z",
     "note": "Figures are self-reported by parties and campaign committees under Swiss law (BPR/VPofi) and republished here as-is; the EFK does not guarantee their accuracy, and neither do we."
   },
   "parties": {
     "MITTE": {
-      "year": 2024,
-      "totalRevenue": 2613820.09,
-      "monetaryDonations": 2345495.59,
+      "year": 2025,
+      "totalRevenue": 2705045.65,
+      "monetaryDonations": 2396374.55,
       "nonMonetaryDonations": 0,
-      "events": 11598.0,
-      "sales": 55826.5,
+      "events": 14654.9,
+      "sales": 89096.2,
       "membershipFees": 0,
-      "mandateFees": 200900.0,
+      "mandateFees": 204920.0,
       "largeDonors": [
         {
-          "name": "UBS AG (Unterstützungsbeitrag 2024)",
+          "name": "UBS AG",
           "type": "organization",
           "location": "Zürich",
-          "amount": 286000.0,
-          "date": "2024-12-17"
+          "amount": 284000.0,
+          "date": "2025-12-22"
         },
         {
-          "name": "economiesuisse (Unterstützungsbeitrag 2024)",
+          "name": "Economiesuisse",
           "type": "organization",
           "location": "Zürich",
-          "amount": 153548.0,
-          "date": "2024-07-03"
+          "amount": 175517.0,
+          "date": "2025-10-22"
         },
         {
-          "name": "Zürich Versicherungs Gesellschaft AG (Unterstützungsbeitrag 2024)",
+          "name": "Hauseigentümerverband Schweiz",
           "type": "organization",
           "location": "Zürich",
           "amount": 100000.0,
-          "date": "2024-12-17"
+          "date": "2025-08-04"
         },
         {
-          "name": "Swiss Life AG (Unterstützungsbeitrag 2024)",
+          "name": "Zürich Versicherungsgesellschaft AG",
           "type": "organization",
           "location": "Zürich",
-          "amount": 90000.0,
-          "date": "2024-09-16"
+          "amount": 100000.0,
+          "date": "2025-09-25"
         },
         {
-          "name": "Nestlé S.A. (Unterstützungsbeitrag 2024)",
-          "type": "organization",
-          "location": "Vevey",
-          "amount": 80000.0,
-          "date": "2024-12-27"
-        },
-        {
-          "name": "Schweiz. Arbeitgeberverband (überparteiliche Kampagne Allianz \"Ja zur BVG-Reform\")",
-          "type": "organization",
-          "location": "Zürich",
-          "amount": 80000.0,
-          "date": "2024-07-25"
-        },
-        {
-          "name": "Schindler Aufzüge AG (Unterstützungsbeitrag 2024)",
+          "name": "Schindler Aufzüge AG",
           "type": "organization",
           "location": "Ebikon",
           "amount": 75000.0,
-          "date": "2024-09-05"
+          "date": "2025-04-08"
         },
         {
-          "name": "Raiffeisen Schweiz Genossenschaft (Unterstützungsbeitrag 2024)",
+          "name": "Néstlé S.A.",
           "type": "organization",
-          "location": "St. Gallen",
-          "amount": 57945.0,
-          "date": "2024-08-16"
+          "location": "Vevey",
+          "amount": 70000.0,
+          "date": "2025-06-11"
+        },
+        {
+          "name": "Schweizerische Bankiervereinigung",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 60000.0,
+          "date": "2025-07-04"
+        },
+        {
+          "name": "Swiss Life AG",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 60000.0,
+          "date": "2025-09-04"
         }
       ]
     },
     "EDU": {
-      "year": 2024,
-      "totalRevenue": 854693.0,
-      "monetaryDonations": 437066.0,
+      "year": 2025,
+      "totalRevenue": 997460.59,
+      "monetaryDonations": 527897.61,
       "nonMonetaryDonations": 0,
-      "events": 7328.0,
-      "sales": 367496.0,
-      "membershipFees": 42800.0,
+      "events": 6799.6,
+      "sales": 418063.38,
+      "membershipFees": 44700.0,
       "mandateFees": 0,
       "largeDonors": []
     },
     "EVP": {
-      "year": 2024,
-      "totalRevenue": 787744.44,
-      "monetaryDonations": 116321.5,
+      "year": 2025,
+      "totalRevenue": 666080.59,
+      "monetaryDonations": 105778.94,
       "nonMonetaryDonations": 9000.0,
-      "events": 5993.92,
-      "sales": 55021.3,
-      "membershipFees": 522842.35,
+      "events": 5498.33,
+      "sales": 37106.25,
+      "membershipFees": 505137.42,
       "mandateFees": 0,
-      "largeDonors": [
-        {
-          "name": "Peter Looser selig",
-          "type": "individual",
-          "location": "Basel",
-          "amount": 15602.35,
-          "date": "2024-10-02"
-        }
-      ]
+      "largeDonors": []
     },
     "FDP": {
-      "year": 2024,
-      "totalRevenue": 6627073.68,
-      "monetaryDonations": 6393915.69,
+      "year": 2025,
+      "totalRevenue": 4796025.98,
+      "monetaryDonations": 4500065.98,
       "nonMonetaryDonations": 0,
-      "events": 8456.0,
-      "sales": 8394.69,
-      "membershipFees": 147307.3,
-      "mandateFees": 69000.0,
+      "events": 68886.03,
+      "sales": 14274.76,
+      "membershipFees": 159229.21,
+      "mandateFees": 53500.0,
       "largeDonors": [
         {
           "name": "economiesuisse",
           "type": "organization",
           "location": "Zürich",
           "amount": 1000000.0,
-          "date": "2024-05-17"
+          "date": "2025-09-19"
         },
         {
-          "name": "economiesuisse",
-          "type": "organization",
-          "location": "Zürich",
-          "amount": 960000.0,
-          "date": "2024-04-05"
-        },
-        {
-          "name": "Verein Aktionskomitee für Freiheit und Verantwortung",
-          "type": "organization",
-          "location": "Bern",
-          "amount": 300000.0,
-          "date": "2024-12-18"
-        },
-        {
-          "name": "UBS AG",
-          "type": "organization",
-          "location": "Zürich",
-          "amount": 293000.0,
-          "date": "2024-12-20"
-        },
-        {
-          "name": "economiesuisse",
-          "type": "organization",
-          "location": "Zürich",
-          "amount": 290000.0,
-          "date": "2024-11-12"
-        },
-        {
-          "name": "Verein Aktionskomitee für Freiheit und Verantwortung",
+          "name": "Aktionskomitee für Freiheit",
           "type": "organization",
           "location": "Bern",
           "amount": 200000.0,
-          "date": "2024-12-18"
+          "date": "2025-04-17"
+        },
+        {
+          "name": "Aktionskomitee für Freiheit",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 200000.0,
+          "date": "2025-04-22"
         },
         {
           "name": "economiesuisse",
           "type": "organization",
           "location": "Zürich",
-          "amount": 181565.0,
-          "date": "2024-07-03"
+          "amount": 171034.0,
+          "date": "2025-10-22"
         },
         {
           "name": "Swiss Life AG",
           "type": "organization",
           "location": "Zürich",
-          "amount": 120000.0,
-          "date": "2024-12-03"
+          "amount": 110000.0,
+          "date": "2025-07-07"
+        },
+        {
+          "name": "Maja Regula Baumann",
+          "type": "individual",
+          "location": "Pfäffikon SZ",
+          "amount": 100000.0,
+          "date": "2025-01-06"
+        },
+        {
+          "name": "Zürich Versicherungs-Gesellschaft AG",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 100000.0,
+          "date": "2025-10-06"
+        },
+        {
+          "name": "Mehrwert Schweiz",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 100000.0,
+          "date": "2025-10-09"
         }
       ]
     },
     "GPS": {
-      "year": 2024,
-      "totalRevenue": 1817781.18,
-      "monetaryDonations": 1022290.71,
+      "year": 2025,
+      "totalRevenue": 1811767.61,
+      "monetaryDonations": 966543.14,
       "nonMonetaryDonations": 0,
-      "events": 0,
-      "sales": 25338.0,
-      "membershipFees": 405814.21,
-      "mandateFees": 361788.7,
+      "events": 12040.0,
+      "sales": 48898.6,
+      "membershipFees": 419784.09,
+      "mandateFees": 363186.6,
       "largeDonors": [
         {
           "name": "Carmita Burkard Kroeber",
           "type": "individual",
           "location": "Neuchâtel",
-          "amount": 400000.0,
-          "date": "2024-08-13"
+          "amount": 155985.05,
+          "date": "2025-11-28"
+        },
+        {
+          "name": "Carmita Burkard Kroeber",
+          "type": "individual",
+          "location": "Neuchâtel",
+          "amount": 94014.95,
+          "date": "2025-12-31"
         },
         {
           "name": "Raiffeisen Schweiz Genossenschaft",
           "type": "organization",
           "location": "St. Gallen",
           "amount": 22167.0,
-          "date": "2024-08-16"
+          "date": "2025-08-26"
         },
         {
           "name": "Schweizerische Mobiliar Versicherungsgesellschaft AG",
           "type": "organization",
           "location": "Bern",
           "amount": 21400.0,
-          "date": "2024-08-30"
-        },
-        {
-          "name": "Jacques Maire",
-          "type": "individual",
-          "location": "Bernex",
-          "amount": 20500.0,
-          "date": "2024-09-20"
+          "date": "2025-06-27"
         },
         {
           "name": "AXA Versicherungen AG",
           "type": "organization",
           "location": "Winterthur",
           "amount": 17940.0,
-          "date": "2024-06-13"
-        },
-        {
-          "name": "Piero Hug",
-          "type": "individual",
-          "location": "Dietfurt",
-          "amount": 12000.0,
-          "date": "2024-06-24"
+          "date": "2025-06-11"
         },
         {
           "name": "Helvetia Schweiz. Versicherung",
           "type": "organization",
-          "location": "St. Gallen",
+          "location": "St.Gallen",
           "amount": 11083.35,
-          "date": "2024-07-02"
+          "date": "2025-06-23"
+        },
+        {
+          "name": "Hans Rüegg",
+          "type": "individual",
+          "location": "Waltenschwil",
+          "amount": 10000.0,
+          "date": "2025-11-28"
         },
         {
           "name": "Fondation Groupe Mutuel",
           "type": "organization",
           "location": "Martigny",
           "amount": 10000.0,
-          "date": "2024-06-24"
+          "date": "2025-10-03"
         }
       ]
     },
     "GLP": {
-      "year": 2024,
-      "totalRevenue": 1188315.2,
-      "monetaryDonations": 852521.45,
-      "nonMonetaryDonations": 793.4,
-      "events": 18843.0,
-      "sales": 900.0,
-      "membershipFees": 227412.0,
-      "mandateFees": 80557.15,
+      "year": 2025,
+      "totalRevenue": 1222731.83,
+      "monetaryDonations": 866729.95,
+      "nonMonetaryDonations": 2612.45,
+      "events": 20790.55,
+      "sales": 4018.7,
+      "membershipFees": 239520.0,
+      "mandateFees": 79603.0,
       "largeDonors": [
-        {
-          "name": "Economiesuisse",
-          "type": "organization",
-          "location": "Zürich",
-          "amount": 108217.0,
-          "date": "2024-07-03"
-        },
         {
           "name": "UBS AG",
           "type": "organization",
           "location": "Zürich",
-          "amount": 88000.0,
-          "date": "2024-12-17"
+          "amount": 85000.0,
+          "date": "2025-12-10"
+        },
+        {
+          "name": "Economiesuisse",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 76379.0,
+          "date": "2025-11-20"
         },
         {
           "name": "Schindler Aufzüge AG",
           "type": "organization",
           "location": "Ebikon",
           "amount": 75000.0,
-          "date": "2024-09-05"
+          "date": "2025-04-08"
         },
         {
           "name": "Schweizerische Bankiervereinigung",
           "type": "organization",
           "location": "Basel",
-          "amount": 50000.0,
-          "date": "2024-10-18"
+          "amount": 60000.0,
+          "date": "2025-11-10"
         },
         {
           "name": "Verein FDP-Kampagnen",
           "type": "organization",
           "location": "Bern",
-          "amount": 50000.0,
-          "date": "2024-07-09"
+          "amount": 60000.0,
+          "date": "2025-11-24"
         },
         {
           "name": "Novartis International AG",
           "type": "organization",
           "location": "Basel",
           "amount": 50000.0,
-          "date": "2024-05-08"
+          "date": "2025-11-11"
         },
         {
           "name": "Zürich Versicherungsgesellschaft AG",
           "type": "organization",
           "location": "Zürich",
           "amount": 50000.0,
-          "date": "2024-04-08"
+          "date": "2025-07-17"
         },
         {
           "name": "Swiss Life AG",
           "type": "organization",
           "location": "Zürich",
-          "amount": 40000.0,
-          "date": "2024-05-10"
+          "amount": 30000.0,
+          "date": "2025-09-05"
         }
       ]
     },
-    "LEGA": {
-      "year": 2024,
-      "totalRevenue": 150881.0,
-      "monetaryDonations": 62949.0,
-      "nonMonetaryDonations": 0,
-      "events": 0,
-      "sales": 0,
-      "membershipFees": 0,
-      "mandateFees": 0,
-      "largeDonors": []
-    },
     "MCG": {
-      "year": 2024,
-      "totalRevenue": 556833.45,
-      "monetaryDonations": 3220.0,
+      "year": 2025,
+      "totalRevenue": 608856.0,
+      "monetaryDonations": 6742.0,
       "nonMonetaryDonations": 0,
-      "events": 3515.0,
-      "sales": 252.0,
-      "membershipFees": 15060.0,
-      "mandateFees": 10000.0,
+      "events": 1933.0,
+      "sales": 0,
+      "membershipFees": 15000.0,
+      "mandateFees": 15000.0,
       "largeDonors": []
     },
     "SVP": {
-      "year": 2024,
-      "totalRevenue": 2820615.43,
-      "monetaryDonations": 2081678.26,
-      "nonMonetaryDonations": 5945.5,
-      "events": 62995.0,
-      "sales": 29047.41,
-      "membershipFees": 175000.0,
-      "mandateFees": 415500.0,
+      "year": 2025,
+      "totalRevenue": 3828349.43,
+      "monetaryDonations": 3060821.35,
+      "nonMonetaryDonations": 0,
+      "events": 62171.0,
+      "sales": 77782.38,
+      "membershipFees": 171500.0,
+      "mandateFees": 439300.0,
       "largeDonors": [
+        {
+          "name": "Stiftung für bürgerliche Politik",
+          "type": "organization",
+          "location": "Zug",
+          "amount": 720000.0,
+          "date": "2025-12-30"
+        },
         {
           "name": "UBS AG",
           "type": "organization",
           "location": "Zürich",
-          "amount": 412000.0,
-          "date": "2024-12-16"
+          "amount": 417000.0,
+          "date": "2025-12-10"
         },
         {
           "name": "economiesuisse",
           "type": "organization",
           "location": "Zürich",
-          "amount": 256671.0,
-          "date": "2024-07-03"
+          "amount": 202069.0,
+          "date": "2025-12-19"
         },
         {
           "name": "Swiss Life AG",
           "type": "organization",
           "location": "Zürich",
-          "amount": 150000.0,
-          "date": "2024-10-09"
+          "amount": 140000.0,
+          "date": "2025-05-27"
+        },
+        {
+          "name": "Hauseigentümerverband Schweiz",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 130000.0,
+          "date": "2025-10-17"
+        },
+        {
+          "name": "Christian Spleiss",
+          "type": "individual",
+          "location": "Herrliberg",
+          "amount": 100000.0,
+          "date": "2025-09-04"
         },
         {
           "name": "Schindler Aufzüge AG",
           "type": "organization",
           "location": "Ebikon",
           "amount": 75000.0,
-          "date": "2024-09-05"
+          "date": "2025-09-30"
         },
         {
-          "name": "Swiss Re Management Ltd",
+          "name": "Nestle S.A.",
           "type": "organization",
-          "location": "Adliswil",
-          "amount": 69316.0,
-          "date": "2024-12-16"
-        },
-        {
-          "name": "Auto-Schweiz Vereinigung",
-          "type": "organization",
-          "location": "Bern",
-          "amount": 60000.0,
-          "date": "2024-12-18"
-        },
-        {
-          "name": "Schweizerischer Arbeitgeberverband",
-          "type": "organization",
-          "location": "Zürich",
-          "amount": 60000.0,
-          "date": "2024-09-26"
-        },
-        {
-          "name": "Raiffeisen Schweiz Genossenschaft",
-          "type": "organization",
-          "location": "St. Gallen",
-          "amount": 54174.0,
-          "date": "2024-08-16"
+          "location": "Vevey",
+          "amount": 70000.0,
+          "date": "2025-05-27"
         }
       ]
     },
     "SP": {
-      "year": 2024,
-      "totalRevenue": 8231546.0,
-      "monetaryDonations": 5148113.0,
-      "nonMonetaryDonations": 6743.0,
-      "events": 40165.0,
-      "sales": 399082.0,
-      "membershipFees": 2087415.0,
-      "mandateFees": 462702.1,
+      "year": 2025,
+      "totalRevenue": 7936739.0,
+      "monetaryDonations": 4798657.0,
+      "nonMonetaryDonations": 9834.0,
+      "events": 20027.0,
+      "sales": 370197.0,
+      "membershipFees": 2195590.0,
+      "mandateFees": 484267.0,
       "largeDonors": [
-        {
-          "name": "Achim Schwander",
-          "type": "individual",
-          "location": "Bern",
-          "amount": 50000.0,
-          "date": "2024-03-25"
-        },
         {
           "name": "Raiffeisen Schweiz Genossenschaft",
           "type": "organization",
           "location": "St. Gallen",
-          "amount": 49281.0,
-          "date": "2024-08-16"
+          "amount": 46607.0,
+          "date": "2025-08-26"
+        },
+        {
+          "name": "Anton sel. Baumann",
+          "type": "individual",
+          "location": "Oensingen",
+          "amount": 40471.27,
+          "date": "2025-10-31"
         },
         {
           "name": "Schweizerische Mobiliar Versicherungsgesellschaft AG",
           "type": "organization",
           "location": "Bern",
-          "amount": 36000.0,
-          "date": "2024-11-13"
+          "amount": 35600.0,
+          "date": "2025-10-17"
+        },
+        {
+          "name": "Daniel Cornaz",
+          "type": "individual",
+          "location": "Faoug",
+          "amount": 21003.87,
+          "date": "2025-12-29"
         }
       ]
     }
