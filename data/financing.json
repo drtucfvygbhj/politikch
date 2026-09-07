@@ -1,7 +1,7 @@
 {
   "_meta": {
     "source": "Federal Audit Office (EFK) — https://politikfinanzierung.efk.admin.ch",
-    "fetchedAt": "2026-08-31T10:18:58Z",
+    "fetchedAt": "2026-09-07T08:47:28Z",
     "note": "Figures are self-reported by parties and campaign committees under Swiss law (BPR/VPofi) and republished here as-is; the EFK does not guarantee their accuracy, and neither do we."
   },
   "parties": {
@@ -298,6 +298,17 @@
           "date": "2025-09-05"
         }
       ]
+    },
+    "LEGA": {
+      "year": 2025,
+      "totalRevenue": 139588.2,
+      "monetaryDonations": 57588.2,
+      "nonMonetaryDonations": 0,
+      "events": 0,
+      "sales": 0,
+      "membershipFees": 0,
+      "mandateFees": 0,
+      "largeDonors": []
     },
     "MCG": {
       "year": 2025,
