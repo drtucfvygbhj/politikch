@@ -2,7 +2,7 @@
 
 ## Independence
 
-Politikch is an **independent, non-partisan civic project**. It is **not** affiliated with, endorsed by, or representing:
+Politikch is an **independent civic project**. It is **not** affiliated with, endorsed by, or representing:
 
 - the Swiss Confederation or any federal authority,
 - any cantonal or communal government, or

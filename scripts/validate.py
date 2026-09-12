@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
-LANGS = ["en", "de", "fr", "it"]
+LANGS = ["en", "de", "fr", "it", "rm"]
 errors = []
 
 
@@ -69,7 +69,7 @@ def check_initiatives(data):
         label = init.get("id", f"index {i}")
         if init.get("type") not in ("initiative", "referendum"):
             errors.append(f"initiatives.json: {label} has invalid type '{init.get('type')}'")
-        if init.get("status") not in ("adopted", "rejected", "pending", "collecting"):
+        if init.get("status") not in ("adopted", "rejected", "pending", "collecting", "upcoming"):
             errors.append(f"initiatives.json: {label} has invalid status '{init.get('status')}'")
         for field in ("title", "desc", "date", "url"):
             if field not in init:
@@ -101,6 +101,41 @@ def check_financing(data, parties_data, initiatives_data):
                 errors.append(f"financing.json: initiative {key}.{side}.totalRevenue must be a non-negative number")
 
 
+def check_sessions(index, parties_data):
+    # sessions-index.json + data/sessions/<id>.json are optional: absent means
+    # the Sessions page shows its honest "not fetched yet" empty state.
+    if not index:
+        return
+    known_parties = set((parties_data or {}).get("parties", {}).keys())
+    seasons = {"spring", "summer", "autumn", "winter", "special"}
+    for i, s in enumerate(index.get("sessions", [])):
+        label = s.get("id", f"index {i}")
+        for field in ("id", "season", "year", "start"):
+            if field not in s:
+                errors.append(f"sessions-index.json: session {label} missing '{field}'")
+        if s.get("season") not in seasons:
+            errors.append(f"sessions-index.json: session {label} has invalid season '{s.get('season')}'")
+        # Validate the per-session votes file if present.
+        path = DATA / "sessions" / f"{s.get('id')}.json"
+        if not path.exists():
+            continue
+        try:
+            votes = json.loads(path.read_text(encoding="utf-8")).get("votes", [])
+        except Exception as e:  # noqa: BLE001
+            errors.append(f"sessions/{s.get('id')}.json: invalid JSON — {e}")
+            continue
+        for v in votes:
+            tally = v.get("tally", {})
+            for k in ("yes", "no", "abstain"):
+                if not isinstance(tally.get(k), int) or tally.get(k) < 0:
+                    errors.append(f"sessions/{s.get('id')}.json: vote {v.get('id')} tally.{k} must be a non-negative integer")
+            if not v.get("title"):
+                errors.append(f"sessions/{s.get('id')}.json: vote {v.get('id')} has no title")
+            for pk in (v.get("byParty") or {}):
+                if pk not in known_parties:
+                    errors.append(f"sessions/{s.get('id')}.json: vote {v.get('id')} references unknown party '{pk}'")
+
+
 def check_i18n(data):
     if not data:
         return
@@ -127,6 +162,9 @@ def main():
     financing_path = DATA / "financing.json"
     if financing_path.exists():
         check_financing(load("financing.json"), parties_data, initiatives_data)
+
+    if (DATA / "sessions-index.json").exists():
+        check_sessions(load("sessions-index.json"), parties_data)
 
     if errors:
         print("Validation FAILED:\n")

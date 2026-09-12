@@ -23,6 +23,7 @@ site falls back to its "see official register" placeholder for whatever is
 missing, rather than showing a wrong or invented figure.
 """
 import json
+import re
 import sys
 import time
 import urllib.error
@@ -53,17 +54,17 @@ PARTY_ACTOR_IDS = {
     33: "GLP", 219: "EVP", 331: "EDU", 394: "LEGA", 268: "MCG",
 }
 
-# Stable campaign_financing root IDs, matched by hand to this site's
-# initiative ids (data/initiatives.json). "ahv-21" (voted 2022) predates the
-# 4 March 2023 start of the vote-campaign disclosure duty, so it has no
-# corresponding register entry and is intentionally left out.
-INITIATIVE_ROOT_IDS = {
-    "13th-ahv": 3,
-    "pension-age": 4,
-    "cost-brake": 6,
-    "electricity-act": 8,
-    "biodiversity": 10,
-}
+# Campaign financing is no longer matched to a hand-maintained list of root IDs.
+# Instead every vote-campaign root on the register is discovered automatically
+# and matched to a decided vote in data/initiatives.json by ballot date + title,
+# so the moment the register publishes filings for a new voting day, the next run
+# picks them up. Election-campaign roots (National Council / Council of States
+# seats) are skipped — the site tracks vote financing, not candidate financing.
+ELECTION_LABEL_MARKERS = ("nationalratswahl", "ständeratswahl", "standeratswahl")
+
+# Vote-campaign disclosure only began on 4 March 2023, so ballots before then
+# have no register entry and simply won't match — they fall back to the site's
+# "see official register" placeholder.
 
 FINAL_REVENUE_LABEL = "Offenlegung der Schlussrechnung über die Einnahmen"
 BUDGET_REVENUE_LABEL = "Offenlegung der budgetierten Einnahmen"
@@ -208,16 +209,91 @@ def side_for_campaign_label(label):
     return None
 
 
+_STOPWORDS = {
+    "der", "die", "das", "und", "für", "vom", "von", "über", "eine", "einer",
+    "einen", "des", "den", "dem", "zur", "zum", "mit", "auf", "bundesgesetz",
+    "bundesbeschluss", "änderung", "volksinitiative", "initiative", "september",
+    "dezember", "juni", "märz", "januar", "februar", "vice", "eidgenössische",
+}
+
+
+def _tokens(text):
+    text = re.sub(r"[«»'\"“”()–—\-.,!?:;]", " ", text.lower())
+    return {w for w in text.split() if len(w) > 3 and w not in _STOPWORDS and not w.isdigit()}
+
+
+def _root_date_and_title(label):
+    """EFK root labels look like 'DD.MM.YYYY <title>'. Split them."""
+    m = re.match(r"\s*(\d{2})\.(\d{2})\.(\d{4})\s+(.*)", label)
+    if not m:
+        return None, label
+    return f"{m.group(3)}{m.group(2)}{m.group(1)}", m.group(4).strip()
+
+
+def load_dated_votes():
+    """Read every scheduled or decided ballot item from data/initiatives.json.
+
+    Includes *upcoming* votes as well as decided ones: committees file their
+    (budgeted) campaign financing with the EFK register before the ballot, so
+    the register carries entries for votes that haven't happened yet. Matching
+    is by ballot date, so only items with a dated `vote-YYYYMMDD-` id qualify
+    (that is exactly the upcoming/adopted/rejected set); undated pending and
+    signature-gathering items have no ballot date to match on and are skipped.
+
+    Returns {ballot_date 'YYYYMMDD': [(initiative_id, title_token_set), ...]}.
+    """
+    path = ROOT / "data" / "initiatives.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    by_date = {}
+    for it in data.get("initiatives", []):
+        m = re.match(r"vote-(\d{8})-", it.get("id", ""))
+        date = m.group(1) if m else re.sub(r"\D", "", "".join(
+            (it.get("date") or {}).get("en", "")))
+        if not m:
+            continue
+        title = (it.get("title") or {}).get("de") or (it.get("title") or {}).get("en", "")
+        by_date.setdefault(date, []).append((it["id"], _tokens(title)))
+    return by_date
+
+
+def match_initiative(root_date, root_title, by_date):
+    """Best initiative id for an EFK root, by same ballot date + title overlap."""
+    candidates = by_date.get(root_date, [])
+    if not candidates:
+        return None
+    rtok = _tokens(root_title)
+    if not rtok:
+        return None
+    best_id, best_score = None, 0.0
+    for init_id, itok in candidates:
+        if not itok:
+            continue
+        overlap = len(rtok & itok) / min(len(rtok), len(itok))
+        if overlap > best_score:
+            best_id, best_score = init_id, overlap
+    return best_id if best_score >= 0.5 else None
+
+
 def fetch_initiatives():
     print("Fetching campaign (vote) financing tree...")
     tree = fetch_json("/api/frontend/v1/search/campaign_financings")
-    roots = {r["id"]: r for r in tree["data"]["tree_roots"]}
+    by_date = load_dated_votes()
+    if not by_date:
+        print("  ! data/initiatives.json has no dated votes to match against; "
+              "run fetch_initiatives.py first", file=sys.stderr)
 
     result = {}
-    for init_id, root_id in INITIATIVE_ROOT_IDS.items():
-        root = roots.get(root_id)
-        if not root:
-            print(f"  ! {init_id}: root {root_id} not found", file=sys.stderr)
+    for root in tree["data"]["tree_roots"]:
+        label = root["label"]
+        if any(m in label.lower() for m in ELECTION_LABEL_MARKERS):
+            continue
+        root_date, root_title = _root_date_and_title(label)
+        if not root_date:
+            continue
+        init_id = match_initiative(root_date, root_title, by_date)
+        if not init_id:
             continue
 
         sides = {
@@ -254,6 +330,12 @@ def fetch_initiatives():
         for side in sides.values():
             side["largeDonors"].sort(key=lambda d: d["amount"], reverse=True)
             side["largeDonors"] = side["largeDonors"][:MAX_DONORS_SHOWN]
+
+        # Skip ballots where no committee has filed anything on either side —
+        # showing "CHF 0 / 0 actors" would read as "no money spent" when it
+        # really means "nothing reported yet". Let the site's placeholder show.
+        if sides["pro"]["actorCount"] == 0 and sides["contra"]["actorCount"] == 0:
+            continue
 
         result[init_id] = sides
         print(

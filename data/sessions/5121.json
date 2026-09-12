@@ -1,0 +1,665 @@
+{
+  "id": 5121,
+  "season": "special",
+  "year": 2023,
+  "start": "2023-05-30",
+  "end": "2023-06-16",
+  "legislativePeriod": 51,
+  "votes": [
+    {
+      "id": 30924,
+      "business": "18.043",
+      "businessNumber": 20180043,
+      "title": {
+        "de": "Bundesgesetz über eine Revision des Sexualstrafrechts (Entwurf der RK-S vom 17.02.2022)",
+        "fr": "Loi fédérale portant révision du droit pénal en matière sexuelle (Projet de la CAJ-E du 17.02.2022)",
+        "it": "Legge federale sulla revisione del diritto penale in materia sessuale (Disegno della CAG-S del 17.02.2022)"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "criminalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 141,
+        "no": 52,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 52,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30925,
+      "business": "20.022",
+      "businessNumber": 20200022,
+      "title": {
+        "de": "Bundesgesetz über die Landwirtschaft (Landwirtschaftsgesetz, LwG)",
+        "fr": "Loi fédérale sur l’agriculture (Loi sur l’agriculture, LAgr)",
+        "it": "Legge federale sull’agricoltura (Legge sull’agricoltura, LAgr)"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "finance",
+        "environment",
+        "agriculture"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 179,
+        "no": 0,
+        "abstain": 15
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 2,
+          "no": 0,
+          "abstain": 14
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30926,
+      "business": "20.022",
+      "businessNumber": 20200022,
+      "title": {
+        "de": "Tierseuchengesetz (TSG)",
+        "fr": "Loi sur les épizooties (LFE)",
+        "it": "Legge sulle epizoozie (LFE)"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "finance",
+        "environment",
+        "agriculture"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 194,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30927,
+      "business": "21.019",
+      "businessNumber": 20210019,
+      "title": {
+        "de": "Bundesgesetz über die Mehrwertsteuer (Mehrwertsteuergesetz, MWSTG)",
+        "fr": "Loi fédérale régissant la taxe sur la valeur ajoutée (Loi sur la TVA, LTVA)",
+        "it": "Legge federale concernente l’imposta sul valore aggiunto (Legge sull’IVA, LIVA)"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30928,
+      "business": "21.083",
+      "businessNumber": 20210083,
+      "title": {
+        "de": "Bundesgesetz über die Digitalisierung im Notariat (DNG)",
+        "fr": "Loi fédérale sur le passage au numérique dans le domaine du notariat (LNN)",
+        "it": "Legge federale sulla digitalizzazione nel notariato (LDN)"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "media",
+        "civilLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 142,
+        "no": 46,
+        "abstain": 6
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 46,
+          "abstain": 6
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30929,
+      "business": "22.054",
+      "businessNumber": 20220054,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für eine sichere und nachhaltige Altersvorsorge (Renteninitiative)",
+        "fr": "Arrêté fédéral concernant l’initiative populaire «Pour une prévoyance vieillesse sûre et pérenne (initiative sur les rentes)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Per una previdenza vecchiaia sicura e sostenibile (Iniziativa sulle pensioni)»"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "socialQuestions",
+        "labour",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 143,
+        "no": 40,
+        "abstain": 11
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 12,
+          "no": 0,
+          "abstain": 4
+        },
+        "FDP": {
+          "yes": 0,
+          "no": 28,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 36,
+          "no": 11,
+          "abstain": 6
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 1,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30931,
+      "business": "22.064",
+      "businessNumber": 20220064,
+      "title": {
+        "de": "Bundesgesetz über die Verlagerung des alpenquerenden Güterschwerverkehrs von der Strasse auf die Schiene (Güterverkehrsverlagerungsgesetz, GVVG)",
+        "fr": "Loi fédérale sur le transfert de la route au rail du transport lourd de marchandises à travers les Alpes (Loi sur le transfert du transport de marchandises, LTTM)",
+        "it": "Legge federale concernente il trasferimento dalla strada alla ferrovia del traffico merci pesante attraverso le Alpi (Legge sul trasferimento del traffico merci, LTrasf)"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "transport"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 139,
+        "no": 53,
+        "abstain": 2
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 25,
+          "no": 2,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 51,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30932,
+      "business": "22.069",
+      "businessNumber": 20220069,
+      "title": {
+        "de": "Bundesgesetz über die Tabakbesteuerung (Tabaksteuergesetz, TStG)",
+        "fr": "Loi fédérale sur l’imposition du tabac (LTab)",
+        "it": "Legge federale sull’imposizione del tabacco (Legge sull’imposizione del tabacco, LImT)"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "socialQuestions",
+        "taxation",
+        "socialSecurity",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 153,
+        "no": 40,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 12,
+          "no": 40,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30933,
+      "business": "22.077",
+      "businessNumber": 20220077,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung eines Protokolls zur Änderung des Doppelbesteuerungsabkommens zwischen der Schweiz und Tadschikistan",
+        "fr": "Arrêté fédéral portant approbation d’un protocole modifiant la convention contre les doubles impositions entre la Suisse et le Tadjikistan",
+        "it": "Decreto federale che approva un Protocollo che modifica la Convenzione tra la Svizzera e il Tagikistan per evitare le doppie imposizioni"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 140,
+        "no": 39,
+        "abstain": 15
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 14
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30934,
+      "business": "22.080",
+      "businessNumber": 20220080,
+      "title": {
+        "de": "Bundesgesetz über die flankierenden Massnahmen bei entsandten Arbeitnehmerinnen und Arbeitnehmern und über die Kontrolle der in Normalarbeitsverträgen vorgesehenen Mindestlöhne (Entsendegesetz, EntsG)",
+        "fr": "Loi fédérale sur les mesures d’accompagnement applicables aux travailleurs détachés et aux contrôles des salaires minimaux prévus par les contrats-types de travail (Loi sur les travailleurs détachés, LDét)",
+        "it": "Loi fédérale sur les mesures d’accompagnement applicables aux travailleurs détachés et aux contrôles des salaires minimaux prévus par les contrats-types de travail (Loi sur les travailleurs détachés, LDét)"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "europe",
+        "labour",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 192,
+        "no": 2,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 51,
+          "no": 2,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30935,
+      "business": "22.461",
+      "businessNumber": 20220461,
+      "title": {
+        "de": "Bundesgesetz über die Beschleunigung der Bewilligungsverfahren für Windenergieanlagen (Änderung des Energiegesetzes und des Bundesgerichtsgesetzes)",
+        "fr": "Loi fédérale sur l’accélération des procédures d’autorisation pour les projets d’installations éoliennes (Modification de la loi sur l'énergie et de la loi sur le Tribunal fédéral)",
+        "it": "Legge federale concernente l’accelerazione della procedura di autorizzazione degli impianti a energia eolica (Modifica della legge sull’energia e della legge sul Tribunale federale)"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "economy",
+        "socialQuestions",
+        "labour",
+        "humanRights"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 141,
+        "no": 50,
+        "abstain": 3
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 50,
+          "abstain": 3
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30936,
+      "business": "23.027",
+      "businessNumber": 20230027,
+      "title": {
+        "de": "Bundesgesetz über die berufliche Alters-, Hinterlassenen- und Invalidenvorsorge (BVG)",
+        "fr": "Loi fédérale sur la prévoyance professionnelle vieillesse, survivants et invalidité (LPP)",
+        "it": "Legge federale sulla previdenza professionale per la vecchiaia, i superstiti e l’invalidità (LPP)"
+      },
+      "voteEnd": "2023-06-16",
+      "topics": [
+        "statePolicy",
+        "finance",
+        "labour",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 192,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 37,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 52,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}

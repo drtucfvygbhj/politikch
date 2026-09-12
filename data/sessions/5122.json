@@ -1,0 +1,1211 @@
+{
+  "id": 5122,
+  "season": "autumn",
+  "year": 2023,
+  "start": "2023-09-11",
+  "end": "2023-09-29",
+  "legislativePeriod": 51,
+  "votes": [
+    {
+      "id": 31396,
+      "business": "15.455",
+      "businessNumber": 20150455,
+      "title": {
+        "de": "Obligationenrecht (Mietrecht: Untermiete)",
+        "fr": "Code des obligations (Droit du bail: sous-location)",
+        "it": "Codice delle obbligazioni (Diritto di locazione: sublocazione)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "spatialPlanning"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 108,
+        "no": 85,
+        "abstain": 2
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 2
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 2,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 29,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31397,
+      "business": "16.458",
+      "businessNumber": 20160458,
+      "title": {
+        "de": "Obligationenrecht (Mietrecht: Formvorschriften)",
+        "fr": "Code des obligations (Droit du bail: règles de forme)",
+        "it": "Codice delle obbligazioni (Diritto di locazione: prescrizioni formali)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "spatialPlanning"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 124,
+        "no": 70,
+        "abstain": 2
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 26,
+          "no": 2,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 28,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31398,
+      "business": "16.504",
+      "businessNumber": 20160504,
+      "title": {
+        "de": "Bundesgesetz über Arzneimittel und Medizinprodukte (Heilmittelgesetz, HMG)",
+        "fr": "Loi fédérale sur les médicaments et les dispositifs médicaux (Loi sur les produits thérapeutiques, LPTh)",
+        "it": "Legge federale sui medicamenti e i dispositivi medici (Legge sugli agenti terapeutici, LATer)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "health"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 196,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31399,
+      "business": "18.077",
+      "businessNumber": 20180077,
+      "title": {
+        "de": "Bundesgesetz über die Raumplanung (Raumplanungsgesetz, RPG)",
+        "fr": "Loi fédérale sur l’aménagement du territoire (Loi sur l’aménagement du territoire, LAT)",
+        "it": "Legge federale sulla pianificazione del territorio (Legge sulla pianificazione del territorio, LPT)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 196,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31400,
+      "business": "18.475",
+      "businessNumber": 20180475,
+      "title": {
+        "de": "Obligationenrecht (Mietrecht: Kündigung wegen Eigenbedarfs)",
+        "fr": "Code des obligations (Droit du bail: résiliation pour besoin propre)",
+        "it": "Codice delle obbligazioni (Diritto di locazione: disdetta per bisogno personale)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "civilLaw",
+        "judiciary",
+        "spatialPlanning"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 123,
+        "no": 72,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 12,
+          "no": 3,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 29,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31402,
+      "business": "18.489",
+      "businessNumber": 20180489,
+      "title": {
+        "de": "Bundesgesetz über die Finanzmarktinfrastrukturen und das Marktverhalten im Effekten- und Derivatehandel (Finanzmarktinfrastrukturgesetz, FinfraG)",
+        "fr": "Loi fédérale sur les infrastructures des marchés financiers et le comportement sur le marché en matière de négociation de valeurs mobilières et de dérivés (Loi sur l’infrastructure des marchés financiers, LIMF)",
+        "it": "Legge federale sulle infrastrutture del mercato finanziario e il comportamento sul mercato nel commercio di valori mobiliari e derivati (Legge sull’infrastruttura finanziaria, LInFi)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "finance"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 143,
+        "no": 13,
+        "abstain": 40
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 13,
+          "abstain": 40
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31403,
+      "business": "19.311",
+      "businessNumber": 20190311,
+      "title": {
+        "de": "Bundesgesetz über den Erwerbsersatz (Erwerbsersatzgesetz, EOG) (Mutterschaftsentschädigung von Parlamentarierinnen)",
+        "fr": "Loi fédérale sur les allocations pour perte de gain (LAPG) (Allocation de maternité pour les députées)",
+        "it": "Legge federale sulle indennità di perdita di guadagno (Legge sulle indennità di perdita di guadagno, LIPG) (Indennità di maternità per le parlamentari)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "statePolicy",
+        "parliament",
+        "socialSecurity"
+      ],
+      "btype": "cantonalInitiative",
+      "tally": {
+        "yes": 152,
+        "no": 41,
+        "abstain": 3
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 11,
+          "no": 40,
+          "abstain": 3
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 1,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31404,
+      "business": "21.047",
+      "businessNumber": 20210047,
+      "title": {
+        "de": "Bundesgesetz über eine sichere Stromversorgung mit erneuerbaren Energien (Änderung des Energiegesetzes und des Stromversorgungsgesetzes)",
+        "fr": "Loi relative à un approvisionnement en électricité sûr reposant sur des énergies renouvelables (Modification de la loi sur l’énergie et de la loi sur l’approvisionnement en électricité)",
+        "it": "Legge federale su un approvvigionamento elettrico sicuro con le energie rinnovabili (Modifica della legge sull’energia e della legge sull’approvvigionamento elettrico)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "europe",
+        "economy",
+        "energy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 177,
+        "no": 19,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 36,
+          "no": 18,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 27,
+          "no": 1,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31405,
+      "business": "21.063",
+      "businessNumber": 20210063,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Maximal 10 % des Einkommens für die Krankenkassenprämien (Prämien-Entlastungs-Initiative)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire «Maximum 10 % du revenu pour les primes d’assurance-maladie (initiative d’allègement des primes)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Al massimo il 10 per cento del reddito per i premi delle casse malati (Iniziativa per premi meno onerosi)»"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "socialQuestions",
+        "labour",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 123,
+        "no": 70,
+        "abstain": 3
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 1
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 26,
+          "no": 1,
+          "abstain": 2
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 29,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31406,
+      "business": "21.063",
+      "businessNumber": 20210063,
+      "title": {
+        "de": "Bundesgesetz über die Krankenversicherung (KVG) (Prämienverbilligung)",
+        "fr": "Loi fédérale sur l’assurance-maladie (LAMal) (Réduction des primes)",
+        "it": "Legge federale sull’assicurazione malattie (LAMal) (Riduzione dei premi)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "socialQuestions",
+        "labour",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 195,
+        "no": 0,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 1
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31407,
+      "business": "21.067",
+      "businessNumber": 20210067,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für tiefere Prämien – Kostenbremse im Gesundheitswesen (Kostenbremse-Initiative)»",
+        "fr": "Pour des primes plus basses. Frein aux coûts dans le système de santé (initiative pour un frein aux coûts)",
+        "it": "Per premi più bassi – Freno ai costi nel settore sanitario (Iniziativa per un freno ai costi)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 110,
+        "no": 31,
+        "abstain": 55
+      },
+      "byParty": {
+        "SP": {
+          "yes": 4,
+          "no": 0,
+          "abstain": 35
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 50,
+          "no": 2,
+          "abstain": 2
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 0,
+          "no": 29,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 12,
+          "no": 0,
+          "abstain": 17
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31408,
+      "business": "21.067",
+      "businessNumber": 20210067,
+      "title": {
+        "de": "Bundesgesetz über die Krankenversicherung (KVG) (Massnahmen zur Kostendämpfung – Vorgabe von Kostenzielen)",
+        "fr": "Loi fédérale sur l’assurance-maladie (LAMal) (Mesures visant à freiner la hausse des coûts – objectifs en matière de coûts)",
+        "it": "Legge federale sull’assicurazione malattie (LAMal) (Misure di contenimento dei costi – Definizione di obiettivi di costo)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 163,
+        "no": 0,
+        "abstain": 33
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 3
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 1,
+          "no": 0,
+          "abstain": 28
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31409,
+      "business": "22.065",
+      "businessNumber": 20220065,
+      "title": {
+        "de": "Bundesgesetz über das Verbot der Verhüllung des Gesichts (BVVG)",
+        "fr": "Loi fédérale sur l’interdiction de se dissimuler le visage (LIDV)",
+        "it": "Legge federale sul divieto di dissimulare il viso (LDDV)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "statePolicy",
+        "security",
+        "socialQuestions",
+        "criminalLaw",
+        "humanRights",
+        "culture"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 163,
+        "no": 31,
+        "abstain": 2
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 26,
+          "no": 1,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 29,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31410,
+      "business": "22.073",
+      "businessNumber": 20220073,
+      "title": {
+        "de": "Bundesgesetz über die Informationssicherheit beim Bund (Informationssicherheitsgesetz, ISG)",
+        "fr": "Loi fédérale sur la sécurité de l’information au sein de la Confédération (Loi sur la sécurité de l’information, LSI)",
+        "it": "Legge federale sulla sicurezza delle informazioni in seno alla Confederazione (Legge sulla sicurezza delle informazioni, LSIn)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "security",
+        "economy",
+        "media",
+        "criminalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 141,
+        "no": 54,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 54,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31411,
+      "business": "22.075",
+      "businessNumber": 20220075,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für Freiheit und körperliche Unversehrtheit»",
+        "fr": "Arrêté fédéral concernant l’initiative populaire «Pour la liberté et l’intégrité physique»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Per la libertà e l’integrità fisica»"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "statePolicy",
+        "security",
+        "humanRights",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 145,
+        "no": 49,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 3,
+          "no": 49,
+          "abstain": 1
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31412,
+      "business": "22.082",
+      "businessNumber": 20220082,
+      "title": {
+        "de": "Bundesgesetz über die Entlastung der Unternehmen von Regulierungskosten (Unternehmensentlastungsgesetz, UEG)",
+        "fr": "Loi fédérale sur l’allégement des coûts de la réglementation pour les entreprises (LACRE)",
+        "it": "Legge federale sullo sgravio delle imprese dai costi della regolamentazione (Legge sullo sgravio delle imprese, LSgrI)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "statePolicy",
+        "lawGeneral",
+        "economy",
+        "media"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 127,
+        "no": 40,
+        "abstain": 29
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 38,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 2,
+          "abstain": 27
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31413,
+      "business": "23.023",
+      "businessNumber": 20230023,
+      "title": {
+        "de": "Bundesgesetz über die Transplantation von Organen, Geweben und Zellen (Transplantationsgesetz)",
+        "fr": "Loi fédérale sur la transplantation d’organes, de tissus et de cellules (Loi sur la transplantation)",
+        "it": "Legge federale sul trapianto di organi, tessuti e cellule (Legge sui trapianti)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 183,
+        "no": 1,
+        "abstain": 12
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 41,
+          "no": 1,
+          "abstain": 12
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31414,
+      "business": "23.024",
+      "businessNumber": 20230024,
+      "title": {
+        "de": "Eisenbahngesetz (EBG) (Umsetzung der technischen Säule des 4. EU-Eisenbahnpakets)",
+        "fr": "Loi fédérale sur les chemins de fer (LCdF) (Mise en œuvre du volet technique du 4e paquet ferroviaire de l’UE)",
+        "it": "Legge federale sulle ferrovie (Lferr) (Attuazione del pilastro tecnico del 4° pacchetto ferroviario dell’UE)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "international",
+        "europe",
+        "transport"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 195,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31415,
+      "business": "23.026",
+      "businessNumber": 20230026,
+      "title": {
+        "de": "Bundesgesetz über die obligatorische Arbeitslosenversicherung und die Insolvenzentschädigung (Arbeitslosenversicherungsgesetz, AVIG) (Kurzarbeitsentschädigung für Berufsbildnerinnen und Berufsbildner)",
+        "fr": "Loi fédérale sur l’assurance-chômage obligatoire et l’indemnité en cas d’insolvabilité (Loi sur l’assurance-chômage, LACI) (Indemnité en cas de réduction de l’horaire de travail pour les formateurs)",
+        "it": "Legge federale sull’assicurazione obbligatoria contro la disoccupazione e l’indennità per insolvenza (Legge sull’assicurazione contro la disoccupazione, LADI) (Indennità per lavoro ridotto destinata ai formatori)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "economy",
+        "education",
+        "labour",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 196,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31416,
+      "business": "23.029",
+      "businessNumber": 20230029,
+      "title": {
+        "de": "Bundesgesetz über Regionalpolitik",
+        "fr": "Loi fédérale sur la politique régionale",
+        "it": "Legge federale sulla politica regionale"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "statePolicy",
+        "economy",
+        "finance",
+        "environment",
+        "agriculture"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 164,
+        "no": 31,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 22,
+          "no": 31,
+          "abstain": 1
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31417,
+      "business": "23.032",
+      "businessNumber": 20230032,
+      "title": {
+        "de": "Bundesbeschluss über den Ausbauschritt 2023 für die Nationalstrassen",
+        "fr": "Arrêté fédéral sur l’étape d’aménagement 2023 des routes nationales",
+        "it": "Decreto federale sulla Fase di potenziamento 2023 delle strade nazionali"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "finance",
+        "transport"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 107,
+        "no": 87,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 15,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 25,
+          "no": 3,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 29,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31418,
+      "business": "23.446",
+      "businessNumber": 20230446,
+      "title": {
+        "de": "Geschäftsreglement des Nationalrates (GRN) (Ständige Subkommission für Europafragen der Aussenpolitischen Kommission des Nationalrates)",
+        "fr": "Règlement du Conseil national (RCN) (Sous-commission permanente des questions européennes de la Commission de politique extérieure du Conseil national)",
+        "it": "Regolamento del Consiglio nazionale (RCN) (Sottocommissione permanente per le questioni europee della Commissione della politica estera del Consiglio nazionale)"
+      },
+      "voteEnd": "2023-09-29",
+      "topics": [
+        "europe",
+        "parliament"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 119,
+        "no": 75,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 54,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 8,
+          "no": 20,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 1,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}

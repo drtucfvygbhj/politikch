@@ -1,6 +1,6 @@
 # Politikch
 
-An independent, non-partisan reference for Swiss democracy — parliament, parties, cantons and popular votes, in four national languages (DE / FR / IT / EN).
+An independent reference for Swiss democracy — parliament, parties, cantons and popular votes, in four national languages (DE / FR / IT / EN).
 
 > **Not an official site.** Politikch is not affiliated with, endorsed by, or representing the Swiss Confederation, any cantonal government, or any political party. Official texts are reproduced under Art. 5 URG (no copyright on official authority texts). Party positions are editorial summaries for information only.
 
@@ -29,8 +29,10 @@ An independent, non-partisan reference for Swiss democracy — parliament, parti
 │   ├── initiatives.json
 │   └── i18n.json         # UI string translations for the four languages
 ├── scripts/
-│   └── validate.py       # Data integrity checks (also run in CI)
-└── .github/workflows/    # Pages deploy + data validation
+│   ├── fetch_initiatives.py  # Latest votes + pending/collecting initiatives (VoteInfo + LINDAS)
+│   ├── fetch_financing.py    # Party & campaign financing (EFK register)
+│   └── validate.py           # Data integrity checks (also run in CI)
+└── .github/workflows/    # Pages deploy + data validation + live-data refresh
 ```
 
 The site is **fully static** — no build step, no framework, no dependencies. Data is deliberately separated from code so it can be updated (or wired to a real API) without touching the rendering logic.
@@ -50,8 +52,23 @@ Edit the relevant file in `data/` and reload — no rebuild needed.
 
 - **Parties:** `data/parties.json`. Seat counts must sum to 200 (National Council) and 46 (Council of States).
 - **Cantons:** `data/cantons.json`. All 26 cantons; `seats` must sum to 200.
-- **Votes:** `data/initiatives.json`. `type` is `initiative` or `referendum`; `status` is `adopted`, `rejected`, `pending` or `collecting`.
+- **Votes:** `data/initiatives.json`. `type` is `initiative` or `referendum`; `status` is `adopted`, `rejected`, `pending` or `collecting`. This file is normally **generated**, not hand-edited — see below.
 - **Interface text:** `data/i18n.json`. Every key must exist in all four languages.
+
+### Automated live data
+
+Two fetchers keep the votes and financing data current from official Swiss open-data sources. They run at build time (in CI or locally), never in the visitor's browser, so the deployed site stays fully static:
+
+```bash
+pip install -r scripts/requirements.txt
+python3 scripts/fetch_initiatives.py   # writes data/initiatives.json
+python3 scripts/fetch_financing.py     # writes data/financing.json (run second)
+```
+
+- **`fetch_initiatives.py`** pulls the most recent decided federal votes (with official results) from **VoteInfo** (Federal Chancellery / Federal Statistical Office, via opendata.swiss); **upcoming scheduled votes** and the **pending and signature-gathering popular initiatives** from the Federal Chancellery's **LINDAS** linked-data cubes; and each party's **voting recommendation (Parole)** per ballot from **Swissvotes** (Année Politique Suisse, Uni Bern; CC BY-NC-SA). Titles and results are verbatim from the sources; descriptions are composed from official structured fields, never invented. Items carry a `status` (`upcoming`/`pending`/`collecting`/`adopted`/`rejected`) that drives the site's vote tabs, plus a `deadline` on collecting items and `recommendations` on dated votes.
+- **`fetch_financing.py`** pulls party and campaign financing from the **EFK** transparency register, auto-discovering every vote campaign and matching it to a decided vote in `initiatives.json` by date and title. Run it *after* the initiatives fetcher.
+
+The `.github/workflows/fetch-financing.yml` workflow runs both weekly and commits any changes. On any network/parse failure, each fetcher leaves the existing JSON untouched rather than writing partial or invented data.
 
 Before committing, run the validator:
 

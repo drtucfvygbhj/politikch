@@ -1,0 +1,767 @@
+{
+  "id": 5118,
+  "season": "special",
+  "year": 2023,
+  "start": "2023-02-27",
+  "end": "2023-03-17",
+  "legislativePeriod": 51,
+  "votes": [
+    {
+      "id": 30267,
+      "business": "15.434",
+      "businessNumber": 20150434,
+      "title": {
+        "de": "Bundesgesetz über den Erwerbsersatz (Erwerbsersatzgesetz, EOG)",
+        "fr": "Loi fédérale sur les allocations pour perte de gain (LAPG)",
+        "it": "Legge federale sulle indennità di perdita di guadagno (Legge sulle indennità di perdita di guadagno, LIPG)"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "socialQuestions",
+        "civilLaw",
+        "socialSecurity"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 195,
+        "no": 1,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 1,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30268,
+      "business": "20.026",
+      "businessNumber": 20200026,
+      "title": {
+        "de": "Schweizerische Zivilprozessordnung (Verbesserung der Praxistauglichkeit und der Rechtsdurchsetzung)",
+        "fr": "Code de procédure civile (Amélioration de la praticabilité et de l’application du droit)",
+        "it": "Codice di diritto processuale civile svizzero (Migliorare la praticabilità e l’applicazione del diritto)"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "civilLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 139,
+        "no": 53,
+        "abstain": 2
+      },
+      "byParty": {
+        "SP": {
+          "yes": 37,
+          "no": 0,
+          "abstain": 2
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 53,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30269,
+      "business": "20.089",
+      "businessNumber": 20200089,
+      "title": {
+        "de": "Bundesgesetz über die berufliche Alters-, Hinterlassenen- und Invalidenvorsorge (BVG) (Reform BVG 21)",
+        "fr": "Loi fédérale sur la prévoyance professionnelle vieillesse, survivants et invalidité (LPP) (Réforme LPP 21)",
+        "it": "Legge federale sulla previdenza professionale per la vecchiaia, i superstiti e l’invalidità (LPP) (Riforma LPP 21)"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "socialQuestions",
+        "labour",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 113,
+        "no": 69,
+        "abstain": 15
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 41,
+          "no": 3,
+          "abstain": 10
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 1,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 25,
+          "abstain": 4
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30272,
+      "business": "21.055",
+      "businessNumber": 20210055,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für ein gesundes Klima (Gletscher-Initiative)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire «Pour un climat sain (initiative pour les glaciers)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Per un clima sano (Iniziativa per i ghiacciai)»"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "security",
+        "economy",
+        "transport",
+        "environment",
+        "energy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 109,
+        "no": 87,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 38,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 16,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 26,
+          "no": 3,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 29,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30273,
+      "business": "21.080",
+      "businessNumber": 20210080,
+      "title": {
+        "de": "Strassenverkehrsgesetz (SVG)",
+        "fr": "Loi fédérale sur la circulation routière (LCR)",
+        "it": "Legge federale sulla circolazione stradale (LCStr)"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "transport"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 163,
+        "no": 9,
+        "abstain": 25
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 1
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 2
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 20
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30274,
+      "business": "22.022",
+      "businessNumber": 20220022,
+      "title": {
+        "de": "Bundesgesetz über den Einsatz elektronischer Mittel zur Erfüllung von Behördenaufgaben (EMBAG)",
+        "fr": "Loi fédérale sur l’utilisation des moyens électroniques pour l’exécution des tâches des autorités (LMETA)",
+        "it": "Legge federale concernente l’impiego di mezzi elettronici per l’adempimento dei compiti delle autorità (LMeCA)"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "statePolicy",
+        "media"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 183,
+        "no": 8,
+        "abstain": 6
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 40,
+          "no": 8,
+          "abstain": 6
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30275,
+      "business": "22.043",
+      "businessNumber": 20220043,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für ein besseres Leben im Alter (Initiative für eine 13. AHV-Rente)»",
+        "fr": "Arrêté fédéral concernant l’initiative populaire «Mieux vivre à la retraite (initiative pour une 13e rente AVS)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Vivere meglio la pensione (Iniziativa per una 13esima mensilità AVS)»"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 126,
+        "no": 69,
+        "abstain": 2
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 52,
+          "no": 0,
+          "abstain": 2
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 29,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30277,
+      "business": "22.050",
+      "businessNumber": 20220050,
+      "title": {
+        "de": "Bundesgesetz über die Finanzmarktinfrastrukturen und das Marktverhalten im Effekten- und Derivatehandel (Finanzmarktinfrastrukturgesetz, FinfraG) (Anerkennung ausländischer Handelsplätze für den Handel mit Beteiligungspapieren von Gesellschaften mit Sitz in der Schweiz)",
+        "fr": "Loi fédérale sur les infrastructures des marchés financiers et le comportement sur le marché en matière de négociation de valeurs mobilières et de dérivés (Loi sur l’infrastructure des marchés financiers, LIMF) (Reconnaissance de plates-formes étrangères pour la négociation de titres de participation de sociétés ayant leur siège en Suisse)",
+        "it": "Legge federale sulle infrastrutture del mercato finanziario e il comportamento sul mercato nel commercio di valori mobiliari e derivati (Legge sull’infrastruttura finanziaria, LInFi) (Riconoscimento di sedi di negoziazione estere per il commercio di titoli di partecipazione di società con sede in Svizzera)"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "europe",
+        "finance"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 197,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30278,
+      "business": "22.051",
+      "businessNumber": 20220051,
+      "title": {
+        "de": "Bundesgesetz über die Förderung von Innovation, Zusammenarbeit und Wissensaufbau im Tourismus",
+        "fr": "Loi fédérale encourageant l’innovation, la coopération et la professionnalisation dans le domaine du tourisme",
+        "it": "Legge federale che promuove l’innovazione, la collaborazione e lo sviluppo delle conoscenze nel turismo"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "economy",
+        "finance"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 156,
+        "no": 39,
+        "abstain": 2
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 13,
+          "no": 39,
+          "abstain": 2
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30279,
+      "business": "22.056",
+      "businessNumber": 20220056,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Vertrags zwischen der Schweiz und Kosovo über Rechtshilfe in Strafsachen",
+        "fr": "Arrêté fédéral portant approbation du traité d’entraide judiciaire en matière pénale entre la Suisse et le Kosovo",
+        "it": "Decreto federale che approva il Trattato di assistenza giudiziaria in materia penale tra la Svizzera e il Kosovo"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "international",
+        "criminalLaw",
+        "internationalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 197,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30280,
+      "business": "22.057",
+      "businessNumber": 20220057,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Abkommens zwischen der Schweiz und Albanien über soziale Sicherheit",
+        "fr": "Arrêté fédéral portant approbation de la convention de sécurité sociale entre la Suisse et l’Albanie",
+        "it": "Decreto federale che approva la Convenzione di sicurezza sociale tra la Svizzera e l’Albania"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "international",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 144,
+        "no": 51,
+        "abstain": 2
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 51,
+          "abstain": 2
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30281,
+      "business": "22.059",
+      "businessNumber": 20220059,
+      "title": {
+        "de": "Bundesgesetz über eine leistungsabhängige Schwerverkehrsabgabe (Schwerverkehrsabgabegesetz, SVAG)",
+        "fr": "Loi fédérale concernant une redevance sur le trafic des poids lourds liée aux prestations (Loi relative à une redevance sur le trafic des poids lourds, LRPL)",
+        "it": "Legge federale concernente una tassa sul traffico pesante commisurata alle prestazioni (Legge sul traffico pesante, LTTP)"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "transport",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 197,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30282,
+      "business": "22.431",
+      "businessNumber": 20220431,
+      "title": {
+        "de": "Bundesgesetz über die Krankenversicherung (KVG) (Ausnahmen von der Pflicht einer dreijährigen Tätigkeit)",
+        "fr": "Loi fédérale sur l’assurance-maladie (LAMal) (Exceptions à l’obligation d’avoir exercé pendant trois ans)",
+        "it": "Legge federale sull’assicurazione malattie (LAMal) (Eccezioni all’obbligo di esercitare l’attività per tre anni)"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "health"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 161,
+        "no": 36,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 18,
+          "no": 36,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 30283,
+      "business": "23.008",
+      "businessNumber": 20230008,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Abkommens zwischen dem Departement für Wirtschaft, Bildung und Forschung der Schweizerischen Eidgenossenschaft und dem Bundesministerium für Wirtschaft und Klimaschutz der Bundesrepublik Deutschland über Zusammenarbeit und Koordinierung der Wettbewerbsbehörden",
+        "fr": "Arrêté fédéral portant approbation de l’accord entre le Département de l’économie, de la formation et de la recherche de la Confédération suisse et le Ministère fédéral de l’économie et de la protection du climat de la République fédérale d’Allemagne concernant la coopération et la coordination des autorités de concurrence",
+        "it": "Decreto federale che approva l’Accordo tra il Dipartimento federale dell’economia, della formazione e della ricerca della Confederazione Svizzera e il Ministero federale dell’economia e della protezione del clima della Repubblica federale di Germania concernente la cooperazione e il coordinamento tra le rispettive autorità in materia di concorrenza"
+      },
+      "voteEnd": "2023-03-17",
+      "topics": [
+        "economy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 188,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 49,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}

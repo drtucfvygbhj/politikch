@@ -1,0 +1,777 @@
+{
+  "id": 5202,
+  "season": "special",
+  "year": 2024,
+  "start": "2024-02-26",
+  "end": "2024-03-15",
+  "legislativePeriod": 52,
+  "votes": [
+    {
+      "id": 32288,
+      "business": "20.433",
+      "businessNumber": 20200433,
+      "title": {
+        "de": "Bundesgesetz über den Umweltschutz (Umweltschutzgesetz, USG)",
+        "fr": "Loi fédérale sur la protection de l’environnement (Loi sur la protection de l’environnement, LPE)",
+        "it": "Legge federale sulla protezione dell’ambiente (Legge sulla protezione dell’ambiente, LPAmb)"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "economy",
+        "environment"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 126,
+        "no": 65,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 65,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 20,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32289,
+      "business": "20.456",
+      "businessNumber": 20200456,
+      "title": {
+        "de": "Bundesgesetz über Zweitwohnungen (Zweitwohnungsgesetz, ZWG)",
+        "fr": "Loi fédérale sur les résidences secondaires (LRS)",
+        "it": "Legge federale sulle abitazioni secondarie (Legge sulle abitazioni secondarie, LASec)"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "economy",
+        "environment",
+        "spatialPlanning"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 121,
+        "no": 64,
+        "abstain": 5
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 19,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 38,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 2
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 7,
+          "abstain": 2
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32290,
+      "business": "21.503",
+      "businessNumber": 20210503,
+      "title": {
+        "de": "Bundesgesetz über die Bundesversammlung (Parlamentsgesetz, ParlG) (Budgetberatung und parlamentarisches Mitberichtsverfahren)",
+        "fr": "Loi fédérale sur l’Assemblée fédérale (Loi sur le Parlement, LParl) (Examen du budget et procédure parlementaire de corapport)",
+        "it": "Legge federale sull’Assemblea federale (Legge sul Parlamento, LParl) (Esame preliminare del preventivo e procedura di corapporto parlamentare)"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "statePolicy",
+        "finance",
+        "parliament"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 186,
+        "no": 5,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 3,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 64,
+          "no": 2,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 20,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32291,
+      "business": "22.061",
+      "businessNumber": 20220061,
+      "title": {
+        "de": "Bundesgesetz über die Reduktion der CO2-Emissionen (CO2-Gesetz)",
+        "fr": "Loi fédérale sur la réduction des émissions de CO2 (Loi sur le CO2)",
+        "it": "Legge federale sulla riduzione delle emissioni di CO2 (Legge sul CO2)"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "environment",
+        "energy",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 122,
+        "no": 42,
+        "abstain": 27
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 17,
+          "no": 42,
+          "abstain": 7
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 20
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32292,
+      "business": "22.078",
+      "businessNumber": 20220078,
+      "title": {
+        "de": "Bundesgesetz über die Erfindungspatente (Patentgesetz, PatG)",
+        "fr": "Loi fédérale sur les brevets d’invention (Loi sur les brevets, LBI)",
+        "it": "Legge federale sui brevetti d’invenzione (Legge sui brevetti, LBI)"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "statePolicy",
+        "lawGeneral",
+        "economy",
+        "science"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 20,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32293,
+      "business": "23.030",
+      "businessNumber": 20230030,
+      "title": {
+        "de": "Bundesgesetz über den Wasserbau",
+        "fr": "Loi fédérale sur l’aménagement des cours d’eau",
+        "it": "Legge federale sulla sistemazione dei corsi d’acqua"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "security",
+        "economy",
+        "finance",
+        "environment"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 190,
+        "no": 0,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 20,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32294,
+      "business": "23.050",
+      "businessNumber": 20230050,
+      "title": {
+        "de": "Bundesgesetz über die Familienzulagen und Finanzhilfen an Familienorganisationen (Familienzulagengesetz, FamZG)",
+        "fr": "Loi fédérale sur les allocations familiales et les aides financières allouées aux organisations familiales (Loi sur les allocations familiales, LAFam)",
+        "it": "Legge federale sugli assegni familiari e sugli aiuti finanziari a organizzazioni familiari (Legge sugli assegni familiari, LAFam)"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "statePolicy",
+        "finance",
+        "labour",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 150,
+        "no": 35,
+        "abstain": 6
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 14,
+          "no": 9,
+          "abstain": 4
+        },
+        "SVP": {
+          "yes": 38,
+          "no": 26,
+          "abstain": 2
+        },
+        "GPS": {
+          "yes": 20,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32295,
+      "business": "23.053",
+      "businessNumber": 20230053,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Notenaustausches zwischen der Schweiz und der EU betreffend die Übernahme der Verordnung (EU) 2022/922 über die Einführung und Anwendung eines Evaluierungs- und Überwachungsmechanismus für die Überprüfung der Anwendung des Schengen-Besitzstands und zur Aufhebung der Verordnung (EU) Nr. 1053/2013 (Weiterentwicklung des Schengen-Besitzstands)",
+        "fr": "Arrêté fédéral portant approbation de l’échange de notes entre la Suisse et l’UE concernant la reprise du règlement (UE) 2022/922 relatif à la création et au fonctionnement d’un mécanisme d’évaluation et de contrôle destiné à vérifier l’application de l’acquis de Schengen, et abrogeant le règlement (UE) nº 1053/2013 (Développement de l’acquis de Schengen)",
+        "it": "Decreto federale che approva lo scambio di note tra la Svizzera e l’UE concernente il recepimento del regolamento (EU) 2022/922 sull’istituzione e sul funzionamento di un meccanismo di valutazione e di monitoraggio per verificare l’applicazione dell’acquis di Schengen, che abroga il regolamento (UE) n. 1053/2013 (Sviluppo dell’acquis di Schengen)"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 125,
+        "no": 66,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 66,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 20,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32297,
+      "business": "23.055",
+      "businessNumber": 20230055,
+      "title": {
+        "de": "Bundesbeschluss über die Änderung der Ausbauschritte 2025 und 2035 für die Eisenbahninfrastruktur",
+        "fr": "Arrêté fédéral relatif à la modification des étapes d’aménagement 2025 et 2035 de l’infrastructure ferroviaire",
+        "it": "Decreto federale concernente la modifica delle fasi di ampliamento 2025 e 2035 dell’infrastruttura ferroviaria"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "transport"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 188,
+        "no": 3,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 63,
+          "no": 3,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 20,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32298,
+      "business": "23.058",
+      "businessNumber": 20230058,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Vertrags zwischen der Schweiz und Panama über Rechtshilfe in Strafsachen",
+        "fr": "Arrêté fédéral portant approbation du traité d’entraide judiciaire en matière pénale entre la Suisse et le Panama",
+        "it": "Decreto federale che approva il Trattato di assistenza giudiziaria in materia penale tra la Svizzera e Panama"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "international",
+        "internationalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 20,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32299,
+      "business": "23.059",
+      "businessNumber": 20230059,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Notenaustauschs zwischen der Schweiz und der EU betreffend die Übernahme der Verordnung (EU) 2021/1148 zur Schaffung eines Instruments für finanzielle Hilfe im Bereich Grenzverwaltung und Visumpolitik sowie über die Genehmigung der Zusatzvereinbarung über die Beteiligung der Schweiz an diesem Instrument (Weiterentwicklung des Schengen-Besitzstands)",
+        "fr": "Arrêté fédéral portant approbation, d’une part, de l’Échange de notes entre la Suisse et l’UE concernant la reprise du règlement (UE) 2021/1148 établissant l’instrument de soutien financier à la gestion des frontières et à la politique des visas ainsi que, d’autre part, de l’Accord additionnel relatif à une participation de la Suisse à cet instrument (Développement de l’acquis de Schengen)",
+        "it": "Decreto federale che approva lo scambio di note tra la Svizzera e l’UE concernente il recepimento del regolamento (EU) 2021/1148 che istituisce lo Strumento di sostegno finanziario per la gestione delle frontiere e la politica dei visti e che approva l’accordo aggiuntivo per la partecipazione della Svizzera a tale strumento (Sviluppo dell’acquis di Schengen)"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "international",
+        "europe",
+        "finance",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 100,
+        "no": 66,
+        "abstain": 25
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 66,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 20
+        },
+        "SP": {
+          "yes": 33,
+          "no": 0,
+          "abstain": 5
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32300,
+      "business": "23.061",
+      "businessNumber": 20230061,
+      "title": {
+        "de": "Bundesgesetz über das elektronische Patientendossier (EPDG)",
+        "fr": "Loi fédérale sur le dossier électronique du patient (LDEP)",
+        "it": "Legge federale sulla cartella informatizzata del paziente (LCIP)"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "finance",
+        "media",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 106,
+        "no": 74,
+        "abstain": 11
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 1,
+          "no": 21,
+          "abstain": 5
+        },
+        "SVP": {
+          "yes": 14,
+          "no": 49,
+          "abstain": 3
+        },
+        "GPS": {
+          "yes": 13,
+          "no": 4,
+          "abstain": 3
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32301,
+      "business": "23.431",
+      "businessNumber": 20230431,
+      "title": {
+        "de": "Verordnung der Bundesversammlung über die Richterstellen am Bundesstrafgericht",
+        "fr": "Ordonnance de l’Assemblée fédérale sur les postes de juge au Tribunal pénal fédéral",
+        "it": "Ordinanza dell’Assemblea federale sui posti di giudice presso il Tribunale penale federale"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "criminalLaw",
+        "judiciary"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 125,
+        "no": 66,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 66,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 20,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32302,
+      "business": "23.449",
+      "businessNumber": 20230449,
+      "title": {
+        "de": "Verordnung der Bundesversammlung über die Richterstellen am Bundesverwaltungsgericht",
+        "fr": "Ordonnance de l’Assemblée fédérale sur les postes de juge près le Tribunal administratif fédéral",
+        "it": "Ordinanza dell’Assemblea federale sui posti di giudice presso il Tribunale amministrativo federale"
+      },
+      "voteEnd": "2024-03-15",
+      "topics": [
+        "labour",
+        "judiciary"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 124,
+        "no": 66,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 1,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 20,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}

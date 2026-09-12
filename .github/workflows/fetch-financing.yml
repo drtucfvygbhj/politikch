@@ -1,11 +1,27 @@
-name: Fetch financing data
+name: Fetch live data
 
-# Refreshes data/financing.json from the official EFK party/campaign
-# financing register on a schedule, so the site stays current without
-# anyone needing to push a manual update. Committing the regenerated file
-# is what "publishes" it — the existing deploy workflow then picks up that
-# commit like any other push to main. This keeps the deployed site fully
-# static; only this CI job talks to the EFK's servers.
+# Refreshes the site's live data from official Swiss open-data sources on a
+# schedule, so the site stays current without anyone pushing a manual update:
+#   * data/initiatives.json — latest federal votes (VoteInfo / opendata.swiss)
+#     plus pending & signature-gathering popular initiatives (Federal Chancellery
+#     LINDAS cube).
+#   * data/financing.json — party & campaign financing (EFK register).
+#   * data/canton-data.json — per-canton National Council results and
+#     municipality/district counts (Federal Statistical Office / opendata.swiss).
+#   * data/sessions-index.json + data/sessions/<id>.json — recent Federal
+#     Assembly sessions, their final votes and per-party tallies (parlament.ch
+#     OData web service). Settled sessions are cached per file; only recent ones
+#     are re-fetched, so this stays cheap as history grows.
+#   * data/sessions-translations.json — unofficial EN/RM translations of the new
+#     acts' titles (Swiss acts are official only in DE/FR/IT). Filled by the
+#     Anthropic API for titles that lack one; existing entries are never
+#     overwritten, and without the ANTHROPIC_API_KEY secret this step is a no-op
+#     (the site falls back to the official DE/FR/IT title).
+# Initiatives are fetched first because the financing fetcher matches campaign
+# filings against the decided votes in data/initiatives.json. Committing the
+# regenerated files is what "publishes" them — the existing deploy workflow then
+# picks up that commit like any other push to main. The deployed site stays
+# fully static; only this CI job talks to the official servers.
 on:
   schedule:
     - cron: '0 4 * * 1' # weekly, Monday 04:00 UTC
@@ -28,20 +44,34 @@ jobs:
       - name: Install dependencies
         run: pip install -r scripts/requirements.txt
 
+      - name: Fetch initiatives & referendums
+        run: python3 scripts/fetch_initiatives.py
+
       - name: Fetch financing data
         run: python3 scripts/fetch_financing.py
+
+      - name: Fetch per-canton data (elections & municipalities)
+        run: python3 scripts/fetch_cantons.py
+
+      - name: Fetch Federal Assembly sessions & final votes
+        run: python3 scripts/fetch_sessions.py
+
+      - name: Translate new session act titles (EN + RM)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 scripts/translate_sessions.py
 
       - name: Validate data files
         run: python3 scripts/validate.py
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- data/financing.json; then
-            echo "No changes to data/financing.json"
+          if git diff --quiet -- data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/sessions-translations.json; then
+            echo "No changes to live data files"
             exit 0
           fi
           git config user.name "politikch-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/financing.json
-          git commit -m "Update party/campaign financing data from EFK register"
+          git add data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/sessions-translations.json
+          git commit -m "Update live data (votes, initiatives, financing, cantons, sessions)"
           git push

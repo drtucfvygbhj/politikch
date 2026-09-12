@@ -1,0 +1,665 @@
+{
+  "id": 5206,
+  "season": "winter",
+  "year": 2024,
+  "start": "2024-12-02",
+  "end": "2024-12-20",
+  "legislativePeriod": 52,
+  "votes": [
+    {
+      "id": 33883,
+      "business": "17.400",
+      "businessNumber": 20170400,
+      "title": {
+        "de": "Bundesgesetz über den Systemwechsel bei der Wohneigentumsbesteuerung",
+        "fr": "Loi fédérale relative au changement de système d'imposition de la propriété du logement",
+        "it": "Legge federale concernente il cambio di sistema nell’ambito dell’imposizione della proprietà abitativa"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "taxation",
+        "spatialPlanning"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 106,
+        "no": 69,
+        "abstain": 19
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 15,
+          "no": 7,
+          "abstain": 3
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 62,
+          "no": 2,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 21,
+          "no": 5,
+          "abstain": 4
+        },
+        "GLP": {
+          "yes": 5,
+          "no": 3,
+          "abstain": 2
+        },
+        "GPS": {
+          "yes": 3,
+          "no": 12,
+          "abstain": 8
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33884,
+      "business": "22.066",
+      "businessNumber": 20220066,
+      "title": {
+        "de": "Obligationenrecht (Baumängel)",
+        "fr": "Code des obligations (Défauts de construction)",
+        "it": "Codice delle obbligazioni (Difetti di costruzione)"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "economy",
+        "civilLaw",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 195,
+        "no": 1,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 1,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33885,
+      "business": "22.454",
+      "businessNumber": 20220454,
+      "title": {
+        "de": "Bundesbeschluss über die kantonalen Liegenschaftssteuern auf Zweitliegenschaften",
+        "fr": "Arrêté fédéral relatif à l’impôt immobilier cantonal sur les résidences secondaires",
+        "it": "Decreto federale concernente l’imposta immobiliare cantonale sulle abitazioni secondarie"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "taxation",
+        "spatialPlanning"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 123,
+        "no": 57,
+        "abstain": 14
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 16,
+          "no": 8,
+          "abstain": 2
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 63,
+          "no": 2,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 22,
+          "no": 4,
+          "abstain": 4
+        },
+        "GLP": {
+          "yes": 3,
+          "no": 3,
+          "abstain": 4
+        },
+        "GPS": {
+          "yes": 19,
+          "no": 0,
+          "abstain": 4
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33886,
+      "business": "23.022",
+      "businessNumber": 20230022,
+      "title": {
+        "de": "Bundesgesetz über die Plattformen für die elektronische Kommunikation in der Justiz (BEKJ)",
+        "fr": "Loi fédérale sur les plateformes de communication électronique dans le domaine judiciaire (LPCJ)",
+        "it": "Legge federale concernente le piattaforme per la comunicazione elettronica nella giustizia (LCEG)"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "lawGeneral",
+        "media",
+        "criminalLaw",
+        "judiciary"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 151,
+        "no": 43,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 21,
+          "no": 43,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33887,
+      "business": "23.073",
+      "businessNumber": 20230073,
+      "title": {
+        "de": "Bundesgesetz über den elektronischen Identitätsnachweis und andere elektronische Nachweise (E-ID-Gesetz, BGEID)",
+        "fr": "Loi fédérale sur l’identité électronique et d’autres moyens de preuves électroniques (Loi sur l’e-ID, LeID)",
+        "it": "Legge federale sul mezzo d’identificazione elettronico e altri mezzi di autenticazione elettronici (Legge sull’Id‑e, LIdE)"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "statePolicy",
+        "socialQuestions",
+        "media",
+        "humanRights"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 170,
+        "no": 25,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 40,
+          "no": 25,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33888,
+      "business": "24.033",
+      "businessNumber": 20240033,
+      "title": {
+        "de": "Stromversorgungsgesetz (Stromreserve). Änderung",
+        "fr": "Loi sur l’approvisionnement en électricité (Réserve d’électricité). Modification",
+        "it": "Legge sull’approvvigionamento elettrico (Riserva di energia elettrica). Modifica"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "security",
+        "energy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 101,
+        "no": 87,
+        "abstain": 9
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 3,
+          "no": 22,
+          "abstain": 2
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 17,
+          "no": 44,
+          "abstain": 5
+        },
+        "MITTE": {
+          "yes": 18,
+          "no": 11,
+          "abstain": 2
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 10,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33889,
+      "business": "24.035",
+      "businessNumber": 20240035,
+      "title": {
+        "de": "Bundesbeschluss über den Einsatz elektronischer Kommunikationsmittel in grenzüberschreitenden Zivilprozessen",
+        "fr": "Arrêté fédéral concernant le recours aux moyens de communication électroniques dans les procédures civiles internationales",
+        "it": "Decreto federale sull’impiego dei mezzi di comunicazione elettronici nei procedimenti civili transfrontalieri"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "media",
+        "judiciary",
+        "internationalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 132,
+        "no": 59,
+        "abstain": 6
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 59,
+          "abstain": 6
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33890,
+      "business": "24.039",
+      "businessNumber": 20240039,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung eines Protokolls zur Änderung des Doppelbesteuerungsabkommens zwischen der Schweiz und Serbien",
+        "fr": "Arrêté fédéral portant approbation d’un protocole modifiant la convention contre les doubles impositions entre la Suisse et la Serbie",
+        "it": "Decreto federale che approva un Protocollo che modifica la Convenzione tra la Svizzera e la Serbia per evitare le doppie imposizioni"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 134,
+        "no": 47,
+        "abstain": 16
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 4,
+          "no": 47,
+          "abstain": 15
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33891,
+      "business": "24.044",
+      "businessNumber": 20240044,
+      "title": {
+        "de": "Bundesgesetz über die Verbesserung des Hochwasserschutzes am Rhein von der Illmündung bis zum Bodensee (Alpenrheingesetz)",
+        "fr": "Loi fédérale sur l’amélioration de la protection contre les crues du Rhin de l’embouchure de l’Ill au lac de Constance (Loi relative au Rhin alpin)",
+        "it": "Legge federale sul miglioramento della protezione contro le piene del Reno dalla foce dell’Ill al lago di Costanza (Legge sul Reno alpino)"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "security",
+        "environment"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 162,
+        "no": 28,
+        "abstain": 7
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 31,
+          "no": 28,
+          "abstain": 7
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33892,
+      "business": "24.044",
+      "businessNumber": 20240044,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Staatsvertrags zwischen der Schweizerischen Eidgenossenschaft und der Republik Österreich über die Verbesserung des Hochwasserschutzes am Rhein von der Illmündung bis zum Bodensee",
+        "fr": "Arrêté fédéral portant approbation du Traité entre la Confédération suisse et la République d’Autriche concernant l’amélioration de la protection contre les crues du Rhin de l’embouchure de l’Ill au lac de Constance",
+        "it": "Decreto federale che approva il trattato fra la Confederazione Svizzera e la Repubblica d’Austria sul miglioramento della protezione contro le piene del Reno dalla foce dell’Ill al lago di Costanza"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "security",
+        "environment"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 160,
+        "no": 27,
+        "abstain": 10
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 29,
+          "no": 27,
+          "abstain": 10
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33893,
+      "business": "24.048",
+      "businessNumber": 20240048,
+      "title": {
+        "de": "Bundesgesetz über den Bevölkerungsschutz und den Zivilschutz (Bevölkerungs- und Zivilschutzgesetz, BZG)",
+        "fr": "Loi fédérale sur la protection de la population et sur la protection civile (LPPCi)",
+        "it": "Legge federale sulla protezione della popolazione e sulla protezione civile (LPPC)"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "statePolicy",
+        "security",
+        "environment"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 197,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33894,
+      "business": "24.071",
+      "businessNumber": 20240071,
+      "title": {
+        "de": "Bundesgesetz über das Verbot der Hamas sowie verwandter Organisationen",
+        "fr": "Loi fédérale interdisant le Hamas et les organisations apparentées",
+        "it": "Legge federale che vieta Hamas e le organizzazioni associate"
+      },
+      "voteEnd": "2024-12-20",
+      "topics": [
+        "international",
+        "security"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 175,
+        "no": 5,
+        "abstain": 15
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 8,
+          "no": 0,
+          "abstain": 2
+        },
+        "GPS": {
+          "yes": 6,
+          "no": 5,
+          "abstain": 11
+        }
+      },
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,615 @@
+{
+  "id": 5201,
+  "season": "winter",
+  "year": 2023,
+  "start": "2023-12-04",
+  "end": "2023-12-22",
+  "legislativePeriod": 52,
+  "votes": [
+    {
+      "id": 31758,
+      "business": "09.528",
+      "businessNumber": 20090528,
+      "title": {
+        "de": "Bundesgesetz über die Krankenversicherung (KVG) (Einheitliche Finanzierung der Leistungen im ambulanten und im stationären Bereich)",
+        "fr": "Loi fédérale sur l’assurance-maladie (LAMal) (Financement uniforme des prestations ambulatoires et des prestations avec hospitalisation)",
+        "it": "Legge federale sull’assicurazione malattie (LAMal) (Finanziamento unitario delle prestazioni nel settore ambulatoriale e ospedaliero)"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "health"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 141,
+        "no": 42,
+        "abstain": 15
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 46,
+          "no": 20,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 7,
+          "no": 7,
+          "abstain": 9
+        },
+        "SP": {
+          "yes": 21,
+          "no": 15,
+          "abstain": 4
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31759,
+      "business": "20.034",
+      "businessNumber": 20200034,
+      "title": {
+        "de": "Bundesgesetz über das Internationale Privatrecht (IPRG)",
+        "fr": "Loi fédérale sur le droit international privé (LDIP)",
+        "it": "Legge federale sul diritto internazionale privato (IPRG)"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "civilLaw",
+        "internationalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 67,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 67,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31760,
+      "business": "20.496",
+      "businessNumber": 20200496,
+      "title": {
+        "de": "Bundesgesetz über die Bundesversammlung (Parlamentsgesetz, ParlG) (Planungsbericht)",
+        "fr": "Loi sur l’Assemblée fédérale (Loi sur le Parlement, LParl) (Rapport de planification)",
+        "it": "Legge federale sull’Assemblea federale (Legge sul Parlamento, LParl) (Rapporto programmatico)"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "europe",
+        "finance",
+        "science"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 131,
+        "no": 67,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 67,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31761,
+      "business": "21.065",
+      "businessNumber": 20210065,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Gegen die Verbauung unserer Landschaft (Landschaftsinitiative)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire «Contre le bétonnage de notre paysage (Initiative paysage)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Contro la cementificazione del nostro paesaggio (Iniziativa paesaggio)»"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "environment",
+        "agriculture",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 132,
+        "no": 65,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 67,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 1,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 7,
+          "no": 1,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31762,
+      "business": "22.021",
+      "businessNumber": 20220021,
+      "title": {
+        "de": "Bundesgesetz über die Einführung eines vereinfachten Verfahrens zur Vernichtung von Kleinsendungen im Immaterialgüterrecht",
+        "fr": "Loi fédérale sur l’introduction d’une procédure simplifiée de destruction de petits envois dans le droit de la propriété intellectuelle",
+        "it": "Legge federale che introduce una procedura semplificata per la distruzione di piccoli invii nel diritto della proprietà intellettuale"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "lawGeneral",
+        "economy",
+        "finance"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 198,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 67,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31763,
+      "business": "22.025",
+      "businessNumber": 20220025,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für die Zukunft unserer Natur und Landschaft (Biodiversitätsinitiative)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire «Pour l’avenir de notre nature et de notre paysage (Initiative biodiversité)»",
+        "it": "Decreto federale sull’iniziativa popolare federale «Per il futuro della nostra natura e del nostro paesaggio (Iniziativa biodiversità)»"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "environment",
+        "agriculture",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 124,
+        "no": 72,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 67,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 3,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 3,
+          "no": 6,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31764,
+      "business": "23.035",
+      "businessNumber": 20230035,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Abkommens zwischen der Schweiz und Indonesien über die Förderung und den Schutz von Investitionen",
+        "fr": "Arrêté fédéral portant approbation de l’accord entre la Suisse et l’Indonésie concernant la promotion et la protection réciproque des investissements",
+        "it": "Decreto federale che approva l’Accordo bilaterale tra la Svizzera e l’Indonesia concernente la promozione e la protezione reciproca degli investimenti"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "international",
+        "economy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 132,
+        "no": 64,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 1,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 2
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31766,
+      "business": "23.036",
+      "businessNumber": 20230036,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Strassburger Übereinkommens von 2012 über die Beschränkung der Haftung in der Binnenschifffahrt und über seine Umsetzung (Änderung des Bundesgesetzes über die Seeschifffahrt unter der Schweizer Flagge)",
+        "fr": "Arrêté fédéral portant approbation et mise en œuvre de la Convention de Strasbourg de 2012 sur la limitation de la responsabilité en navigation intérieure (modification de la loi fédérale sur la navigation maritime sous pavillon suisse)",
+        "it": "Decreto federale che approva la Convenzione di Strasburgo del 2012 sulla limitazione della responsabilità nella navigazione interna e la traspone nel diritto svizzero (modifica della legge federale sulla navigazione marittima sotto bandiera svizzera)"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "international",
+        "europe",
+        "transport",
+        "environment",
+        "internationalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 134,
+        "no": 63,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 3,
+          "no": 63,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31767,
+      "business": "23.036",
+      "businessNumber": 20230036,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung der Änderung des Übereinkommens über die Sammlung, Abgabe und Annahme von Abfällen in der Rhein- und Binnenschifffahrt",
+        "fr": "Arrêté fédéral portant approbation de la modification de la Convention relative à la collecte, au dépôt et à la réception des déchets survenant en navigation rhénane et intérieure",
+        "it": "Decreto federale che approva la modifica della Convenzione sulla raccolta, il deposito e il ritiro di rifiuti nella navigazione sul Reno e nella navigazione interna"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "international",
+        "europe",
+        "transport",
+        "environment",
+        "internationalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 134,
+        "no": 61,
+        "abstain": 3
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 3,
+          "no": 61,
+          "abstain": 3
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31768,
+      "business": "23.043",
+      "businessNumber": 20230043,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung eines Protokolls zur Änderung des Doppelbesteuerungsabkommens zwischen der Schweiz und den Vereinigten Arabischen Emiraten",
+        "fr": "Arrêté fédéral portant approbation d’un protocole modifiant la Convention contre les doubles impositions entre la Suisse et les Émirats Arabes Unis",
+        "it": "Arrêté fédéral portant approbation d’un protocole modifiant la Convention contre les doubles impositions entre la Suisse et les Émirats Arabes Unis"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 138,
+        "no": 52,
+        "abstain": 8
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 7,
+          "no": 52,
+          "abstain": 8
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 31769,
+      "business": "23.045",
+      "businessNumber": 20230045,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung des Haager Übereinkommens über Gerichtsstandsvereinbarungen",
+        "fr": "Arrêté fédéral portant approbation et mise en œuvre de la Convention de La Haye sur les accords d’élection de for",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero la Convenzione dell’Aia sugli accordi di scelta del foro"
+      },
+      "voteEnd": "2023-12-22",
+      "topics": [
+        "international",
+        "economy",
+        "judiciary",
+        "internationalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 197,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,614 @@
+{
+  "id": 5212,
+  "season": "spring",
+  "year": 2026,
+  "start": "2026-03-02",
+  "end": "2026-03-20",
+  "legislativePeriod": 52,
+  "votes": [
+    {
+      "id": 35942,
+      "business": "17.523",
+      "businessNumber": 20170523,
+      "title": {
+        "de": "Schweizerisches Zivilgesetzbuch (Doppelnamen bei der Eheschliessung)",
+        "fr": "Code Civil Suisse (Double nom après le mariage)",
+        "it": "Codice civile svizzero (Doppio cognome dopo il matrimonio)"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "socialQuestions",
+        "civilLaw"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 189,
+        "no": 3,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 62,
+          "no": 3,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35943,
+      "business": "22.415",
+      "businessNumber": 20220415,
+      "title": {
+        "de": "Bundesgesetz über Radio und Fernsehen (RTVG)",
+        "fr": "Loi fédérale sur la radio et la télévision (LRTV)",
+        "it": "Legge federale sulla radiotelevisione (LRTV)"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "economy",
+        "media",
+        "taxation",
+        "culture"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 194,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35944,
+      "business": "23.039",
+      "businessNumber": 20230039,
+      "title": {
+        "de": "Bundesgesetz über das nationale System zur Abfrage von Adressen natürlicher Personen (Adressdienstgesetz, ADG)",
+        "fr": "Loi fédérale sur le système national de consultation des adresses des personnes physiques (Loi sur le service des adresses, LSAdr)",
+        "it": "Legge federale sul sistema nazionale di consultazione degli indirizzi delle persone fisiche (Legge sul servizio nazionale degli indirizzi, LSI)"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "statePolicy",
+        "media",
+        "humanRights"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 101,
+        "no": 85,
+        "abstain": 8
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 0,
+          "no": 21,
+          "abstain": 5
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 64,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 2
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35945,
+      "business": "24.092",
+      "businessNumber": 20240092,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Wahrung der schweizerischen Neutralität (Neutralitätsinitiative)»",
+        "fr": "Arrêté fédéral concernant l’initiative populaire «Sauvegarder la neutralité suisse (initiative sur la neutralité)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Salvaguardia della neutralità svizzera (Iniziativa sulla neutralità)»"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "statePolicy",
+        "international",
+        "security"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 124,
+        "no": 65,
+        "abstain": 5
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 3
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35946,
+      "business": "25.027",
+      "businessNumber": 20250027,
+      "title": {
+        "de": "Schweizerisches Strafgesetzbuch (StGB)",
+        "fr": "Code pénal suisse (CP)",
+        "it": "Codice penale svizzero (CP)"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "criminalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 63,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 1,
+          "no": 39,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 1,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35947,
+      "business": "25.063",
+      "businessNumber": 20250063,
+      "title": {
+        "de": "Bundesgesetz über das Entlastungspaket 2027 für den Bundeshaushalt",
+        "fr": "Loi fédérale sur le programme d’allégement budgétaire 2027",
+        "it": "Legge federale sulle misure di sgravio del bilancio della Confederazione applicabili dal 2027"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "statePolicy",
+        "finance"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 130,
+        "no": 63,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 64,
+          "no": 0,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35948,
+      "business": "25.066",
+      "businessNumber": 20250066,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Freihandelsabkommens zwischen den EFTA‑Staaten und Thailand",
+        "fr": "Arrêté fédéral portant approbation de l’Accord de libre-échange entre les États de l’AELE et la Thaïlande",
+        "it": "Decreto federale che approva l’Accordo di libero scambio tra gli Stati dell’AELS e la Thailandia"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "international",
+        "europe",
+        "economy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 0,
+        "abstain": 63
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 40
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 23
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35949,
+      "business": "25.067",
+      "businessNumber": 20250067,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für eine sichere Ernährung – durch Stärkung einer nachhaltigen inländischen Produktion, mehr pflanzliche Lebensmittel und sauberes Trinkwasser (Ernährungsinitiative)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire «Pour une alimentation sûre – grâce au renforcement de la production indigène durable, à davantage de denrées alimentaires végétales et à une eau potable propre (initiative sur l’alimentation)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Per un’alimentazione sicura – mediante il rafforzamento di una produzione nazionale sostenibile, più derrate alimentari vegetali e acqua potabile pulita (Iniziativa sull’alimentazione)»"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "economy",
+        "environment",
+        "agriculture",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 194,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35950,
+      "business": "25.070",
+      "businessNumber": 20250070,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Freihandelsabkommens zwischen den EFTA‑Staaten und der Republik Kosovo",
+        "fr": "Arrêté fédéral portant approbation de l’accord de libre-échange entre les États de l’AELE et la République du Kosovo",
+        "it": "Decreto federale che approva l’Accordo di libero scambio tra gli Stati dell’AELS e la Repubblica del Kosovo"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "international",
+        "europe",
+        "economy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 194,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35951,
+      "business": "25.072",
+      "businessNumber": 20250072,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung der Multilateralen Vereinbarung der zuständigen Behörden über den Austausch von Global-Anti-Base-Erosion-Erklärungen",
+        "fr": "Arrêté fédéral portant approbation de l’accord multilatéral entre autorités compétentes portant sur l’échange de la déclaration d’information Global Anti-Base Erosion",
+        "it": "Decreto federale che approva l’Accordo multilaterale tra Autorità competenti concernente lo scambio di Dichiarazioni di informazioni Global Anti-Base Erosion"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "international",
+        "economy",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 129,
+        "no": 60,
+        "abstain": 5
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 60,
+          "abstain": 5
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35952,
+      "business": "26.022",
+      "businessNumber": 20260022,
+      "title": {
+        "de": "Bundesgesetz über die Unterstützung der Opfer der Brandkatastrophe in Crans-Montana vom 1. Januar 2026",
+        "fr": "Loi fédérale  sur le soutien en faveur des victimes de l’incendie de Crans-Montana du 1er janvier 2026",
+        "it": "Legge federale sul sostegno alle vittime dell’incendio di Crans-Montana del 1° gennaio 2026"
+      },
+      "voteEnd": "2026-03-20",
+      "topics": [
+        "economy",
+        "finance",
+        "environment",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 107,
+        "no": 76,
+        "abstain": 11
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 4,
+          "no": 15,
+          "abstain": 7
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 2,
+          "no": 59,
+          "abstain": 4
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 1,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 1,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}

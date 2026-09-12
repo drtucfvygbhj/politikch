@@ -1,0 +1,892 @@
+{
+  "id": 5204,
+  "season": "special",
+  "year": 2024,
+  "start": "2024-05-27",
+  "end": "2024-06-14",
+  "legislativePeriod": 52,
+  "votes": [
+    {
+      "id": 32978,
+      "business": "19.456",
+      "businessNumber": 20190456,
+      "title": {
+        "de": "Schweizerisches Zivilgesetzbuch (Leistungen von patronalen Wohlfahrtsfonds)",
+        "fr": "Code civil suisse (Prestations des fondations patronales de bienfaisance)",
+        "it": "Codice civile svizzero (Prestazioni dei fondi padronali di previdenza)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "socialQuestions",
+        "civilLaw",
+        "socialSecurity"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 197,
+        "no": 0,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32979,
+      "business": "20.505",
+      "businessNumber": 20200505,
+      "title": {
+        "de": "Verordnung der Bundesversammlung zum Parlamentsgesetz und über die Parlamentsverwaltung (Parlamentsverwaltungsverordnung, ParlVV)",
+        "fr": "Ordonnance de l’Assemblée fédérale portant application de la loi sur le Parlement et relative à l’administration du Parlement (Ordonnance sur l’administration du Parlement, OLPA)",
+        "it": "Ordinanza dell’Assemblea federale relativa alla legge sul Parlamento e all’amministrazione parlamentare (Ordinanza sull’amministrazione parlamentare, Oparl)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "socialQuestions",
+        "media",
+        "parliament",
+        "culture"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 197,
+        "no": 1,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 1,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32980,
+      "business": "21.504",
+      "businessNumber": 20210504,
+      "title": {
+        "de": "Bundesgesetz über die Ausländerinnen und Ausländer und über die Integration (Ausländer- und Integrationsgesetz) (Bei häuslicher Gewalt die Härtefallpraxis nach Art. 50 AIG garantieren)",
+        "fr": "Loi fédérale sur les étrangers et l’intégration (LEI) (Garantir la pratique pour raisons personnelles majeures visée à l’article 50 LEI en cas de violence domestique)",
+        "it": "Legge federale sugli stranieri e la loro integrazione (Garantire la prassi dei casi di rigore secondo l’articolo 50 LStrI in caso di violenza domestica)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "socialQuestions",
+        "criminalLaw",
+        "migration"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 132,
+        "no": 66,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 66,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32981,
+      "business": "22.071",
+      "businessNumber": 20220071,
+      "title": {
+        "de": "Schweizerisches Strafgesetzbuch (Massnahmenpaket Sanktionenvollzug)",
+        "fr": "Code pénal suisse (Train de mesures. Exécution des sanctions)",
+        "it": "Code pénal suisse (Train de mesures. Exécution des sanctions)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "socialQuestions",
+        "criminalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 69,
+        "no": 129,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 66,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": false
+    },
+    {
+      "id": 32982,
+      "business": "22.071",
+      "businessNumber": 20220071,
+      "title": {
+        "de": "Bundesgesetz über das Jugendstrafrecht (Jugendstrafgesetz, JStG) (Massnahmenpaket Sanktionenvollzug)",
+        "fr": "Loi fédérale régissant la condition pénale des mineurs (Droit pénal des mineurs, DPMin) (Train de mesures. Exécution des sanctions)",
+        "it": "Legge federale sul diritto penale minorile (Diritto penale minorile, DPMin) (Pacchetto di misure: esecuzione delle sanzioni)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "socialQuestions",
+        "criminalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 148,
+        "no": 47,
+        "abstain": 3
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 13,
+          "no": 25,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32983,
+      "business": "22.084",
+      "businessNumber": 20220084,
+      "title": {
+        "de": "Bundesgesetz über die Entwicklungsfinanzierungsgesellschaft SIFEM (SIFEM-Gesetz)",
+        "fr": "Loi fédérale sur la société financière de développement SIFEM (Loi SIFEM)",
+        "it": "Legge federale sulla società finanziaria di sviluppo SIFEM (Legge SIFEM)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "international",
+        "economy",
+        "finance",
+        "environment"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 198,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32984,
+      "business": "23.021",
+      "businessNumber": 20230021,
+      "title": {
+        "de": "Bundesgesetz über die Zulassung als Strassentransportunternehmen (STUG)",
+        "fr": "Loi fédérale sur les entreprises de transport par route (LEnTR)",
+        "it": "Legge federale sull’accesso alle professioni di trasportatore su strada (LPTS)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "europe",
+        "labour",
+        "transport"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 198,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32985,
+      "business": "23.048",
+      "businessNumber": 20230048,
+      "title": {
+        "de": "Bundesgesetz über die Krankenversicherung (KVG) (Datenaustausch, Risikoausgleich)",
+        "fr": "Loi fédérale sur l’assurance-maladie (LAMal) (Échange de données, compensation des risques)",
+        "it": "Legge federale sull’assicurazione malattie (LAMal) (Scambio di dati, compensazione dei rischi)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "statePolicy",
+        "europe",
+        "migration",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 198,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32696,
+      "business": "22.071",
+      "businessNumber": 20220071,
+      "title": {
+        "de": "Bundesgesetz über das Jugendstrafrecht (Jugendstrafgesetz, JStG) (Massnahmenpaket Sanktionenvollzug)",
+        "fr": "Loi fédérale régissant la condition pénale des mineurs (Droit pénal des mineurs, DPMin) (Train de mesures. Exécution des sanctions)",
+        "it": "Legge federale sul diritto penale minorile (Diritto penale minorile, DPMin) (Pacchetto di misure: esecuzione delle sanzioni)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "socialQuestions",
+        "criminalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 135,
+        "no": 63,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32986,
+      "business": "23.057",
+      "businessNumber": 20230057,
+      "title": {
+        "de": "Schweizerisches Zivilgesetzbuch (Massnahmen gegen Minderjährigenheiraten)",
+        "fr": "Code civil suisse (Mesures de lutte contre les mariages avec un mineur)",
+        "it": "Codice civile svizzero (Misure contro i matrimoni con minorenni)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "socialQuestions",
+        "civilLaw",
+        "internationalLaw",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 198,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32987,
+      "business": "23.067",
+      "businessNumber": 20230067,
+      "title": {
+        "de": "Bundesgesetz über den Erwerbsersatz (Erwerbsersatzgesetz, EOG) (Digitalisierung in der Erwerbsersatzordnung)",
+        "fr": "Loi fédérale sur les allocations pour perte de gain (LAPG) (Numérisation dans le régime des APG)",
+        "it": "Legge federale sulle indennità di perdita di guadagno (Legge sulle indennità di perdita di guadagno, LIPG) (Digitalizzazione nell’ordinamento delle indennità di perdita di guadagno)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "security",
+        "socialQuestions",
+        "labour",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 132,
+        "no": 65,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32989,
+      "business": "23.070",
+      "businessNumber": 20230070,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Abkommens zwischen der Schweiz und Liechtenstein über den Austausch von Daten betreffend gesperrte Spielerinnen und Spieler im Geldspielbereich",
+        "fr": "Arrêté fédéral concernant l’approbation de l’accord entre la Suisse et le Liechtenstein sur l’échange de données concernant les joueurs frappés d’une mesure d’exclusion liée au domaine des jeux d’argent",
+        "it": "Decreto federale che approva l’Accordo tra la Svizzera e il Liechtenstein concernente lo scambio di dati sui giocatori oggetto di una misura di esclusione dal gioco in denaro"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "international",
+        "economy",
+        "socialQuestions",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 195,
+        "no": 3,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 63,
+          "no": 3,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32990,
+      "business": "23.077",
+      "businessNumber": 20230077,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung eines Protokolls zur Änderung des Doppelbesteuerungsabkommens zwischen der Schweiz und Slowenien",
+        "fr": "Arrêté fédéral portant approbation d’un protocole modifiant la Convention contre les doubles impositions entre la Suisse et la Slovénie",
+        "it": "Decreto federale che approva un Protocollo che modifica la Convenzione tra la Svizzera e la Slovenia per evitare le doppie imposizioni"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 145,
+        "no": 45,
+        "abstain": 7
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 14,
+          "no": 45,
+          "abstain": 7
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32991,
+      "business": "23.080",
+      "businessNumber": 20230080,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung eines Zusatzabkommens zum Doppelbesteuerungsabkommen zwischen der Schweiz und Frankreich",
+        "fr": "Arrêté fédéral concernant l’approbation et la mise en œuvre d’un avenant à la Convention contre les doubles impositions entre la Suisse et la France",
+        "it": "Decreto federale che approva e attua un Accordo aggiuntivo alla Convenzione tra la Svizzera e la Francia per evitare le doppie imposizioni"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 196,
+        "no": 1,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 64,
+          "no": 1,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32992,
+      "business": "23.084",
+      "businessNumber": 20230084,
+      "title": {
+        "de": "Bundesgesetz über die obligatorische Arbeitslosenversicherung und die Insolvenzentschädigung (Arbeitslosenversicherungsgesetz, AVIG) (Entschädigungssystem der Arbeitslosenkassen)",
+        "fr": "Loi fédérale sur l’assurance-chômage obligatoire et l’indemnité en cas d’insolvabilité (Loi sur l’assurance-chômage, LACI) (Système d’indemnisation des caisses de chômage)",
+        "it": "Legge federale sull’assicurazione obbligatoria contro la disoccupazione e l’indennità per insolvenza (Legge sull’assicurazione contro la disoccupazione, LADI) (Sistema di rimborso delle casse di disoccupazione)"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "finance",
+        "labour",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 197,
+        "no": 0,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 32993,
+      "business": "24.024",
+      "businessNumber": 20240024,
+      "title": {
+        "de": "Bundesgesetz über die Besteuerung der Telearbeit im internationalen Verhältnis",
+        "fr": "Loi fédérale sur l’imposition du télétravail dans le contexte international",
+        "it": "Legge federale sull’imposizione del telelavoro in ambito internazionale"
+      },
+      "voteEnd": "2024-06-14",
+      "topics": [
+        "europe",
+        "labour",
+        "taxation",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 195,
+        "no": 1,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 1,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}
