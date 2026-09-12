@@ -12,11 +12,11 @@ name: Fetch live data
 #     Assembly sessions, their final votes and per-party tallies (parlament.ch
 #     OData web service). Settled sessions are cached per file; only recent ones
 #     are re-fetched, so this stays cheap as history grows.
-#   * data/sessions-translations.json — unofficial EN/RM translations of the new
-#     acts' titles (Swiss acts are official only in DE/FR/IT). Filled by the
-#     Anthropic API for titles that lack one; existing entries are never
-#     overwritten, and without the ANTHROPIC_API_KEY secret this step is a no-op
-#     (the site falls back to the official DE/FR/IT title).
+# Unofficial EN/RM titles for new votes/acts are NOT machine-translated (the
+# project uses no AI/translation API). Instead check_translations.py records any
+# missing ones in TRANSLATIONS_TODO.md and this job opens/refreshes a GitHub
+# issue as a reminder to translate them by hand. Until then the site falls back
+# to the official DE/FR/IT title.
 # Initiatives are fetched first because the financing fetcher matches campaign
 # filings against the decided votes in data/initiatives.json. Committing the
 # regenerated files is what "publishes" them — the existing deploy workflow then
@@ -29,6 +29,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   fetch:
@@ -56,22 +57,39 @@ jobs:
       - name: Fetch Federal Assembly sessions & final votes
         run: python3 scripts/fetch_sessions.py
 
-      - name: Translate new session act titles (EN + RM)
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python3 scripts/translate_sessions.py
+      - name: Check for titles needing a hand translation
+        run: python3 scripts/check_translations.py
 
       - name: Validate data files
         run: python3 scripts/validate.py
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/sessions-translations.json; then
+          if git diff --quiet -- data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions TRANSLATIONS_TODO.md; then
             echo "No changes to live data files"
             exit 0
           fi
           git config user.name "politikch-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/sessions-translations.json
+          git add data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions TRANSLATIONS_TODO.md
           git commit -m "Update live data (votes, initiatives, financing, cantons, sessions)"
           git push
+
+      # Reminder to translate new titles by hand — opens or refreshes one GitHub
+      # issue (uses the built-in GITHUB_TOKEN, no external/AI key). Best-effort.
+      - name: Open/refresh translation reminder issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q "need translation" TRANSLATIONS_TODO.md 2>/dev/null; then
+            title="Translations needed for new titles"
+            num=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number // empty' 2>/dev/null || true)
+            if [ -n "$num" ]; then
+              gh issue edit "$num" --body-file TRANSLATIONS_TODO.md || true
+            else
+              gh issue create --title "$title" --body-file TRANSLATIONS_TODO.md || true
+            fi
+          else
+            echo "No pending translations; no reminder issue needed."
+          fi
