@@ -1,4 +1,5 @@
 import { MAP_PATHS } from './map-data.js';
+import { configureShare, wireShares, mountShare } from './share.js';
 
 /* ============================================================
    State
@@ -114,6 +115,101 @@ function t(key) {
 function localized(obj) {
   if (!obj) return '';
   return obj[state.lang] || obj.en || Object.values(obj)[0] || '';
+}
+
+/* ============================================================
+   Share specs — build the link-agnostic descriptions the share
+   module (js/share.js) redraws onto a branded canvas. Built lazily
+   at click time so the current language and live data are used.
+   ============================================================ */
+const SHARE_CTX = () => ({ origin: location.origin });
+
+// Party seats as ordered legend/seat data (left→right by spectrum position, as
+// the on-page hemicycles are ordered). Used for chamber and delegation charts.
+function seatSpecFromSeats(seatData) {
+  return Object.entries(seatData)
+    .filter(([, n]) => n > 0)
+    .sort((a, b) => (state.data.parties[a[0]]?.spectrum?.x ?? 50) - (state.data.parties[b[0]]?.spectrum?.x ?? 50))
+    .map(([k, n]) => ({ label: state.data.parties[k]?.abbr || k, color: state.data.parties[k]?.color || '#999', seats: n }));
+}
+// Home-page chamber seat totals derived live from the party data.
+function chamberSeats(which) {
+  const key = which === 'nc' ? 'ncSeats' : 'csSeats';
+  const o = {};
+  Object.entries(state.data.parties).forEach(([k, p]) => { if (p[key]) o[k] = p[key]; });
+  return o;
+}
+// Pie share spec from aggregated donor slices ({slug,name,amount}). tailSum is
+// the merged "other donors" remainder, if any.
+function pieSpecFromDonors(agg, title, route, totalLabel) {
+  const slices = agg.slice(0, FIN_MAX_SLICES).map((d, i) => ({
+    label: d.name, value: d.amount, valueText: formatCHF(d.amount), color: finColor(i),
+  }));
+  const tail = agg.slice(FIN_MAX_SLICES).reduce((s, d) => s + d.amount, 0);
+  if (tail > 0) slices.push({ label: t('financing.moreDonors'), value: tail, valueText: formatCHF(tail), color: FIN_OTHER_COLOR });
+  const total = agg.reduce((s, d) => s + d.amount, 0);
+  const tl = totalLabel || t('financing.total');
+  return {
+    kind: 'pie', title, route, subtitle: `${tl} · ${formatCHF(total)}`,
+    slices, totalText: formatCHF(total), totalLabel: tl,
+  };
+}
+// Two-axis spectrum spec from the party set (+ optional endorser highlighting
+// and coalition midpoint, matching voteScaleHTML).
+function spectrumSpec(title, route, opts) {
+  opts = opts || {};
+  const on = opts.onKeys ? new Set(opts.onKeys) : null;
+  const dots = Object.entries(state.data.parties)
+    .filter(([, p]) => p.spectrum)
+    .map(([k, p]) => ({
+      label: p.abbr || k, x: p.spectrum.x, y: p.spectrum.y,
+      color: p.color, on: on ? on.has(k) : true,
+    }));
+  const spec = {
+    kind: 'spectrum', title, route, dots,
+    axes: { left: t('spec.axisLeft'), right: t('spec.axisRight'), top: t('spec.axisTop'), bottom: t('spec.axisBottom') },
+  };
+  if (opts.marker) spec.marker = opts.marker;
+  return spec;
+}
+// Federal Council arc: the seven members as party-coloured discs.
+function shareCouncilSpec() {
+  const members = (state.data.council && state.data.council.members) || [];
+  const byParty = {};
+  members.forEach(m => { byParty[m.party] = (byParty[m.party] || 0) + 1; });
+  return {
+    kind: 'arc', title: t('council.title'), subtitle: t('council.sub'),
+    total: members.length, seats: seatSpecFromSeats(byParty),
+  };
+}
+// The current hash route as a plain "view[/id]" path, for linking a shared
+// graph back to the page it lives on (used by graphs without their own route).
+function currentRoute() {
+  const r = parseHash();
+  if (!r || !r.view) return '';
+  return r.id != null ? `${r.view}/${r.id}` : r.view;
+}
+// Plain-text title for a session vote (unofficial translation, else official).
+function plainVoteTitle(v) {
+  return voteTransTitle(v) || (v.title && (v.title[state.lang] || v.title.de || v.title.fr || v.title.it || v.title.en)) || ('#' + v.businessNumber);
+}
+// Vote-hemicycle share spec from a session vote's per-party Yes/No/abstain.
+function voteHemiSpec(vote) {
+  const parties = state.data.parties;
+  const ordered = Object.keys(vote.byParty)
+    .filter(k => parties[k])
+    .sort((a, b) => (parties[a]?.spectrum?.x ?? 50) - (parties[b]?.spectrum?.x ?? 50));
+  let y = 0, n = 0, ab = 0;
+  const groups = ordered.map(k => {
+    const g = vote.byParty[k];
+    y += g.yes || 0; n += g.no || 0; ab += g.abstain || 0;
+    return { label: parties[k].abbr || k, color: parties[k].color || '#999', yes: g.yes || 0, no: g.no || 0, abstain: g.abstain || 0 };
+  });
+  return { kind: 'voteHemicycle', title: plainVoteTitle(vote), route: currentRoute(), groups, tallies: { yes: y, no: n, abstain: ab } };
+}
+// Attach a share button to a chart card, resolving its spec lazily.
+function shareChart(host, getSpec) {
+  if (host) mountShare(host, getSpec, SHARE_CTX());
 }
 
 /* ============================================================
@@ -240,7 +336,10 @@ function financingBlockHTML(donors, opts) {
       + `<span class="fin-dot" style="background:${color}"></span>${name}`
       + `<span class="fin-amt">${formatCHF(d.amount)}</span></div>`;
   }).join('');
-  return `<div class="fin-block">${head}`
+  const shareAttr = opts.shareTitle
+    ? ` data-share="${escapeAttr(JSON.stringify(pieSpecFromDonors(agg, opts.shareTitle, opts.shareRoute)))}"`
+    : '';
+  return `<div class="fin-block"${shareAttr}>${head}`
     + `<div class="fin-chartwrap">${renderPie(slices)}</div>`
     + `<div class="fin-rows">${rows}</div></div>`;
 }
@@ -329,7 +428,14 @@ function renderDonorPage(slug) {
     + `<div class="donor-stats"><div class="stat-box"><div class="big">${formatCHF(entry.total)}</div>`
     + `<div class="lbl">${t('donor.total')}</div></div></div>`
     + `<h3 class="canton-section-title">${t('donor.contributionsTitle')}</h3>`
-    + `<div class="fin-block donor-fin"><div class="fin-chartwrap">${renderPie(slices)}</div>`
+    + `<div class="fin-block donor-fin" data-share="${escapeAttr(JSON.stringify({
+        kind: 'pie',
+        title: `${titleEl.textContent} — ${t('donor.contributionsTitle')}`,
+        route: `donor/${slug}`,
+        subtitle: `${t('donor.total')} · ${formatCHF(entry.total)}`,
+        slices: slices.map(s => ({ label: s.label, value: s.value, valueText: formatCHF(s.value), color: s.color })),
+        totalText: formatCHF(entry.total), totalLabel: t('donor.total'),
+      }))}"><div class="fin-chartwrap">${renderPie(slices)}</div>`
     + `<div class="fin-rows fin-rows-side">${rows}</div></div>`
     + renderFinancingSource()
     + `<div class="donor-links">`
@@ -337,6 +443,7 @@ function renderDonorPage(slug) {
     + `<a class="resource-link" href="https://politikfinanzierung.efk.admin.ch" target="_blank" rel="noopener noreferrer">${t('donor.register')} <span class="arrow">↗</span></a>`
     + `</div>`;
   wireFinancingHighlights(bodyEl);
+  wireShares(bodyEl, SHARE_CTX());
 }
 
 function applyStaticTranslations() {
@@ -688,9 +795,9 @@ function voteScaleHTML(init, opts) {
   // with a leader line routed out to the nearest side and a label sitting a
   // short gap beyond the line's tip so the two never overlap.
   let marker = '';
+  const avgX = endorsers.length ? endorsers.reduce((s, [, p]) => s + p.spectrum.x, 0) / endorsers.length : 50;
+  const avgY = endorsers.length ? endorsers.reduce((s, [, p]) => s + p.spectrum.y, 0) / endorsers.length : 50;
   if (endorsers.length) {
-    const avgX = endorsers.reduce((s, [, p]) => s + p.spectrum.x, 0) / endorsers.length;
-    const avgY = endorsers.reduce((s, [, p]) => s + p.spectrum.y, 0) / endorsers.length;
     const mx = +avgX.toFixed(1), my = +(100 - avgY).toFixed(1);
     const left = avgX < 50;                 // nearest border (left/right)
     const labelX = left ? -10 : 110;        // label sits outside that border…
@@ -703,10 +810,18 @@ function voteScaleHTML(init, opts) {
   }
 
   const cls = 'vote-scale' + (opts.large ? ' vote-scale-lg' : '') + (clickable ? ' vote-scale-interactive' : '');
+  let shareAttr = '';
+  if (opts.share) {
+    const spec = spectrumSpec(opts.share.title, opts.share.route, {
+      onKeys: endorsers.map(([k]) => k),
+      marker: endorsers.length ? { x: avgX, y: 100 - avgY, label: leaningWords(avgX, avgY) } : null,
+    });
+    shareAttr = ` data-share="${escapeAttr(JSON.stringify(spec))}"`;
+  }
   // viewBox padded on every side so the axis labels and endorsers' callout sit
   // outside the 0–100 plot, clear of the axis lines; the plot itself is centred.
   return `
-    <div class="${cls}" data-scale>
+    <div class="${cls}" data-scale${shareAttr}>
       <div class="vote-endorsers">${chips}</div>
       <div class="scale-row">
         <svg class="mini-spectrum" viewBox="-32 -14 164 138" role="img" aria-label="${t('vote.endorsedBy')}">
@@ -1309,7 +1424,7 @@ function renderInitiativePage(id) {
       </div>
       <div class="detail-top-right">
         <h3 class="canton-section-title" style="margin-top:0">${t('init.scaleTitle')}</h3>
-        ${voteScaleHTML(init, { large: true, interactive: true })}
+        ${voteScaleHTML(init, { large: true, interactive: true, share: { title: `${t('init.scaleTitle')} — ${initTitlePlain(init)}`, route: `initiative/${id}` } })}
       </div>
     </div>
     <h3 class="canton-section-title" style="margin-top:48px">${t('rec.title')}${termHelp('parole')}</h3>
@@ -1330,6 +1445,7 @@ function renderInitiativePage(id) {
     btn.addEventListener('click', () => navigate('party/' + btn.dataset.party));
   });
   wireFinancingHighlights(content);
+  wireShares(content, SHARE_CTX());
 }
 
 // Party voting recommendations (Parolen) for one vote, split into three
@@ -1388,6 +1504,8 @@ function renderInitiativeFinancing(id, fillFin) {
     heading: t(labelKey),
     total: sides[sideKey].totalRevenue,
     actors: sides[sideKey].actorCount,
+    shareTitle: `${t(labelKey)} — ${t('init.financing.title')}`,
+    shareRoute: `initiative/${id}`,
   });
   return `
     <div class="canton-grid fin-grid" style="margin-top:8px">
@@ -1762,7 +1880,17 @@ function renderCantonSeats(cd) {
   const seatData = {};
   cd.nc.parties.filter(p => p.seats > 0)
     .forEach(p => { seatData[p.key || localized(p.name)] = p.seats; });
-  if (Object.keys(seatData).length) renderHemicycle('canton-nc-hemicycle', seatData, cd.nc.totalSeats);
+  if (Object.keys(seatData).length) {
+    renderHemicycle('canton-nc-hemicycle', seatData, cd.nc.totalSeats);
+    const cantonName = document.getElementById('canton-title')?.textContent || '';
+    shareChart(container.closest('.cnc'), () => ({
+      kind: 'hemicycle',
+      title: `${cantonName} — ${t('canton.elections')}`,
+      subtitle: t('canton.nc.heading').replace('{year}', cd.nc.year),
+      total: cd.nc.totalSeats,
+      seats: seatSpecFromSeats(seatData),
+    }));
+  }
 }
 
 // "Municipalities": count of political municipalities (and districts) in the
@@ -1852,6 +1980,7 @@ function renderPartyPage(key) {
     btn.addEventListener('click', () => { state.partyTab = btn.dataset.ptab; renderPartyVotes(key); });
   });
   wireFinancingHighlights(document.getElementById('party-extra'));
+  wireShares(document.getElementById('party-extra'), SHARE_CTX());
   applyStaticTranslations();
   renderPartyVotes(key);
 }
@@ -1892,7 +2021,7 @@ function renderPartyFinancing(key, p, fillFin) {
       <div class="detail-fact"><strong>${t('financing.mandateFees')}</strong><span>${formatCHF(f.mandateFees)}</span></div>
     </div>
     <h4 class="canton-section-title" style="font-size:16px;margin-top:24px">${t('financing.topDonors')}</h4>
-    ${financingBlockHTML(f.largeDonors, {})}
+    ${financingBlockHTML(f.largeDonors, { shareTitle: `${t('financing.topDonors')} — ${p.abbr || localized(p.name)}`, shareRoute: `party/${key}` })}
     ${renderFinancingSource()}
     <div style="margin-top:16px">
       <a class="resource-link" href="https://politikfinanzierung.efk.admin.ch" target="_blank" rel="noopener noreferrer">${t('party.financing.link')} <span class="arrow">↗</span></a>
@@ -2342,6 +2471,7 @@ function wireVoteCards(host, votes) {
         const g = el.querySelector('.svote-graphic');
         wireCrossHighlight(g);
         wirePartyNav(g);
+        mountShare(g, () => voteHemiSpec(vote), SHARE_CTX());
       }
     });
   });
@@ -2742,6 +2872,7 @@ function bindEvents() {
    Boot
    ============================================================ */
 async function init() {
+  configureShare({ t, lang: () => state.lang });
   try {
     await loadData();
   } catch (err) {
@@ -2776,6 +2907,17 @@ async function init() {
   renderLegend('cs-legend', csSeats);
   renderFederalCouncil();
   renderSpectrum();
+  // Share buttons on the home-page graphs (mounted once; specs read live data).
+  shareChart(document.getElementById('nc-hemicycle').closest('.chamber-card'), () => ({
+    kind: 'hemicycle', title: t('parl.nc'), subtitle: t('parl.ncsub'), total: 200,
+    seats: seatSpecFromSeats(chamberSeats('nc')),
+  }));
+  shareChart(document.getElementById('cs-hemicycle').closest('.chamber-card'), () => ({
+    kind: 'hemicycle', title: t('parl.cs'), subtitle: t('parl.cssub'), total: 46,
+    seats: seatSpecFromSeats(chamberSeats('cs')),
+  }));
+  shareChart(document.querySelector('.council-card'), () => shareCouncilSpec());
+  shareChart(document.getElementById('spectrum-chart'), () => spectrumSpec(t('spec.title'), '', {}));
   renderInitiatives();
   initScrollReveal();
   bindEvents();

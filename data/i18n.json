@@ -350,7 +350,17 @@
     "donor.editorial": "Editorial description; contribution figures from the EFK register.",
     "donor.side.party": "Party",
     "donor.register": "View on the EFK transparency register",
-    "donor.website": "Official website"
+    "donor.website": "Official website",
+    "share.button": "Share this graph",
+    "share.menuLabel": "Share options",
+    "share.saveImage": "Save image",
+    "share.copyLink": "Copy link",
+    "share.copied": "Link copied",
+    "share.nativeShare": "Share…",
+    "share.imageNote": "Independent · non-partisan",
+    "share.vote.yes": "Yes",
+    "share.vote.no": "No",
+    "share.vote.abstain": "Abstain"
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -703,7 +713,17 @@
     "donor.editorial": "Redaktionelle Beschreibung; Beitragszahlen aus dem EFK-Register.",
     "donor.side.party": "Partei",
     "donor.register": "Im EFK-Transparenzregister ansehen",
-    "donor.website": "Offizielle Website"
+    "donor.website": "Offizielle Website",
+    "share.button": "Diese Grafik teilen",
+    "share.menuLabel": "Teilen-Optionen",
+    "share.saveImage": "Bild speichern",
+    "share.copyLink": "Link kopieren",
+    "share.copied": "Link kopiert",
+    "share.nativeShare": "Teilen…",
+    "share.imageNote": "Unabhängig · überparteilich",
+    "share.vote.yes": "Ja",
+    "share.vote.no": "Nein",
+    "share.vote.abstain": "Enthaltung"
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -1056,7 +1076,17 @@
     "donor.editorial": "Description éditoriale ; montants issus du registre du CDF.",
     "donor.side.party": "Parti",
     "donor.register": "Voir dans le registre de transparence du CDF",
-    "donor.website": "Site officiel"
+    "donor.website": "Site officiel",
+    "share.button": "Partager ce graphique",
+    "share.menuLabel": "Options de partage",
+    "share.saveImage": "Enregistrer l'image",
+    "share.copyLink": "Copier le lien",
+    "share.copied": "Lien copié",
+    "share.nativeShare": "Partager…",
+    "share.imageNote": "Indépendant · non partisan",
+    "share.vote.yes": "Oui",
+    "share.vote.no": "Non",
+    "share.vote.abstain": "Abstention"
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -1409,7 +1439,17 @@
     "donor.editorial": "Descrizione redazionale; importi dal registro del CDF.",
     "donor.side.party": "Partito",
     "donor.register": "Guarda nel registro della trasparenza del CDF",
-    "donor.website": "Sito ufficiale"
+    "donor.website": "Sito ufficiale",
+    "share.button": "Condividi questo grafico",
+    "share.menuLabel": "Opzioni di condivisione",
+    "share.saveImage": "Salva immagine",
+    "share.copyLink": "Copia link",
+    "share.copied": "Link copiato",
+    "share.nativeShare": "Condividi…",
+    "share.imageNote": "Indipendente · super partes",
+    "share.vote.yes": "Sì",
+    "share.vote.no": "No",
+    "share.vote.abstain": "Astensione"
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -1762,6 +1802,16 @@
     "donor.editorial": "Descripziun redacziunala; imports dal register dal CDF.",
     "donor.side.party": "Partida",
     "donor.register": "Vesair en il register da transparenza dal CDF",
-    "donor.website": "Website uffizial"
+    "donor.website": "Website uffizial",
+    "share.button": "Cundivider questa grafica",
+    "share.menuLabel": "Opziuns da cundivider",
+    "share.saveImage": "Memorisar il maletg",
+    "share.copyLink": "Copiar il link",
+    "share.copied": "Link copià",
+    "share.nativeShare": "Cundivider…",
+    "share.imageNote": "Independent · betg partidus",
+    "share.vote.yes": "Gea",
+    "share.vote.no": "Na",
+    "share.vote.abstain": "Abstenziun"
   }
 }
