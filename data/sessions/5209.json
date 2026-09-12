@@ -1,0 +1,1067 @@
+{
+  "id": 5209,
+  "season": "summer",
+  "year": 2025,
+  "start": "2025-06-02",
+  "end": "2025-06-20",
+  "legislativePeriod": 52,
+  "votes": [
+    {
+      "id": 34669,
+      "business": "19.433",
+      "businessNumber": 20190433,
+      "title": {
+        "de": "Bundesgesetz über die Verbesserung des strafrechtlichen Schutzes vor Nachstellung (Änderung des Strafgesetzbuchs, des Militärstrafgesetzes und des Militärstrafprozesses)",
+        "fr": "Loi fédérale visant à améliorer la protection pénale contre le harcèlement obsessionnel (Modification du code pénal, du code pénal militaire et de la procédure pénale militaire)",
+        "it": "Legge federale concernente il miglioramento della protezione penale contro gli atti persecutori (Modifica del Codice penale, del Codice penale militare e della procedura penale militare)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "media",
+        "criminalLaw"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 138,
+        "no": 51,
+        "abstain": 8
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 7,
+          "no": 51,
+          "abstain": 8
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34670,
+      "business": "22.058",
+      "businessNumber": 20220058,
+      "title": {
+        "de": "Bundesgesetz über den Allgemeinen Teil der Abgabenerhebung und die Kontrolle des grenzüberschreitenden Waren- und Personenverkehrs durch das Bundesamt für Zoll und Grenzsicherheit (BAZG-Vollzugsaufgabengesetz, BAZG-VG)",
+        "fr": "Loi fédérale sur la partie générale relative à la perception des redevances et sur le contrôle de la circulation transfrontalière des marchandises et des personnes par l'Office fédéral de la douane et de la sécurité des frontières (Loi définissant les tâches d'exécution de l'OFDF, LE-OFDF)",
+        "it": "Legge federale sulla parte generale della riscossione dei tributi e sul controllo del traffico transfrontaliero di merci e persone da parte dell’Ufficio federale della dogana e della sicurezza dei confini (Legge sui compiti d’esecuzione dell’UDSC, LE-UDSC)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "statePolicy",
+        "international",
+        "security",
+        "economy",
+        "finance",
+        "media",
+        "taxation",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 66,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 41,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 64,
+          "no": 2,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34671,
+      "business": "22.058",
+      "businessNumber": 20220058,
+      "title": {
+        "de": "Bundesgesetz über die Zollpflicht und die Bemessung der Zollabgaben (Zollabgabengesetz, ZoG)",
+        "fr": "Loi fédérale sur l'assujettissement aux droits de douane et la détermination des droits de douane (Loi sur les droits de douane, LDD)",
+        "it": "Legge federale sull’obbligo doganale e sulla determinazione dei tributi doganali (Legge sui tributi doganali, LTDo)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "statePolicy",
+        "international",
+        "security",
+        "economy",
+        "finance",
+        "media",
+        "taxation",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 65,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 41,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 64,
+          "no": 1,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34672,
+      "business": "22.058",
+      "businessNumber": 20220058,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung der bilateralen Abkommen zwischen der Schweiz und der EU über die Assoziierung an Schengen und an Dublin",
+        "fr": "Arrêté fédéral portant approbation et mise en œuvre des accords bilatéraux d'association à l'Espace Schengen et à l'Espace Dublin",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero gli accordi bilaterali con l’UE per l’associazione della Svizzera alla normativa di Schengen e Dublino"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "statePolicy",
+        "international",
+        "security",
+        "economy",
+        "finance",
+        "media",
+        "taxation",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 197,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34673,
+      "business": "23.049",
+      "businessNumber": 20230049,
+      "title": {
+        "de": "Bundesgesetz über Tabakprodukte und elektronische Zigaretten (Tabakproduktegesetz, TabPG)",
+        "fr": "Loi fédérale sur les produits du tabac et les cigarettes électroniques (Loi sur les produits du tabac, LPTab)",
+        "it": "Legge federale sui prodotti del tabacco e sulle sigarette elettroniche (Legge sui prodotti del tabacco, LPTab)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "economy",
+        "socialQuestions",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 175,
+        "no": 9,
+        "abstain": 13
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 3
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 47,
+          "no": 9,
+          "abstain": 10
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34674,
+      "business": "23.085",
+      "businessNumber": 20230085,
+      "title": {
+        "de": "Schweizerisches Zivilgesetzbuch (Besitzesschutz bei verbotener Eigenmacht an Grundstücken)",
+        "fr": "Code civil (Protection contre les atteintes à la possession d’un immeuble)",
+        "it": "Codice civile (Protezione del possesso contro le turbative e le usurpazioni illecite di fondi)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "civilLaw",
+        "humanRights",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 122,
+        "no": 75,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 41,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 11,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34676,
+      "business": "24.026",
+      "businessNumber": 20240026,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für eine zivilstandsunabhängige Individualbesteuerung»",
+        "fr": "Arrêté fédéral concernant l’initiative populaire «Pour une imposition individuelle indépendante de l’état civil» (Initiative pour des impôts équitables)",
+        "it": "Decreto federale concernente l’iniziativa popolare «Per un’imposizione individuale a prescindere dallo stato civile» (Iniziativa per imposte eque)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "socialQuestions",
+        "civilLaw",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 101,
+        "no": 93,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 63,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 0,
+          "no": 30,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34677,
+      "business": "24.026",
+      "businessNumber": 20240026,
+      "title": {
+        "de": "Bundesgesetz über die Individualbesteuerung",
+        "fr": "Loi fédérale sur l’imposition individuelle",
+        "it": "Legge federale sull’imposizione individuale"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "socialQuestions",
+        "civilLaw",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 101,
+        "no": 93,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 63,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 0,
+          "no": 30,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34678,
+      "business": "24.027",
+      "businessNumber": 20240027,
+      "title": {
+        "de": "Bundesgesetz über die Schweizerische Nationalbibliothek (Nationalbibliotheksgesetz, NBibG)",
+        "fr": "Loi fédérale sur la Bibliothèque nationale suisse (Loi sur la Bibliothèque nationale, LBNS)",
+        "it": "Legge federale sulla Biblioteca nazionale svizzera (Legge sulla biblioteca nazionale, LBNS)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "finance",
+        "culture"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 132,
+        "no": 63,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 63,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34679,
+      "business": "24.033",
+      "businessNumber": 20240033,
+      "title": {
+        "de": "Bundesgesetz über die Stromversorgung (Stromversorgungsgesetz, StromVG) (Stromreserve)",
+        "fr": "Loi sur l’approvisionnement en électricité (LApEI) (Réserve d’électricité)",
+        "it": "Legge sull’approvvigionamento elettrico (LAEl) (Riserva di energia elettrica)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "security",
+        "energy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 183,
+        "no": 13,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 52,
+          "no": 13,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34688,
+      "business": "24.068",
+      "businessNumber": 20240068,
+      "title": {
+        "de": "Bundespersonalgesetz (BPG)",
+        "fr": "Loi sur le personnel de la Confédération (LPers)",
+        "it": "Legge sul personale federale (LPers)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "statePolicy",
+        "lawGeneral",
+        "media",
+        "labour",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 194,
+        "no": 1,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 1,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 21,
+          "no": 0,
+          "abstain": 2
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34680,
+      "business": "24.070",
+      "businessNumber": 20240070,
+      "title": {
+        "de": "Bundesgesetz über Ergänzungsleistungen zur Alters-, Hinterlassenen- und Invalidenversicherung (ELG)",
+        "fr": "Loi fédérale sur les prestations complémentaires à l’AVS et à l’AI (Loi sur les prestations complémentaires, LPC)",
+        "it": "Legge federale sulle prestazioni complementari all’assicurazione per la vecchiaia, i superstiti e l’invalidità (LPC)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "socialQuestions",
+        "socialSecurity",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 65,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34681,
+      "business": "24.074",
+      "businessNumber": 20240074,
+      "title": {
+        "de": "Bundesgesetz über die Unfallversicherung (UVG) (Finanzierung der Stiftung Entschädigungsfonds für Asbestopfer)",
+        "fr": "Loi fédérale sur l’assurance-accidents (LAA) (Financement de la fondation Fonds d’indemnisation des victimes de l’amiante)",
+        "it": "Legge federale sull’assicurazione contro gli infortuni (LAINF) (Finanziamento della fondazione Fondo per le vittime dell’amianto)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "socialSecurity",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 66,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 66,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34682,
+      "business": "24.079",
+      "businessNumber": 20240079,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für eine engagierte Schweiz (Service-citoyen-Initiative)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire «Pour une Suisse qui s’engage (initiative service citoyen)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Per una Svizzera che si impegna (Iniziativa Servizio civico)»"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "statePolicy",
+        "security",
+        "socialQuestions"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 173,
+        "no": 18,
+        "abstain": 6
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 4
+        },
+        "SP": {
+          "yes": 38,
+          "no": 2,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 2,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 11,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 19,
+          "no": 3,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34683,
+      "business": "24.082",
+      "businessNumber": 20240082,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für eine soziale Klimapolitik – steuerlich gerecht finanziert (Initiative für eine Zukunft)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire fédérale «Pour une politique climatique sociale financée de manière juste fiscalement (initiative pour l’avenir)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Per una politica climatica sociale finanziata in modo fiscalmente equo (Iniziativa per il futuro)»"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "statePolicy",
+        "finance",
+        "environment",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 132,
+        "no": 57,
+        "abstain": 8
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 1,
+          "no": 40,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 1,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 16,
+          "abstain": 7
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34684,
+      "business": "24.088",
+      "businessNumber": 20240088,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung eines Protokolls zur Änderung des Doppelbesteuerungsabkommens zwischen der Schweiz und Ungarn",
+        "fr": "Arrêté fédéral portant approbation d’un protocole modifiant la Convention contre les doubles impositions entre la Suisse et la Hongrie",
+        "it": "Decreto federale che approva un Protocollo che modifica la Convenzione tra la Svizzera e l’Ungheria per evitare le doppie imposizioni"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 153,
+        "no": 28,
+        "abstain": 16
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 22,
+          "no": 28,
+          "abstain": 16
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34685,
+      "business": "24.443",
+      "businessNumber": 20240443,
+      "title": {
+        "de": "Bundesgesetz über die Gentechnik im Ausserhumanbereich (Gentechnikgesetz, GTG)",
+        "fr": "Loi fédérale sur l’application du génie génétique au domaine non humain (Loi sur le génie génétique, LGG)",
+        "it": "Legge federale sull’ingegneria genetica nel settore non umano (Legge sull’ingegneria genetica, LIG)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "science",
+        "environment",
+        "agriculture"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 144,
+        "no": 43,
+        "abstain": 10
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 0,
+          "no": 26,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 51,
+          "no": 11,
+          "abstain": 4
+        },
+        "MITTE": {
+          "yes": 26,
+          "no": 3,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 3,
+          "no": 3,
+          "abstain": 5
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34686,
+      "business": "25.028",
+      "businessNumber": 20250028,
+      "title": {
+        "de": "Bundesgesetz über die wirtschaftliche Landesversorgung (Landesversorgungsgesetz, LVG)",
+        "fr": "Loi fédérale sur l’approvisionnement économique du pays (Loi sur l’approvisionnement du pays, LAP)",
+        "it": "Legge federale sull’approvvigionamento economico del Paese (Legge sull’approvvigionamento del Paese, LAP)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "statePolicy",
+        "economy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 196,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34687,
+      "business": "25.062",
+      "businessNumber": 20250062,
+      "title": {
+        "de": "Bundesgesetz über den Solidaritätsbeitrag für die Bevölkerung von Blatten im Zusammenhang mit dem Bergsturz vom 28. Mai 2025 (Bundesgesetz über die Soforthilfe für Blatten)",
+        "fr": "Loi fédérale sur la contribution de solidarité en faveur de la population de Blatten à la suite de l’éboulement du 28 mai 2025 (loi sur  l’aide d’urgence pour Blatten)",
+        "it": "Legge federale concernente il contributo di  solidarietà per la popolazione di Blatten colpita dalla frana del 28 maggio 2025  (Legge federale sull’aiuto immediato per Blatten)"
+      },
+      "voteEnd": "2025-06-20",
+      "topics": [
+        "statePolicy",
+        "finance",
+        "environment"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 37,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}

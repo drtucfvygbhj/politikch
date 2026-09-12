@@ -1,0 +1,436 @@
+{
+  "_meta": {
+    "note": "Editorial one-sentence descriptions + register-name aliases for major organisation donors. Romansh falls back to German. Descriptions by Politikch; contribution figures come from the EFK register (data/financing.json).",
+    "count": 31
+  },
+  "donors": {
+    "economiesuisse": {
+      "name": "economiesuisse",
+      "url": "https://www.economiesuisse.ch",
+      "aliases": [
+        "economiesuisse",
+        "Economiesuisse",
+        "economiesuisse Verband der Schweizer Unternehmen"
+      ],
+      "desc": {
+        "en": "The umbrella association of the Swiss economy, representing large companies and sector associations in federal policy.",
+        "de": "Der Dachverband der Schweizer Wirtschaft, der Grossunternehmen und Branchenverbände in der Bundespolitik vertritt.",
+        "fr": "L'organisation faîtière de l'économie suisse, qui représente les grandes entreprises et les associations de branche dans la politique fédérale.",
+        "it": "L'organizzazione mantello dell'economia svizzera, che rappresenta grandi imprese e associazioni di settore nella politica federale."
+      }
+    },
+    "ubs": {
+      "name": "UBS AG",
+      "url": "https://www.ubs.com",
+      "aliases": [
+        "UBS AG",
+        "UBS"
+      ],
+      "desc": {
+        "en": "Switzerland's largest bank and one of the world's biggest wealth managers, based in Zurich.",
+        "de": "Die grösste Bank der Schweiz und einer der weltweit grössten Vermögensverwalter, mit Sitz in Zürich.",
+        "fr": "La plus grande banque de Suisse et l'un des plus grands gestionnaires de fortune au monde, sise à Zurich.",
+        "it": "La più grande banca svizzera e uno dei maggiori gestori patrimoniali al mondo, con sede a Zurigo."
+      }
+    },
+    "swiss-life": {
+      "name": "Swiss Life AG",
+      "url": "https://www.swisslife.ch",
+      "aliases": [
+        "Swiss Life AG"
+      ],
+      "desc": {
+        "en": "Switzerland's largest life-insurance and pensions group, based in Zurich.",
+        "de": "Der grösste Lebensversicherungs- und Vorsorgekonzern der Schweiz, mit Sitz in Zürich.",
+        "fr": "Le plus grand groupe suisse d'assurance-vie et de prévoyance, sis à Zurich.",
+        "it": "Il maggiore gruppo svizzero di assicurazioni sulla vita e previdenza, con sede a Zurigo."
+      }
+    },
+    "nestle": {
+      "name": "Nestlé S.A.",
+      "url": "https://www.nestle.com",
+      "aliases": [
+        "Nestlé S.A.",
+        "Nestle S.A."
+      ],
+      "desc": {
+        "en": "The Vevey-based food and drink multinational, one of the largest in the world.",
+        "de": "Der in Vevey ansässige Lebensmittelkonzern, einer der grössten der Welt.",
+        "fr": "La multinationale de l'alimentation basée à Vevey, l'une des plus grandes au monde.",
+        "it": "La multinazionale alimentare con sede a Vevey, tra le più grandi al mondo."
+      }
+    },
+    "novartis": {
+      "name": "Novartis International AG",
+      "url": "https://www.novartis.com",
+      "aliases": [
+        "Novartis International AG",
+        "Novartis"
+      ],
+      "desc": {
+        "en": "A Basel-based multinational pharmaceutical company, one of the largest in the world.",
+        "de": "Ein in Basel ansässiges multinationales Pharmaunternehmen, eines der grössten der Welt.",
+        "fr": "Une entreprise pharmaceutique multinationale basée à Bâle, l'une des plus grandes au monde.",
+        "it": "Un'azienda farmaceutica multinazionale con sede a Basilea, tra le più grandi al mondo."
+      }
+    },
+    "swisscom": {
+      "name": "Swisscom",
+      "url": "https://www.swisscom.ch",
+      "aliases": [
+        "Swisscom"
+      ],
+      "desc": {
+        "en": "Switzerland's largest telecommunications provider, majority-owned by the Confederation.",
+        "de": "Der grösste Telekommunikationsanbieter der Schweiz, mehrheitlich im Besitz des Bundes.",
+        "fr": "Le premier opérateur de télécommunications de Suisse, détenu majoritairement par la Confédération.",
+        "it": "Il maggiore operatore di telecomunicazioni svizzero, di proprietà maggioritaria della Confederazione."
+      }
+    },
+    "raiffeisen": {
+      "name": "Raiffeisen Schweiz",
+      "url": "https://www.raiffeisen.ch",
+      "aliases": [
+        "Raiffeisen Schweiz Genossenschaft",
+        "Raiffeisen Schweiz"
+      ],
+      "desc": {
+        "en": "A cooperative banking group and one of Switzerland's leading retail banks.",
+        "de": "Eine genossenschaftliche Bankengruppe und eine der führenden Retailbanken der Schweiz.",
+        "fr": "Un groupe bancaire coopératif, l'une des principales banques de détail de Suisse.",
+        "it": "Un gruppo bancario cooperativo, tra le principali banche al dettaglio svizzere."
+      }
+    },
+    "zurich-insurance": {
+      "name": "Zurich Insurance Group",
+      "url": "https://www.zurich.ch",
+      "aliases": [
+        "Zürich Versicherungs Gesellschaft AG",
+        "Zürich Versicherungsgesellschaft AG"
+      ],
+      "desc": {
+        "en": "A Zurich-based global insurance group, one of Switzerland's largest insurers.",
+        "de": "Ein global tätiger Versicherungskonzern mit Sitz in Zürich, einer der grössten Versicherer der Schweiz.",
+        "fr": "Un groupe d'assurance mondial sis à Zurich, l'un des plus grands assureurs de Suisse.",
+        "it": "Un gruppo assicurativo globale con sede a Zurigo, tra i maggiori assicuratori svizzeri."
+      }
+    },
+    "swiss-re": {
+      "name": "Swiss Re",
+      "url": "https://www.swissre.com",
+      "aliases": [
+        "Swiss Re Management Ltd",
+        "Swiss Re Management AG"
+      ],
+      "desc": {
+        "en": "A Zurich-based global reinsurance company, among the world's largest reinsurers.",
+        "de": "Ein global tätiger Rückversicherer mit Sitz in Zürich, einer der grössten der Welt.",
+        "fr": "Un réassureur mondial basé à Zurich, parmi les plus grands au monde.",
+        "it": "Un riassicuratore globale con sede a Zurigo, tra i maggiori al mondo."
+      }
+    },
+    "axa-switzerland": {
+      "name": "AXA Switzerland",
+      "url": "https://www.axa.ch",
+      "aliases": [
+        "AXA Versicherungen",
+        "AXA Versicherungen AG"
+      ],
+      "desc": {
+        "en": "The Swiss arm of the AXA group and one of the country's leading insurers.",
+        "de": "Die Schweizer Einheit der AXA-Gruppe und einer der führenden Versicherer des Landes.",
+        "fr": "La filiale suisse du groupe AXA, l'un des principaux assureurs du pays.",
+        "it": "La filiale svizzera del gruppo AXA, tra i principali assicuratori del Paese."
+      }
+    },
+    "mobiliar": {
+      "name": "Die Mobiliar",
+      "url": "https://www.mobiliar.ch",
+      "aliases": [
+        "Schweizerische Mobiliar Versicherungsgesellschaft AG"
+      ],
+      "desc": {
+        "en": "Switzerland's oldest private insurer, organised on a cooperative basis.",
+        "de": "Der älteste private Versicherer der Schweiz, genossenschaftlich verankert.",
+        "fr": "Le plus ancien assureur privé de Suisse, à ancrage coopératif.",
+        "it": "Il più antico assicuratore privato svizzero, di matrice cooperativa."
+      }
+    },
+    "alpiq": {
+      "name": "Alpiq",
+      "url": "https://www.alpiq.com",
+      "aliases": [
+        "Alpiq SA",
+        "Alpiq AG"
+      ],
+      "desc": {
+        "en": "A Swiss electricity producer and energy-trading company.",
+        "de": "Ein Schweizer Stromproduzent und Energiehandelsunternehmen.",
+        "fr": "Un producteur d'électricité et négociant en énergie suisse.",
+        "it": "Un produttore di elettricità e società di commercio di energia svizzera."
+      }
+    },
+    "axpo": {
+      "name": "Axpo",
+      "url": "https://www.axpo.com",
+      "aliases": [
+        "Axpo Holding AG"
+      ],
+      "desc": {
+        "en": "Switzerland's largest producer of renewable energy, owned by cantons and cantonal utilities.",
+        "de": "Der grösste Produzent erneuerbarer Energie der Schweiz, im Besitz von Kantonen und Kantonswerken.",
+        "fr": "Le plus grand producteur d'énergie renouvelable de Suisse, propriété de cantons et de services industriels.",
+        "it": "Il maggiore produttore di energia rinnovabile svizzero, di proprietà di cantoni e aziende cantonali."
+      }
+    },
+    "bkw": {
+      "name": "BKW",
+      "url": "https://www.bkw.ch",
+      "aliases": [
+        "BKW Management AG",
+        "BKW Energie AG"
+      ],
+      "desc": {
+        "en": "A Bern-based energy and infrastructure group.",
+        "de": "Ein Energie- und Infrastrukturkonzern mit Sitz in Bern.",
+        "fr": "Un groupe énergétique et d'infrastructures basé à Berne.",
+        "it": "Un gruppo energetico e infrastrutturale con sede a Berna."
+      }
+    },
+    "hev-schweiz": {
+      "name": "HEV Schweiz (Homeowners Association)",
+      "url": "https://www.hev-schweiz.ch",
+      "aliases": [
+        "Hauseigentümerverband (HEV) Schweiz",
+        "HEV Schweiz",
+        "Hauseigentümerverband Schweiz"
+      ],
+      "desc": {
+        "en": "The Swiss Homeowners Association, representing the interests of property owners.",
+        "de": "Der Hauseigentümerverband Schweiz, der die Interessen der Wohn- und Grundeigentümer vertritt.",
+        "fr": "L'association suisse des propriétaires fonciers (HEV), qui défend les intérêts des propriétaires.",
+        "it": "L'associazione svizzera dei proprietari immobiliari (HEV), che rappresenta gli interessi dei proprietari."
+      }
+    },
+    "gewerbeverband": {
+      "name": "Schweizerischer Gewerbeverband (sgv)",
+      "url": "https://www.sgv-usam.ch",
+      "aliases": [
+        "Schweizerischer Gewerbeverband",
+        "Schweizerischer Gewerbeverband sgv",
+        "Scvhweizerischer Gewerbeverband sgv"
+      ],
+      "desc": {
+        "en": "The Swiss Trade Association, the umbrella body for small and medium-sized enterprises (SMEs).",
+        "de": "Der Schweizerische Gewerbeverband, die Dachorganisation der kleinen und mittleren Unternehmen (KMU).",
+        "fr": "L'Union suisse des arts et métiers, l'organisation faîtière des petites et moyennes entreprises (PME).",
+        "it": "L'Unione svizzera delle arti e mestieri, l'organizzazione mantello delle piccole e medie imprese (PMI)."
+      }
+    },
+    "arbeitgeberverband": {
+      "name": "Schweizerischer Arbeitgeberverband",
+      "url": "https://www.arbeitgeber.ch",
+      "aliases": [
+        "Schweizerischer Arbeitgeberverband",
+        "Schweiz. Arbeitgeberverband"
+      ],
+      "desc": {
+        "en": "The Swiss Employers' Association, representing employers in economic and social policy.",
+        "de": "Der Schweizerische Arbeitgeberverband, der die Arbeitgeber in der Wirtschafts- und Sozialpolitik vertritt.",
+        "fr": "L'Union patronale suisse, qui représente les employeurs dans la politique économique et sociale.",
+        "it": "L'Unione svizzera degli imprenditori, che rappresenta i datori di lavoro nella politica economica e sociale."
+      }
+    },
+    "svv": {
+      "name": "Schweizerischer Versicherungsverband (SVV)",
+      "url": "https://www.svv.ch",
+      "aliases": [
+        "Schweizerischer Versicherungsverband",
+        "Der Schweizerische Versicherungsverband SVV",
+        "Schweizerischer Versicherungsverband SVV"
+      ],
+      "desc": {
+        "en": "The Swiss Insurance Association, the umbrella body of private insurers.",
+        "de": "Der Schweizerische Versicherungsverband, die Dachorganisation der privaten Versicherer.",
+        "fr": "L'Association suisse d'assurances, l'organisation faîtière des assureurs privés.",
+        "it": "L'Associazione svizzera d'assicurazioni, l'organizzazione mantello degli assicuratori privati."
+      }
+    },
+    "bankiervereinigung": {
+      "name": "Swiss Bankers Association",
+      "url": "https://www.swissbanking.ch",
+      "aliases": [
+        "Schweizerische Bankiervereinigung"
+      ],
+      "desc": {
+        "en": "The umbrella association of the Swiss banking sector.",
+        "de": "Der Dachverband des Schweizer Bankensektors.",
+        "fr": "L'association faîtière du secteur bancaire suisse.",
+        "it": "L'associazione mantello del settore bancario svizzero."
+      }
+    },
+    "swissmem": {
+      "name": "Swissmem",
+      "url": "https://www.swissmem.ch",
+      "aliases": [
+        "Swissmem"
+      ],
+      "desc": {
+        "en": "The association of the Swiss mechanical, electrical and metal industries (MEM).",
+        "de": "Der Verband der Schweizer Maschinen-, Elektro- und Metallindustrie (MEM).",
+        "fr": "L'association des industries suisses des machines, des équipements électriques et des métaux (MEM).",
+        "it": "L'associazione dell'industria svizzera meccanica, elettrica e metallurgica (MEM)."
+      }
+    },
+    "gastrosuisse": {
+      "name": "GastroSuisse",
+      "url": "https://www.gastrosuisse.ch",
+      "aliases": [
+        "GastroSuisse",
+        "Gastrosuisse"
+      ],
+      "desc": {
+        "en": "The trade association of the Swiss hospitality industry (hotels and restaurants).",
+        "de": "Der Branchenverband des Schweizer Gastgewerbes (Hotellerie und Restauration).",
+        "fr": "L'association de branche de l'hôtellerie-restauration suisse.",
+        "it": "L'associazione di categoria del settore alberghiero e della ristorazione svizzeri."
+      }
+    },
+    "fmh": {
+      "name": "FMH — Swiss Medical Association",
+      "url": "https://www.fmh.ch",
+      "aliases": [
+        "FMH Verbindung der Schweizer Ärztinnen und Ärzte",
+        "FMH"
+      ],
+      "desc": {
+        "en": "The professional association of Swiss physicians.",
+        "de": "Der Berufsverband der Schweizer Ärztinnen und Ärzte.",
+        "fr": "L'association professionnelle des médecins suisses.",
+        "it": "L'associazione professionale dei medici svizzeri."
+      }
+    },
+    "tcs": {
+      "name": "Touring Club Switzerland (TCS)",
+      "url": "https://www.tcs.ch",
+      "aliases": [
+        "TCS"
+      ],
+      "desc": {
+        "en": "Switzerland's largest mobility and motoring association.",
+        "de": "Der grösste Mobilitäts- und Automobilclub der Schweiz.",
+        "fr": "Le plus grand club de mobilité et d'automobile de Suisse.",
+        "it": "Il più grande club di mobilità e automobilistico della Svizzera."
+      }
+    },
+    "pro-natura": {
+      "name": "Pro Natura",
+      "url": "https://www.pronatura.ch",
+      "aliases": [
+        "Pro Natura"
+      ],
+      "desc": {
+        "en": "Switzerland's oldest nature-conservation organisation.",
+        "de": "Die älteste Naturschutzorganisation der Schweiz.",
+        "fr": "La plus ancienne organisation de protection de la nature de Suisse.",
+        "it": "La più antica organizzazione svizzera per la protezione della natura."
+      }
+    },
+    "wwf-schweiz": {
+      "name": "WWF Switzerland",
+      "url": "https://www.wwf.ch",
+      "aliases": [
+        "WWF Schweiz"
+      ],
+      "desc": {
+        "en": "The Swiss branch of the World Wide Fund for Nature, an environmental organisation.",
+        "de": "Die Schweizer Sektion des World Wide Fund for Nature, eine Umweltorganisation.",
+        "fr": "La section suisse du World Wide Fund for Nature, une organisation environnementale.",
+        "it": "La sezione svizzera del World Wide Fund for Nature, un'organizzazione ambientalista."
+      }
+    },
+    "unia": {
+      "name": "Unia",
+      "url": "https://www.unia.ch",
+      "aliases": [
+        "Unia",
+        "Gewerkschaft Unia",
+        "UNIA"
+      ],
+      "desc": {
+        "en": "Switzerland's largest trade union, representing workers across many sectors.",
+        "de": "Die grösste Gewerkschaft der Schweiz, die Arbeitnehmende vieler Branchen vertritt.",
+        "fr": "Le plus grand syndicat de Suisse, représentant les salariés de nombreux secteurs.",
+        "it": "Il più grande sindacato svizzero, che rappresenta i lavoratori di molti settori."
+      }
+    },
+    "digitalswitzerland": {
+      "name": "digitalswitzerland",
+      "url": "https://www.digitalswitzerland.com",
+      "aliases": [
+        "digitalswitzerland"
+      ],
+      "desc": {
+        "en": "A cross-industry initiative promoting Switzerland as a hub for digital innovation.",
+        "de": "Eine branchenübergreifende Initiative zur Förderung der Schweiz als Standort für digitale Innovation.",
+        "fr": "Une initiative intersectorielle promouvant la Suisse comme pôle d'innovation numérique.",
+        "it": "Un'iniziativa intersettoriale che promuove la Svizzera come polo di innovazione digitale."
+      }
+    },
+    "svp": {
+      "name": "Swiss People's Party (SVP)",
+      "url": "https://www.svp.ch",
+      "aliases": [
+        "Schweizerische Volkspartei",
+        "Schweizerische Volkspartei SVP"
+      ],
+      "desc": {
+        "en": "A national-conservative party and currently the largest party in the Federal Assembly.",
+        "de": "Eine nationalkonservative Partei und derzeit die stärkste Partei der Bundesversammlung.",
+        "fr": "Un parti conservateur-nationaliste, actuellement le plus grand parti de l'Assemblée fédérale.",
+        "it": "Un partito nazional-conservatore, attualmente il maggiore partito dell'Assemblea federale."
+      }
+    },
+    "sp": {
+      "name": "Social Democratic Party (SP/PS)",
+      "url": "https://www.sp-ps.ch",
+      "aliases": [
+        "Sozialdemokratische Partei der Schweiz",
+        "SP Schweiz"
+      ],
+      "desc": {
+        "en": "A major centre-left party in Switzerland.",
+        "de": "Eine grosse Mitte-links-Partei der Schweiz.",
+        "fr": "Un grand parti de centre-gauche en Suisse.",
+        "it": "Un grande partito di centro-sinistra in Svizzera."
+      }
+    },
+    "fdp": {
+      "name": "FDP.The Liberals",
+      "url": "https://www.fdp.ch",
+      "aliases": [
+        "FDP.Die Liberalen Schweiz",
+        "FDP.Die Liberalen"
+      ],
+      "desc": {
+        "en": "A major centre-right, economically liberal party in Switzerland.",
+        "de": "Eine grosse wirtschaftsliberale Mitte-rechts-Partei der Schweiz.",
+        "fr": "Un grand parti de centre-droit, libéral sur le plan économique, en Suisse.",
+        "it": "Un grande partito di centro-destra, economicamente liberale, in Svizzera."
+      }
+    },
+    "gruene": {
+      "name": "Green Party of Switzerland",
+      "url": "https://www.gruene.ch",
+      "aliases": [
+        "GRÜNE Schweiz"
+      ],
+      "desc": {
+        "en": "A left-green environmental party in Switzerland.",
+        "de": "Eine grün-linke Umweltpartei der Schweiz.",
+        "fr": "Un parti écologiste de gauche en Suisse.",
+        "it": "Un partito ecologista di sinistra in Svizzera."
+      }
+    }
+  }
+}

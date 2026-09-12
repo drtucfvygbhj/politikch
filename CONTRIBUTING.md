@@ -4,7 +4,7 @@ Thanks for helping keep Politikch accurate. It's a small, dependency-free static
 
 ## Ground rules
 
-- **Stay non-partisan.** Descriptions and summaries should be neutral and sourced. Avoid advocacy language.
+- **Keep descriptions even-handed and sourced.** Summarise positions rather than arguing for them; avoid advocacy or loaded language.
 - **Cite primary sources.** Prefer official sources (BFS, parlament.ch, Federal Chancellery, cantonal chancelleries) over secondary reporting for facts and figures.
 - **Be honest about gaps.** If data isn't available yet, use a clearly-labelled placeholder rather than an estimate presented as fact.
 

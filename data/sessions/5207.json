@@ -1,0 +1,1421 @@
+{
+  "id": 5207,
+  "season": "spring",
+  "year": 2025,
+  "start": "2025-03-03",
+  "end": "2025-03-21",
+  "legislativePeriod": 52,
+  "votes": [
+    {
+      "id": 34198,
+      "business": "22.062",
+      "businessNumber": 20220062,
+      "title": {
+        "de": "Bundesgesetz über die Krankenversicherung (KVG) (Massnahmen zur Kostendämpfung – Paket 2)",
+        "fr": "Loi fédérale sur l’assurance-maladie (LAMal) (Mesures visant à freiner la hausse des coûts, 2e volet)",
+        "it": "Legge federale sull’assicurazione malattie (LAMal) (Misure di contenimento dei costi – Pacchetto 2)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 183,
+        "no": 0,
+        "abstain": 8
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 0,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 64,
+          "no": 0,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 18,
+          "no": 0,
+          "abstain": 5
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34199,
+      "business": "22.400",
+      "businessNumber": 20220400,
+      "title": {
+        "de": "Bundesgesetz über Schuldbetreibung und Konkurs (SchKG) (Nichtbekanntgabe von Betreibungseinträgen)",
+        "fr": "Loi fédérale sur la poursuite pour dettes et la faillite (LP) (Possibilité de ne pas communiquer les inscriptions dans le registre des poursuites)",
+        "it": "Legge federale sulla esecuzione e sul fallimento (LEF) (Possibilità di non comunicare le iscrizioni presenti nei registri delle esecuzioni)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "statePolicy",
+        "civilLaw"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34200,
+      "business": "22.406",
+      "businessNumber": 20220406,
+      "title": {
+        "de": "Bundesgesetz über die Bundesversammlung (Parlamentsgesetz, ParlG) (Einreichung von Vorstössen und parlamentarischen Initiativen)",
+        "fr": "Loi fédérale sur l’Assemblée fédérale (Loi sur le Parlement, LParl) (Dépôt des interventions et initiatives parlementaires)",
+        "it": "Legge federale sull’Assemblea federale (Legge sul Parlamento, LParl) (Presentazione di interventi e iniziative parlamentari)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "statePolicy",
+        "parliament"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 162,
+        "no": 28,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 1,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 2,
+          "no": 27,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34201,
+      "business": "22.406",
+      "businessNumber": 20220406,
+      "title": {
+        "de": "Geschäftsreglement des Nationalrates (GRN) (Einreichung von Vorstössen und parlamentarischen Initiativen)",
+        "fr": "Règlement du Conseil national (RCN) (Dépôt des interventions et initiatives parlementaires)",
+        "it": "Regolamento del Consiglio nazionale (RCN) (Presentazione di interventi e iniziative parlamentari)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "statePolicy",
+        "parliament"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 187,
+        "no": 4,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 25,
+          "no": 4,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34202,
+      "business": "22.423",
+      "businessNumber": 20220423,
+      "title": {
+        "de": "Postgesetz (PG)",
+        "fr": "Loi sur la poste (LPO)",
+        "it": "Legge sulle poste (LPO)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "finance",
+        "media"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 115,
+        "no": 53,
+        "abstain": 23
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 7,
+          "no": 11,
+          "abstain": 7
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 13,
+          "no": 42,
+          "abstain": 11
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 6,
+          "no": 0,
+          "abstain": 4
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34203,
+      "business": "23.051",
+      "businessNumber": 20230051,
+      "title": {
+        "de": "Energiegesetz. Änderung (Beschleunigungserlass)",
+        "fr": "Loi sur l'énergie. Modification (projet de loi pour l’accélération des procédures)",
+        "it": "Legge sull'energia. Modifica (Legge sull'accelerazione delle procedure)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "lawGeneral",
+        "energy",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 123,
+        "no": 67,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 1,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 3,
+          "no": 63,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 1,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 21,
+          "no": 2,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34204,
+      "business": "23.066",
+      "businessNumber": 20230066,
+      "title": {
+        "de": "Bundesgesetz über den Handel mit Foltergütern (Foltergütergesetz, FGG)",
+        "fr": "Loi fédérale sur le commerce des biens utilisés pour la torture (Loi sur les biens utilisés pour la torture, LBT)",
+        "it": "Legge federale sul commercio di strumenti di tortura (Legge sugli strumenti di tortura, LSTor)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "security",
+        "economy",
+        "internationalLaw",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 125,
+        "no": 65,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34205,
+      "business": "23.079",
+      "businessNumber": 20230079,
+      "title": {
+        "de": "Bundesgesetz über die Bearbeitung von Flugpassagierdaten zur Bekämpfung von terroristischen und anderen schweren Straftaten (Flugpassagierdatengesetz, FPG)",
+        "fr": "Loi fédérale sur le traitement des données relatives aux passagers aériens pour la lutte contre les infractions terroristes et les autres infractions pénales graves (Loi sur les données relatives aux passagers aériens, LDPa)",
+        "it": "Legge federale sul trattamento dei dati dei passeggeri aerei per la lotta ai reati terroristici e ad altri reati gravi (Legge sui dati dei passeggeri aerei, LDPA)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "security",
+        "economy",
+        "transport",
+        "humanRights"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 166,
+        "no": 23,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 36,
+          "no": 0,
+          "abstain": 2
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34206,
+      "business": "23.083",
+      "businessNumber": 20230083,
+      "title": {
+        "de": "Bundesgesetz über die Aufsicht und Transparenz in den Energiegrosshandelsmärkten (BATE)",
+        "fr": "Loi fédérale sur la surveillance et la transparence des marchés de gros de l’énergie (LSTE)",
+        "it": "Legge federale sulla vigilanza e la trasparenza nei mercati dell’energia all’ingrosso (LVTE)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "economy",
+        "finance",
+        "energy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34207,
+      "business": "24.017",
+      "businessNumber": 20240017,
+      "title": {
+        "de": "Bundesgesetz über den Transport von Gütern auf der Schiene, auf dem Wasser und mit Seilbahnen (Gütertransportgesetz, GüTG)",
+        "fr": "Loi fédérale sur le transport de marchandises par rail, par voie navigable ou par installation à câbles (Loi sur le transport de marchandises, LTM)",
+        "it": "Legge federale sul trasporto di merci per ferrovia, per idrovia e con impianti a fune (Legge sul trasporto di merci, LTM)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "economy",
+        "transport"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 127,
+        "no": 58,
+        "abstain": 6
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 2,
+          "no": 58,
+          "abstain": 6
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34208,
+      "business": "24.027",
+      "businessNumber": 20240027,
+      "title": {
+        "de": "Bundesgesetz über den internationalen Kulturgütertransfer (Kulturgütertransfergesetz, KGTG)",
+        "fr": "Loi fédérale sur le transfert international des biens culturels (Loi sur le transfert des biens culturels, LTBC)",
+        "it": "Legge federale sul trasferimento internazionale dei beni culturali (Legge sul trasferimento dei beni culturali, LTBC)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "finance",
+        "culture"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 132,
+        "no": 59,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 7,
+          "no": 59,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34209,
+      "business": "24.038",
+      "businessNumber": 20240038,
+      "title": {
+        "de": "Asylgesetz (AsylG) (Sicherheit und Betrieb in den Zentren des Bundes)",
+        "fr": "Loi sur l’asile (LAsi) (Sécurité et fonctionnement des centres de la Confédération)",
+        "it": "Legge sull’asilo (LAsi) (Sicurezza ed esercizio dei centri della Confederazione)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 103,
+        "no": 88,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 66,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 1,
+          "no": 22,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34210,
+      "business": "24.043",
+      "businessNumber": 20240043,
+      "title": {
+        "de": "Bundesgesetz über den Bevölkerungsschutz und den Zivilschutz (Bevölkerungs- und Zivilschutzgesetz, BZG) Vorlage A: Einsatz von zivildienstpflichtigen Personen im Zivilschutz",
+        "fr": "Loi fédérale sur la protection de la population et sur la protection civile (LPPCi) Projet A: affectation de personnes astreintes au service civil dans la protection civile",
+        "it": "Legge federale sulla protezione della popolazione e sulla protezione civile (LPPC) Progetto A: impiego nella protezione civile di persone che devono prestare servizio civile"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "security"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 128,
+        "no": 63,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 38,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 2,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34211,
+      "business": "24.043",
+      "businessNumber": 20240043,
+      "title": {
+        "de": "Bundesgesetz über den Bevölkerungsschutz und den Zivilschutz (Bevölkerungs- und Zivilschutzgesetz, BZG) Vorlage B: Bestimmungen zum Koordinierten Sanitätsdienst, dem Koordinierten Verkehr und den kantonalen Notfalltreffpunkten sowie allgemeine Bestimmungen zum Zivilschutz",
+        "fr": "Loi fédérale sur la protection de la population et sur la protection civile (LPPCi) Projet B: dispositions relatives au Service sanitaire coordonné, à la coordination des transports et aux points de rencontre d’urgence cantonaux ainsi que dispositions générales relatives à la protection civile",
+        "it": "Legge federale sulla protezione della popolazione e sulla protezione civile (LPPC) Progetto B: disposizioni relative al servizio sanitario coordinato, al coordinamento dei trasporti e ai punti di raccolta d’urgenza cantonali nonché disposizioni generali concernenti la protezione civile"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "security"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34212,
+      "business": "24.055",
+      "businessNumber": 20240055,
+      "title": {
+        "de": "Bundesgesetz betreffend die Aufsicht über die soziale Krankenversicherung (Krankenversicherungsaufsichtsgesetz, KVAG) (Teilnahme der Kantone am Prämiengenehmigungsverfahren, Ausgleich von zu hohen Prämieneinnahmen)",
+        "fr": "Loi fédérale sur la surveillance de l’assurance-maladie sociale (Loi sur la surveillance de l’assurance-maladie, LSAMal) (Participation des cantons à la procédure d’approbation des primes, compensation des primes encaissées en trop)",
+        "it": "Legge federale concernente la vigilanza sull’assicurazione sociale contro le malattie (Legge sulla vigilanza sull’assicurazione malattie, LVAMal) (Partecipazione dei Cantoni alla procedura di approvazione dei premi, compensazione dei premi incassati in eccesso)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "statePolicy",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 130,
+        "no": 59,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 5,
+          "no": 59,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34213,
+      "business": "24.057",
+      "businessNumber": 20240057,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung eines Doppelbesteuerungsabkommens zwischen der Schweiz und Angola",
+        "fr": "Arrêté fédéral portant approbation d’une convention contre les doubles impositions entre la Suisse et l’Angola",
+        "it": "Decreto federale che approva una Convenzione tra la Svizzera e l’Angola per evitare le doppie imposizioni"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 127,
+        "no": 44,
+        "abstain": 20
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 2,
+          "no": 44,
+          "abstain": 20
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34214,
+      "business": "24.059",
+      "businessNumber": 20240059,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung eines Protokolls zur Änderung des Doppelbesteuerungsabkommens zwischen der Schweiz und Deutschland",
+        "fr": "Arrêté fédéral portant approbation d’un protocole modifiant la convention contre les doubles impositions entre la Suisse et l’Allemagne",
+        "it": "Decreto federale che approva un Protocollo che modifica la Convenzione tra la Svizzera e la Germania per evitare le doppie imposizioni"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 136,
+        "no": 22,
+        "abstain": 33
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 11,
+          "no": 22,
+          "abstain": 33
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34215,
+      "business": "24.062",
+      "businessNumber": 20240062,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung eines Doppelbesteuerungsabkommens zwischen der Schweiz und Jordanien",
+        "fr": "Arrêté fédéral portant approbation d’une convention contre les doubles impositions entre la Suisse et la Jordanie",
+        "it": "Decreto federale che approva una Convenzione tra la Svizzera e la Giordania per evitare le doppie imposizioni"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 136,
+        "no": 32,
+        "abstain": 23
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 11,
+          "no": 32,
+          "abstain": 23
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34216,
+      "business": "24.066",
+      "businessNumber": 20240066,
+      "title": {
+        "de": "Bundesgesetz über die Invalidenversicherung (IVG) (Intensive Frühintervention bei Autismus-Spektrum-Störungen)",
+        "fr": "Loi fédérale sur l’assurance-invalidité (LAI) (Intervention précoce intensive en cas de troubles du spectre de l’autisme)",
+        "it": "Legge federale sull’assicurazione per l’invalidità (LAI) (Intervento precoce intensivo in caso di disturbi dello spettro autistico)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "socialQuestions",
+        "socialSecurity",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 128,
+        "no": 58,
+        "abstain": 5
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 3,
+          "no": 58,
+          "abstain": 5
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34217,
+      "business": "24.067",
+      "businessNumber": 20240067,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Abkommens zwischen der Schweiz und dem Vereinigten Königreich über die gegenseitige Anerkennung im Bereich der Finanzdienstleistungen",
+        "fr": "Arrêté fédéral portant approbation de l’Accord de reconnaissance mutuelle entre la Suisse et le Royaume-Uni dans le domaine des services financiers",
+        "it": "Decreto federale che approva l’Accordo tra la Svizzera e il Regno Unito concernente il riconoscimento reciproco nel settore dei servizi finanziari"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "international",
+        "finance"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34218,
+      "business": "24.069",
+      "businessNumber": 20240069,
+      "title": {
+        "de": "Bundebeschluss über die Genehmigung des Handels- und Wirtschaftspartnerschaftsabkommens zwischen den EFTA-Staaten und Indien",
+        "fr": "Arrêté fédéral portant approbation de l’Accord de partenariat commercial et économique entre les États de l’AELE et l’Inde",
+        "it": "Decreto federale che approva l’Accordo di partenariato commerciale ed economico tra gli Stati dell’AELS e l’India"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "europe",
+        "economy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 130,
+        "no": 33,
+        "abstain": 28
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 25,
+          "abstain": 13
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 1,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 1,
+          "no": 7,
+          "abstain": 15
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34219,
+      "business": "24.072",
+      "businessNumber": 20240072,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung des Notenaustauschs zwischen der Schweiz und der EU betreffend die Übernahme der Richtlinie (EU) 2023/977 über den Informationsaustausch zwischen Strafverfolgungsbehörden der Mitgliedstaaten und zur Aufhebung des Rahmenbeschlusses 2006/960/JI des Rates (Weiterentwicklung des Schengen-Besitzstands)",
+        "fr": "Arrêté fédéral portant approbation et mise en œuvre de l’échange de notes entre la Suisse et l’UE concernant la reprise de la directive (UE) 2023/977 relative à l’échange d’informations entre les services répressifs des États membres et abrogeant la décision-cadre 2006/960/JAI du Conseil (Développement de l’acquis de Schengen)",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero lo scambio di note tra la Svizzera e l’UE concernente il recepimento della direttiva (UE) 2023/977 relativa allo scambio di informazioni tra le autorità di contrasto degli Stati membri e che abroga la decisione quadro 2006/960/GAI del Consiglio (Sviluppo dell’acquis di Schengen)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "security",
+        "europe",
+        "internationalLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 190,
+        "no": 1,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 1,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34220,
+      "business": "24.073",
+      "businessNumber": 20240073,
+      "title": {
+        "de": "Bundesgesetz  über die Alters- und Hinterlassenenversicherung (AHVG) (Umsetzung der 13. Altersrente)",
+        "fr": "Loi fédérale sur l’assurance-vieillesse et survivants (LAVS) (Mise en oeuvre de la 13e rente de vieillesse)",
+        "it": "Legge federale sull’assicurazione per la vecchiaia e per i superstiti (LAVS) (Attuazione della 13a rendita di vecchiaia)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "finance",
+        "labour",
+        "taxation",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34221,
+      "business": "24.075",
+      "businessNumber": 20240075,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Abkommens zwischen der Schweiz, Deutschland und Italien über Solidaritätsmassnahmen zur Gewährleistung der sicheren Gasversorgung",
+        "fr": "Arrêté fédéral portant approbation de l’accord entre la Suisse, l’Allemagne et l’Italie concernant des mesures de solidarité visant à assurer la sécurité de l’approvisionnement en gaz",
+        "it": "Decreto federale che approva l’Accordo tra la Svizzera, la Germania e l’Italia concernente misure di solidarietà volte a garantire la sicurezza dell’approvvigionamento di gas"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "international",
+        "security",
+        "energy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 190,
+        "no": 1,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 1,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34222,
+      "business": "24.083",
+      "businessNumber": 20240083,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung einer Gebietsveränderung zwischen den Kantonen Bern und Jura (Kantonswechsel der bernischen Gemeinde Moutier)",
+        "fr": "Arrêté fédéral relatif à l’approbation d’une modification du territoire des cantons de Berne et du Jura (Transfert de la commune bernoise de Moutier)",
+        "it": "Decreto federale che approva una modifica territoriale tra i Cantoni di Berna e del Giura (Trasferimento del Comune bernese di Moutier)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "statePolicy",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 174,
+        "no": 14,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 50,
+          "no": 14,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 34223,
+      "business": "24.442",
+      "businessNumber": 20240442,
+      "title": {
+        "de": "Geschäftsreglement des Nationalrates (GRN) (Abstimmen ohne Namensaufruf wieder ermöglichen)",
+        "fr": "Règlement du Conseil national (RCN) (Réintroduire le vote sans appel nominal)",
+        "it": "Regolamento del Consiglio nazionale (RCN) (Consentire di nuovo la votazione senza appello nominale)"
+      },
+      "voteEnd": "2025-03-21",
+      "topics": [
+        "statePolicy",
+        "parliament"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 188,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,981 @@
+{
+  "id": 5117,
+  "season": "special",
+  "year": 2022,
+  "start": "2022-11-28",
+  "end": "2022-12-16",
+  "legislativePeriod": 51,
+  "votes": [
+    {
+      "id": 29768,
+      "business": "21.039",
+      "businessNumber": 20210039,
+      "title": {
+        "de": "Bundesgesetz über die Personenbeförderung (Personenbeförderungsgesetz, PBG) (Reform des regionalen Personenverkehrs und der Rechnungslegung)",
+        "fr": "Loi sur le transport de voyageurs (LTV) (Réforme du transport régional et de la présentation des comptes)",
+        "it": "Legge federale sul trasporto di viaggiatori (Legge sul trasporto di viaggiatori, LTV) (Riforma del traffico regionale viaggiatori e della presentazione dei conti)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "transport"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 150,
+        "no": 38,
+        "abstain": 8
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 9,
+          "no": 38,
+          "abstain": 7
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29769,
+      "business": "21.043",
+      "businessNumber": 20210043,
+      "title": {
+        "de": "Bundesgesetz über die Regulierung der Versicherungsvermittlertätigkeit",
+        "fr": "Loi fédérale sur la réglementation de l’activité des intermédiaires d’assurance",
+        "it": "Legge federale sul disciplinamento dell’attività degli intermediari assicurativi"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "economy",
+        "media",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 110,
+        "no": 79,
+        "abstain": 7
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 54,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 4,
+          "no": 24,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 23,
+          "no": 1,
+          "abstain": 6
+        },
+        "GPS": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29770,
+      "business": "21.502",
+      "businessNumber": 20210502,
+      "title": {
+        "de": "Bundesgesetz über die Jagd und den Schutz wildlebender Säugetiere und Vögel (Jagdgesetz, JSG)",
+        "fr": "Loi fédérale sur la chasse et la protection des mammifères et oiseaux sauvages (Loi sur la chasse, LChP)",
+        "it": "Legge federale sulla caccia e la protezione dei mammiferi e degli uccelli selvatici (Legge sulla caccia, LCP)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "environment",
+        "agriculture"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 111,
+        "no": 69,
+        "abstain": 16
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 25,
+          "abstain": 13
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 15,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 1,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 1,
+          "no": 27,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29773,
+      "business": "22.019",
+      "businessNumber": 20220019,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung der Notenaustausche zwischen der Schweiz und der EU betreffend die Übernahme der Verordnungen (EU) 2021/1150 und 2021/1152 zur Festlegung der Bedingungen für den Zugang zu anderen EU-Informationssystemen für die Zwecke des Europäischen Reiseinformations- und -genehmigungssystems (ETIAS) (Weiterentwicklungen des Schengen-Besitzstands)",
+        "fr": "Arrêté fédéral portant approbation et mise en œuvre des échanges de notes entre la Suisse et l’UE concernant la reprise des règlements (UE) 2021/1150 et (UE) 2021/1152 en ce qui concerne l’établissement des conditions d’accès aux autres systèmes d’information de l’UE aux fins du système européen d’information et d’autorisation concernant les voyages (ETIAS) (Développements de l’acquis de Schengen)",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero gli scambi di note tra la Svizzera e l’UE concernenti il recepimento dei regolamenti (UE) 2021/1150 e (UE) 2021/1152 che definiscono le condizioni di accesso ad altri sistemi di informazione UE ai fini del sistema europeo di informazione e autorizzazione ai viaggi (ETIAS) (Sviluppi dell’acquis di Schengen)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 155,
+        "no": 9,
+        "abstain": 32
+      },
+      "byParty": {
+        "SP": {
+          "yes": 36,
+          "no": 0,
+          "abstain": 2
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 44,
+          "no": 9,
+          "abstain": 1
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 28
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29781,
+      "business": "22.019",
+      "businessNumber": 20220019,
+      "title": {
+        "de": "Bundesgesetz über die Ausländerinnen und Ausländer und über die Integration (Ausländer- und Integrationsgesetz, AIG)",
+        "fr": "Loi fédérale sur les étrangers et l’intégration (LEI)",
+        "it": "Legge federale sugli stranieri e la loro integrazione (LStrI)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 164,
+        "no": 0,
+        "abstain": 32
+      },
+      "byParty": {
+        "SP": {
+          "yes": 35,
+          "no": 0,
+          "abstain": 3
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 28
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29782,
+      "business": "22.028",
+      "businessNumber": 20220028,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung eines Doppelbesteuerungsabkommens zwischen der Schweiz und Äthiopien",
+        "fr": "Arrêté fédéral portant approbation d’une convention contre les doubles impositions entre la Suisse et l’Éthiopie",
+        "it": "Decreto federale che approva una Convenzione tra la Svizzera e l’Etiopia per evitare le doppie imposizioni"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 142,
+        "no": 43,
+        "abstain": 11
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 43,
+          "abstain": 11
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29774,
+      "business": "22.030",
+      "businessNumber": 20220030,
+      "title": {
+        "de": "Bundesbeschluss über den Beitritt der Schweiz zu sechs internationalen Forschungsinfrastrukturnetzwerken mit Rechtsform ERIC (BBMRI ERIC, ECRIN ERIC, EPOS ERIC, ICOS ERIC, CESSDA ERIC, DARIAH ERIC)",
+        "fr": "Arrêté fédéral relatif à l’adhésion de la Suisse à six réseaux internationaux d’infrastructures de recherche ayant adopté la forme juridique ERIC (BBMRI ERIC, ECRIN ERIC, EPOS ERIC, ICOS ERIC, CESSDA ERIC, DARIAH ERIC)",
+        "it": "Decreto federale che approva l’adesione della Svizzera a sei reti internazionali di infrastrutture di ricerca con forma giuridica ERIC (BBMRI ERIC, ECRIN ERIC, EPOS ERIC, ICOS ERIC, CESSDA ERIC, DARIAH ERIC)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "europe",
+        "science"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 196,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29775,
+      "business": "22.030",
+      "businessNumber": 20220030,
+      "title": {
+        "de": "Bundesgesetz über die Förderung der Forschung und der Innovation (FIFG)",
+        "fr": "Loi fédérale sur l’encouragement de la recherche et de l’innovation (LERI)",
+        "it": "Legge federale sulla promozione della ricerca e dell’innovazione (LPRI)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "europe",
+        "science"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 196,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29776,
+      "business": "22.032",
+      "businessNumber": 20220032,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung des Abkommens zur Koordinierung der sozialen Sicherheit zwischen der Schweiz und dem Vereinigten Königreich",
+        "fr": "Arrêté fédéral portant approbation et mise en œuvre de la convention sur la coordination de la sécurité sociale entre la Suisse et le Royaume-Uni",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero la Convenzione sul coordinamento della sicurezza sociale tra la Svizzera e il Regno Unito"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "international",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 196,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29777,
+      "business": "22.033",
+      "businessNumber": 20220033,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung eines Protokolls zur Änderung des Doppelbesteuerungsabkommens zwischen der Schweiz und Armenien",
+        "fr": "Arrêté fédéral portant approbation d’un protocole modifiant la convention contre les doubles impositions entre la Suisse et l’Arménie",
+        "it": "Decreto federale che approva un Protocollo che modifica la Convenzione tra la Svizzera e l’Armenia per evitare le doppie imposizioni"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "international",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 143,
+        "no": 37,
+        "abstain": 16
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 37,
+          "abstain": 16
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29778,
+      "business": "22.036",
+      "businessNumber": 20220036,
+      "title": {
+        "de": "Bundesbeschluss über eine besondere Besteuerung grosser Unternehmensgruppen (Umsetzung des OECD/G20-Projekts zur Besteuerung der digitalen Wirtschaft)",
+        "fr": "Arrêté fédéral sur une imposition particulière des grands groupes d'entreprises (Mise en oeuvre du projet conjoint de l'OCDE et du G20 sur l'imposition de l'économie numérique)",
+        "it": "Decreto federale concernente un’imposizione speciale dei grandi gruppi di imprese (Attuazione del progetto dell’OCSE e del G20 sull’imposizione dell’economia digitale)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "international",
+        "economy",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 127,
+        "no": 59,
+        "abstain": 10
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 35,
+          "abstain": 3
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 2
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 5
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29783,
+      "business": "22.039",
+      "businessNumber": 20220039,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung der Notenaustausche zwischen der Schweiz und der EU betreffend die Übernahme der Verordnungen (EU) 2021/1133 und (EU) 2021/1134 zur Reform des Visa-Informationssystems und der damit verbundenen Bedingungen für den Zugang zu anderen EU-Informationssystemen für VIS-Zwecke (Weiterentwicklungen des Schengen-Besitzstands)",
+        "fr": "Arrêté fédéral portant approbation et mise en œuvre des échanges de notes entre la Suisse et l’UE concernant la reprise des règlements (UE) 2021/1133 et (UE) 2021/1134 réformant le système d’information sur les visas et les conditions d’accès aux autres systèmes d’information de l’UE aux fins du VIS (Développements de l’acquis de Schengen)",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero gli scambi di note tra la Svizzera e l’UE concernenti il recepimento dei regolamenti (UE) 2021/1133 e 2021/1134 per la riforma del sistema di informazione visti e delle condizioni di accesso agli altri sistemi di informazione dell’UE ai fini del VIS (Sviluppi dell’acquis di Schengen)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 153,
+        "no": 9,
+        "abstain": 34
+      },
+      "byParty": {
+        "SP": {
+          "yes": 34,
+          "no": 0,
+          "abstain": 4
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 44,
+          "no": 9,
+          "abstain": 1
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 28
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29784,
+      "business": "22.039",
+      "businessNumber": 20220039,
+      "title": {
+        "de": "Bundesgesetz über die Ausländerinnen und Ausländer und über die Integration (Ausländer- und Integrationsgesetz, AIG) (Zugriff auf den CIR und Zugang zu den Daten von drei EU-Informationssystemen)",
+        "fr": "Loi fédérale sur les étrangers et l’intégration (LEI) (Accès au CIR et aux données de trois systèmes d’information de l’UE)",
+        "it": "Legge federale sugli stranieri e la loro integrazione (LStrI) (Accesso al CIR e ai dati di tre sistemi di informazione dell’UE)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 157,
+        "no": 4,
+        "abstain": 35
+      },
+      "byParty": {
+        "SP": {
+          "yes": 33,
+          "no": 0,
+          "abstain": 5
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 49,
+          "no": 4,
+          "abstain": 1
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 28
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29785,
+      "business": "22.040",
+      "businessNumber": 20220040,
+      "title": {
+        "de": "Bundesgesetz über die Förderung der Ausbildung im Bereich der Pflege",
+        "fr": "Loi fédérale relative à l’encouragement de la formation dans le domaine des soins infirmiers",
+        "it": "Legge federale sulla promozione della formazione in cure infermieristiche"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "education",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 144,
+        "no": 40,
+        "abstain": 12
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 3,
+          "no": 40,
+          "abstain": 11
+        },
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29786,
+      "business": "22.044",
+      "businessNumber": 20220044,
+      "title": {
+        "de": "Bundesgesetz über die Ausländerinnen und Ausländer und über die Integration (Ausländer- und Integrationsgesetz, AIG) (Finanzielle Unterstützung von Kantonen mit Ausreisezentren an der Grenze)",
+        "fr": "Loi fédérale sur les étrangers et l’intégration (LEI) (Soutien financier aux cantons qui gèrent des centres de départ à la frontière)",
+        "it": "Legge federale sugli stranieri e la loro integrazione (LStrI) (Aiuto finanziario ai Cantoni che gestiscono centri di partenza alla frontiera svizzera)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "socialQuestions",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 194,
+        "no": 1,
+        "abstain": 1
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 1,
+          "abstain": 0
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29787,
+      "business": "22.046",
+      "businessNumber": 20220046,
+      "title": {
+        "de": "Bundesgesetz über die gesetzlichen Grundlagen für Verordnungen des Bundesrates zur Bewältigung der Covid-19-Epidemie (Covid-19-Gesetz)",
+        "fr": "Loi fédérale sur les bases légales des ordonnances du Conseil fédéral visant à surmonter l’épidémie de COVID-19 (Loi COVID-19)",
+        "it": "Legge federale sulle basi legali delle ordinanze del Consiglio federale volte a far fronte all’epidemia di COVID-19 (Legge COVID-19)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 140,
+        "no": 50,
+        "abstain": 6
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 48,
+          "abstain": 6
+        },
+        "FDP": {
+          "yes": 27,
+          "no": 2,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29790,
+      "business": "22.047",
+      "businessNumber": 20220047,
+      "title": {
+        "de": "Bundesgesetz über die Ausländerinnen und Ausländer und über die Integration (Ausländer- und Integrationsgesetz, AIG) (Covid-19-Test bei der Ausschaffung)",
+        "fr": "Loi fédérale sur les étrangers et l’intégration (LEI) (Test COVID-19 en cas de renvoi ou d’expulsion)",
+        "it": "Legge federale sugli stranieri e la loro integrazione (LStrI) (Test COVID-19 in caso di rinvio coatto)"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "migration",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 122,
+        "no": 67,
+        "abstain": 6
+      },
+      "byParty": {
+        "SP": {
+          "yes": 0,
+          "no": 38,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 15,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 50,
+          "no": 0,
+          "abstain": 4
+        },
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 28,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 29791,
+      "business": "22.427",
+      "businessNumber": 20220427,
+      "title": {
+        "de": "Verordnung der Bundesversammlung über die Richterstellen am Bundesgericht",
+        "fr": "Ordonnance de l’Assemblée fédérale sur les postes de juge au Tribunal fédéral",
+        "it": "Ordinanza dell’Assemblea federale concernente i posti di giudice del Tribunale federale"
+      },
+      "voteEnd": "2022-12-16",
+      "topics": [
+        "judiciary"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 140,
+        "no": 52,
+        "abstain": 3
+      },
+      "byParty": {
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 52,
+          "abstain": 1
+        },
+        "FDP": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    }
+  ]
+}

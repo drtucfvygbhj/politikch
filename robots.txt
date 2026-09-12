@@ -1,0 +1,4 @@
+# Politikch — an independent, non-commercial reference for Swiss democracy.
+# Public content; crawling is welcome.
+User-agent: *
+Allow: /

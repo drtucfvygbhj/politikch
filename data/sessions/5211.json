@@ -1,0 +1,997 @@
+{
+  "id": 5211,
+  "season": "winter",
+  "year": 2025,
+  "start": "2025-12-01",
+  "end": "2025-12-19",
+  "legislativePeriod": 52,
+  "votes": [
+    {
+      "id": 35453,
+      "business": "21.403",
+      "businessNumber": 20210403,
+      "title": {
+        "de": "Überführung der Anstossfinanzierung in eine zeitgemässe Lösung",
+        "fr": "Remplacer le financement de départ par une solution adaptée aux réalités actuelles",
+        "it": "Sostituire il finanziamento iniziale con una soluzione moderna"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "finance",
+        "socialQuestions"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 115,
+        "no": 81,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 9,
+          "no": 16,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35454,
+      "business": "22.407",
+      "businessNumber": 20220407,
+      "title": {
+        "de": "Bundesgesetz über Radio und Fernsehen (RTVG) (Abgabenanteile für lokale Radio- und regionale Fernsehveranstalter und allgemeine Fördermassnahmen)",
+        "fr": "Loi fédérale sur la radio et la télévision (LRTV) (Quotes-parts de la redevance attribuées aux radios locales et aux télévisions régionales et mesures d’aide générales)",
+        "it": "Legge federale sulla radiotelevisione (LRTV) (Quote di partecipazione al canone per emittenti radiofoniche locali ed emittenti televisive regionali nonché misure di sostegno generali)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "statePolicy",
+        "media",
+        "taxation"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 128,
+        "no": 63,
+        "abstain": 5
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 4
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 2,
+          "no": 63,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35455,
+      "business": "22.407",
+      "businessNumber": 20220407,
+      "title": {
+        "de": "Verteilung der Radio- und Fernsehabgabe",
+        "fr": "Répartition de la redevance de radio-télévision",
+        "it": "Ripartizione del canone radiotelevisivo"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "statePolicy",
+        "media",
+        "taxation"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 156,
+        "no": 37,
+        "abstain": 4
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 15,
+          "no": 22,
+          "abstain": 3
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 8,
+          "no": 15,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35456,
+      "business": "23.047",
+      "businessNumber": 20230047,
+      "title": {
+        "de": "Bundesgesetz über Kartelle und andere Wettbewerbsbeschränkungen (Kartellgesetz, KG)",
+        "fr": "Loi fédérale sur les cartels et autres restrictions à la concurrence (Loi sur les cartels, LCart)",
+        "it": "Legge federale sui cartelli e altre limitazioni della concorrenza (Legge sui cartelli, LCart)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "economy",
+        "civilLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 129,
+        "no": 66,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 3,
+          "no": 37,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 1,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 5,
+          "no": 5,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35457,
+      "business": "23.086",
+      "businessNumber": 20230086,
+      "title": {
+        "de": "Bundesgesetz über die Prüfung ausländischer Investitionen (Investitionsprüfgesetz, IPG)",
+        "fr": "Loi fédérale sur l’examen des investissements étrangers (LEIE)",
+        "it": "Legge federale sulla verifica degli investimenti esteri (Legge sulla verifica degli investimenti, LVI)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "security",
+        "economy",
+        "finance",
+        "media",
+        "transport",
+        "environment",
+        "energy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 113,
+        "no": 81,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 0,
+          "no": 26,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 61,
+          "no": 4,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 1,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 11,
+          "no": 10,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35458,
+      "business": "23.477",
+      "businessNumber": 20230477,
+      "title": {
+        "de": "Bundesgesetz über die Verwendung der zweckgebundenen Mineralölsteuer und weiterer für den Strassen- und Luftverkehr zweckgebundener Mittel (MinVG)",
+        "fr": "Loi fédérale concernant l’utilisation de l’impôt sur les huiles minérales à affectation obligatoire et des autres moyens affectés à la circulation routière et au trafic aérien (LUMin)",
+        "it": "Legge federale concernente l’utilizzazione dell’imposta sugli oli minerali a destinazione vincolata e di altri mezzi a destinazione vincolata per il traffico stradale e aereo (LUMin)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "economy",
+        "finance",
+        "transport"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 133,
+        "no": 62,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 3,
+          "no": 62,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35459,
+      "business": "24.091",
+      "businessNumber": 20240091,
+      "title": {
+        "de": "Bundesgesetz über die Erstreckung der Verlustverrechnung",
+        "fr": "Loi fédérale sur la prolongation du délai de compensation des pertes",
+        "it": "Legge federale concernente l’estensione della compensazione delle perdite"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "economy",
+        "finance",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 65,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 2,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35460,
+      "business": "25.024",
+      "businessNumber": 20250024,
+      "title": {
+        "de": "Bundesgesetz über das Kriegsmaterial (Kriegsmaterialgesetz, KMG)",
+        "fr": "Loi fédérale sur le matériel de guerre (LFMG)",
+        "it": "Legge federale sul materiale bellico (LMB)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "security",
+        "economy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 122,
+        "no": 68,
+        "abstain": 6
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 1,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 26,
+          "no": 1,
+          "abstain": 4
+        },
+        "GLP": {
+          "yes": 6,
+          "no": 3,
+          "abstain": 2
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35461,
+      "business": "25.026",
+      "businessNumber": 20250026,
+      "title": {
+        "de": "Bundesbeschluss zur Volksinitiative «Keine 10-Millionen-Schweiz! (Nachhaltigkeitsinitiative)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire «Pas de Suisse à 10 millions! (initiative pour la durabilité)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «No a una Svizzera da 10 milioni! (Iniziativa per la sostenibilità)»"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "europe",
+        "socialQuestions",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 123,
+        "no": 67,
+        "abstain": 6
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 66,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 24,
+          "no": 1,
+          "abstain": 6
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35462,
+      "business": "25.036",
+      "businessNumber": 20250036,
+      "title": {
+        "de": "Bundesgesetz über die Armee und Militärverwaltung (Militärgesetz, MG)",
+        "fr": "Loi fédérale sur l’armée et l’administration militaire (Loi sur l’armée, LAAM)",
+        "it": "Legge federale sull’esercito e sull’amministrazione militare (Legge militare, LM)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "security",
+        "media"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 62,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35463,
+      "business": "25.036",
+      "businessNumber": 20250036,
+      "title": {
+        "de": "Verordnung der Bundesversammlung über die Verwaltung der Armee (VBVA)",
+        "fr": "Ordonnance de l’Assemblée fédérale concernant l’administration de l’armée (OAdma)",
+        "it": "Ordinanza dell’Assemblea federale sull’organizzazione dell’esercito (Organizzazione dell’esercito, OEs)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "security",
+        "media"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 153,
+        "no": 40,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 21,
+          "no": 0,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35464,
+      "business": "25.036",
+      "businessNumber": 20250036,
+      "title": {
+        "de": "Verordnung der Bundesversammlung über die Organisation der Armee (Armeeorganisation, AO)",
+        "fr": "Ordonnance de l’Assemblée fédérale sur l’organisation de l’armée (Organisation de l’armée, OOrgA)",
+        "it": "Ordinanza dell’Assemblea federale sull’organizzazione dell’esercito (Organizzazione dell’esercito, OEs)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "security",
+        "media"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 62,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 40,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35465,
+      "business": "25.039",
+      "businessNumber": 20250039,
+      "title": {
+        "de": "Bundesgesetz über den Erwerbsersatz (Erwerbsersatzgesetz, EOG) (Angleichung der EO-Leistungen)",
+        "fr": "Loi fédérale sur les allocations pour perte de gain (LAPG) (Harmonisation des prestations dans le régime des APG)",
+        "it": "Legge federale sulle indennità di perdita di guadagno (Legge sulle indennità di perdita di guadagno, LIPG) (Armonizzazione delle prestazioni nell’ordinamento delle IPG)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "socialQuestions",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 130,
+        "no": 63,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 2,
+          "no": 63,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35466,
+      "business": "25.046",
+      "businessNumber": 20250046,
+      "title": {
+        "de": "Bundesgesetz über die Berufsbildung (Berufsbildungsgesetz, BBG)",
+        "fr": "Loi fédérale sur la formation professionnelle (LFPr)",
+        "it": "Legge federale sulla formazione professionale (Legge sulla formazione professionale, LFPr)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "education",
+        "labour",
+        "culture"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 158,
+        "no": 30,
+        "abstain": 5
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 20,
+          "no": 3,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 34,
+          "no": 27,
+          "abstain": 4
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35467,
+      "business": "25.048",
+      "businessNumber": 20250048,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Abkommens zwischen der Schweiz und Argentinien über soziale Sicherheit",
+        "fr": "Arrêté fédéral portant approbation de la convention de sécurité sociale entre la Suisse et l’Argentine",
+        "it": "Decreto federale che approva la Convenzione di sicurezza sociale tra la Confederazione Svizzera e la Repubblica Argentina"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "international",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 128,
+        "no": 66,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 66,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35468,
+      "business": "25.051",
+      "businessNumber": 20250051,
+      "title": {
+        "de": "Bundesgesetz über den internationalen automatischen Informationsaustausch betreffend Lohndaten (AIALG)",
+        "fr": "Loi fédérale sur l’échange international automatique de renseignements concernant les données salariales (LEADS)",
+        "it": "Legge federale sullo scambio automatico internazionale di informazioni relative a dati salariali (LSADS)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "international",
+        "economy",
+        "labour",
+        "humanRights",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 126,
+        "no": 66,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 66,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35469,
+      "business": "25.056",
+      "businessNumber": 20250056,
+      "title": {
+        "de": "Bundesgesetz über die Förderung der Hochschulen und die Koordination im schweizerischen Hochschulbereich (Hochschulförderungs- und -koordinationsgesetz, HFKG)",
+        "fr": "Loi fédérale sur l’encouragement des hautes écoles et la coordination dans le domaine suisse des hautes écoles (Loi sur l’encouragement et la coordination des hautes écoles, LEHE)",
+        "it": "Legge federale sulla promozione e sul coordinamento del settore universitario svizzero (LPSU)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "education",
+        "labour"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 127,
+        "no": 65,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 21,
+          "no": 0,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35470,
+      "business": "25.060",
+      "businessNumber": 20250060,
+      "title": {
+        "de": "Bundesgesetz über die Verrechnungssteuer (Verrechnungssteuergesetz, VStG)",
+        "fr": "Loi fédérale sur l’impôt anticipé (LIA)",
+        "it": "Legge federale sull’imposta preventiva (LIP)"
+      },
+      "voteEnd": "2025-12-19",
+      "topics": [
+        "economy",
+        "finance",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 153,
+        "no": 39,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}

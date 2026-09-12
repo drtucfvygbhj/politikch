@@ -1,0 +1,942 @@
+{
+  "id": 5205,
+  "season": "autumn",
+  "year": 2024,
+  "start": "2024-09-09",
+  "end": "2024-09-27",
+  "legislativePeriod": 52,
+  "votes": [
+    {
+      "id": 33452,
+      "business": "19.409",
+      "businessNumber": 20190409,
+      "title": {
+        "de": "Bundesgesetz über den Natur- und Heimatschutz (NHG)",
+        "fr": "Loi fédérale sur la protection de la nature et du paysage (LPN)",
+        "it": "Legge federale sulla protezione della natura e del paesaggio (LPN)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "lawGeneral",
+        "environment",
+        "civilLaw",
+        "spatialPlanning"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 124,
+        "no": 67,
+        "abstain": 4
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 5,
+          "abstain": 4
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33453,
+      "business": "21.463",
+      "businessNumber": 20210463,
+      "title": {
+        "de": "Bundesgesetz über den Wald (Waldgesetz, WaG)",
+        "fr": "Loi fédérale sur les forêts (Loi sur les forêts, LFo)",
+        "it": "Legge federale sulle foreste (Legge forestale, LFo)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "economy",
+        "environment",
+        "agriculture"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 174,
+        "no": 13,
+        "abstain": 7
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 20,
+          "no": 7,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 53,
+          "no": 6,
+          "abstain": 5
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33454,
+      "business": "22.085",
+      "businessNumber": 20220085,
+      "title": {
+        "de": "Bundesgesetz über den Umweltschutz (Umweltschutzgesetz, USG)",
+        "fr": "Loi fédérale sur la protection de l’environnement (Loi sur la protection de l’environnement, LPE)",
+        "it": "Legge federale sulla protezione dell’ambiente (Legge sulla protezione dell’ambiente, LPAmb)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "finance",
+        "environment",
+        "criminalLaw",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 61,
+        "abstain": 3
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 8,
+          "no": 0,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33455,
+      "business": "23.063",
+      "businessNumber": 20230063,
+      "title": {
+        "de": "Bundesgesetz über die Schweizerischen Bundesbahnen (SBBG)",
+        "fr": "Loi sur les Chemins de fer fédéraux (LCFF)",
+        "it": "Legge federale sulle Ferrovie federali svizzere (LFFS)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "finance",
+        "transport"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 127,
+        "no": 68,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 4,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 64,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33456,
+      "business": "23.472",
+      "businessNumber": 20230472,
+      "title": {
+        "de": "Bundesgesetz über die Aufarbeitung der fürsorgerischen Zwangsmassnahmen und Fremdplatzierungen vor 1981 (AFZFG) (Behandlung von kantonalen und kommunalen Solidaritätsbeiträgen gemäss AFZFG)",
+        "fr": "Loi fédérale sur les mesures de coercition à des fins d’assistance et les placements extrafamiliaux antérieurs à 1981 (LMCFA) (Traitement des contributions de solidarité cantonales et communales selon la LMCFA)",
+        "it": "Legge federale sulle misure coercitive a scopo assistenziale e i collocamenti extrafamiliari prima del 1981 (LMCCE) (Contributi di solidarietà cantonali o comunali)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "statePolicy",
+        "finance",
+        "civilLaw"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 195,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33458,
+      "business": "23.478",
+      "businessNumber": 20230478,
+      "title": {
+        "de": "Bundesgesetz über Finanzhilfen für familienergänzende Kinderbetreuung (KBFHG)",
+        "fr": "Loi fédérale sur les aides financières à l’accueil extra-familial pour enfants (LAAcc)",
+        "it": "Legge federale sugli aiuti finanziari per la custodia di bambini complementare alla famiglia (LACust)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "finance",
+        "socialQuestions"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 113,
+        "no": 79,
+        "abstain": 3
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 10,
+          "no": 17,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 62,
+          "abstain": 2
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33459,
+      "business": "24.016",
+      "businessNumber": 20240016,
+      "title": {
+        "de": "Bundesgesetz über die Massnahmen zur finanziellen und administrativen Entlastung ab 2025",
+        "fr": "Loi fédérale sur des mesures d’allègement financier et administratif à partir de 2025",
+        "it": "Legge federale concernente le misure di sgravio finanziario e amministrativo applicabili dal 2025"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "statePolicy",
+        "finance",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 133,
+        "no": 62,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33460,
+      "business": "24.021",
+      "businessNumber": 20240021,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für eine verantwortungsvolle Wirtschaft innerhalb der planetaren Grenzen (Umweltverantwortungsinitiative)»",
+        "fr": "Arrêté fédéral concernant l’initiative populaire «Pour une économie responsable respectant les limites planétaires (initiative pour la responsabilité environnementale)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Per un’economia responsabile entro i limiti del pianeta (Iniziativa per la responsabilità ambientale)»"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "economy",
+        "environment",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 133,
+        "no": 61,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 38,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33461,
+      "business": "24.027",
+      "businessNumber": 20240027,
+      "title": {
+        "de": "Bundesgesetz über die Landessprachen und die Verständigung zwischen den Sprachgemeinschaften (Sprachengesetz, SpG)",
+        "fr": "Loi fédérale sur les langues nationales et la compréhension entre les communautés linguistiques (Loi sur les langues, LLC)",
+        "it": "Legge federale sulle lingue nazionali e la comprensione tra le comunità linguistiche (Legge sulle lingue, LLing)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "finance",
+        "culture"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 195,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33462,
+      "business": "24.029",
+      "businessNumber": 20240029,
+      "title": {
+        "de": "Bundesgesetz über die Förderung der Forschung und der Innovation (FIFG) (Sachplan und Plangenehmigungsverfahren)",
+        "fr": "Loi fédérale sur l’encouragement de la recherche et de l’innovation (LERI) (Plan sectoriel et procédure d’approbation des plans)",
+        "it": "Legge federale sulla promozione della ricerca e dell’innovazione (LPRI) (Piano settoriale e procedura di approvazione dei piani)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "science",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 105,
+        "no": 65,
+        "abstain": 25
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 1,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 64,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 23
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33463,
+      "business": "24.030",
+      "businessNumber": 20240030,
+      "title": {
+        "de": "Bundesgesetz über den Abschluss internationaler Verträge über die Anerkennung von Berufsqualifikationen",
+        "fr": "Loi sur la conclusion de traités internationaux en matière de reconnaissance des qualifications professionnelles",
+        "it": "Legge federale sulla conclusione di trattati internazionali sul riconoscimento delle qualifiche professionali"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "international",
+        "education",
+        "labour"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 195,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33464,
+      "business": "24.030",
+      "businessNumber": 20240030,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Abkommens zwischen der Schweiz und dem Vereinigten Königreich über die Anerkennung von Berufsqualifikationen und über dessen Umsetzung (Anwaltsgesetz)",
+        "fr": "Arrêté fédéral portant approbation et mise en œuvre (modification de la loi sur les avocats) de l’accord entre la Suisse et le Royaume-Uni en matière de reconnaissance des qualifications professionnelles",
+        "it": "Decreto federale che approva l’Accordo tra la Svizzera e il Regno Unito sul riconoscimento delle qualifiche professionali e lo traspone nel diritto svizzero (modifica della legge sugli avvocati)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "international",
+        "education",
+        "labour"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 195,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33465,
+      "business": "24.031",
+      "businessNumber": 20240031,
+      "title": {
+        "de": "Bundesgesetz über die Berufsbildung",
+        "fr": "Loi fédérale sur la formation professionnelle",
+        "it": "Legge federale sulla formazione professionale"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "finance",
+        "education",
+        "science"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 129,
+        "no": 66,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 1,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33466,
+      "business": "24.031",
+      "businessNumber": 20240031,
+      "title": {
+        "de": "Bundesgesetz über die Eidgenössischen Technischen Hochschulen (ETH-Gesetz)",
+        "fr": "Loi fédérale sur les écoles polytechniques fédérales (Loi sur les EPF)",
+        "it": "Legge federale sui politecnici federali (Legge sui PF)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "finance",
+        "education",
+        "science"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 133,
+        "no": 62,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 39,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33467,
+      "business": "24.031",
+      "businessNumber": 20240031,
+      "title": {
+        "de": "Bundesgesetz über die Förderung der Hochschulen und die Koordination im schweizerischen Hochschulbereich (Hochschulförderungs- und -koordinationsgesetz, HFKG)",
+        "fr": "Loi fédérale sur l’encouragement des hautes écoles et la coordination dans le domaine suisse des hautes écoles (Loi sur l’encouragement et la coordination des hautes écoles, LEHE)",
+        "it": "Legge federale sulla promozione e sul coordinamento del settore universitario svizzero (LPSU)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "finance",
+        "education",
+        "science"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 130,
+        "no": 65,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33468,
+      "business": "24.031",
+      "businessNumber": 20240031,
+      "title": {
+        "de": "Bundesgesetz über die Förderung der Forschung und der Innovation (FIFG)",
+        "fr": "Loi fédérale sur l’encouragement de la recherche et de l’innovation (LERI)",
+        "it": "Legge federale sulla promozione della ricerca e dell’innovazione (LPRI)"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "finance",
+        "education",
+        "science"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 129,
+        "no": 65,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 33469,
+      "business": "24.032",
+      "businessNumber": 20240032,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Freihandelsabkommens zwischen den EFTA-Staaten und der Republik Moldau",
+        "fr": "Arrêté fédéral portant approbation de l’Accord de libre-échange entre les États de l’AELE et la République de Moldova",
+        "it": "Decreto federale che approva l’Accordo di libero scambio tra gli Stati dell’AELS e la Repubblica di Moldova"
+      },
+      "voteEnd": "2024-09-27",
+      "topics": [
+        "international",
+        "economy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 63,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 1
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}

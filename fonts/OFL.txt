@@ -1,0 +1,14 @@
+The fonts in this directory are redistributed under the SIL Open Font License,
+Version 1.1.
+
+  - Playfair Display — Copyright © the Playfair Display Project Authors
+    (https://github.com/clauseggers/Playfair-Display)
+  - DM Sans — Copyright © the DM Sans Project Authors
+    (https://github.com/googlefonts/dm-fonts)
+
+Full license text: https://openfontlicense.org  (SIL OFL 1.1)
+
+These WOFF2 files (Latin + Latin-Extended subsets) were generated from the
+Google Fonts css2 API and are self-hosted so that no visitor data is sent to a
+third party when the site loads. The fonts are used under the OFL; Politikch
+claims no ownership of them.

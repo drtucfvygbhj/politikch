@@ -1,134 +1,2101 @@
 {
   "_meta": {
-    "source": "Federal Chancellery (Bundeskanzlei) — official vote results and pending items. Official authority texts are not subject to copyright (Art. 5 URG).",
-    "note": "This is a curated selection of notable recent and pending federal items, not an exhaustive list. Outcomes are recorded as officially declared."
+    "source": "Decided federal votes: VoteInfo (Federal Chancellery / Federal Statistical Office), opendata.swiss dataset 'echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen'. Upcoming scheduled votes and pending/signature-gathering initiatives: Federal Chancellery linked-data cubes (politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party recommendations (Parolen): Swissvotes (Année Politique Suisse, Uni Bern), CC BY-NC-SA. Official authority texts are not subject to copyright (Art. 5 URG).",
+    "fetchedAt": "2026-07-22T15:00:48Z",
+    "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive."
   },
   "initiatives": [
     {
-      "id": "13th-ahv",
+      "id": "vote-20260927-6880",
       "type": "initiative",
       "title": {
-        "en": "For a Better Life in Retirement (13th AHV pension)",
-        "de": "Für ein besseres Leben im Alter (13. AHV-Rente)",
-        "fr": "Mieux vivre à la retraite (13e rente AVS)",
-        "it": "Per una vita migliore in pensione (13a rendita AVS)"
+        "en": "Neutrality Initiative",
+        "de": "Volksinitiative «Wahrung der schweizerischen Neutralität (Neutralitätsinitiative)»",
+        "fr": "Initiative populaire «Sauvegarder la neutralité suisse (initiative sur la neutralité)»",
+        "it": "Iniziativa popolare dell'11.04.2024 «Salvaguardia della neutralità svizzera (Iniziativa sulla neutralità)»"
       },
       "desc": {
-        "en": "A trade-union initiative to add a 13th monthly AHV pension payment each year. In a rare success against Federal Council and parliamentary opposition, voters approved it, the first expansion of old-age benefits in decades.",
-        "de": "Eine Gewerkschaftsinitiative für eine jährliche 13. AHV-Rente. Gegen den Willen von Bundesrat und Parlament angenommen, die erste Ausweitung der Altersvorsorge seit Jahrzehnten.",
-        "fr": "Une initiative syndicale pour une 13e rente AVS annuelle. Adoptée contre l'avis du Conseil fédéral et du Parlement, première extension des prestations vieillesse depuis des décennies.",
-        "it": "Un'iniziativa sindacale per una 13a rendita AVS annuale. Approvata contro il parere di Consiglio federale e Parlamento, prima estensione delle prestazioni di vecchiaia da decenni."
+        "en": "A federal popular initiative scheduled for a nationwide vote on 27 September 2026.",
+        "de": "Eine eidgenössische Volksinitiative, die am 27. September 2026 zur Abstimmung kommt.",
+        "fr": "Une initiative populaire fédérale soumise à la votation du 27 septembre 2026.",
+        "it": "Un'iniziativa popolare federale in votazione il 27 settembre 2026."
       },
-      "status": "adopted",
-      "date": { "en": "Voted 3 March 2024", "de": "Abstimmung 3. März 2024", "fr": "Votation du 3 mars 2024", "it": "Votazione del 3 marzo 2024" },
-      "outcome": { "en": "Adopted (58.2% yes)", "de": "Angenommen (58,2% Ja)", "fr": "Acceptée (58,2% oui)", "it": "Accettata (58,2% sì)" },
-      "author": "Swiss Trade Union Federation (SGB/USS)",
-      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240303/index.html"
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 27 September 2026",
+        "de": "Abstimmung am 27. September 2026",
+        "fr": "Votation du 27 septembre 2026",
+        "it": "Votazione del 27 settembre 2026",
+        "rm": "Votaziun federala ils 27 da settember 2026"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260927/index.html",
+      "voteDate": "2026-09-27",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "FDP": "no",
+        "GLP": "no",
+        "EVP": "no"
+      }
     },
     {
-      "id": "pension-age",
+      "id": "vote-20260927-6890",
       "type": "initiative",
       "title": {
-        "en": "For a Secure and Sustainable Pension System (Pension Initiative)",
-        "de": "Für eine sichere und nachhaltige Altersvorsorge (Renteninitiative)",
-        "fr": "Pour une prévoyance sûre et durable (initiative sur les rentes)",
-        "it": "Per una previdenza sicura e sostenibile (iniziativa sulle rendite)"
+        "en": "«Food Initiative»",
+        "de": "Volksinitiative «Für eine sichere Ernährung – durch Stärkung einer nachhaltigen inländischen Produktion, mehr pflanzliche Lebensmittel und sauberes Trinkwasser (Ernährungsinitiative)»",
+        "fr": "Initiative populaire «Pour une alimentation sûre – grâce au renforcement de la production indigène durable, à davantage de denrées alimentaires végétales et à une eau potable propre (initiative sur l’alimentation)»",
+        "it": "Iniziativa popolare «Per un’alimentazione sicura – mediante il rafforzamento di una produzione nazionale sostenibile, più derrate alimentari vegetali e acqua potabile pulita (Iniziativa sull’alimentazione)»"
       },
       "desc": {
-        "en": "A Young Liberals initiative proposing to raise the retirement age to 66 and then link it automatically to life expectancy, rather than setting it through parliament, aiming at the long-term finances of the AHV.",
-        "de": "Eine Initiative der Jungfreisinnigen, das Rentenalter auf 66 zu erhöhen und danach automatisch an die Lebenserwartung zu koppeln, statt es im Parlament festzulegen.",
-        "fr": "Une initiative des Jeunes libéraux-radicaux visant à porter l'âge de la retraite à 66 ans, puis à le lier automatiquement à l'espérance de vie.",
-        "it": "Un'iniziativa dei Giovani liberali radicali per portare l'età pensionabile a 66 anni e collegarla poi automaticamente alla speranza di vita."
+        "en": "A federal popular initiative scheduled for a nationwide vote on 27 September 2026.",
+        "de": "Eine eidgenössische Volksinitiative, die am 27. September 2026 zur Abstimmung kommt.",
+        "fr": "Une initiative populaire fédérale soumise à la votation du 27 septembre 2026.",
+        "it": "Un'iniziativa popolare federale in votazione il 27 settembre 2026."
       },
-      "status": "rejected",
-      "date": { "en": "Voted 3 March 2024", "de": "Abstimmung 3. März 2024", "fr": "Votation du 3 mars 2024", "it": "Votazione del 3 marzo 2024" },
-      "outcome": { "en": "Rejected (74.7% no)", "de": "Abgelehnt (74,7% Nein)", "fr": "Rejetée (74,7% non)", "it": "Respinta (74,7% no)" },
-      "author": "Young Liberals (Jungfreisinnige)",
-      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240303/index.html"
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 27 September 2026",
+        "de": "Abstimmung am 27. September 2026",
+        "fr": "Votation du 27 septembre 2026",
+        "it": "Votazione del 27 settembre 2026",
+        "rm": "Votaziun federala ils 27 da settember 2026"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260927/index.html",
+      "voteDate": "2026-09-27",
+      "recommendations": {
+        "SP": "no",
+        "FDP": "no",
+        "GLP": "no",
+        "EVP": "no"
+      }
     },
     {
-      "id": "biodiversity",
-      "type": "initiative",
-      "title": {
-        "en": "For the Future of Our Nature and Landscape (Biodiversity Initiative)",
-        "de": "Für die Zukunft unserer Natur und Landschaft (Biodiversitätsinitiative)",
-        "fr": "Pour l'avenir de notre nature et de notre paysage (initiative biodiversité)",
-        "it": "Per il futuro della nostra natura e del nostro paesaggio (iniziativa biodiversità)"
-      },
-      "desc": {
-        "en": "A popular initiative demanding that the Confederation and cantons significantly increase resources and protected areas for biodiversity, nature and landscape. Parliament and the Federal Council opposed it.",
-        "de": "Eine Volksinitiative, die von Bund und Kantonen deutlich mehr Mittel und Schutzflächen für Biodiversität, Natur und Landschaft verlangt. Bundesrat und Parlament lehnten sie ab.",
-        "fr": "Une initiative populaire demandant à la Confédération et aux cantons davantage de moyens et de surfaces protégées pour la biodiversité, la nature et le paysage.",
-        "it": "Un'iniziativa popolare che chiede a Confederazione e cantoni più mezzi e superfici protette per biodiversità, natura e paesaggio."
-      },
-      "status": "rejected",
-      "date": { "en": "Voted 22 September 2024", "de": "Abstimmung 22. September 2024", "fr": "Votation du 22 septembre 2024", "it": "Votazione del 22 settembre 2024" },
-      "outcome": { "en": "Rejected (63.0% no)", "de": "Abgelehnt (63,0% Nein)", "fr": "Rejetée (63,0% non)", "it": "Respinta (63,0% no)" },
-      "author": "Pro Natura, BirdLife, Sassociation and others",
-      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240922/index.html"
-    },
-    {
-      "id": "cost-brake",
-      "type": "initiative",
-      "title": {
-        "en": "For Lower Premiums (Cost Brake Initiative)",
-        "de": "Für tiefere Prämien (Kostenbremse-Initiative)",
-        "fr": "Pour des primes plus basses (initiative pour un frein aux coûts)",
-        "it": "Per premi più bassi (iniziativa freno ai costi)"
-      },
-      "desc": {
-        "en": "The Centre's initiative to require federal action to contain health-insurance costs whenever premium growth outpaces wages and the economy. Voters rejected it, though a parliamentary counterproposal on cost containment took effect.",
-        "de": "Die Initiative der Mitte, die Bundesmassnahmen zur Kostendämpfung verlangt, wenn die Prämien stärker steigen als Löhne und Wirtschaft. Abgelehnt; ein Gegenvorschlag trat in Kraft.",
-        "fr": "L'initiative du Centre exigeant des mesures fédérales pour freiner les coûts lorsque les primes progressent plus vite que les salaires. Rejetée; un contre-projet est entré en vigueur.",
-        "it": "L'iniziativa del Centro che chiede misure federali per contenere i costi quando i premi crescono più di salari ed economia. Respinta; un controprogetto è entrato in vigore."
-      },
-      "status": "rejected",
-      "date": { "en": "Voted 9 June 2024", "de": "Abstimmung 9. Juni 2024", "fr": "Votation du 9 juin 2024", "it": "Votazione del 9 giugno 2024" },
-      "outcome": { "en": "Rejected (62.8% no)", "de": "Abgelehnt (62,8% Nein)", "fr": "Rejetée (62,8% non)", "it": "Respinta (62,8% no)" },
-      "author": "The Centre (Die Mitte)",
-      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240609/index.html"
-    },
-    {
-      "id": "electricity-act",
+      "id": "vote-20261129-6900",
       "type": "referendum",
       "title": {
-        "en": "Electricity Act (secure supply from renewables)",
-        "de": "Stromgesetz (sichere Versorgung mit erneuerbarer Energie)",
-        "fr": "Loi sur l'électricité (approvisionnement sûr en énergies renouvelables)",
-        "it": "Legge sull'elettricità (approvvigionamento sicuro da rinnovabili)"
+        "en": "VAT increase in favour of the old-age insurance",
+        "de": "Bundesbeschluss über die Zusatzfinanzierung der AHV durch eine Erhöhung der Mehrwertsteuer",
+        "fr": "Arrêté fédéral sur le financement additionnel de l’AVS par le biais d’un relèvement de la TVA",
+        "it": "Decreto federale sul finanziamento supplementare dell’AVS mediante un aumento dell’imposta sul valore aggiunto"
       },
       "desc": {
-        "en": "An optional referendum on the law to expand domestic renewable electricity and strengthen supply security. Backed by a broad coalition, it was approved by voters.",
-        "de": "Ein fakultatives Referendum zum Gesetz für den Ausbau der einheimischen erneuerbaren Stromproduktion und mehr Versorgungssicherheit. Von den Stimmenden angenommen.",
-        "fr": "Un référendum facultatif sur la loi visant à développer l'électricité renouvelable indigène et la sécurité d'approvisionnement. Acceptée par le peuple.",
-        "it": "Un referendum facoltativo sulla legge per ampliare l'elettricità rinnovabile indigena e la sicurezza dell'approvvigionamento. Accettata dal popolo."
+        "en": "A federal referendum scheduled for a nationwide vote on 29 November 2026.",
+        "de": "Eine eidgenössische Referendumsvorlage, die am 29. November 2026 zur Abstimmung kommt.",
+        "fr": "Une objet soumis au référendum fédérale soumise à la votation du 29 novembre 2026.",
+        "it": "Un'oggetto in referendum federale in votazione il 29 novembre 2026."
       },
-      "status": "adopted",
-      "date": { "en": "Voted 9 June 2024", "de": "Abstimmung 9. Juni 2024", "fr": "Votation du 9 juin 2024", "it": "Votazione del 9 giugno 2024" },
-      "outcome": { "en": "Adopted (68.7% yes)", "de": "Angenommen (68,7% Ja)", "fr": "Acceptée (68,7% oui)", "it": "Accettata (68,7% sì)" },
-      "author": "Federal Assembly (referendum by opponents)",
-      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240609/index.html"
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 29 November 2026",
+        "de": "Abstimmung am 29. November 2026",
+        "fr": "Votation du 29 novembre 2026",
+        "it": "Votazione del 29 novembre 2026",
+        "rm": "Votaziun federala ils 29 da november 2026"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
+      "voteDate": "2026-11-29"
     },
     {
-      "id": "ahv-21",
-      "type": "referendum",
+      "id": "vote-20261129-6910",
+      "type": "initiative",
       "title": {
-        "en": "AHV 21 — Stabilisation of Old-Age Insurance",
-        "de": "AHV 21 — Stabilisierung der Altersvorsorge",
-        "fr": "AVS 21 — Stabilisation de l'assurance-vieillesse",
-        "it": "AVS 21 — Stabilizzazione dell'assicurazione vecchiaia"
+        "en": "Fireworks Initiative",
+        "de": "Volksinitiative «Für eine Einschränkung von Feuerwerk»",
+        "fr": "Initiative populaire «Pour une limitation des feux d’artifice»",
+        "it": "Iniziativa popolare «Per una limitazione dei fuochi d'artificio»"
       },
       "desc": {
-        "en": "A reform package, subject to referendum, that harmonised the reference retirement age for women at 65 and raised VAT to help fund the AHV. Voters narrowly approved both parts in 2022.",
-        "de": "Ein Reformpaket (mit Referendum), das das Referenzalter der Frauen auf 65 angleicht und die Mehrwertsteuer zur AHV-Finanzierung erhöht. 2022 knapp angenommen.",
-        "fr": "Un paquet de réforme (soumis au référendum) harmonisant l'âge de référence des femmes à 65 ans et relevant la TVA pour financer l'AVS. Accepté de justesse en 2022.",
-        "it": "Un pacchetto di riforma (con referendum) che porta a 65 anni l'età di riferimento delle donne e aumenta l'IVA per finanziare l'AVS. Approvato di stretta misura nel 2022."
+        "en": "A federal popular initiative scheduled for a nationwide vote on 29 November 2026.",
+        "de": "Eine eidgenössische Volksinitiative, die am 29. November 2026 zur Abstimmung kommt.",
+        "fr": "Une initiative populaire fédérale soumise à la votation du 29 novembre 2026.",
+        "it": "Un'iniziativa popolare federale in votazione il 29 novembre 2026."
+      },
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 29 November 2026",
+        "de": "Abstimmung am 29. November 2026",
+        "fr": "Votation du 29 novembre 2026",
+        "it": "Votazione del 29 novembre 2026",
+        "rm": "Votaziun federala ils 29 da november 2026"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
+      "voteDate": "2026-11-29"
+    },
+    {
+      "id": "vote-20261129-6920",
+      "type": "initiative",
+      "title": {
+        "en": "Initiative on the taxation of married couples",
+        "de": "Volksinitiative «Ja zu fairen Bundessteuern auch für Ehepaare – Diskriminierung der Ehe endlich abschaffen!»",
+        "fr": "Initiative populaire «Oui à des impôts fédéraux équitables pour les couples mariés – Pour enfin en finir avec la discrimination du mariage!»",
+        "it": "Iniziativa popolare «Sì a imposte federali eque anche per i coniugi – Basta con la discriminazione del matrimonio!»"
+      },
+      "desc": {
+        "en": "A federal popular initiative scheduled for a nationwide vote on 29 November 2026.",
+        "de": "Eine eidgenössische Volksinitiative, die am 29. November 2026 zur Abstimmung kommt.",
+        "fr": "Une initiative populaire fédérale soumise à la votation du 29 novembre 2026.",
+        "it": "Un'iniziativa popolare federale in votazione il 29 novembre 2026."
+      },
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 29 November 2026",
+        "de": "Abstimmung am 29. November 2026",
+        "fr": "Votation du 29 novembre 2026",
+        "it": "Votazione del 29 novembre 2026",
+        "rm": "Votaziun federala ils 29 da november 2026"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
+      "voteDate": "2026-11-29"
+    },
+    {
+      "id": "vote-20261129-6930",
+      "type": "referendum",
+      "title": {
+        "en": "Amendment to the War Materiel Act",
+        "de": "Änderung des Bundesgesetzes über das Kriegsmaterial (Kriegsmaterialgesetz, KMG)",
+        "fr": "Modification de la loi fédérale sur le matériel de guerre (LFMG)",
+        "it": "Modifica della legge federale sul materiale bellico (LMB)"
+      },
+      "desc": {
+        "en": "A federal referendum scheduled for a nationwide vote on 29 November 2026.",
+        "de": "Eine eidgenössische Referendumsvorlage, die am 29. November 2026 zur Abstimmung kommt.",
+        "fr": "Une objet soumis au référendum fédérale soumise à la votation du 29 novembre 2026.",
+        "it": "Un'oggetto in referendum federale in votazione il 29 novembre 2026."
+      },
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 29 November 2026",
+        "de": "Abstimmung am 29. November 2026",
+        "fr": "Votation du 29 novembre 2026",
+        "it": "Votazione del 29 novembre 2026",
+        "rm": "Votaziun federala ils 29 da november 2026"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
+      "voteDate": "2026-11-29"
+    },
+    {
+      "id": "initiative-573",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Ja zum Schutz vor missbräuchlichen Mieten (Mietpreis-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Ja zum Schutz vor missbräuchlichen Mieten (Mietpreis-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Oui à la protection contre les loyers abusifs (initiative sur les loyers)'",
+        "it": "Iniziativa popolare federale 'Sì alla protezione contro pigioni abusive (Iniziativa sulle pigioni)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (signatures being verified), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (in Auszählung), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (décompte des signatures), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (conteggio delle firme), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 3 June 2025",
+        "de": "Lanciert am 3. Juni 2025",
+        "fr": "Lancée le 3 juin 2025",
+        "it": "Lanciata il 3 giugno 2025",
+        "rm": "Lantschada ils 3 da zercladur 2025"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-569",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für verantwortungsvolle Grossunternehmen – zum Schutz von Mensch und Umwelt»",
+        "de": "Eidgenössische Volksinitiative 'Für verantwortungsvolle Grossunternehmen – zum Schutz von Mensch und Umwelt'",
+        "fr": "Initiative populaire fédérale 'Pour des grandes entreprises responsables – pour la protection de l’être humain et de l’environnement'",
+        "it": "Iniziativa popolare federale 'Per grandi imprese responsabili – a tutela dell’essere umano e dell’ambiente'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 7 January 2025",
+        "de": "Lanciert am 7. Januar 2025",
+        "fr": "Lancée le 7 janvier 2025",
+        "it": "Lanciata il 7 gennaio 2025",
+        "rm": "Lantschada ils 7 da schaner 2025"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-567",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für einen nachhaltigen und zukunftsgerichteten Finanzplatz Schweiz (Finanzplatz-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für einen nachhaltigen und zukunftsgerichteten Finanzplatz Schweiz (Finanzplatz-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Pour une place financière suisse durable et tournée vers l’avenir (initiative sur la place financière)'",
+        "it": "Iniziativa popolare federale 'Per una piazza finanziaria svizzera sostenibile e orientata al futuro (Iniziativa sulla piazza finanziaria)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 26 November 2024",
+        "de": "Lanciert am 26. November 2024",
+        "fr": "Lancée le 26 novembre 2024",
+        "it": "Lanciata il 26 novembre 2024",
+        "rm": "Lantschada ils 26 da november 2024"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-566",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für eine direktdemokratische und wettbewerbsfähige Schweiz – keine EU-Passivmitgliedschaft (Kompass-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für eine direktdemokratische und wettbewerbsfähige Schweiz – keine EU-Passivmitgliedschaft (Kompass-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Pour la démocratie directe et la compétitivité de notre pays – Contre une Suisse membre passif de l’UE (initiative boussole)'",
+        "it": "Iniziativa popolare federale 'Per la democrazia diretta e la competitività del nostro Paese – No a una Svizzera membro passivo dell’UE (Iniziativa Bussola)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 1 October 2024",
+        "de": "Lanciert am 1. Oktober 2024",
+        "fr": "Lancée le 1 octobre 2024",
+        "it": "Lanciata il 1 ottobre 2024",
+        "rm": "Lantschada ils 1 da october 2024"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-564",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für den Beitritt der Schweiz zum Vertrag der Vereinten Nationen über das Verbot von Atomwaffen (Atomwaffenverbots-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für den Beitritt der Schweiz zum Vertrag der Vereinten Nationen über das Verbot von Atomwaffen (Atomwaffenverbots-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Pour l’adhésion de la Suisse au Traité des Nations Unies sur l’interdiction des armes nucléaires (initiative pour l’interdiction des armes nucléaires)'",
+        "it": "Iniziativa popolare federale 'Per l’adesione della Svizzera al Trattato delle Nazioni Unite sulla proibizione delle armi nucleari (Iniziativa per la proibizione delle armi nucleari)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 2 July 2024",
+        "de": "Lanciert am 2. Juli 2024",
+        "fr": "Lancée le 2 juillet 2024",
+        "it": "Lanciata il 2 luglio 2024",
+        "rm": "Lantschada ils 2 da fanadur 2024"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-563",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für eine sichere Versorgung mit erneuerbaren Energien (Solarinitiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für eine sichere Versorgung mit erneuerbaren Energien (Solarinitiative)'",
+        "fr": "Initiative populaire fédérale 'Pour un approvisionnement sûr en énergies renouvelables (initiative sur le solaire)'",
+        "it": "Iniziativa popolare federale 'Per un approvvigionamento sicuro con le energie rinnovabili (Iniziativa solare)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 11 June 2024",
+        "de": "Lanciert am 11. Juni 2024",
+        "fr": "Lancée le 11 juin 2024",
+        "it": "Lanciata il 11 giugno 2024",
+        "rm": "Lantschada ils 11 da zercladur 2024"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-562",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Asylmissbrauch stoppen! (Grenzschutzinitiative)»",
+        "de": "Eidgenössische Volksinitiative 'Asylmissbrauch stoppen! (Grenzschutzinitiative)'",
+        "fr": "Initiative populaire fédérale 'Stop aux abus de l'asile! (initiative pour la protection des frontières)'",
+        "it": "Iniziativa popolare federale 'Fermare gli abusi nell'asilo! (Iniziativa per la protezione delle frontiere)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 28 May 2024",
+        "de": "Lanciert am 28. Mai 2024",
+        "fr": "Lancée le 28 mai 2024",
+        "it": "Lanciata il 28 maggio 2024",
+        "rm": "Lantschada ils 28 da matg 2024"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-558",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Gegen die Zerstörung unserer Wälder durch Windturbinen (Waldschutz-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Gegen die Zerstörung unserer Wälder durch Windturbinen (Waldschutz-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Contre la destruction de nos forêts par des éoliennes (initiative pour la protection des forêts)'",
+        "it": "Iniziativa popolare federale 'Contro la distruzione delle nostre foreste a causa degli impianti eolici (Iniziativa per la protezione delle foreste)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 30 January 2024",
+        "de": "Lanciert am 30. Januar 2024",
+        "fr": "Lancée le 30 janvier 2024",
+        "it": "Lanciata il 30 gennaio 2024",
+        "rm": "Lantschada ils 30 da schaner 2024"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-559",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für den Schutz der direkten Demokratie bei Windparks (Gemeindeschutz-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für den Schutz der direkten Demokratie bei Windparks (Gemeindeschutz-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Pour la protection de la démocratie directe par rapport aux parcs éoliens (initiative pour la protection des communes)'",
+        "it": "Iniziativa popolare federale 'Per la protezione della democrazia diretta in relazione ai parchi eolici (Iniziativa per la protezione dei Comuni)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 30 January 2024",
+        "de": "Lanciert am 30. Januar 2024",
+        "fr": "Lancée le 30 janvier 2024",
+        "it": "Lanciata il 30 gennaio 2024",
+        "rm": "Lantschada ils 30 da schaner 2024"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-549",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für ein modernes Bürgerrecht (Demokratie-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für ein modernes Bürgerrecht (Demokratie-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Pour un droit de la nationalité moderne (initiative pour la démocratie)'",
+        "it": "Iniziativa popolare federale 'Per un diritto di cittadinanza moderno (Iniziativa per la democrazia)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 23 May 2023",
+        "de": "Lanciert am 23. Mai 2023",
+        "fr": "Lancée le 23 mai 2023",
+        "it": "Lanciata il 23 maggio 2023",
+        "rm": "Lantschada ils 23 da matg 2023"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-547",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Ja zur tierversuchsfreien Zukunft»",
+        "de": "Eidgenössische Volksinitiative 'Ja zur tierversuchsfreien Zukunft'",
+        "fr": "Initiative populaire fédérale 'Oui à un avenir sans expérimentation animale'",
+        "it": "Iniziativa popolare federale 'Sì a un futuro senza esperimenti sugli animali'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 9 May 2023",
+        "de": "Lanciert am 9. Mai 2023",
+        "fr": "Lancée le 9 mai 2023",
+        "it": "Lanciata il 9 maggio 2023",
+        "rm": "Lantschada ils 9 da matg 2023"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-550",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für die Gleichstellung von Menschen mit Behinderungen (Inklusions-Initiative)»",
+        "de": "Eidgenössische Volksinitiative «Für die Gleichstellung von Menschen mit Behinderungen (Inklusions-Initiative)»",
+        "fr": "Initiative populaire fédérale 'Pour l’égalité des personnes handicapées (initiative pour l’inclusion)'",
+        "it": "Iniziativa popolare federale 'Per l’uguaglianza delle persone con disabilità (Iniziativa per l’inclusione)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 25 April 2023",
+        "de": "Lanciert am 25. April 2023",
+        "fr": "Lancée le 25 avril 2023",
+        "it": "Lanciata il 25 aprile 2023",
+        "rm": "Lantschada ils 25 da avrigl 2023"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-548",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Ja zur medizinischen Versorgungssicherheit»",
+        "de": "Eidgenössische Volksinitiative 'Ja zur medizinischen Versorgungssicherheit'",
+        "fr": "Initiative populaire fédérale 'Oui à la sécurité de l’approvisionnement médical'",
+        "it": "Iniziativa popolare federale 'Sì alla sicurezza dell’approvvigionamento medico'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 4 April 2023",
+        "de": "Lanciert am 4. April 2023",
+        "fr": "Lancée le 4 avril 2023",
+        "it": "Lanciata il 4 aprile 2023",
+        "rm": "Lantschada ils 4 da avrigl 2023"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-530",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelz-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelz-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Oui à l’interdiction d’importer des produits en fourrure provenant d’animaux ayant subi de mauvais traitements (initiative fourrure)'",
+        "it": "Iniziativa popolare federale 'Sì al divieto di importare prodotti di pellicceria ottenuti infliggendo sofferenze agli animali (Iniziativa pellicce)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 28 June 2022",
+        "de": "Lanciert am 28. Juni 2022",
+        "fr": "Lancée le 28 juin 2022",
+        "it": "Lanciata il 28 giugno 2022",
+        "rm": "Lantschada ils 28 da zercladur 2022"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-529",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Oui à l’interdiction d’importer du foie gras (initiative foie gras)'",
+        "it": "Iniziativa popolare federale 'Sì al divieto di importazione di foie gras (Iniziativa foie gras)'"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 28 June 2022",
+        "de": "Lanciert am 28. Juni 2022",
+        "fr": "Lancée le 28 juin 2022",
+        "it": "Lanciata il 28 giugno 2022",
+        "rm": "Lantschada ils 28 da zercladur 2022"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-571",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für eine volksorientierte Politik (No Lobbying)»",
+        "de": "Eidgenössische Volksinitiative 'Für eine volksorientierte Politik (No Lobbying)'",
+        "fr": "Initiative populaire fédérale 'Pour une politique au service du peuple (non au lobbying)'",
+        "it": "Iniziativa popolare federale 'Per una politica al servizio del Popolo (No al lobbismo)'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 25 September 2026 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 25. September 2026 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 25 septembre 2026 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 25 settembre 2026 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 25 March 2025",
+        "de": "Unterschriftensammlung seit 25. März 2025",
+        "fr": "Récolte des signatures depuis 25 mars 2025",
+        "it": "Raccolta firme dal 25 marzo 2025",
+        "rm": "Rimnada da signaturas dapi ils 25 da mars 2025"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2026-09-25"
+    },
+    {
+      "id": "initiative-570",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Starke Gesellschaft und Wirtschaft dank Elternzeit (Familienzeit-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Starke Gesellschaft und Wirtschaft dank Elternzeit (Familienzeit-Initiative)'\r\n",
+        "fr": "Initiative populaire fédérale 'Une société et une économie fortes grâce au congé parental (initiative pour un congé familial)'\r\n",
+        "it": "Iniziativa popolare federale 'Società ed economia forti grazie al congedo parentale (Iniziativa per un congedo familiare)'\r\n"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 1 October 2026 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 1. Oktober 2026 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 1 octobre 2026 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 1 ottobre 2026 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 1 April 2025",
+        "de": "Unterschriftensammlung seit 1. April 2025",
+        "fr": "Récolte des signatures depuis 1 avril 2025",
+        "it": "Raccolta firme dal 1 aprile 2025",
+        "rm": "Rimnada da signaturas dapi ils 1 da avrigl 2025"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2026-10-01"
+    },
+    {
+      "id": "initiative-572",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für bewilligungsfreie Solaranlagen»",
+        "de": "Eidgenössische Volksinitiative 'Für bewilligungsfreie Solaranlagen'",
+        "fr": "Initiative populaire fédérale 'Pour des installations solaires non soumises à autorisation'",
+        "it": "Iniziativa popolare federale 'Per impianti solari esentati dall'autorizzazione'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 8 October 2026 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 8. Oktober 2026 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 8 octobre 2026 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 8 ottobre 2026 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 8 April 2025",
+        "de": "Unterschriftensammlung seit 8. April 2025",
+        "fr": "Récolte des signatures depuis 8 avril 2025",
+        "it": "Raccolta firme dal 8 aprile 2025",
+        "rm": "Rimnada da signaturas dapi ils 8 da avrigl 2025"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2026-10-08"
+    },
+    {
+      "id": "initiative-574",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für eine spendenbasierte Fluchthilfe und Schutzgewährung (Fluchthilfe-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für eine spendenbasierte Fluchthilfe und Schutzgewährung (Fluchthilfe-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Pour une aide et une protection en faveur des personnes en fuite financées par des dons (initiative sur l’aide aux personnes en fuite)'",
+        "it": "Iniziativa popolare federale 'Per un aiuto e una protezione a favore delle persone in fuga finanziati mediante donazioni (Iniziativa sull’aiuto alle persone in fuga)'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 12 February 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 12. Februar 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 12 février 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 12 febbraio 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 12 August 2025",
+        "de": "Unterschriftensammlung seit 12. August 2025",
+        "fr": "Récolte des signatures depuis 12 août 2025",
+        "it": "Raccolta firme dal 12 agosto 2025",
+        "rm": "Rimnada da signaturas dapi ils 12 da avust 2025"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-02-12"
+    },
+    {
+      "id": "initiative-575",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für die Anerkennung des Staates Palästina»",
+        "de": "Eidgenössische Volksinitiative 'Für die Anerkennung des Staates Palästina'",
+        "fr": "Initiative populaire fédérale 'Pour la reconnaissance de l’État de Palestine'",
+        "it": "Iniziativa popolare federale 'Per il riconoscimento dello Stato di Palestina'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 14 April 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 14. April 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 14 avril 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 14 aprile 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 14 October 2025",
+        "de": "Unterschriftensammlung seit 14. Oktober 2025",
+        "fr": "Récolte des signatures depuis 14 octobre 2025",
+        "it": "Raccolta firme dal 14 ottobre 2025",
+        "rm": "Rimnada da signaturas dapi ils 14 da october 2025"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-04-14"
+    },
+    {
+      "id": "initiative-576",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für den Schutz vor schädlicher Strahlung! (Millimeterwellen-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für den Schutz vor schädlicher Strahlung! (Millimeterwellen-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Pour la protection contre les rayonnements nuisibles! (initiative ondes millimétriques)'",
+        "it": "Iniziativa popolare federale 'Per la protezione da radiazioni nocive! (Iniziativa onde millimetriche)'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 11 May 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 11. Mai 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 11 mai 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 11 maggio 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 11 November 2025",
+        "de": "Unterschriftensammlung seit 11. November 2025",
+        "fr": "Récolte des signatures depuis 11 novembre 2025",
+        "it": "Raccolta firme dal 11 novembre 2025",
+        "rm": "Rimnada da signaturas dapi ils 11 da november 2025"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-05-11"
+    },
+    {
+      "id": "initiative-577",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Zur Förderung der Kaufkraft (Kaufkraftinitiative)»",
+        "de": "Eidgenössische Volksinitiative 'Zur Förderung der Kaufkraft (Kaufkraftinitiative)'",
+        "fr": "Initiative populaire fédérale 'Pour l’encouragement du pouvoir d’achat (initiative sur le pouvoir d’achat)'",
+        "it": "Iniziativa popolare federale 'Per la promozione del potere d’acquisto (Iniziativa sul potere d’acquisto)'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 2 June 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 2. Juni 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 2 juin 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 2 giugno 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 2 December 2025",
+        "de": "Unterschriftensammlung seit 2. Dezember 2025",
+        "fr": "Récolte des signatures depuis 2 décembre 2025",
+        "it": "Raccolta firme dal 2 dicembre 2025",
+        "rm": "Rimnada da signaturas dapi ils 2 da december 2025"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-06-02"
+    },
+    {
+      "id": "initiative-578",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Zum Schutz der Grundrechte und der Demokratie im digitalen Raum (Internet-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Zum Schutz der Grundrechte und der Demokratie im digitalen Raum (Internet-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Pour la protection des droits fondamentaux et de la démocratie dans l’espace numérique (Initiative Internet)'",
+        "it": "Iniziativa popolare federale 'Per la protezione dei diritti fondamentali e della democrazia nello spazio digitale (Iniziativa Internet)'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 3 September 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 3. September 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 3 septembre 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 3 settembre 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 3 March 2026",
+        "de": "Unterschriftensammlung seit 3. März 2026",
+        "fr": "Récolte des signatures depuis 3 mars 2026",
+        "it": "Raccolta firme dal 3 marzo 2026",
+        "rm": "Rimnada da signaturas dapi ils 3 da mars 2026"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-09-03"
+    },
+    {
+      "id": "initiative-579",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für ein faires Gleichgewicht zwischen Bundesverwaltung und Bevölkerung (Verwaltungsbremse)»",
+        "de": "Eidgenössische Volksinitiative 'Für ein faires Gleichgewicht zwischen Bundesverwaltung und Bevölkerung (Verwaltungsbremse)'",
+        "fr": "Initiative populaire fédérale 'Pour un juste équilibre entre administration fédérale et population (frein à l’administration)'",
+        "it": "Iniziativa popolare federale 'Per un giusto equilibrio tra amministrazione federale e popolazione (Freno all’amministrazione)'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 14 October 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 14. Oktober 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 14 octobre 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 14 ottobre 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 14 April 2026",
+        "de": "Unterschriftensammlung seit 14. April 2026",
+        "fr": "Récolte des signatures depuis 14 avril 2026",
+        "it": "Raccolta firme dal 14 aprile 2026",
+        "rm": "Rimnada da signaturas dapi ils 14 da avrigl 2026"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-10-14"
+    },
+    {
+      "id": "initiative-580",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für einen starken öffentlichen Verkehr und faire Flugpreise (Mobilitätsbon-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für einen starken öffentlichen Verkehr und faire Flugpreise (Mobilitätsbon-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Pour des transports publics forts et des tarifs aériens équitables (initiative pour des bons de mobilité)' \r\n",
+        "it": "Iniziativa popolare federale 'Per un trasporto pubblico forte e prezzi dei voli equi (Iniziativa sul buono mobilità)'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 28 October 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 28. Oktober 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 28 octobre 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 28 ottobre 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 28 April 2026",
+        "de": "Unterschriftensammlung seit 28. April 2026",
+        "fr": "Récolte des signatures depuis 28 avril 2026",
+        "it": "Raccolta firme dal 28 aprile 2026",
+        "rm": "Rimnada da signaturas dapi ils 28 da avrigl 2026"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-10-28"
+    },
+    {
+      "id": "initiative-581",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Nein zum F-35»",
+        "de": "Eidgenössische Volksinitiative 'Nein zum F-35'",
+        "fr": "Initiative populaire fédérale 'Non aux F-35'",
+        "it": "Iniziativa popolare federale 'No agli F-35'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 28 October 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 28. Oktober 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 28 octobre 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 28 ottobre 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 28 April 2026",
+        "de": "Unterschriftensammlung seit 28. April 2026",
+        "fr": "Récolte des signatures depuis 28 avril 2026",
+        "it": "Raccolta firme dal 28 aprile 2026",
+        "rm": "Rimnada da signaturas dapi ils 28 da avrigl 2026"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-10-28"
+    },
+    {
+      "id": "initiative-582",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für die Sicherung der Bestäubung von Kultur- und Wildpflanzen durch Insekten (Bienen-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für die Sicherung der Bestäubung von Kultur- und Wildpflanzen durch Insekten (Bienen-Initiative)'",
+        "fr": "Initiative populaire fédérale 'Pour la préservation de la pollinisation des plantes cultivées et sauvages par les insectes (initiative abeilles)'",
+        "it": "Iniziativa popolare federale 'Per la salvaguardia dell’impollinazione delle piante coltivate e selvatiche da parte degli insetti (Iniziativa api)'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 19 November 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 19. November 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 19 novembre 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 19 novembre 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 19 May 2026",
+        "de": "Unterschriftensammlung seit 19. Mai 2026",
+        "fr": "Récolte des signatures depuis 19 mai 2026",
+        "it": "Raccolta firme dal 19 maggio 2026",
+        "rm": "Rimnada da signaturas dapi ils 19 da matg 2026"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-11-19"
+    },
+    {
+      "id": "initiative-583",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für die digitale Sicherheit der Schweiz»",
+        "de": "Eidgenössische Volksinitiative 'Für die digitale Sicherheit der Schweiz'",
+        "fr": "Initiative populaire fédérale 'Pour la sécurité numérique de la Suisse'",
+        "it": "Iniziativa popolare federale 'Per la sicurezza digitale della Svizzera'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 2 December 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 2. Dezember 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 2 décembre 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 2 dicembre 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 2 June 2026",
+        "de": "Unterschriftensammlung seit 2. Juni 2026",
+        "fr": "Récolte des signatures depuis 2 juin 2026",
+        "it": "Raccolta firme dal 2 giugno 2026",
+        "rm": "Rimnada da signaturas dapi ils 2 da zercladur 2026"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-12-02"
+    },
+    {
+      "id": "initiative-584",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für einen gläsernen Staat zur Stärkung des Vertrauens in die Behörden (Vertrauensinitiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für einen gläsernen Staat zur Stärkung des Vertrauens in die Behörden (Vertrauensinitiative)'",
+        "fr": "Initiative populaire fédérale 'Pour un État transparent en vue de renforcer la confiance dans les autorités (initiative pour la confiance)'",
+        "it": "Iniziativa popolare federale 'Per uno Stato trasparente al fine di rafforzare la fiducia nelle autorità (Iniziativa per la fiducia)'"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 16 December 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 16. Dezember 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 16 décembre 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 16 dicembre 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 16 June 2026",
+        "de": "Unterschriftensammlung seit 16. Juni 2026",
+        "fr": "Récolte des signatures depuis 16 juin 2026",
+        "it": "Raccolta firme dal 16 giugno 2026",
+        "rm": "Rimnada da signaturas dapi ils 16 da zercladur 2026"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-12-16"
+    },
+    {
+      "id": "initiative-585",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Für eine gerechte und nachhaltige Politik für den öffentlichen Verkehr (für einen unentgeltlichen öffentlichen Verkehr)»",
+        "de": "Eidgenössische Volksinitiative 'Für eine gerechte und nachhaltige Politik für den öffentlichen Verkehr (für einen unentgeltlichen öffentlichen Verkehr)'",
+        "fr": "Initiative populaire fédérale « Pour une politique juste et durable des transports publics (pour des transports publics gratuits) »",
+        "it": "Iniziativa popolare federale «Per una politica giusta e sostenibile dei trasporti pubblici (Per trasporti pubblici gratuiti)»"
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 23 December 2027 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 23. Dezember 2027 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 23 décembre 2027 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 23 dicembre 2027 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 23 June 2026",
+        "de": "Unterschriftensammlung seit 23. Juni 2026",
+        "fr": "Récolte des signatures depuis 23 juin 2026",
+        "it": "Raccolta firme dal 23 giugno 2026",
+        "rm": "Rimnada da signaturas dapi ils 23 da zercladur 2026"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2027-12-23"
+    },
+    {
+      "id": "vote-20260614-6860",
+      "type": "initiative",
+      "title": {
+        "en": "Popular initiative: 'No to Switzerland of 10 million! (Sustainability Initiative)'",
+        "de": "Volksinitiative «Keine 10-Millionen-Schweiz! (Nachhaltigkeitsinitiative)»",
+        "fr": "Initiative populaire «Pas de Suisse à 10 millions ! (initiative pour la durabilité)»",
+        "it": "Iniziativa popolare «No a una Svizzera da 10 milioni! (Iniziativa per la sostenibilità)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 54.8% voting no (turnout 58.9%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 54,8% Nein abgelehnt (Stimmbeteiligung 58,9%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 54,8% de non (participation 58,9%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 54,8% di no (partecipazione 58,9%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 14 June 2026",
+        "de": "Abstimmung 14. Juni 2026",
+        "fr": "Votation du 14 juin 2026",
+        "it": "Votazione del 14 giugno 2026",
+        "rm": "Votaziun ils 14 da zercladur 2026"
+      },
+      "outcome": {
+        "en": "Rejected (54.8% no)",
+        "de": "Abgelehnt (54,8% Nein)",
+        "fr": "Rejetée (54,8% non)",
+        "it": "Respinta (54,8% no)",
+        "rm": "Refusada (54,8% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260614/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "yes",
+        "MCG": "yes"
+      }
+    },
+    {
+      "id": "vote-20260614-6870",
+      "type": "referendum",
+      "title": {
+        "en": "Amendment to the Civilian Service Act",
+        "de": "Änderung des Bundesgesetzes über den zivilen Ersatzdienst (Zivildienstgesetz, ZDG)",
+        "fr": "Modification de la loi fédérale sur le service civil (LSC)",
+        "it": "Modifica della legge federale sul servizio civile sostitutivo (Legge sul servizio civile, LSC)"
+      },
+      "desc": {
+        "en": "A federal referendum approved by voters with 52.5% voting yes (turnout 58.3%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 52,5% Ja angenommen (Stimmbeteiligung 58,3%).",
+        "fr": "Une objet soumis au référendum fédérale acceptée par le peuple avec 52,5% de oui (participation 58,3%).",
+        "it": "Un'oggetto in referendum federale accettata dal popolo con il 52,5% di sì (partecipazione 58,3%)."
       },
       "status": "adopted",
-      "date": { "en": "Voted 25 September 2022", "de": "Abstimmung 25. September 2022", "fr": "Votation du 25 septembre 2022", "it": "Votazione del 25 settembre 2022" },
-      "outcome": { "en": "Adopted (50.6% yes)", "de": "Angenommen (50,6% Ja)", "fr": "Acceptée (50,6% oui)", "it": "Accettata (50,6% sì)" },
-      "author": "Federal Council / Parliament",
-      "url": "https://www.bk.admin.ch/ch/d/pore/va/20220925/index.html"
+      "date": {
+        "en": "Voted 14 June 2026",
+        "de": "Abstimmung 14. Juni 2026",
+        "fr": "Votation du 14 juin 2026",
+        "it": "Votazione del 14 giugno 2026",
+        "rm": "Votaziun ils 14 da zercladur 2026"
+      },
+      "outcome": {
+        "en": "Adopted (52.5% yes)",
+        "de": "Angenommen (52,5% Ja)",
+        "fr": "Acceptée (52,5% oui)",
+        "it": "Accettata (52,5% sì)",
+        "rm": "Acceptada (52,5% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260614/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "yes",
+        "MCG": "yes"
+      }
+    },
+    {
+      "id": "vote-20260308-6821",
+      "type": "initiative",
+      "title": {
+        "en": "Popular Initiative 'Yes to an independent and free Swiss currency with coins or banknotes (Cash is freedom)'",
+        "de": "Volksinitiative «Ja zu einer unabhängigen, freien Schweizer Währung mit Münzen oder Banknoten (Bargeld ist Freiheit)»",
+        "fr": "Initiative populaire « Oui à une monnaie suisse libre et indépendante sous forme de pièces ou de billets (l'argent liquide, c'est la liberté) »",
+        "it": "Iniziativa popolare «Sì a una valuta svizzera indipendente e libera con monete o banconote (Il denaro contante è libertà)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 54.4% voting no (turnout 55.4%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 54,4% Nein abgelehnt (Stimmbeteiligung 55,4%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 54,4% de non (participation 55,4%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 54,4% di no (partecipazione 55,4%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 8 March 2026",
+        "de": "Abstimmung 8. März 2026",
+        "fr": "Votation du 8 mars 2026",
+        "it": "Votazione del 8 marzo 2026",
+        "rm": "Votaziun ils 8 da mars 2026"
+      },
+      "outcome": {
+        "en": "Rejected (54.4% no)",
+        "de": "Abgelehnt (54,4% Nein)",
+        "fr": "Rejetée (54,4% non)",
+        "it": "Respinta (54,4% no)",
+        "rm": "Refusada (54,4% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260308/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "yes",
+        "MCG": "yes"
+      }
+    },
+    {
+      "id": "vote-20260308-6822",
+      "type": "referendum",
+      "title": {
+        "en": "Federal decree on Swiss currency and cash supply (counter-proposal to Cash Initiative)",
+        "de": "Bundesbeschluss über die schweizerische Währung und die Bargeldversorgung (Gegenvorschlag zur Bargeldinitiative)",
+        "fr": "Arrêté fédéral sur la monnaie suisse et l’approvisionnement en numéraire (contre-projet à l'initiative pour l’argent liquide)",
+        "it": "Decreto federale concernente l’unità monetaria svizzera e l’approvvigionamento in numerario (controprogetto all'iniziativa denaro contante)"
+      },
+      "desc": {
+        "en": "A federal referendum approved by voters with 73.4% voting yes (turnout 55.4%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 73,4% Ja angenommen (Stimmbeteiligung 55,4%).",
+        "fr": "Une objet soumis au référendum fédérale acceptée par le peuple avec 73,4% de oui (participation 55,4%).",
+        "it": "Un'oggetto in referendum federale accettata dal popolo con il 73,4% di sì (partecipazione 55,4%)."
+      },
+      "status": "adopted",
+      "date": {
+        "en": "Voted 8 March 2026",
+        "de": "Abstimmung 8. März 2026",
+        "fr": "Votation du 8 mars 2026",
+        "it": "Votazione del 8 marzo 2026",
+        "rm": "Votaziun ils 8 da mars 2026"
+      },
+      "outcome": {
+        "en": "Adopted (73.4% yes)",
+        "de": "Angenommen (73,4% Ja)",
+        "fr": "Acceptée (73,4% oui)",
+        "it": "Accettata (73,4% sì)",
+        "rm": "Acceptada (73,4% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260308/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "yes",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "yes",
+        "GLP": "no",
+        "EVP": "yes",
+        "EDU": "yes",
+        "MCG": "yes"
+      }
+    },
+    {
+      "id": "vote-20260308-6830",
+      "type": "initiative",
+      "title": {
+        "en": "Popular Initiative ‘200 francs is enough! (SBC Initiative)’",
+        "de": "Volksinitiative «200 Franken sind genug! (SRG-Initiative)»",
+        "fr": "Initiative populaire « 200 francs, ça suffit ! (initiative SSR) »",
+        "it": "Iniziativa popolare «200 franchi bastano! (Iniziativa SSR)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 61.9% voting no (turnout 55.8%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 61,9% Nein abgelehnt (Stimmbeteiligung 55,8%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 61,9% de non (participation 55,8%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 61,9% di no (partecipazione 55,8%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 8 March 2026",
+        "de": "Abstimmung 8. März 2026",
+        "fr": "Votation du 8 mars 2026",
+        "it": "Votazione del 8 marzo 2026",
+        "rm": "Votaziun ils 8 da mars 2026"
+      },
+      "outcome": {
+        "en": "Rejected (61.9% no)",
+        "de": "Abgelehnt (61,9% Nein)",
+        "fr": "Rejetée (61,9% non)",
+        "it": "Respinta (61,9% no)",
+        "rm": "Refusada (61,9% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260308/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "yes",
+        "MCG": "yes"
+      }
+    },
+    {
+      "id": "vote-20260308-6840",
+      "type": "initiative",
+      "title": {
+        "en": "Popular Initiative ‘For a fair energy and climate policy: Investing for prosperity, jobs and the environment (Climate Fund Initiative)’",
+        "de": "Volksinitiative «Für eine gerechte Energie- und Klimapolitik: Investieren für Wohlstand, Arbeit und Umwelt (Klimafonds-Initiative)»",
+        "fr": "Initiative populaire « Pour une politique énergétique et climatique équitable : investir pour la prospérité, le travail et l'environnement (initiative pour un fonds climat) »",
+        "it": "Iniziativa popolare «Per una politica energetica e climatica equa: investire per la prosperità, il lavoro e l’ambiente (Iniziativa per un fondo per il clima)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 70.7% voting no (turnout 55.6%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 70,7% Nein abgelehnt (Stimmbeteiligung 55,6%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 70,7% de non (participation 55,6%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 70,7% di no (partecipazione 55,6%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 8 March 2026",
+        "de": "Abstimmung 8. März 2026",
+        "fr": "Votation du 8 mars 2026",
+        "it": "Votazione del 8 marzo 2026",
+        "rm": "Votaziun ils 8 da mars 2026"
+      },
+      "outcome": {
+        "en": "Rejected (70.7% no)",
+        "de": "Abgelehnt (70,7% Nein)",
+        "fr": "Rejetée (70,7% non)",
+        "it": "Respinta (70,7% no)",
+        "rm": "Refusada (70,7% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260308/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "yes",
+        "GLP": "no",
+        "EVP": "yes",
+        "EDU": "no",
+        "MCG": "no"
+      }
+    },
+    {
+      "id": "vote-20260308-6850",
+      "type": "referendum",
+      "title": {
+        "en": "Federal Act on Individual Taxation",
+        "de": "Bundesgesetz über die Individualbesteuerung",
+        "fr": "Loi fédérale sur l’imposition individuelle",
+        "it": "Legge federale sull’imposizione individuale"
+      },
+      "desc": {
+        "en": "A federal referendum approved by voters with 54.3% voting yes (turnout 55.7%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 54,3% Ja angenommen (Stimmbeteiligung 55,7%).",
+        "fr": "Une objet soumis au référendum fédérale acceptée par le peuple avec 54,3% de oui (participation 55,7%).",
+        "it": "Un'oggetto in referendum federale accettata dal popolo con il 54,3% di sì (partecipazione 55,7%)."
+      },
+      "status": "adopted",
+      "date": {
+        "en": "Voted 8 March 2026",
+        "de": "Abstimmung 8. März 2026",
+        "fr": "Votation du 8 mars 2026",
+        "it": "Votazione del 8 marzo 2026",
+        "rm": "Votaziun ils 8 da mars 2026"
+      },
+      "outcome": {
+        "en": "Adopted (54.3% yes)",
+        "de": "Angenommen (54,3% Ja)",
+        "fr": "Acceptée (54,3% oui)",
+        "it": "Accettata (54,3% sì)",
+        "rm": "Acceptada (54,3% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260308/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "no",
+        "FDP": "yes",
+        "GPS": "yes",
+        "GLP": "yes",
+        "EVP": "no",
+        "EDU": "no",
+        "MCG": "no"
+      }
+    },
+    {
+      "id": "vote-20251130-6800",
+      "type": "initiative",
+      "title": {
+        "en": "Popular Initiative 'For a civically engaged Switzerland (Civic Duty Initiative)'",
+        "de": "Volksinitiative «Für eine engagierte Schweiz (Service-citoyen-Initiative)»",
+        "fr": "Initiative populaire « Pour une suisse qui s’engage (initiative service citoyen) »",
+        "it": "Iniziativa popolare «Per una Svizzera che si impegna (Iniziativa Servizio civico)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 84.1% voting no (turnout 42.9%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 84,1% Nein abgelehnt (Stimmbeteiligung 42,9%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 84,1% de non (participation 42,9%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 84,1% di no (partecipazione 42,9%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 30 November 2025",
+        "de": "Abstimmung 30. November 2025",
+        "fr": "Votation du 30 novembre 2025",
+        "it": "Votazione del 30 novembre 2025",
+        "rm": "Votaziun ils 30 da november 2025"
+      },
+      "outcome": {
+        "en": "Rejected (84.1% no)",
+        "de": "Abgelehnt (84,1% Nein)",
+        "fr": "Rejetée (84,1% non)",
+        "it": "Respinta (84,1% no)",
+        "rm": "Refusada (84,1% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20251130/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "no",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "no",
+        "GLP": "yes",
+        "EVP": "yes",
+        "EDU": "no",
+        "LEGA": "no",
+        "MCG": "no"
+      }
+    },
+    {
+      "id": "vote-20251130-6810",
+      "type": "initiative",
+      "title": {
+        "en": "Popular Initiative 'For a social climate policy – financed fairly through taxation (Initiative for a Future)'",
+        "de": "Volksinitiative «Für eine soziale Klimapolitik – steuerlich gerecht finanziert (Initiative für eine Zukunft)»",
+        "fr": "Initiative populaire « Pour une politique climatique sociale financée de manière juste fiscalement (initiative pour l’avenir) »",
+        "it": "Iniziativa popolare «Per una politica climatica sociale finanziata in modo fiscalmente equo (Iniziativa per il futuro)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 78.3% voting no (turnout 43.0%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 78,3% Nein abgelehnt (Stimmbeteiligung 43,0%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 78,3% de non (participation 43,0%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 78,3% di no (partecipazione 43,0%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 30 November 2025",
+        "de": "Abstimmung 30. November 2025",
+        "fr": "Votation du 30 novembre 2025",
+        "it": "Votazione del 30 novembre 2025",
+        "rm": "Votaziun ils 30 da november 2025"
+      },
+      "outcome": {
+        "en": "Rejected (78.3% no)",
+        "de": "Abgelehnt (78,3% Nein)",
+        "fr": "Rejetée (78,3% non)",
+        "it": "Respinta (78,3% no)",
+        "rm": "Refusada (78,3% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20251130/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "yes",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "no",
+        "LEGA": "no",
+        "MCG": "no"
+      }
+    },
+    {
+      "id": "vote-20250928-6780",
+      "type": "referendum",
+      "title": {
+        "en": "Federal decree on cantonal property taxes on second homes",
+        "de": "Bundesbeschluss über die kantonalen Liegenschaftssteuern auf Zweitliegenschaften",
+        "fr": "Arrêté fédéral relatif à l'impôt immobilier cantonal sur les résidences secondaires",
+        "it": "Decreto federale concernente l'imposta immobiliare cantonale sulle abitazioni secondarie"
+      },
+      "desc": {
+        "en": "A federal referendum approved by voters with 57.7% voting yes (turnout 49.5%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 57,7% Ja angenommen (Stimmbeteiligung 49,5%).",
+        "fr": "Une objet soumis au référendum fédérale acceptée par le peuple avec 57,7% de oui (participation 49,5%).",
+        "it": "Un'oggetto in referendum federale accettata dal popolo con il 57,7% di sì (partecipazione 49,5%)."
+      },
+      "status": "adopted",
+      "date": {
+        "en": "Voted 28 September 2025",
+        "de": "Abstimmung 28. September 2025",
+        "fr": "Votation du 28 septembre 2025",
+        "it": "Votazione del 28 settembre 2025",
+        "rm": "Votaziun ils 28 da settember 2025"
+      },
+      "outcome": {
+        "en": "Adopted (57.7% yes)",
+        "de": "Angenommen (57,7% Ja)",
+        "fr": "Acceptée (57,7% oui)",
+        "it": "Accettata (57,7% sì)",
+        "rm": "Acceptada (57,7% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20250928/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "no",
+        "EVP": "yes",
+        "EDU": "yes",
+        "LEGA": "yes",
+        "MCG": "no"
+      }
+    },
+    {
+      "id": "vote-20250928-6790",
+      "type": "referendum",
+      "title": {
+        "en": "Federal Act on Electronic Identification Services (e-ID Act)",
+        "de": "Bundesgesetz über den elektronischen Identitätsnachweis und andere elektronische Nachweise (E-ID-Gesetz, BGEID)",
+        "fr": "Loi fédérale sur l'identité électronique et d'autres moyens de preuves électroniques (Loi sur l'e-ID, LeID)",
+        "it": "Legge federale sul mezzo d'identificazione elettronico e altri mezzi di autenticazione elettronici (Legge sull'Id-e, LIdE)"
+      },
+      "desc": {
+        "en": "A federal referendum approved by voters with 50.4% voting yes (turnout 49.6%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 50,4% Ja angenommen (Stimmbeteiligung 49,6%).",
+        "fr": "Une objet soumis au référendum fédérale acceptée par le peuple avec 50,4% de oui (participation 49,6%).",
+        "it": "Un'oggetto in referendum federale accettata dal popolo con il 50,4% di sì (partecipazione 49,6%)."
+      },
+      "status": "adopted",
+      "date": {
+        "en": "Voted 28 September 2025",
+        "de": "Abstimmung 28. September 2025",
+        "fr": "Votation du 28 septembre 2025",
+        "it": "Votazione del 28 settembre 2025",
+        "rm": "Votaziun ils 28 da settember 2025"
+      },
+      "outcome": {
+        "en": "Adopted (50.4% yes)",
+        "de": "Angenommen (50,4% Ja)",
+        "fr": "Acceptée (50,4% oui)",
+        "it": "Accettata (50,4% sì)",
+        "rm": "Acceptada (50,4% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20250928/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "yes",
+        "GLP": "yes",
+        "EVP": "yes",
+        "EDU": "no",
+        "MCG": "yes"
+      }
+    },
+    {
+      "id": "vote-20250209-6770",
+      "type": "initiative",
+      "title": {
+        "en": "Popular Initiative 'For a responsible economy within our planet’s limits (Environmental Responsibility Initiative)'",
+        "de": "Volksinitiative «Für eine verantwortungsvolle Wirtschaft innerhalb der planetaren Grenzen (Umweltverantwortungsinitiative)»",
+        "fr": "Initiative populaire «Pour une économie responsable respectant les limites planétaires (initiative pour la responsabilité environnementale)»",
+        "it": "Iniziativa popolare «Per un’economia responsabile entro i limiti del pianeta (Iniziativa per la responsabilità ambientale)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 69.8% voting no (turnout 38.1%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 69,8% Nein abgelehnt (Stimmbeteiligung 38,1%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 69,8% de non (participation 38,1%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 69,8% di no (partecipazione 38,1%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 9 February 2025",
+        "de": "Abstimmung 9. Februar 2025",
+        "fr": "Votation du 9 février 2025",
+        "it": "Votazione del 9 febbraio 2025",
+        "rm": "Votaziun ils 9 da favrer 2025"
+      },
+      "outcome": {
+        "en": "Rejected (69.8% no)",
+        "de": "Abgelehnt (69,8% Nein)",
+        "fr": "Rejetée (69,8% non)",
+        "it": "Respinta (69,8% no)",
+        "rm": "Refusada (69,8% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20250209/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "yes",
+        "GLP": "no",
+        "EVP": "yes",
+        "EDU": "no",
+        "LEGA": "no"
+      }
+    },
+    {
+      "id": "vote-20241124-6730",
+      "type": "referendum",
+      "title": {
+        "en": "Federal Decree on the 2023 expansion programme for the national highways",
+        "de": "Bundesbeschluss über den Ausbauschritt 2023 für die Nationalstrassen",
+        "fr": "Arrêté fédéral sur l’étape d’aménagement 2023 des routes nationales",
+        "it": "Decreto federale sulla Fase di potenziamento 2023 delle strade nazionali"
+      },
+      "desc": {
+        "en": "A federal referendum rejected by voters, with 52.7% voting no (turnout 45.1%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 52,7% Nein abgelehnt (Stimmbeteiligung 45,1%).",
+        "fr": "Une objet soumis au référendum fédérale rejetée par le peuple, avec 52,7% de non (participation 45,1%).",
+        "it": "Un'oggetto in referendum federale respinta dal popolo, con il 52,7% di no (partecipazione 45,1%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 24 November 2024",
+        "de": "Abstimmung 24. November 2024",
+        "fr": "Votation du 24 novembre 2024",
+        "it": "Votazione del 24 novembre 2024",
+        "rm": "Votaziun ils 24 da november 2024"
+      },
+      "outcome": {
+        "en": "Rejected (52.7% no)",
+        "de": "Abgelehnt (52,7% Nein)",
+        "fr": "Rejetée (52,7% non)",
+        "it": "Respinta (52,7% no)",
+        "rm": "Refusada (52,7% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20241124/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "yes"
+      }
+    },
+    {
+      "id": "vote-20241124-6740",
+      "type": "referendum",
+      "title": {
+        "en": "Amendment to the Code of Obligations (tenancy law: subletting)",
+        "de": "Änderung des Obligationenrechts (Mietrecht: Untermiete)",
+        "fr": "Modification du code des obligations (droit du bail: sous-location)",
+        "it": "Modifica del Codice delle obbligazioni (Diritto di locazione: sublocazione)"
+      },
+      "desc": {
+        "en": "A federal referendum rejected by voters, with 51.6% voting no (turnout 44.9%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 51,6% Nein abgelehnt (Stimmbeteiligung 44,9%).",
+        "fr": "Une objet soumis au référendum fédérale rejetée par le peuple, avec 51,6% de non (participation 44,9%).",
+        "it": "Un'oggetto in referendum federale respinta dal popolo, con il 51,6% di no (partecipazione 44,9%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 24 November 2024",
+        "de": "Abstimmung 24. November 2024",
+        "fr": "Votation du 24 novembre 2024",
+        "it": "Votazione del 24 novembre 2024",
+        "rm": "Votaziun ils 24 da november 2024"
+      },
+      "outcome": {
+        "en": "Rejected (51.6% no)",
+        "de": "Abgelehnt (51,6% Nein)",
+        "fr": "Rejetée (51,6% non)",
+        "it": "Respinta (51,6% no)",
+        "rm": "Refusada (51,6% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20241124/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "yes"
+      }
+    },
+    {
+      "id": "vote-20241124-6750",
+      "type": "referendum",
+      "title": {
+        "en": "Amendment to the Code of Obligations (tenancy law: termination to permit personal use)",
+        "de": "Änderung des Obligationenrechts (Mietrecht: Kündigung wegen Eigenbedarfs)",
+        "fr": "Modification du code des obligations (droit du bail: résiliation pour besoin propre)",
+        "it": "Modifica del Codice delle obbligazioni (Diritto di locazione: disdetta per bisogno personale)"
+      },
+      "desc": {
+        "en": "A federal referendum rejected by voters, with 53.8% voting no (turnout 44.9%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 53,8% Nein abgelehnt (Stimmbeteiligung 44,9%).",
+        "fr": "Une objet soumis au référendum fédérale rejetée par le peuple, avec 53,8% de non (participation 44,9%).",
+        "it": "Un'oggetto in referendum federale respinta dal popolo, con il 53,8% di no (partecipazione 44,9%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 24 November 2024",
+        "de": "Abstimmung 24. November 2024",
+        "fr": "Votation du 24 novembre 2024",
+        "it": "Votazione del 24 novembre 2024",
+        "rm": "Votaziun ils 24 da november 2024"
+      },
+      "outcome": {
+        "en": "Rejected (53.8% no)",
+        "de": "Abgelehnt (53,8% Nein)",
+        "fr": "Rejetée (53,8% non)",
+        "it": "Respinta (53,8% no)",
+        "rm": "Refusada (53,8% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20241124/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "no",
+        "GLP": "yes",
+        "EDU": "yes"
+      }
+    },
+    {
+      "id": "vote-20241124-6760",
+      "type": "referendum",
+      "title": {
+        "en": "Amendment to the Health Insurance Act (standardised financing of benefits)",
+        "de": "Änderung des Bundesgesetzes über die Krankenversicherung (KVG) (Einheitliche Finanzierung der Leistungen)",
+        "fr": "Modification de la loi fédérale sur l’assurance-maladie (LAMal) (financement uniforme des prestations)",
+        "it": "Modifica della legge federale sull’assicurazione malattie (LAMal) (Finanziamento uniforme delle prestazioni)"
+      },
+      "desc": {
+        "en": "A federal referendum approved by voters with 53.3% voting yes (turnout 44.9%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 53,3% Ja angenommen (Stimmbeteiligung 44,9%).",
+        "fr": "Une objet soumis au référendum fédérale acceptée par le peuple avec 53,3% de oui (participation 44,9%).",
+        "it": "Un'oggetto in referendum federale accettata dal popolo con il 53,3% di sì (partecipazione 44,9%)."
+      },
+      "status": "adopted",
+      "date": {
+        "en": "Voted 24 November 2024",
+        "de": "Abstimmung 24. November 2024",
+        "fr": "Votation du 24 novembre 2024",
+        "it": "Votazione del 24 novembre 2024",
+        "rm": "Votaziun ils 24 da november 2024"
+      },
+      "outcome": {
+        "en": "Adopted (53.3% yes)",
+        "de": "Angenommen (53,3% Ja)",
+        "fr": "Acceptée (53,3% oui)",
+        "it": "Accettata (53,3% sì)",
+        "rm": "Acceptada (53,3% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20241124/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GLP": "yes",
+        "EVP": "yes",
+        "EDU": "yes"
+      }
+    },
+    {
+      "id": "vote-20240922-6710",
+      "type": "initiative",
+      "title": {
+        "en": "Popular initiative 'For the future of our nature and our landscape'",
+        "de": "Volksinitiative «Für die Zukunft unserer Natur und Landschaft (Biodiversitätsinitiative)»",
+        "fr": "Initiative populaire «Pour l’avenir de notre nature et de notre paysage (Initiative biodiversité)»",
+        "it": "Iniziativa popolare «Per il futuro della nostra natura e del nostro paesaggio (Iniziativa biodiversità)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 63.0% voting no (turnout 45.2%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 63,0% Nein abgelehnt (Stimmbeteiligung 45,2%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 63,0% de non (participation 45,2%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 63,0% di no (partecipazione 45,2%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 22 September 2024",
+        "de": "Abstimmung 22. September 2024",
+        "fr": "Votation du 22 septembre 2024",
+        "it": "Votazione del 22 settembre 2024",
+        "rm": "Votaziun ils 22 da settember 2024"
+      },
+      "outcome": {
+        "en": "Rejected (63.0% no)",
+        "de": "Abgelehnt (63,0% Nein)",
+        "fr": "Rejetée (63,0% non)",
+        "it": "Respinta (63,0% no)",
+        "rm": "Refusada (63,0% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240922/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "yes",
+        "GLP": "yes",
+        "EVP": "yes",
+        "EDU": "no",
+        "LEGA": "no",
+        "MCG": "no"
+      }
+    },
+    {
+      "id": "vote-20240922-6720",
+      "type": "referendum",
+      "title": {
+        "en": "Amendment to the federal law on retirement, survivors’ and disability pension plans (BVG/LPP)",
+        "de": "Änderung des Bundesgesetzes über die berufliche Alters-, Hinterlassenen- und Invalidenvorsorge (BVG) (Reform der beruflichen Vorsorge)",
+        "fr": "Modification de la loi fédérale sur la prévoyance professionnelle vieillesse, survivants et invalidité (LPP) (Réforme de la prévoyance professionnelle)",
+        "it": "Modifica della legge federale sulla previdenza professionale per la vecchiaia, i superstiti e l’invalidità (LPP) (Riforma della previdenza professionale)"
+      },
+      "desc": {
+        "en": "A federal referendum rejected by voters, with 67.1% voting no (turnout 45.0%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 67,1% Nein abgelehnt (Stimmbeteiligung 45,0%).",
+        "fr": "Une objet soumis au référendum fédérale rejetée par le peuple, avec 67,1% de non (participation 45,0%).",
+        "it": "Un'oggetto in referendum federale respinta dal popolo, con il 67,1% di no (partecipazione 45,0%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 22 September 2024",
+        "de": "Abstimmung 22. September 2024",
+        "fr": "Votation du 22 septembre 2024",
+        "it": "Votazione del 22 settembre 2024",
+        "rm": "Votaziun ils 22 da settember 2024"
+      },
+      "outcome": {
+        "en": "Rejected (67.1% no)",
+        "de": "Abgelehnt (67,1% Nein)",
+        "fr": "Rejetée (67,1% non)",
+        "it": "Respinta (67,1% no)",
+        "rm": "Refusada (67,1% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240922/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "no",
+        "GLP": "yes",
+        "EVP": "yes",
+        "EDU": "yes",
+        "LEGA": "yes",
+        "MCG": "no"
+      }
+    },
+    {
+      "id": "vote-20240609-6670",
+      "type": "initiative",
+      "title": {
+        "en": "Popular initiative ‘Keep health insurance premiums to no more than 10% of income (Premium Relief Initiative)’",
+        "de": "Volksinitiative «Maximal 10% des Einkommens für die Krankenkassenprämien (Prämien-Entlastungs-Initiative)» ",
+        "fr": "Initiative populaire « Maximum 10% du revenu pour les primes d’assurance-maladie (initiative d’allègement des primes) »",
+        "it": "Iniziativa popolare «Al massimo il 10 per cento del reddito per i premi delle casse malati (Iniziativa per premi meno onerosi)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 55.5% voting no (turnout 45.5%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 55,5% Nein abgelehnt (Stimmbeteiligung 45,5%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 55,5% de non (participation 45,5%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 55,5% di no (partecipazione 45,5%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 9 June 2024",
+        "de": "Abstimmung 9. Juni 2024",
+        "fr": "Votation du 9 juin 2024",
+        "it": "Votazione del 9 giugno 2024",
+        "rm": "Votaziun ils 9 da zercladur 2024"
+      },
+      "outcome": {
+        "en": "Rejected (55.5% no)",
+        "de": "Abgelehnt (55,5% Nein)",
+        "fr": "Rejetée (55,5% non)",
+        "it": "Respinta (55,5% no)",
+        "rm": "Refusada (55,5% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240609/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "yes",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "no",
+        "MCG": "yes"
+      }
+    },
+    {
+      "id": "vote-20240609-6680",
+      "type": "initiative",
+      "title": {
+        "en": "Popular initiative ‘For lower premiums – a cost brake in the health-care system (Cost-Brake Initiative)'",
+        "de": "Volksinitiative «Für tiefere Prämien – Kostenbremse im Gesundheitswesen (Kostenbremse-Initiative)» ",
+        "fr": "Initiative populaire « Pour des primes plus basses. Frein aux coûts dans le système de santé (initiative pour un frein aux coûts) »",
+        "it": "Iniziativa popolare «Per premi più bassi – Freno ai costi nel settore sanitario (Iniziativa per un freno ai costi)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 62.8% voting no (turnout 45.4%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 62,8% Nein abgelehnt (Stimmbeteiligung 45,4%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 62,8% de non (participation 45,4%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 62,8% di no (partecipazione 45,4%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 9 June 2024",
+        "de": "Abstimmung 9. Juni 2024",
+        "fr": "Votation du 9 juin 2024",
+        "it": "Votazione del 9 giugno 2024",
+        "rm": "Votaziun ils 9 da zercladur 2024"
+      },
+      "outcome": {
+        "en": "Rejected (62.8% no)",
+        "de": "Abgelehnt (62,8% Nein)",
+        "fr": "Rejetée (62,8% non)",
+        "it": "Respinta (62,8% no)",
+        "rm": "Refusada (62,8% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240609/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "no",
+        "MITTE": "yes",
+        "FDP": "no",
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "yes",
+        "EDU": "yes",
+        "MCG": "no"
+      }
+    },
+    {
+      "id": "vote-20240609-6690",
+      "type": "initiative",
+      "title": {
+        "en": "Popular initiative ‘For freedom and physical integrity’",
+        "de": "Volksinitiative «Für Freiheit und körperliche Unversehrtheit»",
+        "fr": "Initiative populaire «Pour la liberté et l’intégrité physique»",
+        "it": "Iniziativa popolare «Per la libertà e l’integrità fisica»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 73.7% voting no (turnout 45.4%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 73,7% Nein abgelehnt (Stimmbeteiligung 45,4%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 73,7% de non (participation 45,4%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 73,7% di no (partecipazione 45,4%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 9 June 2024",
+        "de": "Abstimmung 9. Juni 2024",
+        "fr": "Votation du 9 juin 2024",
+        "it": "Votazione del 9 giugno 2024",
+        "rm": "Votaziun ils 9 da zercladur 2024"
+      },
+      "outcome": {
+        "en": "Rejected (73.7% no)",
+        "de": "Abgelehnt (73,7% Nein)",
+        "fr": "Rejetée (73,7% non)",
+        "it": "Respinta (73,7% no)",
+        "rm": "Refusada (73,7% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240609/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "yes",
+        "MCG": "no"
+      }
+    },
+    {
+      "id": "vote-20240609-6700",
+      "type": "referendum",
+      "title": {
+        "en": "Federal Act on a Secure Electricity Supply from Renewable Energy Sources",
+        "de": "Bundesgesetz über eine sichere Stromversorgung mit erneuerbaren Energien (Änderung des Energiegesetzes und des Stromversorgungsgesetzes)",
+        "fr": "Loi fédérale relative à un approvisionnement en électricité sûr reposant sur des énergies renouvelables (modification de la loi sur l’énergie et de la loi sur l’approvisionnement en électricité)",
+        "it": "Legge federale su un approvvigionamento elettrico sicuro con le energie rinnovabili (Modifica della legge federale sull’energia e della legge sull’approvvigionamento elettrico)"
+      },
+      "desc": {
+        "en": "A federal referendum approved by voters with 68.7% voting yes (turnout 45.4%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 68,7% Ja angenommen (Stimmbeteiligung 45,4%).",
+        "fr": "Une objet soumis au référendum fédérale acceptée par le peuple avec 68,7% de oui (participation 45,4%).",
+        "it": "Un'oggetto in referendum federale accettata dal popolo con il 68,7% di sì (partecipazione 45,4%)."
+      },
+      "status": "adopted",
+      "date": {
+        "en": "Voted 9 June 2024",
+        "de": "Abstimmung 9. Juni 2024",
+        "fr": "Votation du 9 juin 2024",
+        "it": "Votazione del 9 giugno 2024",
+        "rm": "Votaziun ils 9 da zercladur 2024"
+      },
+      "outcome": {
+        "en": "Adopted (68.7% yes)",
+        "de": "Angenommen (68,7% Ja)",
+        "fr": "Acceptée (68,7% oui)",
+        "it": "Accettata (68,7% sì)",
+        "rm": "Acceptada (68,7% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240609/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "yes",
+        "GLP": "yes",
+        "EVP": "yes",
+        "MCG": "yes"
+      }
+    },
+    {
+      "id": "vote-20240303-6650",
+      "type": "initiative",
+      "title": {
+        "en": "Initiative for a 13th OASI pension payment",
+        "de": "Volksinitiative «Für ein besseres Leben im Alter (Initiative für eine 13. AHV-Rente)»",
+        "fr": "Initiative populaire «Mieux vivre à la retraite (initiative pour une 13e rente AVS)»",
+        "it": "Iniziativa popolare «Vivere meglio la pensione (Iniziativa per una 13esima mensilità AVS)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative approved by voters with 58.2% voting yes (turnout 58.4%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 58,2% Ja angenommen (Stimmbeteiligung 58,4%).",
+        "fr": "Une initiative populaire fédérale acceptée par le peuple avec 58,2% de oui (participation 58,4%).",
+        "it": "Un'iniziativa popolare federale accettata dal popolo con il 58,2% di sì (partecipazione 58,4%)."
+      },
+      "status": "adopted",
+      "date": {
+        "en": "Voted 3 March 2024",
+        "de": "Abstimmung 3. März 2024",
+        "fr": "Votation du 3 mars 2024",
+        "it": "Votazione del 3 marzo 2024",
+        "rm": "Votaziun ils 3 da mars 2024"
+      },
+      "outcome": {
+        "en": "Adopted (58.2% yes)",
+        "de": "Angenommen (58,2% Ja)",
+        "fr": "Acceptée (58,2% oui)",
+        "it": "Accettata (58,2% sì)",
+        "rm": "Acceptada (58,2% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240303/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "yes",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "no",
+        "LEGA": "yes",
+        "MCG": "yes"
+      }
+    },
+    {
+      "id": "vote-20240303-6660",
+      "type": "initiative",
+      "title": {
+        "en": "Pensions Initiative (retirement age)",
+        "de": "Volksinitiative «Für eine sichere und nachhaltige Altersvorsorge (Renteninitiative)»",
+        "fr": "Initiative populaire «Pour une prévoyance vieillesse sûre et pérenne (initiative sur les rentes)»",
+        "it": "Iniziativa popolare «Per una previdenza vecchiaia sicura e sostenibile (Iniziativa sulle pensioni)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 74.8% voting no (turnout 58.1%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 74,8% Nein abgelehnt (Stimmbeteiligung 58,1%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 74,8% de non (participation 58,1%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 74,8% di no (partecipazione 58,1%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 3 March 2024",
+        "de": "Abstimmung 3. März 2024",
+        "fr": "Votation du 3 mars 2024",
+        "it": "Votazione del 3 marzo 2024",
+        "rm": "Votaziun ils 3 da mars 2024"
+      },
+      "outcome": {
+        "en": "Rejected (74.8% no)",
+        "de": "Abgelehnt (74,8% Nein)",
+        "fr": "Rejetée (74,8% non)",
+        "it": "Respinta (74,8% no)",
+        "rm": "Refusada (74,8% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20240303/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "no",
+        "FDP": "yes",
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "yes",
+        "LEGA": "no",
+        "MCG": "no"
+      }
+    },
+    {
+      "id": "vote-20230618-6620",
+      "type": "referendum",
+      "title": {
+        "en": "Implementation of the OECD/G20 project on the taxation of large corporate groups",
+        "de": "Bundesbeschluss über eine besondere Besteuerung grosser Unternehmensgruppen (Umsetzung des OECD/G20-Projekts zur Besteuerung grosser Unternehmensgruppen)",
+        "fr": "Arrêté fédéral sur une imposition particulière des grands groupes d’entreprises (Mise en oeuvre du projet conjoint de l’OCDE et du G20 sur l’imposition des grands groupes d’entreprises)",
+        "it": "Decreto federale concernente un’imposizione speciale dei grandi gruppi di imprese (Attuazione del progetto dell’OSCE e del G20 sull’imposizione dei grandi gruppi di imprese)"
+      },
+      "desc": {
+        "en": "A federal referendum approved by voters with 78.5% voting yes (turnout 42.3%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 78,5% Ja angenommen (Stimmbeteiligung 42,3%).",
+        "fr": "Une objet soumis au référendum fédérale acceptée par le peuple avec 78,5% de oui (participation 42,3%).",
+        "it": "Un'oggetto in referendum federale accettata dal popolo con il 78,5% di sì (partecipazione 42,3%)."
+      },
+      "status": "adopted",
+      "date": {
+        "en": "Voted 18 June 2023",
+        "de": "Abstimmung 18. Juni 2023",
+        "fr": "Votation du 18 juin 2023",
+        "it": "Votazione del 18 giugno 2023",
+        "rm": "Votaziun ils 18 da zercladur 2023"
+      },
+      "outcome": {
+        "en": "Adopted (78.5% yes)",
+        "de": "Angenommen (78,5% Ja)",
+        "fr": "Acceptée (78,5% oui)",
+        "it": "Accettata (78,5% sì)",
+        "rm": "Acceptada (78,5% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20230618/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GLP": "yes",
+        "EVP": "yes",
+        "LEGA": "yes"
+      }
+    },
+    {
+      "id": "vote-20230618-6630",
+      "type": "referendum",
+      "title": {
+        "en": "Federal Act on Climate Protection Targets, Innovation and Strengthening Energy Security (KIG)",
+        "de": "Bundesgesetz über die Ziele im Klimaschutz, die Innovation und die Stärkung der Energiesicherheit (KlG)",
+        "fr": "Loi fédérale sur les objectifs en matière de protection du climat, sur l’innovation et sur le renforcement de la sécurité énergétique (LCl)",
+        "it": "Legge federale sugli obiettivi in materia di protezione del clima, l’innovazione e il rafforzamento della sicurezza energetica (LOCli)"
+      },
+      "desc": {
+        "en": "A federal referendum approved by voters with 59.1% voting yes (turnout 42.5%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 59,1% Ja angenommen (Stimmbeteiligung 42,5%).",
+        "fr": "Une objet soumis au référendum fédérale acceptée par le peuple avec 59,1% de oui (participation 42,5%).",
+        "it": "Un'oggetto in referendum federale accettata dal popolo con il 59,1% di sì (partecipazione 42,5%)."
+      },
+      "status": "adopted",
+      "date": {
+        "en": "Voted 18 June 2023",
+        "de": "Abstimmung 18. Juni 2023",
+        "fr": "Votation du 18 juin 2023",
+        "it": "Votazione del 18 giugno 2023",
+        "rm": "Votaziun ils 18 da zercladur 2023"
+      },
+      "outcome": {
+        "en": "Adopted (59.1% yes)",
+        "de": "Angenommen (59,1% Ja)",
+        "fr": "Acceptée (59,1% oui)",
+        "it": "Accettata (59,1% sì)",
+        "rm": "Acceptada (59,1% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20230618/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "yes",
+        "GLP": "yes",
+        "EVP": "yes",
+        "EDU": "no",
+        "LEGA": "no"
+      }
+    },
+    {
+      "id": "vote-20230618-6640",
+      "type": "referendum",
+      "title": {
+        "en": "Amendment to the COVID-19 Act",
+        "de": "Änderung des Bundesgesetzes über die gesetzlichen Grundlagen für Verordnungen des Bundesrates zur Bewältigung der Covid-19-Epidemie (Covid-19-Gesetz)",
+        "fr": "Modification de la loi fédérale sur les bases légales des ordonnances du Conseil fédéral visant à surmonter l’épidémie de COVID-19 (Loi COVID-19)",
+        "it": "Modifica della legge federale sulle basi legali delle ordinanze del Consiglio federale volte a far fronte all’epidemia di COVID-19 (Legge COVID-19)"
+      },
+      "desc": {
+        "en": "A federal referendum approved by voters with 61.9% voting yes (turnout 42.5%).",
+        "de": "Eine eidgenössische Referendumsvorlage, vom Volk mit 61,9% Ja angenommen (Stimmbeteiligung 42,5%).",
+        "fr": "Une objet soumis au référendum fédérale acceptée par le peuple avec 61,9% de oui (participation 42,5%).",
+        "it": "Un'oggetto in referendum federale accettata dal popolo con il 61,9% di sì (partecipazione 42,5%)."
+      },
+      "status": "adopted",
+      "date": {
+        "en": "Voted 18 June 2023",
+        "de": "Abstimmung 18. Juni 2023",
+        "fr": "Votation du 18 juin 2023",
+        "it": "Votazione del 18 giugno 2023",
+        "rm": "Votaziun ils 18 da zercladur 2023"
+      },
+      "outcome": {
+        "en": "Adopted (61.9% yes)",
+        "de": "Angenommen (61,9% Ja)",
+        "fr": "Acceptée (61,9% oui)",
+        "it": "Accettata (61,9% sì)",
+        "rm": "Acceptada (61,9% gea)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20230618/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "yes",
+        "GLP": "yes",
+        "EVP": "yes",
+        "EDU": "no",
+        "LEGA": "no"
+      }
     }
   ]
 }

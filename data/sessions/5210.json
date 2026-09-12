@@ -1,0 +1,1437 @@
+{
+  "id": 5210,
+  "season": "autumn",
+  "year": 2025,
+  "start": "2025-09-08",
+  "end": "2025-09-26",
+  "legislativePeriod": 52,
+  "votes": [
+    {
+      "id": 34884,
+      "business": "24.063",
+      "businessNumber": 20240063,
+      "title": {
+        "de": "Bundesbeschluss über die schweizerische Währung und die Bargeldversorgung (direkter Gegenentwurf zur Volksinitiative «Ja zu einer unabhängigen, freien Schweizer Währung mit Münzen oder Banknoten [Bargeld ist Freiheit]»)",
+        "fr": "Arrêté fédéral sur la monnaie suisse et l’approvisionnement en numéraire (contre-projet direct à l’initiative populaire «Oui à une monnaie suisse libre et indépendante sous forme de pièces ou de billets [l’argent liquide, c’est la liberté]»)",
+        "it": "Decreto federale concernente la valuta svizzera e l’approvvigionamento in numerario (Controprogetto diretto all’iniziativa popolare federale «Sì a una valuta svizzera indipendente e libera con monete o banconote [Il denaro contante è libertà]»)"
+      },
+      "voteEnd": "2025-09-17",
+      "topics": [
+        "economy",
+        "finance"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 183,
+        "no": 7,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 24,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 1,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 2,
+          "no": 6,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35029,
+      "business": "23.051",
+      "businessNumber": 20230051,
+      "title": {
+        "de": "Energiegesetz (EnG)",
+        "fr": "Loi sur l'énergie (LEne)",
+        "it": "Legge sull'energia (LEne)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "lawGeneral",
+        "energy",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 185,
+        "no": 2,
+        "abstain": 9
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 39,
+          "no": 2,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 61,
+          "no": 0,
+          "abstain": 4
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 18,
+          "no": 0,
+          "abstain": 5
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35030,
+      "business": "24.046",
+      "businessNumber": 20240046,
+      "title": {
+        "de": "Bundesgesetz über die Transparenz juristischer Personen und die Identifikation der wirtschaftlich berechtigten Personen (TJPG)",
+        "fr": "Loi fédérale sur la transparence des personnes morales et l’identification des ayants droit économiques (Loi sur la transparence des personnes morales, LTPM)",
+        "it": "Legge federale sulla trasparenza delle persone giuridiche e sull’identificazione degli aventi economicamente diritto (Legge sulla trasparenza delle persone giuridiche, LTPG)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "economy",
+        "finance",
+        "civilLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 121,
+        "no": 70,
+        "abstain": 5
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 16,
+          "no": 5,
+          "abstain": 5
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35031,
+      "business": "24.046",
+      "businessNumber": 20240046,
+      "title": {
+        "de": "Bundesgesetz über die Transparenz juristischer Personen und die Identifikation der wirtschaftlich berechtigten Personen",
+        "fr": "Loi fédérale sur la transparence des personnes morales et l’identification des ayants droit économiques",
+        "it": "Legge sulla trasparenza delle persone giuridiche"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "economy",
+        "finance",
+        "civilLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 116,
+        "no": 72,
+        "abstain": 8
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 11,
+          "no": 7,
+          "abstain": 8
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35033,
+      "business": "24.056",
+      "businessNumber": 20240056,
+      "title": {
+        "de": "UVG (Umsetzung der Motion 11.3811 Darbellay «Rechtslücke in der Unfallversicherung schliessen»). Änderung",
+        "fr": "LAA (Mise en œuvre de la motion 11.3811 Darbellay « Pour combler les lacunes de l'assurance-accidents »). Modification",
+        "it": "LAINF (Attuazione della mozione 11.3811 Darbellay «Colmare le lacune giuridiche nell’assicurazione contro gli infortuni»). Modifica"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "socialQuestions",
+        "labour",
+        "socialSecurity",
+        "health"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 130,
+        "no": 66,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 25,
+          "no": 1,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 64,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 1,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35034,
+      "business": "24.060",
+      "businessNumber": 20240060,
+      "title": {
+        "de": "Bundesbeschluss über die Eidgenössische Volksinitiative «200 Franken sind genug! (SRG‑Initiative)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire «200 francs, ça suffit! (initiative SSR)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «200 franchi bastano! (Iniziativa SSR)»"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "media",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 115,
+        "no": 76,
+        "abstain": 5
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 14,
+          "no": 11,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 4
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35035,
+      "business": "24.063",
+      "businessNumber": 20240063,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Ja zu einer unabhängigen, freien Schweizer Währung mit Münzen oder Banknoten (Bargeld ist Freiheit)»",
+        "fr": "Arrêté fédéral sur l’initiative populaire «Oui à une monnaie suisse libre et indépendante sous forme de pièces ou de billets (l’argent liquide, c’est la liberté)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Sì a una valuta svizzera indipendente e libera con monete o banconote (Il denaro contante è libertà)»"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "economy",
+        "finance"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 179,
+        "no": 15,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 48,
+          "no": 15,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35036,
+      "business": "24.077",
+      "businessNumber": 20240077,
+      "title": {
+        "de": "Schweizerisches Zivilgesetzbuch (Gewaltfreie Erziehung)",
+        "fr": "Code civil suisse (Éducation sans violence)",
+        "it": "Codice civile svizzero (Educazione non violenta). Modifica"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "socialQuestions",
+        "civilLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 63,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 63,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35037,
+      "business": "24.086",
+      "businessNumber": 20240086,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung des Notenaustausches zwischen der Schweiz und der EU betreffend die Übernahme der Verordnung (EU) 2022/1190 zur Änderung der Verordnung (EU) 2018/1862 in Bezug auf die Eingabe von Informationsausschreibungen zu Drittstaatsangehörigen im Interesse der Union in das Schengener Informationssystem (Weiterentwicklung des Schengen-Besitzstands)",
+        "fr": "Arrêté fédéral portant approbation et mise en oeuvre de l’échange de notes entre la Suisse et l’UE concernant la reprise du règlement (UE) 2022/1190 modifiant le règlement (UE) 2018/1862 en ce qui concerne l’introduction dans le système d’information Schengen de signalements pour information concernant des ressortissants de pays tiers dans l’intérêt de l’Union (Développement de l’acquis de Schengen)",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero lo scambio di note tra la Svizzera e l’UE concernente il recepimento del regolamento (UE) 2022/1190 che modifica il regolamento (UE) 2018/1862 per quanto riguarda l’inserimento, nell’interesse dell’Unione, di segnalazioni informative su cittadini di paesi terzi nel sistema d’informazione Schengen (Sviluppo dell’acquis di Schengen)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 187,
+        "no": 9,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 56,
+          "no": 9,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35038,
+      "business": "24.087",
+      "businessNumber": 20240087,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung des Notenaustauschs zwischen der Schweiz und der EU betreffend die Übernahme der Verordnung (EU) 2023/2667 zur Änderung mehrerer Rechtsakte im Hinblick auf die Digitalisierung des Visumverfahrens (Weiterentwicklung des Schengen-Besitzstands)",
+        "fr": "Arrêté fédéral portant approbation et mise en œuvre de l’échange de notes entre la Suisse et l’UE concernant la reprise du règlement (UE) 2023/2667 modifiant plusieurs actes juridiques en ce qui concerne la numérisation de la procédure de demande de visa (Développement de l’acquis de Schengen)",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero lo scambio di note tra la Svizzera e l’UE concernente il recepimento del regolamento (UE) 2023/2667 che modifica diversi atti normativi europei per quanto riguarda la digitalizzazione della procedura di visto (Sviluppo dell’acquis di Schengen)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "europe",
+        "media",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 133,
+        "no": 63,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 2,
+          "no": 63,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35039,
+      "business": "24.094",
+      "businessNumber": 20240094,
+      "title": {
+        "de": "Bundesgesetz über die Landwirtschaft (Landwirtschaftsgesetz, LwG)",
+        "fr": "Loi fédérale sur l’agriculture (Loi sur l’agriculture, LAgr)",
+        "it": "Legge federale sull’agricoltura (Legge sull’agricoltura, LAgr)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "socialQuestions",
+        "agriculture",
+        "civilLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 196,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35040,
+      "business": "24.097",
+      "businessNumber": 20240097,
+      "title": {
+        "de": "Bundesgesetz über die Allgemeinverbindlicherklärung von Gesamtarbeitsverträgen (Einsicht in die Jahresrechnung der für die gemeinsame Durchführung verantwortlichen Organe)",
+        "fr": "Loi fédérale permettant d’étendre le champ d’application de la convention collective de travail (Consultation des comptes annuels des organes chargés de l’exécution commune)",
+        "it": "Legge federale concernente il conferimento del carattere obbligatorio generale al contratto collettivo di lavoro (Consultazione dei conti annuali degli organi responsabili dell’esecuzione in comune)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "statePolicy",
+        "finance",
+        "labour",
+        "civilLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 196,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35041,
+      "business": "25.022",
+      "businessNumber": 20250022,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für eine gerechte Energie- und Klimapolitik: Investieren für Wohlstand, Arbeit und Umwelt (Klimafonds-Initiative)»",
+        "fr": "Arrêté fédéral concernant l’initiative populaire «Pour une politique énergétique et climatique équitable: investir pour la prospérité, le travail et l’environnement (initiative pour un fonds climat)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Per una politica energetica e climatica equa: investire per la prosperità, il lavoro e l’ambiente (Iniziativa per un fondo per il clima)»"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "finance",
+        "environment",
+        "energy"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 127,
+        "no": 69,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 41,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 2,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 7,
+          "no": 3,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35042,
+      "business": "25.023",
+      "businessNumber": 20250023,
+      "title": {
+        "de": "Bundesgesetz über die Zustellung von Sendungen an Wochenenden und Feiertagen",
+        "fr": "Loi fédérale sur les notifications d’actes le week-end et les jours fériés",
+        "it": "Legge federale sulla notificazione della posta nei fine settimana e nei giorni festivi"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "media",
+        "civilLaw"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 195,
+        "no": 1,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 64,
+          "no": 1,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35043,
+      "business": "25.029",
+      "businessNumber": 20250029,
+      "title": {
+        "de": "Bundesgesetz über den internationalen automatischen Informationsaustausch in Steuersachen (AIAG)",
+        "fr": "Loi fédérale sur l’échange international automatique de renseignements en matière fiscale (LEAR)",
+        "it": "Legge federale sullo scambio automatico internazionale di informazioni a fini fiscali (LSAI)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "economy",
+        "finance",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 65,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35044,
+      "business": "25.029",
+      "businessNumber": 20250029,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Addendums zur multilateralen Vereinbarung der zuständigen Behörden über den automatischen Informationsaustausch über Finanzkonten und der multilateralen Vereinbarung der zuständigen Behörden über den automatischen Informationsaustausch nach dem Melderahmen für Kryptowerte",
+        "fr": "Arrêté fédéral portant approbation de l’addendum à l’accord multilatéral entre autorités compétentes concernant l’échange automatique de renseignements relatifs aux comptes financiers et de l’accord multilatéral entre autorités compétentes concernant l’échange automatique de renseignements relatifs au Cadre de déclaration des crypto-actifs",
+        "it": "ecreto federale che approva l’Addendum all’Accordo multilaterale tra autorità competenti concernente lo scambio automatico di informazioni relative a conti finanziari e l’Accordo multilaterale tra autorità competenti concernente lo scambio automatico di informazioni in conformità al quadro per la comunicazione di informazioni in materia di cripto-attività"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "economy",
+        "finance",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 132,
+        "no": 64,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 64,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35045,
+      "business": "25.031",
+      "businessNumber": 20250031,
+      "title": {
+        "de": "Bundebeschluss über die Genehmigung des Änderungsprotokolls zur Modernisierung des Freihandelsabkommens zwischen den EFTA-Staaten und Chile",
+        "fr": "Arrêté fédéral portant approbation du protocole d’amendement pour la modernisation de l’accord de libre-échange entre les États de l’AELE et le Chili",
+        "it": "Decreto federale che approva il Protocollo d’emendamento che modernizza l’Accordo di libero scambio tra gli Stati dell’AELS e il Cile"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "economy",
+        "agriculture"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 173,
+        "no": 16,
+        "abstain": 7
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 16,
+          "abstain": 7
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35046,
+      "business": "25.032",
+      "businessNumber": 20250032,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung des Notenaustauschs zwischen der Schweiz und der EU betreffend die Übernahme der Verordnung (EU) 2024/1717 zur Änderung der Verordnung (EU) 2016/399 über einen Unionskodex für das Überschreiten der Grenzen durch Personen (Weiterentwicklung des Schengen-Besitzstands)",
+        "fr": "Arrêté fédéral portant approbation et mise en œuvre de l’échange de notes entre la Suisse et l’UE sur la reprise du règlement (UE) 2024/1717 modifiant le règlement (UE) 2016/399 concernant un code de l’Union relatif au régime de franchissement des frontières par les personnes (Développement de l’acquis de Schengen)",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero lo scambio di note tra la Svizzera e l’UE concernente il recepimento del regolamento (UE) 2024/1717 recante modifica del regolamento (UE) 2016/399 che istituisce un codice dell’Unione relativo al regime di attraversamento delle frontiere da parte delle persone (Sviluppo dell’acquis di Schengen)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 108,
+        "no": 65,
+        "abstain": 23
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 23
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35047,
+      "business": "25.032",
+      "businessNumber": 20250032,
+      "title": {
+        "de": "Bundesgesetz über die Ausländerinnen und Ausländer und über die Integration (Ausländer- und Integrationsgesetz, AIG) (Zugriff auf das nationale Reiseinformations- und Genehmigungssystem)",
+        "fr": "Loi fédérale sur les étrangers et l’intégration (LEI) (Accès au système national d’information et d’autorisation concernant les voyages)",
+        "it": "Legge federale sugli stranieri e la loro integrazione (LStrI) (Accesso al sistema nazionale di informazione e autorizzazione ai viaggi)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 65,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35048,
+      "business": "25.032",
+      "businessNumber": 20250032,
+      "title": {
+        "de": "Bundesgesetz über die Ausländerinnen und Ausländer und über die Integration (Ausländer- und Integrationsgesetz, AIG) (Redaktionelle Anpassungen betreffend Schengener Grenzkodex)",
+        "fr": "Loi fédérale sur les étrangers et l’intégration (LEI) (Changements d’ordre rédactionnel relatifs au code frontières Schengen)",
+        "it": "Legge federale sugli stranieri e la loro integrazione (LStrI) (Adeguamenti redazionali relativi al codice frontiere Schengen)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 65,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35049,
+      "business": "25.033",
+      "businessNumber": 20250033,
+      "title": {
+        "de": "Bundesgesetz über den zivilen Ersatzdienst (Zivildienstgesetz, ZDG)",
+        "fr": "Loi fédérale sur le service civil (LSC)",
+        "it": "Legge federale sul servizio civile sostitutivo (Legge sul servizio civile, LSC)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "security"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 120,
+        "no": 76,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 41,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 65,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 2,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 10,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 23,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35050,
+      "business": "25.037",
+      "businessNumber": 20250037,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung der Notenaustausche zwischen der Schweiz und der EU betreffend die Übernahme der Verordnung (EU) 2024/1351 über das Asyl- und Migrationsmanagement und der Verordnung (EU) 2024/1359 über die Bewältigung von Krisensituationen und Situationen höherer Gewalt im Bereich Migration und Asyl (Weiterentwicklungen des Dublin/Eurodac-Besitzstands)",
+        "fr": "Arrêté fédéral\tportant approbation et mise en œuvre des échanges de notes entre la Suisse et l’UE concernant la reprise du règlement (UE) 2024/1351 relatif à la gestion de l’asile et de la migration et du règlement (UE) 2024/1359 visant à faire face aux situations de crise et aux cas de force majeure dans le domaine de la migration et de l'asile (Développements de l’acquis de Dublin/Eurodac)",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero gli scambi di note tra la Svizzera e l’UE concernenti il recepimento del regolamento (UE) 2024/1351 sulla gestione dell’asilo e della migrazione e del regolamento (UE) 2024/1359 concernente le situazioni di crisi e di forza maggiore nel settore della migrazione e dell’asilo (Sviluppi dell’acquis di Dublino/Eurodac)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 109,
+        "no": 86,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 22,
+          "no": 4,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 5,
+          "no": 17,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35051,
+      "business": "25.037",
+      "businessNumber": 20250037,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Notenaustauschs zwischen der Schweiz und der EU betreffend die Übernahme der Verordnung (EU) 2024/1349 zur Festlegung des Rückkehrverfahrens an der Grenze und zur Änderung der Verordnung (EU) 2021/1148 (Weiterentwicklung des Schengen-Besitzstands)",
+        "fr": "Arrêté fédéral\tportant approbation de l’échange de notes entre la Suisse et l’UE concernant la reprise du règlement (UE) 2024/1349 instituant une procédure de retour à la frontière et modifiant le règlement (UE) 2021/1148 (Développement de l’acquis de Schengen)",
+        "it": "Decreto federale che approva lo scambio di note tra la Svizzera e l’UE concernente il recepimento del regolamento (UE) 2024/1349 che stabilisce una procedura di rimpatrio alla frontiera e che modifica il regolamento (UE) 2021/1148 (Sviluppo dell’acquis di Schengen)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 130,
+        "no": 65,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35052,
+      "business": "25.037",
+      "businessNumber": 20250037,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und Umsetzung des Notenaustauschs zwischen der Schweiz und der EU betreffend die Übernahme der Verordnung (EU) 2024/1358 über die Einrichtung von Eurodac für den Abgleich biometrischer Daten (Weiterentwicklung des Dublin/Eurodac-Besitzstands)",
+        "fr": "Arrêté fédéral\tportant approbation et mise en œuvre de l’échange de notes entre la Suisse et l’UE concernant la reprise du règlement (UE) 2024/1358 relatif à la création d’Eurodac pour la comparaison des données biométriques (Développement de l’acquis de Dublin/Eurodac)",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero lo scambio di note tra la Svizzera e l’UE concernente il recepimento del regolamento (UE) 2024/1358 che istituisce l’«Eurodac» per il confronto dei dati biometrici (Sviluppo dell’acquis di Dublino/Eurodac)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 131,
+        "no": 65,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35053,
+      "business": "25.037",
+      "businessNumber": 20250037,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung und die Umsetzung des Notenaustauschs zwischen der Schweiz und der EU betreffend die Übernahme der Verordnung (EU) 2024/1356 zur Einführung der Überprüfung von Drittstaatsangehörigen an den Aussengrenzen und zur Änderung der Verordnungen (EG) Nr. 767/2008, (EU) 2017/2226, (EU) 2018/1240 und (EU) 2019/817 (Weiterentwicklung des Schengen-Besitzstands)",
+        "fr": "Arrêté fédéral\tportant approbation et mise en œuvre de l’échange de notes entre la Suisse et l’UE concernant la reprise du règlement (UE) 2024/1356 établissant le filtrage des ressortissants de pays tiers aux frontières extérieures et modifiant les règlements (CE) no 767/2008, (UE) 2017/2226, (UE) 2018/1240 et (UE) 2019/817 (Développement de l’acquis de Schengen)",
+        "it": "Decreto federale che approva e traspone nel diritto svizzero lo scambio di note tra la Svizzera e l’UE concernente il recepimento del regolamento (UE) 2024/1356 che introduce accertamenti nei confronti dei cittadini di paesi terzi alle frontiere esterne e modifica i regolamenti (CE) n. 767/2008, (UE) 2017/2226, (UE) 2018/1240 e (UE) 2019/817 (Sviluppo dell’acquis di Schengen)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "europe",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "tally": {
+        "yes": 129,
+        "no": 65,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 0,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 31,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 1
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 35054,
+      "business": "25.441",
+      "businessNumber": 20250441,
+      "title": {
+        "de": "Bundesgesetz über die obligatorische Arbeitslosenversicherung und die Insolvenzentschädigung (Arbeitslosenversicherungsgesetz, AVIG) (Höchstbezugsdauer bei Kurzarbeit)",
+        "fr": "Loi fédérale sur l’assurance-chômage obligatoire et l’indemnité en cas d’insolvabilité (Loi sur l’assurance-chômage, LACI) (Durée maximale d’indemnisation en matière de réduction de l’horaire de travail)",
+        "it": "Legge federale sull’assicurazione obbligatoria contro la disoccupazione e l’indennità per insolvenza (Legge sull’assicurazione contro la disoccupazione, LADI) (Durata massima dell’indennità per lavoro ridotto)"
+      },
+      "voteEnd": "2025-09-26",
+      "topics": [
+        "international",
+        "economy",
+        "labour",
+        "socialSecurity"
+      ],
+      "btype": "parliamentaryInitiative",
+      "tally": {
+        "yes": 142,
+        "no": 52,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 12,
+          "no": 52,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 23,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
+}
