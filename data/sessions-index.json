@@ -2,9 +2,20 @@
   "_meta": {
     "source": "Federal Assembly OData web service (ws.parlament.ch)",
     "channel": "https://www.youtube.com/@ParlCH",
-    "fetchedAt": "2026-08-30T15:04:21+00:00"
+    "fetchedAt": "2026-09-14T09:29:35+00:00"
   },
   "sessions": [
+    {
+      "id": 5215,
+      "abbr": "HS 26",
+      "season": "autumn",
+      "year": 2026,
+      "start": "2026-09-14",
+      "end": "2026-10-02",
+      "legislativePeriod": 52,
+      "voteCount": 0,
+      "topics": []
+    },
     {
       "id": 5214,
       "abbr": "SS 26",
@@ -491,33 +502,6 @@
         "socialQuestions",
         "socialSecurity",
         "statePolicy",
-        "taxation",
-        "transport"
-      ]
-    },
-    {
-      "id": 5117,
-      "abbr": "WS22",
-      "season": "winter",
-      "year": 2022,
-      "start": "2022-11-28",
-      "end": "2022-12-16",
-      "legislativePeriod": 51,
-      "voteCount": 18,
-      "topics": [
-        "agriculture",
-        "economy",
-        "education",
-        "environment",
-        "europe",
-        "health",
-        "international",
-        "judiciary",
-        "media",
-        "migration",
-        "science",
-        "socialQuestions",
-        "socialSecurity",
         "taxation",
         "transport"
       ]

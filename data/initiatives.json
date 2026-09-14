@@ -1,7 +1,7 @@
 {
   "_meta": {
     "source": "Decided federal votes: VoteInfo (Federal Chancellery / Federal Statistical Office), opendata.swiss dataset 'echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen'. Upcoming scheduled votes and pending/signature-gathering initiatives: Federal Chancellery linked-data cubes (politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party recommendations (Parolen): Swissvotes (Année Politique Suisse, Uni Bern), CC BY-NC-SA. Official authority texts are not subject to copyright (Art. 5 URG).",
-    "fetchedAt": "2026-07-22T15:00:48Z",
+    "fetchedAt": "2026-09-14T09:25:17Z",
     "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive."
   },
   "initiatives": [
@@ -184,10 +184,10 @@
         "it": "Iniziativa popolare federale 'Sì alla protezione contro pigioni abusive (Iniziativa sulle pigioni)'"
       },
       "desc": {
-        "en": "Popular initiative that has qualified and is now pending (signatures being verified), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (in Auszählung), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (décompte des signatures), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (conteggio delle firme), prima della votazione popolare."
+        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare."
       },
       "status": "pending",
       "date": {
@@ -259,10 +259,10 @@
         "it": "Iniziativa popolare federale 'Per la democrazia diretta e la competitività del nostro Paese – No a una Svizzera membro passivo dell’UE (Iniziativa Bussola)'"
       },
       "desc": {
-        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare."
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare."
       },
       "status": "pending",
       "date": {
@@ -938,6 +938,32 @@
       },
       "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
       "deadline": "2027-12-23"
+    },
+    {
+      "id": "initiative-586",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Wer vertreibt, muss zahlen (Initiative für eine Kostenverantwortung der Herkunftsstaaten)»",
+        "de": "Eidgenössische Volksinitiative \"Wer vertreibt, muss zahlen (Initiative für eine Kostenverantwortung der Herkunftsstaaten)\"\r\n",
+        "fr": "Initiative populaire fédérale \"Qui fait fuir doit payer (initiative pour une responsabilité financière de l’État de provenance)\"",
+        "it": "Iniziativa popolare federale \"Chi costringe a fuggire deve pagare (Iniziativa per una responsabilità finanziaria dello Stato di provenienza)\""
+      },
+      "desc": {
+        "en": "Popular initiative in the signature-gathering stage. It has until 8 March 2028 to collect 100,000 valid signatures and force a nationwide vote.",
+        "de": "Volksinitiative im Sammelstadium. Bis 8. März 2028 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
+        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 8 mars 2028 pour réunir 100 000 signatures valables et provoquer une votation.",
+        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 8 marzo 2028 per raccogliere 100 000 firme valide e arrivare alla votazione."
+      },
+      "status": "collecting",
+      "date": {
+        "en": "Signature gathering since 8 September 2026",
+        "de": "Unterschriftensammlung seit 8. September 2026",
+        "fr": "Récolte des signatures depuis 8 septembre 2026",
+        "it": "Raccolta firme dal 8 settembre 2026",
+        "rm": "Rimnada da signaturas dapi ils 8 da settember 2026"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
+      "deadline": "2028-03-08"
     },
     {
       "id": "vote-20260614-6860",
