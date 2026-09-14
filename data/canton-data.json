@@ -1,7 +1,7 @@
 {
   "_meta": {
     "source": "Federal Statistical Office (BFS) — National Council 2023 results and the official municipality register, via opendata.swiss.",
-    "fetchedAt": "2026-08-24T12:46:06Z",
+    "fetchedAt": "2026-09-14T09:29:34Z",
     "ncElectionYear": 2023,
     "municipalitySnapshot": "2026-01-01",
     "note": "Election figures are the official BFS results; municipality and district counts are from the federal register on the snapshot date shown."
