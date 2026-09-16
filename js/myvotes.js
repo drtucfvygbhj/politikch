@@ -18,7 +18,7 @@
    obvious: official results use solid bars, community polls use striped bars
    and carry an "unofficial poll" label. */
 
-import { POLL_API } from './config.js?v=20260916e';
+import { POLL_API } from './config.js?v=20260916f';
 
 let t = (k) => k;
 let esc = (s) => String(s);
@@ -61,7 +61,6 @@ export function getAllVotes() { return readStore(); }
 export function setVote(kind, id, choice, meta) {
   const d = readStore();
   const b = d[bucket(kind)];
-  const prevPushed = b[id] && b[id].pushed;
   if (choice == null) {
     delete b[id];
   } else {
@@ -71,13 +70,17 @@ export function setVote(kind, id, choice, meta) {
   }
   writeStore(d);
   document.dispatchEvent(new CustomEvent('politikch:votechange', { detail: { kind, id, choice } }));
-  return prevPushed || null;
 }
-function markPushed(kind, id, choice) {
-  const d = readStore();
-  const b = d[bucket(kind)];
-  if (b[id]) { b[id].pushed = choice; writeStore(d); }
-  else if (choice == null) { /* cleared */ }
+
+// What the poll server currently believes this device voted, kept in a SEPARATE
+// map so it survives clearing the vote (so a clear can still be decremented).
+const PUSHED_KEY = 'politikch-votes-pushed';
+function readPushed() { try { return JSON.parse(localStorage.getItem(PUSHED_KEY) || '{}') || {}; } catch (e) { return {}; } }
+function getPushed(kind, id) { const p = readPushed(); const k = kind + '/' + id; return (k in p) ? p[k] : null; }
+function setPushed(kind, id, choice) {
+  const p = readPushed(); const k = kind + '/' + id;
+  if (choice == null) delete p[k]; else p[k] = choice;
+  try { localStorage.setItem(PUSHED_KEY, JSON.stringify(p)); } catch (e) { /* ignore */ }
 }
 
 export function countVotes() {
@@ -103,12 +106,13 @@ async function getTally(kind, id) {
   if (!POLL_API) return null;
   return fetchJSON(`${POLL_API}/tally?type=${encodeURIComponent(kind)}&id=${encodeURIComponent(id)}`);
 }
-async function castPoll(kind, id, choice, prev) {
+async function castPoll(kind, id, choice, prev, keepalive) {
   if (!POLL_API) return null;
   return fetchJSON(`${POLL_API}/vote`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ type: kind, id, choice, prev: prev || null }),
+    keepalive: !!keepalive,
   });
 }
 
@@ -198,28 +202,72 @@ function onPick(el, choice) {
   const id = el.dataset.vi;
   const current = getVote(kind, id);
   const next = (choice === current) ? null : choice; // click the active choice to undo
-  const prevPushed = setVote(kind, id, next, metaOf(el));
-  renderWidget(el);
-  // Sync the community poll (anonymous) if enabled and this item polls.
-  if (el.dataset.poll === '1' && pollEnabled() && next !== current) {
-    castPoll(kind, id, next, prevPushed).then(tally => {
-      markPushed(kind, id, next);
-      if (tally) paintPoll(el, tally);
-      else loadPoll(el);
-    });
-  }
+  setVote(kind, id, next, metaOf(el));
+  renderWidget(el); // the visitor's own choice updates instantly, on-device
+  // The community poll is NOT contacted on every click. We debounce and send
+  // only the NET settled result, so spamming yes/no/yes/no still costs the
+  // server at most one write once the visitor stops.
+  if (el.dataset.poll === '1' && pollEnabled()) scheduleSync(kind, id);
 }
 
+/* ---- Debounced, coalesced poll sync ------------------------------------- */
+const SYNC_DEBOUNCE_MS = 5000;   // wait this long after the last click
+const MIN_SYNC_GAP_MS = 10000;   // and never sync one item more often than this
+const _syncTimers = {};
+const _lastSyncAt = {};
+function scheduleSync(kind, id) {
+  const key = kind + '/' + id;
+  if (_syncTimers[key]) clearTimeout(_syncTimers[key]);
+  const sinceLast = Date.now() - (_lastSyncAt[key] || 0);
+  const wait = Math.max(SYNC_DEBOUNCE_MS, MIN_SYNC_GAP_MS - sinceLast);
+  _syncTimers[key] = setTimeout(() => flushSync(kind, id), wait);
+}
+function flushSync(kind, id, keepalive) {
+  const key = kind + '/' + id;
+  if (_syncTimers[key]) { clearTimeout(_syncTimers[key]); delete _syncTimers[key]; }
+  const current = getVote(kind, id);      // null if the item was cleared
+  const pushed = getPushed(kind, id);
+  if (current === pushed) return;         // nothing new to tell the server
+  _lastSyncAt[key] = Date.now();
+  castPoll(kind, id, current, pushed, keepalive).then(tally => {
+    setPushed(kind, id, current);
+    if (tally) { _tallyCache[key] = { at: Date.now(), tally }; paintPollByKey(key, tally); }
+  });
+}
+// Flush everything still pending when the page is hidden/closed, using
+// keepalive so the final write survives navigation.
+function flushAllPending(keepalive) {
+  Object.keys(_syncTimers).forEach(key => {
+    const [kind, id] = key.split('/');
+    flushSync(kind, id, keepalive);
+  });
+}
+if (typeof window !== 'undefined') {
+  window.addEventListener('pagehide', () => flushAllPending(true));
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flushAllPending(true); });
+}
+
+/* ---- Poll reads (cached briefly so re-renders don't refetch) ------------ */
+const _tallyCache = {};
+const TALLY_TTL_MS = 60000;
 async function loadPoll(el) {
   const slot = el.querySelector('[data-poll-slot]');
   if (!slot) return;
+  const key = el.dataset.vk + '/' + el.dataset.vi;
+  const cached = _tallyCache[key];
+  if (cached && Date.now() - cached.at < TALLY_TTL_MS) { paintPoll(el, cached.tally); return; }
   const tally = await getTally(el.dataset.vk, el.dataset.vi);
-  if (tally) paintPoll(el, tally);
+  if (tally) { _tallyCache[key] = { at: Date.now(), tally }; paintPoll(el, tally); }
   else slot.innerHTML = `<div class="poll-offline">${t('mine.pollUnavailable')}</div>`;
 }
 function paintPoll(el, tally) {
   const slot = el.querySelector('[data-poll-slot]');
   if (slot) slot.innerHTML = pollBarsHTML(tally);
+}
+function paintPollByKey(key, tally) {
+  document.querySelectorAll('.vote-widget').forEach(el => {
+    if (el.dataset.vk + '/' + el.dataset.vi === key) paintPoll(el, tally);
+  });
 }
 
 // Hydrate every .vote-widget under root.

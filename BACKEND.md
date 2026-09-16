@@ -83,6 +83,15 @@ export default {
 
 Deploy (`wrangler deploy`), copy the Worker URL into `POLL_API`, done.
 
+## Client-side write coalescing (built in)
+
+The page does **not** POST on every click. A vote updates the visitor's own view
+instantly (localStorage), but the server hears only the *settled* result: writes
+are debounced (~5s after the last change, min ~10s between writes per item) and
+sent as a net delta (`{choice, prev}`), with a `keepalive` flush on page hide.
+So spamming yes/no/yes/no costs the backend **one** write, not one per click —
+size your rate limits and quota against settled voters, not raw clicks.
+
 ## Notes & honest limits
 
 - **This is an unofficial straw poll.** It is client-driven, so it can be gamed
