@@ -1,6 +1,6 @@
-import { MAP_PATHS } from './map-data.js?v=20260916';
-import { configureShare, wireShares, mountShare } from './share.js?v=20260916';
-import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260916';
+import { MAP_PATHS } from './map-data.js?v=20260916b';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260916b';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260916b';
 
 /* ============================================================
    State
@@ -62,11 +62,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json?v=20260916').then(r => r.json()),
-    fetch('data/cantons.json?v=20260916').then(r => r.json()),
-    fetch('data/initiatives.json?v=20260916').then(r => r.json()),
-    fetch('data/council.json?v=20260916').then(r => r.json()),
-    fetch('data/i18n.json?v=20260916').then(r => r.json())
+    fetch('data/parties.json?v=20260916b').then(r => r.json()),
+    fetch('data/cantons.json?v=20260916b').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260916b').then(r => r.json()),
+    fetch('data/council.json?v=20260916b').then(r => r.json()),
+    fetch('data/i18n.json?v=20260916b').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -78,7 +78,7 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json?v=20260916').then(r => r.ok ? r.json() : null);
+    const financing = await fetch('data/financing.json?v=20260916b').then(r => r.ok ? r.json() : null);
     if (financing) state.data.financing = financing;
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
@@ -86,14 +86,14 @@ async function loadData() {
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json?v=20260916').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260916b').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json?v=20260916').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260916b').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -101,7 +101,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json?v=20260916').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260916b').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 }
@@ -1173,7 +1173,7 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json?v=20260916').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260916b').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
@@ -1780,7 +1780,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json?v=20260916`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260916b`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -2076,7 +2076,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260916')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260916b')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2086,7 +2086,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json?v=20260916')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260916b')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2102,7 +2102,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260916`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260916b`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -2742,7 +2742,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json?v=20260916').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260916b').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -2906,11 +2906,12 @@ function computeMyLeaning() {
     }
   };
 
-  Object.entries(store.initiatives || {}).forEach(([id, e]) => {
-    initN++; if (e.c === 'yes') yesN++; else if (e.c === 'no') noN++;
-    const init = state.data.initiatives.find(i => i.id === id);
-    if (init && init.recommendations) tally(init.recommendations, e.c);
-  });
+  // Party alignment and the spectrum position are computed from SESSION votes
+  // only: parliament records give a complete Yes/No for every party across many
+  // votes, whereas initiative "Parolen" are sparse (not every party takes a
+  // stance). Initiative votes still count toward participation, but they don't
+  // drive the party-opinion analysis.
+  Object.keys(store.initiatives || {}).forEach(() => { initN++; });
   Object.entries(store.sessions || {}).forEach(([, e]) => {
     sessN++; if (e.c === 'yes') yesN++; else if (e.c === 'no') noN++;
     if (e.p) tally(e.p, e.c);
@@ -2978,8 +2979,8 @@ function renderProfilePage() {
         <p>${t('profile.empty')}</p>
       </div>
       <div class="profile-cta">
-        <a class="resource-link" href="#/">${t('profile.emptyVotes')} <span class="arrow">↗</span></a>
         <a class="resource-link" href="#/sessions">${t('profile.emptySessions')} <span class="arrow">↗</span></a>
+        <a class="resource-link" href="#/">${t('profile.emptyVotes')} <span class="arrow">↗</span></a>
       </div>`;
     return;
   }
@@ -3001,35 +3002,25 @@ function renderProfilePage() {
     ? `<div class="profile-topics">${d.topics.map(x => `<span class="profile-topic">${escapeAttr(t('session.topic.' + x.k))}<span class="profile-topic-n">${x.n}</span></span>`).join('')}</div>`
     : `<p class="mine-note">${t('profile.topicsEmpty')}</p>`;
 
-  // Enrich: a few present/future initiatives the visitor hasn't voted on yet,
-  // with inline vote widgets to add data directly.
-  const unvoted = state.data.initiatives
-    .filter(i => initiativePollEligible(i) && !getVote('initiative', i.id))
-    .slice(0, 5);
-  const enrich = unvoted.length
-    ? unvoted.map(i => `
-        <div class="enrich-item">
-          <a class="enrich-title" href="#/initiative/${i.id}">${initTitleHTML(i, false)}</a>
-          ${voteWidgetHTML('initiative', i.id, { poll: true })}
-        </div>`).join('')
-    : `<p class="mine-note">${t('profile.enrichDone')}</p>`;
+  const alignEmpty = !d.partyRanking.length;
 
   contentEl.innerHTML = `
     <p class="info-lead">${t('profile.lead')}</p>
     <p class="mine-note profile-privacy">${t('profile.privacyNote')}</p>
 
     <div class="profile-stats">
-      <div class="stat-box"><div class="big">${d.count}</div><div class="lbl">${t('profile.statTotal')}</div></div>
-      <div class="stat-box"><div class="big">${d.initN}</div><div class="lbl">${t('profile.statInitiatives')}</div></div>
       <div class="stat-box"><div class="big">${d.sessN}</div><div class="lbl">${t('profile.statSessions')}</div></div>
       <div class="stat-box"><div class="big">${d.yesN}/${d.noN}</div><div class="lbl">${t('profile.statYesNo')}</div></div>
+      <div class="stat-box"><div class="big">${d.initN}</div><div class="lbl">${t('profile.statInitiatives')}</div></div>
+      <div class="stat-box"><div class="big">${d.count}</div><div class="lbl">${t('profile.statTotal')}</div></div>
     </div>
 
     <div class="canton-grid" style="margin-top:8px">
       <div>
         <h3 class="canton-section-title">${t('profile.alignTitle')}</h3>
+        <p class="mine-note">${t('profile.alignNote')}</p>
         ${closest ? `<p class="mine-note">${t('profile.closest').replace('{party}', `<a href="#/party/${closest.key}"><strong>${escapeAttr(closestName)}</strong></a>`).replace('{pct}', closest.pct)}</p>` : ''}
-        <div class="align-list">${partyBars}</div>
+        ${alignEmpty ? `<p class="mine-note">${t('profile.alignNeedMore')}</p>` : `<div class="align-list">${partyBars}</div>`}
       </div>
       <div>
         <h3 class="canton-section-title">${t('profile.spectrumTitle')}</h3>
@@ -3043,10 +3034,36 @@ function renderProfilePage() {
     ${topics}
 
     <h3 class="canton-section-title" style="margin-top:40px">${t('profile.enrichTitle')}</h3>
-    <p class="mine-note">${t('profile.enrichDesc')}</p>
-    <div class="enrich-list">${enrich}</div>`;
+    <p class="mine-note">${t('profile.enrichDesc')} <a href="#/sessions">${t('profile.enrichBrowse')} <span class="arrow">↗</span></a></p>
+    <div class="enrich-list" id="profile-enrich"><p class="mine-note">${t('mine.pollLoading')}</p></div>`;
 
   wireVoteWidgets(contentEl);
+  fillProfileEnrich();
+}
+
+// Enrich the profile with a few real, unvoted session votes (inline widgets),
+// pulled from the most recent session — session votes carry full per-party data,
+// so each one sharpens the alignment.
+function fillProfileEnrich() {
+  const host = document.getElementById('profile-enrich');
+  if (!host) return;
+  ensureSessionsIndex().then(idx => {
+    const sessions = ((idx && idx.sessions) || [])
+      .filter(s => (s.voteCount || 0) > 0)
+      .sort((a, b) => (b.end || '').localeCompare(a.end || ''));
+    if (!sessions.length) { host.innerHTML = `<p class="mine-note">${t('profile.enrichDone')}</p>`; return; }
+    ensureSessionFile(sessions[0].id).then(file => {
+      if (document.getElementById('profile-enrich') !== host) return; // navigated away / re-rendered
+      const votes = ((file && file.votes) || []).filter(v => !getVote('session', v.id)).slice(0, 5);
+      if (!votes.length) { host.innerHTML = `<p class="mine-note">${t('profile.enrichDone')}</p>`; return; }
+      host.innerHTML = votes.map(v => `
+        <div class="enrich-item">
+          <a class="enrich-title" href="#/session/${sessions[0].id}">${escapeAttr(plainVoteTitle(v))}</a>
+          ${voteWidgetHTML('session', v.id, { poll: true, meta: { parties: partyMajorities(v.byParty), topics: v.topics || [] } })}
+        </div>`).join('');
+      wireVoteWidgets(host);
+    });
+  });
 }
 
 function parseHash() {
