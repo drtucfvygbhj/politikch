@@ -32,16 +32,43 @@ manual, how often, and how to keep on top of it.
 **Managing them:** once a week, open the **Actions** tab, confirm the "Fetch live
 data" run succeeded, and skim any issue it opened. That's the core routine.
 
-## 2. Manual — triggered by the automation
+## 2. AI-assisted upkeep — one local trigger + a private review desk
 
-### Hand-translate new vote/act titles  *(weekly, ~5–15 min)*
-Swiss vote/act titles are official only in DE/FR/IT. New items need **unofficial
-EN and RM** titles by hand (the project uses no machine translation).
-- **Trigger:** the weekly job files/updates a GitHub issue and lists them in
-  `TRANSLATIONS_TODO.md`.
-- **Do:** add each to `data/initiatives-translations.json` or
-  `data/sessions-translations.json` under `titles.<id>` as `{ "en": …, "rm": … }`.
-- Until done, the site falls back to the official DE/FR/IT title (not broken).
+All AI-assisted maintenance (title translations **and** vote overviews) runs
+through **one local tool you trigger by hand**, on whatever interval you like. It
+uses the **local `claude` CLI** — your logged-in Claude subscription, so **no API
+key** is stored anywhere, and it spends normal subscription quota bound by the
+5-hour and weekly limits. If a limit is hit, it stops and leaves the rest for
+next time. Nothing it produces goes live until **you approve it**.
+
+```bash
+# 1) Stage a small batch of proposals (translations + overviews). --max keeps
+#    each run within limits; it stops early if Claude reports a usage limit.
+python3 scripts/ai_maintain.py            # or --task translation / --task overview
+
+# 2) Review, edit, approve — a private page bound to 127.0.0.1 (only you):
+python3 scripts/review_server.py          # → http://127.0.0.1:8777
+```
+- `ai_maintain.py` never touches live data — it writes proposals to
+  `review/queue/…` (git-ignored). It skips items it can't ground in an official
+  source rather than fabricating.
+- The review desk lists each proposal with editable fields. **Approve** writes the
+  (edited) result into the live files — translations into
+  `data/<initiatives|sessions>-translations.json`, overviews into
+  `data/overviews/<kind>/<id>.json` with `reviewed:true` — and drops it from the
+  queue. **Reject** discards it. Then commit the changed data files.
+- The weekly fetch still opens a GitHub issue listing untranslated titles as a
+  reminder; `ai_maintain.py --task translation` is how you clear them.
+
+*Alternative (bulk, uses an API key instead of the subscription):*
+`scripts/generate_overviews.py` writes overviews directly as `reviewed:false`
+files — same review gate, but it needs `ANTHROPIC_API_KEY` and bills per token.
+Prefer the `ai_maintain.py` + review-desk flow for routine upkeep.
+
+### If you'd rather hand-edit
+You can always add translations directly: `data/initiatives-translations.json` /
+`data/sessions-translations.json` under `titles.<id>` as `{ "en": …, "rm": … }`.
+Until an item is translated, the site falls back to the official DE/FR/IT title.
 
 ### Review flagged translations  *(as needed)*
 `TRANSLATIONS_TODO.md` also lists UI/legal strings whose FR/IT/DE/RM wording was

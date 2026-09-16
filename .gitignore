@@ -14,3 +14,6 @@ node_modules/
 # Claude Code local session settings (machine-specific, not shared)
 .claude/settings.local.json
 __pycache__/
+
+# Local AI-maintenance review queue (staged proposals, not shared)
+review/queue/
