@@ -1302,3 +1302,25 @@ a.fin-name:hover, .fin-row:focus a.fin-name { color: var(--red); text-decoration
 @media (prefers-reduced-motion: reduce) {
   .share-btn { transition: none; }
 }
+
+/* ============================================================
+   Dedicated pages (Privacy / About / Subscribe) and share-terms note.
+   ============================================================ */
+.info-prose .info-lead { font-size: 18px; line-height: 1.7; color: var(--charcoal); margin: 0 0 24px; }
+.info-prose .info-h {
+  font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600;
+  margin: 32px 0 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
+}
+.coming-badge {
+  display: inline-block; vertical-align: middle; margin-left: 4px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  color: var(--red); background: rgba(208, 2, 27, 0.08);
+  border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px;
+}
+.subscribe-cta { margin-top: 24px; }
+
+/* Share-terms note inside the share popover */
+.share-terms {
+  margin: 4px 6px 2px; padding-top: 8px; border-top: 1px solid var(--border);
+  font-size: 11.5px; line-height: 1.5; color: var(--mid); max-width: 240px;
+}

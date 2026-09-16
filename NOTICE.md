@@ -27,6 +27,10 @@ Figures were current as of the 2023–2027 legislature at the time of writing. P
 - **Editorial content.** Party descriptions and issue positions in `data/parties.json` are original editorial summaries based on published party manifestos and parliamentary voting records. They are interpretive and provided for information only — they are not statements by the parties themselves.
 - **The party spectrum** (economic and social axes) is an editorial approximation intended to aid orientation, not a validated political-science measurement.
 
+## Privacy
+
+The site collects no personal data and sets no tracking cookies. The only client-side storage is the remembered interface language, kept on the visitor's own device. User data is never sold, rented, or shared with advertisers or data brokers, and there is no behavioural tracking or third-party profiling. See the full [Privacy Policy](#/privacy) (in-app, all four national languages), aligned with the revised Swiss Federal Act on Data Protection (revFADP/nFADP).
+
 ## Corrections
 
 Data errors and factual corrections are welcome via an issue or pull request. The validator in `scripts/validate.py` guards structural integrity; factual accuracy relies on contributors and primary sources.
