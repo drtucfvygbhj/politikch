@@ -29,7 +29,7 @@ Figures were current as of the 2023–2027 legislature at the time of writing. P
 
 ## Privacy
 
-The site collects no personal data and sets no tracking cookies. The only client-side storage is the remembered interface language, kept on the visitor's own device. User data is never sold, rented, or shared with advertisers or data brokers, and there is no behavioural tracking or third-party profiling. See the full [Privacy Policy](#/privacy) (in-app, all four national languages), aligned with the revised Swiss Federal Act on Data Protection (revFADP/nFADP).
+The site collects no personal data and sets no tracking cookies. Client-side storage holds the remembered interface language and the (unofficial) votes a visitor casts, kept on the visitor's own device. The one thing sent to a server is the **optional community poll**: when a visitor opts to vote on a present/future item or a session vote, an anonymous choice (no account, name, or identifier) is sent so aggregate counts can be shown; only running totals are stored, never a record linking a vote to a person. User data is never sold, rented, or shared with advertisers or data brokers, and there is no behavioural tracking or third-party profiling. See the full [Privacy Policy](#/privacy) (in-app, all four national languages), aligned with the revised Swiss Federal Act on Data Protection (revFADP/nFADP). The poll backend is off until `js/config.js` `POLL_API` is set (see `BACKEND.md`).
 
 ## Corrections
 
