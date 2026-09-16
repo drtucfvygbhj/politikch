@@ -458,7 +458,17 @@
     "privacy.p.poll2": "If you vote on a present or future item, or on a session vote, and choose to take part in the community poll, only your anonymous choice (for example “yes on item X”) is sent to our poll service so aggregate counts can be shown. No account, name, IP-based identifier or profile is attached, and we store only the running totals — never a record that links a vote to you.",
     "profile.alignNote": "Based on all your votes — session votes count for more, since parliament records every party’s Yes/No.",
     "profile.alignNeedMore": "Vote on session votes or initiatives to see which parties you line up with.",
-    "profile.enrichBrowse": "Browse all sessions"
+    "profile.enrichBrowse": "Browse all sessions",
+    "overview.title": "What happens if it’s accepted",
+    "overview.aiMarker": "AI-generated",
+    "overview.aiHint": "Written by AI from the official text and reviewed by a person before publishing. Not an official document.",
+    "overview.detailLabel": "Detail",
+    "overview.less": "Brief",
+    "overview.more": "In depth",
+    "overview.loading": "Loading…",
+    "overview.preparing": "This overview is being prepared.",
+    "overview.disclaimer": "AI-generated summary for orientation — it may simplify or leave things out; always check the official text.",
+    "overview.official": "Official text"
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -919,7 +929,17 @@
     "privacy.p.poll2": "Wenn Sie über eine laufende oder künftige Vorlage oder eine Session-Abstimmung abstimmen und an der Umfrage teilnehmen, wird nur Ihre anonyme Wahl (etwa „Ja zu Vorlage X“) an unseren Umfragedienst gesendet, damit Gesamtzahlen angezeigt werden können. Es werden kein Konto, kein Name, keine IP-basierte Kennung und kein Profil angehängt; wir speichern nur die laufenden Summen — nie einen Eintrag, der eine Stimme mit Ihnen verknüpft.",
     "profile.alignNote": "Basierend auf allen Ihren Stimmen — Session-Abstimmungen zählen stärker, da das Parlament das Ja/Nein jeder Partei erfasst.",
     "profile.alignNeedMore": "Stimmen Sie über Session-Abstimmungen oder Initiativen ab, um zu sehen, mit welchen Parteien Sie übereinstimmen.",
-    "profile.enrichBrowse": "Alle Sessionen durchsuchen"
+    "profile.enrichBrowse": "Alle Sessionen durchsuchen",
+    "overview.title": "Was passiert bei Annahme",
+    "overview.aiMarker": "KI-generiert",
+    "overview.aiHint": "Von KI aus dem offiziellen Text verfasst und vor der Veröffentlichung von einer Person geprüft. Kein offizielles Dokument.",
+    "overview.detailLabel": "Detailgrad",
+    "overview.less": "Kurz",
+    "overview.more": "Ausführlich",
+    "overview.loading": "Wird geladen…",
+    "overview.preparing": "Diese Übersicht wird vorbereitet.",
+    "overview.disclaimer": "KI-generierte Zusammenfassung zur Orientierung — sie kann vereinfachen oder auslassen; prüfen Sie stets den offiziellen Text.",
+    "overview.official": "Offizieller Text"
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -1380,7 +1400,17 @@
     "privacy.p.poll2": "Si vous votez sur un objet présent ou futur, ou sur un vote de session, et choisissez de participer au sondage, seul votre choix anonyme (par exemple « oui à l’objet X ») est envoyé à notre service de sondage afin d’afficher des totaux agrégés. Aucun compte, nom, identifiant fondé sur l’IP ni profil n’y est associé, et nous ne conservons que les totaux cumulés — jamais un enregistrement reliant un vote à vous.",
     "profile.alignNote": "D’après tous vos votes — les votes de session comptent davantage, car le parlement enregistre le oui/non de chaque parti.",
     "profile.alignNeedMore": "Votez sur des votes de session ou des initiatives pour voir avec quels partis vous vous alignez.",
-    "profile.enrichBrowse": "Parcourir toutes les sessions"
+    "profile.enrichBrowse": "Parcourir toutes les sessions",
+    "overview.title": "Que se passe-t-il en cas d’acceptation",
+    "overview.aiMarker": "Généré par IA",
+    "overview.aiHint": "Rédigé par IA à partir du texte officiel et relu par une personne avant publication. Document non officiel.",
+    "overview.detailLabel": "Niveau de détail",
+    "overview.less": "Bref",
+    "overview.more": "Approfondi",
+    "overview.loading": "Chargement…",
+    "overview.preparing": "Cet aperçu est en préparation.",
+    "overview.disclaimer": "Résumé généré par IA à titre indicatif — il peut simplifier ou omettre ; consultez toujours le texte officiel.",
+    "overview.official": "Texte officiel"
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -1841,7 +1871,17 @@
     "privacy.p.poll2": "Se voti su un oggetto presente o futuro, o su un voto di sessione, e scegli di partecipare al sondaggio, viene inviata al nostro servizio solo la tua scelta anonima (ad esempio «sì all’oggetto X») per mostrare i totali aggregati. Non vi è associato alcun account, nome, identificatore basato sull’IP o profilo, e conserviamo solo i totali correnti — mai una registrazione che colleghi un voto a te.",
     "profile.alignNote": "In base a tutti i tuoi voti — i voti di sessione contano di più, poiché il parlamento registra il sì/no di ogni partito.",
     "profile.alignNeedMore": "Vota sui voti di sessione o sulle iniziative per vedere con quali partiti ti allinei.",
-    "profile.enrichBrowse": "Sfoglia tutte le sessioni"
+    "profile.enrichBrowse": "Sfoglia tutte le sessioni",
+    "overview.title": "Cosa succede se viene accettato",
+    "overview.aiMarker": "Generato dall’IA",
+    "overview.aiHint": "Scritto dall’IA a partire dal testo ufficiale e rivisto da una persona prima della pubblicazione. Non è un documento ufficiale.",
+    "overview.detailLabel": "Livello di dettaglio",
+    "overview.less": "Breve",
+    "overview.more": "Approfondito",
+    "overview.loading": "Caricamento…",
+    "overview.preparing": "Questa panoramica è in preparazione.",
+    "overview.disclaimer": "Sintesi generata dall’IA a scopo orientativo — può semplificare o omettere; consultate sempre il testo ufficiale.",
+    "overview.official": "Testo ufficiale"
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -2302,6 +2342,16 @@
     "privacy.p.poll2": "Sche Vus votais davart in object present u futur, u davart in vot da sessiun, e tscherni da participar al sondage, vegn mo Vossa tschernida anonima (per exempel «gea a l’object X») tramessa a noss servetsch da sondage per mussar sumas agregadas. I na vegn agiuntà nagin conto, num, identificatur basà sin l’IP u profil, e nus memorisain mo las sumas currentas — mai ina registraziun che collia ina vusch cun Vus.",
     "profile.alignNote": "Sin basa da tut Vossas vuschs — vots da sessiun quintan dapli, perquai ch’il parlament registrescha il gea/na da mintga partì.",
     "profile.alignNeedMore": "Votai davart vots da sessiun u iniziativas per vesair cun tge partids che Vus concordais.",
-    "profile.enrichBrowse": "Dar in tgit a tut las sessiuns"
+    "profile.enrichBrowse": "Dar in tgit a tut las sessiuns",
+    "overview.title": "Tge capita en cas d’acceptaziun",
+    "overview.aiMarker": "Generà da l’IA",
+    "overview.aiHint": "Scrit da l’IA sin basa dal text uffizial e controllà d’ina persuna avant la publicaziun. Nagin document uffizial.",
+    "overview.detailLabel": "Grad da detagl",
+    "overview.less": "Curt",
+    "overview.more": "Detaglià",
+    "overview.loading": "Chargiar…",
+    "overview.preparing": "Questa survista vegn preparada.",
+    "overview.disclaimer": "Resumaziun generada da l’IA per orientaziun — ella po simplifitgar u tralaschar; controllai adina il text uffizial.",
+    "overview.official": "Text uffizial"
   }
 }

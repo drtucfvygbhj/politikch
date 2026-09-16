@@ -1427,3 +1427,32 @@ a.fin-name:hover, .fin-row:focus a.fin-name { color: var(--red); text-decoration
 @media (prefers-reduced-motion: reduce) {
   .vote-btn { transition: none; }
 }
+
+/* ============================================================
+   AI "what happens if accepted" overview + detail slider
+   ============================================================ */
+.ai-overview {
+  border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px;
+  background: var(--paper);
+}
+.ai-ov-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.ai-ov-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; margin: 0; }
+.ai-ov-chip {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  color: #5b4a8a; background: rgba(142, 107, 191, 0.12);
+  border: 1px solid rgba(142, 107, 191, 0.35); border-radius: 20px; padding: 2px 9px; cursor: help;
+}
+.ai-ov-body { font-size: 15px; line-height: 1.7; color: var(--charcoal); min-height: 3.4em; }
+.ai-ov-preparing { font-size: 14px; color: var(--mid); font-style: italic; }
+.ai-ov-controls { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+.ai-ov-slabel { font-size: 12px; font-weight: 600; color: var(--mid); }
+.ai-ov-end { font-size: 11px; color: var(--mid); }
+.ai-ov-slider { flex: 1; max-width: 260px; accent-color: var(--red); cursor: pointer; height: 22px; }
+.ai-ov-slider:focus-visible { outline: none; box-shadow: var(--focus); border-radius: 6px; }
+.ai-ov-disclaimer { font-size: 12px; color: var(--mid); line-height: 1.6; margin: 12px 0 0; }
+.ai-ov-disclaimer a { color: var(--red); text-decoration: none; }
+.ai-ov-disclaimer a:hover { text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-ov-slider { }
+}
