@@ -50,17 +50,15 @@ these before relying on them publicly.
 
 ## 3. Per-release — when you push site changes
 
-### Bump the cache-busting token  *(every release)*
-Assets are versioned with `?v=YYYYMMDD` (currently `20260916b`) in `index.html`,
-the `js/*.js` imports, and every `data/*.json` fetch in `app.js`. **Bump this
-token whenever you change JS/CSS/data by hand**, or returning visitors get stale
-files (this is what caused the old contact-email to linger).
-- Find/replace the old token with a new one across `index.html`, `js/app.js`,
-  `js/myvotes.js`.
-- *Recommended:* automate it — have `deploy.yml` rewrite the token to the commit
-  SHA at publish time so it's never forgotten. (Ask and I'll wire this up.)
-- Note: the **weekly auto-fetch does _not_ bump the token**, because data fetches
-  already carry it; if you change the token scheme, keep the fetcher in mind.
+### Cache-busting token  *(now automated — nothing to do)*
+Assets and data fetches are versioned with `?v=…`. **`deploy.yml` rewrites every
+token to the commit SHA at publish time**, so each deploy serves fresh CSS/JS/JSON
+automatically and no visitor is left on a stale copy — including after the weekly
+data fetch (its commit triggers a deploy, which re-tokenises the data-fetch URLs).
+- You no longer need to bump it by hand. The `?v=20260916e` value in the source
+  is just a local-dev placeholder; the deployed artifact always uses the SHA.
+- If you add a new JS file that references assets with `?v=`, keep the same
+  `?v=<token>` spelling so the deploy step's find/replace catches it.
 
 ### Run the validator locally
 `python3 scripts/validate.py` before pushing data/i18n changes (JSON validity,
@@ -119,5 +117,5 @@ these are legal-consequence claims on a non-partisan site.
 ### One-glance weekly checklist
 1. Actions tab → "Fetch live data" green & committed?
 2. Any new GitHub issue for translations? → fill `*-translations.json`.
-3. Site changed by hand this week? → bump the `?v=` token, run `validate.py`.
+3. Changed data/i18n by hand this week? → run `validate.py` before pushing (cache token is auto-bumped on deploy).
 4. (Once live) poll backend healthy?

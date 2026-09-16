@@ -29,6 +29,18 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # Rewrite every asset/data cache-busting token (?v=…) to this commit's SHA
+      # so each deploy serves fresh CSS/JS/JSON and no client is left on a stale
+      # copy. This edits only the CI checkout (the artifact), never the repo — the
+      # source keeps its placeholder token for local dev.
+      - name: Cache-bust assets
+        run: |
+          V="${GITHUB_SHA::8}"
+          for f in index.html js/*.js; do
+            [ -f "$f" ] && sed -i "s/?v=[A-Za-z0-9._-]*/?v=$V/g" "$f"
+          done
+          echo "Cache-busted assets with token $V"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
