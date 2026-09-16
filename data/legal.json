@@ -2,7 +2,7 @@
   "_meta": {
     "note": "Info & legal pages rendered by renderInfoPage(). Bodies are trusted first-party HTML. Romansh (rm) falls back to German (de). Edit contactEmail once before launch; it replaces every {{contact}} token.",
     "operator": "Politikch — an independent, non-commercial civic project",
-    "contactEmail": "[your-contact-email]"
+    "contactEmail": "contact@politikch.ch"
   },
   "pages": {
     "privacy": {
