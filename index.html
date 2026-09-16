@@ -178,22 +178,6 @@
         </div>
       </section>
 
-      <!-- FOOTER -->
-      <footer>
-        <div class="footer-logo">
-          <span class="footer-cross" aria-hidden="true"></span>
-          <span class="footer-name">Politikch</span>
-        </div>
-        <p class="footer-disclaimer" data-i18n="footer.disclaimer">An independent civic reference.</p>
-        <div class="footer-links">
-          <a href="#/page/about" data-i18n="footer.about">About</a>
-          <a href="#/page/methodology" data-i18n="footer.method">Methodology</a>
-          <a href="#/page/sources" data-i18n="footer.sources">Data sources</a>
-          <a href="#/page/privacy" data-i18n="footer.privacy">Privacy</a>
-          <a href="#/page/legal" data-i18n="footer.legal">Legal notice</a>
-          <a href="#/page/contact" data-i18n="footer.contact">Contact</a>
-        </div>
-      </footer>
     </div>
 
     <!-- CANTON PAGE -->
@@ -311,7 +295,62 @@
       </div>
       <div class="canton-content" id="donor-content"></div>
     </div>
+
+    <!-- PRIVACY POLICY (#/privacy) -->
+    <div id="privacy-page" class="subpage">
+      <div class="canton-hero session-hero">
+        <div class="subpage-inner">
+          <button class="back-btn" data-home data-i18n="canton.back">Back to Switzerland</button>
+          <h1 class="canton-title" id="privacy-title"></h1>
+          <p class="canton-capital" id="privacy-effective"></p>
+        </div>
+      </div>
+      <div class="canton-content"><div class="info-prose" id="privacy-content"></div></div>
+    </div>
+
+    <!-- ABOUT / MISSION (#/about) -->
+    <div id="about-page" class="subpage">
+      <div class="canton-hero session-hero">
+        <div class="subpage-inner">
+          <button class="back-btn" data-home data-i18n="canton.back">Back to Switzerland</button>
+          <h1 class="canton-title" id="about-title"></h1>
+        </div>
+      </div>
+      <div class="canton-content"><div class="info-prose" id="about-content"></div></div>
+    </div>
+
+    <!-- SUBSCRIBE / COMING SOON (#/subscribe) -->
+    <div id="subscribe-page" class="subpage">
+      <div class="canton-hero session-hero">
+        <div class="subpage-inner">
+          <button class="back-btn" data-home data-i18n="canton.back">Back to Switzerland</button>
+          <h1 class="canton-title" id="subscribe-title"></h1>
+        </div>
+      </div>
+      <div class="canton-content"><div class="info-prose" id="subscribe-content"></div></div>
+    </div>
   </main>
+
+  <!-- SITE-WIDE FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <span class="footer-cross" aria-hidden="true"></span>
+      <span class="footer-name">Politikch</span>
+    </div>
+    <p class="footer-disclaimer" data-i18n="footer.disclaimer">An independent civic reference.</p>
+
+    <!-- A <div>, not <nav>: the site's bare `nav {}` rule is the fixed top bar,
+         so a <nav> here would inherit those styles and cover the header. -->
+    <div class="footer-links" role="navigation" aria-label="Footer">
+      <a href="#/about" data-i18n="footer.about">About</a>
+      <a href="#/subscribe" data-i18n="footer.subscribe">Subscribe</a>
+      <a href="#/page/methodology" data-i18n="footer.method">Methodology</a>
+      <a href="#/page/sources" data-i18n="footer.sources">Data sources</a>
+      <a href="#/privacy" data-i18n="footer.privacy">Privacy</a>
+      <a href="#/page/legal" data-i18n="footer.legal">Legal notice</a>
+      <a href="#/page/contact" data-i18n="footer.contact">Contact</a>
+    </div>
+  </footer>
 
   <script type="module" src="js/app.js"></script>
 </body>

@@ -152,6 +152,7 @@ function pieSpecFromDonors(agg, title, route, totalLabel) {
   return {
     kind: 'pie', title, route, subtitle: `${tl} · ${formatCHF(total)}`,
     slices, totalText: formatCHF(total), totalLabel: tl,
+    source: t('share.src.financing'),
   };
 }
 // Two-axis spectrum spec from the party set (+ optional endorser highlighting
@@ -168,6 +169,7 @@ function spectrumSpec(title, route, opts) {
   const spec = {
     kind: 'spectrum', title, route, dots,
     axes: { left: t('spec.axisLeft'), right: t('spec.axisRight'), top: t('spec.axisTop'), bottom: t('spec.axisBottom') },
+    source: t('share.src.spectrum'),
   };
   if (opts.marker) spec.marker = opts.marker;
   return spec;
@@ -180,6 +182,7 @@ function shareCouncilSpec() {
   return {
     kind: 'arc', title: t('council.title'), subtitle: t('council.sub'),
     total: members.length, seats: seatSpecFromSeats(byParty),
+    source: t('share.src.council'),
   };
 }
 // The current hash route as a plain "view[/id]" path, for linking a shared
@@ -205,7 +208,7 @@ function voteHemiSpec(vote) {
     y += g.yes || 0; n += g.no || 0; ab += g.abstain || 0;
     return { label: parties[k].abbr || k, color: parties[k].color || '#999', yes: g.yes || 0, no: g.no || 0, abstain: g.abstain || 0 };
   });
-  return { kind: 'voteHemicycle', title: plainVoteTitle(vote), route: currentRoute(), groups, tallies: { yes: y, no: n, abstain: ab } };
+  return { kind: 'voteHemicycle', title: plainVoteTitle(vote), route: currentRoute(), groups, tallies: { yes: y, no: n, abstain: ab }, source: t('share.src.votes') };
 }
 // Attach a share button to a chart card, resolving its spec lazily.
 function shareChart(host, getSpec) {
@@ -480,6 +483,9 @@ function setLang(lang) {
   if (route.view === 'votes') renderVotesPage();
   if (route.view === 'page') renderInfoPage(route.id);
   if (route.view === 'donor') renderDonorPage(decodeURIComponent(route.id));
+  if (route.view === 'privacy') renderPrivacyPage();
+  if (route.view === 'about') renderAboutPage();
+  if (route.view === 'subscribe') renderSubscribePage();
   refreshGlossaryLabels();
 }
 
@@ -1889,6 +1895,7 @@ function renderCantonSeats(cd) {
       subtitle: t('canton.nc.heading').replace('{year}', cd.nc.year),
       total: cd.nc.totalSeats,
       seats: seatSpecFromSeats(seatData),
+      source: t('share.src.canton'),
     }));
   }
 }
@@ -2689,7 +2696,9 @@ function renderVotesPage() {
    Content lives in data/legal.json (trusted first-party HTML);
    Romansh falls back to German. Loaded once, on demand.
    ============================================================ */
-const INFO_SLUGS = ['about', 'methodology', 'sources', 'privacy', 'legal', 'contact'];
+// 'about' and 'privacy' are now dedicated i18n-driven routes (#/about, #/privacy),
+// so they're not listed among the legal.json info pages' cross-navigation.
+const INFO_SLUGS = ['methodology', 'sources', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
@@ -2733,6 +2742,94 @@ function renderInfoPage(slug) {
   });
 }
 
+/* ============================================================
+   Dedicated i18n-driven pages: Privacy (#/privacy), About (#/about),
+   Subscribe (#/subscribe). Copy lives entirely in data/i18n.json so it
+   is translated and validated like every other interface string.
+   ============================================================ */
+
+// A "not yet live" chip, reused by the subscription/personalisation sections.
+function comingBadge() {
+  return `<span class="coming-badge">${t('common.notLive')}</span>`;
+}
+
+// Render an array of prose blocks (heading + paragraph(s), optional badge) as
+// HTML. Values are trusted i18n strings; paragraphs may include a {{contact}}
+// token which is replaced with a mailto link.
+function proseBlocks(blocks, contactHtml) {
+  return blocks.map(b => {
+    let html = '';
+    if (b.h) html += `<h2 class="info-h">${t(b.h)}${b.badge ? ' ' + comingBadge() : ''}</h2>`;
+    (Array.isArray(b.p) ? b.p : (b.p ? [b.p] : [])).forEach(pk => {
+      html += `<p>${t(pk).split('{{contact}}').join(contactHtml || '')}</p>`;
+    });
+    return html;
+  }).join('');
+}
+
+function contactHtmlFromLegal(data) {
+  const contact = (data && data._meta && data._meta.contactEmail) || '';
+  return contact.includes('@')
+    ? `<a href="mailto:${encodeURIComponent(contact)}">${escapeAttr(contact)}</a>`
+    : escapeAttr(contact || t('common.contactTbd'));
+}
+
+function renderPrivacyPage() {
+  const titleEl = document.getElementById('privacy-title');
+  const effEl = document.getElementById('privacy-effective');
+  const contentEl = document.getElementById('privacy-content');
+  if (!titleEl || !contentEl) return;
+  titleEl.textContent = t('privacy.title');
+  if (effEl) effEl.textContent = t('privacy.effective');
+  loadLegal().then(data => {
+    const contactHtml = contactHtmlFromLegal(data);
+    contentEl.innerHTML =
+      `<p class="info-lead">${t('privacy.lead')}</p>` +
+      proseBlocks([
+        { h: 'privacy.h.storage', p: 'privacy.p.storage' },
+        { h: 'privacy.h.commitments', p: ['privacy.p.commitments', 'privacy.p.commitments2'] },
+        { h: 'privacy.h.subscription', badge: true, p: ['privacy.p.subscription', 'privacy.p.subscription2'] },
+        { h: 'privacy.h.law', p: 'privacy.p.law' },
+        { h: 'privacy.h.contact', p: 'privacy.p.contact' },
+      ], contactHtml);
+  });
+}
+
+function renderAboutPage() {
+  const titleEl = document.getElementById('about-title');
+  const contentEl = document.getElementById('about-content');
+  if (!titleEl || !contentEl) return;
+  titleEl.textContent = t('about.title');
+  contentEl.innerHTML =
+    `<p class="info-lead">${t('about.lead')}</p>` +
+    proseBlocks([
+      { h: 'about.h.independence', p: ['about.p.independence', 'about.p.disclaimer'] },
+      { h: 'about.h.analysis', p: 'about.p.analysis' },
+      { h: 'about.h.subscription', badge: true, p: ['about.p.subscription', 'about.p.free'] },
+    ], '');
+}
+
+function renderSubscribePage() {
+  const titleEl = document.getElementById('subscribe-title');
+  const contentEl = document.getElementById('subscribe-content');
+  if (!titleEl || !contentEl) return;
+  titleEl.textContent = t('subscribe.title');
+  loadLegal().then(data => {
+    const email = (data && data._meta && data._meta.contactEmail) || '';
+    const interest = email.includes('@')
+      ? `<a class="resource-link" href="mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(t('subscribe.mailtoSubject'))}">${t('subscribe.interestCta')} <span class="arrow">↗</span></a>`
+      : `<p class="info-updated">${t('common.contactTbd')}</p>`;
+    contentEl.innerHTML =
+      `<p class="info-lead">${t('subscribe.lead')} ${comingBadge()}</p>` +
+      proseBlocks([
+        { h: 'subscribe.h.what', p: 'subscribe.p.what' },
+        { h: 'subscribe.h.plan', p: 'subscribe.p.plan' },
+        { h: 'subscribe.h.interest', p: 'subscribe.p.interest' },
+      ], '') +
+      `<div class="subscribe-cta">${interest}</div>`;
+  });
+}
+
 function parseHash() {
   const raw = location.hash.replace(/^#\/?/, '');
   const [view, id] = raw.split('/');
@@ -2753,6 +2850,9 @@ function showView(name) {
   document.getElementById('votes-page').classList.toggle('active', name === 'votes');
   document.getElementById('info-page').classList.toggle('active', name === 'info');
   document.getElementById('donor-page').classList.toggle('active', name === 'donor');
+  document.getElementById('privacy-page').classList.toggle('active', name === 'privacy');
+  document.getElementById('about-page').classList.toggle('active', name === 'about');
+  document.getElementById('subscribe-page').classList.toggle('active', name === 'subscribe');
 }
 
 function handleRoute() {
@@ -2781,6 +2881,15 @@ function handleRoute() {
   } else if (view === 'donor' && id) {
     renderDonorPage(decodeURIComponent(id));
     showView('donor');
+  } else if (view === 'privacy') {
+    renderPrivacyPage();
+    showView('privacy');
+  } else if (view === 'about') {
+    renderAboutPage();
+    showView('about');
+  } else if (view === 'subscribe') {
+    renderSubscribePage();
+    showView('subscribe');
   } else {
     showView('home');
   }
@@ -2910,11 +3019,11 @@ async function init() {
   // Share buttons on the home-page graphs (mounted once; specs read live data).
   shareChart(document.getElementById('nc-hemicycle').closest('.chamber-card'), () => ({
     kind: 'hemicycle', title: t('parl.nc'), subtitle: t('parl.ncsub'), total: 200,
-    seats: seatSpecFromSeats(chamberSeats('nc')),
+    seats: seatSpecFromSeats(chamberSeats('nc')), source: t('share.src.parliament'),
   }));
   shareChart(document.getElementById('cs-hemicycle').closest('.chamber-card'), () => ({
     kind: 'hemicycle', title: t('parl.cs'), subtitle: t('parl.cssub'), total: 46,
-    seats: seatSpecFromSeats(chamberSeats('cs')),
+    seats: seatSpecFromSeats(chamberSeats('cs')), source: t('share.src.parliament'),
   }));
   shareChart(document.querySelector('.council-card'), () => shareCouncilSpec());
   shareChart(document.getElementById('spectrum-chart'), () => spectrumSpec(t('spec.title'), '', {}));

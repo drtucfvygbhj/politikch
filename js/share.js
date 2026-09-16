@@ -166,22 +166,49 @@ function drawTitle(ctx, spec, top) {
   return y + 10;
 }
 
-function drawFooter(ctx, h, lang) {
-  const y = h - 58;
+// The attribution block, rendered INTO the bitmap so it travels with every
+// shared/downloaded image and cannot be removed by hiding a DOM node:
+//   • the data's official source caption (spec.source), driven by the data,
+//   • the Politikch logo + the language's own domain, and the graph's own hash
+//     route where present, so the image says where it came from,
+//   • a restrained "independent · non-partisan" mark.
+// This is source attribution only — deliberately plain, never styled as a
+// sponsor/ad placement.
+function drawFooter(ctx, h, spec) {
+  const lang = spec.lang;
+  const y = h - 74;
+  // Source caption above the divider (the figures' official source).
+  if (spec.source) {
+    ctx.fillStyle = MUTED;
+    ctx.font = '400 16px "DM Sans", system-ui, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText(truncate(ctx, spec.source, CARD_W - PAD * 2), PAD, y - 12);
+  }
   ctx.strokeStyle = HAIR;
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(PAD, y);
   ctx.lineTo(CARD_W - PAD, y);
   ctx.stroke();
-  // Left: small mark + the language's own domain, in the Swiss red.
+  // Left: small mark + the language's own domain (red), then the graph's hash
+  // route (muted) so the image points back to the exact page.
   drawLogo(ctx, PAD, y + 16, 26);
+  const domain = LANG_DOMAIN[lang] || LANG_DOMAIN.en;
+  ctx.textBaseline = 'middle';
+  ctx.textAlign = 'left';
   ctx.fillStyle = RED;
   ctx.font = '700 24px "DM Sans", system-ui, sans-serif';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(LANG_DOMAIN[lang] || LANG_DOMAIN.en, PAD + 26 + 12, y + 30);
-  // Right: source / attribution line when present.
-  ctx.textBaseline = 'middle';
+  const dx = PAD + 26 + 12;
+  ctx.fillText(domain, dx, y + 30);
+  const route = spec.route;
+  if (route) {
+    const dw = ctx.measureText(domain).width;
+    ctx.fillStyle = MUTED;
+    ctx.font = '400 18px "DM Sans", system-ui, sans-serif';
+    ctx.fillText(truncate(ctx, '/#/' + route, 360), dx + dw + 10, y + 30);
+  }
+  // Right: independent · non-partisan mark (kept distinct from the source line).
   ctx.textAlign = 'right';
   ctx.fillStyle = MUTED;
   ctx.font = '400 16px "DM Sans", system-ui, sans-serif';
@@ -232,7 +259,7 @@ function paintPie(spec) {
   const slices = (spec.slices || []).filter(s => s.value > 0);
   const total = slices.reduce((s, x) => s + x.value, 0) || 1;
   const rows = Math.max(slices.length, 1);
-  const h = Math.max(720, 300 + rows * 34 + 120);
+  const h = Math.max(720, 300 + rows * 34 + 120) + 40;
   const card = newCard(h);
   const ctx = card.ctx;
   const hEnd = drawHeader(ctx);
@@ -340,7 +367,7 @@ function paintPie(spec) {
   });
   ctx.textAlign = 'left';
 
-  drawFooter(ctx, h, spec.lang);
+  drawFooter(ctx, h, spec);
   return card.canvas;
 }
 
@@ -373,7 +400,7 @@ function paintHemicycle(spec) {
   const groups = (spec.seats || []).filter(g => g.seats > 0);
   const total = groups.reduce((s, g) => s + g.seats, 0) || 1;
   const legendRows = Math.ceil(groups.length / 2);
-  const h = Math.max(760, 340 + 260 + legendRows * 34 + 60);
+  const h = Math.max(760, 340 + 260 + legendRows * 34 + 60) + 40;
   const card = newCard(h);
   const ctx = card.ctx;
   const hEnd = drawHeader(ctx);
@@ -417,7 +444,7 @@ function paintHemicycle(spec) {
   drawLegend(ctx, items.slice(0, half), PAD, legTop, colW, 34);
   drawLegend(ctx, items.slice(half), PAD + colW, legTop, colW, 34);
 
-  drawFooter(ctx, h, spec.lang);
+  drawFooter(ctx, h, spec);
   return card.canvas;
 }
 
@@ -434,7 +461,7 @@ function paintVoteHemicycle(spec) {
   const total = seatList.length || 1;
   const tal = spec.tallies || { yes: 0, no: 0, abstain: 0 };
   const legendRows = Math.ceil(groups.length / 2);
-  const h = Math.max(780, 360 + 260 + 60 + legendRows * 34 + 60);
+  const h = Math.max(780, 360 + 260 + 60 + legendRows * 34 + 60) + 40;
   const card = newCard(h);
   const ctx = card.ctx;
   const hEnd = drawHeader(ctx);
@@ -496,7 +523,7 @@ function paintVoteHemicycle(spec) {
   drawLegend(ctx, items.slice(0, half), PAD, legTop, colW, 34);
   drawLegend(ctx, items.slice(half), PAD + colW, legTop, colW, 34);
 
-  drawFooter(ctx, h, spec.lang);
+  drawFooter(ctx, h, spec);
   return card.canvas;
 }
 
@@ -505,7 +532,7 @@ function paintVoteHemicycle(spec) {
 // greyed (off); an optional marker shows a coalition's average position.
 function paintSpectrum(spec) {
   const dots = spec.dots || [];
-  const h = 900;
+  const h = 940;
   const card = newCard(h);
   const ctx = card.ctx;
   const hEnd = drawHeader(ctx);
@@ -606,7 +633,7 @@ function paintSpectrum(spec) {
   ctx.textAlign = 'left';
   ctx.textBaseline = 'alphabetic';
 
-  drawFooter(ctx, h, spec.lang);
+  drawFooter(ctx, h, spec);
   return card.canvas;
 }
 
@@ -760,6 +787,14 @@ function toggleMenu(btn, spec, ctx) {
       closeMenu();
     }));
   });
+
+  // Share-terms note (usage request, not a technical guarantee): attribution is
+  // baked into the exported image; we ask users not to crop it out and to credit
+  // the site's link when sharing publicly.
+  const terms = document.createElement('p');
+  terms.className = 'share-terms';
+  terms.textContent = _t('share.terms');
+  menu.appendChild(terms);
 
   document.body.appendChild(menu);
   const r = btn.getBoundingClientRect();
