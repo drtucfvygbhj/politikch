@@ -87,15 +87,32 @@ See `BACKEND.md`. Once `js/config.js` `POLL_API` is set:
   of member or annual presidency.
 - Review the Privacy Policy / About / Subscribe copy if the product plans change.
 
-## 6. Planned — the AI "what happens if accepted" overviews
-If/when per-item AI overviews ship (see the open design question), they become a
-recurring task: **whenever the weekly fetch adds or changes a vote/session item,
-its overview must be (re)generated and human-reviewed before publish.** The
-honest, static-safe design is to pre-generate variants offline into
-`data/overviews/…` (never call an LLM from the live page), review, then commit —
-so it slots into the same "fetch → review issue → commit → deploy" loop above.
-This is a content pipeline with an API cost and an editorial-review step; it is
-**not yet built**.
+## 6. AI "what happens if accepted" overviews  *(recurring, after each fetch)*
+Each initiative/referendum and session vote can show an AI-generated overview of
+what changes if it passes. These are **pre-generated offline and human-reviewed**
+— the live page never calls an LLM, and it will not display a file until a human
+approves it.
+
+**When:** whenever the weekly fetch adds new votes/sessions (i.e. the same items
+that need translations), generate overviews for them.
+
+**How:**
+1. `pip install -r scripts/requirements-overviews.txt` and set `ANTHROPIC_API_KEY`
+   (or `ant auth login`).
+2. `python3 scripts/generate_overviews.py --kind all` (add `--limit N` to batch,
+   `--force` to regenerate). It fetches each item's **official text**, generates
+   5 detail levels × 5 languages into `data/overviews/<kind>/<id>.json`, and marks
+   each `"reviewed": false`. Items whose official text can't be fetched are
+   **skipped**, never fabricated.
+3. **Review each new file** — read it against the official text, fix anything
+   wrong or partisan, then set `"reviewed": true`. The site shows the overview
+   only once that flag is true; until then it displays "being prepared".
+4. Commit the reviewed files. Deploy publishes them like any other data.
+
+**Cost/quality:** defaults to `claude-opus-5` (override with `--model` or
+`POLITIKCH_OVERVIEW_MODEL`). This is the one recurring task with an API cost and a
+mandatory human-review step — treat the review as editorial, not a rubber stamp:
+these are legal-consequence claims on a non-partisan site.
 
 ---
 

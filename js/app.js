@@ -1,6 +1,6 @@
-import { MAP_PATHS } from './map-data.js?v=20260916c';
-import { configureShare, wireShares, mountShare } from './share.js?v=20260916c';
-import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260916c';
+import { MAP_PATHS } from './map-data.js?v=20260916d';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260916d';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260916d';
 
 /* ============================================================
    State
@@ -62,11 +62,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json?v=20260916c').then(r => r.json()),
-    fetch('data/cantons.json?v=20260916c').then(r => r.json()),
-    fetch('data/initiatives.json?v=20260916c').then(r => r.json()),
-    fetch('data/council.json?v=20260916c').then(r => r.json()),
-    fetch('data/i18n.json?v=20260916c').then(r => r.json())
+    fetch('data/parties.json?v=20260916d').then(r => r.json()),
+    fetch('data/cantons.json?v=20260916d').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260916d').then(r => r.json()),
+    fetch('data/council.json?v=20260916d').then(r => r.json()),
+    fetch('data/i18n.json?v=20260916d').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -78,7 +78,7 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json?v=20260916c').then(r => r.ok ? r.json() : null);
+    const financing = await fetch('data/financing.json?v=20260916d').then(r => r.ok ? r.json() : null);
     if (financing) state.data.financing = financing;
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
@@ -86,14 +86,14 @@ async function loadData() {
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json?v=20260916c').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260916d').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json?v=20260916c').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260916d').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -101,7 +101,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json?v=20260916c').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260916d').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 }
@@ -1173,7 +1173,7 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json?v=20260916c').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260916d').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
@@ -1445,6 +1445,7 @@ function renderInitiativePage(id) {
         </div>
       </div>
     </div>
+    <div class="ai-ov-wrap" style="margin-top:40px">${overviewSectionHTML('initiative', id, init.url)}</div>
     <h3 class="canton-section-title" style="margin-top:48px">${t('rec.title')}${termHelp('parole')}</h3>
     ${recommendationColumnsHTML(init)}
     <h3 class="canton-section-title" style="margin-top:48px">${t('init.financing.title')}</h3>
@@ -1465,6 +1466,7 @@ function renderInitiativePage(id) {
   wireFinancingHighlights(content);
   wireShares(content, SHARE_CTX());
   wireVoteWidgets(content);
+  wireOverviews(content);
 }
 
 // A present/future item people can still influence — so it carries a live
@@ -1780,7 +1782,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json?v=20260916c`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260916d`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -2076,7 +2078,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260916c')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260916d')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2086,7 +2088,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json?v=20260916c')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260916d')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2102,7 +2104,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260916c`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260916d`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -2313,6 +2315,7 @@ function sessionVoteHTML(v) {
           </div>
           <h4 style="margin-top:22px">${t('session.byPartyTitle')}</h4>
           <div class="svote-party-grid">${votePartyRowsHTML(v)}</div>
+          <div class="ai-ov-wrap" style="margin-top:22px">${overviewSectionHTML('session', v.id, businessUrl(v))}</div>
           <div class="mine-block">
             <h4 style="margin-top:22px">${t('mine.opinionTitle')}</h4>
             <p class="mine-note">${t('mine.opinionDesc')}</p>
@@ -2519,6 +2522,7 @@ function wireVoteCards(host, votes) {
         wirePartyNav(g);
         mountShare(g, () => voteHemiSpec(vote), SHARE_CTX());
         wireVoteWidgets(el);
+        wireOverviews(el);
       }
     });
   });
@@ -2742,7 +2746,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json?v=20260916c').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260916d').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -3068,6 +3072,111 @@ function fillProfileEnrich() {
         </div>`).join('');
       wireVoteWidgets(host);
     });
+  });
+}
+
+/* ============================================================
+   AI "what happens if accepted" overviews (scaffolding)
+   ------------------------------------------------------------
+   Overviews are PRE-GENERATED OFFLINE and human-reviewed into
+   data/overviews/<kind>/<id>.json (see scripts/generate_overviews.py and
+   MAINTENANCE.md); the live page never calls an LLM. Each file holds several
+   detail levels per language; a per-item slider picks the level. Until a file
+   exists the section shows an honest "being prepared" state.
+
+   Slider persistence: the most recently changed level becomes the default for
+   every slider not yet touched (middle to start); a slider the user has moved
+   stays where they left it until they move it again.
+   ============================================================ */
+const OVERVIEW_LEVELS = 5;
+const OVERVIEW_MID = 2;
+const _overviewCache = {};
+
+function overviewGlobalLevel() {
+  try { const v = parseInt(localStorage.getItem('politikch-overview-level'), 10); if (!isNaN(v)) return Math.min(OVERVIEW_LEVELS - 1, Math.max(0, v)); } catch (e) {}
+  return OVERVIEW_MID;
+}
+function overviewItemLevels() {
+  try { return JSON.parse(localStorage.getItem('politikch-overview-items') || '{}') || {}; } catch (e) { return {}; }
+}
+function overviewLevelFor(key) {
+  const items = overviewItemLevels();
+  return (key in items) ? items[key] : overviewGlobalLevel();
+}
+function setOverviewLevel(key, level) {
+  level = Math.min(OVERVIEW_LEVELS - 1, Math.max(0, level));
+  try {
+    localStorage.setItem('politikch-overview-level', String(level));
+    const items = overviewItemLevels(); items[key] = level;
+    localStorage.setItem('politikch-overview-items', JSON.stringify(items));
+  } catch (e) { /* ignore */ }
+}
+function ensureOverview(kind, id) {
+  const key = kind + '/' + id;
+  if (_overviewCache[key]) return _overviewCache[key];
+  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260916d`)
+    .then(r => r.ok ? r.json() : null).catch(() => null);
+  return _overviewCache[key];
+}
+function overviewSectionHTML(kind, id, officialUrl) {
+  return `<div class="ai-overview" data-ok="${escapeAttr(kind)}" data-oi="${escapeAttr(id)}"${officialUrl ? ` data-official="${escapeAttr(officialUrl)}"` : ''}></div>`;
+}
+function renderOverview(el) {
+  const kind = el.dataset.ok, id = el.dataset.oi, key = kind + '/' + id;
+  const level = overviewLevelFor(key);
+  const official = el.dataset.official;
+  el.innerHTML = `
+    <div class="ai-ov-head">
+      <h4 class="ai-ov-title">${t('overview.title')}</h4>
+      <span class="ai-ov-chip" title="${escapeAttr(t('overview.aiHint'))}">${t('overview.aiMarker')}</span>
+    </div>
+    <div class="ai-ov-body" data-ov-body><p class="mine-note">${t('overview.loading')}</p></div>
+    <div class="ai-ov-controls">
+      <span class="ai-ov-slabel">${t('overview.detailLabel')}</span>
+      <span class="ai-ov-end">${t('overview.less')}</span>
+      <input type="range" class="ai-ov-slider" min="0" max="${OVERVIEW_LEVELS - 1}" step="1" value="${level}"
+             aria-label="${escapeAttr(t('overview.detailLabel'))}" aria-valuetext="${level + 1}/${OVERVIEW_LEVELS}">
+      <span class="ai-ov-end">${t('overview.more')}</span>
+    </div>
+    <p class="ai-ov-disclaimer">${t('overview.disclaimer')}${official ? ` <a href="${escapeAttr(official)}" target="_blank" rel="noopener noreferrer">${t('overview.official')} <span class="arrow">↗</span></a>` : ''}</p>`;
+  const slider = el.querySelector('.ai-ov-slider');
+  slider.addEventListener('input', () => {
+    const v = parseInt(slider.value, 10);
+    setOverviewLevel(key, v);
+    slider.setAttribute('aria-valuetext', `${v + 1}/${OVERVIEW_LEVELS}`);
+    paintOverviewText(el);
+    syncUntouchedOverviewSliders();
+  });
+  paintOverviewText(el);
+}
+function paintOverviewText(el) {
+  const kind = el.dataset.ok, id = el.dataset.oi, key = kind + '/' + id;
+  const body = el.querySelector('[data-ov-body]');
+  const level = overviewLevelFor(key);
+  ensureOverview(kind, id).then(data => {
+    // reviewed:false is the human sign-off gate — unreviewed files never show.
+    const arr = data && data.reviewed !== false && data.lang && (data.lang[state.lang] || data.lang.de || data.lang.en);
+    if (!arr || !arr.length) { body.innerHTML = `<p class="ai-ov-preparing">${t('overview.preparing')}</p>`; return; }
+    const idx = Math.min(arr.length - 1, Math.max(0, level));
+    body.textContent = arr[idx];
+  });
+}
+// When the global level changes, move every not-yet-touched slider to match.
+function syncUntouchedOverviewSliders() {
+  const g = overviewGlobalLevel();
+  const items = overviewItemLevels();
+  document.querySelectorAll('.ai-overview').forEach(el => {
+    const key = el.dataset.ok + '/' + el.dataset.oi;
+    if (key in items) return; // user set this one — leave it
+    const s = el.querySelector('.ai-ov-slider');
+    if (s && +s.value !== g) { s.value = g; s.setAttribute('aria-valuetext', `${g + 1}/${OVERVIEW_LEVELS}`); paintOverviewText(el); }
+  });
+}
+function wireOverviews(root) {
+  (root || document).querySelectorAll('.ai-overview').forEach(el => {
+    if (el.dataset.wired) return;
+    el.dataset.wired = '1';
+    renderOverview(el);
   });
 }
 
