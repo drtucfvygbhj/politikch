@@ -1,5 +1,6 @@
-import { MAP_PATHS } from './map-data.js';
-import { configureShare, wireShares, mountShare } from './share.js';
+import { MAP_PATHS } from './map-data.js?v=20260916';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260916';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260916';
 
 /* ============================================================
    State
@@ -61,11 +62,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json').then(r => r.json()),
-    fetch('data/cantons.json').then(r => r.json()),
-    fetch('data/initiatives.json').then(r => r.json()),
-    fetch('data/council.json').then(r => r.json()),
-    fetch('data/i18n.json').then(r => r.json())
+    fetch('data/parties.json?v=20260916').then(r => r.json()),
+    fetch('data/cantons.json?v=20260916').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260916').then(r => r.json()),
+    fetch('data/council.json?v=20260916').then(r => r.json()),
+    fetch('data/i18n.json?v=20260916').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -77,7 +78,7 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json').then(r => r.ok ? r.json() : null);
+    const financing = await fetch('data/financing.json?v=20260916').then(r => r.ok ? r.json() : null);
     if (financing) state.data.financing = financing;
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
@@ -85,14 +86,14 @@ async function loadData() {
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260916').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260916').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -100,7 +101,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260916').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 }
@@ -486,6 +487,7 @@ function setLang(lang) {
   if (route.view === 'privacy') renderPrivacyPage();
   if (route.view === 'about') renderAboutPage();
   if (route.view === 'subscribe') renderSubscribePage();
+  if (route.view === 'profile') renderProfilePage();
   refreshGlossaryLabels();
 }
 
@@ -1171,7 +1173,7 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260916').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
@@ -1304,6 +1306,10 @@ function makeVoteCard(init, opts) {
   const desc = localized(init.desc);
   const shortDesc = desc.length > 130 ? desc.slice(0, 130).trimEnd() + '…' : desc;
   const dateHTML = opts.hideDate ? '' : `<span class="initiative-date">${localized(init.date)}</span>`;
+  const myChoice = getVote('initiative', init.id);
+  const votedBadge = myChoice
+    ? `<span class="mine-badge mine-badge-${myChoice}">${t('mine.youBadge').replace('{choice}', myChoice === 'yes' ? t('mine.yes') : t('mine.no'))}</span>`
+    : '';
   card.innerHTML = `
     <span class="initiative-type type-${init.type}">${t('type.' + init.type)}</span>
     <span class="initiative-title" style="display:block">${initTitleHTML(init, false)}</span>
@@ -1311,6 +1317,7 @@ function makeVoteCard(init, opts) {
     <span class="initiative-meta">
       ${dateHTML}
       <span class="initiative-status-group">
+        ${votedBadge}
         ${daysLeftChip(init)}
         <span class="initiative-status status-${init.status}">${t('status.' + init.status)}</span>
       </span>
@@ -1431,6 +1438,11 @@ function renderInitiativePage(id) {
       <div class="detail-top-right">
         <h3 class="canton-section-title" style="margin-top:0">${t('init.scaleTitle')}</h3>
         ${voteScaleHTML(init, { large: true, interactive: true, share: { title: `${t('init.scaleTitle')} — ${initTitlePlain(init)}`, route: `initiative/${id}` } })}
+        <div class="mine-block">
+          <h3 class="canton-section-title" style="font-size:16px">${t('mine.sectionTitle')}</h3>
+          ${voteWidgetHTML('initiative', id, { poll: initiativePollEligible(init) })}
+          <p class="mine-note">${initiativePollEligible(init) ? t('mine.noteLivePoll') : t('mine.notePast')} <a href="#/profile">${t('mine.seeProfile')} <span class="arrow">↗</span></a></p>
+        </div>
       </div>
     </div>
     <h3 class="canton-section-title" style="margin-top:48px">${t('rec.title')}${termHelp('parole')}</h3>
@@ -1452,6 +1464,14 @@ function renderInitiativePage(id) {
   });
   wireFinancingHighlights(content);
   wireShares(content, SHARE_CTX());
+  wireVoteWidgets(content);
+}
+
+// A present/future item people can still influence — so it carries a live
+// community poll. Decided items (adopted/rejected) show the official result
+// instead and only record the visitor's own vote for their profile.
+function initiativePollEligible(init) {
+  return ['collecting', 'pending', 'upcoming'].includes(init.status);
 }
 
 // Party voting recommendations (Parolen) for one vote, split into three
@@ -1760,7 +1780,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260916`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -2056,7 +2076,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260916')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2066,7 +2086,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260916')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2082,7 +2102,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260916`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -2257,6 +2277,7 @@ function sessionVoteHTML(v) {
       <span class="svote-title">${voteTitleHTML(v)}</span>
       <span class="svote-result svote-result-${resultCls}">${resultTxt}</span>
     </div>
+    <span class="official-tag">${t('mine.officialTag')}</span>
     <div class="svote-tally" role="img" aria-label="${tallyAria}">
       ${seg('yes', v.tally.yes)}${seg('no', v.tally.no)}${seg('abs', v.tally.abstain)}
     </div>
@@ -2292,10 +2313,28 @@ function sessionVoteHTML(v) {
           </div>
           <h4 style="margin-top:22px">${t('session.byPartyTitle')}</h4>
           <div class="svote-party-grid">${votePartyRowsHTML(v)}</div>
+          <div class="mine-block">
+            <h4 style="margin-top:22px">${t('mine.opinionTitle')}</h4>
+            <p class="mine-note">${t('mine.opinionDesc')}</p>
+            ${voteWidgetHTML('session', v.id, { poll: true, meta: { parties: partyMajorities(v.byParty), topics: v.topics || [] } })}
+          </div>
         </div>
       </div>
     </details>
   </div>`;
+}
+
+// Reduce a session vote's per-party Yes/No/abstain to a single stance per party
+// (the side it mostly voted), stored with the user's own vote so their profile
+// can score alignment without re-loading the session file.
+function partyMajorities(byParty) {
+  const out = {};
+  Object.entries(byParty || {}).forEach(([k, g]) => {
+    const yes = g.yes || 0, no = g.no || 0;
+    if (yes === 0 && no === 0) return;
+    out[k] = yes >= no ? 'yes' : 'no';
+  });
+  return out;
 }
 
 function votePartyRowsHTML(v) {
@@ -2479,6 +2518,7 @@ function wireVoteCards(host, votes) {
         wireCrossHighlight(g);
         wirePartyNav(g);
         mountShare(g, () => voteHemiSpec(vote), SHARE_CTX());
+        wireVoteWidgets(el);
       }
     });
   });
@@ -2702,7 +2742,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260916').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -2787,6 +2827,7 @@ function renderPrivacyPage() {
       `<p class="info-lead">${t('privacy.lead')}</p>` +
       proseBlocks([
         { h: 'privacy.h.storage', p: 'privacy.p.storage' },
+        { h: 'privacy.h.poll', p: ['privacy.p.poll', 'privacy.p.poll2'] },
         { h: 'privacy.h.commitments', p: ['privacy.p.commitments', 'privacy.p.commitments2'] },
         { h: 'privacy.h.subscription', badge: true, p: ['privacy.p.subscription', 'privacy.p.subscription2'] },
         { h: 'privacy.h.law', p: 'privacy.p.law' },
@@ -2830,6 +2871,184 @@ function renderSubscribePage() {
   });
 }
 
+/* ============================================================
+   My profile (#/profile) — everything computed on-device from the
+   visitor's own stored votes. No data leaves the browser here.
+   ============================================================ */
+
+// Aggregate the visitor's stored votes into participation stats, per-party
+// agreement, a spectrum position and topic priorities. Alignment uses party
+// recommendations for initiatives and stored party majorities for session
+// votes; both compare a party's stance to the visitor's own choice.
+function computeMyLeaning() {
+  const store = getAllVotes();
+  const parties = state.data.parties;
+  const agree = {};           // key -> {match,total}
+  const campPoints = [];      // per-vote centroid of parties sharing the choice
+  const topicCount = {};
+  let initN = 0, sessN = 0, yesN = 0, noN = 0;
+
+  const tally = (stances, choice) => {
+    // stances: {partyKey: 'yes'|'no'}
+    const camp = [];
+    Object.entries(stances).forEach(([k, s]) => {
+      if (s !== 'yes' && s !== 'no') return;
+      if (!parties[k] || !parties[k].spectrum) return;
+      const a = (agree[k] = agree[k] || { match: 0, total: 0 });
+      a.total++;
+      if (s === choice) { a.match++; camp.push(parties[k].spectrum); }
+    });
+    if (camp.length) {
+      campPoints.push({
+        x: camp.reduce((s, p) => s + p.x, 0) / camp.length,
+        y: camp.reduce((s, p) => s + p.y, 0) / camp.length,
+      });
+    }
+  };
+
+  Object.entries(store.initiatives || {}).forEach(([id, e]) => {
+    initN++; if (e.c === 'yes') yesN++; else if (e.c === 'no') noN++;
+    const init = state.data.initiatives.find(i => i.id === id);
+    if (init && init.recommendations) tally(init.recommendations, e.c);
+  });
+  Object.entries(store.sessions || {}).forEach(([, e]) => {
+    sessN++; if (e.c === 'yes') yesN++; else if (e.c === 'no') noN++;
+    if (e.p) tally(e.p, e.c);
+    (e.topics || []).forEach(tk => { topicCount[tk] = (topicCount[tk] || 0) + 1; });
+  });
+
+  const partyRanking = Object.entries(agree)
+    .filter(([, a]) => a.total >= 1)
+    .map(([k, a]) => ({ key: k, pct: Math.round(a.match / a.total * 100), match: a.match, total: a.total }))
+    .sort((a, b) => b.pct - a.pct || b.total - a.total);
+
+  const point = campPoints.length ? {
+    x: +(campPoints.reduce((s, p) => s + p.x, 0) / campPoints.length).toFixed(1),
+    y: +(campPoints.reduce((s, p) => s + p.y, 0) / campPoints.length).toFixed(1),
+  } : null;
+
+  const topics = Object.entries(topicCount)
+    .map(([k, n]) => ({ k, n })).sort((a, b) => b.n - a.n).slice(0, 6);
+
+  return { count: initN + sessN, initN, sessN, yesN, noN, partyRanking, point, topics };
+}
+
+// Compact two-axis spectrum SVG with every party as a coloured dot plus a
+// "You" marker at the visitor's computed position.
+function profileSpectrumSVG(point, closestKey) {
+  const dots = Object.entries(state.data.parties).map(([k, p]) => {
+    if (!p.spectrum) return '';
+    const cx = p.spectrum.x, cy = 100 - p.spectrum.y;
+    const on = k === closestKey;
+    return `<g><circle cx="${cx}" cy="${cy}" r="${on ? 6 : 4.5}" fill="${p.color}"${on ? ' stroke="#1a1a1a" stroke-width="1.2"' : ''}></circle><title>${escapeAttr(p.abbr || k)}</title></g>`;
+  }).join('');
+  let you = '';
+  if (point) {
+    const yx = point.x, yy = 100 - point.y;
+    you = `<g class="you-marker">
+      <circle cx="${yx}" cy="${yy}" r="7.5" fill="#1a1a1a" stroke="#fff" stroke-width="2"></circle>
+      <text x="${yx}" y="${yy - 11}" text-anchor="middle" class="you-label">${escapeAttr(t('profile.you'))}</text></g>`;
+  }
+  return `
+    <svg class="mini-spectrum profile-spectrum" viewBox="-32 -16 164 142" role="img" aria-label="${escapeAttr(t('profile.spectrumAria'))}">
+      <line class="ms-axis" x1="0" y1="50" x2="100" y2="50"></line>
+      <line class="ms-axis" x1="50" y1="0" x2="50" y2="100"></line>
+      <text class="ms-lbl" x="-5" y="51" text-anchor="end">${t('spec.axisLeft')}</text>
+      <text class="ms-lbl" x="105" y="51" text-anchor="start">${t('spec.axisRight')}</text>
+      <text class="ms-lbl" x="50" y="-8" text-anchor="middle">${t('spec.axisTop')}</text>
+      <text class="ms-lbl" x="50" y="110" text-anchor="middle">${t('spec.axisBottom')}</text>
+      ${dots}${you}
+    </svg>`;
+}
+
+function renderProfilePage() {
+  const titleEl = document.getElementById('profile-title');
+  const subEl = document.getElementById('profile-sub');
+  const contentEl = document.getElementById('profile-content');
+  if (!titleEl || !contentEl) return;
+  titleEl.textContent = t('profile.title');
+  if (subEl) subEl.textContent = t('profile.sub');
+
+  const d = computeMyLeaning();
+
+  if (!d.count) {
+    contentEl.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon" aria-hidden="true">${icon('ballot')}</div>
+        <p>${t('profile.empty')}</p>
+      </div>
+      <div class="profile-cta">
+        <a class="resource-link" href="#/">${t('profile.emptyVotes')} <span class="arrow">↗</span></a>
+        <a class="resource-link" href="#/sessions">${t('profile.emptySessions')} <span class="arrow">↗</span></a>
+      </div>`;
+    return;
+  }
+
+  const closest = d.partyRanking[0];
+  const closestName = closest ? (state.data.parties[closest.key]?.abbr || closest.key) : '';
+
+  // Party agreement bars (own colour), most-aligned first.
+  const partyBars = d.partyRanking.map(r => {
+    const p = state.data.parties[r.key];
+    return `<a class="align-row" href="#/party/${r.key}">
+      <span class="align-name"><span class="align-dot" style="background:${p.color}"></span>${escapeAttr(p.abbr || r.key)}</span>
+      <span class="align-track"><span class="align-fill" style="width:${r.pct}%;background:${p.color}"></span></span>
+      <span class="align-pct">${r.pct}%</span>
+    </a>`;
+  }).join('');
+
+  const topics = d.topics.length
+    ? `<div class="profile-topics">${d.topics.map(x => `<span class="profile-topic">${escapeAttr(t('session.topic.' + x.k))}<span class="profile-topic-n">${x.n}</span></span>`).join('')}</div>`
+    : `<p class="mine-note">${t('profile.topicsEmpty')}</p>`;
+
+  // Enrich: a few present/future initiatives the visitor hasn't voted on yet,
+  // with inline vote widgets to add data directly.
+  const unvoted = state.data.initiatives
+    .filter(i => initiativePollEligible(i) && !getVote('initiative', i.id))
+    .slice(0, 5);
+  const enrich = unvoted.length
+    ? unvoted.map(i => `
+        <div class="enrich-item">
+          <a class="enrich-title" href="#/initiative/${i.id}">${initTitleHTML(i, false)}</a>
+          ${voteWidgetHTML('initiative', i.id, { poll: true })}
+        </div>`).join('')
+    : `<p class="mine-note">${t('profile.enrichDone')}</p>`;
+
+  contentEl.innerHTML = `
+    <p class="info-lead">${t('profile.lead')}</p>
+    <p class="mine-note profile-privacy">${t('profile.privacyNote')}</p>
+
+    <div class="profile-stats">
+      <div class="stat-box"><div class="big">${d.count}</div><div class="lbl">${t('profile.statTotal')}</div></div>
+      <div class="stat-box"><div class="big">${d.initN}</div><div class="lbl">${t('profile.statInitiatives')}</div></div>
+      <div class="stat-box"><div class="big">${d.sessN}</div><div class="lbl">${t('profile.statSessions')}</div></div>
+      <div class="stat-box"><div class="big">${d.yesN}/${d.noN}</div><div class="lbl">${t('profile.statYesNo')}</div></div>
+    </div>
+
+    <div class="canton-grid" style="margin-top:8px">
+      <div>
+        <h3 class="canton-section-title">${t('profile.alignTitle')}</h3>
+        ${closest ? `<p class="mine-note">${t('profile.closest').replace('{party}', `<a href="#/party/${closest.key}"><strong>${escapeAttr(closestName)}</strong></a>`).replace('{pct}', closest.pct)}</p>` : ''}
+        <div class="align-list">${partyBars}</div>
+      </div>
+      <div>
+        <h3 class="canton-section-title">${t('profile.spectrumTitle')}</h3>
+        <div class="scale-row">${profileSpectrumSVG(d.point, closest && closest.key)}</div>
+        <p class="mine-note">${d.point ? t('profile.spectrumDesc') : t('profile.spectrumNeedMore')}</p>
+      </div>
+    </div>
+
+    <h3 class="canton-section-title" style="margin-top:40px">${t('profile.priorTitle')}</h3>
+    <p class="mine-note">${t('profile.priorDesc')}</p>
+    ${topics}
+
+    <h3 class="canton-section-title" style="margin-top:40px">${t('profile.enrichTitle')}</h3>
+    <p class="mine-note">${t('profile.enrichDesc')}</p>
+    <div class="enrich-list">${enrich}</div>`;
+
+  wireVoteWidgets(contentEl);
+}
+
 function parseHash() {
   const raw = location.hash.replace(/^#\/?/, '');
   const [view, id] = raw.split('/');
@@ -2853,6 +3072,7 @@ function showView(name) {
   document.getElementById('privacy-page').classList.toggle('active', name === 'privacy');
   document.getElementById('about-page').classList.toggle('active', name === 'about');
   document.getElementById('subscribe-page').classList.toggle('active', name === 'subscribe');
+  document.getElementById('profile-page').classList.toggle('active', name === 'profile');
 }
 
 function handleRoute() {
@@ -2890,6 +3110,9 @@ function handleRoute() {
   } else if (view === 'subscribe') {
     renderSubscribePage();
     showView('subscribe');
+  } else if (view === 'profile') {
+    renderProfilePage();
+    showView('profile');
   } else {
     showView('home');
   }
@@ -2982,6 +3205,14 @@ function bindEvents() {
    ============================================================ */
 async function init() {
   configureShare({ t, lang: () => state.lang });
+  configureVotes({ t, escapeAttr });
+  // Keep vote-derived UI live when a vote changes: the profile's stats, and the
+  // home votes list's "you voted" badges.
+  document.addEventListener('politikch:votechange', () => {
+    const view = parseHash().view;
+    if (view === 'profile') renderProfilePage();
+    else if (view === 'home' && document.getElementById('initiatives-grid')) renderInitiatives();
+  });
   try {
     await loadData();
   } catch (err) {

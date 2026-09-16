@@ -18,7 +18,8 @@
 
   <!-- Self-hosted fonts — no request to Google, no visitor IP leaves this origin. -->
   <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20260916">
+
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -35,6 +36,7 @@
       <li><button data-scroll="initiatives" data-i18n="nav.initiatives">Votes</button></li>
       <li><button data-nav="sessions" data-i18n="nav.sessions">Sessions</button></li>
       <li><button data-scroll="hero" data-i18n="nav.cantons">Cantons</button></li>
+      <li><button data-nav="profile" data-i18n="nav.profile">My profile</button></li>
     </ul>
     <div class="nav-right">
       <div class="nav-search">
@@ -296,6 +298,18 @@
       <div class="canton-content" id="donor-content"></div>
     </div>
 
+    <!-- MY PROFILE (#/profile) — on-device voting stats & alignment -->
+    <div id="profile-page" class="subpage">
+      <div class="canton-hero session-hero">
+        <div class="subpage-inner">
+          <button class="back-btn" data-home data-i18n="canton.back">Back to Switzerland</button>
+          <h1 class="canton-title" id="profile-title"></h1>
+          <p class="canton-capital" id="profile-sub"></p>
+        </div>
+      </div>
+      <div class="canton-content"><div id="profile-content"></div></div>
+    </div>
+
     <!-- PRIVACY POLICY (#/privacy) -->
     <div id="privacy-page" class="subpage">
       <div class="canton-hero session-hero">
@@ -352,6 +366,6 @@
     </div>
   </footer>
 
-  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/app.js?v=20260916"></script>
 </body>
 </html>
