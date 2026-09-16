@@ -1,6 +1,6 @@
-import { MAP_PATHS } from './map-data.js?v=20260916b';
-import { configureShare, wireShares, mountShare } from './share.js?v=20260916b';
-import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260916b';
+import { MAP_PATHS } from './map-data.js?v=20260916c';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260916c';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260916c';
 
 /* ============================================================
    State
@@ -62,11 +62,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json?v=20260916b').then(r => r.json()),
-    fetch('data/cantons.json?v=20260916b').then(r => r.json()),
-    fetch('data/initiatives.json?v=20260916b').then(r => r.json()),
-    fetch('data/council.json?v=20260916b').then(r => r.json()),
-    fetch('data/i18n.json?v=20260916b').then(r => r.json())
+    fetch('data/parties.json?v=20260916c').then(r => r.json()),
+    fetch('data/cantons.json?v=20260916c').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260916c').then(r => r.json()),
+    fetch('data/council.json?v=20260916c').then(r => r.json()),
+    fetch('data/i18n.json?v=20260916c').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -78,7 +78,7 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json?v=20260916b').then(r => r.ok ? r.json() : null);
+    const financing = await fetch('data/financing.json?v=20260916c').then(r => r.ok ? r.json() : null);
     if (financing) state.data.financing = financing;
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
@@ -86,14 +86,14 @@ async function loadData() {
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json?v=20260916b').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260916c').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json?v=20260916b').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260916c').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -101,7 +101,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json?v=20260916b').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260916c').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 }
@@ -1173,7 +1173,7 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json?v=20260916b').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260916c').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
@@ -1780,7 +1780,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json?v=20260916b`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260916c`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -2076,7 +2076,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260916b')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260916c')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2086,7 +2086,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json?v=20260916b')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260916c')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2102,7 +2102,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260916b`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260916c`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -2742,7 +2742,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json?v=20260916b').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260916c').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -2888,44 +2888,49 @@ function computeMyLeaning() {
   const topicCount = {};
   let initN = 0, sessN = 0, yesN = 0, noN = 0;
 
-  const tally = (stances, choice) => {
-    // stances: {partyKey: 'yes'|'no'}
+  // Each comparison carries a weight: session votes count for more because
+  // parliament records a complete Yes/No for every party across many votes,
+  // whereas initiative "Parolen" are sparse. Initiatives are still included so a
+  // visitor who only votes on initiatives still gets an alignment.
+  const tally = (stances, choice, weight) => {
     const camp = [];
     Object.entries(stances).forEach(([k, s]) => {
       if (s !== 'yes' && s !== 'no') return;
       if (!parties[k] || !parties[k].spectrum) return;
       const a = (agree[k] = agree[k] || { match: 0, total: 0 });
-      a.total++;
-      if (s === choice) { a.match++; camp.push(parties[k].spectrum); }
+      a.total += weight;
+      if (s === choice) { a.match += weight; camp.push(parties[k].spectrum); }
     });
     if (camp.length) {
       campPoints.push({
         x: camp.reduce((s, p) => s + p.x, 0) / camp.length,
         y: camp.reduce((s, p) => s + p.y, 0) / camp.length,
+        w: weight,
       });
     }
   };
 
-  // Party alignment and the spectrum position are computed from SESSION votes
-  // only: parliament records give a complete Yes/No for every party across many
-  // votes, whereas initiative "Parolen" are sparse (not every party takes a
-  // stance). Initiative votes still count toward participation, but they don't
-  // drive the party-opinion analysis.
-  Object.keys(store.initiatives || {}).forEach(() => { initN++; });
+  const SESSION_WEIGHT = 3, INITIATIVE_WEIGHT = 1;
+  Object.entries(store.initiatives || {}).forEach(([id, e]) => {
+    initN++; if (e.c === 'yes') yesN++; else if (e.c === 'no') noN++;
+    const init = state.data.initiatives.find(i => i.id === id);
+    if (init && init.recommendations) tally(init.recommendations, e.c, INITIATIVE_WEIGHT);
+  });
   Object.entries(store.sessions || {}).forEach(([, e]) => {
     sessN++; if (e.c === 'yes') yesN++; else if (e.c === 'no') noN++;
-    if (e.p) tally(e.p, e.c);
+    if (e.p) tally(e.p, e.c, SESSION_WEIGHT);
     (e.topics || []).forEach(tk => { topicCount[tk] = (topicCount[tk] || 0) + 1; });
   });
 
   const partyRanking = Object.entries(agree)
-    .filter(([, a]) => a.total >= 1)
+    .filter(([, a]) => a.total > 0)
     .map(([k, a]) => ({ key: k, pct: Math.round(a.match / a.total * 100), match: a.match, total: a.total }))
     .sort((a, b) => b.pct - a.pct || b.total - a.total);
 
-  const point = campPoints.length ? {
-    x: +(campPoints.reduce((s, p) => s + p.x, 0) / campPoints.length).toFixed(1),
-    y: +(campPoints.reduce((s, p) => s + p.y, 0) / campPoints.length).toFixed(1),
+  const wsum = campPoints.reduce((s, p) => s + p.w, 0);
+  const point = wsum ? {
+    x: +(campPoints.reduce((s, p) => s + p.x * p.w, 0) / wsum).toFixed(1),
+    y: +(campPoints.reduce((s, p) => s + p.y * p.w, 0) / wsum).toFixed(1),
   } : null;
 
   const topics = Object.entries(topicCount)
