@@ -256,16 +256,16 @@ def overview_tasks():
                 continue
             if queued("overview", "initiative", it["id"]):
                 continue
-            tasks.append(("initiative", it["id"], localized(it.get("title")), localized(it.get("desc")), it.get("url")))
+            tasks.append(("initiative", it["id"], localized(it.get("title")), localized(it.get("desc")), it.get("url"), None))
     for v in load_session_votes():
         vid = str(v["id"])
         if os.path.exists(os.path.join(ROOT, "data/overviews/session", f"{vid}.json")):
             continue
         if queued("overview", "session", vid):
             continue
-        url = (f"https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId={v['businessNumber']}"
-               if v.get("businessNumber") else None)
-        tasks.append(("session", vid, localized(v.get("title")), "", url))
+        bn = v.get("businessNumber")
+        url = (f"https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId={bn}" if bn else None)
+        tasks.append(("session", vid, localized(v.get("title")), "", url, bn))
     return tasks
 
 
@@ -280,19 +280,51 @@ def localized(obj):
 
 
 # ---------------------------------------------------------------- source text
+PARL_ODATA = "https://ws.parlament.ch/odata.svc"
+
+
+def strip_html(raw):
+    raw = re.sub(r"(?is)<(script|style|nav|footer|header)[^>]*>.*?</\1>", " ", raw)
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"(?s)<[^>]+>", " ", raw))).strip()
+
+
+def fetch_business_text(business_number):
+    """Real per-item official text for a Federal Assembly business, from the
+    parlament.ch OData API (not the JS page). Returns the substantive fields —
+    the submitted legal text, the initial situation, and the reasoning — which are
+    official texts (not copyright, Art. 5 URG). '' on failure → item skipped."""
+    if not business_number:
+        return ""
+    url = f"{PARL_ODATA}/Business?$filter=ID%20eq%20{business_number}&$format=json&$top=1"
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "PolitikchBot/1.0", "Accept": "application/json", "Accept-Language": "DE"})
+        with urllib.request.urlopen(req, timeout=40) as r:
+            d = json.loads(r.read().decode("utf-8", "replace"))
+        node = d.get("d", d) if isinstance(d, dict) else d
+        if isinstance(node, dict) and "results" in node:
+            node = node["results"]
+        b = node[0] if isinstance(node, list) and node else (node if isinstance(node, dict) else {})
+        parts = []
+        for f in ("Title", "SubmittedText", "InitialSituation", "ReasonText", "Description"):
+            v = b.get(f)
+            if isinstance(v, str) and v.strip():
+                parts.append(f"{f}: {strip_html(v)}")
+        return "\n\n".join(parts)[:8000]
+    except Exception:
+        return ""
+
+
 def fetch_source(url):
-    """Best-effort fetch of an official page's visible text, passed into the prompt
-    so the model doesn't need (expensive, tool-using) web access. '' on failure →
-    the item is skipped, never fabricated."""
+    """Best-effort fetch of an official page's visible text (fallback, e.g. for
+    initiatives if a source is ever wired). '' on failure → item skipped."""
     if not url:
         return ""
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "PolitikchBot/1.0"})
         with urllib.request.urlopen(req, timeout=25) as r:
             raw = r.read(500_000).decode("utf-8", "replace")
-        raw = re.sub(r"(?is)<(script|style|nav|footer|header)[^>]*>.*?</\1>", " ", raw)
-        text = html.unescape(re.sub(r"(?s)<[^>]+>", " ", raw))
-        return re.sub(r"\s+", " ", text).strip()[:6000]
+        return strip_html(raw)[:6000]
     except Exception:
         return ""
 
@@ -432,8 +464,11 @@ def main():
             break
         batch = batch[:budget()]
         enriched = []
-        for (_k, iid, title, desc, url) in batch:
-            src = "__DRY__" if args.dry_run else fetch_source(url)
+        for (_k, iid, title, desc, url, bn) in batch:
+            if args.dry_run:
+                src = "__DRY__"
+            else:
+                src = fetch_business_text(bn) if bn else fetch_source(url)
             if len(src) < 200 and not args.dry_run:
                 print(f"    · overview {iid}: no official text to ground it; skipped."); continue
             enriched.append((_k, iid, title, desc, url, src))
