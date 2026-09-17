@@ -11,8 +11,15 @@ How it stays safe and within your limits
   5-hour and weekly limits. The moment `claude` reports a limit (or any error),
   this script **stops immediately** and leaves the rest for next time — "if the
   limit doesn't allow it, it just doesn't happen."
-* `--max` caps how many items one run will attempt (default 6), so a single run
-  is always small and predictable.
+* It is fully **resumable and incremental**. Each finished item is saved on its
+  own the instant it's 100% complete (translations validated for the missing
+  language; overviews validated for all 5 levels × 5 languages), written with a
+  temp-file+rename so a crash never leaves a partial file. The next run skips
+  everything already live or already staged and picks up at the first item that
+  isn't done — minutes, an hour (after the limit resets), or weeks later. You can
+  approve the staged ones any time in between.
+* By default it attempts as many items as your usage limit allows (stopping the
+  moment Claude reports a limit); pass `--max N` to cap a run.
 
 It never writes to the live site. Every result is staged as a proposal in
 `review/queue/…` for you to approve or edit in the local review website
@@ -30,6 +37,16 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 QUEUE = os.path.join(ROOT, "review", "queue")
 LANGS = ["en", "de", "fr", "it", "rm"]
 LEVELS = 5
+
+
+def write_json_atomic(path, obj):
+    """Write JSON via a temp file + rename, so a crash/kill mid-write can never
+    leave a half-written (non-100%-complete) file behind."""
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as fh:
+        json.dump(obj, fh, ensure_ascii=False, indent=2)
+    os.replace(tmp, path)
 
 
 # ---------------------------------------------------------------- claude CLI
@@ -96,19 +113,25 @@ def official_titles(title):
 
 
 # ---------------------------------------------------------------- task discovery
+def _missing_langs(cur):
+    return [lg for lg in ("en", "rm") if not cur.get(lg)]
+
+
 def translation_tasks():
     tasks = []
     for it in load_initiatives():
         cur = existing_titles("initiative").get(it["id"]) or {}
         cur = cur if isinstance(cur, dict) else {"en": cur}
-        if (not cur.get("en") or not cur.get("rm")) and not queued("translation", "initiative", it["id"]):
-            tasks.append(("initiative", it["id"], official_titles(it.get("title")), cur))
+        missing = _missing_langs(cur)
+        if missing and not queued("translation", "initiative", it["id"]):
+            tasks.append(("initiative", it["id"], official_titles(it.get("title")), cur, missing))
     for v in load_session_votes():
         vid = str(v["id"])
         cur = existing_titles("session").get(vid) or {}
         cur = cur if isinstance(cur, dict) else {"en": cur}
-        if (not cur.get("en") or not cur.get("rm")) and not queued("translation", "session", vid):
-            tasks.append(("session", vid, official_titles(v.get("title")), cur))
+        missing = _missing_langs(cur)
+        if missing and not queued("translation", "session", vid):
+            tasks.append(("session", vid, official_titles(v.get("title")), cur, missing))
     return tasks
 
 
@@ -143,11 +166,16 @@ def localized(obj):
 
 
 # ---------------------------------------------------------------- prompts
-def translation_prompt(official):
+LANG_NAME = {"en": "English (en)", "rm": "Romansh (rm)"}
+
+
+def translation_prompt(official, missing):
     src = "\n".join(f"{k.upper()}: {v}" for k, v in official.items())
-    return ("Translate this official Swiss vote/act title into an UNOFFICIAL English (en) "
-            "and Romansh (rm) title. Keep it faithful and neutral; do not add words that "
-            "aren't in the original. Return ONLY JSON: {\"en\": \"…\", \"rm\": \"…\"}\n\n" + src)
+    want = " and ".join(LANG_NAME[lg] for lg in missing)
+    keys = ", ".join(f'"{lg}": "…"' for lg in missing)
+    return (f"Translate this official Swiss vote/act title into an UNOFFICIAL {want} title. "
+            "Keep it faithful and neutral; do not add words that aren't in the original. "
+            f"Return ONLY JSON: {{{keys}}}\n\n" + src)
 
 
 def overview_prompt(title, desc, url):
@@ -168,20 +196,26 @@ def overview_prompt(title, desc, url):
 
 # ---------------------------------------------------------------- staging
 def stage(task, kind, item_id, payload):
-    d = os.path.join(QUEUE, task, kind)
-    os.makedirs(d, exist_ok=True)
     payload.update({"task": task, "kind": kind, "id": item_id, "status": "pending",
                     "generatedAt": time.strftime("%Y-%m-%d %H:%M"), "via": "claude-cli"})
-    path = os.path.join(d, f"{item_id}.json")
-    json.dump(payload, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    path = os.path.join(QUEUE, task, kind, f"{item_id}.json")
+    write_json_atomic(path, payload)  # temp+rename: only a complete file ever appears
     return os.path.relpath(path, ROOT)
+
+
+def count_staged():
+    n = 0
+    for _b, _d, files in os.walk(QUEUE):
+        n += sum(1 for f in files if f.endswith(".json"))
+    return n
 
 
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--task", choices=["translation", "overview", "all"], default="all")
-    ap.add_argument("--max", type=int, default=6, help="max items this run (keeps within limits)")
+    ap.add_argument("--max", type=int, default=0,
+                    help="max NEW items this run (0 = as many as your usage limit allows)")
     ap.add_argument("--dry-run", action="store_true", help="stage stubs without calling claude")
     args = ap.parse_args()
 
@@ -191,39 +225,49 @@ def main():
     if args.task in ("overview", "all"):
         units += [("overview", *t) for t in overview_tasks()]
 
+    staged_before = count_staged()
     if not units:
-        print("Nothing pending — everything is generated or already queued for review.")
+        print(f"Nothing left to generate. {staged_before} proposal(s) already staged for your review.")
+        print("Open the review desk: python3 scripts/review_server.py  →  http://127.0.0.1:8777")
         return
 
-    print(f"{len(units)} item(s) pending; attempting up to {args.max} this run.")
+    cap = args.max if args.max else len(units)
+    print(f"Resuming: {len(units)} item(s) still to generate, {staged_before} already staged for review.")
+    print(f"Attempting up to {cap} this run (each finished item is saved as it completes; "
+          f"stops cleanly when your usage limit is hit).\n")
     made = 0
     for unit in units:
-        if made >= args.max:
+        if args.max and made >= args.max:
             print(f"Reached --max ({args.max}). Run again later for the rest.")
             break
         task = unit[0]
         if task == "translation":
-            _, kind, item_id, official, _cur = unit
+            _, kind, item_id, official, cur, missing = unit
             if not official:
                 continue
             print(f"[translation] {kind}/{item_id}: {list(official.values())[0][:60]}")
-            text, limited = run_claude(translation_prompt(official), args.dry_run)
+            text, limited = run_claude(translation_prompt(official, missing), args.dry_run)
             if limited:
-                print("    · Claude usage limit reached — stopping. The rest stays pending.")
+                print("    · Claude usage limit reached — stopping. Progress so far is saved; "
+                      "run again after it resets.")
                 break
             try:
-                prop = {"en": "DRY RUN en", "rm": "DRY RUN rm"} if args.dry_run else parse_json(text)
-                assert prop.get("en") and prop.get("rm")
+                got = {lg: f"DRY RUN {lg}" for lg in missing} if args.dry_run else parse_json(text)
+                for lg in missing:
+                    assert got.get(lg)
             except Exception as e:  # noqa: BLE001
                 print(f"    ! could not parse translation ({e}); skipping.")
                 continue
-            rel = stage("translation", kind, item_id, {"official": official, "proposal": {"en": prop["en"], "rm": prop["rm"]}})
+            # Keep any existing (e.g. hand-made) translation; only fill the missing language(s).
+            proposal = {lg: (cur.get(lg) or got.get(lg)) for lg in ("en", "rm")}
+            rel = stage("translation", kind, item_id, {"official": official, "existing": cur, "proposal": proposal})
         else:
             _, kind, item_id, title, desc, url = unit
             print(f"[overview] {kind}/{item_id}: {title[:60]}")
             text, limited = run_claude(overview_prompt(title, desc, url), args.dry_run)
             if limited:
-                print("    · Claude usage limit reached — stopping. The rest stays pending.")
+                print("    · Claude usage limit reached — stopping. Progress so far is saved; "
+                      "run again after it resets.")
                 break
             if args.dry_run:
                 prop = {"lang": {lg: [f"DRY RUN {lg} L{i+1}" for i in range(LEVELS)] for lg in LANGS}}
@@ -245,8 +289,11 @@ def main():
         if not args.dry_run:
             time.sleep(1)
 
-    print(f"\nDone. {made} proposal(s) staged for review.\n"
-          f"Review them: python3 scripts/review_server.py  →  http://127.0.0.1:8777")
+    total_staged = count_staged()
+    remaining = len(units) - made
+    print(f"\nDone this run: {made} new proposal(s) generated.")
+    print(f"{total_staged} awaiting your review; {remaining} still to generate next time.")
+    print("Review them: python3 scripts/review_server.py  →  http://127.0.0.1:8777")
 
 
 if __name__ == "__main__":

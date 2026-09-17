@@ -41,6 +41,14 @@ def list_queue():
     return items
 
 
+def write_json_atomic(path, obj):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as fh:
+        json.dump(obj, fh, ensure_ascii=False, indent=2)
+    os.replace(tmp, path)
+
+
 def safe_queue_path(rel):
     """Resolve a client-supplied queue path, refusing anything outside QUEUE."""
     p = os.path.realpath(os.path.join(ROOT, rel))
@@ -53,7 +61,7 @@ def apply_translation(kind, item_id, proposal):
     f = os.path.join(ROOT, f"data/{'initiatives' if kind == 'initiative' else 'sessions'}-translations.json")
     data = json.load(open(f, encoding="utf-8"))
     data.setdefault("titles", {})[item_id] = {"en": proposal["en"], "rm": proposal["rm"]}
-    json.dump(data, open(f, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    write_json_atomic(f, data)
     return os.path.relpath(f, ROOT)
 
 
@@ -68,7 +76,7 @@ def apply_overview(kind, item_id, proposal, source_url):
             raise ValueError(f"{lg}: need {LEVELS} non-empty levels")
         out["lang"][lg] = arr
     path = os.path.join(d, f"{item_id}.json")
-    json.dump(out, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    write_json_atomic(path, out)
     return os.path.relpath(path, ROOT)
 
 
@@ -109,7 +117,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             proposal = body.get("proposal", item.get("proposal"))
             if action == "/api/save":
                 item["proposal"] = proposal
-                json.dump(item, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+                write_json_atomic(path, item)
                 return self._send(200, json.dumps({"ok": True, "saved": body["file"]}))
 
             if action == "/api/approve":
