@@ -51,7 +51,10 @@ LEVELS = 5
 # into one call so that fixed cost is amortised. Both are overridable via env.
 MODEL = os.environ.get("POLITIKCH_MODEL", "haiku")        # 'haiku' | 'sonnet' | 'opus' | full id
 TR_BATCH = int(os.environ.get("POLITIKCH_TR_BATCH", "20"))  # titles per call
-OV_BATCH = int(os.environ.get("POLITIKCH_OV_BATCH", "3"))   # overviews per call (large output each)
+# Overviews: one per call by default. Each overview is 5 levels × 5 languages (25
+# text blocks) — batching several made a single reply so large the model TRUNCATED
+# it (invalid JSON → nothing validated). One per call keeps the reply complete.
+OV_BATCH = int(os.environ.get("POLITIKCH_OV_BATCH", "1"))
 # A neutral working dir so the CLI doesn't load this project's CLAUDE.md / .claude
 # context into every call (pure token overhead for a plain text task).
 NEUTRAL_CWD = tempfile.gettempdir()
@@ -403,15 +406,42 @@ def ov_batch_prompt(batch):
         blocks.append(f'### id "{iid}"\nTITLE: {title}\nDESCRIPTION: {desc}\nOFFICIAL TEXT: {source}')
     return (
         "For each Swiss proposal below, explain what would concretely change if it is ACCEPTED, "
-        "in 5 detail levels (1 = one brief plain sentence … 5 = full technical account) in each "
-        "of en, de, fr, it, rm. Base it ONLY on that item's OFFICIAL TEXT; never invent figures, "
-        "articles, dates or effects. Be strictly non-partisan; never say whether accepting is "
-        "good or bad; no party positions. If an item's text is too thin, use "
-        '{"insufficient_source": true} for that id.\n'
-        'Output ONLY a JSON object mapping each id to {"lang": {"en":[l1..l5], "de":[...], '
-        '"fr":[...], "it":[...], "rm":[...]}} (or {"insufficient_source": true}).\n\n'
+        "in exactly 5 detail levels, in each of en, de, fr, it, rm. Base it ONLY on that item's "
+        "OFFICIAL TEXT; never invent figures, articles, dates or effects. Be strictly "
+        "non-partisan; never say whether accepting is good or bad; no party positions.\n"
+        "KEEP IT SHORT so the reply is complete: level 1 = one sentence; level 2 ≤ 30 words; "
+        "level 3 ≤ 60 words; level 4 ≤ 100 words; level 5 ≤ 150 words. Plain sentences, no "
+        "markdown. If an item's text is too thin, use {\"insufficient_source\": true} for it.\n"
+        'Output ONLY minified JSON mapping each id to {"lang": {"en":[l1,l2,l3,l4,l5], "de":[…], '
+        '"fr":[…], "it":[…], "rm":[…]}} (or {"insufficient_source": true}). No prose, no code fences.\n\n'
         + "\n\n".join(blocks)
     )
+
+
+def normalize_overview(data):
+    """Coerce a model reply for one item into {"lang": {lg: [5 strings]}} or None.
+    Tolerates: a missing "lang" wrapper, levels given as a dict ({"1":…}) instead
+    of a list, and >5 levels (trimmed). Returns None if any language is missing or
+    has fewer than 5 non-empty levels (treated as incomplete → left pending)."""
+    if not isinstance(data, dict):
+        return None
+    lang = data.get("lang")
+    if not isinstance(lang, dict):
+        lang = data if any(k in data for k in LANGS) else None
+    if not isinstance(lang, dict):
+        return None
+    out = {}
+    for lg in LANGS:
+        v = lang.get(lg)
+        if isinstance(v, dict):
+            v = [v[k] for k in sorted(v, key=lambda x: str(x))]
+        if not isinstance(v, list):
+            return None
+        v = [str(x).strip() for x in v if str(x).strip()]
+        if len(v) < LEVELS:
+            return None
+        out[lg] = v[:LEVELS]
+    return {"lang": out}
 
 
 def chunk(seq, n):
@@ -537,13 +567,20 @@ def main():
         staged_here = 0
         for (_k, iid, title, desc, url, _src) in enriched:
             data = obj.get(iid) or {}
-            if data.get("insufficient_source"):
+            if isinstance(data, dict) and data.get("insufficient_source"):
                 print(f"    · overview {iid}: model reported insufficient source; skipped."); continue
-            try:
-                for lg in LANGS:
-                    assert isinstance(data["lang"][lg], list) and len(data["lang"][lg]) == LEVELS
-            except Exception:
-                print(f"    · overview {iid}: incomplete result; left pending."); continue
+            norm = normalize_overview(data)
+            if not norm:
+                # Save the raw reply so an odd/truncated shape can be diagnosed.
+                dbg = os.path.join(ROOT, "review", "debug", f"overview-{iid}.txt")
+                try:
+                    os.makedirs(os.path.dirname(dbg), exist_ok=True)
+                    open(dbg, "w", encoding="utf-8").write((text or "")[:20000])
+                except Exception:
+                    pass
+                print(f"    · overview {iid}: incomplete result; left pending. (raw saved to review/debug/)")
+                continue
+            data = norm
             stage("overview", _k, iid, {"title": title, "sourceUrl": url, "proposal": {"lang": data["lang"]}})
             made[0] += 1; staged_here += 1
         if not args.dry_run:
