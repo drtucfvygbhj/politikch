@@ -121,6 +121,36 @@ def parse_json(text):
     return json.loads(text)
 
 
+def parse_batch(text):
+    """Parse a batch reply into ONE {id: value} dict, tolerating: markdown fences,
+    leading/trailing prose, a JSON array, and — the common Haiku habit — several
+    separate JSON objects (one per id) concatenated. Everything dict-shaped is
+    merged, so partial/odd formatting still yields whatever ids parsed cleanly."""
+    if not text:
+        return {}
+    s = re.sub(r"```(?:json)?", "", text).strip()
+    dec = json.JSONDecoder()
+    merged, i, n = {}, 0, len(s)
+    while i < n:
+        while i < n and s[i] not in "{[":
+            i += 1
+        if i >= n:
+            break
+        try:
+            obj, end = dec.raw_decode(s, i)
+        except json.JSONDecodeError:
+            i += 1
+            continue
+        if isinstance(obj, dict):
+            merged.update(obj)
+        elif isinstance(obj, list):
+            for el in obj:
+                if isinstance(el, dict):
+                    merged.update(el)
+        i = end
+    return merged
+
+
 def handle_stop(status, raw):
     """Print why we're stopping and return True if the run should stop. Errors are
     shown verbatim so a failing CLI is never mistaken for a usage limit."""
@@ -369,7 +399,7 @@ def main():
             stop = True
             break
         try:
-            obj = {b[1]: {lg: f"DRY RUN {lg}" for lg in b[4]} for b in batch} if args.dry_run else parse_json(text)
+            obj = {b[1]: {lg: f"DRY RUN {lg}" for lg in b[4]} for b in batch} if args.dry_run else parse_batch(text)
         except Exception as e:  # noqa: BLE001
             print(f"    ! could not parse this batch ({e}); skipping it."); continue
         staged_here = 0
@@ -403,7 +433,7 @@ def main():
             stop = True
             break
         try:
-            obj = {b[1]: {"lang": {lg: [f"DRY RUN {lg} L{i+1}" for i in range(LEVELS)] for lg in LANGS}} for b in enriched} if args.dry_run else parse_json(text)
+            obj = {b[1]: {"lang": {lg: [f"DRY RUN {lg} L{i+1}" for i in range(LEVELS)] for lg in LANGS}} for b in enriched} if args.dry_run else parse_batch(text)
         except Exception as e:  # noqa: BLE001
             print(f"    ! could not parse this batch ({e}); skipping it."); continue
         staged_here = 0
