@@ -42,7 +42,13 @@ desk in the browser — everything is done from there:
   logged-in subscription, **no API key**), spends normal quota bound by the 5-hour
   and weekly limits, and stops the moment a limit is hit, saving progress. Runs
   are **resumable** — click again anytime to continue from the first unfinished
-  item.
+  item. Use the **max** box to cap how many items a single click attempts (blank
+  = as many as your limit allows).
+  *Cost:* each `claude -p` call has heavy fixed overhead, so the tool defaults to
+  **Haiku** and **batches** many items per call (20 titles / 3 overviews),
+  tool-less, in a neutral dir. Change the model with `POLITIKCH_MODEL`
+  (`haiku`/`sonnet`/`opus`) and batch sizes with `POLITIKCH_TR_BATCH` /
+  `POLITIKCH_OV_BATCH` if you want higher quality at higher cost.
 - **Review queue** — approve / edit / reject each staged proposal. Nothing goes
   live until you approve it.
 - **History** tab — every past run and change, with the exact text that was
