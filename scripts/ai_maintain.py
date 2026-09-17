@@ -2,11 +2,18 @@
 """One local trigger for ALL AI-assisted upkeep: vote overviews + title
 translations. You run it whenever you like; it does a small batch and stops.
 
-How it stays safe and within your limits
-----------------------------------------
+How it stays safe, cheap, and within your limits
+------------------------------------------------
 * It calls the **local `claude` CLI** (Claude Code) in print mode. That uses
   your already-logged-in Claude subscription — there is **no API key** in the
   repo or environment, nothing to leak or exploit.
+* Each `claude -p` call carries a large fixed overhead (agent system prompt +
+  tool schemas + project context), so we keep cost down by (a) using a light
+  model — Haiku by default, set POLITIKCH_MODEL to change — (b) BATCHING many
+  items into one call (POLITIKCH_TR_BATCH titles / POLITIKCH_OV_BATCH overviews),
+  (c) passing `--allowedTools ""` and running from a neutral dir so no tools or
+  project files load. Overviews are grounded on official text fetched here (not
+  by the model), so the call is a pure, cheap text task.
 * It therefore spends your normal subscription quota and is bound by the same
   5-hour and weekly limits. The moment `claude` reports a limit (or any error),
   this script **stops immediately** and leaves the rest for next time — "if the
@@ -31,12 +38,23 @@ Usage:
   python3 scripts/ai_maintain.py --task overview --max 3
   python3 scripts/ai_maintain.py --dry-run       # stage stubs, don't call claude
 """
-import argparse, glob, json, os, re, subprocess, sys, time
+import argparse, glob, html, json, os, re, subprocess, sys, tempfile, time, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 QUEUE = os.path.join(ROOT, "review", "queue")
 LANGS = ["en", "de", "fr", "it", "rm"]
 LEVELS = 5
+
+# Each `claude -p` call spins up a full Claude Code agent (big system prompt +
+# tool schemas + project context), so the FIXED per-call cost dwarfs a small
+# translation. Two levers keep us cheap: a light model, and BATCHING many items
+# into one call so that fixed cost is amortised. Both are overridable via env.
+MODEL = os.environ.get("POLITIKCH_MODEL", "haiku")        # 'haiku' | 'sonnet' | 'opus' | full id
+TR_BATCH = int(os.environ.get("POLITIKCH_TR_BATCH", "20"))  # titles per call
+OV_BATCH = int(os.environ.get("POLITIKCH_OV_BATCH", "3"))   # overviews per call (large output each)
+# A neutral working dir so the CLI doesn't load this project's CLAUDE.md / .claude
+# context into every call (pure token overhead for a plain text task).
+NEUTRAL_CWD = tempfile.gettempdir()
 
 
 def write_json_atomic(path, obj):
@@ -55,23 +73,26 @@ def write_json_atomic(path, obj):
 LIMIT_MARKERS = [
     "usage limit", "rate limit", "reached your limit", "limit reached",
     "limit will reset", "usage limit reached", "please try again later",
-    "too many requests", "overloaded",
+    "too many requests", "overloaded", "session limit", "you've hit your",
+    "weekly limit", "5-hour limit", "resets ",
 ]
 
 
 def run_claude(prompt, dry_run=False):
     """Return (text, status, raw). status is 'ok' | 'limit' | 'error'.
-    `raw` is a short transcript of what the CLI actually returned, so a stop is
-    never opaque."""
+    The prompt goes in on stdin (batched prompts are long); the call uses a light
+    model, no tools, and a neutral cwd to keep the per-call overhead down."""
     if dry_run:
         return "__DRY_RUN__", "ok", ""
+    cmd = ["claude", "-p", "--model", MODEL, "--allowedTools", ""]
     try:
-        p = subprocess.run(["claude", "-p", prompt], capture_output=True, text=True, timeout=900)
+        p = subprocess.run(cmd, input=prompt, capture_output=True, text=True,
+                           timeout=1200, cwd=NEUTRAL_CWD)
     except FileNotFoundError:
         sys.exit("The 'claude' CLI isn't on PATH. Install Claude Code and run "
                  "`claude` once to log in, then re-run this script.")
     except subprocess.TimeoutExpired:
-        return None, "error", "claude timed out after 900s"
+        return None, "error", "claude timed out after 1200s"
     out = (p.stdout or "").strip()
     err = (p.stderr or "").strip()
     raw = f"exit={p.returncode}" + (f"\n{out[-800:]}" if out else "") + (f"\n[stderr] {err[-500:]}" if err else "")
@@ -204,33 +225,61 @@ def localized(obj):
     return ""
 
 
-# ---------------------------------------------------------------- prompts
-LANG_NAME = {"en": "English (en)", "rm": "Romansh (rm)"}
+# ---------------------------------------------------------------- source text
+def fetch_source(url):
+    """Best-effort fetch of an official page's visible text, passed into the prompt
+    so the model doesn't need (expensive, tool-using) web access. '' on failure →
+    the item is skipped, never fabricated."""
+    if not url:
+        return ""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "PolitikchBot/1.0"})
+        with urllib.request.urlopen(req, timeout=25) as r:
+            raw = r.read(500_000).decode("utf-8", "replace")
+        raw = re.sub(r"(?is)<(script|style|nav|footer|header)[^>]*>.*?</\1>", " ", raw)
+        text = html.unescape(re.sub(r"(?s)<[^>]+>", " ", raw))
+        return re.sub(r"\s+", " ", text).strip()[:6000]
+    except Exception:
+        return ""
 
 
-def translation_prompt(official, missing):
-    src = "\n".join(f"{k.upper()}: {v}" for k, v in official.items())
-    want = " and ".join(LANG_NAME[lg] for lg in missing)
-    keys = ", ".join(f'"{lg}": "…"' for lg in missing)
-    return (f"Translate this official Swiss vote/act title into an UNOFFICIAL {want} title. "
-            "Keep it faithful and neutral; do not add words that aren't in the original. "
-            f"Return ONLY JSON: {{{keys}}}\n\n" + src)
-
-
-def overview_prompt(title, desc, url):
+# ---------------------------------------------------------------- batch prompts
+def tr_batch_prompt(batch):
+    """batch: list of (kind, id, official{de/fr/it}, cur, need[list])."""
+    lines = []
+    for _k, iid, official, _cur, need in batch:
+        src = " | ".join(f"{k.upper()}: {v}" for k, v in official.items())
+        lines.append(f'- id "{iid}" — need {",".join(need)} — {src}')
     return (
-        "You are writing a neutral, non-partisan explanation for an independent Swiss civic "
-        "reference site. Explain what would concretely change if this proposal is ACCEPTED, "
-        "in 5 detail levels (1 = one brief plain sentence … 5 = full technical account), in "
-        "en, de, fr, it, rm.\n"
-        "STRICT RULES: base it ONLY on the official text; if you cannot access the official "
-        "source, reply exactly {\"insufficient_source\": true} and nothing else. Never invent "
-        "figures, articles, dates or effects. Be non-partisan; never say whether accepting is "
-        "good or bad; no party positions.\n"
-        f"OFFICIAL SOURCE URL: {url}\nTITLE: {title}\nDESCRIPTION: {desc}\n\n"
-        "Return ONLY JSON: {\"lang\": {\"en\": [l1..l5], \"de\": [...], \"fr\": [...], "
-        "\"it\": [...], \"rm\": [...]}}"
+        "Translate each Swiss vote/act TITLE below into UNOFFICIAL versions in the requested "
+        "languages (en=English, rm=Romansh). Faithful and neutral; add no words not in the "
+        "original. Output ONLY a JSON object mapping each id to its requested translations, "
+        'e.g. {"<id>": {"en": "…", "rm": "…"}}. Include only the requested languages per item.\n\n'
+        "ITEMS:\n" + "\n".join(lines)
     )
+
+
+def ov_batch_prompt(batch):
+    """batch: list of (kind, id, title, desc, url, source)."""
+    blocks = []
+    for _k, iid, title, desc, _url, source in batch:
+        blocks.append(f'### id "{iid}"\nTITLE: {title}\nDESCRIPTION: {desc}\nOFFICIAL TEXT: {source}')
+    return (
+        "For each Swiss proposal below, explain what would concretely change if it is ACCEPTED, "
+        "in 5 detail levels (1 = one brief plain sentence … 5 = full technical account) in each "
+        "of en, de, fr, it, rm. Base it ONLY on that item's OFFICIAL TEXT; never invent figures, "
+        "articles, dates or effects. Be strictly non-partisan; never say whether accepting is "
+        "good or bad; no party positions. If an item's text is too thin, use "
+        '{"insufficient_source": true} for that id.\n'
+        'Output ONLY a JSON object mapping each id to {"lang": {"en":[l1..l5], "de":[...], '
+        '"fr":[...], "it":[...], "rm":[...]}} (or {"insufficient_source": true}).\n\n'
+        + "\n\n".join(blocks)
+    )
+
+
+def chunk(seq, n):
+    for i in range(0, len(seq), n):
+        yield seq[i:i + n]
 
 
 # ---------------------------------------------------------------- staging
@@ -258,76 +307,86 @@ def main():
     ap.add_argument("--dry-run", action="store_true", help="stage stubs without calling claude")
     args = ap.parse_args()
 
-    units = []
-    if args.task in ("translation", "all"):
-        units += [("translation", *t) for t in translation_tasks()]
-    if args.task in ("overview", "all"):
-        units += [("overview", *t) for t in overview_tasks()]
+    tr_units = translation_tasks() if args.task in ("translation", "all") else []
+    ov_units = overview_tasks() if args.task in ("overview", "all") else []
+    total_pending = len(tr_units) + len(ov_units)
 
     staged_before = count_staged()
-    if not units:
+    if not total_pending:
         print(f"Nothing left to generate. {staged_before} proposal(s) already staged for your review.")
         print("Open the review desk: python3 scripts/review_server.py  →  http://127.0.0.1:8777")
         return
 
-    cap = args.max if args.max else len(units)
-    print(f"Resuming: {len(units)} item(s) still to generate, {staged_before} already staged for review.")
-    print(f"Attempting up to {cap} this run (each finished item is saved as it completes; "
-          f"stops cleanly on a usage limit — or shows the real error if Claude can't run).\n")
-    made = 0
-    for unit in units:
-        if args.max and made >= args.max:
-            print(f"Reached --max ({args.max}). Run again later for the rest.")
+    print(f"Resuming: {total_pending} item(s) still to generate, {staged_before} already staged.")
+    print(f"Model: {MODEL} · batching {TR_BATCH} titles / {OV_BATCH} overviews per Claude call "
+          f"(fewer, cheaper calls). Stops cleanly on a usage limit; saves each item as it lands.\n")
+    made = [0]
+    remaining_cap = [args.max if args.max else 10**9]
+
+    def budget():  # items we may still generate this run
+        return remaining_cap[0] - made[0]
+
+    # ---- translations (batched) ----
+    stop = False
+    for batch in chunk(tr_units, TR_BATCH):
+        if stop or budget() <= 0:
             break
-        task = unit[0]
-        if task == "translation":
-            _, kind, item_id, official, cur, missing = unit
-            if not official:
-                continue
-            print(f"[translation] {kind}/{item_id}: {list(official.values())[0][:60]}")
-            text, status, raw = run_claude(translation_prompt(official, missing), args.dry_run)
-            if handle_stop(status, raw):
-                break
-            try:
-                got = {lg: f"DRY RUN {lg}" for lg in missing} if args.dry_run else parse_json(text)
-                for lg in missing:
-                    assert got.get(lg)
-            except Exception as e:  # noqa: BLE001
-                print(f"    ! could not parse translation ({e}); skipping.")
-                continue
-            # Keep any existing (e.g. hand-made) translation; only fill the missing language(s).
+        batch = batch[:budget()]
+        ids = ", ".join(b[1] for b in batch)
+        print(f"[translation ×{len(batch)}] {ids[:80]}")
+        text, status, raw = run_claude(tr_batch_prompt(batch), args.dry_run)
+        if handle_stop(status, raw):
+            stop = True
+            break
+        try:
+            obj = {b[1]: {lg: f"DRY RUN {lg}" for lg in b[4]} for b in batch} if args.dry_run else parse_json(text)
+        except Exception as e:  # noqa: BLE001
+            print(f"    ! could not parse this batch ({e}); skipping it."); continue
+        for _k, iid, official, cur, need in batch:
+            got = obj.get(iid) or {}
+            if not all(got.get(lg) for lg in need):
+                print(f"    · {iid}: model omitted a language; left pending."); continue
             proposal = {lg: (cur.get(lg) or got.get(lg)) for lg in ("en", "rm")}
-            rel = stage("translation", kind, item_id, {"official": official, "existing": cur, "proposal": proposal})
-        else:
-            _, kind, item_id, title, desc, url = unit
-            print(f"[overview] {kind}/{item_id}: {title[:60]}")
-            text, status, raw = run_claude(overview_prompt(title, desc, url), args.dry_run)
-            if handle_stop(status, raw):
-                break
-            if args.dry_run:
-                prop = {"lang": {lg: [f"DRY RUN {lg} L{i+1}" for i in range(LEVELS)] for lg in LANGS}}
-            else:
-                try:
-                    data = parse_json(text)
-                    if data.get("insufficient_source"):
-                        print("    · Claude couldn't reach the official source; skipping (not fabricated).")
-                        continue
-                    for lg in LANGS:
-                        assert isinstance(data["lang"][lg], list) and len(data["lang"][lg]) == LEVELS
-                    prop = {"lang": {lg: data["lang"][lg] for lg in LANGS}}
-                except Exception as e:  # noqa: BLE001
-                    print(f"    ! could not parse overview ({e}); skipping.")
-                    continue
-            rel = stage("overview", kind, item_id, {"title": title, "sourceUrl": url, "proposal": prop})
-        made += 1
-        print(f"    ✓ staged {rel}")
-        if not args.dry_run:
-            time.sleep(1)
+            stage("translation", _k, iid, {"official": official, "existing": cur, "proposal": proposal})
+            made[0] += 1
+
+    # ---- overviews (batched; source text fetched here, not by the model) ----
+    for batch in chunk(ov_units, OV_BATCH):
+        if stop or budget() <= 0:
+            break
+        batch = batch[:budget()]
+        enriched = []
+        for (_k, iid, title, desc, url) in batch:
+            src = "__DRY__" if args.dry_run else fetch_source(url)
+            if len(src) < 200 and not args.dry_run:
+                print(f"    · overview {iid}: no official text to ground it; skipped."); continue
+            enriched.append((_k, iid, title, desc, url, src))
+        if not enriched:
+            continue
+        print(f"[overview ×{len(enriched)}] {', '.join(b[1] for b in enriched)[:80]}")
+        text, status, raw = run_claude(ov_batch_prompt(enriched), args.dry_run)
+        if handle_stop(status, raw):
+            stop = True
+            break
+        try:
+            obj = {b[1]: {"lang": {lg: [f"DRY RUN {lg} L{i+1}" for i in range(LEVELS)] for lg in LANGS}} for b in enriched} if args.dry_run else parse_json(text)
+        except Exception as e:  # noqa: BLE001
+            print(f"    ! could not parse this batch ({e}); skipping it."); continue
+        for (_k, iid, title, desc, url, _src) in enriched:
+            data = obj.get(iid) or {}
+            if data.get("insufficient_source"):
+                print(f"    · overview {iid}: model reported insufficient source; skipped."); continue
+            try:
+                for lg in LANGS:
+                    assert isinstance(data["lang"][lg], list) and len(data["lang"][lg]) == LEVELS
+            except Exception:
+                print(f"    · overview {iid}: incomplete result; left pending."); continue
+            stage("overview", _k, iid, {"title": title, "sourceUrl": url, "proposal": {"lang": data["lang"]}})
+            made[0] += 1
 
     total_staged = count_staged()
-    remaining = len(units) - made
-    print(f"\nDone this run: {made} new proposal(s) generated.")
-    print(f"{total_staged} awaiting your review; {remaining} still to generate next time.")
+    print(f"\nDone this run: {made[0]} new proposal(s) generated.")
+    print(f"{total_staged} awaiting your review; {total_pending - made[0]} still to generate next time.")
     print("Review them: python3 scripts/review_server.py  →  http://127.0.0.1:8777")
 
 

@@ -354,6 +354,7 @@ textarea{min-height:70px;resize:vertical;line-height:1.5}
 <header><b>Politikch review desk</b><span class="tag">private · localhost only</span>
   <span class="run">
     <select id="task"><option value="all">All</option><option value="translation">Translations</option><option value="overview">Overviews</option></select>
+    <input id="max" type="number" min="0" placeholder="max" title="max items this run (blank = as many as your limit allows)" style="width:64px;padding:6px 8px;border-radius:8px;border:1px solid var(--border)">
     <label class="small" style="display:flex;gap:4px;align-items:center;margin:0;color:#fff"><input type="checkbox" id="dry"> dry-run</label>
     <button class="btn btn-run" id="run">▶ Run maintenance</button>
   </span>
@@ -371,7 +372,7 @@ async function runNow(){
   const b=document.getElementById('run'); b.disabled=true; const label=b.textContent; b.textContent='Running…';
   try{
     const r=await fetch('/api/run',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({task:document.getElementById('task').value,dryRun:document.getElementById('dry').checked})});
+      body:JSON.stringify({task:document.getElementById('task').value,max:parseInt(document.getElementById('max').value||'0',10)||0,dryRun:document.getElementById('dry').checked})});
     const j=await r.json();
     alert((j.ok?'Run finished.':'Run reported an issue.')+"\n\n"+(j.output||'')+(j.actions&&j.actions.length?("\n\nOfficial titles adopted: "+j.actions.length):''));
   }catch(e){ alert('Run failed: '+e); }
