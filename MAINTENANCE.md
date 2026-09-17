@@ -60,6 +60,12 @@ desk in the browser — everything is done from there:
   `POLITIKCH_OV_BATCH` if you want higher quality at higher cost.
 - **Review queue** — approve / edit / reject each staged proposal. Nothing goes
   live until you approve it.
+  *Overviews are generated for session votes only* (they have real per-item
+  official text via parlament.ch Curia Vista). Federal initiatives/referendums
+  are skipped because their only URL is a shared per-date ballot page with no
+  per-item text — generating one would mean fabricating. To enable them, wire a
+  real per-initiative text source (e.g. Swissvotes) and set
+  `POLITIKCH_OVERVIEW_INITIATIVES=1`.
 - **History** tab — every past run and change, with the exact text that was
   approved; filter by id/title to see, e.g., an initiative's translation from
   months ago.

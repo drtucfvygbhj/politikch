@@ -237,14 +237,26 @@ def translation_tasks():
     return tasks
 
 
+# Overviews are generated ONLY where we have real per-item official text to ground
+# them on. Session votes do (parlament.ch Curia Vista, keyed by businessNumber).
+# Federal initiatives/referendums do NOT: their only URL is a shared per-DATE
+# ballot page (bk.admin.ch/.../va/<date>/index.html), identical for every item
+# that day and JS-rendered, and their `desc` is a one-line composed summary — not
+# the text of what changes. Rather than fabricate (or spam "no source" for 60+
+# items each run), initiatives are skipped here until a proper per-initiative text
+# source is wired in (e.g. Swissvotes per-vote pages). See OVERVIEW_INITIATIVES.
+OVERVIEW_INITIATIVES = os.environ.get("POLITIKCH_OVERVIEW_INITIATIVES") == "1"
+
+
 def overview_tasks():
     tasks = []
-    for it in load_initiatives():
-        if os.path.exists(os.path.join(ROOT, "data/overviews/initiative", f"{it['id']}.json")):
-            continue
-        if queued("overview", "initiative", it["id"]):
-            continue
-        tasks.append(("initiative", it["id"], localized(it.get("title")), localized(it.get("desc")), it.get("url")))
+    if OVERVIEW_INITIATIVES:
+        for it in load_initiatives():
+            if os.path.exists(os.path.join(ROOT, "data/overviews/initiative", f"{it['id']}.json")):
+                continue
+            if queued("overview", "initiative", it["id"]):
+                continue
+            tasks.append(("initiative", it["id"], localized(it.get("title")), localized(it.get("desc")), it.get("url")))
     for v in load_session_votes():
         vid = str(v["id"])
         if os.path.exists(os.path.join(ROOT, "data/overviews/session", f"{vid}.json")):
