@@ -50,30 +50,64 @@ def write_json_atomic(path, obj):
 
 
 # ---------------------------------------------------------------- claude CLI
+# Phrases Claude Code actually uses when you're out of quota. Kept deliberately
+# specific — broad words like "out of" or "quota" falsely flagged normal replies.
+LIMIT_MARKERS = [
+    "usage limit", "rate limit", "reached your limit", "limit reached",
+    "limit will reset", "usage limit reached", "please try again later",
+    "too many requests", "overloaded",
+]
+
+
 def run_claude(prompt, dry_run=False):
-    """Return (text, limited). `limited` True means stop the whole run."""
+    """Return (text, status, raw). status is 'ok' | 'limit' | 'error'.
+    `raw` is a short transcript of what the CLI actually returned, so a stop is
+    never opaque."""
     if dry_run:
-        return "__DRY_RUN__", False
+        return "__DRY_RUN__", "ok", ""
     try:
         p = subprocess.run(["claude", "-p", prompt], capture_output=True, text=True, timeout=900)
     except FileNotFoundError:
         sys.exit("The 'claude' CLI isn't on PATH. Install Claude Code and run "
                  "`claude` once to log in, then re-run this script.")
     except subprocess.TimeoutExpired:
-        print("    ! claude timed out; stopping.")
-        return None, True
+        return None, "error", "claude timed out after 900s"
     out = (p.stdout or "").strip()
-    blob = (out + "\n" + (p.stderr or "")).lower()
-    limit_markers = ["usage limit", "rate limit", "limit reached", "limit exceeded",
-                     "quota", "try again later", "you've hit", "resets at", "out of"]
-    if p.returncode != 0 or any(m in blob for m in limit_markers):
-        return None, True
-    return out, False
+    err = (p.stderr or "").strip()
+    raw = f"exit={p.returncode}" + (f"\n{out[-800:]}" if out else "") + (f"\n[stderr] {err[-500:]}" if err else "")
+    blob = (out + "\n" + err).lower()
+    if any(m in blob for m in LIMIT_MARKERS):
+        return None, "limit", raw
+    if p.returncode != 0 or not out:
+        return None, "error", raw
+    return out, "ok", raw
 
 
 def parse_json(text):
     text = re.sub(r"^```(?:json)?\s*|\s*```$", "", (text or "").strip())
     return json.loads(text)
+
+
+def handle_stop(status, raw):
+    """Print why we're stopping and return True if the run should stop. Errors are
+    shown verbatim so a failing CLI is never mistaken for a usage limit."""
+    if status == "limit":
+        print("    · Claude usage limit reached — stopping. Progress so far is saved; "
+              "run again after it resets.")
+        return True
+    if status == "error":
+        low = (raw or "").lower()
+        if any(w in low for w in ("authenticate", "oauth", "not logged in", "log in", "login", "session expired", "unauthorized")):
+            print("    ! Claude is NOT LOGGED IN (its session expired) — this is not a usage limit.")
+            print("      Fix: open a terminal and run  claude  once to log in again, then click Run maintenance.")
+        else:
+            print("    ! Claude returned an ERROR (not a usage limit) — stopping so it isn't hidden.")
+            print("      Sanity-check in a terminal:  claude -p \"say OK\"")
+        print("      What `claude -p` actually returned:")
+        for line in (raw or "(no output)").splitlines():
+            print("        " + line)
+        return True
+    return False
 
 
 # ---------------------------------------------------------------- data helpers
@@ -239,7 +273,7 @@ def main():
     cap = args.max if args.max else len(units)
     print(f"Resuming: {len(units)} item(s) still to generate, {staged_before} already staged for review.")
     print(f"Attempting up to {cap} this run (each finished item is saved as it completes; "
-          f"stops cleanly when your usage limit is hit).\n")
+          f"stops cleanly on a usage limit — or shows the real error if Claude can't run).\n")
     made = 0
     for unit in units:
         if args.max and made >= args.max:
@@ -251,10 +285,8 @@ def main():
             if not official:
                 continue
             print(f"[translation] {kind}/{item_id}: {list(official.values())[0][:60]}")
-            text, limited = run_claude(translation_prompt(official, missing), args.dry_run)
-            if limited:
-                print("    · Claude usage limit reached — stopping. Progress so far is saved; "
-                      "run again after it resets.")
+            text, status, raw = run_claude(translation_prompt(official, missing), args.dry_run)
+            if handle_stop(status, raw):
                 break
             try:
                 got = {lg: f"DRY RUN {lg}" for lg in missing} if args.dry_run else parse_json(text)
@@ -269,10 +301,8 @@ def main():
         else:
             _, kind, item_id, title, desc, url = unit
             print(f"[overview] {kind}/{item_id}: {title[:60]}")
-            text, limited = run_claude(overview_prompt(title, desc, url), args.dry_run)
-            if limited:
-                print("    · Claude usage limit reached — stopping. Progress so far is saved; "
-                      "run again after it resets.")
+            text, status, raw = run_claude(overview_prompt(title, desc, url), args.dry_run)
+            if handle_stop(status, raw):
                 break
             if args.dry_run:
                 prop = {"lang": {lg: [f"DRY RUN {lg} L{i+1}" for i in range(LEVELS)] for lg in LANGS}}
