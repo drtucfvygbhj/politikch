@@ -16,17 +16,22 @@ no API key, no external calls of its own (the Run button shells out to the local
 
     python3 scripts/review_server.py    # → http://127.0.0.1:8777
 """
-import http.server, json, os, socketserver, subprocess, sys, threading, time, urllib.parse
+import http.server, json, os, signal, socketserver, subprocess, sys, threading, time, urllib.parse
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ai_maintain  # same folder — for backlog counts + the usage file path
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 QUEUE = os.path.join(ROOT, "review", "queue")
 HISTORY_DIR = os.path.join(ROOT, "review", "history")
 LOG = os.path.join(HISTORY_DIR, "log.jsonl")
 DISMISSED = os.path.join(HISTORY_DIR, "dismissed.json")
+USAGE_FILE = ai_maintain.USAGE_FILE
 LANGS = ["en", "de", "fr", "it", "rm"]
 LEVELS = 5
 PORT = int(os.environ.get("REVIEW_PORT", "8777"))
-_run_lock = threading.Lock()
+
+# Background maintenance run (so completed items pop up live and it's stoppable).
+RUN = {"proc": None, "thread": None, "lines": [], "running": False, "started": None, "args": None}
 
 
 # ---------------------------------------------------------------- io helpers
@@ -207,23 +212,92 @@ def notifications():
     return out
 
 
-# ---------------------------------------------------------------- run trigger
-def run_maintenance(task, max_items, dry_run):
-    cmd = [sys.executable, os.path.join(ROOT, "scripts", "ai_maintain.py"), "--task", task]
+# ---------------------------------------------------------------- run trigger (background + stoppable)
+def _reader(proc, args):
+    for line in iter(proc.stdout.readline, ""):
+        RUN["lines"].append(line.rstrip("\n"))
+        del RUN["lines"][:-500]
+    try:
+        proc.stdout.close()
+    except Exception:
+        pass
+    rc = proc.wait()
+    RUN["running"] = False
+    try:
+        reconcile()
+    except Exception:
+        pass
+    staged = sum(1 for _b, _d, fs in os.walk(QUEUE) for f in fs if f.endswith(".json"))
+    append_event({"type": "run", "task": args.get("task"), "dryRun": bool(args.get("dryRun")),
+                  "stopped": args.get("stopped", False), "ok": rc == 0, "stagedTotal": staged,
+                  "tail": "\n".join(RUN["lines"][-12:])})
+
+
+def start_run(task, max_items, dry_run):
+    if RUN["running"]:
+        return False
+    cmd = [sys.executable, "-u", os.path.join(ROOT, "scripts", "ai_maintain.py"), "--task", task]
     if max_items:
         cmd += ["--max", str(max_items)]
     if dry_run:
         cmd += ["--dry-run"]
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+                            cwd=ROOT, start_new_session=True, bufsize=1)
+    RUN.update(proc=proc, running=True, started=now(), lines=[],
+               args={"task": task, "dryRun": dry_run})
+    t = threading.Thread(target=_reader, args=(proc, RUN["args"]), daemon=True)
+    RUN["thread"] = t
+    t.start()
+    return True
+
+
+def stop_run():
+    proc = RUN.get("proc")
+    if proc and RUN["running"]:
+        RUN["args"]["stopped"] = True
+        try:
+            os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+            time.sleep(0.3)
+            if proc.poll() is None:
+                os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+        except Exception:
+            pass
+        RUN["running"] = False
+        return True
+    return False
+
+
+_backlog_cache = {"at": 0, "tr": None, "ov": None}
+
+
+def backlog_counts():
+    # Scanning every session file is a bit heavy; cache for a few seconds so
+    # the 2s status poll during a run stays cheap.
+    if time.time() - _backlog_cache["at"] > 8:
+        try:
+            _backlog_cache.update(at=time.time(),
+                                  tr=len(ai_maintain.translation_tasks()),
+                                  ov=len(ai_maintain.overview_tasks()))
+        except Exception:
+            _backlog_cache.update(at=time.time(), tr=None, ov=None)
+    return _backlog_cache["tr"], _backlog_cache["ov"]
+
+
+def usage_stats():
     try:
-        p = subprocess.run(cmd, capture_output=True, text=True, timeout=3600, cwd=ROOT)
-        out, err, rc = p.stdout or "", p.stderr or "", p.returncode
-    except Exception as e:  # noqa: BLE001
-        out, err, rc = "", str(e), -1
-    tail = "\n".join((out + ("\n" + err if err else "")).strip().splitlines()[-12:])
-    staged_now = sum(1 for _b, _d, fs in os.walk(QUEUE) for f in fs if f.endswith(".json"))
-    append_event({"type": "run", "task": task, "max": max_items, "dryRun": bool(dry_run),
-                  "ok": rc == 0, "stagedTotal": staged_now, "tail": tail})
-    return {"ok": rc == 0, "output": tail, "stagedTotal": staged_now}
+        u = json.load(open(USAGE_FILE, encoding="utf-8"))
+    except Exception:
+        u = {}
+    def avg(task):
+        t = u.get(task) or {}
+        return (t.get("cost", 0.0) / t["items"]) if t.get("items") else None
+    tr_avg, ov_avg = avg("translation"), avg("overview")
+    tr_left, ov_left = backlog_counts()
+    est = None
+    if tr_avg is not None and ov_avg is not None and tr_left is not None:
+        est = tr_left * tr_avg + ov_left * ov_avg
+    return {"perTask": u, "trAvg": tr_avg, "ovAvg": ov_avg,
+            "trLeft": tr_left, "ovLeft": ov_left, "estBacklogUsd": est}
 
 
 # ---------------------------------------------------------------- HTTP
@@ -252,6 +326,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
             if item:
                 evs = [e for e in evs if f"{e.get('kind')}/{e.get('id')}" == item]
             return self._send(200, json.dumps({"events": evs[:500]}, ensure_ascii=False))
+        if u.path == "/api/run/status":
+            return self._send(200, json.dumps({"running": RUN["running"], "started": RUN["started"],
+                                               "lines": RUN["lines"][-30:]}, ensure_ascii=False))
+        if u.path == "/api/usage":
+            return self._send(200, json.dumps(usage_stats(), ensure_ascii=False))
         self._send(404, json.dumps({"error": "not found"}))
 
     def do_POST(self):
@@ -264,14 +343,13 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
         try:
             if u.path == "/api/run":
-                if not _run_lock.acquire(blocking=False):
+                started = start_run(body.get("task", "all"), int(body.get("max", 0) or 0), bool(body.get("dryRun")))
+                if not started:
                     return self._send(409, json.dumps({"error": "a run is already in progress"}))
-                try:
-                    res = run_maintenance(body.get("task", "all"), int(body.get("max", 0) or 0), bool(body.get("dryRun")))
-                    res["actions"] = reconcile()
-                    return self._send(200, json.dumps(res, ensure_ascii=False))
-                finally:
-                    _run_lock.release()
+                return self._send(200, json.dumps({"started": True}))
+
+            if u.path == "/api/run/stop":
+                return self._send(200, json.dumps({"stopped": stop_run()}))
 
             if u.path == "/api/reconcile":
                 return self._send(200, json.dumps({"actions": reconcile()}, ensure_ascii=False))
@@ -350,6 +428,12 @@ textarea{min-height:70px;resize:vertical;line-height:1.5}
 .snap{background:var(--paper);border:1px solid var(--border);border-radius:8px;padding:10px;font-size:13px;white-space:pre-wrap;margin-top:6px}
 .hfilter{display:flex;gap:8px;margin-bottom:12px}.hfilter input{flex:1}
 .small{font-size:12px;color:var(--mid)}
+.pbar{max-width:940px;margin:12px auto 0;padding:0 22px}
+.runbox{background:#101010;color:#d6e5c8;border-radius:10px;padding:10px 14px;font:12px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;max-height:150px;overflow:auto}
+.ubox{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.umetric b{font-size:20px}.umetric{font-size:12px;color:var(--mid)}
+.ubar{height:10px;border-radius:6px;background:var(--paper);border:1px solid var(--border);overflow:hidden;min-width:120px}
+.ubar span{display:block;height:100%}
 </style></head><body>
 <header><b>Politikch review desk</b><span class="tag">private · localhost only</span>
   <span class="run">
@@ -357,9 +441,12 @@ textarea{min-height:70px;resize:vertical;line-height:1.5}
     <input id="max" type="number" min="0" placeholder="max" title="max items this run (blank = as many as your limit allows)" style="width:64px;padding:6px 8px;border-radius:8px;border:1px solid var(--border)">
     <label class="small" style="display:flex;gap:4px;align-items:center;margin:0;color:#fff"><input type="checkbox" id="dry"> dry-run</label>
     <button class="btn btn-run" id="run">▶ Run maintenance</button>
+    <button class="btn" id="stop" style="display:none;background:#7a1020;color:#fff;border-color:#7a1020">■ Stop</button>
   </span>
 </header>
 <div class="tabs"><div class="tab active" data-tab="review">Review queue</div><div class="tab" data-tab="history">History</div></div>
+<div id="runbar" class="pbar" style="display:none"></div>
+<div id="usage" class="pbar"></div>
 <main id="main"><p class="empty">Loading…</p></main>
 <script>
 const main=document.getElementById('main');
@@ -367,18 +454,54 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;',
 let TAB='review';
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===t));TAB=t.dataset.tab;render();});
 document.getElementById('run').onclick=runNow;
+document.getElementById('stop').onclick=async()=>{
+  document.getElementById('stop').disabled=true;
+  await fetch('/api/run/stop',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
+};
 
+let POLL=null;
+function setRunning(on){
+  document.getElementById('run').style.display=on?'none':'';
+  document.getElementById('stop').style.display=on?'':'none';
+  document.getElementById('stop').disabled=false;
+}
 async function runNow(){
-  const b=document.getElementById('run'); b.disabled=true; const label=b.textContent; b.textContent='Running…';
   try{
     const r=await fetch('/api/run',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({task:document.getElementById('task').value,max:parseInt(document.getElementById('max').value||'0',10)||0,dryRun:document.getElementById('dry').checked})});
     const j=await r.json();
-    alert((j.ok?'Run finished.':'Run reported an issue.')+"\n\n"+(j.output||'')+(j.actions&&j.actions.length?("\n\nOfficial titles adopted: "+j.actions.length):''));
-  }catch(e){ alert('Run failed: '+e); }
-  b.disabled=false; b.textContent=label; render();
+    if(j.error){ alert(j.error); return; }
+  }catch(e){ alert('Could not start: '+e); return; }
+  startPolling();
 }
-async function render(){ TAB==='review'?renderReview():renderHistory(); }
+function startPolling(){ setRunning(true); if(POLL) clearInterval(POLL); POLL=setInterval(pollStatus,2000); pollStatus(); }
+async function pollStatus(){
+  let s; try{ s=await (await fetch('/api/run/status')).json(); }catch(e){ return; }
+  const bar=document.getElementById('runbar'); bar.style.display='block';
+  const last=(s.lines||[]).slice(-8).join('\n');
+  bar.innerHTML=`<div class="runbox"><b>${s.running?'● Running — completed items appear below as they finish':'✓ Run finished'}</b>\n${esc(last)}</div>`;
+  setRunning(s.running);
+  if(TAB==='review') await renderReview();      // staged items pop up live
+  await renderUsage();
+  if(!s.running && POLL){ clearInterval(POLL); POLL=null; }
+}
+async function renderUsage(){
+  let u; try{ u=await (await fetch('/api/usage')).json(); }catch(e){ return; }
+  const box=document.getElementById('usage');
+  const money=v=>v==null?'—':('$'+v.toFixed(v<0.01?4:3));
+  const per=v=>(v&&v>0)?Math.floor(1/v):null;
+  const maxAvg=Math.max(u.trAvg||0,u.ovAvg||0,0.0001);
+  const bar=(v,c)=>`<div class="ubar"><span style="width:${Math.min(100,Math.round((v||0)/maxAvg*100))}%;background:${c}"></span></div>`;
+  const est=u.estBacklogUsd;
+  box.innerHTML=`<div class="ubox">
+    <div class="umetric">avg / translation<br><b>${money(u.trAvg)}</b> ${bar(u.trAvg,'#2f6f8f')}</div>
+    <div class="umetric">avg / overview<br><b>${money(u.ovAvg)}</b> ${bar(u.ovAvg,'#5b4a8a')}</div>
+    <div class="umetric">still to generate<br><b>${u.trLeft==null?'—':u.trLeft}</b> translations · <b>${u.ovLeft==null?'—':u.ovLeft}</b> overviews</div>
+    <div class="umetric">est. to finish backlog<br><b>${money(est)}</b>${est!=null?` <span class="small">(usage-cost proxy)</span>`:''}</div>
+    ${u.trAvg?`<div class="umetric">per $1 of usage<br><b>~${per(u.trAvg)||'—'}</b> translations${u.ovAvg?` · <b>~${per(u.ovAvg)||'—'}</b> overviews`:''}</div>`:'<div class="umetric small">Run once to measure average costs.</div>'}
+  </div>`;
+}
+async function render(){ TAB==='review'?renderReview():renderHistory(); renderUsage(); }
 
 async function renderReview(){
   const {items,notifications}=await (await fetch('/api/queue')).json();
@@ -439,6 +562,7 @@ function hcard(e){
   return `<div class="card"><div class="chd"><span class="pill ${pill}">${esc(e.type)}</span><span class="pill pill-${e.task}">${esc(e.task)}</span><span class="cid"><a href="#" data-item="${esc(e.kind+'/'+e.id)}">${esc(e.kind)} · ${esc(e.id)}</a></span>${when}</div><div class="ctitle">${esc(e.title||'')}</div>${snap}</div>`;
 }
 render();
+fetch('/api/run/status').then(r=>r.json()).then(s=>{ if(s.running) startPolling(); }).catch(()=>{});
 </script></body></html>"""
 
 
@@ -446,8 +570,9 @@ def main():
     os.makedirs(QUEUE, exist_ok=True)
     os.makedirs(HISTORY_DIR, exist_ok=True)
     reconcile()  # catch any official titles that appeared since last time
-    socketserver.TCPServer.allow_reuse_address = True
-    with socketserver.TCPServer(("127.0.0.1", PORT), Handler) as httpd:
+    socketserver.ThreadingTCPServer.allow_reuse_address = True
+    socketserver.ThreadingTCPServer.daemon_threads = True
+    with socketserver.ThreadingTCPServer(("127.0.0.1", PORT), Handler) as httpd:
         print(f"Review desk on http://127.0.0.1:{PORT}  (private; Ctrl+C to stop)")
         try:
             httpd.serve_forever()

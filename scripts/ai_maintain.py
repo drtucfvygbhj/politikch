@@ -79,12 +79,13 @@ LIMIT_MARKERS = [
 
 
 def run_claude(prompt, dry_run=False):
-    """Return (text, status, raw). status is 'ok' | 'limit' | 'error'.
-    The prompt goes in on stdin (batched prompts are long); the call uses a light
-    model, no tools, and a neutral cwd to keep the per-call overhead down."""
+    """Return (text, status, raw, cost). status is 'ok' | 'limit' | 'error'; cost
+    is the call's total_cost_usd (a proxy for how much of your limit it used).
+    Uses --output-format json so we get the cost + a clean result field. Prompt on
+    stdin; light model, no tools, neutral cwd to keep per-call overhead down."""
     if dry_run:
-        return "__DRY_RUN__", "ok", ""
-    cmd = ["claude", "-p", "--model", MODEL, "--allowedTools", ""]
+        return "__DRY_RUN__", "ok", "", 0.0
+    cmd = ["claude", "-p", "--model", MODEL, "--allowedTools", "", "--output-format", "json"]
     try:
         p = subprocess.run(cmd, input=prompt, capture_output=True, text=True,
                            timeout=1200, cwd=NEUTRAL_CWD)
@@ -92,16 +93,24 @@ def run_claude(prompt, dry_run=False):
         sys.exit("The 'claude' CLI isn't on PATH. Install Claude Code and run "
                  "`claude` once to log in, then re-run this script.")
     except subprocess.TimeoutExpired:
-        return None, "error", "claude timed out after 1200s"
+        return None, "error", "claude timed out after 1200s", 0.0
     out = (p.stdout or "").strip()
     err = (p.stderr or "").strip()
     raw = f"exit={p.returncode}" + (f"\n{out[-800:]}" if out else "") + (f"\n[stderr] {err[-500:]}" if err else "")
-    blob = (out + "\n" + err).lower()
+    text, cost, is_err = out, 0.0, False
+    try:  # JSON envelope from --output-format json
+        env = json.loads(out)
+        text = env.get("result", "") or ""
+        cost = float(env.get("total_cost_usd") or 0.0)
+        is_err = bool(env.get("is_error"))
+    except Exception:
+        pass  # auth/other failures print plain text, not JSON — handle below
+    blob = (out + "\n" + err + "\n" + text).lower()
     if any(m in blob for m in LIMIT_MARKERS):
-        return None, "limit", raw
-    if p.returncode != 0 or not out:
-        return None, "error", raw
-    return out, "ok", raw
+        return None, "limit", raw, cost
+    if p.returncode != 0 or is_err or not text.strip():
+        return None, "error", raw, cost
+    return text, "ok", raw, cost
 
 
 def parse_json(text):
@@ -298,6 +307,23 @@ def count_staged():
     return n
 
 
+# Running cost averages, so the review desk can predict how far your limit goes.
+USAGE_FILE = os.path.join(ROOT, "review", "usage.json")
+
+
+def record_usage(task, cost, items):
+    try:
+        u = json.load(open(USAGE_FILE, encoding="utf-8"))
+    except Exception:
+        u = {}
+    t = u.setdefault(task, {"items": 0, "cost": 0.0, "calls": 0})
+    t["items"] += items
+    t["cost"] += float(cost or 0.0)
+    t["calls"] += 1
+    u["updated"] = time.strftime("%Y-%m-%d %H:%M")
+    write_json_atomic(USAGE_FILE, u)
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser()
@@ -334,7 +360,7 @@ def main():
         batch = batch[:budget()]
         ids = ", ".join(b[1] for b in batch)
         print(f"[translation ×{len(batch)}] {ids[:80]}")
-        text, status, raw = run_claude(tr_batch_prompt(batch), args.dry_run)
+        text, status, raw, cost = run_claude(tr_batch_prompt(batch), args.dry_run)
         if handle_stop(status, raw):
             stop = True
             break
@@ -342,13 +368,17 @@ def main():
             obj = {b[1]: {lg: f"DRY RUN {lg}" for lg in b[4]} for b in batch} if args.dry_run else parse_json(text)
         except Exception as e:  # noqa: BLE001
             print(f"    ! could not parse this batch ({e}); skipping it."); continue
+        staged_here = 0
         for _k, iid, official, cur, need in batch:
             got = obj.get(iid) or {}
             if not all(got.get(lg) for lg in need):
                 print(f"    · {iid}: model omitted a language; left pending."); continue
             proposal = {lg: (cur.get(lg) or got.get(lg)) for lg in ("en", "rm")}
             stage("translation", _k, iid, {"official": official, "existing": cur, "proposal": proposal})
-            made[0] += 1
+            made[0] += 1; staged_here += 1
+        if not args.dry_run:
+            record_usage("translation", cost, staged_here)
+            print(f"    ≈ ${cost:.4f} for {staged_here} item(s)")
 
     # ---- overviews (batched; source text fetched here, not by the model) ----
     for batch in chunk(ov_units, OV_BATCH):
@@ -364,7 +394,7 @@ def main():
         if not enriched:
             continue
         print(f"[overview ×{len(enriched)}] {', '.join(b[1] for b in enriched)[:80]}")
-        text, status, raw = run_claude(ov_batch_prompt(enriched), args.dry_run)
+        text, status, raw, cost = run_claude(ov_batch_prompt(enriched), args.dry_run)
         if handle_stop(status, raw):
             stop = True
             break
@@ -372,6 +402,7 @@ def main():
             obj = {b[1]: {"lang": {lg: [f"DRY RUN {lg} L{i+1}" for i in range(LEVELS)] for lg in LANGS}} for b in enriched} if args.dry_run else parse_json(text)
         except Exception as e:  # noqa: BLE001
             print(f"    ! could not parse this batch ({e}); skipping it."); continue
+        staged_here = 0
         for (_k, iid, title, desc, url, _src) in enriched:
             data = obj.get(iid) or {}
             if data.get("insufficient_source"):
@@ -382,7 +413,10 @@ def main():
             except Exception:
                 print(f"    · overview {iid}: incomplete result; left pending."); continue
             stage("overview", _k, iid, {"title": title, "sourceUrl": url, "proposal": {"lang": data["lang"]}})
-            made[0] += 1
+            made[0] += 1; staged_here += 1
+        if not args.dry_run:
+            record_usage("overview", cost, staged_here)
+            print(f"    ≈ ${cost:.4f} for {staged_here} item(s)")
 
     total_staged = count_staged()
     print(f"\nDone this run: {made[0]} new proposal(s) generated.")
