@@ -46,11 +46,13 @@ desk in the browser — everything is done from there:
   = as many as your limit allows). It runs in the background: **completed items
   pop into the queue live**, and a **Stop** button halts it (anything not 100 %
   done is left for next time).
-  *Usage graphic:* shows measured average cost per translation / overview (from
-  each call's `total_cost_usd`), items still to generate, an estimated cost to
-  finish the backlog, and roughly how many items `$1` buys. Your plan's *remaining*
-  5-hour / weekly quota is not machine-readable, so this is a measured cost proxy,
-  not a live quota bar — pace runs with the **max** box.
+  *Usage graphic:* shows measured average **tokens** per translation / overview
+  (summed from each call's `usage`), items still to generate, and estimated tokens
+  to finish the backlog. Set your **5-hour budget (tokens)** and it predicts how
+  many items fit one 5-hour window at a 50/50 translation/overview split (e.g.
+  5,000,000 tokens ≈ 150 items = 75 + 75). Your plan's *remaining* quota isn't
+  machine-readable, so enter the window's token budget yourself; the per-item
+  averages are measured, not guessed.
   *Cost:* each `claude -p` call has heavy fixed overhead, so the tool defaults to
   **Haiku** and **batches** many items per call (20 titles / 3 overviews),
   tool-less, in a neutral dir. Change the model with `POLITIKCH_MODEL`

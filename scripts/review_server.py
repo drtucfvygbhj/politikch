@@ -283,21 +283,57 @@ def backlog_counts():
     return _backlog_cache["tr"], _backlog_cache["ov"]
 
 
-def usage_stats():
+def read_usage_file():
     try:
-        u = json.load(open(USAGE_FILE, encoding="utf-8"))
+        return json.load(open(USAGE_FILE, encoding="utf-8"))
     except Exception:
-        u = {}
-    def avg(task):
+        return {}
+
+
+def set_budget(tokens):
+    u = read_usage_file()
+    u["budget5h"] = int(tokens) if tokens else None
+    ai_maintain.write_json_atomic(USAGE_FILE, u)
+
+
+def usage_stats():
+    u = read_usage_file()
+    def avg_tokens(task):
         t = u.get(task) or {}
-        return (t.get("cost", 0.0) / t["items"]) if t.get("items") else None
-    tr_avg, ov_avg = avg("translation"), avg("overview")
+        return (t["tokens"] / t["items"]) if t.get("items") and t.get("tokens") else None
+    tr_avg, ov_avg = avg_tokens("translation"), avg_tokens("overview")
     tr_left, ov_left = backlog_counts()
-    est = None
-    if tr_avg is not None and ov_avg is not None and tr_left is not None:
-        est = tr_left * tr_avg + ov_left * ov_avg
-    return {"perTask": u, "trAvg": tr_avg, "ovAvg": ov_avg,
-            "trLeft": tr_left, "ovLeft": ov_left, "estBacklogUsd": est}
+    budget = u.get("budget5h")
+
+    # A 50/50 "average item" costs (avgTr+avgOv)/2 tokens; per pair we spend
+    # avgTr+avgOv. Predict per-5h from the user-set budget, and a budget-agnostic
+    # per-1M figure. Fall back to whichever task we've measured.
+    pred = {"budget5h": budget, "per5h": None, "per5hTr": None, "per5hOv": None,
+            "per1m": None, "basis": None}
+    if tr_avg and ov_avg:
+        pair = tr_avg + ov_avg
+        pred["basis"] = "both"
+        pred["per1m"] = int(1_000_000 / pair) * 2
+        if budget:
+            pairs = int(budget / pair)
+            pred.update(per5h=pairs * 2, per5hTr=pairs, per5hOv=pairs)
+    elif tr_avg:
+        pred["basis"] = "translation-only"
+        pred["per1m"] = int(1_000_000 / tr_avg)
+        if budget:
+            pred["per5h"] = int(budget / tr_avg)
+    elif ov_avg:
+        pred["basis"] = "overview-only"
+        pred["per1m"] = int(1_000_000 / ov_avg)
+        if budget:
+            pred["per5h"] = int(budget / ov_avg)
+
+    est_tokens = None
+    if tr_avg and ov_avg and tr_left is not None:
+        est_tokens = int(tr_left * tr_avg + ov_left * ov_avg)
+    return {"perTask": u, "trAvgTokens": tr_avg, "ovAvgTokens": ov_avg,
+            "trLeft": tr_left, "ovLeft": ov_left, "estBacklogTokens": est_tokens,
+            "predict": pred}
 
 
 # ---------------------------------------------------------------- HTTP
@@ -350,6 +386,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
             if u.path == "/api/run/stop":
                 return self._send(200, json.dumps({"stopped": stop_run()}))
+
+            if u.path == "/api/budget":
+                set_budget(body.get("tokens"))
+                return self._send(200, json.dumps({"ok": True}))
 
             if u.path == "/api/reconcile":
                 return self._send(200, json.dumps({"actions": reconcile()}, ensure_ascii=False))
@@ -485,21 +525,33 @@ async function pollStatus(){
   await renderUsage();
   if(!s.running && POLL){ clearInterval(POLL); POLL=null; }
 }
+function fmtTok(v){ if(v==null) return '—'; if(v>=1e6) return (v/1e6).toFixed(2)+'M'; if(v>=1e3) return Math.round(v/1e3)+'k'; return Math.round(v); }
 async function renderUsage(){
   let u; try{ u=await (await fetch('/api/usage')).json(); }catch(e){ return; }
   const box=document.getElementById('usage');
-  const money=v=>v==null?'—':('$'+v.toFixed(v<0.01?4:3));
-  const per=v=>(v&&v>0)?Math.floor(1/v):null;
-  const maxAvg=Math.max(u.trAvg||0,u.ovAvg||0,0.0001);
+  const maxAvg=Math.max(u.trAvgTokens||0,u.ovAvgTokens||0,1);
   const bar=(v,c)=>`<div class="ubar"><span style="width:${Math.min(100,Math.round((v||0)/maxAvg*100))}%;background:${c}"></span></div>`;
-  const est=u.estBacklogUsd;
+  const p=u.predict||{};
+  // 5h prediction block
+  let predHtml;
+  if(p.per5h!=null){
+    const split=(p.per5hTr!=null)?` <span class="small">(${p.per5hTr} translations + ${p.per5hOv} overviews)</span>`:'';
+    predHtml=`<div class="umetric">≈ items per 5-hour limit (50/50)<br><b style="font-size:22px">${p.per5h}</b>${split}${p.basis!=='both'?' <span class="small">— '+p.basis+' (overview cost not measured yet)</span>':''}</div>`;
+  } else if(p.per1m!=null){
+    predHtml=`<div class="umetric">per 1M tokens (50/50)<br><b>~${p.per1m}</b> items${p.basis!=='both'?' <span class="small">('+p.basis+')</span>':''}<br><span class="small">set your 5h budget →</span></div>`;
+  } else {
+    predHtml=`<div class="umetric small">Run once to measure token costs, then set your 5h budget for a prediction.</div>`;
+  }
   box.innerHTML=`<div class="ubox">
-    <div class="umetric">avg / translation<br><b>${money(u.trAvg)}</b> ${bar(u.trAvg,'#2f6f8f')}</div>
-    <div class="umetric">avg / overview<br><b>${money(u.ovAvg)}</b> ${bar(u.ovAvg,'#5b4a8a')}</div>
+    <div class="umetric">avg tokens / translation<br><b>${fmtTok(u.trAvgTokens)}</b> ${bar(u.trAvgTokens,'#2f6f8f')}</div>
+    <div class="umetric">avg tokens / overview<br><b>${fmtTok(u.ovAvgTokens)}</b> ${bar(u.ovAvgTokens,'#5b4a8a')}</div>
     <div class="umetric">still to generate<br><b>${u.trLeft==null?'—':u.trLeft}</b> translations · <b>${u.ovLeft==null?'—':u.ovLeft}</b> overviews</div>
-    <div class="umetric">est. to finish backlog<br><b>${money(est)}</b>${est!=null?` <span class="small">(usage-cost proxy)</span>`:''}</div>
-    ${u.trAvg?`<div class="umetric">per $1 of usage<br><b>~${per(u.trAvg)||'—'}</b> translations${u.ovAvg?` · <b>~${per(u.ovAvg)||'—'}</b> overviews`:''}</div>`:'<div class="umetric small">Run once to measure average costs.</div>'}
+    <div class="umetric">est. tokens to finish backlog<br><b>${fmtTok(u.estBacklogTokens)}</b></div>
+    <div class="umetric">5-hour budget (tokens)<br><input id="budget" type="number" min="0" value="${p.budget5h||''}" placeholder="e.g. 5000000" style="width:120px;padding:5px 8px;border:1px solid var(--border);border-radius:6px"> <button class="btn" id="savebudget" style="padding:5px 10px">Save</button></div>
+    ${predHtml}
   </div>`;
+  const sb=document.getElementById('savebudget');
+  if(sb) sb.onclick=async()=>{ await fetch('/api/budget',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tokens:parseInt(document.getElementById('budget').value||'0',10)||0})}); renderUsage(); };
 }
 async function render(){ TAB==='review'?renderReview():renderHistory(); renderUsage(); }
 

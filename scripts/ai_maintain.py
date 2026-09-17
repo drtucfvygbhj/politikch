@@ -84,7 +84,7 @@ def run_claude(prompt, dry_run=False):
     Uses --output-format json so we get the cost + a clean result field. Prompt on
     stdin; light model, no tools, neutral cwd to keep per-call overhead down."""
     if dry_run:
-        return "__DRY_RUN__", "ok", "", 0.0
+        return "__DRY_RUN__", "ok", "", 0.0, 0
     cmd = ["claude", "-p", "--model", MODEL, "--allowedTools", "", "--output-format", "json"]
     try:
         p = subprocess.run(cmd, input=prompt, capture_output=True, text=True,
@@ -93,24 +93,27 @@ def run_claude(prompt, dry_run=False):
         sys.exit("The 'claude' CLI isn't on PATH. Install Claude Code and run "
                  "`claude` once to log in, then re-run this script.")
     except subprocess.TimeoutExpired:
-        return None, "error", "claude timed out after 1200s", 0.0
+        return None, "error", "claude timed out after 1200s", 0.0, 0
     out = (p.stdout or "").strip()
     err = (p.stderr or "").strip()
     raw = f"exit={p.returncode}" + (f"\n{out[-800:]}" if out else "") + (f"\n[stderr] {err[-500:]}" if err else "")
-    text, cost, is_err = out, 0.0, False
+    text, cost, tokens, is_err = out, 0.0, 0, False
     try:  # JSON envelope from --output-format json
         env = json.loads(out)
         text = env.get("result", "") or ""
         cost = float(env.get("total_cost_usd") or 0.0)
+        u = env.get("usage") or {}
+        tokens = int((u.get("input_tokens") or 0) + (u.get("output_tokens") or 0)
+                     + (u.get("cache_creation_input_tokens") or 0) + (u.get("cache_read_input_tokens") or 0))
         is_err = bool(env.get("is_error"))
     except Exception:
         pass  # auth/other failures print plain text, not JSON — handle below
     blob = (out + "\n" + err + "\n" + text).lower()
     if any(m in blob for m in LIMIT_MARKERS):
-        return None, "limit", raw, cost
+        return None, "limit", raw, cost, tokens
     if p.returncode != 0 or is_err or not text.strip():
-        return None, "error", raw, cost
-    return text, "ok", raw, cost
+        return None, "error", raw, cost, tokens
+    return text, "ok", raw, cost, tokens
 
 
 def parse_json(text):
@@ -311,13 +314,14 @@ def count_staged():
 USAGE_FILE = os.path.join(ROOT, "review", "usage.json")
 
 
-def record_usage(task, cost, items):
+def record_usage(task, cost, tokens, items):
     try:
         u = json.load(open(USAGE_FILE, encoding="utf-8"))
     except Exception:
         u = {}
-    t = u.setdefault(task, {"items": 0, "cost": 0.0, "calls": 0})
+    t = u.setdefault(task, {"items": 0, "tokens": 0, "cost": 0.0, "calls": 0})
     t["items"] += items
+    t["tokens"] += int(tokens or 0)
     t["cost"] += float(cost or 0.0)
     t["calls"] += 1
     u["updated"] = time.strftime("%Y-%m-%d %H:%M")
@@ -360,7 +364,7 @@ def main():
         batch = batch[:budget()]
         ids = ", ".join(b[1] for b in batch)
         print(f"[translation ×{len(batch)}] {ids[:80]}")
-        text, status, raw, cost = run_claude(tr_batch_prompt(batch), args.dry_run)
+        text, status, raw, cost, tokens = run_claude(tr_batch_prompt(batch), args.dry_run)
         if handle_stop(status, raw):
             stop = True
             break
@@ -377,8 +381,8 @@ def main():
             stage("translation", _k, iid, {"official": official, "existing": cur, "proposal": proposal})
             made[0] += 1; staged_here += 1
         if not args.dry_run:
-            record_usage("translation", cost, staged_here)
-            print(f"    ≈ ${cost:.4f} for {staged_here} item(s)")
+            record_usage("translation", cost, tokens, staged_here)
+            print(f"    ≈ {tokens:,} tokens for {staged_here} item(s)")
 
     # ---- overviews (batched; source text fetched here, not by the model) ----
     for batch in chunk(ov_units, OV_BATCH):
@@ -394,7 +398,7 @@ def main():
         if not enriched:
             continue
         print(f"[overview ×{len(enriched)}] {', '.join(b[1] for b in enriched)[:80]}")
-        text, status, raw, cost = run_claude(ov_batch_prompt(enriched), args.dry_run)
+        text, status, raw, cost, tokens = run_claude(ov_batch_prompt(enriched), args.dry_run)
         if handle_stop(status, raw):
             stop = True
             break
@@ -415,8 +419,8 @@ def main():
             stage("overview", _k, iid, {"title": title, "sourceUrl": url, "proposal": {"lang": data["lang"]}})
             made[0] += 1; staged_here += 1
         if not args.dry_run:
-            record_usage("overview", cost, staged_here)
-            print(f"    ≈ ${cost:.4f} for {staged_here} item(s)")
+            record_usage("overview", cost, tokens, staged_here)
+            print(f"    ≈ {tokens:,} tokens for {staged_here} item(s)")
 
     total_staged = count_staged()
     print(f"\nDone this run: {made[0]} new proposal(s) generated.")
