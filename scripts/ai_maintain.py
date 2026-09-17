@@ -237,26 +237,77 @@ def translation_tasks():
     return tasks
 
 
-# Overviews are generated ONLY where we have real per-item official text to ground
-# them on. Session votes do (parlament.ch Curia Vista, keyed by businessNumber).
-# Federal initiatives/referendums do NOT: their only URL is a shared per-DATE
-# ballot page (bk.admin.ch/.../va/<date>/index.html), identical for every item
-# that day and JS-rendered, and their `desc` is a one-line composed summary — not
-# the text of what changes. Rather than fabricate (or spam "no source" for 60+
-# items each run), initiatives are skipped here until a proper per-initiative text
-# source is wired in (e.g. Swissvotes per-vote pages). See OVERVIEW_INITIATIVES.
-OVERVIEW_INITIATIVES = os.environ.get("POLITIKCH_OVERVIEW_INITIATIVES") == "1"
+# ---- Swissvotes → parliamentary business number, for grounding INITIATIVE
+# overviews. A federal vote has no per-item official text in our data, but the
+# Swissvotes dataset maps each vote (by date + title) to its Geschäftsnummer
+# (gesch_nr, e.g. "24.092"), which is the parliament.ch OData Business id
+# (2000+YY)*10000+NNNN — so we reuse the same real official text as session votes.
+SWISSVOTES_CSV = "https://swissvotes.ch/page/dataset/swissvotes_dataset.csv"
+_sv_index = None
+
+
+def _toks(s):
+    return set(w for w in re.findall(r"[a-zäöüéèà]+", (s or "").lower()) if len(w) > 3)
+
+
+def _gesch_to_business_id(g):
+    m = re.match(r"(\d{2})\.(\d+)", (g or "").strip())
+    return (2000 + int(m.group(1))) * 10000 + int(m.group(2)) if m else None
+
+
+def swissvotes_index():
+    """[{date:'YYYY-MM-DD', tokens:set, bid:int}] from the Swissvotes CSV, cached
+    per process. [] on failure → initiative overviews just skip (never fabricate)."""
+    global _sv_index
+    if _sv_index is not None:
+        return _sv_index
+    _sv_index = []
+    try:
+        import csv, io, urllib.request
+        raw = urllib.request.urlopen(urllib.request.Request(
+            SWISSVOTES_CSV, headers={"User-Agent": "PolitikchBot/1.0"}), timeout=90).read().decode("utf-8", "replace")
+        for r in csv.DictReader(io.StringIO(raw), delimiter=";"):
+            m = re.match(r"(\d{2})\.(\d{2})\.(\d{4})", (r.get("datum") or "").strip())
+            bid = _gesch_to_business_id(r.get("gesch_nr"))
+            if not m or not bid:
+                continue
+            _sv_index.append({"date": f"{m.group(3)}-{m.group(2)}-{m.group(1)}",
+                              "tokens": _toks(r.get("titel_off_d") or r.get("titel_kurz_d")),
+                              "bid": bid})
+    except Exception as e:  # noqa: BLE001
+        print(f"    · Swissvotes lookup unavailable ({e}); initiative overviews skipped.", file=sys.stderr)
+    return _sv_index
+
+
+def initiative_business_id(vote_date_iso, title):
+    """Match an initiative to its parliamentary business id via Swissvotes
+    (same date + best title-token overlap). None if no confident match."""
+    if not vote_date_iso:
+        return None
+    want = _toks(title)
+    best = (1, None)  # require overlap >= 2 to avoid a wrong match
+    for row in swissvotes_index():
+        if row["date"] != vote_date_iso:
+            continue
+        ov = len(want & row["tokens"])
+        if ov > best[0]:
+            best = (ov, row["bid"])
+    return best[1]
 
 
 def overview_tasks():
     tasks = []
-    if OVERVIEW_INITIATIVES:
-        for it in load_initiatives():
-            if os.path.exists(os.path.join(ROOT, "data/overviews/initiative", f"{it['id']}.json")):
-                continue
-            if queued("overview", "initiative", it["id"]):
-                continue
-            tasks.append(("initiative", it["id"], localized(it.get("title")), localized(it.get("desc")), it.get("url"), None))
+    for it in load_initiatives():
+        iid = it["id"]
+        if os.path.exists(os.path.join(ROOT, "data/overviews/initiative", f"{iid}.json")):
+            continue
+        if queued("overview", "initiative", iid):
+            continue
+        bid = initiative_business_id(it.get("voteDate"), localized(it.get("title")))
+        if not bid:
+            continue  # no groundable official text (unmatched) — skip, don't fabricate
+        url = f"https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId={bid}"
+        tasks.append(("initiative", iid, localized(it.get("title")), localized(it.get("desc")), url, bid))
     for v in load_session_votes():
         vid = str(v["id"])
         if os.path.exists(os.path.join(ROOT, "data/overviews/session", f"{vid}.json")):
