@@ -113,8 +113,13 @@ def official_titles(title):
 
 
 # ---------------------------------------------------------------- task discovery
-def _missing_langs(cur):
-    return [lg for lg in ("en", "rm") if not cur.get(lg)]
+def _needed_langs(cur, title):
+    """Languages we still need to generate: en/rm that are absent from BOTH our
+    translations AND the official title. If the official title already has a
+    language (e.g. official English on federal initiatives), we never generate an
+    unofficial one for it — the site uses the official version."""
+    official = title if isinstance(title, dict) else {}
+    return [lg for lg in ("en", "rm") if not official.get(lg) and not cur.get(lg)]
 
 
 def translation_tasks():
@@ -122,16 +127,16 @@ def translation_tasks():
     for it in load_initiatives():
         cur = existing_titles("initiative").get(it["id"]) or {}
         cur = cur if isinstance(cur, dict) else {"en": cur}
-        missing = _missing_langs(cur)
-        if missing and not queued("translation", "initiative", it["id"]):
-            tasks.append(("initiative", it["id"], official_titles(it.get("title")), cur, missing))
+        need = _needed_langs(cur, it.get("title"))
+        if need and not queued("translation", "initiative", it["id"]):
+            tasks.append(("initiative", it["id"], official_titles(it.get("title")), cur, need))
     for v in load_session_votes():
         vid = str(v["id"])
         cur = existing_titles("session").get(vid) or {}
         cur = cur if isinstance(cur, dict) else {"en": cur}
-        missing = _missing_langs(cur)
-        if missing and not queued("translation", "session", vid):
-            tasks.append(("session", vid, official_titles(v.get("title")), cur, missing))
+        need = _needed_langs(cur, v.get("title"))
+        if need and not queued("translation", "session", vid):
+            tasks.append(("session", vid, official_titles(v.get("title")), cur, need))
     return tasks
 
 

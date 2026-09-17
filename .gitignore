@@ -16,4 +16,4 @@ node_modules/
 __pycache__/
 
 # Local AI-maintenance review queue (staged proposals, not shared)
-review/queue/
+review/

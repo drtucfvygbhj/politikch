@@ -34,21 +34,28 @@ data" run succeeded, and skim any issue it opened. That's the core routine.
 
 ## 2. AI-assisted upkeep — one local trigger + a private review desk
 
-**Every week, double-click `Weekly Update.command`.** That one file does the
-whole routine: it runs every Claude process (title translations **and** vote
-overviews), then opens the private review desk in your browser so you can approve
-or edit everything before it goes live.
+**Every week, double-click `Weekly Update.command`.** It opens your private review
+desk in the browser — everything is done from there:
 
-It uses the **local `claude` CLI** — your logged-in Claude subscription, so **no
-API key** is stored anywhere, and it spends normal subscription quota bound by the
-5-hour and weekly limits. If a limit is hit, it stops and leaves the rest for next
-time. Nothing it produces goes live until **you approve it**.
+- **▶ Run maintenance** button — triggers every Claude process (title
+  translations **and** vote overviews). It uses the **local `claude` CLI** (your
+  logged-in subscription, **no API key**), spends normal quota bound by the 5-hour
+  and weekly limits, and stops the moment a limit is hit, saving progress. Runs
+  are **resumable** — click again anytime to continue from the first unfinished
+  item.
+- **Review queue** — approve / edit / reject each staged proposal. Nothing goes
+  live until you approve it.
+- **History** tab — every past run and change, with the exact text that was
+  approved; filter by id/title to see, e.g., an initiative's translation from
+  months ago.
+- **Official-title handover** — if an official title in a language is published
+  upstream after we generated an unofficial one, the site uses the official one
+  automatically and a **notification** appears here (our redundant one is retired).
 
-Under the hood the one-click file just runs these two (you can also run them
-directly):
+Under the hood the desk runs these (you can also run them directly):
 ```bash
-python3 scripts/ai_maintain.py       # stage a small batch (--task / --max to tune)
-python3 scripts/review_server.py     # review desk → http://127.0.0.1:8777
+python3 scripts/ai_maintain.py       # stage proposals (--task / --max to tune)
+python3 scripts/review_server.py     # the review desk → http://127.0.0.1:8777
 ```
 - **It resumes.** Each finished item is saved the moment it's 100% complete;
   the next click skips everything already live or staged and continues at the

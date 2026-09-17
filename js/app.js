@@ -1407,7 +1407,7 @@ function renderInitiativePage(id) {
   // Title text only; the "unofficial translation" badge sits on its own line
   // beneath the title and above the date/status line.
   document.getElementById('initiative-title').textContent = initTitlePlain(init);
-  document.getElementById('initiative-badge-line').innerHTML = initEnTitle(init) ? unofficialBadge() : '';
+  document.getElementById('initiative-badge-line').innerHTML = initIsUnofficial(init) ? unofficialBadge() : '';
   document.getElementById('initiative-date').textContent = localized(init.date);
 
   // Signature-gathering initiatives get a "where to sign" callout pointing to
@@ -2142,12 +2142,14 @@ function businessUrl(v) {
 // translation exists yet we fall back to the official original with a language chip.
 function voteTitleHTML(v) {
   const title = v.title || {};
+  // An OFFICIAL title in the current language always wins over our unofficial
+  // one (e.g. if an official English title is later published upstream).
+  const cur = title[state.lang];
+  if (cur) return `<span class="svote-title-text">${cur}</span>`;
   const en = voteTransTitle(v);
   if (en) {
     return `<span class="svote-title-text">${en}</span>${unofficialBadge()}`;
   }
-  const cur = title[state.lang];
-  if (cur) return `<span class="svote-title-text">${cur}</span>`;
   const order = ['de', 'fr', 'it'];
   const lang = order.find(l => title[l]) || Object.keys(title)[0];
   const text = title[lang] || v.business || '';
@@ -2156,7 +2158,8 @@ function voteTitleHTML(v) {
 }
 function voteTitlePlain(v) {
   const title = v.title || {};
-  return voteTransTitle(v) || title[state.lang] || title.de || title.fr || title.it || v.business || '';
+  // Official current-language title wins over the unofficial translation.
+  return title[state.lang] || voteTransTitle(v) || title.de || title.fr || title.it || v.business || '';
 }
 
 // A small "unofficial translation" badge whose full explanation shows on
@@ -2177,12 +2180,22 @@ function initEnTitle(init) {
   if (!e) return null;
   return (typeof e === 'string') ? (state.lang === 'en' ? e : null) : (e[state.lang] || null);
 }
+// True when we'd actually be showing our unofficial translation (i.e. the
+// official title has no entry for the current language). Once an official
+// title in that language exists, it supersedes ours automatically.
+function initIsUnofficial(init) {
+  return !(init.title && init.title[state.lang]) && !!initEnTitle(init);
+}
 function initTitleHTML(init, interactive) {
+  const official = init.title && init.title[state.lang];
+  if (official) return `<span class="init-title-text">${official}</span>`;
   const en = initEnTitle(init);
   if (en) return `<span class="init-title-text">${en}</span>${unofficialBadge(interactive)}`;
   return `<span class="init-title-text">${localized(init.title)}</span>`;
 }
-function initTitlePlain(init) { return initEnTitle(init) || localized(init.title); }
+function initTitlePlain(init) {
+  return (init.title && init.title[state.lang]) || initEnTitle(init) || localized(init.title);
+}
 
 /* ---- Sessions list page (#/sessions) ---- */
 function renderSessionsPage() {
