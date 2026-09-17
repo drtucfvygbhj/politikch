@@ -43,7 +43,14 @@ desk in the browser — everything is done from there:
   and weekly limits, and stops the moment a limit is hit, saving progress. Runs
   are **resumable** — click again anytime to continue from the first unfinished
   item. Use the **max** box to cap how many items a single click attempts (blank
-  = as many as your limit allows).
+  = as many as your limit allows). It runs in the background: **completed items
+  pop into the queue live**, and a **Stop** button halts it (anything not 100 %
+  done is left for next time).
+  *Usage graphic:* shows measured average cost per translation / overview (from
+  each call's `total_cost_usd`), items still to generate, an estimated cost to
+  finish the backlog, and roughly how many items `$1` buys. Your plan's *remaining*
+  5-hour / weekly quota is not machine-readable, so this is a measured cost proxy,
+  not a live quota bar — pace runs with the **max** box.
   *Cost:* each `claude -p` call has heavy fixed overhead, so the tool defaults to
   **Haiku** and **batches** many items per call (20 titles / 3 overviews),
   tool-less, in a neutral dir. Change the model with `POLITIKCH_MODEL`
