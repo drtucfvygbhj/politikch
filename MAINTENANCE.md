@@ -50,6 +50,11 @@ directly):
 python3 scripts/ai_maintain.py       # stage a small batch (--task / --max to tune)
 python3 scripts/review_server.py     # review desk → http://127.0.0.1:8777
 ```
+- **It resumes.** Each finished item is saved the moment it's 100% complete;
+  the next click skips everything already live or staged and continues at the
+  first unfinished item — a few minutes later, after the hourly limit resets, or
+  weeks later. By default it does as many as your limit allows (then stops
+  cleanly); you can approve staged items any time in between.
 - `ai_maintain.py` never touches live data — it writes proposals to
   `review/queue/…` (git-ignored). It skips items it can't ground in an official
   source rather than fabricating.
