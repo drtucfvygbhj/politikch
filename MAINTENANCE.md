@@ -34,20 +34,21 @@ data" run succeeded, and skim any issue it opened. That's the core routine.
 
 ## 2. AI-assisted upkeep — one local trigger + a private review desk
 
-All AI-assisted maintenance (title translations **and** vote overviews) runs
-through **one local tool you trigger by hand**, on whatever interval you like. It
-uses the **local `claude` CLI** — your logged-in Claude subscription, so **no API
-key** is stored anywhere, and it spends normal subscription quota bound by the
-5-hour and weekly limits. If a limit is hit, it stops and leaves the rest for
-next time. Nothing it produces goes live until **you approve it**.
+**Every week, double-click `Weekly Update.command`.** That one file does the
+whole routine: it runs every Claude process (title translations **and** vote
+overviews), then opens the private review desk in your browser so you can approve
+or edit everything before it goes live.
 
+It uses the **local `claude` CLI** — your logged-in Claude subscription, so **no
+API key** is stored anywhere, and it spends normal subscription quota bound by the
+5-hour and weekly limits. If a limit is hit, it stops and leaves the rest for next
+time. Nothing it produces goes live until **you approve it**.
+
+Under the hood the one-click file just runs these two (you can also run them
+directly):
 ```bash
-# 1) Stage a small batch of proposals (translations + overviews). --max keeps
-#    each run within limits; it stops early if Claude reports a usage limit.
-python3 scripts/ai_maintain.py            # or --task translation / --task overview
-
-# 2) Review, edit, approve — a private page bound to 127.0.0.1 (only you):
-python3 scripts/review_server.py          # → http://127.0.0.1:8777
+python3 scripts/ai_maintain.py       # stage a small batch (--task / --max to tune)
+python3 scripts/review_server.py     # review desk → http://127.0.0.1:8777
 ```
 - `ai_maintain.py` never touches live data — it writes proposals to
   `review/queue/…` (git-ignored). It skips items it can't ground in an official
@@ -142,7 +143,11 @@ these are legal-consequence claims on a non-partisan site.
 ---
 
 ### One-glance weekly checklist
-1. Actions tab → "Fetch live data" green & committed?
-2. Any new GitHub issue for translations? → fill `*-translations.json`.
-3. Changed data/i18n by hand this week? → run `validate.py` before pushing (cache token is auto-bumped on deploy).
-4. (Once live) poll backend healthy?
+1. **Double-click `Weekly Update.command`** → let Claude stage proposals, then
+   approve/edit them in the review desk that opens. Commit & push the approved
+   data files.
+2. Actions tab → "Fetch live data" green & committed?
+3. (Once live) poll backend healthy?
+
+(The cache token is auto-bumped on deploy; `validate.py` runs in CI — run it
+locally only if you hand-edited data before pushing.)
