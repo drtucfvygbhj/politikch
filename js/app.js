@@ -2785,7 +2785,7 @@ function renderVotesPage() {
    ============================================================ */
 // 'about' and 'privacy' are now dedicated i18n-driven routes (#/about, #/privacy),
 // so they're not listed among the legal.json info pages' cross-navigation.
-const INFO_SLUGS = ['methodology', 'sources', 'legal', 'contact'];
+const INFO_SLUGS = ['methodology', 'sources', 'feedback', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
@@ -2891,7 +2891,7 @@ function openContactForm(origin, trigger) {
 // Fixed English category prefix per page (stable for inbox filtering).
 function contactOriginForSlug(slug) {
   return slug === 'legal' ? 'Legal notice'
-    : slug === 'contact' ? 'General enquiry'
+    : slug === 'feedback' ? 'Feedback'
     : 'General enquiry';
 }
 

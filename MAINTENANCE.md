@@ -133,11 +133,12 @@ See `BACKEND.md`. Once `js/config.js` `POLL_API` is set:
   it. TLS auto-renews (GitHub/Let's Encrypt).
 - The contact-form addresses in `data/legal.json` (`_meta.contactRoutes`) must
   keep delivering to a real inbox. They are Hostpoint aliases —
-  `contact.form@`, `privacy@`, `legal.notice@`, `subscriptions@politikch.ch` —
-  all forwarding to the **privacy@politikch.ch** inbox. Each category routes to
-  its own address so Apple Mail rules can filter on the **To:** header (add one
-  rule per address, e.g. *To contains `privacy@politikch.ch` → Privacy*); the
-  subject also carries the category as a secondary, human-readable filter.
+  `contact.form@`, `privacy@`, `legal.notice@`, `feedback@politikch.ch` — all
+  forwarding to the **privacy@politikch.ch** inbox. Each category routes to its
+  own address so Apple Mail rules can filter on the **To:** header (add one rule
+  per address, e.g. *To contains `privacy@politikch.ch` → Privacy*); the subject
+  also carries the category as a secondary, human-readable filter. Subscription
+  interest is routed to `contact.form@` (the `subscriptions@` alias was removed).
 
 ## 5. Editorial / legal  *(quarterly-ish or on change)*
 - Keep the "not affiliated" disclaimer and the official/unofficial (poll)
