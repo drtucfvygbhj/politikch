@@ -42,15 +42,29 @@ official English. All from official / openly-licensed sources (see
 `COMPLIANCE.md`) — commercially reusable with the attribution the site shows.
 Nothing here is manual.
 
-### 2a. English translations — automatic (one-time setup)
+### 2a. English translations — automatic (one-time setup, zero cost)
 
 Anything with no official English (session vote titles, for/against arguments,
 session summaries) is machine-translated to English by **DeepL** and shown with a
-"machine translation" badge + a link to the official source. **One-time setup:**
-add a repo secret **`DEEPL_API_KEY`** (a paid DeepL API plan — see `COMPLIANCE.md`)
-in GitHub → Settings → Secrets → Actions. Until it's set, `data/mt.json` stays
-empty and English falls back to the official DE/FR/IT with a language chip.
-Nothing recurring once the key is in place.
+"machine translation" badge + a link to the official source.
+
+**One-time setup — and it must be a FREE key so you can never be charged:**
+1. Create a **DeepL API Free** account and **add no payment method / no paid
+   plan**. This is what guarantees zero cost: a free account has nothing to bill,
+   and stops translating (HTTP 456) once the 500,000 char/month allowance is used
+   — it never spills into charges.
+2. Copy its API key — a free key **ends in `:fx`**.
+3. Add it as the repo secret **`DEEPL_API_KEY`** (GitHub → Settings → Secrets →
+   Actions).
+
+`scripts/translate.py` **refuses to run with a non-`:fx` key** (unless you
+deliberately set `DEEPL_ALLOW_PAID=1`), stays under the monthly quota minus a
+safety margin, and caps each run — so even if someone changed the code or the
+key, a free account still can't be billed. Until the secret is set, `data/mt.json`
+stays empty and English falls back to the official DE/FR/IT with a language chip.
+Nothing recurring once the key is in place. (Our volume sits well under the free
+cap; if it ever hit the cap, the remaining texts would simply translate next
+month.) See `COMPLIANCE.md` for the full charge-safety framework.
 
 ### 2b. Romansh titles — hand-translate  *(optional, as needed)*
 
