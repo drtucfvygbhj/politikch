@@ -86,6 +86,9 @@ nav.scrolled { height: 60px; box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08); }
   font-family: 'Playfair Display', serif;
   font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
   white-space: nowrap; line-height: 1;
+  /* Reserve the full "PolitikCH" width so the hover collapse to "PCH" leaves
+     empty space on the right instead of shifting the nav items. */
+  display: inline-block; width: 82px; text-align: left; overflow: hidden;
 }
 /* Logo animation: on hover/focus "olitik" slides left into the "P" and its width
    collapses, so "CH" glides in behind it — "PolitikCH" becomes "PCH".
