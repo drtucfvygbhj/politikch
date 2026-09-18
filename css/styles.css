@@ -1130,41 +1130,48 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
 .resource-link.contact-link { text-decoration: none; } /* CTA-style variant */
 .contact-overlay {
   position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center;
-  justify-content: center; padding: 20px; background: rgba(20,16,14,0.55);
+  justify-content: center; padding: 20px; background: rgba(16,12,10,0.5);
 }
+/* Frosted dark-glass panel — all text is light so it stays readable on the glass. */
 .contact-dialog {
   position: relative; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto;
-  background: var(--paper); border: 1px solid var(--border); border-radius: 14px;
-  padding: 26px 26px 22px; box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+  background: rgba(26,22,20,0.80); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.16); border-radius: 14px;
+  padding: 26px 26px 22px; box-shadow: 0 20px 60px rgba(0,0,0,0.45); color: #fff;
 }
 .contact-close {
   position: absolute; top: 12px; right: 14px; background: none; border: none;
-  font-size: 26px; line-height: 1; color: var(--mid); cursor: pointer; padding: 2px 6px;
+  font-size: 26px; line-height: 1; color: rgba(255,255,255,0.65); cursor: pointer; padding: 2px 6px;
 }
-.contact-close:hover { color: var(--charcoal); }
-.contact-h { font-family: 'Playfair Display', serif; font-size: 22px; margin: 0 0 6px; }
-.contact-cat { font-size: 13px; color: var(--mid); margin: 0 0 16px; }
-.contact-label { display: block; font-size: 13px; font-weight: 600; color: var(--charcoal); margin: 12px 0 5px; }
+.contact-close:hover { color: #fff; }
+.contact-h { font-family: 'Playfair Display', serif; font-size: 22px; margin: 0 0 6px; color: #fff; }
+.contact-cat { font-size: 13px; color: rgba(255,255,255,0.68); margin: 0 0 16px; }
+.contact-cat strong { color: #fff; }
+.contact-label { display: block; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.92); margin: 12px 0 5px; }
 .contact-input, .contact-textarea {
   width: 100%; box-sizing: border-box; font: inherit; font-size: 15px;
-  color: var(--charcoal); background: #fff; border: 1px solid var(--border);
+  color: #fff; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.24);
   border-radius: 8px; padding: 9px 11px;
 }
+.contact-input::placeholder, .contact-textarea::placeholder { color: rgba(255,255,255,0.5); }
 .contact-textarea { resize: vertical; line-height: 1.5; }
-.contact-input:focus, .contact-textarea:focus { outline: none; border-color: var(--red); box-shadow: var(--focus); }
-.contact-invalid { border-color: var(--red); }
-.contact-note { font-size: 12.5px; color: var(--mid); line-height: 1.6; margin: 14px 0 0; }
+.contact-input:focus, .contact-textarea:focus {
+  outline: none; border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.14);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.18);
+}
+.contact-invalid { border-color: var(--red-light); }
+.contact-note { font-size: 12.5px; color: rgba(255,255,255,0.62); line-height: 1.6; margin: 14px 0 0; }
 .contact-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; }
 .contact-cancel, .contact-send {
   font: inherit; font-size: 14px; font-weight: 600; border-radius: 8px; padding: 9px 16px; cursor: pointer;
 }
-.contact-cancel { background: none; border: 1px solid var(--border); color: var(--charcoal); }
-.contact-cancel:hover { background: rgba(0,0,0,0.04); }
+.contact-cancel { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.28); color: #fff; }
+.contact-cancel:hover { background: rgba(255,255,255,0.14); }
 .contact-send { background: var(--red); border: 1px solid var(--red); color: #fff; }
-.contact-send:hover { filter: brightness(0.94); }
-.contact-cancel:focus-visible, .contact-send:focus-visible { outline: none; box-shadow: var(--focus); }
-.contact-fallback { font-size: 12.5px; color: var(--mid); margin: 14px 0 0; }
-.contact-fallback a { color: var(--red); }
+.contact-send:hover { background: var(--red-light); }
+.contact-cancel:focus-visible, .contact-send:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,0.35); }
+.contact-fallback { font-size: 12.5px; color: rgba(255,255,255,0.62); margin: 14px 0 0; }
+.contact-fallback a { color: #fff; text-decoration: underline; }
 @media (max-width: 640px) { .contact-dialog { padding: 22px 18px 18px; } }
 
 /* Cross-highlight on the "How the National Council voted" graphic + group rows:

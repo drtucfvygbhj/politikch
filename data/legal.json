@@ -2,7 +2,14 @@
   "_meta": {
     "note": "Info & legal pages rendered by renderInfoPage(). Bodies are trusted first-party HTML. Romansh (rm) falls back to German (de). Edit contactEmail once before launch; it replaces every {{contact}} token.",
     "operator": "Politikch — an independent, non-commercial civic project",
-    "contactEmail": "contact@politikch.ch"
+    "contactEmail": "contact@politikch.ch",
+    "contactRoutesNote": "Optional per-category recipient addresses for the in-site contact form, keyed by the form's category (origin). A sender can rename the SUBJECT, so subject-based mail rules are defeatable; the To: address is not something visitors normally touch, so routing each category to its own address gives Apple Mail rules that hold. To enable: set each value to a distinct address that DELIVERS to your inbox — either real aliases (privacy@politikch.ch, legal@politikch.ch, subscribe@politikch.ch) or plus/sub-addresses if your mail host supports them (contact+privacy@politikch.ch). Then filter on 'To contains <that address>'. Leave a value as contact@politikch.ch to keep relying on the subject prefix for that category. Unset categories fall back to contactEmail.",
+    "contactRoutes": {
+      "General enquiry": "contact@politikch.ch",
+      "Privacy / data request": "contact@politikch.ch",
+      "Legal notice": "contact@politikch.ch",
+      "Subscribe interest": "contact@politikch.ch"
+    }
   },
   "pages": {
     "privacy": {

@@ -483,7 +483,7 @@
     "contact.messageLabel": "Message",
     "contact.messagePlaceholder": "Write your message…",
     "contact.note": "This opens a ready-to-send draft in your own email app — the message goes directly to us and this site stores nothing. We add the category to the subject so we can route your message.",
-    "contact.send": "Open in email app",
+    "contact.send": "Send email",
     "contact.cancel": "Cancel",
     "contact.inline": "our contact form",
     "contact.fallback": "No email app? Write to us at"
@@ -972,7 +972,7 @@
     "contact.messageLabel": "Nachricht",
     "contact.messagePlaceholder": "Schreiben Sie Ihre Nachricht…",
     "contact.note": "Dies öffnet einen fertigen Entwurf in Ihrer eigenen E-Mail-App — die Nachricht geht direkt an uns, diese Website speichert nichts. Die Kategorie wird dem Betreff hinzugefügt, damit wir Ihre Nachricht zuordnen können.",
-    "contact.send": "In E-Mail-App öffnen",
+    "contact.send": "E-Mail senden",
     "contact.cancel": "Abbrechen",
     "contact.inline": "unser Kontaktformular",
     "contact.fallback": "Keine E-Mail-App? Schreiben Sie an"
@@ -1461,7 +1461,7 @@
     "contact.messageLabel": "Message",
     "contact.messagePlaceholder": "Écrivez votre message…",
     "contact.note": "Ceci ouvre un brouillon prêt à envoyer dans votre propre application de messagerie — le message nous parvient directement et ce site ne conserve rien. Nous ajoutons la catégorie à l’objet pour pouvoir orienter votre message.",
-    "contact.send": "Ouvrir dans l’app e-mail",
+    "contact.send": "Envoyer l’e-mail",
     "contact.cancel": "Annuler",
     "contact.inline": "notre formulaire de contact",
     "contact.fallback": "Pas d’app e-mail ? Écrivez-nous à"
@@ -1950,7 +1950,7 @@
     "contact.messageLabel": "Messaggio",
     "contact.messagePlaceholder": "Scrivi il tuo messaggio…",
     "contact.note": "Si apre una bozza pronta da inviare nella tua app di posta — il messaggio arriva direttamente a noi e questo sito non memorizza nulla. Aggiungiamo la categoria all’oggetto per instradare il messaggio.",
-    "contact.send": "Apri nell’app di posta",
+    "contact.send": "Invia e-mail",
     "contact.cancel": "Annulla",
     "contact.inline": "il nostro modulo di contatto",
     "contact.fallback": "Nessuna app di posta? Scrivici a"
@@ -2439,7 +2439,7 @@
     "contact.messageLabel": "Messadi",
     "contact.messagePlaceholder": "Scrivai voss messadi…",
     "contact.note": "Quai avra ina brutta versiun pronta en Vossa atgna app d’e-mail — il messadi va directamain a nus e questa pagina na memorisescha nagut. Nus agiuntain la categoria al object per pudair drizzar Voss messadi.",
-    "contact.send": "Avrir en l’app d’e-mail",
+    "contact.send": "Trametter l’e-mail",
     "contact.cancel": "Interrumper",
     "contact.inline": "noss formular da contact",
     "contact.fallback": "Nagina app d’e-mail? Scrivai a"
