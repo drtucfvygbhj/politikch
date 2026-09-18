@@ -2793,6 +2793,97 @@ function loadLegal() {
   }
   return legalPromise;
 }
+function contactEmailPromise() {
+  return loadLegal().then(d => (d && d._meta && d._meta.contactEmail) || '');
+}
+
+/* ============================================================
+   In-site contact form. Replaces every raw email link: the user writes a
+   subject + message here, and on send we open a ready-to-send draft in their
+   OWN email app (mailto) addressed to us. This keeps the site fully static and
+   privacy-preserving (nothing is transmitted to or stored by the site — the
+   email goes straight from the visitor to us), while stamping the subject with
+   a fixed `origin` prefix (e.g. "Privacy / data request — <their subject>") so
+   arriving mail can be auto-filtered by category. `origin` is a stable English
+   string so a single inbox rule matches regardless of the visitor's language.
+   ============================================================ */
+function contactButton(origin, label) {
+  return `<button type="button" class="contact-link" data-contact-origin="${escapeAttr(origin)}">`
+    + `${escapeAttr(label || t('contact.inline'))}</button>`;
+}
+function openContactForm(origin, trigger) {
+  document.getElementById('contact-modal')?.remove();
+  const overlay = document.createElement('div');
+  overlay.id = 'contact-modal';
+  overlay.className = 'contact-overlay';
+  overlay.innerHTML = `
+    <div class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-h">
+      <button type="button" class="contact-close" aria-label="${escapeAttr(t('contact.cancel'))}">×</button>
+      <h2 id="contact-h" class="contact-h">${t('contact.title')}</h2>
+      <p class="contact-cat">${t('contact.category')}: <strong>${escapeAttr(origin)}</strong></p>
+      <label class="contact-label" for="contact-subject">${t('contact.subjectLabel')}</label>
+      <input id="contact-subject" class="contact-input" type="text" maxlength="160"
+             placeholder="${escapeAttr(t('contact.subjectPlaceholder'))}">
+      <label class="contact-label" for="contact-message">${t('contact.messageLabel')}</label>
+      <textarea id="contact-message" class="contact-textarea" rows="7"
+                placeholder="${escapeAttr(t('contact.messagePlaceholder'))}"></textarea>
+      <p class="contact-note">${t('contact.note')}</p>
+      <div class="contact-actions">
+        <button type="button" class="contact-cancel">${t('contact.cancel')}</button>
+        <button type="button" class="contact-send">${t('contact.send')}</button>
+      </div>
+      <p class="contact-fallback" data-fallback></p>
+    </div>`;
+  document.body.appendChild(overlay);
+  const subjectEl = overlay.querySelector('#contact-subject');
+  const msgEl = overlay.querySelector('#contact-message');
+  const focusables = () => overlay.querySelectorAll('button, input, textarea, a[href]');
+  const close = () => {
+    overlay.remove();
+    document.removeEventListener('keydown', onKey);
+    if (trigger && trigger.focus) trigger.focus();
+  };
+  const onKey = (e) => {
+    if (e.key === 'Escape') { close(); return; }
+    if (e.key === 'Tab') {                       // simple focus trap
+      const f = focusables(); if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  };
+  overlay.addEventListener('mousedown', e => { if (e.target === overlay) close(); });
+  overlay.querySelector('.contact-close').addEventListener('click', close);
+  overlay.querySelector('.contact-cancel').addEventListener('click', close);
+  document.addEventListener('keydown', onKey);
+  contactEmailPromise().then(email => {
+    const fb = overlay.querySelector('[data-fallback]');
+    if (email && fb) {
+      fb.innerHTML = `${escapeAttr(t('contact.fallback'))} `
+        + `<a href="mailto:${email}">${escapeAttr(email)}</a>`;
+    }
+  });
+  overlay.querySelector('.contact-send').addEventListener('click', () => {
+    const subject = subjectEl.value.trim();
+    if (!subject) { subjectEl.classList.add('contact-invalid'); subjectEl.focus(); return; }
+    contactEmailPromise().then(email => {
+      if (!email) return;
+      const full = `${origin} — ${subject}`;
+      const url = `mailto:${email}?subject=${encodeURIComponent(full)}`
+        + `&body=${encodeURIComponent(msgEl.value.trim())}`;
+      window.location.href = url;   // opens the visitor's own email app
+      close();
+    });
+  });
+  subjectEl.addEventListener('input', () => subjectEl.classList.remove('contact-invalid'));
+  setTimeout(() => subjectEl.focus(), 30);
+}
+// Fixed English category prefix per page (stable for inbox filtering).
+function contactOriginForSlug(slug) {
+  return slug === 'legal' ? 'Legal notice'
+    : slug === 'contact' ? 'General enquiry'
+    : 'General enquiry';
+}
 
 function renderInfoPage(slug) {
   const titleEl = document.getElementById('info-title');
@@ -2809,10 +2900,7 @@ function renderInfoPage(slug) {
     }
     const lang = state.lang;
     const pick = (obj) => (obj && (obj[lang] || obj.de || obj.en)) || '';
-    const contact = (data._meta && data._meta.contactEmail) || '';
-    const contactHtml = contact.includes('@')
-      ? `<a href="mailto:${encodeURIComponent(contact)}">${escapeAttr(contact)}</a>`
-      : escapeAttr(contact);
+    const contactHtml = contactButton(contactOriginForSlug(slug));
 
     titleEl.textContent = pick(page.title);
     // Romansh pages fall back to German; note that so it isn't mistaken for an oversight.
@@ -2854,13 +2942,6 @@ function proseBlocks(blocks, contactHtml) {
   }).join('');
 }
 
-function contactHtmlFromLegal(data) {
-  const contact = (data && data._meta && data._meta.contactEmail) || '';
-  return contact.includes('@')
-    ? `<a href="mailto:${encodeURIComponent(contact)}">${escapeAttr(contact)}</a>`
-    : escapeAttr(contact || t('common.contactTbd'));
-}
-
 function renderPrivacyPage() {
   const titleEl = document.getElementById('privacy-title');
   const effEl = document.getElementById('privacy-effective');
@@ -2868,8 +2949,8 @@ function renderPrivacyPage() {
   if (!titleEl || !contentEl) return;
   titleEl.textContent = t('privacy.title');
   if (effEl) effEl.textContent = t('privacy.effective');
-  loadLegal().then(data => {
-    const contactHtml = contactHtmlFromLegal(data);
+  loadLegal().then(() => {
+    const contactHtml = contactButton('Privacy / data request');
     contentEl.innerHTML =
       `<p class="info-lead">${t('privacy.lead')}</p>` +
       proseBlocks([
@@ -2902,20 +2983,17 @@ function renderSubscribePage() {
   const contentEl = document.getElementById('subscribe-content');
   if (!titleEl || !contentEl) return;
   titleEl.textContent = t('subscribe.title');
-  loadLegal().then(data => {
-    const email = (data && data._meta && data._meta.contactEmail) || '';
-    const interest = email.includes('@')
-      ? `<a class="resource-link" href="mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(t('subscribe.mailtoSubject'))}">${t('subscribe.interestCta')} <span class="arrow">↗</span></a>`
-      : `<p class="info-updated">${t('common.contactTbd')}</p>`;
-    contentEl.innerHTML =
-      `<p class="info-lead">${t('subscribe.lead')} ${comingBadge()}</p>` +
-      proseBlocks([
-        { h: 'subscribe.h.what', p: 'subscribe.p.what' },
-        { h: 'subscribe.h.plan', p: 'subscribe.p.plan' },
-        { h: 'subscribe.h.interest', p: 'subscribe.p.interest' },
-      ], '') +
-      `<div class="subscribe-cta">${interest}</div>`;
-  });
+  const interest = `<button type="button" class="resource-link contact-link" `
+    + `data-contact-origin="Subscribe interest">${t('subscribe.interestCta')} `
+    + `<span class="arrow">↗</span></button>`;
+  contentEl.innerHTML =
+    `<p class="info-lead">${t('subscribe.lead')} ${comingBadge()}</p>` +
+    proseBlocks([
+      { h: 'subscribe.h.what', p: 'subscribe.p.what' },
+      { h: 'subscribe.h.plan', p: 'subscribe.p.plan' },
+      { h: 'subscribe.h.interest', p: 'subscribe.p.interest' },
+    ], '') +
+    `<div class="subscribe-cta">${interest}</div>`;
 }
 
 /* ============================================================
@@ -3401,6 +3479,12 @@ function bindEvents() {
   initScaleReadouts();
   initGlossary();
   setupSearch();
+
+  // Any [.contact-link] button opens the in-site contact form for its category.
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.contact-link');
+    if (btn) { e.preventDefault(); openContactForm(btn.dataset.contactOrigin || 'General enquiry', btn); }
+  });
 
   // Nav shrink on scroll
   window.addEventListener('scroll', () => {

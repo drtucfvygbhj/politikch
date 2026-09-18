@@ -475,7 +475,18 @@
     "mt.badge": "machine translation",
     "mt.tip": "Automatically translated into English by DeepL from the official German/French/Italian text — not an official translation. Check the official source for the authoritative wording.",
     "overview.sourceMt": "English machine translation (DeepL) of the Federal Council's official for/against arguments.",
-    "changes.sourceMt": "English machine translation (DeepL) of the official summary from the parliamentary record (Curia Vista)."
+    "changes.sourceMt": "English machine translation (DeepL) of the official summary from the parliamentary record (Curia Vista).",
+    "contact.title": "Contact us",
+    "contact.category": "Category",
+    "contact.subjectLabel": "Subject",
+    "contact.subjectPlaceholder": "Briefly — what is it about?",
+    "contact.messageLabel": "Message",
+    "contact.messagePlaceholder": "Write your message…",
+    "contact.note": "This opens a ready-to-send draft in your own email app — the message goes directly to us and this site stores nothing. We add the category to the subject so we can route your message.",
+    "contact.send": "Open in email app",
+    "contact.cancel": "Cancel",
+    "contact.inline": "our contact form",
+    "contact.fallback": "No email app? Write to us at"
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -953,7 +964,18 @@
     "mt.badge": "maschinelle Übersetzung",
     "mt.tip": "Von DeepL automatisch aus dem amtlichen deutschen/französischen/italienischen Text ins Englische übersetzt — keine amtliche Übersetzung. Massgebend ist die offizielle Quelle.",
     "overview.sourceMt": "Maschinelle englische Übersetzung (DeepL) der amtlichen Argumente von Bundesrat und Komitee.",
-    "changes.sourceMt": "Maschinelle englische Übersetzung (DeepL) der amtlichen Zusammenfassung aus dem Ratsbetrieb (Curia Vista)."
+    "changes.sourceMt": "Maschinelle englische Übersetzung (DeepL) der amtlichen Zusammenfassung aus dem Ratsbetrieb (Curia Vista).",
+    "contact.title": "Kontakt",
+    "contact.category": "Kategorie",
+    "contact.subjectLabel": "Betreff",
+    "contact.subjectPlaceholder": "Kurz — worum geht es?",
+    "contact.messageLabel": "Nachricht",
+    "contact.messagePlaceholder": "Schreiben Sie Ihre Nachricht…",
+    "contact.note": "Dies öffnet einen fertigen Entwurf in Ihrer eigenen E-Mail-App — die Nachricht geht direkt an uns, diese Website speichert nichts. Die Kategorie wird dem Betreff hinzugefügt, damit wir Ihre Nachricht zuordnen können.",
+    "contact.send": "In E-Mail-App öffnen",
+    "contact.cancel": "Abbrechen",
+    "contact.inline": "unser Kontaktformular",
+    "contact.fallback": "Keine E-Mail-App? Schreiben Sie an"
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -1431,7 +1453,18 @@
     "mt.badge": "traduction automatique",
     "mt.tip": "Traduit automatiquement en anglais par DeepL à partir du texte officiel allemand/français/italien — traduction non officielle. Le texte officiel fait foi.",
     "overview.sourceMt": "Traduction automatique en anglais (DeepL) des arguments officiels pour/contre.",
-    "changes.sourceMt": "Traduction automatique en anglais (DeepL) du résumé officiel des travaux parlementaires (Curia Vista)."
+    "changes.sourceMt": "Traduction automatique en anglais (DeepL) du résumé officiel des travaux parlementaires (Curia Vista).",
+    "contact.title": "Nous contacter",
+    "contact.category": "Catégorie",
+    "contact.subjectLabel": "Objet",
+    "contact.subjectPlaceholder": "En bref — de quoi s’agit-il ?",
+    "contact.messageLabel": "Message",
+    "contact.messagePlaceholder": "Écrivez votre message…",
+    "contact.note": "Ceci ouvre un brouillon prêt à envoyer dans votre propre application de messagerie — le message nous parvient directement et ce site ne conserve rien. Nous ajoutons la catégorie à l’objet pour pouvoir orienter votre message.",
+    "contact.send": "Ouvrir dans l’app e-mail",
+    "contact.cancel": "Annuler",
+    "contact.inline": "notre formulaire de contact",
+    "contact.fallback": "Pas d’app e-mail ? Écrivez-nous à"
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -1909,7 +1942,18 @@
     "mt.badge": "traduzione automatica",
     "mt.tip": "Tradotto automaticamente in inglese da DeepL dal testo ufficiale tedesco/francese/italiano — traduzione non ufficiale. Fa fede la fonte ufficiale.",
     "overview.sourceMt": "Traduzione automatica in inglese (DeepL) degli argomenti ufficiali a favore/contro.",
-    "changes.sourceMt": "Traduzione automatica in inglese (DeepL) del riassunto ufficiale dei lavori parlamentari (Curia Vista)."
+    "changes.sourceMt": "Traduzione automatica in inglese (DeepL) del riassunto ufficiale dei lavori parlamentari (Curia Vista).",
+    "contact.title": "Contattaci",
+    "contact.category": "Categoria",
+    "contact.subjectLabel": "Oggetto",
+    "contact.subjectPlaceholder": "In breve — di cosa si tratta?",
+    "contact.messageLabel": "Messaggio",
+    "contact.messagePlaceholder": "Scrivi il tuo messaggio…",
+    "contact.note": "Si apre una bozza pronta da inviare nella tua app di posta — il messaggio arriva direttamente a noi e questo sito non memorizza nulla. Aggiungiamo la categoria all’oggetto per instradare il messaggio.",
+    "contact.send": "Apri nell’app di posta",
+    "contact.cancel": "Annulla",
+    "contact.inline": "il nostro modulo di contatto",
+    "contact.fallback": "Nessuna app di posta? Scrivici a"
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -2387,6 +2431,17 @@
     "mt.badge": "translaziun automatica",
     "mt.tip": "Translatà automaticamain per englais da DeepL dal text uffizial tudestg/franzos/talian — betg ina translaziun uffiziala. Decisiv è la funtauna uffiziala.",
     "overview.sourceMt": "Translaziun automatica per englais (DeepL) dals arguments uffizials pro/cunter.",
-    "changes.sourceMt": "Translaziun automatica per englais (DeepL) da la resumaziun uffiziala dals lavurs parlamentars (Curia Vista)."
+    "changes.sourceMt": "Translaziun automatica per englais (DeepL) da la resumaziun uffiziala dals lavurs parlamentars (Curia Vista).",
+    "contact.title": "Contact",
+    "contact.category": "Categoria",
+    "contact.subjectLabel": "Object",
+    "contact.subjectPlaceholder": "En curt — da tge sa tracta i?",
+    "contact.messageLabel": "Messadi",
+    "contact.messagePlaceholder": "Scrivai voss messadi…",
+    "contact.note": "Quai avra ina brutta versiun pronta en Vossa atgna app d’e-mail — il messadi va directamain a nus e questa pagina na memorisescha nagut. Nus agiuntain la categoria al object per pudair drizzar Voss messadi.",
+    "contact.send": "Avrir en l’app d’e-mail",
+    "contact.cancel": "Interrumper",
+    "contact.inline": "noss formular da contact",
+    "contact.fallback": "Nagina app d’e-mail? Scrivai a"
   }
 }
