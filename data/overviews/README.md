@@ -1,30 +1,33 @@
-# Pre-generated "what happens if accepted" overviews
+# Official for/against vote arguments
 
-Files here are produced **offline** by `scripts/generate_overviews.py`, reviewed
-by a person, then committed. The live site only reads them (it never calls an
-LLM). If a file is missing, the site shows an honest "being prepared" state.
+Files here are produced by `scripts/fetch_arguments.py`, which reproduces the
+**official** for/against arguments **verbatim** from the Federal Council's voting
+explanations ("Erläuterungen des Bundesrates" / Abstimmungsbüechli). They are
+official texts (Art. 5 URG — see `NOTICE.md`), so there is **no AI and no review
+gate**. The live site only reads them. If a file is missing, the page shows an
+honest "not published yet" state.
 
 ## Layout
 - `initiative/<id>.json` — for an initiative/referendum (`id` from `data/initiatives.json`)
-- `session/<voteId>.json` — for a session vote (`voteId` from `data/sessions/<n>.json`)
 
 ## Shape
 ```json
 {
-  "generatedAt": "2026-09-16",
-  "model": "<model id used>",
-  "reviewed": true,
-  "sourceUrl": "<official text the summary was written from>",
+  "generatedAt": "2026-09-18",
+  "source": "Federal Council voting explanations (Erläuterungen des Bundesrates) … Art. 5 URG",
+  "sourceUrl": { "de": "…brochure-de.pdf", "fr": "…brochure-fr.pdf" },
   "lang": {
-    "en": ["level 1 (brief/plain)", "…", "…", "…", "level 5 (full/technical)"],
-    "de": ["…","…","…","…","…"],
-    "fr": ["…","…","…","…","…"],
-    "it": ["…","…","…","…","…"],
-    "rm": ["…","…","…","…","…"]
+    "de": { "pros": ["…"], "cons": ["…"] },
+    "fr": { "pros": ["…"], "cons": ["…"] }
   }
 }
 ```
-- Exactly **5 levels** per language (the slider has 5 stops: brief → in depth).
-- All five site languages should be present; the reader falls back de→en if one
-  is missing.
-- `reviewed: true` is the human sign-off gate — don't commit unreviewed files.
+- **One reading level.** `pros` = arguments of the initiative/referendum
+  committee; `cons` = arguments of the Federal Council and Parliament — both
+  verbatim, each an array of paragraphs. The neutral framing stays the
+  initiative's own title/description already on the page.
+- **DE/FR are automatic** (from the officially-published brochure, mirrored by
+  Swissvotes). **IT** appears only if an official PDF is supplied via
+  `--pdf-dir` (see `data/brochures/README.md`). **EN/RM never exist officially**
+  and fall back on-site to DE/FR/IT with a small language chip.
+- No `reviewed` flag: these are official texts, shown as soon as they exist.

@@ -24,7 +24,7 @@ manual, how often, and how to keep on top of it.
 
 | Task | Where | When | What to watch |
 |---|---|---|---|
-| Refresh votes, financing, canton results, sessions | `.github/workflows/fetch-financing.yml` → `scripts/fetch_*.py` | Weekly (Mon 04:00 UTC) + manual `workflow_dispatch` | That the run is green and actually committed. Check the Actions tab if the site looks stale. |
+| Refresh votes, financing, canton results, sessions, **vote arguments (for/against)** | `.github/workflows/fetch-financing.yml` → `scripts/fetch_*.py` | Weekly (Mon 04:00 UTC) + manual `workflow_dispatch` | That the run is green and actually committed. Check the Actions tab if the site looks stale. |
 | Data integrity check | `.github/workflows/validate.yml` → `scripts/validate.py` | Every push / PR | A red check blocks deploy — fix the reported file. |
 | Publish | `.github/workflows/deploy.yml` | Every push to `main` | Green = live within ~1 min. |
 | Missing-translation reminder | `scripts/check_translations.py` (inside the fetch job) | Weekly | It opens/updates a GitHub issue listing untranslated titles. |
@@ -32,77 +32,26 @@ manual, how often, and how to keep on top of it.
 **Managing them:** once a week, open the **Actions** tab, confirm the "Fetch live
 data" run succeeded, and skim any issue it opened. That's the core routine.
 
-## 2. AI-assisted upkeep — one local trigger + a private review desk
+## 2. The only recurring hand step: title translations
 
-**Every week, double-click `Weekly Update.command`.** It opens your private review
-desk in the browser — everything is done from there:
+**Vote arguments (for / against) are automatic and official — nothing to do.**
+The weekly fetch reproduces them **verbatim** from the Federal Council's voting
+brochure (no AI, no review gate). See §6 for how it works and the one *optional*
+manual add (native Italian). This replaces the old AI-generated "overview"
+review desk, which is no longer part of the routine (the local
+`Weekly Update.command` / `ai_maintain.py` / `review_server.py` tooling is no
+longer needed).
 
-- **▶ Run maintenance** button — triggers every Claude process (title
-  translations **and** vote overviews). It uses the **local `claude` CLI** (your
-  logged-in subscription, **no API key**), spends normal quota bound by the 5-hour
-  and weekly limits, and stops the moment a limit is hit, saving progress. Runs
-  are **resumable** — click again anytime to continue from the first unfinished
-  item. Use the **max** box to cap how many items a single click attempts (blank
-  = as many as your limit allows). It runs in the background: **completed items
-  pop into the queue live**, and a **Stop** button halts it (anything not 100 %
-  done is left for next time).
-  *Usage graphic:* shows measured average **tokens** per translation / overview
-  (summed from each call's `usage`), items still to generate, and estimated tokens
-  to finish the backlog. Set your **5-hour budget (tokens)** and it predicts how
-  many items fit one 5-hour window at a 50/50 translation/overview split (e.g.
-  5,000,000 tokens ≈ 150 items = 75 + 75). Your plan's *remaining* quota isn't
-  machine-readable, so enter the window's token budget yourself; the per-item
-  averages are measured, not guessed.
-  *Cost:* each `claude -p` call has heavy fixed overhead, so the tool defaults to
-  **Haiku** and **batches** many items per call (20 titles / 3 overviews),
-  tool-less, in a neutral dir. Change the model with `POLITIKCH_MODEL`
-  (`haiku`/`sonnet`/`opus`) and batch sizes with `POLITIKCH_TR_BATCH` /
-  `POLITIKCH_OV_BATCH` if you want higher quality at higher cost.
-- **Review queue** — approve / edit / reject each staged proposal. Nothing goes
-  live until you approve it.
-  *Overviews are generated for session votes only* (they have real per-item
-  official text via parlament.ch Curia Vista). Federal initiatives/referendums
-  are skipped because their only URL is a shared per-date ballot page with no
-  per-item text — generating one would mean fabricating. To enable them, wire a
-  real per-initiative text source (e.g. Swissvotes) and set
-  `POLITIKCH_OVERVIEW_INITIATIVES=1`.
-- **History** tab — every past run and change, with the exact text that was
-  approved; filter by id/title to see, e.g., an initiative's translation from
-  months ago.
-- **Official-title handover** — if an official title in a language is published
-  upstream after we generated an unofficial one, the site uses the official one
-  automatically and a **notification** appears here (our redundant one is retired).
+**Titles occasionally need a hand translation.** Swiss vote/act titles are
+official only in DE/FR/IT; the English and Romansh titles shown are unofficial
+and hand-made. When the weekly fetch finds a new one it opens a GitHub issue and
+lists it in `TRANSLATIONS_TODO.md`.
 
-Under the hood the desk runs these (you can also run them directly):
-```bash
-python3 scripts/ai_maintain.py       # stage proposals (--task / --max to tune)
-python3 scripts/review_server.py     # the review desk → http://127.0.0.1:8777
-```
-- **It resumes.** Each finished item is saved the moment it's 100% complete;
-  the next click skips everything already live or staged and continues at the
-  first unfinished item — a few minutes later, after the hourly limit resets, or
-  weeks later. By default it does as many as your limit allows (then stops
-  cleanly); you can approve staged items any time in between.
-- `ai_maintain.py` never touches live data — it writes proposals to
-  `review/queue/…` (git-ignored). It skips items it can't ground in an official
-  source rather than fabricating.
-- The review desk lists each proposal with editable fields. **Approve** writes the
-  (edited) result into the live files — translations into
-  `data/<initiatives|sessions>-translations.json`, overviews into
-  `data/overviews/<kind>/<id>.json` with `reviewed:true` — and drops it from the
-  queue. **Reject** discards it. Then commit the changed data files.
-- The weekly fetch still opens a GitHub issue listing untranslated titles as a
-  reminder; `ai_maintain.py --task translation` is how you clear them.
-
-*Alternative (bulk, uses an API key instead of the subscription):*
-`scripts/generate_overviews.py` writes overviews directly as `reviewed:false`
-files — same review gate, but it needs `ANTHROPIC_API_KEY` and bills per token.
-Prefer the `ai_maintain.py` + review-desk flow for routine upkeep.
-
-### If you'd rather hand-edit
-You can always add translations directly: `data/initiatives-translations.json` /
-`data/sessions-translations.json` under `titles.<id>` as `{ "en": …, "rm": … }`.
-Until an item is translated, the site falls back to the official DE/FR/IT title.
+**To clear one:** add the translation to `data/initiatives-translations.json` or
+`data/sessions-translations.json` under `titles.<id>` as `{ "en": …, "rm": … }`,
+then commit. Until then the site falls back to the official DE/FR/IT title —
+nothing breaks. (Or open a Claude Code session and say *"translate the pending
+titles in TRANSLATIONS_TODO.md"*.)
 
 ### Review flagged translations  *(as needed)*
 `TRANSLATIONS_TODO.md` also lists UI/legal strings whose FR/IT/DE/RM wording was
@@ -146,41 +95,46 @@ See `BACKEND.md`. Once `js/config.js` `POLL_API` is set:
   of member or annual presidency.
 - Review the Privacy Policy / About / Subscribe copy if the product plans change.
 
-## 6. AI "what happens if accepted" overviews  *(recurring, after each fetch)*
-Each initiative/referendum and session vote can show an AI-generated overview of
-what changes if it passes. These are **pre-generated offline and human-reviewed**
-— the live page never calls an LLM, and it will not display a file until a human
-approves it.
+## 6. Vote arguments (for / against)  *(automatic — official text)*
+Each vote page shows the **for** and **against** arguments, reproduced
+**verbatim** from the Federal Council's official voting explanations
+("Erläuterungen des Bundesrates" / Abstimmungsbüechli). There is **no AI and no
+review gate** — it is official text (Art. 5 URG; see `NOTICE.md`). `pros` = the
+initiative/referendum committee's arguments, `cons` = the Federal Council and
+Parliament's, each attributed and linked to the official source. Neither side is
+ever shown alone, and the site adds no argument of its own.
 
-**When:** whenever the weekly fetch adds new votes/sessions (i.e. the same items
-that need translations), generate overviews for them.
+**Automatic (nothing to do).** `scripts/fetch_arguments.py` runs in the weekly
+fetch. For each vote it finds the officially-published brochure, extracts that
+vote's arguments, and writes `data/overviews/initiative/<id>.json` in **German
+and French**. A vote whose brochure isn't out yet (roughly >6 weeks before the
+ballot) is simply skipped — the page shows an honest "not published yet" until
+the next fetch picks it up. Nothing is ever fabricated. English and Romansh have
+no official version and fall back to DE/FR with a small language chip.
 
-**How:**
-1. `pip install -r scripts/requirements-overviews.txt` and set `ANTHROPIC_API_KEY`
-   (or `ant auth login`).
-2. `python3 scripts/generate_overviews.py --kind all` (add `--limit N` to batch,
-   `--force` to regenerate). It fetches each item's **official text**, generates
-   5 detail levels × 5 languages into `data/overviews/<kind>/<id>.json`, and marks
-   each `"reviewed": false`. Items whose official text can't be fetched are
-   **skipped**, never fabricated.
-3. **Review each new file** — read it against the official text, fix anything
-   wrong or partisan, then set `"reviewed": true`. The site shows the overview
-   only once that flag is true; until then it displays "being prepared".
-4. Commit the reviewed files. Deploy publishes them like any other data.
+**Optional — native Italian (a few times a year).** Swissvotes, the automatic
+source, doesn't host the Italian brochure. If you want native Italian (rather
+than the DE/FR fallback), once per ballot:
+1. Download the **official** Italian brochure PDF from the Federal Chancellery
+   (<https://www.bk.admin.ch>) — one PDF covers all proposals on that date.
+2. Save it as `data/brochures/<YYYYMMDD>-it.pdf` (ballot date, no dashes).
+3. Run `python3 scripts/fetch_arguments.py --force` and commit the changed
+   files. (See `data/brochures/README.md`.)
 
-**Cost/quality:** defaults to `claude-opus-5` (override with `--model` or
-`POLITIKCH_OVERVIEW_MODEL`). This is the one recurring task with an API cost and a
-mandatory human-review step — treat the review as editorial, not a rubber stamp:
-these are legal-consequence claims on a non-partisan site.
+Only the **official** brochure may be used — never a summary, translation, or
+third-party rewrite.
 
 ---
 
 ### One-glance weekly checklist
-1. **Double-click `Weekly Update.command`** → let Claude stage proposals, then
-   approve/edit them in the review desk that opens. Commit & push the approved
-   data files.
-2. Actions tab → "Fetch live data" green & committed?
-3. (Once live) poll backend healthy?
+1. **Actions tab → "Fetch live data" green & committed?** (This now also refreshes
+   the vote arguments — nothing to run by hand.)
+2. **Pending title translations?** If the fetch opened/updated a translation issue
+   (or `TRANSLATIONS_TODO.md` lists one), add it to the relevant
+   `*-translations.json` and commit (§2). Optional.
+3. **Native Italian arguments?** Only if you want them for a new ballot — drop the
+   official IT brochure in `data/brochures/` and re-run (§6). Optional.
+4. (Once live) poll backend healthy?
 
 (The cache token is auto-bumped on deploy; `validate.py` runs in CI — run it
 locally only if you hand-edited data before pushing.)

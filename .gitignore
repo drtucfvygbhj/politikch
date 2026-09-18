@@ -17,3 +17,7 @@ __pycache__/
 
 # Local AI-maintenance review queue (staged proposals, not shared)
 review/
+
+# Manually-added official brochure PDFs (large; only used at build time to add
+# native Italian). The extracted arguments in data/overviews/ ARE committed.
+data/brochures/*.pdf
