@@ -2328,7 +2328,6 @@ function sessionVoteHTML(v) {
           </div>
           <h4 style="margin-top:22px">${t('session.byPartyTitle')}</h4>
           <div class="svote-party-grid">${votePartyRowsHTML(v)}</div>
-          <div class="ai-ov-wrap" style="margin-top:22px">${overviewSectionHTML('session', v.id, businessUrl(v))}</div>
           <div class="mine-block">
             <h4 style="margin-top:22px">${t('mine.opinionTitle')}</h4>
             <p class="mine-note">${t('mine.opinionDesc')}</p>
@@ -3081,7 +3080,6 @@ function fillProfileEnrich() {
       host.innerHTML = votes.map(v => `
         <div class="enrich-item">
           <a class="enrich-title" href="#/session/${sessions[0].id}">${escapeAttr(plainVoteTitle(v))}</a>
-          ${overviewSectionHTML('session', v.id, businessUrl(v))}
           ${voteWidgetHTML('session', v.id, { poll: true, meta: { parties: partyMajorities(v.byParty), topics: v.topics || [] } })}
         </div>`).join('');
       wireVoteWidgets(host);
