@@ -3103,29 +3103,8 @@ function fillProfileEnrich() {
    every slider not yet touched (middle to start); a slider the user has moved
    stays where they left it until they move it again.
    ============================================================ */
-const OVERVIEW_LEVELS = 5;
-const OVERVIEW_MID = 2;
 const _overviewCache = {};
 
-function overviewGlobalLevel() {
-  try { const v = parseInt(localStorage.getItem('politikch-overview-level'), 10); if (!isNaN(v)) return Math.min(OVERVIEW_LEVELS - 1, Math.max(0, v)); } catch (e) {}
-  return OVERVIEW_MID;
-}
-function overviewItemLevels() {
-  try { return JSON.parse(localStorage.getItem('politikch-overview-items') || '{}') || {}; } catch (e) { return {}; }
-}
-function overviewLevelFor(key) {
-  const items = overviewItemLevels();
-  return (key in items) ? items[key] : overviewGlobalLevel();
-}
-function setOverviewLevel(key, level) {
-  level = Math.min(OVERVIEW_LEVELS - 1, Math.max(0, level));
-  try {
-    localStorage.setItem('politikch-overview-level', String(level));
-    const items = overviewItemLevels(); items[key] = level;
-    localStorage.setItem('politikch-overview-items', JSON.stringify(items));
-  } catch (e) { /* ignore */ }
-}
 function ensureOverview(kind, id) {
   const key = kind + '/' + id;
   if (_overviewCache[key]) return _overviewCache[key];
@@ -3136,55 +3115,56 @@ function ensureOverview(kind, id) {
 function overviewSectionHTML(kind, id, officialUrl) {
   return `<div class="ai-overview" data-ok="${escapeAttr(kind)}" data-oi="${escapeAttr(id)}"${officialUrl ? ` data-official="${escapeAttr(officialUrl)}"` : ''}></div>`;
 }
+// Pick the argument block for the active language, falling back to the brochure's
+// official languages (DE/FR/IT — EN/RM never exist officially). null if none has
+// content yet (brochure not published) -> honest "being prepared" state.
+function pickArgBlock(data) {
+  if (!data || !data.lang) return null;
+  const order = [state.lang, 'de', 'fr', 'it'];
+  for (const l of order) {
+    const b = data.lang[l];
+    if (b && ((b.pros && b.pros.length) || (b.cons && b.cons.length))) {
+      return { lang: l, pros: b.pros || [], cons: b.cons || [],
+               url: (data.sourceUrl || {})[l] || null };
+    }
+  }
+  return null;
+}
+function argListHTML(items) {
+  return `<ul class="ai-ov-list">${items.map(p => `<li>${escapeAttr(p)}</li>`).join('')}</ul>`;
+}
+// Official for/against arguments, reproduced verbatim from the Federal Council's
+// voting brochure (see scripts/fetch_arguments.py, NOTICE.md). One reading level;
+// the neutral framing is the initiative's own title/description on the page.
 function renderOverview(el) {
-  const kind = el.dataset.ok, id = el.dataset.oi, key = kind + '/' + id;
-  const level = overviewLevelFor(key);
-  const official = el.dataset.official;
-  el.innerHTML = `
-    <div class="ai-ov-head">
-      <h4 class="ai-ov-title">${t('overview.title')}</h4>
-      <span class="ai-ov-chip" title="${escapeAttr(t('overview.aiHint'))}">${t('overview.aiMarker')}</span>
-    </div>
-    <div class="ai-ov-body" data-ov-body><p class="mine-note">${t('overview.loading')}</p></div>
-    <div class="ai-ov-controls">
-      <span class="ai-ov-slabel">${t('overview.detailLabel')}</span>
-      <span class="ai-ov-end">${t('overview.less')}</span>
-      <input type="range" class="ai-ov-slider" min="0" max="${OVERVIEW_LEVELS - 1}" step="1" value="${level}"
-             aria-label="${escapeAttr(t('overview.detailLabel'))}" aria-valuetext="${level + 1}/${OVERVIEW_LEVELS}">
-      <span class="ai-ov-end">${t('overview.more')}</span>
-    </div>
-    <p class="ai-ov-disclaimer">${t('overview.disclaimer')}${official ? ` <a href="${escapeAttr(official)}" target="_blank" rel="noopener noreferrer">${t('overview.official')} <span class="arrow">↗</span></a>` : ''}</p>`;
-  const slider = el.querySelector('.ai-ov-slider');
-  slider.addEventListener('input', () => {
-    const v = parseInt(slider.value, 10);
-    setOverviewLevel(key, v);
-    slider.setAttribute('aria-valuetext', `${v + 1}/${OVERVIEW_LEVELS}`);
-    paintOverviewText(el);
-    syncUntouchedOverviewSliders();
-  });
-  paintOverviewText(el);
-}
-function paintOverviewText(el) {
-  const kind = el.dataset.ok, id = el.dataset.oi, key = kind + '/' + id;
-  const body = el.querySelector('[data-ov-body]');
-  const level = overviewLevelFor(key);
+  const kind = el.dataset.ok, id = el.dataset.oi;
+  el.innerHTML = `<div class="ai-ov-body" data-ov-body><p class="mine-note">${t('overview.loading')}</p></div>`;
   ensureOverview(kind, id).then(data => {
-    // reviewed:false is the human sign-off gate — unreviewed files never show.
-    const arr = data && data.reviewed !== false && data.lang && (data.lang[state.lang] || data.lang.de || data.lang.en);
-    if (!arr || !arr.length) { body.innerHTML = `<p class="ai-ov-preparing">${t('overview.preparing')}</p>`; return; }
-    const idx = Math.min(arr.length - 1, Math.max(0, level));
-    body.textContent = arr[idx];
-  });
-}
-// When the global level changes, move every not-yet-touched slider to match.
-function syncUntouchedOverviewSliders() {
-  const g = overviewGlobalLevel();
-  const items = overviewItemLevels();
-  document.querySelectorAll('.ai-overview').forEach(el => {
-    const key = el.dataset.ok + '/' + el.dataset.oi;
-    if (key in items) return; // user set this one — leave it
-    const s = el.querySelector('.ai-ov-slider');
-    if (s && +s.value !== g) { s.value = g; s.setAttribute('aria-valuetext', `${g + 1}/${OVERVIEW_LEVELS}`); paintOverviewText(el); }
+    const block = pickArgBlock(data);
+    if (!block) {
+      el.innerHTML = `<div class="ai-ov-head"><h4 class="ai-ov-title">${t('overview.title')}</h4></div>` +
+        `<p class="ai-ov-preparing">${t('overview.preparing')}</p>`;
+      return;
+    }
+    const chip = block.lang !== state.lang
+      ? ` <span class="ai-ov-langchip" title="${escapeAttr(t('overview.langNote'))}">${block.lang.toUpperCase()}</span>`
+      : '';
+    const link = block.url
+      ? ` <a href="${escapeAttr(block.url)}" target="_blank" rel="noopener noreferrer">${t('overview.official')} <span class="arrow">↗</span></a>`
+      : '';
+    const col = (cls, label, author, items) => `
+      <section class="ai-ov-col ${cls}">
+        <h5 class="ai-ov-collabel">${label}</h5>
+        <p class="ai-ov-author">${author}</p>
+        ${items.length ? argListHTML(items) : `<p class="ai-ov-preparing">${t('overview.preparing')}</p>`}
+      </section>`;
+    el.innerHTML = `
+      <div class="ai-ov-head"><h4 class="ai-ov-title">${t('overview.title')}</h4>${chip}</div>
+      <div class="ai-ov-cols">
+        ${col('ai-ov-for', t('overview.for'), t('overview.forAuthor'), block.pros)}
+        ${col('ai-ov-against', t('overview.against'), t('overview.againstAuthor'), block.cons)}
+      </div>
+      <p class="ai-ov-disclaimer">${t('overview.source')}${link}</p>`;
   });
 }
 function wireOverviews(root) {

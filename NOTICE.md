@@ -17,13 +17,14 @@ Nothing on the site should be read as an official communication of any authority
 | Federal election results & seat counts (2023) | Federal Statistical Office (BFS) / [wahlen.admin.ch](https://www.wahlen.admin.ch) |
 | Parliament composition & parliamentary groups | [parlament.ch](https://www.parlament.ch) |
 | Popular vote results & official texts | Federal Chancellery (Bundeskanzlei) / [bk.admin.ch](https://www.bk.admin.ch) |
+| Vote arguments (for / against) | Federal Council's official voting explanations ("Erläuterungen des Bundesrates" / Abstimmungsbüechli), Federal Chancellery — reproduced verbatim, DE/FR/(IT). Retrieved via [Swissvotes](https://swissvotes.ch) (Année Politique Suisse, Uni Bern) where it mirrors the official PDF. |
 | Canton statistics (population, area) | Federal Statistical Office (BFS) — rounded approximations |
 
 Figures were current as of the 2023–2027 legislature at the time of writing. Population figures are approximate. Verify against the primary source before relying on any number.
 
 ## Copyright
 
-- **Official texts.** Under Art. 5 of the Swiss Copyright Act (URG), official authority texts (laws, official announcements, decisions) are not protected by copyright. Where such texts are reproduced, they are used on that basis.
+- **Official texts.** Under Art. 5 of the Swiss Copyright Act (URG), official authority texts (laws, official announcements, decisions) are not protected by copyright. Where such texts are reproduced, they are used on that basis. This includes the Federal Council's official voting explanations ("Erläuterungen des Bundesrates"), whose *for* and *against* arguments the vote pages reproduce **verbatim** and **in full for both sides**, each attributed to its author and linked to the official source. The *for* arguments are written by the initiative/referendum committee (the brochure states the committee is responsible for their content and wording); they are shown as the committee's own words, labelled as such, never as the site's or an authority's position. Politikch adds no argument of its own and shows neither side alone. *(A native-language legal check of this reproduction is listed in `TRANSLATIONS_TODO.md`.)*
 - **Editorial content.** Party descriptions and issue positions in `data/parties.json` are original editorial summaries based on published party manifestos and parliamentary voting records. They are interpretive and provided for information only — they are not statements by the parties themselves.
 - **The party spectrum** (economic and social axes) is an editorial approximation intended to aid orientation, not a validated political-science measurement.
 
