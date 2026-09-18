@@ -85,13 +85,29 @@ nav.scrolled { height: 60px; box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08); }
 .nav-logo-text {
   font-family: 'Playfair Display', serif;
   font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
+  white-space: nowrap; line-height: 1;
 }
-/* Wordmark swaps to "PCH" on hover/focus of the logo. */
-.nav-logo-short { display: none; }
-.nav-logo:hover .nav-logo-full,
-.nav-logo:focus-visible .nav-logo-full { display: none; }
-.nav-logo:hover .nav-logo-short,
-.nav-logo:focus-visible .nav-logo-short { display: inline; }
+/* Logo animation: on hover/focus "olitik" slides left into the "P" and its width
+   collapses, so "CH" glides in behind it — "PolitikCH" becomes "PCH".
+   (These letters have no descenders, so bottom-align == baseline-align.) */
+.nav-logo-p, .nav-logo-ch { display: inline-block; vertical-align: bottom; }
+.nav-logo-mid {
+  display: inline-block; overflow: hidden; vertical-align: bottom;
+  max-width: 46px; /* ≈ width of "olitik" at this size; collapses to 0 on hover */
+  transition: max-width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.nav-logo-mid-in {
+  display: inline-block; white-space: nowrap;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.35s ease;
+}
+.nav-logo:hover .nav-logo-mid,
+.nav-logo:focus-visible .nav-logo-mid { max-width: 0; }
+.nav-logo:hover .nav-logo-mid-in,
+.nav-logo:focus-visible .nav-logo-mid-in { transform: translateX(-46px); opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-logo-mid, .nav-logo-mid-in { transition: none; }
+}
 
 .nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links button {
