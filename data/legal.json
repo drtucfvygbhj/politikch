@@ -2,13 +2,13 @@
   "_meta": {
     "note": "Info & legal pages rendered by renderInfoPage(). Bodies are trusted first-party HTML. Romansh (rm) falls back to German (de). Edit contactEmail once before launch; it replaces every {{contact}} token.",
     "operator": "Politikch — an independent, non-commercial civic project",
-    "contactEmail": "contact@politikch.ch",
-    "contactRoutesNote": "Optional per-category recipient addresses for the in-site contact form, keyed by the form's category (origin). A sender can rename the SUBJECT, so subject-based mail rules are defeatable; the To: address is not something visitors normally touch, so routing each category to its own address gives Apple Mail rules that hold. To enable: set each value to a distinct address that DELIVERS to your inbox — either real aliases (privacy@politikch.ch, legal@politikch.ch, subscribe@politikch.ch) or plus/sub-addresses if your mail host supports them (contact+privacy@politikch.ch). Then filter on 'To contains <that address>'. Leave a value as contact@politikch.ch to keep relying on the subject prefix for that category. Unset categories fall back to contactEmail.",
+    "contactEmail": "contact.form@politikch.ch",
+    "contactRoutesNote": "Per-category recipient addresses for the in-site contact form, keyed by the form's category (origin). All four are real aliases (Hostpoint) that deliver to the privacy@politikch.ch inbox, so mail rules can filter on the To: address — which a sender cannot defeat by renaming the subject (unlike subject-based rules). In Apple Mail add one rule per address, e.g. 'If To contains privacy@politikch.ch -> move to Privacy'. Aliases preserve the original To header, so this works even though everything lands in one inbox. The subject still carries the category as a human-readable prefix (secondary filter).",
     "contactRoutes": {
-      "General enquiry": "contact@politikch.ch",
-      "Privacy / data request": "contact@politikch.ch",
-      "Legal notice": "contact@politikch.ch",
-      "Subscribe interest": "contact@politikch.ch"
+      "General enquiry": "contact.form@politikch.ch",
+      "Privacy / data request": "privacy@politikch.ch",
+      "Legal notice": "legal.notice@politikch.ch",
+      "Subscribe interest": "subscriptions@politikch.ch"
     }
   },
   "pages": {

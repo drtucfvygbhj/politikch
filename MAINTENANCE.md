@@ -131,8 +131,13 @@ See `BACKEND.md`. Once `js/config.js` `POLL_API` is set:
 ### Domains, TLS, email  *(rare)*
 - `politikch.ch` DNS → GitHub Pages; the three language domains 301-redirect to
   it. TLS auto-renews (GitHub/Let's Encrypt).
-- `contact@politikch.ch` (in `data/legal.json`) must stay a real mailbox — it's
-  the privacy-contact and subscribe address.
+- The contact-form addresses in `data/legal.json` (`_meta.contactRoutes`) must
+  keep delivering to a real inbox. They are Hostpoint aliases —
+  `contact.form@`, `privacy@`, `legal.notice@`, `subscriptions@politikch.ch` —
+  all forwarding to the **privacy@politikch.ch** inbox. Each category routes to
+  its own address so Apple Mail rules can filter on the **To:** header (add one
+  rule per address, e.g. *To contains `privacy@politikch.ch` → Privacy*); the
+  subject also carries the category as a secondary, human-readable filter.
 
 ## 5. Editorial / legal  *(quarterly-ish or on change)*
 - Keep the "not affiliated" disclaimer and the official/unofficial (poll)
