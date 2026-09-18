@@ -86,6 +86,12 @@ nav.scrolled { height: 60px; box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08); }
   font-family: 'Playfair Display', serif;
   font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
 }
+/* Wordmark swaps to "PCH" on hover/focus of the logo. */
+.nav-logo-short { display: none; }
+.nav-logo:hover .nav-logo-full,
+.nav-logo:focus-visible .nav-logo-full { display: none; }
+.nav-logo:hover .nav-logo-short,
+.nav-logo:focus-visible .nav-logo-short { display: inline; }
 
 .nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links button {
