@@ -2796,6 +2796,16 @@ function loadLegal() {
 function contactEmailPromise() {
   return loadLegal().then(d => (d && d._meta && d._meta.contactEmail) || '');
 }
+// Recipient for a form category. Routing to a per-category address (a real alias
+// or plus-address that delivers to us) makes the To: address the filter key —
+// which a visitor can't defeat by editing the subject. Falls back to the base
+// address, in which case the subject prefix is the filter. See legal.json.
+function contactRecipientPromise(origin) {
+  return loadLegal().then(d => {
+    const m = (d && d._meta) || {};
+    return (m.contactRoutes && m.contactRoutes[origin]) || m.contactEmail || '';
+  });
+}
 
 /* ============================================================
    In-site contact form. Replaces every raw email link: the user writes a
@@ -2856,7 +2866,7 @@ function openContactForm(origin, trigger) {
   overlay.querySelector('.contact-close').addEventListener('click', close);
   overlay.querySelector('.contact-cancel').addEventListener('click', close);
   document.addEventListener('keydown', onKey);
-  contactEmailPromise().then(email => {
+  contactRecipientPromise(origin).then(email => {
     const fb = overlay.querySelector('[data-fallback]');
     if (email && fb) {
       fb.innerHTML = `${escapeAttr(t('contact.fallback'))} `
@@ -2866,7 +2876,7 @@ function openContactForm(origin, trigger) {
   overlay.querySelector('.contact-send').addEventListener('click', () => {
     const subject = subjectEl.value.trim();
     if (!subject) { subjectEl.classList.add('contact-invalid'); subjectEl.focus(); return; }
-    contactEmailPromise().then(email => {
+    contactRecipientPromise(origin).then(email => {
       if (!email) return;
       const full = `${origin} — ${subject}`;
       const url = `mailto:${email}?subject=${encodeURIComponent(full)}`
