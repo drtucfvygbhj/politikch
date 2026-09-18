@@ -5,10 +5,10 @@ name: Fetch live data
 #   * data/initiatives.json — latest federal votes (VoteInfo / opendata.swiss)
 #     plus pending & signature-gathering popular initiatives (Federal Chancellery
 #     LINDAS cube).
-#     (Vote for/against arguments — data/overviews/ — are produced by a
-#     maintainer from hand-downloaded Federal Chancellery PDFs, NOT here; see
-#     data/brochures/README.md. Session "what this vote is about" text IS
-#     automatic, via fetch_sessions.py.)
+#   * data/overviews/initiative/<id>.json — the official for/against arguments
+#     for each vote, reproduced verbatim from the Federal Council's voting
+#     brochure ("Erläuterungen", Art. 5 URG). DE/FR are automatic; a vote whose
+#     brochure isn't published yet is simply skipped (no fabrication).
 #   * data/financing.json — party & campaign financing (EFK register).
 #   * data/canton-data.json — per-canton National Council results and
 #     municipality/district counts (Federal Statistical Office / opendata.swiss).
@@ -47,17 +47,19 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install -r scripts/requirements.txt
+        run: |
+          pip install -r scripts/requirements.txt
+          pip install -r scripts/requirements-arguments.txt
 
       - name: Fetch initiatives & referendums
         run: python3 scripts/fetch_initiatives.py
 
-      # NOTE: vote for/against arguments are NOT fetched here. Their only official
-      # PDF is on the Federal Chancellery site (admin.ch), which blocks automated
-      # access, so they are produced by a maintainer running scripts/fetch_arguments.py
-      # against hand-downloaded PDFs (see data/brochures/README.md). Session
-      # "what this vote is about" text IS automatic — it comes from the parliament
-      # OData in fetch_sessions.py below (commercially reusable, terms_by).
+      - name: Fetch official vote arguments (for / against)
+        # Verbatim pro/con from the Federal Council brochure (Art. 5 URG), DE/FR
+        # from the officially-published PDF; skips any vote whose brochure isn't
+        # out yet (stays an honest placeholder). Never fabricates. Add native IT
+        # by dropping an official PDF in data/brochures/ (see its README).
+        run: python3 scripts/fetch_arguments.py
 
       - name: Fetch financing data
         run: python3 scripts/fetch_financing.py
@@ -76,14 +78,14 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions TRANSLATIONS_TODO.md; then
+          if git diff --quiet -- data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/overviews TRANSLATIONS_TODO.md; then
             echo "No changes to live data files"
             exit 0
           fi
           git config user.name "politikch-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions TRANSLATIONS_TODO.md
-          git commit -m "Update live data (votes, initiatives, financing, cantons, sessions)"
+          git add data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/overviews TRANSLATIONS_TODO.md
+          git commit -m "Update live data (votes, initiatives, financing, cantons, sessions, vote arguments)"
           git push
 
       # Reminder to translate new titles by hand — opens or refreshes one GitHub

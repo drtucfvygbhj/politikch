@@ -7,17 +7,12 @@ extract the **official** text of the Federal Council's voting brochure
 ("Erläuterungen des Bundesrates" / Abstimmungsbüechli) verbatim, so nothing is
 fabricated and nothing needs editorial sign-off.
 
-Source (see the `brochure-arguments-source` memo / politikch-api skill):
-- The brochure PDFs are the Federal Council's official ones, downloaded **by hand**
-  from the Federal Chancellery (admin.ch) — which blocks automated access — and
-  dropped into data/brochures/ as <YYYYMMDD>-<lang>.pdf (one file per ballot date,
-  per language). We do NOT scrape any site: the content is public-domain official
-  text (Art. 5 URG), but sourcing it from the authority itself keeps the pipeline
-  clean for commercial use too (no third-party/NC-licensed retrieval). See
-  data/brochures/README.md for the recurring manual step.
-- DE/FR/IT are all supported if the PDF is supplied; EN/RM never exist officially
-  and fall back on-site (a language chip). A vote with no brochure yet gets no
-  file and the page keeps its honest "not published yet" placeholder.
+Source & limits (see the `brochure-arguments-source` memo / politikch-api skill):
+- The brochure PDFs are hosted per vote by Swissvotes:
+  https://swissvotes.ch/vote/<anr>.00/brochure-{de,fr}.pdf
+- Swissvotes carries **DE and FR only** (no IT/RM) and lags the newest ballots.
+  Missing languages fall back on the site (a language chip); missing votes get
+  no file and the page keeps its honest "being prepared" placeholder.
 - The brochure is one multi-item PDF per ballot date. Each vorlage has separate,
   consistently-headed pages we group into sections:
     * summary  — "In Kürze" / "L'essentiel en bref"
@@ -49,16 +44,37 @@ rather than guessed — never fabricate political argument text.
 """
 from __future__ import annotations
 
+import csv
+import io
 import json
+import os
 import re
 import sys
-from datetime import date
+import time
+import urllib.request
+from datetime import date, datetime
 from pathlib import Path
+
+UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+      "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36")
+
+# swissvotes.ch robots.txt requests "Crawl-delay: 10" — honour it (seconds
+# between successive requests). Override with POLITIKCH_CRAWL_DELAY (e.g. 0 for
+# local testing). We only ever fetch from swissvotes.ch; admin.ch, which blocks
+# automated access, is never scraped — those PDFs are supplied by hand.
+CRAWL_DELAY = float(os.environ.get("POLITIKCH_CRAWL_DELAY", "10"))
+_last_fetch = [0.0]
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 OUT_DIR = DATA / "overviews" / "initiative"
-BROCHURE_DIR = DATA / "brochures"
+
+SWISSVOTES_CSV = "https://swissvotes.ch/page/dataset/swissvotes_dataset.csv"
+# Swissvotes vote pages/assets use a two-decimal id, e.g. anr 688 -> 688.00.
+BROCHURE_URL = "https://swissvotes.ch/vote/{anr}/brochure-{lang}.pdf"
+# The official brochure covers DE/FR/IT; Swissvotes hosts DE/FR only, so IT
+# (and RM/EN) come, if at all, from a locally-supplied official PDF (--pdf-dir).
+BROCHURE_LANGS = ("de", "fr")
 
 # Argument-section running headers per language. Only the two argument sections
 # are extracted — they are the official pro/con. The neutral framing is the
@@ -101,10 +117,78 @@ _TITLE_STOP = {"und", "der", "die", "das", "für", "den", "des", "eine", "einen"
                "volksinitiative", "bundesgesetz", "änderung", "referendum"}
 
 
+def _polite_wait():
+    """Space successive requests by at least CRAWL_DELAY (swissvotes robots.txt)."""
+    if CRAWL_DELAY > 0:
+        wait = CRAWL_DELAY - (time.time() - _last_fetch[0])
+        if wait > 0:
+            time.sleep(wait)
+    _last_fetch[0] = time.time()
+
+
+def http_get(url, retries=6):
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+    last = None
+    for attempt in range(retries):
+        _polite_wait()
+        try:
+            with urllib.request.urlopen(req, timeout=90) as resp:
+                return resp.read()
+        except Exception as e:  # noqa: BLE001 — transient proxy/network errors
+            last = e
+            time.sleep(1.5 * (attempt + 1))
+    raise last
+
+
 def norm_tokens(text):
     text = re.sub(r"\b\d{1,2}\.\d{1,2}\.\d{2,4}\b", " ", (text or "").lower())
     text = re.sub(r"[«»'\"“”’()–—\-.,!?:;]", " ", text)
     return {w for w in text.split() if len(w) > 3 and w not in _TITLE_STOP}
+
+
+# ---------------------------------------------------------------------------
+# Swissvotes: vote (date + German title) -> anr (vote number for the PDF URL)
+# ---------------------------------------------------------------------------
+def load_swissvotes_index():
+    """Return {dateIso: [{anr, tokens}]} from the Swissvotes dataset."""
+    print("Fetching Swissvotes dataset (anr lookup)...")
+    try:
+        raw = http_get(SWISSVOTES_CSV).decode("utf-8", "replace")
+    except Exception as e:  # noqa: BLE001
+        print(f"  ! Swissvotes fetch failed ({e})", file=sys.stderr)
+        return {}
+    if not raw.lstrip().lower().startswith(tuple("anr")) and ";" not in raw[:200]:
+        print("  ! Swissvotes did not return the CSV (blocked?)", file=sys.stderr)
+        return {}
+    reader = csv.DictReader(io.StringIO(raw), delimiter=";")
+    by_date = {}
+    anr_key = None
+    for row in reader:
+        if anr_key is None:
+            anr_key = next((k for k in row if k and "anr" in k.lower()), None)
+        anr = (row.get(anr_key) or "").strip() if anr_key else ""
+        m = re.match(r"(\d{2})\.(\d{2})\.(\d{4})", (row.get("datum") or "").strip())
+        if not anr or not m:
+            continue
+        date_iso = f"{m.group(3)}-{m.group(2)}-{m.group(1)}"
+        title = row.get("titel_off_d") or row.get("titel_kurz_d") or ""
+        by_date.setdefault(date_iso, []).append(
+            {"anr": anr, "tokens": norm_tokens(title)})
+    print(f"  indexed {sum(len(v) for v in by_date.values())} Swissvotes ballots")
+    return by_date
+
+
+def anr_for_vote(item, sv_index):
+    cands = sv_index.get(item.get("voteDate"), [])
+    itok = norm_tokens((item.get("title") or {}).get("de", ""))
+    best, best_score = None, 0.0
+    for r in cands:
+        if not r["tokens"] or not itok:
+            continue
+        score = len(r["tokens"] & itok) / min(len(r["tokens"]), len(itok))
+        if score > best_score:
+            best, best_score = r, score
+    return (best["anr"], best_score) if best and best_score >= 0.5 else (None, 0.0)
 
 
 # ---------------------------------------------------------------------------
@@ -228,14 +312,26 @@ def match_section(sections, item, kind):
 # ---------------------------------------------------------------------------
 # Driver
 # ---------------------------------------------------------------------------
-# Official-brochure languages we can render natively, all from hand-supplied
-# admin.ch PDFs. EN/RM are never in the brochure and fall back on-site.
+# All official-brochure languages we can render natively. DE/FR come from
+# Swissvotes automatically; IT only if an official PDF is supplied via --pdf-dir
+# (Swissvotes has no IT). EN/RM are never in the brochure and fall back on-site.
 LANGS_ALL = ("de", "fr", "it")
 
 
-def local_pdf(pdf_dir, date_iso, lang):
-    """The official brochure dropped in as <YYYYMMDD>-<lang>.pdf (one file per
-    ballot date covers every vorlage on that date). Returns bytes or None."""
+def anr_path(anr):
+    """Swissvotes id for the URL: CSV anr 688 -> '688.00', 550.1 -> '550.10'."""
+    try:
+        return f"{float(anr):.2f}"
+    except (TypeError, ValueError):
+        return str(anr)
+
+
+def _load_local_pdf(pdf_dir, date_iso, lang):
+    """Official brochure a maintainer dropped in, named <YYYYMMDD>-<lang>.pdf.
+
+    One file per ballot date covers every vorlage on that date. Used mainly to
+    add native Italian, which Swissvotes doesn't host.
+    """
     if not pdf_dir or not date_iso:
         return None
     ymd = date_iso.replace("-", "")
@@ -247,11 +343,26 @@ def local_pdf(pdf_dir, date_iso, lang):
     return None
 
 
-def build_for_item(item, pdf_dir):
+def build_for_item(item, sv_index, brochure_cache, pdf_dir=None):
+    anr, score = anr_for_vote(item, sv_index)
     date_iso = item.get("voteDate")
     out_lang, source_url = {}, {}
     for lang in LANGS_ALL:
-        pdf = local_pdf(pdf_dir, date_iso, lang)
+        pdf, url = None, None
+        local = _load_local_pdf(pdf_dir, date_iso, lang)
+        if local:                                   # official PDF supplied locally
+            pdf, url = local, item.get("url")
+        elif anr and lang in BROCHURE_LANGS:        # Swissvotes-hosted official PDF
+            key = (anr, lang)
+            if key not in brochure_cache:
+                u = BROCHURE_URL.format(anr=anr_path(anr), lang=lang)
+                try:
+                    data = http_get(u)
+                    brochure_cache[key] = data if data[:4] == b"%PDF" else None
+                except Exception:  # noqa: BLE001
+                    brochure_cache[key] = None
+            pdf = brochure_cache[key]
+            url = BROCHURE_URL.format(anr=anr_path(anr), lang=lang)
         if not pdf:
             continue
         try:
@@ -267,18 +378,20 @@ def build_for_item(item, pdf_dir):
                 block[kind] = sec["text"]
         if block.get("pros") or block.get("cons"):
             out_lang[lang] = block
-            # Cite the official authority page for the ballot, not our local file.
-            if item.get("url"):
-                source_url[lang] = item["url"]
+            # Link users to the official Chancellery ballot page for the brochure,
+            # not the (Swissvotes-hosted) PDF we happened to fetch the bytes from.
+            official = item.get("url") or url
+            if official:
+                source_url[lang] = official
     if not out_lang:
-        return None, "no brochure PDF for this ballot date"
+        return None, ("no brochure/section found" if anr else "no Swissvotes match")
     return {
         "generatedAt": date.today().isoformat(),
         "source": "Federal Council voting explanations (Erläuterungen des "
                   "Bundesrates), Federal Chancellery — official text under Art. 5 URG",
         "sourceUrl": source_url,
         "lang": out_lang,
-    }, f"ok ({'+'.join(out_lang)})"
+    }, f"ok (anr {anr}, {'+'.join(out_lang)}, score {score:.2f})"
 
 
 def main(argv):
@@ -291,15 +404,12 @@ def main(argv):
     ap.add_argument("--force", action="store_true",
                     help="overwrite existing output files")
     ap.add_argument("--out", default=str(OUT_DIR), help="output directory")
-    ap.add_argument("--pdf-dir", default=str(BROCHURE_DIR),
-                    help="folder with the official brochure PDFs you downloaded "
-                         "from the Federal Chancellery, named <YYYYMMDD>-<lang>.pdf")
+    ap.add_argument("--pdf-dir", default=str(DATA / "brochures"),
+                    help="folder with official brochure PDFs named "
+                         "<YYYYMMDD>-<lang>.pdf (e.g. add native IT here); "
+                         "these override/extend the Swissvotes-hosted DE/FR")
     args = ap.parse_args(argv)
     pdf_dir = args.pdf_dir if Path(args.pdf_dir).is_dir() else None
-    if not pdf_dir:
-        print(f"No brochure folder at {args.pdf_dir}; nothing to do. Drop official "
-              f"PDFs there (see data/brochures/README.md).", file=sys.stderr)
-        return 0
 
     data = json.loads((DATA / "initiatives.json").read_text("utf-8"))
     items = data["initiatives"] if isinstance(data, dict) else data
@@ -311,13 +421,20 @@ def main(argv):
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    sv_index = load_swissvotes_index()
+    if not sv_index and not pdf_dir:
+        print("No Swissvotes index and no --pdf-dir — nothing to source from.",
+              file=sys.stderr)
+        return 0  # never break CI on a flaky source
+
+    cache = {}
     wrote = skipped = 0
     for it in eligible:
         dest = out_dir / f"{it['id']}.json"
         if dest.exists() and not args.force:
             skipped += 1
             continue
-        result, why = build_for_item(it, pdf_dir)
+        result, why = build_for_item(it, sv_index, cache, pdf_dir)
         title = (it.get("title") or {}).get("de", it["id"])[:50]
         if result:
             dest.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n",
