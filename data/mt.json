@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "engine": "DeepL",
+    "target": "EN-GB",
+    "generatedAt": null,
+    "note": "Unofficial machine translations (English) of official DE/FR/IT texts, by DeepL. Populated by scripts/translate.py when DEEPL_API_KEY is set; empty here means the site shows the official-language fallback. Shown on the site with a machine-translation badge and a link to the official source."
+  },
+  "titles": {},
+  "args": {},
+  "summaries": {}
+}
