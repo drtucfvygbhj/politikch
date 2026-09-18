@@ -486,7 +486,8 @@
     "contact.send": "Send email",
     "contact.cancel": "Cancel",
     "contact.inline": "our contact form",
-    "contact.fallback": "No email app? Write to us at"
+    "contact.fallback": "No email app? Write to us at",
+    "footer.feedback": "Feedback"
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -975,7 +976,8 @@
     "contact.send": "E-Mail senden",
     "contact.cancel": "Abbrechen",
     "contact.inline": "unser Kontaktformular",
-    "contact.fallback": "Keine E-Mail-App? Schreiben Sie an"
+    "contact.fallback": "Keine E-Mail-App? Schreiben Sie an",
+    "footer.feedback": "Feedback"
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -1464,7 +1466,8 @@
     "contact.send": "Envoyer l’e-mail",
     "contact.cancel": "Annuler",
     "contact.inline": "notre formulaire de contact",
-    "contact.fallback": "Pas d’app e-mail ? Écrivez-nous à"
+    "contact.fallback": "Pas d’app e-mail ? Écrivez-nous à",
+    "footer.feedback": "Retour"
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -1953,7 +1956,8 @@
     "contact.send": "Invia e-mail",
     "contact.cancel": "Annulla",
     "contact.inline": "il nostro modulo di contatto",
-    "contact.fallback": "Nessuna app di posta? Scrivici a"
+    "contact.fallback": "Nessuna app di posta? Scrivici a",
+    "footer.feedback": "Feedback"
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -2442,6 +2446,7 @@
     "contact.send": "Trametter l’e-mail",
     "contact.cancel": "Interrumper",
     "contact.inline": "noss formular da contact",
-    "contact.fallback": "Nagina app d’e-mail? Scrivai a"
+    "contact.fallback": "Nagina app d’e-mail? Scrivai a",
+    "footer.feedback": "Feedback"
   }
 }
