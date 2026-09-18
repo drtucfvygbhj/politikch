@@ -17,7 +17,7 @@ Nothing on the site should be read as an official communication of any authority
 | Federal election results & seat counts (2023) | Federal Statistical Office (BFS) / [wahlen.admin.ch](https://www.wahlen.admin.ch) |
 | Parliament composition & parliamentary groups | [parlament.ch](https://www.parlament.ch) |
 | Popular vote results & official texts | Federal Chancellery (Bundeskanzlei) / [bk.admin.ch](https://www.bk.admin.ch) |
-| Vote arguments (for / against) | Federal Council's official voting explanations ("Erläuterungen des Bundesrates" / Abstimmungsbüechli), Federal Chancellery ([bk.admin.ch](https://www.bk.admin.ch)) — reproduced verbatim, DE/FR/IT. The PDFs are downloaded by hand from the Chancellery (not scraped). |
+| Vote arguments (for / against) | Federal Council's official voting explanations ("Erläuterungen des Bundesrates" / Abstimmungsbüechli), Federal Chancellery ([bk.admin.ch](https://www.bk.admin.ch)) — reproduced verbatim. DE/FR fetched automatically from the officially-published PDF hosted by [Swissvotes](https://swissvotes.ch) (CC BY 4.0); native IT optionally added by hand. Public-domain official text (Art. 5 URG); each page links to the official Chancellery source. |
 | Session votes — "what this vote is about" | Parliamentary record (Curia Vista) via [parlament.ch](https://www.parlament.ch) web service (opendata.swiss "Open use, cite source") — official background text, reproduced verbatim. |
 | Canton statistics (population, area) | Federal Statistical Office (BFS) — rounded approximations |
 
