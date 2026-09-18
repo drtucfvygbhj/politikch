@@ -47,6 +47,7 @@ from __future__ import annotations
 import csv
 import io
 import json
+import os
 import re
 import sys
 import time
@@ -56,6 +57,13 @@ from pathlib import Path
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36")
+
+# swissvotes.ch robots.txt requests "Crawl-delay: 10" — honour it (seconds
+# between successive requests). Override with POLITIKCH_CRAWL_DELAY (e.g. 0 for
+# local testing). We only ever fetch from swissvotes.ch; admin.ch, which blocks
+# automated access, is never scraped — those PDFs are supplied by hand.
+CRAWL_DELAY = float(os.environ.get("POLITIKCH_CRAWL_DELAY", "10"))
+_last_fetch = [0.0]
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -109,10 +117,20 @@ _TITLE_STOP = {"und", "der", "die", "das", "für", "den", "des", "eine", "einen"
                "volksinitiative", "bundesgesetz", "änderung", "referendum"}
 
 
+def _polite_wait():
+    """Space successive requests by at least CRAWL_DELAY (swissvotes robots.txt)."""
+    if CRAWL_DELAY > 0:
+        wait = CRAWL_DELAY - (time.time() - _last_fetch[0])
+        if wait > 0:
+            time.sleep(wait)
+    _last_fetch[0] = time.time()
+
+
 def http_get(url, retries=6):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
     last = None
     for attempt in range(retries):
+        _polite_wait()
         try:
             with urllib.request.urlopen(req, timeout=90) as resp:
                 return resp.read()
