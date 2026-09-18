@@ -32,26 +32,55 @@ manual, how often, and how to keep on top of it.
 **Managing them:** once a week, open the **Actions** tab, confirm the "Fetch live
 data" run succeeded, and skim any issue it opened. That's the core routine.
 
-## 2. The only recurring hand step: title translations
+## 2. Your recurring MANUAL tasks (everything else is automatic)
 
-**Vote arguments (for / against) are automatic and official — nothing to do.**
-The weekly fetch reproduces them **verbatim** from the Federal Council's voting
-brochure (no AI, no review gate). See §6 for how it works and the one *optional*
-manual add (native Italian). This replaces the old AI-generated "overview"
-review desk, which is no longer part of the routine (the local
-`Weekly Update.command` / `ai_maintain.py` / `review_server.py` tooling is no
-longer needed).
+Only **two** things ever need your hands. Both are optional in the sense that the
+site stays correct (with honest fallbacks) if you skip them.
 
-**Titles occasionally need a hand translation.** Swiss vote/act titles are
-official only in DE/FR/IT; the English and Romansh titles shown are unofficial
-and hand-made. When the weekly fetch finds a new one it opens a GitHub issue and
-lists it in `TRANSLATIONS_TODO.md`.
+### 2a. Vote for/against arguments — download the brochure  *(~4×/year, per federal ballot)*
 
-**To clear one:** add the translation to `data/initiatives-translations.json` or
+This is the one recurring data task. The Federal Council's voting brochure (the
+source of the on-site **for / against** arguments) is only on the Federal
+Chancellery site, which blocks bots — so you fetch it by hand. It's done
+**directly from the authority on purpose**: the content is public-domain
+official text, and taking it from admin.ch (not a third party) keeps the site
+clean for commercial use.
+
+**When:** a new federal vote is coming up and its brochure is published (~6 weeks
+before the ballot). **Steps:**
+1. Download the official **"Erläuterungen des Bundesrates"** PDF for that ballot
+   date from <https://www.bk.admin.ch>, in **German, French and Italian**.
+2. Save them in `data/brochures/` as `YYYYMMDD-de.pdf`, `YYYYMMDD-fr.pdf`,
+   `YYYYMMDD-it.pdf` (ballot date, no dashes).
+3. Run `python3 scripts/fetch_arguments.py --force`
+   (needs `pip install -r scripts/requirements-arguments.txt` once).
+4. Commit the changed files under `data/overviews/initiative/`.
+
+Full details: `data/brochures/README.md`. Skip a language → it falls back on the
+site; skip a ballot → its pages show an honest "not published yet".
+
+### 2b. Unofficial EN / RM titles — hand-translate  *(as needed)*
+
+Swiss vote/act titles are official only in DE/FR/IT; English and Romansh titles
+are unofficial and hand-made. When the weekly fetch finds a new one it opens a
+GitHub issue and lists it in `TRANSLATIONS_TODO.md`. To clear it, add the
+translation to `data/initiatives-translations.json` or
 `data/sessions-translations.json` under `titles.<id>` as `{ "en": …, "rm": … }`,
-then commit. Until then the site falls back to the official DE/FR/IT title —
-nothing breaks. (Or open a Claude Code session and say *"translate the pending
-titles in TRANSLATIONS_TODO.md"*.)
+then commit. Until then the site falls back to the official DE/FR/IT title. (Or
+open a Claude Code session and say *"translate the pending titles in
+TRANSLATIONS_TODO.md"*.)
+
+### Everything else is automatic (nothing to do)
+
+The weekly GitHub Action refreshes votes, initiatives, financing, canton data,
+Federal Assembly sessions **and the session votes' "What this vote is about"
+official summaries** (from parlament.ch). The old AI "overview" review desk is
+gone — no `Weekly Update.command`, `ai_maintain.py` or `review_server.py`.
+
+> **Commercial note:** before the site monetises, see `COMPLIANCE.md` — one email
+> to BFS (`poku@bfs.admin.ch`) authorises commercial use of the vote-results feed,
+> and one to Swissvotes confirms their CC BY 4.0 licence. Everything else is
+> already commercial-safe with the attribution shown on the site.
 
 ### Review flagged translations  *(as needed)*
 `TRANSLATIONS_TODO.md` also lists UI/legal strings whose FR/IT/DE/RM wording was
@@ -95,45 +124,35 @@ See `BACKEND.md`. Once `js/config.js` `POLL_API` is set:
   of member or annual presidency.
 - Review the Privacy Policy / About / Subscribe copy if the product plans change.
 
-## 6. Vote arguments (for / against)  *(automatic — official text)*
-Each vote page shows the **for** and **against** arguments, reproduced
-**verbatim** from the Federal Council's official voting explanations
-("Erläuterungen des Bundesrates" / Abstimmungsbüechli). There is **no AI and no
-review gate** — it is official text (Art. 5 URG; see `NOTICE.md`). `pros` = the
-initiative/referendum committee's arguments, `cons` = the Federal Council and
-Parliament's, each attributed and linked to the official source. Neither side is
-ever shown alone, and the site adds no argument of its own.
+## 6. The two official "what it means" texts
+Both are **official, verbatim, no AI, no review gate**. Each is clearly
+attributed and linked to its source; the site adds nothing of its own.
 
-**Automatic (nothing to do).** `scripts/fetch_arguments.py` runs in the weekly
-fetch. For each vote it finds the officially-published brochure, extracts that
-vote's arguments, and writes `data/overviews/initiative/<id>.json` in **German
-and French**. A vote whose brochure isn't out yet (roughly >6 weeks before the
-ballot) is simply skipped — the page shows an honest "not published yet" until
-the next fetch picks it up. Nothing is ever fabricated. English and Romansh have
-no official version and fall back to DE/FR with a small language chip.
+**Popular votes — for / against arguments** (`data/overviews/initiative/`). From
+the Federal Council brochure (Art. 5 URG). `pros` = the initiative/referendum
+committee's words, `cons` = the Federal Council and Parliament's; neither side is
+shown alone. **This is the manual brochure download in §2a** — DE/FR/IT from the
+PDFs you drop in `data/brochures/`, EN/RM fall back with a language chip.
 
-**Optional — native Italian (a few times a year).** Swissvotes, the automatic
-source, doesn't host the Italian brochure. If you want native Italian (rather
-than the DE/FR fallback), once per ballot:
-1. Download the **official** Italian brochure PDF from the Federal Chancellery
-   (<https://www.bk.admin.ch>) — one PDF covers all proposals on that date.
-2. Save it as `data/brochures/<YYYYMMDD>-it.pdf` (ballot date, no dashes).
-3. Run `python3 scripts/fetch_arguments.py --force` and commit the changed
-   files. (See `data/brochures/README.md`.)
-
-Only the **official** brochure may be used — never a summary, translation, or
-third-party rewrite.
+**Session votes — "What this vote is about"** (stored on each vote in
+`data/sessions/<id>.json`). The official background/summary from the
+parliamentary record (Curia Vista) — `InitialSituation`, falling back to
+`Description` — in DE/FR/IT, EN/RM falling back. **Automatic**, fetched by
+`scripts/fetch_sessions.py` in the weekly job (parlament.ch is commercially
+reusable with attribution). A settled session already on disk keeps its data;
+run `python3 scripts/fetch_sessions.py --force` once to backfill older sessions.
 
 ---
 
 ### One-glance weekly checklist
-1. **Actions tab → "Fetch live data" green & committed?** (This now also refreshes
-   the vote arguments — nothing to run by hand.)
-2. **Pending title translations?** If the fetch opened/updated a translation issue
-   (or `TRANSLATIONS_TODO.md` lists one), add it to the relevant
-   `*-translations.json` and commit (§2). Optional.
-3. **Native Italian arguments?** Only if you want them for a new ballot — drop the
-   official IT brochure in `data/brochures/` and re-run (§6). Optional.
+1. **Actions tab → "Fetch live data" green & committed?** (Refreshes votes,
+   financing, cantons, sessions **and the session "what this vote is about" text**
+   — nothing to run by hand.)
+2. **New federal ballot coming up?** Download its brochure PDFs (DE/FR/IT) from
+   admin.ch → `data/brochures/` → `python3 scripts/fetch_arguments.py --force` →
+   commit (§2a). ~4×/year.
+3. **Pending title translations?** If the fetch flagged one in `TRANSLATIONS_TODO.md`,
+   add it and commit (§2b). As needed.
 4. (Once live) poll backend healthy?
 
 (The cache token is auto-bumped on deploy; `validate.py` runs in CI — run it

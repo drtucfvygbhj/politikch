@@ -2307,6 +2307,7 @@ function sessionVoteHTML(v) {
         <div class="svote-meaning">
           <h4>${t('session.meaningTitle')}</h4>
           <p>${t('session.meaningBody')}</p>
+          ${voteChangesHTML(v)}
           <div class="svote-tags">
             ${topicChips ? `<div class="svote-tagrow"><span class="svote-taglbl">${t('session.topicsLabel')}</span><span class="svote-tagvals">${topicChips}</span></div>` : ''}
             ${typeChip ? `<div class="svote-tagrow"><span class="svote-taglbl">${t('session.typeLabel')}</span><span class="svote-tagvals">${typeChip}</span></div>` : ''}
@@ -3171,6 +3172,35 @@ function wireOverviews(root) {
     el.dataset.wired = '1';
     renderOverview(el);
   });
+}
+
+/* "What this vote is about" for parliamentary (session) votes — the official
+   background text (InitialSituation/Description) from Curia Vista, fetched by
+   scripts/fetch_sessions.py. Official parlament.ch data (reusable with
+   attribution); no AI. DE/FR/IT only, so EN/RM fall back with a language chip. */
+function pickVoteSummary(v) {
+  const s = v && v.summary;
+  if (!s) return null;
+  for (const l of [state.lang, 'de', 'fr', 'it']) {
+    if (s[l]) return { lang: l, text: s[l] };
+  }
+  return null;
+}
+function voteChangesHTML(v) {
+  const pick = pickVoteSummary(v);
+  if (!pick) return '';
+  const chip = pick.lang !== state.lang
+    ? ` <span class="ai-ov-langchip" title="${escapeAttr(t('overview.langNote'))}">${pick.lang.toUpperCase()}</span>`
+    : '';
+  const url = businessUrl(v);
+  const link = url
+    ? ` <a href="${escapeAttr(url)}" target="_blank" rel="noopener noreferrer">${t('changes.official')} <span class="arrow">↗</span></a>`
+    : '';
+  return `<div class="vote-changes">
+      <div class="ai-ov-head"><h4 class="ai-ov-title">${t('changes.title')}</h4>${chip}</div>
+      <p class="vote-changes-text">${escapeAttr(pick.text)}</p>
+      <p class="ai-ov-disclaimer">${t('changes.source')}${link}</p>
+    </div>`;
 }
 
 function parseHash() {

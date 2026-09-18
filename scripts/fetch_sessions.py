@@ -48,6 +48,7 @@ Design notes:
     official DE/FR/IT title when a translation is missing. New votes added by a
     future run won't have an English title until one is added to that file.
 """
+import html
 import json
 import re
 import sys
@@ -197,21 +198,45 @@ def fetch_sessions():
     return out
 
 
+def strip_html(s, cap=600):
+    """Official Curia Vista fields are HTML; reduce to a capped plain-text
+    excerpt (sentence-ish boundary) for the 'What this vote is about' section."""
+    if not s:
+        return ""
+    s = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", s)
+    s = re.sub(r"<[^>]+>", " ", s)
+    s = html.unescape(s)
+    s = re.sub(r"\s+", " ", s).strip()
+    if len(s) > cap:
+        s = s[:cap].rsplit(" ", 1)[0].rstrip(" ,;:—-") + "…"
+    return s
+
+
 def fetch_business_meta(business_ids):
-    """Batch-fetch topics + business type for a set of business IDs (DE only —
-    both are canonicalised to keys, so one language suffices)."""
+    """Batch-fetch, per business: thematic topics + business type (from the DE
+    record, canonicalised to keys), plus the official background text
+    (InitialSituation, falling back to Description) in DE/FR/IT — the source for
+    the 'What this vote is about' section. That text is official Curia Vista
+    content from parlament.ch (opendata.swiss 'terms_by' — reusable, incl.
+    commercially, with attribution)."""
     meta = {}
     ids = sorted(set(i for i in business_ids if i))
     for i in range(0, len(ids), 20):
         chunk = ids[i:i + 20]
         filt = "(" + " or ".join(f"ID eq {bid}" for bid in chunk) + ")"
-        for b in odata("Business", select="ID,TagNames,BusinessTypeName", filt=filt):
-            topics = [TOPIC_MAP[t.strip()] for t in (b.get("TagNames") or "").split("|")
-                      if t.strip() in TOPIC_MAP]
-            meta[b["ID"]] = {
-                "topics": topics,
-                "btype": TYPE_MAP.get((b.get("BusinessTypeName") or "").strip()),
-            }
+        for lang in TITLE_LANGS:  # DE first, so topics/btype come from that pass
+            sel = ("ID,TagNames,BusinessTypeName,InitialSituation,Description"
+                   if lang == "DE" else "ID,InitialSituation,Description")
+            for b in odata("Business", select=sel, filt=filt, lang=lang):
+                m = meta.setdefault(b["ID"], {"topics": [], "btype": None, "summary": {}})
+                if lang == "DE":
+                    m["topics"] = [TOPIC_MAP[t.strip()]
+                                   for t in (b.get("TagNames") or "").split("|")
+                                   if t.strip() in TOPIC_MAP]
+                    m["btype"] = TYPE_MAP.get((b.get("BusinessTypeName") or "").strip())
+                txt = strip_html(b.get("InitialSituation")) or strip_html(b.get("Description"))
+                if txt:
+                    m["summary"][lang.lower()] = txt
     return meta
 
 
@@ -265,6 +290,9 @@ def build_session(session):
         bm = meta.get(v["businessNumber"], {})
         v["topics"] = bm.get("topics", [])
         v["btype"] = bm.get("btype")
+        summary = bm.get("summary") or {}
+        if summary:
+            v["summary"] = summary
         v["tally"] = total
         v["byParty"] = by_party
         v["passed"] = total["yes"] > total["no"]
