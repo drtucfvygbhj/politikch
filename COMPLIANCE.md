@@ -47,15 +47,18 @@ site with a link to the official source. Commercial status:
   confidential data). The **free** API tier may use input to improve DeepL's
   models — immaterial here, because the inputs are already public. So there is
   no confidentiality reason to pay.
-- **Cost — guaranteed zero.** We deliberately use the **DeepL API Free** tier
-  (500,000 characters/month) on an account with **no payment method**, so DeepL
-  *cannot* bill us — when the monthly allowance is used up the API simply refuses
-  (HTTP 456) and any not-yet-translated text waits until next month. On top of
-  that, `scripts/translate.py` enforces four layers (see its header): it refuses
-  a billable (non-`:fx`) key, checks DeepL's `/v2/usage` and stays under the
-  limit minus a safety margin, caps each run, and only ever writes fully
-  translated items. Our full volume (~196k chars once, then a few tens of
-  thousands/month) sits well under the free cap anyway.
+- **Cost — guaranteed zero.** We use the **DeepL API free tier** on an account
+  with **no payment method**, so DeepL *cannot* bill us — when the free allowance
+  is used the API simply refuses (HTTP 456) and stops. Note DeepL changed the
+  free allowance: new "Developer" accounts get **1,000,000 characters one-time**
+  (not monthly); legacy "API Free" (`:fx`) accounts get 500,000/month recurring.
+  Either way `scripts/translate.py` reads the real remaining quota and stays
+  under it. Our volume (~196k chars once, then ~120k/year) makes the one-time
+  million last **~6–7 years**; when exhausted, English falls back to the official
+  language (no charge). Four safety layers (see the script header): the
+  no-payment-method account (the real guarantee), refusing a billable (non-`:fx`)
+  key, the `/v2/usage` cap minus a safety margin, and a per-run cap that only
+  writes fully-translated items.
 - **Labelling:** each machine translation carries a badge and links to the
   authoritative source, so it is never presented as official. ✅
 - **Attribution:** DeepL's API terms require crediting DeepL to end users; the
