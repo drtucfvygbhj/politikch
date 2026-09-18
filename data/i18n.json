@@ -468,7 +468,10 @@
     "overview.forAuthor": "Arguments of the initiative committee",
     "overview.againstAuthor": "Federal Council and Parliament",
     "overview.source": "Reproduced verbatim from the Federal Council’s official voting explanations.",
-    "overview.langNote": "Official text is available in German, French and Italian only; shown here in that language."
+    "overview.langNote": "Official text is available in German, French and Italian only; shown here in that language.",
+    "changes.title": "What this vote is about",
+    "changes.source": "Official summary from the parliamentary record (Curia Vista, parlament.ch).",
+    "changes.official": "Full details on parlament.ch"
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -939,7 +942,10 @@
     "overview.forAuthor": "Argumente des Initiativkomitees",
     "overview.againstAuthor": "Bundesrat und Parlament",
     "overview.source": "Wörtlich aus den offiziellen Abstimmungserläuterungen des Bundesrates.",
-    "overview.langNote": "Der offizielle Text liegt nur auf Deutsch, Französisch und Italienisch vor; hier in dieser Sprache gezeigt."
+    "overview.langNote": "Der offizielle Text liegt nur auf Deutsch, Französisch und Italienisch vor; hier in dieser Sprache gezeigt.",
+    "changes.title": "Worum es geht",
+    "changes.source": "Amtliche Zusammenfassung aus dem Ratsbetrieb (Curia Vista, parlament.ch).",
+    "changes.official": "Alle Details auf parlament.ch"
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -1410,7 +1416,10 @@
     "overview.forAuthor": "Arguments du comité d’initiative",
     "overview.againstAuthor": "Conseil fédéral et Parlement",
     "overview.source": "Reproduit textuellement des explications de vote officielles du Conseil fédéral.",
-    "overview.langNote": "Le texte officiel n’existe qu’en allemand, français et italien; affiché ici dans cette langue."
+    "overview.langNote": "Le texte officiel n’existe qu’en allemand, français et italien; affiché ici dans cette langue.",
+    "changes.title": "De quoi il s’agit",
+    "changes.source": "Résumé officiel tiré des travaux parlementaires (Curia Vista, parlament.ch).",
+    "changes.official": "Détails complets sur parlament.ch"
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -1881,7 +1890,10 @@
     "overview.forAuthor": "Argomenti del comitato d’iniziativa",
     "overview.againstAuthor": "Consiglio federale e Parlamento",
     "overview.source": "Riprodotto testualmente dalle spiegazioni di voto ufficiali del Consiglio federale.",
-    "overview.langNote": "Il testo ufficiale è disponibile solo in tedesco, francese e italiano; mostrato qui in quella lingua."
+    "overview.langNote": "Il testo ufficiale è disponibile solo in tedesco, francese e italiano; mostrato qui in quella lingua.",
+    "changes.title": "Di cosa si tratta",
+    "changes.source": "Riassunto ufficiale dai lavori parlamentari (Curia Vista, parlament.ch).",
+    "changes.official": "Dettagli completi su parlament.ch"
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -2352,6 +2364,9 @@
     "overview.forAuthor": "Arguments dal comité d’iniziativa",
     "overview.againstAuthor": "Cussegl federal e parlament",
     "overview.source": "Reproducì a la lingua dals stgiariments da votaziun uffizials dal Cussegl federal.",
-    "overview.langNote": "Il text uffizial exista mo per tudestg, franzos ed talian; mussà qua en questa lingua."
+    "overview.langNote": "Il text uffizial exista mo per tudestg, franzos ed talian; mussà qua en questa lingua.",
+    "changes.title": "Da tge ch’i va",
+    "changes.source": "Resumaziun uffiziala dals lavurs parlamentars (Curia Vista, parlament.ch).",
+    "changes.official": "Tut ils detagls sin parlament.ch"
   }
 }

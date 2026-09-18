@@ -57,7 +57,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Um in Zukunft Missbräuche bei der Untermiete und der Unterpacht zu verhindern, sollen im Mietrecht Bestimmungen aufgenommen werden, welche die Anforderungen der Untermiete und der Miete im Unterpachtverhältnis anpassen und ergänzen. Neu soll festgehalten werden, dass für die Zulässigkeit einer Untermiete resp. einer Miete im Unterpachtverhältnis die schriftliche Zustimmung der Vermieterin oder des Vermieters bzw. der Verpächterin oder des Verpächters erforderlich ist. Werden die Voraussetzungen nicht eingehalten, soll der Vermieterin oder dem Vermieter resp. der Verpächterin oder dem…",
+        "fr": "Pour éviter les abus lors de sous-locations ou de sous-affermages, il est prévu que le droit du bail soit enrichi par des dispositions qui adaptent et complètent les exigences en matière de sous-location et de sous-affermage. Une sous-location ou un sous-affermage ne seront désormais autorisés qu’avec le consentement écrit du bailleur ou de la bailleresse. Par ailleurs, celui-ci ou celle-ci disposera d’un droit de résiliation extraordinaire si les conditions ne sont pas respectées. Cette révision du code des obligations a été adoptée par les Chambres fédérales le 29 septembre 2023. Un…",
+        "it": "Per impedire abusi futuri nell’ambito delle sublocazioni e dei subaffitti occorre completare e adeguare le condizioni previste nel diritto in materia di locazione. Per poter sublocare o subaffittare sarà indispensabile il consenso scritto del locatore. Inoltre, se le condizioni stabilite non saranno rispettate, il locatore disporrà di un diritto straordinario di disdetta. Su questa revisione del Codice delle obbligazioni, adottata dalle Camere federali il 29 settembre 2023 e contro la quale è stato chiesto il referendum, si voterà il 24 novembre 2024. Il 18 giugno 2015 il consigliere…"
+      }
     },
     {
       "id": 31397,
@@ -110,7 +115,12 @@
           "abstain": 1
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung der Kommission für Rechtsfragen des Nationalrates vom 24.06.2022 Die Kommission hat drei separate Vorlagen zur Umsetzung der parlamentarischen Initiativen Egloff 15.455 (\"Missbräuchliche Untermiete vermeiden\") (mit 13 zu 9 Stimmen), Vogler 16.458 (\"Keine unnötigen Formulare bei gestaffelten Mietzinserhöhungen\") und Feller 16.459 (\"Mietvertragsrecht. Auf mechanischem Wege nachgebildete Unterschriften für zulässig erklären\") (mit 14 zu 0 Stimmen bei 8 Enthaltungen) sowie 18.475 Merlini (Markwalder) (\"Beschleunigung des Verfahrens bei der Kündigung des Mietverhältnisses wegen…",
+        "fr": "Communiqué de presse de la commission des affaires juridiques du Conseil national du 24.06.2022 La commission a adopté, à l'intention de son conseil, trois projets distincts visant à mettre en oeuvre les initiatives parlementaires 15.455 (\" Empêcher les sous-locations abusives \") déposée par le conseiller national Hans Egloff (par 13 voix contre 9), 16.458 (\" Majoration échelonnée du loyer. Non aux formulaires inutiles \") déposée par l'ancien conseiller national Karl Vogler et 16.459 (\" Droit du bail. Autoriser la signature reproduite par un moyen mécanique \") déposée par Olivier Feller (par…",
+        "it": "Comunicato stampa della commissione degli affari giuridici del Consiglio nazionale del 24.06.2022 La Commissione ha adottato all'attenzione della propria Camera tre diversi progetti volti ad attuare le iniziative parlamentari Egloff 15.455 (\"Impedire le sublocazioni abusive\") (con 13 voti contro 9), Vogler 16.458 (\"Aumenti delle pigioni scalari. Evitare i moduli inutili\"), Feller 16.459 (\"Diritto della locazione. Autorizzare la firma riprodotta meccanicamente\") (con 14 voti contro 0 e 8 astensioni) e 18.475 Merlini (Markwalder) (\"Snellire la procedura in caso di disdetta della locazione per…"
+      }
     },
     {
       "id": 31398,
@@ -163,7 +173,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung der Kommission für soziale Sicherheit und Gesundheit des Nationalrates vom 19.08.2022 Einstimmig hat die Kommission ihren Entwurf zur Änderung des Heilmittelgesetzes verabschiedet, mit der sie die Pa. Iv. Giezendanner. Sicherstellung der Blutversorgung und Unentgeltlichkeit der Blutspende ( 16.504 ) umsetzt. Aufgrund von Rückmeldungen im Vernehmlassungsverfahren passte sie den Entwurf zuvor in zwei Punkten an. Vorallem im Interesse von Patientinnen und Patienten mit sehr seltenen Blutgruppen-Merkmalen sollen Blut und Blutprodukte ausnahmsweise auch dann eingeführt werden…",
+        "fr": "Communiqué de presse de la commission de la sécurité sociale et de la santé publique du Conseil national du 19.08.2022 À l'unanimité, la CSSS-N a adopté son projet de modification de la loi sur les produits thérapeutiques, qui lui permet de mettre en oeuvre l'initiative parlementaire \" Garantie de l'approvisionnement en sang et gratuité du don de sang \" ( 16.504 ) , déposée par l'ancien conseiller national Ulrich Giezendanner . Elle avait auparavant adapté deux points de ce projet, en se fondant sur des avis formulés dans le cadre de la procédure de consultation : à titre exceptionnel, il…",
+        "it": "Comunicato stampa della commissione della sicurezza sociale e della sanità del Consiglio nazionale del 19.08.2022 La Commissione ha adottato all'unanimità il suo progetto di modifica della legge sugli agenti terapeutici, con la quale attua l' Iv. Pa. Giezendanner \"Garantire l'approvvigionamento di sangue e la gratuità della donazione\" ( 16.504 ). Sulla base dei riscontri espressi nella procedura di consultazione essa ha dapprima adeguato il progetto in due punti. Soprattutto nell'interesse dei pazienti con gruppi sanguigni molto rari, il sangue e i suoi derivati devono poter essere importati…"
+      }
     },
     {
       "id": 31399,
@@ -216,7 +231,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 31.10.2018 Bundesrat verabschiedet zweite Etappe der Teilrevision des Raumplanungsgesetzes Der Bundesrat will das Bauen ausserhalb der Bauzonen neu regeln. Das grundlegende Prinzip der Trennung von Baugebiet und Nichtbaugebiet bleibt gewahrt. Die Kantone sollen künftig aber einen grösseren Gestaltungsspielraum erhalten. Damit dieser genutzt werden kann, muss für Mehrnutzungen gestützt auf einen Planungs- und Kompensationsansatz ein Ausgleich geschaffen werden, indem zum Beispiel nicht mehr benötigte Bauten beseitigt werden. Der Bundesrat hat an der Sitzung…",
+        "fr": "Communiqué de presse du Conseil fédéral du 31.10.2018 Le Conseil fédéral approuve la deuxième étape de la révision partielle de la loi sur l'aménagement du territoire Le Conseil fédéral entend poser de nouvelles règles à la construction hors de la zone à bâtir. Le principe fondamental de la séparation entre territoire constructible et territoire non constructible reste respecté. Les cantons doivent cependant disposer à l'avenir d'une plus grande marge de manoeuvre. Pour l'exploiter, il leur faudra compenser les utilisations supplémentaires en s'appuyant sur une approche de planification et de…",
+        "it": "Comunicato stampa del Consiglio federale del 31.10.2018 Il Consiglio federale adotta la seconda fase della revisione parziale della legge sulla pianificazione del territorio Il Consiglio federale intende introdurre nuove disposizioni di legge in merito alle costruzioni fuori delle zone edificabili. Il principio fondamentale della separazione tra comprensorio edificabile e comprensorio non edificabile rimane garantito. In futuro ai Cantoni verrà tuttavia concesso un margine di manovra più ampio rispetto al passato. Per poterlo sfruttare, le utilizzazioni più estese dovranno essere compensate…"
+      }
     },
     {
       "id": 31400,
@@ -271,7 +291,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Am 29. September 2023 haben die Räte drei Vorlagen zur Änderung des Obligationenrechts verabschiedet. Eine dieser Änderungen betrifft die Kündigung wegen Eigenbedarfs. Die heute geltenden Voraussetzungen, die für die Geltendmachung von Eigenbedarf eine zeitliche und sachliche Dringlichkeit vorsehen, sollen gelockert werden, sodass es für eine neue Eigentümerin oder einen neuen Eigentümer einfacher wird, mit Hinweis auf den Eigenbedarf eine Kündigung auszusprechen und durchzusetzen. Da das fakultative Referendum ergriffen wurde, wird die Vorlage am 24. November 2024 dem Volk zur Abstimmung…",
+        "fr": "Le 29 septembre 2023, les Chambres fédérales ont adopté trois projets de modification du code des obligations. L’une de ces révisions concerne la résiliation lorsque le bailleur ou la bailleresse fait valoir son besoin propre d’une chose louée. Elle vise à assouplir les conditions en vigueur – selon lesquelles l’urgence du besoin allégué par la partie bailleresse doit être à la fois temporelle et matérielle – afin de permettre au nouveau ou à la nouvelle propriétaire de notifier et d’imposer plus facilement une résiliation du bail. Un référendum ayant été demandé au sujet de cette…",
+        "it": "Il 29 settembre 2023 le Camere hanno adottato tre progetti di modifica delle disposizioni del Codice delle obbligazioni in materia di locazione. Uno di questi riguarda la disdetta del contratto di locazione per bisogno personale. Obiettivo della modifica è allentare le condizioni vigenti affinché per un nuovo proprietario che possa far valere un bisogno personale urgente (urgenza temporale e materiale) sia più facile dare una disdetta. Su questa revisione del Codice delle obbligazioni, contro la quale è stato chiesto il referendum, si voterà il 24 novembre 2024. Il 12 dicembre 2018, l’allora…"
+      }
     },
     {
       "id": 31402,
@@ -324,7 +349,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung der Kommission für Wirtschaft und Abgaben des Nationalrates 15.11.2022 Die Kommission hat die Ergebnisse der Vernehmlassung über ihren Vorentwurf zu einer Änderung des FinfraG zur Kenntnis genommen, den sie ausgehend von der parlamentarischen Initiative \"Finanzmarktinfrastrukturgesetz. Bestrafung im Fall von unwahren oder unvollständigen Angaben in öffentlichen Kaufangeboten\" ( 18.489 ) ausgearbeitet hatte. Mit der Vorlage soll eine neue Strafnorm betreffend die Verletzung der Pflicht zur Veröffentlichung eines wahren und vollständigen Angebotsprospekts oder einer wahren und…",
+        "fr": "Communiqué de presse de la commission de l'économie et des redevances du Conseil national du 15.11.2022 La commission a pris acte des résultats de la consultation sur son avant-projet de modification de la loi sur l'infrastructure des marchés financiers, qu'elle avait élaboré en réponse à l'initiative parlementaire intitulée \" Loi sur l'infrastructure des marchés financiers. Sanctions en cas d'indications fausses ou incomplètes dans les offres publiques d'achat \" ( 18.489 ). Le projet vise à introduire une nouvelle infraction pénale pour la violation de l'obligation de publier un prospectus…",
+        "it": "Comunicato stampa della commissione dell'economia e dei tributi del Consiglio nazionale del 15.11.2022 La Commissione ha preso atto dei risultati della consultazione relativa al proprio progetto preliminare di modifica della LInFi, scaturito dall'iniziativa parlamentare \"Legge sull'infrastruttura finanziaria. Pena nel caso di indicazioni inveritiere o incomplete nelle offerte pubbliche di acquisto\" ( 18.489 ). Il progetto introduce una nuova disposizione penale concernente la violazione dell'obbligo di pubblicare un prospetto e un annuncio veritieri e completi, eliminando così un'asimmetria…"
+      }
     },
     {
       "id": 31403,
@@ -379,7 +409,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung der Staatspolitischen Kommission des Ständerates vom 31.03.2023 Die Staatspolitische Kommission des Ständerates hat die Änderung des Erwerbsersatzgesetzes betreffend die Mutterschaftsentschädigung von Parlamentarierinnen mit 8 zu 2 Stimmen bei 2 Enthaltungen zuhanden des Rates verabschiedet. Die vorgeschlagene Gesetzesänderung des Erwerbsersatzgesetzes soll die Vereinbarkeit von Parlamentsmandat und Mutterschaft fördern. Gemäss geltendem Recht endet bei Mutterschaft der Anspruch auf Entschädigung am Tag der Wiederaufnahme einer Erwerbstätigkeit, unabhängig vom…",
+        "fr": "Communiqué de presse de la commission des institutions politiques du Conseil des États du 31.03.2023 La CIP-E a adopté à l'intention de son conseil, par 8 voix contre 2 et 2 abstentions, la modification de la loi sur les allocations pour perte de gain concernant l'allocation de maternité des femmes parlementaires. La modification proposée vise à rendre l'exercice d'un mandat parlementaire davantage compatible avec la maternité. Selon le droit en vigueur, le droit à l'allocation de maternité s'éteint le jour où la mère reprend une activité lucrative, indépendamment de son taux d'occupation.…",
+        "it": "Comunicato stampa della commissione delle istituzioni politiche del Consiglio degli Stati del 31.03.2023 La CIP-S ha adottato, con 8 voti contro 2 e 2 astensioni, la modifica della legge sulle indennità di perdita di guadagno relativa alle indennità in caso di maternità. La modifica proposta è volta a favorire la conciliabilità tra mandato parlamentare e maternità. Il diritto vigente prevede che, in caso di maternità, il diritto alle indennità si estingua il giorno in cui è ripresa un'attività lucrativa, a prescindere dal grado di occupazione. Anche un mandato parlamentare è considerato…"
+      }
     },
     {
       "id": 31404,
@@ -434,7 +469,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Als Teil der Umsetzung und Weiterentwicklung der Energiestrategie 2050 verabschiedete der Bundesrat im Sommer 2021 eine Botschaft. Deren Hauptziel ist die langfristige Stärkung der Stromversorgungssicherheit mit einheimischer, erneuerbarer Energie. Zur Sicherstellung der Kohärenz der Rechtsetzung wurden die Änderungen von Energie- und Stromversorgungsgesetz in einen einzigen Mantelerlass gefasst. Das Parlament debattierte die Vorlage von Oktober 2021 bis September 2023 intensiv. Der Überfall Russlands auf die Ukraine im Februar 2022 und die daraufhin drohende Energiemangellage im Winter…",
+        "fr": "En été 2021, le Conseil fédéral a approuvé un message concernant un projet faisant partie de la mise en œuvre et du développement de la Stratégie énergétique 2050. L’objectif principal de ce projet est de renforcer durablement la sécurité de l’approvisionnement en électricité en promouvant les énergies renouvelables indigènes. Dans un souci de cohérence de la législation, le Conseil fédéral a soumis les modifications de la loi sur l’approvisionnement en électricité et de la loi sur l’énergie dans un acte modificateur unique . Le Parlement a mené d’intenses débats sur le projet d’octobre 2021…",
+        "it": "Nell’ambito dell’attuazione e dello sviluppo della Strategia energetica 2050, durante l’estate 2021 il Consiglio federale ha adottato un messaggio con l’obiettivo principale di rafforzare a lungo termine la sicurezza dell’approvvigionamento elettrico attraverso l’energia rinnovabile indigena. Al fine di garantire la coerenza legislativa, le modifiche della legge sull’energia e della legge sull’approvvigionamento elettrico sono contenute in un unico atto mantello . Il disegno è stato oggetto di intense deliberazioni parlamentari da ottobre 2021 a settembre 2023. L’invasione dell’Ucraina da…"
+      }
     },
     {
       "id": 31405,
@@ -489,7 +529,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "In beiden Räten wurde mehrheitlich anerkannt, dass die finanzielle Belastung der Bevölkerung durch die Krankenkassenprämien hoch ist und Handlungsbedarf besteht. Die Volksinitiative, die deutlich mehr Prämienverbilligungen verlangt, wurde jedoch als falscher Weg bezeichnet, da sie zu teuer sei und das Problem der Gesundheitskosten nicht angehe. Schätzungen gehen bei Annahme der Initiative von zusätzlichen 4,5 Milliarden Franken für Prämienverbilligungen aus, wovon der Bund 3 Milliarden zu tragen hätte. Die Initiative wurde von beiden Räten zur Ablehnung empfohlen. Wie der Bundesrat schlug der…",
+        "fr": "Au sein des deux conseils, il est largement admis que les primes d’assurance-maladie font peser une charge élevée sur la population et que des mesures s’imposent. L’initiative populaire, qui demande une augmentation significative des réductions de primes, a toutefois été considérée comme une mauvaise solution, onéreuse et ne s’attaquant pas au problème des coûts de la santé. Selon les estimations, l’acceptation de l’initiative entraînerait des coûts supplémentaires de 4,5 milliards de francs, dont 3 milliards devraient être supportés par la Confédération. Les deux conseils ont recommandé de…",
+        "it": "La maggioranza dei membri delle due Camere ha riconosciuto la necessità di un intervento per alleggerire l’onere finanziario che grava sulla popolazione a causa degli elevati premi delle casse malati. L’iniziativa popolare – che chiede una cospicua riduzione dei premi – è tuttavia ritenuta la soluzione sbagliata poiché oltre ad essere estremamente costosa non risolve il problema dei costi della salute. Le spese supplementari in caso di accettazione dell’iniziativa si aggirerebbero intorno a 4,5 miliardi di franchi, dei quali 3 a carico della Confederazione. Entrambi i Consigli raccomandano di…"
+      }
     },
     {
       "id": 31406,
@@ -544,7 +589,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "In beiden Räten wurde mehrheitlich anerkannt, dass die finanzielle Belastung der Bevölkerung durch die Krankenkassenprämien hoch ist und Handlungsbedarf besteht. Die Volksinitiative, die deutlich mehr Prämienverbilligungen verlangt, wurde jedoch als falscher Weg bezeichnet, da sie zu teuer sei und das Problem der Gesundheitskosten nicht angehe. Schätzungen gehen bei Annahme der Initiative von zusätzlichen 4,5 Milliarden Franken für Prämienverbilligungen aus, wovon der Bund 3 Milliarden zu tragen hätte. Die Initiative wurde von beiden Räten zur Ablehnung empfohlen. Wie der Bundesrat schlug der…",
+        "fr": "Au sein des deux conseils, il est largement admis que les primes d’assurance-maladie font peser une charge élevée sur la population et que des mesures s’imposent. L’initiative populaire, qui demande une augmentation significative des réductions de primes, a toutefois été considérée comme une mauvaise solution, onéreuse et ne s’attaquant pas au problème des coûts de la santé. Selon les estimations, l’acceptation de l’initiative entraînerait des coûts supplémentaires de 4,5 milliards de francs, dont 3 milliards devraient être supportés par la Confédération. Les deux conseils ont recommandé de…",
+        "it": "La maggioranza dei membri delle due Camere ha riconosciuto la necessità di un intervento per alleggerire l’onere finanziario che grava sulla popolazione a causa degli elevati premi delle casse malati. L’iniziativa popolare – che chiede una cospicua riduzione dei premi – è tuttavia ritenuta la soluzione sbagliata poiché oltre ad essere estremamente costosa non risolve il problema dei costi della salute. Le spese supplementari in caso di accettazione dell’iniziativa si aggirerebbero intorno a 4,5 miliardi di franchi, dei quali 3 a carico della Confederazione. Entrambi i Consigli raccomandano di…"
+      }
     },
     {
       "id": 31407,
@@ -597,7 +647,12 @@
           "abstain": 17
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "In beiden Räten bestand ein Konsens, dass gegen die steigenden Kosten im Gesundheitswesen und die zunehmende Belastung der Bevölkerung durch die Krankenkassenprämien etwas getan werden müsse. Die Volksinitiative, die eine Kostenbremse verlangt und die Kostenentwicklung im Gesundheitswesen an die Lohn- und Wirtschaftsentwicklung koppeln will, wurde jedoch abgelehnt. Faktoren wie die Alterung der Gesellschaft, der technisch-medizinische Fortschritt sowie die Abhängigkeit der Löhne vom Konjunkturverlauf würden nicht berücksichtigt, meinte eine Mehrheit in beiden Räten. Zudem bestehe die Gefahr…",
+        "fr": "Les deux chambres s’accordaient à penser que la hausse des coûts du système de santé et la charge croissante que représentent les primes d’assurance-maladie sur la population appelaient des mesures. Elles ont néanmoins toutes deux rejeté l’initiative populaire, qui demande un frein aux coûts et souhaite lier l’évolution des coûts du système de santé à celle des salaires et de l’économie. La majorité de chaque conseil a en effet souligné que l’initiative ne prenait pas en considération des facteurs comme le vieillissement de la population, les progrès techniques et médicaux et le lien entre…",
+        "it": "Entrambe le Camere concordano sulla necessità di un intervento per contrastare i crescenti costi sanitari e l’onere sempre più insostenibile per la popolazione a causa dei premi delle casse malati. L’iniziativa popolare – che chiede di introdurre un freno ai costi sanitari e di collegare l’andamento di tali costi all’evoluzione dell’economia nazionale e dei salari – è stata tuttavia respinta. Secondo la maggioranza dei membri delle due Camere l’iniziativa non tiene conto di aspetti come l’invecchiamento della popolazione, i progressi medico-tecnici nonché il fatto che l’evoluzione salariale…"
+      }
     },
     {
       "id": 31408,
@@ -650,7 +705,12 @@
           "abstain": 28
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "In beiden Räten bestand ein Konsens, dass gegen die steigenden Kosten im Gesundheitswesen und die zunehmende Belastung der Bevölkerung durch die Krankenkassenprämien etwas getan werden müsse. Die Volksinitiative, die eine Kostenbremse verlangt und die Kostenentwicklung im Gesundheitswesen an die Lohn- und Wirtschaftsentwicklung koppeln will, wurde jedoch abgelehnt. Faktoren wie die Alterung der Gesellschaft, der technisch-medizinische Fortschritt sowie die Abhängigkeit der Löhne vom Konjunkturverlauf würden nicht berücksichtigt, meinte eine Mehrheit in beiden Räten. Zudem bestehe die Gefahr…",
+        "fr": "Les deux chambres s’accordaient à penser que la hausse des coûts du système de santé et la charge croissante que représentent les primes d’assurance-maladie sur la population appelaient des mesures. Elles ont néanmoins toutes deux rejeté l’initiative populaire, qui demande un frein aux coûts et souhaite lier l’évolution des coûts du système de santé à celle des salaires et de l’économie. La majorité de chaque conseil a en effet souligné que l’initiative ne prenait pas en considération des facteurs comme le vieillissement de la population, les progrès techniques et médicaux et le lien entre…",
+        "it": "Entrambe le Camere concordano sulla necessità di un intervento per contrastare i crescenti costi sanitari e l’onere sempre più insostenibile per la popolazione a causa dei premi delle casse malati. L’iniziativa popolare – che chiede di introdurre un freno ai costi sanitari e di collegare l’andamento di tali costi all’evoluzione dell’economia nazionale e dei salari – è stata tuttavia respinta. Secondo la maggioranza dei membri delle due Camere l’iniziativa non tiene conto di aspetti come l’invecchiamento della popolazione, i progressi medico-tecnici nonché il fatto che l’evoluzione salariale…"
+      }
     },
     {
       "id": 31409,
@@ -708,7 +768,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 12.10.2022 Gesichtsverhüllungsverbot in neuem Gesetz Der Bundesrat will den Verfassungsartikel zum Gesichtsverhüllungsverbot in einem neuen Bundesgesetz umsetzen. An seiner Sitzung vom 12. Oktober 2022 hat er die Botschaft zum Bundesgesetz über das Verbot der Verhüllung des Gesichts (BVVG) verabschiedet. Wer an einem öffentlich zugänglichen Ort sein Gesicht verhüllt, soll mit einer Busse bis 1000 Franken bestraft werden. In der Vernehmlassung war der Vorschlag des Bundesrats begrüsst worden, den in der Volksabstimmung vom 7. März 2021 angenommenen…",
+        "fr": "Communiqué de presse du Conseil fédéral du 12.10.2022 Nouvelle loi fédérale sur l'interdiction de se dissimuler le visage Le Conseil fédéral entend concrétiser l'article constitutionnel sur l'interdiction de se dissimuler le visage dans une nouvelle loi fédérale. Il a adopté, lors de sa séance du 12 octobre 2022, le message concernant la loi fédérale sur l'interdiction de se dissimuler le visage. Une personne qui dissimule son visage dans les lieux publics sera passible d'une amende pouvant aller jusqu'à 1000 francs. Lors de la consultation sur l'avant-projet, la proposition du Conseil…",
+        "it": "Comunicato stampa del Consiglio federale del 12.10.2022 Il divieto di dissimulare il viso in una nuova legge Il Consiglio federale intende attuare l'articolo costituzionale sul divieto di dissimulare il viso in una nuova legge federale. Nella seduta del 12 ottobre 2022, ha adottato il messaggio concernente la legge federale sul divieto di dissimulare il viso (LDDV). Questa legge prevede di punire con una multa fino a 1000 franchi chi dissimula il proprio viso in un luogo accessibile al pubblico. In sede di consultazione è stata accolta con favore la proposta del Consiglio federale di attuare…"
+      }
     },
     {
       "id": 31410,
@@ -764,7 +829,12 @@
           "abstain": 1
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 02.12.2022 Bundesrat überweist Botschaft zur Meldepflicht für Cyberangriffe bei kritischen Infrastrukturen Der Bundesrat will eine Meldepflicht für Cyberangriffe bei kritischen Infrastrukturen einführen. Zu diesem Zweck hat er an seiner Sitzung vom 2. Dezember 2022 die Botschaft zur Änderung des Bundesgesetzes über die Informationssicherheit beim Bund gutgeheissen und zuhanden des Parlaments verabschiedet. Die Vorlage schafft die gesetzlichen Grundlagen zur Meldepflicht für Betreiberinnen und Betreiber kritischer Infrastrukturen und definiert die Aufgaben…",
+        "fr": "Communiqué de presse du Conseil fédéral du 02.12.2022 Le Conseil fédéral soumet au Parlement le message concernant l'obligation de signaler les cyberattaques contre les infrastructures critiques Le Conseil fédéral souhaite mettre en place une obligation de signaler les cyberattaques contre les infrastructures critiques. À sa séance du 2 décembre 2022, il a adopté à cette fin et soumis au Parlement le message relatif à la modification de la loi sur la sécurité de l'information au sein de la Confédération. Le projet crée les bases légales nécessaires à l'obligation de signaler pour les…",
+        "it": "Comunicato stampa del Consiglio federale del 02.12.2022 Il Consiglio federale trasmette al Parlamento il messaggio concernente l'introduzione dell'obbligo di segnalare ciberattacchi a infrastrutture critiche Il Consiglio federale intende introdurre l'obbligo di segnalare ciberattacchi a infrastrutture critiche. Nella seduta del 2 dicembre 2022 ha quindi approvato il messaggio concernente la modifica della legge sulla sicurezza delle informazioni e lo ha licenziato all'attenzione del Parlamento. Il progetto pone le basi legali necessarie affinché i gestori di infrastrutture critiche siano…"
+      }
     },
     {
       "id": 31411,
@@ -820,7 +890,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 09.12.2022 Bundesrat lehnt Initiative \"Für Freiheit und körperliche Unversehrtheit\" ab Der Bundesrat beantragt dem Parlament, die Initiative \"Für Freiheit und körperliche Unversehrtheit\" ohne Gegenvorschlag abzulehnen. Dies hat er an seiner Sitzung vom 9. Dezember 2022 beschlossen. Die Initiantinnen und Initianten wollen mit einer Verfassungsänderung eine Impfpflicht und bei Bekämpfungsmassnahmen übertragbarer Krankheiten eine Differenzierung der Bevölkerung nach Impfstatus ausschliessen. Der Initiativtext geht indes weit über das Thema \"Impfen\" hinaus. Er…",
+        "fr": "Communiqué de presse du Conseil fédéral du 09.12.2022 Le Conseil fédéral rejette l'initiative \" Pour la liberté et l'intégrité physique \" Le Conseil fédéral propose au Parlement de rejeter l'initiative \" Pour la liberté et l'intégrité physique \" sans contre-projet. Ainsi en a-t-il décidé à sa séance du 9 décembre 2022. Les auteurs de l'initiative souhaitent modifier la Constitution afin d'exclure toute obligation de vaccination et toute différenciation des personnes en fonction de leur statut vaccinal dans le cadre de la lutte contre les maladies transmissibles. La portée du texte va…",
+        "it": "Comunicato stampa del Consiglio federale del 09.12.2022 Il Consiglio federale respinge l'iniziativa \"Per la libertà e l'integrità fisica\" Il Consiglio federale propone al Parlamento di respingere l'iniziativa \"Per la libertà e l'integrità fisica\" senza presentare un controprogetto. Questa la decisione presa nella seduta del 9 dicembre 2022. I promotori dell'iniziativa intendono, mediante una modifica costituzionale, impedire l'introduzione di un obbligo vaccinale e, nel quadro delle misure di lotta alle malattie trasmissibili, una differenziazione delle persone in base allo stato vaccinale.…"
+      }
     },
     {
       "id": 31412,
@@ -876,7 +951,12 @@
           "abstain": 27
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 09.12.2022 Bundesrat will Unternehmen administrativ entlasten Der Bundesrat will die Regulierungsbelastung der Unternehmen reduzieren. Gleichzeitig will er die Digitalisierung von Behördenleistungen fördern und weiter ausbauen. Er hat am 9. Dezember 2022 die Botschaft zu einem Entlastungsgesetz verabschiedet. Ebenfalls verabschiedet hat der Bundesrat eine Botschaft zur Einführung einer Regulierungsbremse, obwohl er diese ablehnt. Er erfüllt damit einen Auftrag des Parlamentes. Effiziente und massvolle Regulierungen sind ein zentrales Element für attraktive…",
+        "fr": "Communiqué de presse du Conseil fédéral du 09.12.2022 Le Conseil fédéral veut alléger la charge administrative des entreprises Le Conseil fédéral entend réduire le fardeau réglementaire qui pèse sur les entreprises et avancer dans la dématérialisation des prestations administratives. Le 9 décembre 2022, il a approuvé deux messages, l'un relatif à une loi fédérale sur l'allégement des coûts de la réglementation pour les entreprises, et l'autre à l'instauration d'un frein à la réglementation, bien qu'il rejette ce dernier. Il répond ainsi au mandat qui lui a été confié par le Parlement. Il est…",
+        "it": "Comunicato stampa del Consiglio federale del 09.12.2022 Il Consiglio federale vuole ridurre l'onere amministrativo a carico delle imprese Il Consiglio federale vuole ridurre l'onere normativo a carico delle imprese. Allo stesso tempo, desidera promuovere ed espandere ulteriormente la digitalizzazione dei servizi delle autorità. Il 9 dicembre 2022 ha adottato il messaggio relativo a una legge sullo sgravio delle imprese. Inoltre l'Esecutivo, pur respingendo l'idea di un un freno alla regolamentazione, ha ugualmente adottato il messaggio sulla sua introduzione. Con ciò il Consiglio federale…"
+      }
     },
     {
       "id": 31413,
@@ -929,7 +1009,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 15.02.2023 Organtransplantation: Bundesrat will die Sicherheit erhöhen Der Bundesrat will die Patientensicherheit in der Transplantationsmedizin mit einem flächendeckenden Vigilanzsystem weiter erhöhen und den Vollzug optimieren. Zudem sollen die rechtlichen Grundlagen für Überkreuz-Lebendspenden im Transplantationsgesetz verankert werden. Der Bundesrat hat die Botschaft zur Änderung des Transplantationsgesetzes an seiner Sitzung vom 15. Februar 2023 zuhanden des Parlaments verabschiedet. Bereits heute sind Qualität und Sicherheit der Transplantationen in…",
+        "fr": "Communiqué de presse du Conseil fédéral du 15.02.2023 Transplantation d'organes : le Conseil fédéral veut renforcer la sécurité Le Conseil fédéral veut renforcer encore la sécurité des patients en médecine de la transplantation, grâce à un système de vigilance à l'échelle suisse. Il entend aussi optimiser l'exécution. En outre, les transplantations croisées doivent désormais être réglementées dans la loi sur la transplantation. Lors de sa séance du 15 février 2023, le Conseil fédéral a adopté le message à l'intention du Parlement sur la modification de cette loi. Actuellement déjà, la qualité…",
+        "it": "Comunicato stampa del Consiglio federale del 15.02.2023 Trapianto di organi: il Consiglio federale intende rafforzarne la sicurezza Il Consiglio federale intende aumentare ulteriormente la sicurezza dei pazienti nella medicina dei trapianti mediante un sistema di vigilanza capillare nonché ottimizzare l'esecuzione. Inoltre, le basi giuridiche per il trapianto incrociato tra vivi saranno sancite nella legge sui trapianti. Nella sua seduta del 15 febbraio 2023, il Consiglio federale ha adottato all'attenzione del Parlamento il messaggio concernente la modifica della legge sui trapianti. La…"
+      }
     },
     {
       "id": 31414,
@@ -984,7 +1069,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 22.02.2023 Zulassung von Rollmaterial für den internationalen Bahnverkehr soll einfacher werden Der Bundesrat möchte den grenzüberschreitenden Bahnverkehr weiter stärken. Dazu dienen unter anderem einheitliche europäische Zulassungsverfahren für neues Rollmaterial. Nach positivem Echo in der Vernehmlassung hat der Bundesrat an seiner Sitzung vom 22. Februar 2023 beschlossen, mit einer Anpassung des Eisenbahngesetzes die hierfür nötigen Grundlagen zu schaffen. Die Schweiz hat ein grosses Interesse daran, dass der grenzüberschreitende Eisenbahnverkehr…",
+        "fr": "Communiqué de presse du Conseil fédéral du 22.02.2023 L'admission de matériel roulant au transport ferroviaire international doit être simplifiée Le Conseil fédéral souhaite continuer à renforcer le transport ferroviaire transfrontalier. À cet effet, il s'appuie notamment sur des procédures d'homologation européennes uniformes pour le nouveau matériel roulant. Suite à l'écho positif rencontré lors de la consultation, le Conseil fédéral a décidé, lors de sa séance du 22 février 2023, de créer les bases nécessaires en adaptant la loi sur les chemins de fer. La Suisse a tout intérêt à ce que le…",
+        "it": "Comunicato stampa del Consiglio federale del 22.02.2023 Semplificare l'autorizzazione di materiale rotabile per il traffico ferroviario internazionale Il Consiglio federale intende potenziare ulteriormente il traffico ferroviario transfrontaliero, tra le altre cose mediante le procedure di autorizzazione europee unificate per il nuovo materiale rotabile. Dopo il riscontro positivo della consultazione, durante la sua seduta del 22 febbraio 2023 ha deciso di adeguare la legge federale sulle ferrovie per creare le basi necessarie allo scopo. La Svizzera ha notevole interesse a che il traffico…"
+      }
     },
     {
       "id": 31415,
@@ -1040,7 +1130,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 15.02.2023 Mehr Unterstützung für Berufsbildnerinnen und Berufsbildner Der Bundesrat hat am 15. Februar 2022 die Änderungsvorlage für das Arbeitslosenversicherungsgesetz (AVIG) verabschiedet. Es soll eine neue Bestimmung ins AVIG aufgenommen werden, dank der Berufsbildnerinnen und Berufsbildner, die Kurzarbeitsentschädigung (KAE) erhalten, die Ausbildung und Betreuung der Lernenden im Betrieb fortsetzen dürfen. Mit der KAE bietet die Arbeitslosenversicherung den Arbeitgebern in konjunkturell schwierigen Zeiten eine Alternative zu Entlassungen. So besteht…",
+        "fr": "Communiqué de presse du Conseil fédéral du 15.02.2023 Davantage de soutien aux formatrices et formateurs professionnels Le Conseil fédéral a adopté le 15 février 2023 le projet d'adaptation de la loi sur l'assurance-chômage (LACI). Ce dernier prévoit d'y introduire une nouvelle disposition permettant aux formatrices et formateurs, qui touchent des indemnités en cas de réduction de l'horaire de travail (RHT), de poursuivre l'encadrement des personnes en apprentissage. Avec l'indemnité en cas de RHT, l'assurance-chômage offre aux employeurs, dans les périodes économiquement difficiles, une…",
+        "it": "Comunicato stampa del Consiglio federale del 15.02.2023 Più sostegno ai formatori Il 15 febbraio 2023 il Consiglio federale ha adottato il progetto di modifica della legge sull'assicurazione contro la disoccupazione (LADI), il quale prevede di introdurre una nuova disposizione che consenta ai formatori che percepiscono un'indennità per lavoro ridotto (ILR) di continuare a formare e seguire gli apprendisti. Con l'ILR l'assicurazione contro la disoccupazione offre ai datori di lavoro un'alternativa ai licenziamenti in periodi di difficoltà economica. I lavoratori il cui tempo normale di lavoro…"
+      }
     },
     {
       "id": 31416,
@@ -1097,7 +1192,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 22.02.2023 Bundesrat will mit Neuer Regionalpolitik kleine Infrastrukturvorhaben mitfinanzieren Im Rahmen der Neuen Regionalpolitik (NRP) sollen neu ausgewählte kleine Infrastrukturvorhaben mit A-Fonds-perdu-Beiträgen unterstützt werden. Solche Projekte können wertvolle Impulse für die wirtschaftliche Entwicklung in ländlichen Regionen und Berggebieten schaffen. Der Bundesrat hat am 22. Februar 2023 vom Ergebnis des Vernehmlassungsverfahrens Kenntnis genommen und den Entwurf des Bundesgesetzes mit der zugehörigen Botschaft an das Parlament überwiesen.…",
+        "fr": "Communiqué de presse du Conseil fédéral du 22.02.2023 Le Conseil fédéral veut cofinancer certains petits projets d'infrastructure au titre de la nouvelle politique régionale Il devrait être désormais possible, dans le cadre de la nouvelle politique régionale, de soutenir certains petits projets d'infrastructure par le biais de contributions à fonds perdu. Les projets concernés peuvent fournir de précieuses impulsions en faveur du développement économique des zones rurales et des régions de montagne. Le 22 février 2023, le Conseil fédéral a pris connaissance des résultats de la procédure de…",
+        "it": "Comunicato stampa del Consiglio federale del 22.02.2023 Nuova politica regionale: il Consiglio federale vuole cofinanziare i piccoli progetti infrastrutturali Nel quadro della Nuova politica regionale (NPR) alcuni piccoli progetti infrastrutturali potranno essere finanziati mediante contributi a fondo perso. Verranno selezionati i progetti in grado di generare impulsi positivi per lo sviluppo economico delle aree rurali e delle regioni montane. Il 22 febbraio 2023 il Consiglio federale ha preso visione dei risultati della consultazione e trasmesso al Parlamento il disegno di legge federale…"
+      }
     },
     {
       "id": 31417,
@@ -1151,7 +1251,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Die Nationalstrassen leisten einen wichtigen Beitrag zur verkehrlichen Erschliessung der Schweiz. Nach Ansicht des Bundesrates müssen sie in einem guten Zustand erhalten werden. Dazu muss auch weiterhin in ihren Betrieb, ihren Unterhalt und ihre Erweiterung investiert werden. An seiner Sitzung vom 22. Februar 2023 verabschiedete der Bundesrat eine Botschaft zuhanden des Parlaments, welche vier Bundesbeschlüsse umfasst, darunter den Bundesbeschluss über den Ausbauschritt 2023 für die Nationalstrassen (Entwurf 2) und den Bundesbeschluss über den diesbezüglichen Verpflichtungskredit in Höhe von…",
+        "fr": "Les routes nationales apportent une contribution importante à la desserte en transports de la Suisse. Pour le Conseil fédéral, elles doivent être maintenues en bon état, ce qui implique de poursuivre les investissements dans leur exploitation, leur entretien et d’après certains, leur extension. Lors de sa séance du 22 février 2023, le Conseil fédéral a adopté le message ad hoc destiné au Parlement qui comprend quatre arrêtés fédéraux, parmi lesquels figurent ceux sur l’étape d’aménagement 2023 des routes nationales et le crédit d’engagement de 4,354 milliards de francs correspondant. Le…",
+        "it": "Le strade nazionali forniscono un importante contributo al sistema dei trasporti svizzero e devono essere mantenute in adeguato stato di conservazione. Secondo il Consiglio federale, occorre perciò continuare a investire in esercizio, manutenzione e ampliamento. Nella seduta del 22 febbraio 2023, il Consiglio federale ha adottato il relativo messaggio e quattro decreti federali, tra cui quelli relativi alla Fase di potenziamento 2023 delle strade nazionali e al corrispondente credito d’impegno di 4,354 miliardi di franchi, con cui intende fluidificare il traffico. Propone inoltre un limite di…"
+      }
     },
     {
       "id": 31418,
@@ -1205,7 +1310,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung der Aussenpolitischen Kommission des Nationalrates vom 26.06.2023 Die Aussenpolitische Kommission des Nationalrates (APK-N) hat an ihrer Sitzung vom 19. Juni 2023 im Rahmen der Umsetzung ihrer parlamentarischen Initiative 23.446 einen Entwurf zur Ergänzung des Geschäftsreglements des Nationalrates verabschiedet. Mit der beantragten Änderung möchte sie ihre Mitwirkungsmöglichkeiten im Bereich der Übernahme von EU-Recht festigen, indem sie eine ständige Subkommission für Europafragen einsetzt. Die APK-N hat an ihrer Sitzung vom 19. Juni einen Antrag ihrer Subkommission…",
+        "fr": "Communiqué de presse de la commission de politique extérieure du Conseil national du 26.06.2023 A sa séance du 19 juin 2023, la Commission de politique extérieure du Conseil national (CPE-N) a adopté, dans le cadre de la mise en oeuvre de son initiative parlementaire 23.446 , un projet destiné à compléter le règlement du Conseil national. La modification proposée vise à instituer une sous-commission permanente des questions européennes afin de renforcer les possibilités de participation de la CPE-N en matière de reprise du droit de l'Union européenne. Lors de sa séance du 19 juin, la…",
+        "it": "Comunicato stampa della commissione della politica estera del Consiglio nazionale del 26.06.2023 Nella sua seduta del 19 giugno 2023, nel quadro dell'attuazione della sua iniziativa parlamentare 23.446 , la Commissione della politica estera del Consiglio nazionale (CPE-N) ha adottato un progetto per adeguare il Regolamento del Consiglio nazionale. Si prevede di costituire una sottocommissione permanente per le questioni europee al fine di consolidare le possibilità di partecipazione della CPE-N nell'ambito del recepimento del diritto dell'EU. Nella sua seduta del 19 giugno 2023, la CPE-N ha…"
+      }
     }
   ]
 }

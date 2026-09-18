@@ -58,7 +58,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Resultate der Volksabstimmung: Die Volksinitiative wurde in der Volksabstimmung vom 8. März 2026 mit 54,39 % Nein-Stimmen sowie 11 ganzen und 6 halben Standesstimmen abgelehnt. Der Gegenvorschlag wurde in der Volksabstimmung vom 8. März 2026 mit 73,40 % Ja-Stimmen und von allen Kantonen angenommen. Medienmitteilung des Bundesrates vom 26.06.2024 Bundesrat verabschiedet Botschaft für direkten Gegenentwurf zur Volksinitiative «Bargeld ist Freiheit» Der Bundesrat hat an seiner Sitzung vom 26. Juni 2024 die Botschaft für einen direkten Gegenentwurf zur Volksinitiative «Ja zu einer unabhängigen…",
+        "fr": "Résultate de la votation populaire : Le 8 mars 2026, l’initiative populaire a été rejetée par 54,39 % des voix ainsi que par 11 cantons comptant chacun pour une voix et 6 cantons comptant chacun pour une demi-voix. Le contre-projet a été acceptée par le peuple le 8 mars 2026 avec 73,40 % des voix et par tous les cantons. Communiqué de presse du Conseil fédéral du 26.06.2024 Le Conseil fédéral adopte le message sur le contre-projet direct à l’initiative populaire « L’argent liquide, c’est la liberté » Lors de sa séance du 26 juin 2024, le Conseil fédéral a adopté le message concernant le…",
+        "it": "Risultati della votazione popolare: L'iniziativa popolare è stata respinta nella votazione popolare dell’8 marzo 2026, dal 54,39 per cento dei votanti e dalla maggioranza dei Cantoni (11 Cantoni che dispongono di un voto e 6 Cantoni che dispongono di mezzo voto). Il controprogetto è stato accettato nella votazione popolare dell’8 marzo 2026 dal 73,40 per cento dei votanti e dalla maggioranza dei Cantoni (20 Cantoni che dispongono di un voto e 6 Cantoni che dispongono di mezzo voto). Comunicato stampa del Consiglio federale del 26.06.2024 Il Consiglio federale licenzia il messaggio sul…"
+      }
     },
     {
       "id": 35029,
@@ -113,7 +118,12 @@
           "abstain": 5
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 22.06.2023 Bundesrat will den Bau von Solar-, Wind- und Wasserkraftwerken beschleunigen Der Bundesrat will die Verfahren für die Planung und den Bau grosser Kraftwerke für erneuerbare Energien verkürzen, um den Ausbau der Produktion rasch voranzutreiben. Er hat in seiner Sitzung vom 21. Juni 2023 eine Änderung des Energiegesetzes zu Handen des Parlaments verabschiedet. Der sogenannte Beschleunigungserlass sieht unter anderem vor, Bewilligungsverfahren und Rechtsmittelverfahren für grosse Anlagen zu straffen und den Planungsprozess für den Ausbau des…",
+        "fr": "Communiqué de presse du Conseil fédéral du 22.06.2023 Le Conseil fédéral entend accélérer la construction de centrales solaires, éoliennes et hydroélectriques Le Conseil fédéral entend raccourcir les procédures de planification et de construction des grandes centrales de production d’énergies renouvelables afin d’accélérer le développement de la production. Lors de sa séance du 21 juin 2023, il a adopté une modification de la loi sur l’énergie à l’attention du Parlement. Le projet de loi pour l’accélération des procédures prévoit notamment de raccourcir les procédures d’autorisation et les…",
+        "it": "Comunicato stampa del Consiglio federale del 22.06.2023 Il Consiglio federale intende accelerare la costruzione di impianti solari, eolici e idroelettrici Il Consiglio federale vuole abbreviare le procedure per la pianificazione e la costruzione di grandi impianti per l'impiego delle energie rinnovabili. L'obiettivo è il rapido incremento della produzione di energia elettrica. Nella seduta del 21 giugno 2023 il Governo ha adottato una modifica della legge sull'energia che sottoporrà al Parlamento. Il cosiddetto atto sull'accelerazione prevede, oltre ad altri adeguamenti, lo snellimento delle…"
+      }
     },
     {
       "id": 35030,
@@ -168,7 +178,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 22.05.2024 Bundesrat verabschiedet Botschaft zur Stärkung der Geldwäscherei-Bekämpfung Der Bundesrat hat an seiner Sitzung vom 22. Mai 2024 die Botschaft zur Weiterentwicklung der Geldwäscherei-Bekämpfung an das Parlament übermittelt. Mit einem eidgenössischen Register der wirtschaftlich berechtigten Personen und Sorgfaltspflichten für besonders risikobehaftete Tätigkeiten in Rechtsberufen sowie weiteren Bestimmungen sollen die Integrität und die Wettbewerbsfähigkeit des Finanz- und Wirtschaftsstandortes Schweiz gestärkt werden. Die Massnahmen entsprechen…",
+        "fr": "Communiqué de presse du Conseil fédéral du 22.05.2024 Le Conseil fédéral adopte le message sur le projet de loi visant à renforcer la lutte contre le blanchiment d’argent À sa séance du 22 mai 2024, le Conseil fédéral a adopté, à l’intention du Parlement, le message concernant la loi sur la transparence des personnes morales, qui vise à améliorer la lutte contre le blanchiment d’argent. Ce projet de loi prévoit l’introduction d’un registre fédéral des ayants droit économiques, d’obligations de diligence applicables aux membres des professions juridiques qui exercent des activités…",
+        "it": "Comunicato stampa del Consiglio federale del 22.05.2024 Il Consiglio federale licenzia il messaggio sul rafforzamento del dispositivo di lotta contro il riciclaggio di denaro Nella seduta del 22 maggio 2024, il Consiglio federale ha trasmesso al Parlamento il messaggio sull’ulteriore sviluppo del dispositivo di lotta contro il riciclaggio di denaro. Un registro federale degli aventi economicamente diritto e obblighi di diligenza per le attività particolarmente a rischio delle professioni giuridiche, nonché altre disposizioni perseguono lo scopo di rafforzare l’integrità e la competitività…"
+      }
     },
     {
       "id": 35031,
@@ -223,7 +238,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 22.05.2024 Bundesrat verabschiedet Botschaft zur Stärkung der Geldwäscherei-Bekämpfung Der Bundesrat hat an seiner Sitzung vom 22. Mai 2024 die Botschaft zur Weiterentwicklung der Geldwäscherei-Bekämpfung an das Parlament übermittelt. Mit einem eidgenössischen Register der wirtschaftlich berechtigten Personen und Sorgfaltspflichten für besonders risikobehaftete Tätigkeiten in Rechtsberufen sowie weiteren Bestimmungen sollen die Integrität und die Wettbewerbsfähigkeit des Finanz- und Wirtschaftsstandortes Schweiz gestärkt werden. Die Massnahmen entsprechen…",
+        "fr": "Communiqué de presse du Conseil fédéral du 22.05.2024 Le Conseil fédéral adopte le message sur le projet de loi visant à renforcer la lutte contre le blanchiment d’argent À sa séance du 22 mai 2024, le Conseil fédéral a adopté, à l’intention du Parlement, le message concernant la loi sur la transparence des personnes morales, qui vise à améliorer la lutte contre le blanchiment d’argent. Ce projet de loi prévoit l’introduction d’un registre fédéral des ayants droit économiques, d’obligations de diligence applicables aux membres des professions juridiques qui exercent des activités…",
+        "it": "Comunicato stampa del Consiglio federale del 22.05.2024 Il Consiglio federale licenzia il messaggio sul rafforzamento del dispositivo di lotta contro il riciclaggio di denaro Nella seduta del 22 maggio 2024, il Consiglio federale ha trasmesso al Parlamento il messaggio sull’ulteriore sviluppo del dispositivo di lotta contro il riciclaggio di denaro. Un registro federale degli aventi economicamente diritto e obblighi di diligenza per le attività particolarmente a rischio delle professioni giuridiche, nonché altre disposizioni perseguono lo scopo di rafforzare l’integrità e la competitività…"
+      }
     },
     {
       "id": 35033,
@@ -279,7 +299,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 27.09.2024 Besserer Schutz für vor dem Versicherungsalter verunfallte Personen mit Rückfällen oder Spätfolgen Der Bundesrat möchte vor dem Versicherungsalter verunfallte Personen besser schützen. An seiner Sitzung vom 27. September 2024 hat er die Botschaft über die Revision des Unfallversicherungsgesetzes (UVG) zur Umsetzung der Motion 11.3811 Darbellay «Rechtslücke in der Unfallversicherung schliessen» verabschiedet. Diese Änderung gewährleistet die Entrichtung von Taggeldern der Unfallversicherung in Fällen, in denen die Arbeitsunfähigkeit einer…",
+        "fr": "Communiqué de presse du Conseil fédéral du 27.09.2024 Les personnes accidentées avant l’âge d’être assurées seront mieux protégées en cas de rechute Le Conseil fédéral veut mieux protéger les personnes accidentées avant l’âge d’être assurées. Lors de sa séance du 27 septembre 2024, il a adopté le message relatif à la révision de la loi sur l'assurance-accidents pour mettre en œuvre la motion 11.3811 Darbellay « Pour combler les lacunes de l’assurance-accidents ». Cette modification garantit le versement des indemnités journalières par l’assurance-accidents (LAA) dans les cas où l’incapacité…",
+        "it": "Comunicato stampa del Consiglio federale del 27.09.2024 Le persone che subiscono un infortunio prima di essere assicurate saranno più tutelate in caso di ricaduta Il Consiglio federale intende fornire una migliore tutela alle persone che subiscono un infortunio prima di essere assicurate. Durante la seduta del 27 settembre 2024, ha adottato il messaggio concernente la revisione della legge federale sull’assicurazione contro gli infortuni (LAINF), in adempimento della mozione Darbellay 11.3811 «Colmare le lacune giuridiche nell’assicurazione contro gli infortuni». Questa modifica garantisce il…"
+      }
     },
     {
       "id": 35034,
@@ -333,7 +358,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Resultat der Volksabstimmung: Die Volksinitiative wurde in der Volksabstimmung vom 8. März 2026 mit 61.95 % Nein-Stimmen sowie 20 ganzen und 6 halben Standesstimmen abgelehnt. Medienmitteilung des Bundesrates vom 19.06.2024 Bundesrat lehnt SRG-Initiative ab und schlägt stattdessen Abgabesenkung auf 300 Franken vor Die SRG benötigt ausreichend finanzielle Mittel, um in allen Sprachregionen ein gleichwertiges publizistisches Angebot bereitstellen zu können. Der Bundesrat lehnt daher die eidgenössische Volksinitiative «200 Franken sind genug! (SRG-Initiative)» ab. Die entsprechende Botschaft hat…",
+        "fr": "Résultat de la votation populaire : Le 8 mars 2026, l’initiative populaire a été rejetée par 61,95 % des voix ainsi que par 20 cantons comptant chacun pour une voix et 6 cantons comptant chacun pour une demi-voix. Communiqué de presse du Conseil fédéral du 19.06.2024 Le Conseil fédéral rejette l'initiative SSR et propose plutôt de baisser la redevance à 300 francs La SSR doit disposer de moyens suffisants pour assurer une offre journalistique équivalente dans toutes les régions linguistiques. Le Conseil fédéral rejette donc l'initiative populaire fédérale \"200 francs, ça suffit! (initiative…",
+        "it": "Risultato della votazione popolare: L'iniziativa popolare è stata respinta nella votazione popolare dell’8 marzo 2026, dal 61,95 per cento dei votanti e dalla maggioranza dei Cantoni (20 Cantoni che dispongono di un voto e 6 Cantoni che dispongono di mezzo voto). Comunicato stampa del Consiglio federale del 19.06.2024 Il Consiglio federale respinge l'iniziativa SSR e propone invece di ridurre il canone a 300 franchi La SSR ha bisogno di risorse finanziarie sufficienti per poter proporre un'offerta giornalistica equivalente in tutte le regioni linguistiche. Il Consiglio federale respinge…"
+      }
     },
     {
       "id": 35035,
@@ -387,7 +417,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Resultate der Volksabstimmung: Die Volksinitiative wurde in der Volksabstimmung vom 8. März 2026 mit 54,39 % Nein-Stimmen sowie 11 ganzen und 6 halben Standesstimmen abgelehnt. Der Gegenvorschlag wurde in der Volksabstimmung vom 8. März 2026 mit 73,40 % Ja-Stimmen und von allen Kantonen angenommen. Medienmitteilung des Bundesrates vom 26.06.2024 Bundesrat verabschiedet Botschaft für direkten Gegenentwurf zur Volksinitiative «Bargeld ist Freiheit» Der Bundesrat hat an seiner Sitzung vom 26. Juni 2024 die Botschaft für einen direkten Gegenentwurf zur Volksinitiative «Ja zu einer unabhängigen…",
+        "fr": "Résultate de la votation populaire : Le 8 mars 2026, l’initiative populaire a été rejetée par 54,39 % des voix ainsi que par 11 cantons comptant chacun pour une voix et 6 cantons comptant chacun pour une demi-voix. Le contre-projet a été acceptée par le peuple le 8 mars 2026 avec 73,40 % des voix et par tous les cantons. Communiqué de presse du Conseil fédéral du 26.06.2024 Le Conseil fédéral adopte le message sur le contre-projet direct à l’initiative populaire « L’argent liquide, c’est la liberté » Lors de sa séance du 26 juin 2024, le Conseil fédéral a adopté le message concernant le…",
+        "it": "Risultati della votazione popolare: L'iniziativa popolare è stata respinta nella votazione popolare dell’8 marzo 2026, dal 54,39 per cento dei votanti e dalla maggioranza dei Cantoni (11 Cantoni che dispongono di un voto e 6 Cantoni che dispongono di mezzo voto). Il controprogetto è stato accettato nella votazione popolare dell’8 marzo 2026 dal 73,40 per cento dei votanti e dalla maggioranza dei Cantoni (20 Cantoni che dispongono di un voto e 6 Cantoni che dispongono di mezzo voto). Comunicato stampa del Consiglio federale del 26.06.2024 Il Consiglio federale licenzia il messaggio sul…"
+      }
     },
     {
       "id": 35036,
@@ -441,7 +476,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 13.09.2024 Kinder besser vor Gewalt in der Erziehung schützen Der Bundesrat will den Grundsatz der gewaltfreien Erziehung ausdrücklich im Gesetz verankern. An seiner Sitzung vom 13. September 2024 hat er die Vernehmlassungsergebnisse zu einer Änderung des Zivilgesetzbuches (ZGB) zur Kenntnis genommen und zuhanden des Parlaments die entsprechende Botschaft verabschiedet. Die vorgeschlagene Bestimmung verpflichtet die Eltern explizit, Kinder ohne Anwendung von Gewalt zu erziehen. Ausserdem soll der Zugang zu Beratungsangeboten für Eltern und Kinder…",
+        "fr": "Communiqué de presse du Conseil fédéral du 13.09.2024 Mieux protéger les enfants contre la violence dans l’éducation Le Conseil fédéral veut inscrire le principe de l’éducation sans violence noir sur blanc dans la loi. Il a pris acte des résultats de la consultation sur une modification du code civil (CC) et adopté le message au Parlement lors de sa séance du 13 septembre 2024. Le texte proposé oblige expressément les parents à éduquer leurs enfants sans recourir à la violence. Il améliore en outre l’accès aux offres de conseil pour les parents et les enfants. Le droit en vigueur interdit…",
+        "it": "Comunicato stampa del Consiglio federale del 13.09.2024 Tutelare meglio i minori dalla violenza nell’educazione Il Consiglio federale intende sancire espressamente per legge il principio dell’educazione non violenta. Nella seduta del 13 settembre 2024, ha preso atto dei risultati della consultazione sulla pertinente modifica del Codice civile e ha adottato il relativo messaggio all’attenzione del Parlamento. La normativa proposta impone esplicitamente ai genitori di educare i figli senza ricorrere alla violenza, intende inoltre migliorare l’accesso alle offerte di consulenza per genitori e…"
+      }
     },
     {
       "id": 35037,
@@ -495,7 +535,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 13.11.2024 Bundesrat verabschiedet Botschaft zur Stärkung des SIS im Kampf gegen Terrorismus und schwere Kriminalität Europol wird einem Schengen-Staat künftig Ausschreibungen von Drittstaatsangehörigen im Schengener Informationssystem (SIS) vorschlagen können; dies bei einem Verdacht auf Terrorismus oder schwere Kriminalität. Diese Schengen-Weiterentwicklung erfordert auch in der Schweiz gesetzliche Anpassungen. Der Bundesrat hat an seiner Sitzung vom 13. November 2024 die entsprechende Botschaft verabschiedet. Am 6. Juli 2022 verabschiedete die…",
+        "fr": "Communiqué de presse du Conseil fédéral du 13.11.2024 Le Conseil fédéral adopte le message relatif au renforcement du SIS dans la lutte contre le terrorisme et la grande criminalité Europol pourra bientôt proposer à un État Schengen de signaler des ressortissants de pays tiers dans le Système d'information Schengen (SIS) en cas de soupçon de terrorisme ou de criminalité grave. Ce développement de l'acquis de Schengen requiert une modification des bases légales suisses. Lors de sa séance du 13 novembre 2024, le Conseil fédéral a adopté le message dans ce sens. Le 6 juillet 2022, l’Union…",
+        "it": "Comunicato stampa del Consiglio federale del 13.11.2024 Il Consiglio federale adotta il messaggio sul potenziamento del SIS nella lotta contro il terrorismo e le gravi forme di criminalità In futuro, Europol potrà proporre a uno Stato Schengen di segnalare nel Sistema d’informazione Schengen (SIS) cittadini di uno Paese terzo sospettati di terrorismo o di crimini gravi. Questo sviluppo dell’acquis di Schengen richiede una modifica delle basi giuridiche svizzere. Nella seduta del 13 novembre 2024 il Consiglio federale ha adottato il pertinente messaggio. Il 6 luglio 2022 l’Unione europea (UE)…"
+      }
     },
     {
       "id": 35038,
@@ -550,7 +595,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 13.11.2024 Digitalisierung von Schengen-Visumanträgen Künftig müssen Schengen-Visumanträge in digitaler Form auf einer europäischen Plattform eingereicht werden. Als Schengen-Staat beteiligt sich die Schweiz an dieser Modernisierung und passt ihr nationales Recht entsprechend an. Der Bundesrat hat an seiner Sitzung vom 13. November 2024 die Botschaft zur Digitalisierung von Schengen-Visa verabschiedet. Die EU hat am 13. November 2023 eine Verordnung über die Einreichung von Visumanträgen für einen kurzfristigen Aufenthalt (90 Tage) im Schengen-Raum…",
+        "fr": "Communiqué de presse du Conseil fédéral du 13.11.2024 Numérisation des demandes de visas Schengen À l’avenir, les demandes de visas Schengen seront numérisées et devront être déposées sur une plateforme européenne. En tant qu’État Schengen, la Suisse s’associe à cette modernisation et modifie son droit national. Lors de sa séance du 13 novembre 2024, le Conseil fédéral a approuvé le message relatif à la numérisation des visas Schengen. L’UE a adopté le 13 novembre 2023 un règlement sur le dépôt des demandes de visas de court séjour (90 jours) pour entrer dans l’espace Schengen. Selon ce…",
+        "it": "Comunicato stampa del Consiglio federale del 13.11.2024 Digitalizzazione delle domande di visto Schengen In futuro, le domande di visto Schengen dovranno essere presentate in forma digitale su una piattaforma europea. In quanto Stato Schengen, la Svizzera si associa a questa modernizzazione e modifica il suo diritto nazionale. Nella seduta del 13 novembre 2024, il Consiglio federale ha adottato il messaggio relativo alla digitalizzazione dei visti Schengen. Il 13 novembre 2023 l’Unione europea (UE) ha adottato un regolamento sulla presentazione delle domande di visto per soggiorni di breve…"
+      }
     },
     {
       "id": 35039,
@@ -605,7 +655,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 06.12.2024 Bundesrat legt Botschaft zur Stärkung mitarbeitender Ehepartnerinnen und Ehepartner in der Landwirtschaft im Scheidungsfall vor Mitarbeitende Ehepartnerinnen und Ehepartner in der Landwirtschaft sollen im Scheidungsfall finanziell besser abgesichert werden. Dazu hat der Bundesrat am 6. Dezember 2024 eine Botschaft zur Anpassung des Landwirtschaftsgesetzes verabschiedet. Ehepartnerinnen und Ehepartner sowie eingetragene Partnerinnen und Partner von Landwirtinnen und Landwirten sollen bei einer Scheidung für ihre Arbeit finanziell angemessen…",
+        "fr": "Communiqué de presse du Conseil fédéral du 06.12.2024 Conjoints participant aux travaux de l’exploitation – le Conseil fédéral présente le message sur l’amélioration de la situation en cas de divorce Les conjoints participant aux travaux de l’exploitation agricole doivent être mieux assurés financièrement lors d’un divorce. Le Conseil fédéral a adopté le 6 décembre dernier le message sur la modification de la loi sur l’agriculture allant dans ce sens. Le conjoint ou le partenaire enregistré d'un exploitant agricole doit être indemnisé équitablement pour son travail en cas de divorce. Ce…",
+        "it": "Comunicato stampa del Consiglio federale del 06.12.2024 Il Consiglio federale adotta un messaggio sul rafforzamento della posizione dei coniugi che collaborano nell’agricoltura in caso di divorzio I coniugi che collaborano nell’agricoltura devono disporre di una copertura finanziaria migliore in caso di divorzio. A tal proposito il 6 dicembre 2024 il Consiglio federale ha adottato un messaggio sulla modifica della legge sull’agricoltura. In caso di divorzio, ai coniugi e ai partner registrati di agricoltori va garantito un indennizzo adeguato per il loro lavoro: è questo il fulcro della…"
+      }
     },
     {
       "id": 35040,
@@ -661,7 +716,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 13.12.2024 Jahresrechnungen der paritätischen Kommissionen: Bundesrat fordert Transparenz Der Bundesrat hat an seiner Sitzung vom 13. Dezember 2024 die Botschaft zur Änderung des Bundesgesetzes über die Allgemeinverbindlicherklärung von Gesamtarbeitsverträgen (AVEG) verabschiedet. Darin wird eine grössere Transparenz hinsichtlich der finanziellen Mittel der paritätischen Kommissionen verlangt. Der Bundesrat unterbreitet dem Parlament damit seinen Vorschlag zur Umsetzung der Motion 21.3599 WAK-N «Transparenz über die finanziellen Mittel paritätischer…",
+        "fr": "Communiqué de presse du Conseil fédéral du 13.12.2024 Comptes annuels des commissions paritaires: transparence requise par le Conseil fédéral Lors de sa séance du 13 décembre 2024, le Conseil fédéral a adopté le message relatif à la modification de la loi fédérale permettant d’étendre le champ d’application de la convention collective de travail (LECCT). L’amélioration de la transparence sur les moyens financiers des commissions paritaires est requise. Le Conseil fédéral soumet au Parlement sa proposition de mise en œuvre de la motion 21.3599 CER-N «Transparence sur les moyens financiers des…",
+        "it": "Comunicato stampa del Consiglio federale del 13.12.2024 Conti annuali delle commissioni paritetiche: il Consiglio federale chiede trasparenza Nella seduta del 13 dicembre 2024 il Consiglio federale ha adottato il messaggio sulla modifica della legge federale concernente il conferimento del carattere obbligatorio generale al contratto collettivo di lavoro (LOCCL). È richiesta una maggiore trasparenza sui mezzi finanziari delle commissioni paritetiche. Il Consiglio federale presenta al Parlamento la sua proposta per l'attuazione della mozione 21.3599 CET-N «Trasparenza sui mezzi finanziari…"
+      }
     },
     {
       "id": 35041,
@@ -716,7 +776,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Resultat der Volksabstimmung: Die Volksinitiative wurde in der Volksabstimmung vom 8. März 2026 mit 70,70 % Nein-Stimmen sowie 20 ganzen und 6 halben Standesstimmen abgelehnt. Medienmitteilung des Bundesrates vom 29.01.2025 Der Bundesrat lehnt die Klimafonds-Initiative ab Der Bundesrat hat an seiner Sitzung vom 29. Januar 2025 die Botschaft zur Volksinitiative «Für eine gerechte Energie- und Klimapolitik: Investieren für Wohlstand, Arbeit und Umwelt (Klimafonds-Initiative)» verabschiedet. Er lehnt die Initiative ohne direkten Gegenentwurf oder indirekten Gegenvorschlag ab. Aus Sicht des…",
+        "fr": "Résultat de la votation populaire : Le 8 mars 2026, l’initiative populaire a été rejetée par 70,70 % des voix ainsi que par 20 cantons comptant chacun pour une voix et 6 cantons comptant chacun pour une demi-voix. Communiqué de presse du Conseil fédéral du 29.01.2025 Le Conseil fédéral rejette l’initiative pour un fonds climat Lors de sa séance du 29 janvier 2025, le Conseil fédéral a adopté son message relatif à l’initiative populaire « Pour une politique énergétique et climatique équitable : investir pour la prospérité, le travail et l’environnement (initiative pour un fonds climat) ». Il y…",
+        "it": "Risultato della votazione popolare: L'iniziativa popolare è stata respinta nella votazione popolare dell’8 marzo 2026, dal 70,70 per cento dei votanti e dalla maggioranza dei Cantoni (20 Cantoni che dispongono di un voto e 6 Cantoni che dispongono di mezzo voto). Comunicato stampa del Consiglio federale del 29.01.2025 Il Consiglio federale respinge l’Iniziativa per un fondo per il clima Nella sua seduta del 29 gennaio 2025, il Consiglio federale ha adottato il messaggio concernente l’iniziativa popolare federale «Per una politica energetica e climatica equa: investire per la prosperità, il…"
+      }
     },
     {
       "id": 35042,
@@ -770,7 +835,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 12.02.2025 Postzustellung am Wochenende: Fristenlauf soll im Bundesrecht erst am Montag beginnen Bei Postsendungen, die eine Frist auslösen und am Wochenende zugestellt werden, soll die Frist erst am folgenden Werktag zu laufen beginnen. Damit wird Empfängerinnen und Empfängern von Dokumenten wie Kündigungen oder Gerichtsurteilen mehr Zeit verschafft. Im Zivilprozessrecht gilt dieser Grundsatz bereits, nun soll er auf das ganze Bundesrecht übertragen werden. Der Bundesrat hat an seiner Sitzung vom 12. Februar 2025 von den Vernehmlassungsergebnissen…",
+        "fr": "Communiqué de presse du Conseil fédéral du 12.02.2025 Notifications par envoi postal le week-end : le délai ne commencera à courir que le lundi Lorsqu’une communication déclenchant un délai est remise le week-end par envoi postal, le délai ne commencera à courir que le premier jour ouvrable suivant la notification. Les destinataires de documents tels que des résiliations ou des jugements disposeront en conséquence de plus de temps pour réagir. Ce principe qui s’applique déjà en droit de la procédure civile s’étendra à l’ensemble du droit fédéral. Le Conseil fédéral a pris acte des résultats…",
+        "it": "Comunicato stampa del Consiglio federale del 12.02.2025 Notificazione postale nei fine settimana: secondo il diritto federale il termine inizia a decorrere soltanto il lunedì In caso di notificazione nei fine settimana di invii postali che determinano la decorrenza di un termine, questo inizia a decorrere soltanto il giorno feriale seguente. Si concede così più tempo ai destinatari di documenti, quali disdette o sentenze giudiziarie. S’intende applicare tale principio già vigente nel diritto processuale civile all’intero diritto federale. Nella seduta del 12 febbraio 2025 il Consiglio…"
+      }
     },
     {
       "id": 35043,
@@ -826,7 +896,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 19.02.2025 Bundesrat verabschiedet Botschaft zur Erweiterung des internationalen automatischen Informationsaustauschs in Steuersachen Der Bundesrat hat an seiner Sitzung vom 19. Februar 2025 dem Parlament die Botschaft zur Erweiterung des internationalen automatischen Informationsaustauschs in Steuersachen (AIA) übermittelt. Die Erweiterung betrifft den neuen AIA über Kryptowerte sowie die Änderung des Standards für den AIA über Finanzkonten und soll ab dem 1. Januar 2026 gelten. Im Oktober 2022 hat die OECD die Aktualisierung des gemeinsamen Melde- und…",
+        "fr": "Communiqué de presse du Conseil fédéral du 19.02.2025 Le Conseil fédéral adopte le message sur l’extension de l’échange international automatique de renseignements en matière fiscale Lors de sa séance du 19 février 2025, le Conseil fédéral a transmis au Parlement le message concernant le projet d’extension de l’échange international automatique de renseignements en matière fiscale (EAR), qui porte sur la mise en œuvre du nouveau Cadre de déclaration des crypto-actifs et sur la modification de la norme relative aux comptes financiers. Les nouvelles dispositions entreront en vigueur le 1er…",
+        "it": "Comunicato stampa del Consiglio federale del 19.02.2025 Il Consiglio federale licenzia il messaggio concernente l’estensione dello scambio automatico internazionale di informazioni a fini fiscali Nella seduta del 19 febbraio 2025 il Consiglio federale ha trasmesso al Parlamento il messaggio concernente l’estensione dello scambio automatico internazionale di informazioni a fini fiscali. L’estensione riguarda il nuovo scambio automatico di informazioni relative a cripto-attività e la modifica dello standard per lo scambio automatico di informazioni relative a conti finanziari. La nuova…"
+      }
     },
     {
       "id": 35044,
@@ -882,7 +957,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 19.02.2025 Bundesrat verabschiedet Botschaft zur Erweiterung des internationalen automatischen Informationsaustauschs in Steuersachen Der Bundesrat hat an seiner Sitzung vom 19. Februar 2025 dem Parlament die Botschaft zur Erweiterung des internationalen automatischen Informationsaustauschs in Steuersachen (AIA) übermittelt. Die Erweiterung betrifft den neuen AIA über Kryptowerte sowie die Änderung des Standards für den AIA über Finanzkonten und soll ab dem 1. Januar 2026 gelten. Im Oktober 2022 hat die OECD die Aktualisierung des gemeinsamen Melde- und…",
+        "fr": "Communiqué de presse du Conseil fédéral du 19.02.2025 Le Conseil fédéral adopte le message sur l’extension de l’échange international automatique de renseignements en matière fiscale Lors de sa séance du 19 février 2025, le Conseil fédéral a transmis au Parlement le message concernant le projet d’extension de l’échange international automatique de renseignements en matière fiscale (EAR), qui porte sur la mise en œuvre du nouveau Cadre de déclaration des crypto-actifs et sur la modification de la norme relative aux comptes financiers. Les nouvelles dispositions entreront en vigueur le 1er…",
+        "it": "Comunicato stampa del Consiglio federale del 19.02.2025 Il Consiglio federale licenzia il messaggio concernente l’estensione dello scambio automatico internazionale di informazioni a fini fiscali Nella seduta del 19 febbraio 2025 il Consiglio federale ha trasmesso al Parlamento il messaggio concernente l’estensione dello scambio automatico internazionale di informazioni a fini fiscali. L’estensione riguarda il nuovo scambio automatico di informazioni relative a cripto-attività e la modifica dello standard per lo scambio automatico di informazioni relative a conti finanziari. La nuova…"
+      }
     },
     {
       "id": 35045,
@@ -937,7 +1017,12 @@
           "abstain": 7
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 26.02.2025 Bundesrat genehmigt Modernisierung des Freihandelsabkommens mit Chile Der Bundesrat hat am 26. Februar 2025 die Botschaft zur Modernisierung des Freihandelsabkommens zwischen den EFTA-Staaten und Chile verabschiedet. Die Botschaft wird zur Genehmigung an die eidgenössischen Räte überwiesen. Die Verhandlungen zur Modernisierung des bestehenden FHA konnten 2024 abgeschlossen werden. Das modernisierte Abkommen entspricht damit weitgehend den neueren mit Drittstaaten abgeschlossenen FHA der EFTA. Künftig werden nahezu alle Schweizer Exporte nach…",
+        "fr": "Communiqué de presse du Conseil fédéral du 26.02.2025 Le Conseil fédéral approuve l’actualisation de l’accord de libre-échange avec le Chili Le 19 février 2025, le Conseil fédéral a approuvé le message portant sur l’actualisation de l’accord de libre-échange entre les États de l’AELE et le Chili, et l’a transmis aux Chambres fédérales pour adoption. Les négociations relatives à l'actualisation de l'accord de libre-échange (ALE) en vigueur ont abouti en 2024. L'accord actualisé correspond dès lors dans une large mesure aux ALE conclus récemment par l'Association européenne de libre-échange…",
+        "it": "Comunicato stampa del Consiglio federale del 26.02.2025 Il Consiglio federale approva la modernizzazione dell’accordo di libero scambio con il Cile Il 26 febbraio 2025 il Consiglio federale ha adottato il messaggio sulla modernizzazione dell’accordo di libero scambio tra gli Stati dell’AELS e il Cile. La nuova versione dell’accordo sarà sottoposta all’Assemblea federale per approvazione. I negoziati per una modernizzazione dell'accordo di libero scambio (ALS) vigente si sono conclusi nel 2024. Nella sua nuova versione, l'accordo corrisponde in larga misura ai più recenti accordi dell'AELS…"
+      }
     },
     {
       "id": 35046,
@@ -992,7 +1077,12 @@
           "abstain": 23
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 07.03.2025 Bundesrat verabschiedet Botschaft zum angepassten Schengener Grenzkodex Um die einheitliche Anwendung der Vorschriften an den Schengen-Aussen- und Binnengrenzen sicherzustellen, hat die EU den Schengener Grenzkodex angepasst. Als Schengen-Staat beteiligt sich die Schweiz an dieser Harmonisierung. Dazu muss sie ihr nationales Recht anpassen. Nach einem Vernehmlassungsverfahren hat der Bundesrat an seiner Sitzung vom 7. März 2025 die Botschaft zu den entsprechenden rechtlichen Änderungen zuhanden des Parlaments verabschiedet. Die neue…",
+        "fr": "Communiqué de presse du Conseil fédéral du 07.03.2025 Le Conseil fédéral adopte le message sur une modification du Code frontières Schengen Afin de garantir l’uniformité dans l’application des règles aux frontières extérieures et intérieures de l’espace Schengen, l’Union européenne (UE) a modifié le code frontières Schengen. En tant qu’État Schengen, la Suisse participe à cette harmonisation et doit donc modifier sa législation nationale. Lors de sa séance du 7 mars 2025, le Conseil fédéral a adopté, à l’intention du Parlement, le message relatif aux modifications requises, qui avaient au…",
+        "it": "Comunicato stampa del Consiglio federale del 07.03.2025 Il Consiglio federale adotta il messaggio concernente l’adeguamento del codice frontiere Schengen Per garantire un’applicazione uniforme delle norme alle frontiere esterne e interne Schengen, l’UE ha adeguato il codice frontiere Schengen (CFS). In quanto Stato Schengen, la Svizzera partecipa a questa armonizzazione ed è quindi tenuta ad adeguare il proprio diritto nazionale. Nella seduta del 7 marzo 2025, in seguito alla procedura di consultazione, il Consiglio federale ha approvato le relative modifiche giuridiche all’attenzione del…"
+      }
     },
     {
       "id": 35047,
@@ -1047,7 +1137,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 07.03.2025 Bundesrat verabschiedet Botschaft zum angepassten Schengener Grenzkodex Um die einheitliche Anwendung der Vorschriften an den Schengen-Aussen- und Binnengrenzen sicherzustellen, hat die EU den Schengener Grenzkodex angepasst. Als Schengen-Staat beteiligt sich die Schweiz an dieser Harmonisierung. Dazu muss sie ihr nationales Recht anpassen. Nach einem Vernehmlassungsverfahren hat der Bundesrat an seiner Sitzung vom 7. März 2025 die Botschaft zu den entsprechenden rechtlichen Änderungen zuhanden des Parlaments verabschiedet. Die neue…",
+        "fr": "Communiqué de presse du Conseil fédéral du 07.03.2025 Le Conseil fédéral adopte le message sur une modification du Code frontières Schengen Afin de garantir l’uniformité dans l’application des règles aux frontières extérieures et intérieures de l’espace Schengen, l’Union européenne (UE) a modifié le code frontières Schengen. En tant qu’État Schengen, la Suisse participe à cette harmonisation et doit donc modifier sa législation nationale. Lors de sa séance du 7 mars 2025, le Conseil fédéral a adopté, à l’intention du Parlement, le message relatif aux modifications requises, qui avaient au…",
+        "it": "Comunicato stampa del Consiglio federale del 07.03.2025 Il Consiglio federale adotta il messaggio concernente l’adeguamento del codice frontiere Schengen Per garantire un’applicazione uniforme delle norme alle frontiere esterne e interne Schengen, l’UE ha adeguato il codice frontiere Schengen (CFS). In quanto Stato Schengen, la Svizzera partecipa a questa armonizzazione ed è quindi tenuta ad adeguare il proprio diritto nazionale. Nella seduta del 7 marzo 2025, in seguito alla procedura di consultazione, il Consiglio federale ha approvato le relative modifiche giuridiche all’attenzione del…"
+      }
     },
     {
       "id": 35048,
@@ -1102,7 +1197,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 07.03.2025 Bundesrat verabschiedet Botschaft zum angepassten Schengener Grenzkodex Um die einheitliche Anwendung der Vorschriften an den Schengen-Aussen- und Binnengrenzen sicherzustellen, hat die EU den Schengener Grenzkodex angepasst. Als Schengen-Staat beteiligt sich die Schweiz an dieser Harmonisierung. Dazu muss sie ihr nationales Recht anpassen. Nach einem Vernehmlassungsverfahren hat der Bundesrat an seiner Sitzung vom 7. März 2025 die Botschaft zu den entsprechenden rechtlichen Änderungen zuhanden des Parlaments verabschiedet. Die neue…",
+        "fr": "Communiqué de presse du Conseil fédéral du 07.03.2025 Le Conseil fédéral adopte le message sur une modification du Code frontières Schengen Afin de garantir l’uniformité dans l’application des règles aux frontières extérieures et intérieures de l’espace Schengen, l’Union européenne (UE) a modifié le code frontières Schengen. En tant qu’État Schengen, la Suisse participe à cette harmonisation et doit donc modifier sa législation nationale. Lors de sa séance du 7 mars 2025, le Conseil fédéral a adopté, à l’intention du Parlement, le message relatif aux modifications requises, qui avaient au…",
+        "it": "Comunicato stampa del Consiglio federale del 07.03.2025 Il Consiglio federale adotta il messaggio concernente l’adeguamento del codice frontiere Schengen Per garantire un’applicazione uniforme delle norme alle frontiere esterne e interne Schengen, l’UE ha adeguato il codice frontiere Schengen (CFS). In quanto Stato Schengen, la Svizzera partecipa a questa armonizzazione ed è quindi tenuta ad adeguare il proprio diritto nazionale. Nella seduta del 7 marzo 2025, in seguito alla procedura di consultazione, il Consiglio federale ha approvato le relative modifiche giuridiche all’attenzione del…"
+      }
     },
     {
       "id": 35049,
@@ -1155,7 +1255,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Resultat der Volksabstimmung: Die Vorlage wurde in der Volksabstimmung vom 14. Juni 2026 mit 52,46 % Ja-Stimmen gutgeheissen. Medienmitteilung des Bundesrates vom 19.02.2025 Botschaft zur Änderung des Zivildienstgesetzes: Der Bundesrat will die hohen Zulassungszahlen senken Der Bundesrat hat am 19. Februar 2025 die Botschaft zur Änderung des Zivildienstgesetzes verabschiedet. Er will mit sechs Massnahmen die Zulassungen zum Zivildienst senken. Damit wird auch der verfassungsrechtlichen Vorgabe Nachachtung verschafft, dass keine Wahlfreiheit zwischen Militärdienst und zivilem Ersatzdienst…",
+        "fr": "Résultat de la votation populaire : Le projet a été accepté par le peuple le 14 juin 2026 par 52,46 % des voix. Communiqué de presse du Conseil fédéral du 19.02.2025 Message concernant la révision de la loi fédérale sur le service civil : le Conseil fédéral veut réduire le nombre d’admissions Le 19 février, le Conseil fédéral a adopté le message concernant la modification de la loi sur le service civil. Au moyen de six mesures, il entend réduire le nombre d’admissions et faire appliquer la disposition constitutionnelle selon laquelle il n’y a pas de libre choix entre le service militaire et…",
+        "it": "Risultato della votazione popolare: Il 14 giugno 2026 il progetto è stato accolto in votazione popolare dal 52,46 % dei votanti. Comunicato stampa del Consiglio federale del 19.02.2025 Messaggio concernente la modifica della legge sul servizio civile: il Consiglio federale intende ridurre l’elevato numero di ammissioni Il 19 febbraio 2025 il Consiglio federale ha adottato il messaggio concernente la modifica della legge sul servizio civile. Il suo intento è quello di ridurre le ammissioni al servizio civile attraverso l’introduzione di sei misure. In questo modo viene inoltre garantita…"
+      }
     },
     {
       "id": 35050,
@@ -1210,7 +1315,12 @@
           "abstain": 1
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 21.03.2025 Bundesrat verabschiedet Botschaft zum europäischen Migrations- und Asylpakt Der neue europäische Migrations- und Asylpakt soll das europäische Migrations- und Asylsystem effizienter, krisenresistenter und solidarischer machen. Die Schweiz ist als assoziierter Schengen-/Dublin-Staat verpflichtet, sich in einigen Bereichen daran zu beteiligen. Dazu muss sie ihr nationales Recht anpassen. Der Bundesrat hat an seiner Sitzung vom 21. März 2025 die Botschaft zu den entsprechenden rechtlichen Änderungen zuhanden des Parlaments verabschiedet. Die EU…",
+        "fr": "Communiqué de presse du Conseil fédéral du 21.03.2025 Le Conseil fédéral adopte le message relatif au pacte européen sur la migration et l’asile Le pacte sur la migration et l’asile vise à rendre le système européen de migration et d’asile plus efficace, plus résistant aux crises et plus solidaire. En tant qu’État associé à Schengen/Dublin, la Suisse participera à cette réforme dans certains domaines et doit donc modifier sa législation nationale. À sa séance du 21 mars 2025, le Conseil fédéral a adopté, à l’intention du Parlement, le message relatif aux modifications requises. Le 14 mai…",
+        "it": "Comunicato stampa del Consiglio federale del 21.03.2025 Il Consiglio federale adotta il messaggio relativo al patto europeo sulla migrazione e l’asilo Il nuovo patto europeo sulla migrazione e l’asilo vuole rendere il sistema di migrazione e asilo più efficiente, a prova di crisi e solidale. In quanto Stato associato a Schengen e Dublino, la Svizzera è tenuta a parteciparvi in determinati settori ed è pertanto chiamata ad adeguare il diritto nazionale. Nella seduta del 21 marzo 2025 il Consiglio federale ha adottato il messaggio e le pertinenti modifiche legislative all’attenzione del…"
+      }
     },
     {
       "id": 35051,
@@ -1265,7 +1375,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 21.03.2025 Bundesrat verabschiedet Botschaft zum europäischen Migrations- und Asylpakt Der neue europäische Migrations- und Asylpakt soll das europäische Migrations- und Asylsystem effizienter, krisenresistenter und solidarischer machen. Die Schweiz ist als assoziierter Schengen-/Dublin-Staat verpflichtet, sich in einigen Bereichen daran zu beteiligen. Dazu muss sie ihr nationales Recht anpassen. Der Bundesrat hat an seiner Sitzung vom 21. März 2025 die Botschaft zu den entsprechenden rechtlichen Änderungen zuhanden des Parlaments verabschiedet. Die EU…",
+        "fr": "Communiqué de presse du Conseil fédéral du 21.03.2025 Le Conseil fédéral adopte le message relatif au pacte européen sur la migration et l’asile Le pacte sur la migration et l’asile vise à rendre le système européen de migration et d’asile plus efficace, plus résistant aux crises et plus solidaire. En tant qu’État associé à Schengen/Dublin, la Suisse participera à cette réforme dans certains domaines et doit donc modifier sa législation nationale. À sa séance du 21 mars 2025, le Conseil fédéral a adopté, à l’intention du Parlement, le message relatif aux modifications requises. Le 14 mai…",
+        "it": "Comunicato stampa del Consiglio federale del 21.03.2025 Il Consiglio federale adotta il messaggio relativo al patto europeo sulla migrazione e l’asilo Il nuovo patto europeo sulla migrazione e l’asilo vuole rendere il sistema di migrazione e asilo più efficiente, a prova di crisi e solidale. In quanto Stato associato a Schengen e Dublino, la Svizzera è tenuta a parteciparvi in determinati settori ed è pertanto chiamata ad adeguare il diritto nazionale. Nella seduta del 21 marzo 2025 il Consiglio federale ha adottato il messaggio e le pertinenti modifiche legislative all’attenzione del…"
+      }
     },
     {
       "id": 35052,
@@ -1320,7 +1435,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 21.03.2025 Bundesrat verabschiedet Botschaft zum europäischen Migrations- und Asylpakt Der neue europäische Migrations- und Asylpakt soll das europäische Migrations- und Asylsystem effizienter, krisenresistenter und solidarischer machen. Die Schweiz ist als assoziierter Schengen-/Dublin-Staat verpflichtet, sich in einigen Bereichen daran zu beteiligen. Dazu muss sie ihr nationales Recht anpassen. Der Bundesrat hat an seiner Sitzung vom 21. März 2025 die Botschaft zu den entsprechenden rechtlichen Änderungen zuhanden des Parlaments verabschiedet. Die EU…",
+        "fr": "Communiqué de presse du Conseil fédéral du 21.03.2025 Le Conseil fédéral adopte le message relatif au pacte européen sur la migration et l’asile Le pacte sur la migration et l’asile vise à rendre le système européen de migration et d’asile plus efficace, plus résistant aux crises et plus solidaire. En tant qu’État associé à Schengen/Dublin, la Suisse participera à cette réforme dans certains domaines et doit donc modifier sa législation nationale. À sa séance du 21 mars 2025, le Conseil fédéral a adopté, à l’intention du Parlement, le message relatif aux modifications requises. Le 14 mai…",
+        "it": "Comunicato stampa del Consiglio federale del 21.03.2025 Il Consiglio federale adotta il messaggio relativo al patto europeo sulla migrazione e l’asilo Il nuovo patto europeo sulla migrazione e l’asilo vuole rendere il sistema di migrazione e asilo più efficiente, a prova di crisi e solidale. In quanto Stato associato a Schengen e Dublino, la Svizzera è tenuta a parteciparvi in determinati settori ed è pertanto chiamata ad adeguare il diritto nazionale. Nella seduta del 21 marzo 2025 il Consiglio federale ha adottato il messaggio e le pertinenti modifiche legislative all’attenzione del…"
+      }
     },
     {
       "id": 35053,
@@ -1375,7 +1495,12 @@
           "abstain": 1
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 21.03.2025 Bundesrat verabschiedet Botschaft zum europäischen Migrations- und Asylpakt Der neue europäische Migrations- und Asylpakt soll das europäische Migrations- und Asylsystem effizienter, krisenresistenter und solidarischer machen. Die Schweiz ist als assoziierter Schengen-/Dublin-Staat verpflichtet, sich in einigen Bereichen daran zu beteiligen. Dazu muss sie ihr nationales Recht anpassen. Der Bundesrat hat an seiner Sitzung vom 21. März 2025 die Botschaft zu den entsprechenden rechtlichen Änderungen zuhanden des Parlaments verabschiedet. Die EU…",
+        "fr": "Communiqué de presse du Conseil fédéral du 21.03.2025 Le Conseil fédéral adopte le message relatif au pacte européen sur la migration et l’asile Le pacte sur la migration et l’asile vise à rendre le système européen de migration et d’asile plus efficace, plus résistant aux crises et plus solidaire. En tant qu’État associé à Schengen/Dublin, la Suisse participera à cette réforme dans certains domaines et doit donc modifier sa législation nationale. À sa séance du 21 mars 2025, le Conseil fédéral a adopté, à l’intention du Parlement, le message relatif aux modifications requises. Le 14 mai…",
+        "it": "Comunicato stampa del Consiglio federale del 21.03.2025 Il Consiglio federale adotta il messaggio relativo al patto europeo sulla migrazione e l’asilo Il nuovo patto europeo sulla migrazione e l’asilo vuole rendere il sistema di migrazione e asilo più efficiente, a prova di crisi e solidale. In quanto Stato associato a Schengen e Dublino, la Svizzera è tenuta a parteciparvi in determinati settori ed è pertanto chiamata ad adeguare il diritto nazionale. Nella seduta del 21 marzo 2025 il Consiglio federale ha adottato il messaggio e le pertinenti modifiche legislative all’attenzione del…"
+      }
     },
     {
       "id": 35054,
@@ -1431,7 +1556,12 @@
           "abstain": 0
         }
       },
-      "passed": true
+      "passed": true,
+      "summary": {
+        "de": "Medienmitteilung der Kommission für soziale Sicherheit und Gesundheit des Ständerates vom 27.06.2025 Die Kommission für soziale Sicherheit und Gesundheit des Ständerates (SGK-S) hat eine von ihr ausgearbeitete Verlängerung der Höchstbezugsdauer der Kurzarbeit um sechs Monate verabschiedet. Einstimmig ist sie weiter auf eine Vorlage zur Angleichung der Erwerbsersatzleistungen eingetreten. Sie unterstützt zudem, dass Spätfolgen eines Unfalls in der Jugend neu durch die Unfallversicherung gedeckt werden. Die Vergütung von gewissen, im Ausland gekauften Medikamenten durch die Krankenversicherung…",
+        "fr": "Communiqué de presse de la Commission de la sécurité sociale et de la santé publique du Conseil des Etats du 27.06.2025 La Commission de la sécurité sociale et de la santé publique du Conseil des États (CSSS-E) a adopté une prolongation de six mois de la durée maximale d’indemnisation en cas de réduction de l’horaire de travail qu’elle avait elle-même élaborée. Elle est également entrée en matière à l’unanimité sur un projet visant à harmoniser les allocations pour perte de gain. Par ailleurs, elle soutient le fait que l’assurance-accident couvre désormais les séquelles tardives d’un accident…",
+        "it": "Comunicato stampa della Commissione della sicurezza sociale e della sanità del Consiglio degli Stati del 27.06.2025 La Commissione della sicurezza sociale e della sanità del Consiglio degli Stati (CSSS-S) ha adottato il progetto che essa ha elaborato onde prolungare di sei mesi la durata massima d’indennizzo in caso di lavoro ridotto. All’unanimità è inoltre entrata in materia su un progetto teso ad armonizzare le prestazioni dell’ordinamento delle indennità di perdita di guadagno. È inoltre favorevole al fatto che l’assicurazione contro gli infortuni copra i postumi tardivi legati a un…"
+      }
     }
   ]
 }
