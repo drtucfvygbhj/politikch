@@ -43,12 +43,23 @@ site with a link to the official source. Commercial status:
 - **Output ownership:** DeepL's terms grant the customer full, unrestricted
   rights to use the translations, including commercially — DeepL claims no
   copyright over them. ✅
-- **Input data:** we send only **public official texts** (no personal data). On
-  the **paid API/Pro** plan input is not used to train DeepL's models; on the
-  **free** tier it may be. → **Use a paid DeepL API plan** for the live pipeline
-  (also removes the 500k-char/month cap).
+- **Input data:** we send only **public official texts** (no personal or
+  confidential data). The **free** API tier may use input to improve DeepL's
+  models — immaterial here, because the inputs are already public. So there is
+  no confidentiality reason to pay.
+- **Cost — guaranteed zero.** We deliberately use the **DeepL API Free** tier
+  (500,000 characters/month) on an account with **no payment method**, so DeepL
+  *cannot* bill us — when the monthly allowance is used up the API simply refuses
+  (HTTP 456) and any not-yet-translated text waits until next month. On top of
+  that, `scripts/translate.py` enforces four layers (see its header): it refuses
+  a billable (non-`:fx`) key, checks DeepL's `/v2/usage` and stays under the
+  limit minus a safety margin, caps each run, and only ever writes fully
+  translated items. Our full volume (~196k chars once, then a few tens of
+  thousands/month) sits well under the free cap anyway.
 - **Labelling:** each machine translation carries a badge and links to the
   authoritative source, so it is never presented as official. ✅
+- **Attribution:** DeepL's API terms require crediting DeepL to end users; the
+  on-page MT disclaimer names "DeepL" and `NOTICE.md` records it.
 - Romansh is **not** machine-translated (DeepL has no Romansh); RM keeps the
   official DE/FR/IT fallback. The only quality Romansh MT engine is Supertext —
   a possible future add if native RM is wanted.

@@ -19,6 +19,30 @@ Without it the script no-ops and the site keeps its official-language fallback.
 Incremental: a text is re-translated only when its source text changes (tracked
 by a short content hash), so repeated runs cost almost nothing.
 
+=====================================================================
+CHARGE SAFETY — this pipeline is designed so DeepL can NEVER bill you
+=====================================================================
+Four independent layers, strongest first:
+
+  0. ACCOUNT (the real guarantee): use a DeepL **API Free** key (it ends ":fx")
+     on an account with **NO payment method / no paid plan**. A free account has
+     nothing to bill — when the 500,000-char/month allowance is used up DeepL
+     returns HTTP 456 and simply stops translating. This holds even if every
+     other layer below is deleted by someone with repo access, because there is
+     no card to charge. THIS is what makes overruns impossible; the rest is
+     defence-in-depth.
+  1. KEY CHECK: the script REFUSES to run with a non-free key (one that could be
+     billed) unless DEEPL_ALLOW_PAID=1 is set deliberately.
+  2. SERVER QUOTA CHECK: before translating it reads DeepL's /v2/usage and will
+     not send past (monthly limit − safety margin). Aligned to DeepL's own reset.
+  3. PER-RUN CAP + graceful partial: a single run sends at most DEEPL_RUN_CAP
+     characters, translates whole items only while they fit, and STOPS when the
+     budget is reached — untranslated items just fall back on the site and are
+     picked up next run / next month. Nothing is ever forced through.
+
+Tunable via env (safe defaults): DEEPL_SAFETY_MARGIN, DEEPL_RUN_CAP,
+DEEPL_ALLOW_PAID.
+
 Usage: python3 scripts/translate.py [--force] [--limit N]
 """
 from __future__ import annotations
@@ -28,6 +52,7 @@ import json
 import os
 import sys
 import time
+import urllib.error
 import urllib.request
 from datetime import date
 from pathlib import Path
@@ -42,15 +67,50 @@ TARGET = "EN-GB"            # site English leans European/British (en-CH locale)
 SRC_LANGS = ("DE", "FR", "IT")   # official Swiss languages we translate FROM
 BATCH = 40                 # texts per DeepL request (also bounded by 128 KiB)
 
+# --- Charge-safety knobs (see the module docstring). Safe defaults. ---
+FREE_TIER_CHARS = 500_000
+# Never spend the last N characters of the monthly free allowance (headroom for
+# any usage this pipeline can't see, e.g. a manual test on the same key).
+SAFETY_MARGIN = max(0, int(os.environ.get("DEEPL_SAFETY_MARGIN", "50000")))
+# Hard ceiling on how many characters ANY single run may send.
+RUN_CAP = max(0, int(os.environ.get("DEEPL_RUN_CAP", "120000")))
+# Deliberate opt-in to a billable (non ":fx") key. Off by default.
+ALLOW_PAID = os.environ.get("DEEPL_ALLOW_PAID", "") == "1"
+
+
+class QuotaExceeded(Exception):
+    """DeepL reported the monthly quota is exhausted (HTTP 456)."""
+
 
 def api_key():
     return (os.environ.get("DEEPL_API_KEY") or "").strip()
 
 
+def is_free_key(key):
+    return key.endswith(":fx")
+
+
+def _host(key):
+    return "api-free" if is_free_key(key) else "api"
+
+
 def endpoint(key):
-    # Free API keys end in ":fx"; everything else is the Pro endpoint.
-    return ("https://api-free.deepl.com/v2/translate" if key.endswith(":fx")
-            else "https://api.deepl.com/v2/translate")
+    return f"https://{_host(key)}.deepl.com/v2/translate"
+
+
+def deepl_usage(key):
+    """Return (used, limit) characters for the current billing period, or
+    (None, None) if the usage endpoint can't be read."""
+    url = f"https://{_host(key)}.deepl.com/v2/usage"
+    req = urllib.request.Request(
+        url, headers={"Authorization": f"DeepL-Auth-Key {key}",
+                      "User-Agent": "politikch-mt"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            d = json.loads(resp.read().decode("utf-8"))
+        return int(d.get("character_count", 0)), int(d.get("character_limit", 0))
+    except Exception:  # noqa: BLE001
+        return None, None
 
 
 def deepl(texts, src, key, retries=5):
@@ -73,7 +133,14 @@ def deepl(texts, src, key, retries=5):
             with urllib.request.urlopen(req, timeout=90) as resp:
                 out = json.loads(resp.read().decode("utf-8"))
             return [t["text"] for t in out.get("translations", [])]
-        except Exception as e:  # noqa: BLE001 — transient / rate-limit (429)
+        except urllib.error.HTTPError as e:
+            # 456 = quota exhausted: stop immediately (retrying can't help, and a
+            # free key is billed nothing — it just refuses). 429 = rate limit: back off.
+            if e.code == 456:
+                raise QuotaExceeded()
+            last = e
+            time.sleep(2.0 * (attempt + 1))
+        except Exception as e:  # noqa: BLE001 — transient network/proxy errors
             last = e
             time.sleep(2.0 * (attempt + 1))
     raise last
@@ -150,34 +217,59 @@ def collect(existing):
     return jobs, keep
 
 
-def run(jobs, keep, key, limit=0):
+def run(jobs, keep, key, budget, limit=0):
+    """Translate within a hard character `budget`. Sends at most `budget`
+    characters this run; stops the moment the next text wouldn't fit, leaving
+    the rest for a later run. Only WHOLE items (all their texts translated) are
+    stored, so nothing is written half-translated. Returns (out, done, sent)."""
     out = {k: dict(v) for k, v in keep.items()}
-    # Batch by source language to keep each DeepL request single-source.
     by_src = {}
     for j in jobs:
         by_src.setdefault(j["src"], []).append(j)
-    done = 0
+    done = sent = 0
+    stop = False
     for src, group in by_src.items():
-        # Flatten every text in this source group, remember where each came from.
+        if stop:
+            break
         flat, owners = [], []
         for j in group:
             for t in j["texts"]:
                 flat.append(t)
                 owners.append(j)
         translated = {}
-        for i in range(0, len(flat), BATCH):
-            chunk = flat[i:i + BATCH]
-            res = deepl(chunk, src, key)
-            if len(res) != len(chunk):
-                print(f"  ! DeepL returned {len(res)}/{len(chunk)} for {src}; "
+        i = 0
+        while i < len(flat) and not stop:
+            # Fill a batch bounded by BATCH count AND the remaining budget.
+            batch, batch_owners, blen = [], [], 0
+            while i < len(flat) and len(batch) < BATCH:
+                tl = len(flat[i])
+                if sent + blen + tl > budget:
+                    stop = True          # budget reached — stop cleanly
+                    break
+                batch.append(flat[i])
+                batch_owners.append(owners[i])
+                blen += tl
+                i += 1
+            if not batch:
+                break
+            try:
+                res = deepl(batch, src, key)
+            except QuotaExceeded:
+                print("  DeepL monthly quota reached — stopping; the rest waits "
+                      "for next month.", file=sys.stderr)
+                stop = True
+                break
+            if len(res) != len(batch):
+                print(f"  ! DeepL returned {len(res)}/{len(batch)} for {src}; "
                       f"skipping this batch", file=sys.stderr)
                 continue
-            for owner, text in zip(owners[i:i + BATCH], res):
+            sent += blen
+            for owner, text in zip(batch_owners, res):
                 translated.setdefault(id(owner), []).append(text)
-        # Reassemble per job.
+        # Store only items whose EVERY text came back (never a partial item).
         for j in group:
             texts = translated.get(id(j))
-            if not texts:
+            if not texts or len(texts) != len(j["texts"]):
                 continue
             if j["shape"] == "text":
                 entry = {"t": texts[0], "src": j["src"].lower(),
@@ -189,8 +281,8 @@ def run(jobs, keep, key, limit=0):
             out[j["store"]][str(j["id"])] = entry
             done += 1
             if limit and done >= limit:
-                return out, done
-    return out, done
+                return out, done, sent
+    return out, done, sent
 
 
 def main(argv):
@@ -206,6 +298,34 @@ def main(argv):
     if not key:
         print("DEEPL_API_KEY not set — skipping machine translation "
               "(the site keeps its official-language fallback).", file=sys.stderr)
+        return 0
+
+    # LAYER 1 — refuse a key that could be billed. A free key ends ':fx' and
+    # cannot incur charges. Overriding this is a deliberate, explicit act.
+    if not is_free_key(key) and not ALLOW_PAID:
+        print("REFUSING to run: DEEPL_API_KEY is not a Free API key (it must end "
+              "':fx'). A free key cannot be charged; a paid one can. If you truly "
+              "intend to allow billing, set DEEPL_ALLOW_PAID=1.", file=sys.stderr)
+        return 0
+
+    # LAYER 2 — read DeepL's authoritative monthly usage and leave a safety margin.
+    used, cap_limit = deepl_usage(key)
+    if cap_limit:
+        remaining = max(0, cap_limit - used - SAFETY_MARGIN)
+        budget = min(remaining, RUN_CAP)
+        print(f"DeepL usage {used:,}/{cap_limit:,}; {remaining:,} usable after a "
+              f"{SAFETY_MARGIN:,} margin; this run capped at {budget:,} chars.")
+    else:
+        # Usage unreadable. A free key still can't be charged (it 456s at the
+        # limit), so proceed but only up to the per-run cap; a paid key we don't.
+        budget = RUN_CAP if is_free_key(key) else 0
+        print(f"DeepL usage unreadable; capping this run at {budget:,} chars "
+              f"(free key can't be billed).", file=sys.stderr)
+    if budget <= 0:
+        print("Monthly quota reached (or unverifiable) — translating nothing this "
+              "run; the rest waits for next month.", file=sys.stderr)
+        if not MT_PATH.exists():
+            _write({"titles": {}, "args": {}, "summaries": {}})
         return 0
 
     existing = {}
@@ -225,13 +345,17 @@ def main(argv):
         return 0
 
     try:
-        out, done = run(jobs, keep, key, limit)
+        out, done, sent = run(jobs, keep, key, budget, limit)
     except Exception as e:  # noqa: BLE001 — never break CI on a flaky API
         print(f"  ! DeepL request failed ({e}); leaving data/mt.json unchanged.",
               file=sys.stderr)
         return 0
     _write(out)
-    print(f"Done. translated {done} item(s) -> data/mt.json")
+    remaining_items = sum(len(j["texts"]) for j in jobs) and (
+        len(jobs) - done)
+    print(f"Done. translated {done} item(s) using ~{sent:,} chars -> data/mt.json"
+          + (f"; {remaining_items} item(s) left for next run (budget reached)."
+             if sent >= budget and remaining_items > 0 else "."))
     return 0
 
 
