@@ -49,22 +49,29 @@ session summaries) is machine-translated to English by **DeepL** and shown with 
 "machine translation" badge + a link to the official source.
 
 **One-time setup — and it must be a FREE key so you can never be charged:**
-1. Create a **DeepL API Free** account and **add no payment method / no paid
-   plan**. This is what guarantees zero cost: a free account has nothing to bill,
-   and stops translating (HTTP 456) once the 500,000 char/month allowance is used
-   — it never spills into charges.
+1. Sign up for the **DeepL API free tier** ("Developer" plan) and **add no
+   payment method / no paid plan**. This is what guarantees zero cost: a free
+   account has nothing to bill — it just stops translating (HTTP 456) when the
+   allowance is used, never spilling into charges.
 2. Copy its API key — a free key **ends in `:fx`**.
 3. Add it as the repo secret **`DEEPL_API_KEY`** (GitHub → Settings → Secrets →
    Actions).
 
+**About the free allowance (important):** DeepL changed it. New free ("Developer")
+accounts get **1,000,000 characters *one-time*, not monthly** — once spent, the
+free tier stops until you'd upgrade (we won't). Legacy "API Free" accounts get
+500,000/month recurring. Either way this pipeline reads DeepL's real remaining
+quota and never exceeds it, so **no charge, ever**. Our volume is tiny (~0.2M
+once, then ~0.12M/year), so the one-time million lasts **several years**; when it
+finally runs out, English simply falls back to the official DE/FR/IT (no charge,
+no breakage) — top up by adding a fresh free key if you want it to resume.
+
 `scripts/translate.py` **refuses to run with a non-`:fx` key** (unless you
-deliberately set `DEEPL_ALLOW_PAID=1`), stays under the monthly quota minus a
-safety margin, and caps each run — so even if someone changed the code or the
-key, a free account still can't be billed. Until the secret is set, `data/mt.json`
-stays empty and English falls back to the official DE/FR/IT with a language chip.
-Nothing recurring once the key is in place. (Our volume sits well under the free
-cap; if it ever hit the cap, the remaining texts would simply translate next
-month.) See `COMPLIANCE.md` for the full charge-safety framework.
+deliberately set `DEEPL_ALLOW_PAID=1`), reads DeepL's `/v2/usage` and stays under
+the limit minus a safety margin, and caps each run — so even if someone changed
+the code, a no-payment-method account still can't be billed. Until the secret is
+set, `data/mt.json` stays empty and English falls back with a language chip.
+See `COMPLIANCE.md` for the full charge-safety framework.
 
 ### 2b. Romansh titles — hand-translate  *(optional, as needed)*
 

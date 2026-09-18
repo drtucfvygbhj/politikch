@@ -24,13 +24,18 @@ CHARGE SAFETY — this pipeline is designed so DeepL can NEVER bill you
 =====================================================================
 Four independent layers, strongest first:
 
-  0. ACCOUNT (the real guarantee): use a DeepL **API Free** key (it ends ":fx")
-     on an account with **NO payment method / no paid plan**. A free account has
-     nothing to bill — when the 500,000-char/month allowance is used up DeepL
-     returns HTTP 456 and simply stops translating. This holds even if every
-     other layer below is deleted by someone with repo access, because there is
-     no card to charge. THIS is what makes overruns impossible; the rest is
-     defence-in-depth.
+  0. ACCOUNT (the real guarantee): use a DeepL free API key on an account with
+     **NO payment method / no paid plan**. A free account has nothing to bill —
+     when its character allowance is used up DeepL returns HTTP 456 and simply
+     stops translating. This holds even if every other layer below is deleted by
+     someone with repo access, because there is no card to charge. THIS is what
+     makes overruns impossible; the rest is defence-in-depth.
+     NOTE: DeepL's free allowance for new "Developer" accounts is 1,000,000
+     characters ONE-TIME (not monthly); legacy "API Free" (:fx) accounts get
+     500,000/month recurring. This script reads the real remaining quota from
+     DeepL's /v2/usage, so it works either way. Our volume (~0.2M once, then
+     ~0.12M/yr) leaves the one-time million lasting several years; when it's
+     exhausted the site simply falls back to the official language.
   1. KEY CHECK: the script REFUSES to run with a non-free key (one that could be
      billed) unless DEEPL_ALLOW_PAID=1 is set deliberately.
   2. SERVER QUOTA CHECK: before translating it reads DeepL's /v2/usage and will
@@ -255,8 +260,8 @@ def run(jobs, keep, key, budget, limit=0):
             try:
                 res = deepl(batch, src, key)
             except QuotaExceeded:
-                print("  DeepL monthly quota reached — stopping; the rest waits "
-                      "for next month.", file=sys.stderr)
+                print("  DeepL free allowance reached — stopping cleanly; the rest "
+                      "stays on the official-language fallback.", file=sys.stderr)
                 stop = True
                 break
             if len(res) != len(batch):
@@ -322,8 +327,8 @@ def main(argv):
         print(f"DeepL usage unreadable; capping this run at {budget:,} chars "
               f"(free key can't be billed).", file=sys.stderr)
     if budget <= 0:
-        print("Monthly quota reached (or unverifiable) — translating nothing this "
-              "run; the rest waits for next month.", file=sys.stderr)
+        print("Free allowance reached (or unverifiable) — translating nothing this "
+              "run; texts stay on the official-language fallback.", file=sys.stderr)
         if not MT_PATH.exists():
             _write({"titles": {}, "args": {}, "summaries": {}})
         return 0
