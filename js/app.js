@@ -104,6 +104,16 @@ async function loadData() {
     const di = await fetch('data/donor-descriptions.json?v=20260916f').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
+
+  // Optional: English MACHINE translations (DeepL) of official DE/FR/IT texts —
+  // session vote titles, for/against arguments, session summaries — shown only
+  // under the English UI with a "machine translation" badge (data/mt.json). Empty
+  // until scripts/translate.py runs with a DEEPL_API_KEY; then EN stops falling
+  // back to the official language. RM has no machine translation (DeepL lacks it).
+  try {
+    const mt = await fetch('data/mt.json?v=20260916f').then(r => r.ok ? r.json() : null);
+    state.data.mt = mt || {};
+  } catch (e) { state.data.mt = {}; }
 }
 
 /* ============================================================
@@ -2150,6 +2160,10 @@ function voteTitleHTML(v) {
   if (en) {
     return `<span class="svote-title-text">${en}</span>${unofficialBadge()}`;
   }
+  const mt = mtVoteTitle(v);
+  if (mt) {
+    return `<span class="svote-title-text">${mt}</span>${mtBadge()}`;
+  }
   const order = ['de', 'fr', 'it'];
   const lang = order.find(l => title[l]) || Object.keys(title)[0];
   const text = title[lang] || v.business || '';
@@ -2158,8 +2172,9 @@ function voteTitleHTML(v) {
 }
 function voteTitlePlain(v) {
   const title = v.title || {};
-  // Official current-language title wins over the unofficial translation.
-  return title[state.lang] || voteTransTitle(v) || title.de || title.fr || title.it || v.business || '';
+  // Official current-language title wins over the unofficial / machine one.
+  return title[state.lang] || voteTransTitle(v) || mtVoteTitle(v) ||
+    title.de || title.fr || title.it || v.business || '';
 }
 
 // A small "unofficial translation" badge whose full explanation shows on
@@ -2170,6 +2185,21 @@ function unofficialBadge(interactive) {
   const focus = interactive === false ? '' : ' tabindex="0" role="note"';
   const tip = escapeAttr(t('session.unofficialTip'));
   return `<span class="unofficial-badge"${focus} data-tip="${tip}" aria-label="${tip}">${t('session.unofficial')}</span>`;
+}
+
+// Badge for DeepL MACHINE translations (distinct from the hand-made "unofficial"
+// badge). Explanation shows on hover/focus. Only used under the English UI.
+function mtBadge(interactive) {
+  const focus = interactive === false ? '' : ' tabindex="0" role="note"';
+  const tip = escapeAttr(t('mt.tip'));
+  return `<span class="mt-badge"${focus} data-tip="${tip}" aria-label="${tip}">${t('mt.badge')}</span>`;
+}
+// The English machine translation of a session vote's title, if we have one and
+// the UI is English (DeepL has no Romansh, so this is EN-only).
+function mtVoteTitle(v) {
+  if (state.lang !== 'en') return null;
+  const e = state.data.mt && state.data.mt.titles && state.data.mt.titles[String(v.id)];
+  return e ? e.t : null;
 }
 
 // Initiative title: in English, prefer our unofficial translation (+ badge)
@@ -3117,14 +3147,30 @@ function overviewSectionHTML(kind, id, officialUrl) {
 // Pick the argument block for the active language, falling back to the brochure's
 // official languages (DE/FR/IT — EN/RM never exist officially). null if none has
 // content yet (brochure not published) -> honest "being prepared" state.
-function pickArgBlock(data) {
+function pickArgBlock(data, id) {
   if (!data || !data.lang) return null;
-  const order = [state.lang, 'de', 'fr', 'it'];
-  for (const l of order) {
-    const b = data.lang[l];
-    if (b && ((b.pros && b.pros.length) || (b.cons && b.cons.length))) {
-      return { lang: l, pros: b.pros || [], cons: b.cons || [],
-               url: (data.sourceUrl || {})[l] || null };
+  const hasText = (b) => b && ((b.pros && b.pros.length) || (b.cons && b.cons.length));
+  const officialUrl = (src) => (data.sourceUrl || {})[src]
+    || Object.values(data.sourceUrl || {})[0] || null;
+  // 1) Official text in the active language.
+  if (hasText(data.lang[state.lang])) {
+    const b = data.lang[state.lang];
+    return { lang: state.lang, pros: b.pros || [], cons: b.cons || [],
+             url: officialUrl(state.lang) };
+  }
+  // 2) English machine translation (DeepL), if the UI is English.
+  if (state.lang === 'en') {
+    const m = state.data.mt && state.data.mt.args && state.data.mt.args[id];
+    if (hasText(m)) {
+      return { lang: 'en', mt: true, pros: m.pros || [], cons: m.cons || [],
+               url: officialUrl(m.src) };
+    }
+  }
+  // 3) Fall back to another official language (shown with a language chip).
+  for (const l of ['de', 'fr', 'it']) {
+    if (hasText(data.lang[l])) {
+      const b = data.lang[l];
+      return { lang: l, pros: b.pros || [], cons: b.cons || [], url: officialUrl(l) };
     }
   }
   return null;
@@ -3139,15 +3185,17 @@ function renderOverview(el) {
   const kind = el.dataset.ok, id = el.dataset.oi;
   el.innerHTML = `<div class="ai-ov-body" data-ov-body><p class="mine-note">${t('overview.loading')}</p></div>`;
   ensureOverview(kind, id).then(data => {
-    const block = pickArgBlock(data);
+    const block = pickArgBlock(data, id);
     if (!block) {
       el.innerHTML = `<div class="ai-ov-head"><h4 class="ai-ov-title">${t('overview.title')}</h4></div>` +
         `<p class="ai-ov-preparing">${t('overview.preparing')}</p>`;
       return;
     }
-    const chip = block.lang !== state.lang
-      ? ` <span class="ai-ov-langchip" title="${escapeAttr(t('overview.langNote'))}">${block.lang.toUpperCase()}</span>`
-      : '';
+    const chip = block.mt
+      ? ` ${mtBadge()}`
+      : (block.lang !== state.lang
+        ? ` <span class="ai-ov-langchip" title="${escapeAttr(t('overview.langNote'))}">${block.lang.toUpperCase()}</span>`
+        : '');
     const link = block.url
       ? ` <a href="${escapeAttr(block.url)}" target="_blank" rel="noopener noreferrer">${t('overview.official')} <span class="arrow">↗</span></a>`
       : '';
@@ -3163,7 +3211,7 @@ function renderOverview(el) {
         ${col('ai-ov-for', t('overview.for'), t('overview.forAuthor'), block.pros)}
         ${col('ai-ov-against', t('overview.against'), t('overview.againstAuthor'), block.cons)}
       </div>
-      <p class="ai-ov-disclaimer">${t('overview.source')}${link}</p>`;
+      <p class="ai-ov-disclaimer">${t(block.mt ? 'overview.sourceMt' : 'overview.source')}${link}</p>`;
   });
 }
 function wireOverviews(root) {
@@ -3180,8 +3228,15 @@ function wireOverviews(root) {
    attribution); no AI. DE/FR/IT only, so EN/RM fall back with a language chip. */
 function pickVoteSummary(v) {
   const s = v && v.summary;
-  if (!s) return null;
-  for (const l of [state.lang, 'de', 'fr', 'it']) {
+  // Official text in the active language.
+  if (s && s[state.lang]) return { lang: state.lang, text: s[state.lang] };
+  // English machine translation (DeepL), if the UI is English.
+  if (state.lang === 'en') {
+    const m = state.data.mt && state.data.mt.summaries && state.data.mt.summaries[String(v.id)];
+    if (m && m.t) return { lang: 'en', mt: true, text: m.t };
+  }
+  // Fall back to another official language (shown with a language chip).
+  if (s) for (const l of ['de', 'fr', 'it']) {
     if (s[l]) return { lang: l, text: s[l] };
   }
   return null;
@@ -3189,9 +3244,11 @@ function pickVoteSummary(v) {
 function voteChangesHTML(v) {
   const pick = pickVoteSummary(v);
   if (!pick) return '';
-  const chip = pick.lang !== state.lang
-    ? ` <span class="ai-ov-langchip" title="${escapeAttr(t('overview.langNote'))}">${pick.lang.toUpperCase()}</span>`
-    : '';
+  const chip = pick.mt
+    ? ` ${mtBadge()}`
+    : (pick.lang !== state.lang
+      ? ` <span class="ai-ov-langchip" title="${escapeAttr(t('overview.langNote'))}">${pick.lang.toUpperCase()}</span>`
+      : '');
   const url = businessUrl(v);
   const link = url
     ? ` <a href="${escapeAttr(url)}" target="_blank" rel="noopener noreferrer">${t('changes.official')} <span class="arrow">↗</span></a>`
@@ -3199,7 +3256,7 @@ function voteChangesHTML(v) {
   return `<div class="vote-changes">
       <div class="ai-ov-head"><h4 class="ai-ov-title">${t('changes.title')}</h4>${chip}</div>
       <p class="vote-changes-text">${escapeAttr(pick.text)}</p>
-      <p class="ai-ov-disclaimer">${t('changes.source')}${link}</p>
+      <p class="ai-ov-disclaimer">${t(pick.mt ? 'changes.sourceMt' : 'changes.source')}${link}</p>
     </div>`;
 }
 

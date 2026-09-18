@@ -33,6 +33,26 @@ the owner's permission) — plus CC BY (reuse incl. commercial, attribution).
 Attribution is surfaced in-app for every source (see `NOTICE.md` and the
 `rec.source` / `financing.source` / `canton.sources` i18n strings) — keep it.
 
+## Machine translation (DeepL)
+
+English texts that have no official version (session vote titles, for/against
+arguments, session summaries) are machine-translated by **DeepL** at build time
+(`scripts/translate.py` → `data/mt.json`), labelled "machine translation" on the
+site with a link to the official source. Commercial status:
+
+- **Output ownership:** DeepL's terms grant the customer full, unrestricted
+  rights to use the translations, including commercially — DeepL claims no
+  copyright over them. ✅
+- **Input data:** we send only **public official texts** (no personal data). On
+  the **paid API/Pro** plan input is not used to train DeepL's models; on the
+  **free** tier it may be. → **Use a paid DeepL API plan** for the live pipeline
+  (also removes the 500k-char/month cap).
+- **Labelling:** each machine translation carries a badge and links to the
+  authoritative source, so it is never presented as official. ✅
+- Romansh is **not** machine-translated (DeepL has no Romansh); RM keeps the
+  official DE/FR/IT fallback. The only quality Romansh MT engine is Supertext —
+  a possible future add if native RM is wanted.
+
 ## The one nuance: VoteInfo results (`terms_ask`) — still fine, two ways
 
 The **real-time** voting-day feed we use (`echtzeitdaten-am-abstimmungstag-…`) is

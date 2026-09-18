@@ -36,25 +36,32 @@ data" run succeeded, and skim any issue it opened. That's the core routine.
 
 The weekly GitHub Action refreshes **everything** and commits it: votes,
 initiatives, **vote for/against arguments**, financing, canton data, Federal
-Assembly sessions, **and the session votes' "What this vote is about" summaries**.
-All from official / openly-licensed sources (see `COMPLIANCE.md`) — commercially
-reusable with the attribution the site already shows. Nothing here is manual.
+Assembly sessions, **the session votes' "What this vote is about" summaries**,
+**and the English machine translations** (DeepL) of everything that has no
+official English. All from official / openly-licensed sources (see
+`COMPLIANCE.md`) — commercially reusable with the attribution the site shows.
+Nothing here is manual.
 
-Two small things can *optionally* need your hands; skip either and the site stays
-correct with an honest fallback.
+### 2a. English translations — automatic (one-time setup)
 
-### 2a. Unofficial EN / RM titles — hand-translate  *(as needed)*
+Anything with no official English (session vote titles, for/against arguments,
+session summaries) is machine-translated to English by **DeepL** and shown with a
+"machine translation" badge + a link to the official source. **One-time setup:**
+add a repo secret **`DEEPL_API_KEY`** (a paid DeepL API plan — see `COMPLIANCE.md`)
+in GitHub → Settings → Secrets → Actions. Until it's set, `data/mt.json` stays
+empty and English falls back to the official DE/FR/IT with a language chip.
+Nothing recurring once the key is in place.
 
-Swiss vote/act titles are official only in DE/FR/IT; English and Romansh titles
-are unofficial and hand-made. When the weekly fetch finds a new one it opens a
-GitHub issue and lists it in `TRANSLATIONS_TODO.md`. To clear it, add the
-translation to `data/initiatives-translations.json` or
-`data/sessions-translations.json` under `titles.<id>` as `{ "en": …, "rm": … }`,
-then commit. Until then the site falls back to the official DE/FR/IT title. (Or
-open a Claude Code session and say *"translate the pending titles in
-TRANSLATIONS_TODO.md"*.)
+### 2b. Romansh titles — hand-translate  *(optional, as needed)*
 
-### 2b. Native Italian brochure arguments  *(optional, ~4×/year)*
+DeepL has **no Romansh**, so Romansh vote/act titles aren't machine-translated.
+When the weekly fetch finds one missing it lists it in `TRANSLATIONS_TODO.md` /
+opens a GitHub issue. To add it, put the `rm` value in
+`data/initiatives-translations.json` or `data/sessions-translations.json` under
+`titles.<id>`, then commit. Until then Romansh falls back to the official
+DE/FR/IT title. (Or ask a Claude Code session to translate the pending titles.)
+
+### 2c. Native Italian brochure arguments  *(optional, ~4×/year)*
 
 DE/FR for/against arguments are fetched automatically (from the Swissvotes-hosted
 official brochure). Swissvotes doesn't host **Italian**, so IT falls back to DE/FR
@@ -137,12 +144,12 @@ run `python3 scripts/fetch_sessions.py --force` once to backfill older sessions.
 ### One-glance weekly checklist
 1. **Actions tab → "Fetch live data" green & committed?** That's the whole
    routine — it refreshes votes, **for/against arguments**, financing, cantons,
-   sessions **and the session "what this vote is about" text**. Nothing to run by
-   hand.
-2. **Pending title translations?** If the fetch flagged one in `TRANSLATIONS_TODO.md`,
-   add it and commit (§2a). Optional.
+   sessions, the session "what this vote is about" text, **and the English
+   machine translations**. Nothing to run by hand.
+2. **Pending Romansh titles?** If the fetch flagged one in `TRANSLATIONS_TODO.md`,
+   add the `rm` value and commit (§2b). Optional (English is auto-translated).
 3. **Want native Italian arguments for a new ballot?** Drop the official IT PDF in
-   `data/brochures/` and re-run `fetch_arguments.py` (§2b). Optional.
+   `data/brochures/` and re-run `fetch_arguments.py` (§2c). Optional.
 4. (Once live) poll backend healthy?
 
 (The cache token is auto-bumped on deploy; `validate.py` runs in CI — run it

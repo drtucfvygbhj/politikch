@@ -16,11 +16,16 @@ name: Fetch live data
 #     Assembly sessions, their final votes and per-party tallies (parlament.ch
 #     OData web service). Settled sessions are cached per file; only recent ones
 #     are re-fetched, so this stays cheap as history grows.
-# Unofficial EN/RM titles for new votes/acts are NOT machine-translated (the
-# project uses no AI/translation API). Instead check_translations.py records any
-# missing ones in TRANSLATIONS_TODO.md and this job opens/refreshes a GitHub
-# issue as a reminder to translate them by hand. Until then the site falls back
-# to the official DE/FR/IT title.
+#   * data/mt.json — English MACHINE translations (DeepL, a dedicated translation
+#     engine, not an LLM) of the texts with no official English: session vote
+#     titles, for/against arguments and session summaries. Labelled "machine
+#     translation" on the site and linked to the official source. Needs the
+#     DEEPL_API_KEY secret; without it this no-ops and English keeps its
+#     official-language fallback.
+# Romansh (rm) has NO machine translation (DeepL doesn't support it), so RM titles
+# still fall back to the official DE/FR/IT unless hand-translated:
+# check_translations.py records missing RM ones in TRANSLATIONS_TODO.md and this
+# job opens/refreshes a GitHub issue as a reminder.
 # Initiatives are fetched first because the financing fetcher matches campaign
 # filings against the decided votes in data/initiatives.json. Committing the
 # regenerated files is what "publishes" them — the existing deploy workflow then
@@ -70,6 +75,16 @@ jobs:
       - name: Fetch Federal Assembly sessions & final votes
         run: python3 scripts/fetch_sessions.py
 
+      # Machine-translate the English gaps (session titles, for/against arguments,
+      # session summaries) via DeepL — a dedicated translation engine, not an LLM.
+      # Output is labelled "machine translation" on the site and linked to the
+      # official source. No-ops without the secret, so the site keeps its
+      # official-language fallback. RM has no machine translation (DeepL lacks it).
+      - name: Machine-translate English gaps (DeepL)
+        env:
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+        run: python3 scripts/translate.py
+
       - name: Check for titles needing a hand translation
         run: python3 scripts/check_translations.py
 
@@ -78,13 +93,13 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/overviews TRANSLATIONS_TODO.md; then
+          if git diff --quiet -- data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/overviews data/mt.json TRANSLATIONS_TODO.md; then
             echo "No changes to live data files"
             exit 0
           fi
           git config user.name "politikch-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/overviews TRANSLATIONS_TODO.md
+          git add data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/overviews data/mt.json TRANSLATIONS_TODO.md
           git commit -m "Update live data (votes, initiatives, financing, cantons, sessions, vote arguments)"
           git push
 

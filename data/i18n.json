@@ -471,7 +471,11 @@
     "overview.langNote": "Official text is available in German, French and Italian only; shown here in that language.",
     "changes.title": "What this vote is about",
     "changes.source": "Official summary from the parliamentary record (Curia Vista, parlament.ch).",
-    "changes.official": "Full details on parlament.ch"
+    "changes.official": "Full details on parlament.ch",
+    "mt.badge": "machine translation",
+    "mt.tip": "Automatically translated into English by DeepL from the official German/French/Italian text — not an official translation. Check the official source for the authoritative wording.",
+    "overview.sourceMt": "English machine translation (DeepL) of the Federal Council's official for/against arguments.",
+    "changes.sourceMt": "English machine translation (DeepL) of the official summary from the parliamentary record (Curia Vista)."
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -945,7 +949,11 @@
     "overview.langNote": "Der offizielle Text liegt nur auf Deutsch, Französisch und Italienisch vor; hier in dieser Sprache gezeigt.",
     "changes.title": "Worum es geht",
     "changes.source": "Amtliche Zusammenfassung aus dem Ratsbetrieb (Curia Vista, parlament.ch).",
-    "changes.official": "Alle Details auf parlament.ch"
+    "changes.official": "Alle Details auf parlament.ch",
+    "mt.badge": "maschinelle Übersetzung",
+    "mt.tip": "Von DeepL automatisch aus dem amtlichen deutschen/französischen/italienischen Text ins Englische übersetzt — keine amtliche Übersetzung. Massgebend ist die offizielle Quelle.",
+    "overview.sourceMt": "Maschinelle englische Übersetzung (DeepL) der amtlichen Argumente von Bundesrat und Komitee.",
+    "changes.sourceMt": "Maschinelle englische Übersetzung (DeepL) der amtlichen Zusammenfassung aus dem Ratsbetrieb (Curia Vista)."
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -1419,7 +1427,11 @@
     "overview.langNote": "Le texte officiel n’existe qu’en allemand, français et italien; affiché ici dans cette langue.",
     "changes.title": "De quoi il s’agit",
     "changes.source": "Résumé officiel tiré des travaux parlementaires (Curia Vista, parlament.ch).",
-    "changes.official": "Détails complets sur parlament.ch"
+    "changes.official": "Détails complets sur parlament.ch",
+    "mt.badge": "traduction automatique",
+    "mt.tip": "Traduit automatiquement en anglais par DeepL à partir du texte officiel allemand/français/italien — traduction non officielle. Le texte officiel fait foi.",
+    "overview.sourceMt": "Traduction automatique en anglais (DeepL) des arguments officiels pour/contre.",
+    "changes.sourceMt": "Traduction automatique en anglais (DeepL) du résumé officiel des travaux parlementaires (Curia Vista)."
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -1893,7 +1905,11 @@
     "overview.langNote": "Il testo ufficiale è disponibile solo in tedesco, francese e italiano; mostrato qui in quella lingua.",
     "changes.title": "Di cosa si tratta",
     "changes.source": "Riassunto ufficiale dai lavori parlamentari (Curia Vista, parlament.ch).",
-    "changes.official": "Dettagli completi su parlament.ch"
+    "changes.official": "Dettagli completi su parlament.ch",
+    "mt.badge": "traduzione automatica",
+    "mt.tip": "Tradotto automaticamente in inglese da DeepL dal testo ufficiale tedesco/francese/italiano — traduzione non ufficiale. Fa fede la fonte ufficiale.",
+    "overview.sourceMt": "Traduzione automatica in inglese (DeepL) degli argomenti ufficiali a favore/contro.",
+    "changes.sourceMt": "Traduzione automatica in inglese (DeepL) del riassunto ufficiale dei lavori parlamentari (Curia Vista)."
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -2367,6 +2383,10 @@
     "overview.langNote": "Il text uffizial exista mo per tudestg, franzos ed talian; mussà qua en questa lingua.",
     "changes.title": "Da tge ch’i va",
     "changes.source": "Resumaziun uffiziala dals lavurs parlamentars (Curia Vista, parlament.ch).",
-    "changes.official": "Tut ils detagls sin parlament.ch"
+    "changes.official": "Tut ils detagls sin parlament.ch",
+    "mt.badge": "translaziun automatica",
+    "mt.tip": "Translatà automaticamain per englais da DeepL dal text uffizial tudestg/franzos/talian — betg ina translaziun uffiziala. Decisiv è la funtauna uffiziala.",
+    "overview.sourceMt": "Translaziun automatica per englais (DeepL) dals arguments uffizials pro/cunter.",
+    "changes.sourceMt": "Translaziun automatica per englais (DeepL) da la resumaziun uffiziala dals lavurs parlamentars (Curia Vista)."
   }
 }

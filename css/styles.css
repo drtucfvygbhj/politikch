@@ -1110,6 +1110,16 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
 .unofficial-badge:focus-visible { outline: none; box-shadow: var(--focus); }
 .initiative-title .unofficial-badge, .canton-title .unofficial-badge { vertical-align: middle; }
 
+/* Machine-translation badge (DeepL) — a distinct neutral/blue tone so it reads
+   apart from the red hand-made "unofficial" badge. */
+.mt-badge {
+  display: inline-block; margin-left: 8px; font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  color: #3b6fb0; background: rgba(59,111,176,0.08); border: 1px solid rgba(59,111,176,0.28);
+  border-radius: 4px; padding: 1px 6px; cursor: help; white-space: nowrap; vertical-align: middle;
+}
+.mt-badge:focus-visible { outline: none; box-shadow: var(--focus); }
+
 /* Cross-highlight on the "How the National Council voted" graphic + group rows:
    hovering/focusing any seat or row highlights that party everywhere, dims the rest. */
 .svote-graphic .vote-hemicycle circle { transition: opacity 0.12s; }
