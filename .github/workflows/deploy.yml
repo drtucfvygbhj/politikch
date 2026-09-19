@@ -41,11 +41,27 @@ jobs:
           done
           echo "Cache-busted assets with token $V"
 
+      # Publish an explicit allowlist of runtime files, never the whole repo, so
+      # internal docs, scripts, tooling config and audit notes stay unpublished.
+      # A new top-level runtime file must be added here to go live.
+      - name: Assemble site (allowlist)
+        run: |
+          mkdir _site
+          cp index.html 404.html robots.txt .nojekyll _site/
+          cp -r css js fonts _site/
+          rsync -a --exclude='*.md' --exclude='brochures/' data/ _site/data/
+          # Guard: only runtime file types may be published.
+          bad=$(find _site -type f ! -name '.nojekyll' \
+                ! -regex '.*\.\(html\|css\|js\|json\|woff2\|txt\)$')
+          if [ -n "$bad" ]; then
+            echo "Non-runtime files in deploy artifact:"; echo "$bad"; exit 1
+          fi
+          echo "Publishing $(find _site -type f | wc -l) files"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # The whole repository is the site (static, no build step).
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment

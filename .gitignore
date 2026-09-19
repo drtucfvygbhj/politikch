@@ -21,3 +21,9 @@ review/
 # Manually-added official brochure PDFs (large; only used at build time to add
 # native Italian). The extracted arguments in data/overviews/ ARE committed.
 data/brochures/*.pdf
+
+# Security/compliance audit notes (never tracked or deployed)
+audit/
+
+# CI deploy staging directory
+_site/
