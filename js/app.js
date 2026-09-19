@@ -2793,9 +2793,6 @@ function loadLegal() {
   }
   return legalPromise;
 }
-function contactEmailPromise() {
-  return loadLegal().then(d => (d && d._meta && d._meta.contactEmail) || '');
-}
 // Recipient for a form category. Routing to a per-category address (a real alias
 // or plus-address that delivers to us) makes the To: address the filter key —
 // which a visitor can't defeat by editing the subject. Falls back to the base
