@@ -18,7 +18,7 @@
 
   <!-- Self-hosted fonts — no request to Google, no visitor IP leaves this origin. -->
   <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/styles.css?v=20260921a">
+  <link rel="stylesheet" href="css/styles.css?v=20260921f">
 
 </head>
 <body>
@@ -57,6 +57,16 @@
     </div>
   </nav>
 
+  <!-- Home-page hero logo. Fixed-position and moved by js/app.js
+       (updateHeroLogo): it starts large in the hero, then, as the page scrolls,
+       rises, shrinks and folds "PolitikCH" into "PCH" until it sits exactly on
+       the nav logo, which takes over from there. Decorative: the nav logo is
+       the real control. -->
+  <div class="hero-logo" id="hero-logo" aria-hidden="true">
+    <span class="hl-cross"></span>
+    <span class="hl-text"><span class="hl-p">P</span><span class="hl-mid"><span class="hl-mid-in">olitik</span></span><span class="hl-ch">CH</span></span>
+  </div>
+
   <div class="map-tooltip" id="map-tooltip" role="status" aria-live="polite"></div>
 
   <div id="load-error" style="display:none;position:fixed;inset:0;z-index:3000;background:var(--white);display:none;align-items:center;justify-content:center;text-align:center;padding:24px">
@@ -72,11 +82,11 @@
 
       <!-- HERO -->
       <section id="hero">
-        <div class="hero-text">
-          <p class="hero-eyebrow" data-i18n="hero.eyebrow">Independent · Factual · Five languages</p>
-          <h1 class="hero-title" data-i18n="hero.title">Swiss democracy,<br><span>in one place.</span></h1>
-          <p class="hero-subtitle" data-i18n="hero.subtitle">Parliament, parties, cantons and popular votes — across every level of Swiss democracy, gathered into one clear, independent reference. Pick a canton to begin.</p>
-        </div>
+        <!-- The big logo is drawn by #hero-logo (after the nav); this slot only
+             reserves its space in the layout. The heading stays for screen
+             readers and search engines. -->
+        <div class="hero-logo-slot" id="hero-logo-slot" aria-hidden="true"></div>
+        <h1 class="visually-hidden" data-i18n="hero.title">Swiss democracy,<br><span>in one place.</span></h1>
 
         <div class="map-container">
           <svg id="swiss-map" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Map of Swiss cantons"></svg>
@@ -367,6 +377,6 @@
     </div>
   </footer>
 
-  <script type="module" src="js/app.js?v=20260921a"></script>
+  <script type="module" src="js/app.js?v=20260921f"></script>
 </body>
 </html>

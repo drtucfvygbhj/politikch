@@ -1,6 +1,6 @@
-import { MAP_PATHS } from './map-data.js?v=20260921a';
-import { configureShare, wireShares, mountShare } from './share.js?v=20260921a';
-import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260921a';
+import { MAP_PATHS } from './map-data.js?v=20260921f';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260921f';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260921f';
 
 /* ============================================================
    State
@@ -62,11 +62,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json?v=20260921a').then(r => r.json()),
-    fetch('data/cantons.json?v=20260921a').then(r => r.json()),
-    fetch('data/initiatives.json?v=20260921a').then(r => r.json()),
-    fetch('data/council.json?v=20260921a').then(r => r.json()),
-    fetch('data/i18n.json?v=20260921a').then(r => r.json())
+    fetch('data/parties.json?v=20260921f').then(r => r.json()),
+    fetch('data/cantons.json?v=20260921f').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260921f').then(r => r.json()),
+    fetch('data/council.json?v=20260921f').then(r => r.json()),
+    fetch('data/i18n.json?v=20260921f').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -78,7 +78,7 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json?v=20260921a').then(r => r.ok ? r.json() : null);
+    const financing = await fetch('data/financing.json?v=20260921f').then(r => r.ok ? r.json() : null);
     if (financing) state.data.financing = financing;
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
@@ -86,14 +86,14 @@ async function loadData() {
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json?v=20260921a').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260921f').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json?v=20260921a').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260921f').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -101,7 +101,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json?v=20260921a').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260921f').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 
@@ -111,7 +111,7 @@ async function loadData() {
   // until scripts/translate.py runs with a DEEPL_API_KEY; then EN stops falling
   // back to the official language. RM has no machine translation (DeepL lacks it).
   try {
-    const mt = await fetch('data/mt.json?v=20260921a').then(r => r.ok ? r.json() : null);
+    const mt = await fetch('data/mt.json?v=20260921f').then(r => r.ok ? r.json() : null);
     state.data.mt = mt || {};
   } catch (e) { state.data.mt = {}; }
 }
@@ -1183,7 +1183,7 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json?v=20260921a').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260921f').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
@@ -1792,7 +1792,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json?v=20260921a`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260921f`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -2088,7 +2088,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260921a')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260921f')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2098,7 +2098,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json?v=20260921a')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260921f')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2114,7 +2114,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260921a`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260921f`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -2789,7 +2789,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'feedback', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json?v=20260921a').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260921f').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -3222,7 +3222,7 @@ const _overviewCache = {};
 function ensureOverview(kind, id) {
   const key = kind + '/' + id;
   if (_overviewCache[key]) return _overviewCache[key];
-  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260921a`)
+  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260921f`)
     .then(r => r.ok ? r.json() : null).catch(() => null);
   return _overviewCache[key];
 }
@@ -3367,8 +3367,79 @@ function navigate(path) {
   location.hash = path ? `#/${path}` : '#/';
 }
 
+/* ============================================================
+   Home hero logo → nav logo.
+   #hero-logo is an em-built copy of the nav logo. At the top of the home page
+   it sits large in the hero (in the space #hero-logo-slot reserves). As the
+   page scrolls it rises, slides toward the nav logo, shrinks and folds
+   "PolitikCH" → "PCH", arriving exactly on the nav logo at progress 1, where it
+   hands over: html.hero-logo-live comes off, the hero logo hides and the nav
+   logo shows. Scrolling back up reverses it. Off the home page the nav logo is
+   simply shown.
+   ============================================================ */
+const NAV_LOGO_PX = 18;                       // the nav logo's font-size
+const smooth = (x) => x * x * (3 - 2 * x);    // smoothstep easing, 0..1
+let heroLogoRaf = 0;
+function heroLogoScale() {
+  // The logo is ~7em wide. Aim for ~78% of the viewport, capped for large screens.
+  const vw = document.documentElement.clientWidth || window.innerWidth;   // excludes the scrollbar
+  const k = Math.min(vw * 0.78, 640) / (NAV_LOGO_PX * 7);
+  return Math.max(2, Math.min(k, 5.2));
+}
+function updateHeroLogo() {
+  heroLogoRaf = 0;
+  const root = document.documentElement;
+  const logo = document.getElementById('hero-logo');
+  const slot = document.getElementById('hero-logo-slot');
+  const navCross = document.querySelector('.nav-logo-cross');
+  const onHome = document.getElementById('home-content').style.display !== 'none';
+  if (!logo || !slot || !navCross || !onHome) { root.classList.remove('hero-logo-live'); return; }
+
+  const k = heroLogoScale();
+  logo.style.fontSize = `${NAV_LOGO_PX * k}px`;
+  // Measure at full size (fold 0, no transform) so the slot reserves the right space.
+  logo.style.setProperty('--fold', '0');
+  logo.style.transform = 'none';
+  root.classList.add('hero-logo-live');
+  const midIn = logo.querySelector('.hl-mid-in');
+  if (midIn) logo.style.setProperty('--mid-w', `${midIn.offsetWidth}px`);
+  slot.style.width = `${logo.offsetWidth}px`;
+  slot.style.height = `${logo.offsetHeight}px`;
+
+  const start = slot.getBoundingClientRect();         // where the big logo sits now
+  const end = navCross.getBoundingClientRect();       // where it must land
+  const startTop0 = start.top + window.scrollY;       // its top with the page unscrolled
+  // Scroll distance over which the move happens: at least the real gap, and a
+  // bit more on tall screens so it drifts in slowly rather than snapping.
+  const range = Math.max(startTop0 - end.top, window.innerHeight * 0.55, 1);
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let p = Math.min(Math.max(window.scrollY / range, 0), 1);
+  if (reduce) p = start.top <= end.top ? 1 : 0;     // no morph: just hand over
+
+  if (p >= 1) { root.classList.remove('hero-logo-live'); return; }   // docked
+
+  const e = reduce ? 0 : smooth(p);
+  const x = start.left + (end.left - start.left) * e;
+  // Viewport y: glides from where the logo started toward the nav logo. On
+  // tall screens it moves slower than the page, so it drifts rather than snaps.
+  const y = reduce ? start.top : startTop0 + (end.top - startTop0) * e;
+  const s = 1 + (1 / k - 1) * e;
+  // Fold during the middle of the move, so it reads as shrink → fold → settle.
+  const fold = reduce ? 0 : smooth(Math.min(Math.max((p - 0.15) / 0.6, 0), 1));
+  logo.style.setProperty('--fold', fold.toFixed(4));
+  logo.style.transform = `translate(${x.toFixed(2)}px, ${y.toFixed(2)}px) scale(${s.toFixed(4)})`;
+}
+function scheduleHeroLogo() {
+  // Browsers pause requestAnimationFrame in background tabs, so a page opened
+  // in one would show the wrong logo state for a moment when brought forward.
+  // Hidden pages aren't being scrolled, so update directly instead.
+  if (document.hidden) { updateHeroLogo(); return; }
+  if (!heroLogoRaf) heroLogoRaf = requestAnimationFrame(updateHeroLogo);
+}
+
 function showView(name) {
   document.getElementById('home-content').style.display = name === 'home' ? 'block' : 'none';
+  scheduleHeroLogo();
   document.getElementById('canton-page').classList.toggle('active', name === 'canton');
   document.getElementById('party-page').classList.toggle('active', name === 'party');
   document.getElementById('initiative-page').classList.toggle('active', name === 'initiative');
@@ -3505,10 +3576,23 @@ function bindEvents() {
     if (btn) { e.preventDefault(); openContactForm(btn.dataset.contactOrigin || 'General enquiry', btn); }
   });
 
-  // Nav shrink on scroll
+  // Nav shrink on scroll; the hero logo follows the scroll too.
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-  });
+    scheduleHeroLogo();
+  }, { passive: true });
+  window.addEventListener('resize', scheduleHeroLogo);
+  document.addEventListener('visibilitychange', scheduleHeroLogo);
+  // The nav shrinks (70px → 60px) with a transition, which moves the landing
+  // spot; re-aim once it settles. Fonts change the measured size, so re-measure
+  // when they are ready.
+  document.getElementById('navbar').addEventListener('transitionend', scheduleHeroLogo);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleHeroLogo);
+  const heroLogoEl = document.getElementById('hero-logo');
+  if (heroLogoEl) {
+    heroLogoEl.classList.add('hero-logo-intro');
+    setTimeout(() => heroLogoEl.classList.remove('hero-logo-intro'), 1000);
+  }
 
   // Routing
   window.addEventListener('hashchange', handleRoute);

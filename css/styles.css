@@ -90,27 +90,79 @@ nav.scrolled { height: 60px; box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08); }
      empty space on the right instead of shifting the nav items. */
   display: inline-block; width: 82px; text-align: left; overflow: hidden;
 }
-/* Logo animation: on hover/focus "olitik" slides left into the "P" and its width
-   collapses, so "CH" glides in behind it — "PolitikCH" becomes "PCH".
+/* Logo animation: the logo rests folded as "PCH". On hover/focus "olitik" slides
+   out from behind the "P" and its width opens, pushing "CH" along — "PCH"
+   becomes "PolitikCH". The reserved 82px width above means nothing else moves.
    (These letters have no descenders, so bottom-align == baseline-align.) */
 .nav-logo-p, .nav-logo-ch { display: inline-block; vertical-align: bottom; }
 .nav-logo-mid {
   display: inline-block; overflow: hidden; vertical-align: bottom;
-  max-width: 46px; /* ≈ width of "olitik" at this size; collapses to 0 on hover */
+  max-width: 0; /* opens to the width of "olitik" (2.34em ≈ 42px) on hover */
   transition: max-width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
 }
 .nav-logo-mid-in {
   display: inline-block; white-space: nowrap;
+  transform: translateX(-2.34em); opacity: 0;
   transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.35s ease;
 }
 .nav-logo:hover .nav-logo-mid,
-.nav-logo:focus-visible .nav-logo-mid { max-width: 0; }
+.nav-logo:focus-visible .nav-logo-mid { max-width: 2.34em; }
 .nav-logo:hover .nav-logo-mid-in,
-.nav-logo:focus-visible .nav-logo-mid-in { transform: translateX(-46px); opacity: 0; }
+.nav-logo:focus-visible .nav-logo-mid-in { transform: none; opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .nav-logo-mid, .nav-logo-mid-in { transition: none; }
 }
+
+/* On the home page, until the hero logo has docked, the nav logo keeps its
+   space but is not shown — the hero logo is on its way to that exact spot. */
+html.hero-logo-live .nav-logo { visibility: hidden; }
+
+/* ─── Home hero logo ───
+   An exact scaled copy of the nav logo, built in em so one font-size sets the
+   whole thing (the nav logo is this at 18px). js/app.js sets the font-size, the
+   transform (position + scale) and --fold (0 = "PolitikCH", 1 = "PCH"). */
+.hero-logo {
+  position: fixed; top: 0; left: 0; z-index: 1001;
+  display: none; align-items: center; gap: 0.6667em;
+  transform-origin: 0 0; will-change: transform;
+  pointer-events: none; color: var(--charcoal);
+  --fold: 0;
+}
+html.hero-logo-live .hero-logo { display: flex; }
+/* One-time fade on first load only (not on every un-dock while scrolling). */
+.hero-logo.hero-logo-intro { animation: fadeIn 0.9s ease both; }
+/* Keep it out of the way of the phone menu and the search results. */
+nav.menu-open ~ .hero-logo,
+nav:has(.search-results:not([hidden])) ~ .hero-logo { visibility: hidden; }
+.hl-cross {
+  flex: none; position: relative;
+  width: 1.7778em; height: 1.7778em; border-radius: 0.2222em; background: var(--red);
+}
+.hl-cross::before, .hl-cross::after {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%); background: #fff; border-radius: 0.0556em;
+}
+.hl-cross::before { width: 0.8889em; height: 0.2222em; }
+.hl-cross::after { width: 0.2222em; height: 0.8889em; }
+.hl-text {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  letter-spacing: -0.0167em; line-height: 1; white-space: nowrap;
+  display: inline-block; width: 4.5556em; text-align: left; overflow: hidden;
+}
+.hl-p, .hl-ch { display: inline-block; vertical-align: bottom; }
+.hl-mid {
+  display: inline-block; overflow: hidden; vertical-align: bottom;
+  /* --mid-w is the measured width of "olitik" (set by js/app.js); moving the
+     text by exactly that much as the window closes leaves no gap before "CH". */
+  max-width: calc(var(--mid-w, 2.34em) * (1 - var(--fold)));
+}
+.hl-mid-in {
+  display: inline-block; white-space: nowrap;
+  transform: translateX(calc(var(--mid-w, 2.34em) * -1 * var(--fold)));
+  opacity: calc(1 - var(--fold));
+}
+.hero-logo-slot { flex: none; margin-bottom: 40px; }
 
 .nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links button {
@@ -199,21 +251,6 @@ nav.scrolled { height: 60px; box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08); }
   content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse 80% 60% at 50% 80%, rgba(208, 2, 27, 0.04) 0%, transparent 70%);
   pointer-events: none;
-}
-.hero-text { text-align: center; margin-bottom: 40px; animation: fadeUp 0.9s ease both; max-width: 640px; }
-.hero-eyebrow {
-  font-size: 11px; font-weight: 600; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--red); margin-bottom: 16px;
-}
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(40px, 6vw, 78px); font-weight: 700; line-height: 1.05;
-  letter-spacing: -2px; color: var(--charcoal); margin-bottom: 20px;
-}
-.hero-title span { color: var(--red); }
-.hero-subtitle {
-  font-size: 16px; color: var(--mid); font-weight: 300;
-  max-width: 520px; margin: 0 auto; line-height: 1.7;
 }
 .hero-scroll-hint {
   position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
@@ -926,6 +963,7 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
   .nav-right { min-width: 0; }
   .nav-search { flex: 0 1 150px; min-width: 0; }
   .nav-search-input { width: 100%; max-width: 150px; min-width: 0; }
+  .nav-toggle, .nav-logo { flex: none; }   /* only the search field gives way */
   nav.menu-open .nav-links {
     display: flex; position: absolute; top: 70px; left: 0; right: 0;
     flex-direction: column; gap: 0; background: var(--white);
