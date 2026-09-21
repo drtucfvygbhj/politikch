@@ -918,6 +918,14 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
 @media (max-width: 860px) {
   .nav-links, .nav-lang { display: none; }
   .nav-toggle { display: flex; }
+  /* Phone: the logo, the search field and the menu button have to share one
+     70px bar. At 375px the desktop sizes overflowed by ~66px and pushed the
+     menu button off-screen, so the bar loses some side padding and the search
+     field shrinks and gives way first (it is the only flexible item). */
+  nav { padding: 0 16px; gap: 10px; }
+  .nav-right { min-width: 0; }
+  .nav-search { flex: 0 1 150px; min-width: 0; }
+  .nav-search-input { width: 100%; max-width: 150px; min-width: 0; }
   nav.menu-open .nav-links {
     display: flex; position: absolute; top: 70px; left: 0; right: 0;
     flex-direction: column; gap: 0; background: var(--white);
@@ -1541,6 +1549,27 @@ a.fin-name:hover, .fin-row:focus a.fin-name { color: var(--red); text-decoration
   font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
   margin: 0 0 2px; color: var(--charcoal);
 }
+/* Collapsed by default: the summary row is the control, the arguments below it
+   appear only once the reader opens that side. */
+.ai-ov-summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  cursor: pointer; list-style: none; padding: 4px 0; user-select: none;
+}
+.ai-ov-summary::-webkit-details-marker { display: none; }
+.ai-ov-summary:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 3px; }
+.ai-ov-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; color: var(--mid); white-space: nowrap;
+}
+.ai-ov-toggle-hide { display: none; }
+.ai-ov-col[open] .ai-ov-toggle-hide { display: inline; }
+.ai-ov-col[open] .ai-ov-toggle-show { display: none; }
+.ai-ov-chev {
+  width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg); margin-top: -3px; transition: transform 0.15s;
+}
+.ai-ov-col[open] .ai-ov-chev { transform: rotate(-135deg); margin-top: 2px; }
+@media (prefers-reduced-motion: reduce) { .ai-ov-chev { transition: none; } }
 .ai-ov-for .ai-ov-collabel { color: #3c7d54; }
 .ai-ov-against .ai-ov-collabel { color: var(--red); }
 .ai-ov-author { font-size: 11px; color: var(--mid); margin: 0 0 8px; font-style: italic; }
