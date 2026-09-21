@@ -3523,11 +3523,31 @@ async function init() {
     return;
   }
 
-  // Language: saved → browser → en
+  // Language: ?lang= → saved → browser → en.
+  // The language-branded domains (politicsch.ch, politiquech.ch, politicach.ch)
+  // redirect here with ?lang=<code>, so the visitor lands in the language they
+  // asked for even if this device remembers another one. The parameter is
+  // stripped from the URL right after it is honoured, so a link copied from the
+  // address bar and shared doesn't force that language on the next visitor.
   let lang = 'en';
-  try { lang = localStorage.getItem('politikch-lang') || navigator.language?.slice(0, 2) || 'en'; } catch (e) {}
+  let langFromUrl = '';
+  try {
+    langFromUrl = new URLSearchParams(location.search).get('lang') || '';
+  } catch (e) { /* ignore */ }
+  if (!SUPPORTED_LANGS.includes(langFromUrl)) langFromUrl = '';
+  try {
+    lang = langFromUrl || localStorage.getItem('politikch-lang') || navigator.language?.slice(0, 2) || 'en';
+  } catch (e) { lang = langFromUrl || 'en'; }
   if (!SUPPORTED_LANGS.includes(lang)) lang = 'en';
   state.lang = lang;
+  if (langFromUrl) {
+    try { localStorage.setItem('politikch-lang', lang); } catch (e) { /* ignore */ }
+    try {
+      const url = new URL(location.href);
+      url.searchParams.delete('lang');
+      history.replaceState(null, '', url.pathname + url.search + url.hash);
+    } catch (e) { /* ignore */ }
+  }
 
   buildMap();
   applyStaticTranslations();
