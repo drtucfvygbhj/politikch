@@ -210,6 +210,20 @@ nav.scrolled { height: 60px; box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08); }
   letter-spacing: -2px; color: var(--charcoal); margin: 0;
 }
 .hero-title span { color: var(--red); }
+.hero-subtitle {
+  font-size: clamp(15px, 1.9vw, 18px); font-weight: 300; line-height: 1.7;
+  color: var(--mid); max-width: 620px; margin: 22px auto 0;
+}
+/* Topic links in the subtitle: read as part of the sentence, and behave like
+   the top-bar items — same colour change on hover, same click handlers. */
+.hero-link {
+  background: none; border: none; padding: 0; font: inherit; font-weight: 500;
+  color: var(--charcoal); cursor: pointer; transition: color 0.2s;
+}
+.hero-link:hover, .hero-link:focus-visible { color: var(--red); }
+.hero-link:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 2px; }
+/* Keep the map clear of the fixed nav when "Cantons" scrolls to it. */
+#cantons-map { scroll-margin-top: 90px; }
 .hero-scroll-hint {
   position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 8px;

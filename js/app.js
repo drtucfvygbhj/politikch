@@ -1,7 +1,7 @@
-import { MAP_PATHS } from './map-data.js?v=20260922c';
-import { configureShare, wireShares, mountShare } from './share.js?v=20260922c';
-import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260922c';
-import { PAID_PRODUCT_LIVE } from './config.js?v=20260922c';
+import { MAP_PATHS } from './map-data.js?v=20260922d';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260922d';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260922d';
+import { PAID_PRODUCT_LIVE } from './config.js?v=20260922d';
 
 /* ============================================================
    State
@@ -63,11 +63,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json?v=20260922c').then(r => r.json()),
-    fetch('data/cantons.json?v=20260922c').then(r => r.json()),
-    fetch('data/initiatives.json?v=20260922c').then(r => r.json()),
-    fetch('data/council.json?v=20260922c').then(r => r.json()),
-    fetch('data/i18n.json?v=20260922c').then(r => r.json())
+    fetch('data/parties.json?v=20260922d').then(r => r.json()),
+    fetch('data/cantons.json?v=20260922d').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260922d').then(r => r.json()),
+    fetch('data/council.json?v=20260922d').then(r => r.json()),
+    fetch('data/i18n.json?v=20260922d').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -79,7 +79,7 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json?v=20260922c').then(r => r.ok ? r.json() : null);
+    const financing = await fetch('data/financing.json?v=20260922d').then(r => r.ok ? r.json() : null);
     if (financing) state.data.financing = financing;
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
@@ -87,14 +87,14 @@ async function loadData() {
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json?v=20260922c').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260922d').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json?v=20260922c').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260922d').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -102,7 +102,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json?v=20260922c').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260922d').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 
@@ -112,7 +112,7 @@ async function loadData() {
   // until scripts/translate.py runs with a DEEPL_API_KEY; then EN stops falling
   // back to the official language. RM has no machine translation (DeepL lacks it).
   try {
-    const mt = await fetch('data/mt.json?v=20260922c').then(r => r.ok ? r.json() : null);
+    const mt = await fetch('data/mt.json?v=20260922d').then(r => r.ok ? r.json() : null);
     state.data.mt = mt || {};
   } catch (e) { state.data.mt = {}; }
 }
@@ -1184,7 +1184,7 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json?v=20260922c').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260922d').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
@@ -1793,7 +1793,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json?v=20260922c`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260922d`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -2089,7 +2089,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260922c')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260922d')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2099,7 +2099,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json?v=20260922c')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260922d')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2115,7 +2115,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260922c`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260922d`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -2792,7 +2792,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'feedback', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json?v=20260922c').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260922d').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -3233,7 +3233,7 @@ const _overviewCache = {};
 function ensureOverview(kind, id) {
   const key = kind + '/' + id;
   if (_overviewCache[key]) return _overviewCache[key];
-  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260922c`)
+  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260922d`)
     .then(r => r.ok ? r.json() : null).catch(() => null);
   return _overviewCache[key];
 }
@@ -3482,6 +3482,13 @@ function bindEvents() {
   });
   document.querySelectorAll('[data-scroll]').forEach(el => {
     el.addEventListener('click', () => scrollToSection(el.dataset.scroll));
+  });
+  // "Initiatives" in the hero subtitle: go to the votes section (above) and open
+  // its "Gathering signatures" tab — the popular initiatives still in progress.
+  document.querySelectorAll('[data-vote-tab]').forEach(el => {
+    el.addEventListener('click', () => {
+      setTimeout(() => document.querySelector(`#initiatives .filter-btn[data-tab="${el.dataset.voteTab}"]`)?.click(), 80);
+    });
   });
   document.querySelectorAll('[data-home]').forEach(el => {
     el.addEventListener('click', (e) => { e.preventDefault(); navigate(''); });

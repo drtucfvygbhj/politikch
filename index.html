@@ -18,7 +18,7 @@
 
   <!-- Self-hosted fonts — no request to Google, no visitor IP leaves this origin. -->
   <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/styles.css?v=20260922c">
+  <link rel="stylesheet" href="css/styles.css?v=20260922d">
 
 </head>
 <body>
@@ -74,9 +74,23 @@
       <section id="hero">
         <div class="hero-text">
           <h1 class="hero-title" data-i18n="hero.title">Swiss democracy,<br><span>in one place.</span></h1>
+          <!-- Each topic works exactly like its top-bar item (same data-scroll /
+               data-nav handlers). The words around the list are separate strings
+               because their position differs by language (e.g. German wraps the
+               list: "Alles, was Sie über … und mehr wissen müssen"). -->
+          <p class="hero-subtitle">
+            <span data-i18n="hero.sub.before">Everything you need to know about</span>
+            <button type="button" class="hero-link" data-scroll="initiatives" data-i18n="nav.initiatives">Votes</button>,
+            <button type="button" class="hero-link" data-scroll="parties" data-i18n="nav.parties">Parties</button>,
+            <button type="button" class="hero-link" data-scroll="cantons-map" data-i18n="nav.cantons">Cantons</button>,
+            <button type="button" class="hero-link" data-scroll="parliament" data-i18n="nav.parliament">Parliament</button>,
+            <button type="button" class="hero-link" data-scroll="initiatives" data-vote-tab="collecting" data-i18n="hero.sub.initiatives">Initiatives</button>,
+            <button type="button" class="hero-link" data-nav="sessions" data-i18n="nav.sessions">Sessions</button>
+            <span data-i18n="hero.sub.after">and more</span>
+          </p>
         </div>
 
-        <div class="map-container">
+        <div class="map-container" id="cantons-map">
           <svg id="swiss-map" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Map of Swiss cantons"></svg>
         </div>
 
@@ -365,6 +379,6 @@
     </div>
   </footer>
 
-  <script type="module" src="js/app.js?v=20260922c"></script>
+  <script type="module" src="js/app.js?v=20260922d"></script>
 </body>
 </html>
