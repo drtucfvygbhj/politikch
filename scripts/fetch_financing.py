@@ -42,7 +42,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://politikfinanzierung.efk.admin.ch"
 UA = (
     "Politikch-data-fetcher/1.0 "
-    "(non-commercial civic-education site; contact via github.com/politikch)"
+    "(+https://politikch.ch; contact.form@politikch.ch)"
 )
 REQUEST_DELAY_SECONDS = 0.5
 MAX_DONORS_SHOWN = 8

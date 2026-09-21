@@ -24,7 +24,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-UA = "Politikch-map-builder/1.0 (non-commercial civic-education site)"
+UA = "Politikch-map-builder/1.0 (+https://politikch.ch; contact.form@politikch.ch)"
 GEOJSON_URL = ("https://labs.karavia.ch/swiss-boundaries-geojson/geojson/2020/"
                "swissBOUNDARIES3D_1_3_TLM_HOHEITSGEBIET.geojson")
 
