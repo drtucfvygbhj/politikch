@@ -50,8 +50,10 @@ jobs:
           cp index.html 404.html robots.txt .nojekyll _site/
           cp -r css js fonts _site/
           rsync -a --exclude='*.md' --exclude='brochures/' data/ _site/data/
+          # A CNAME file (custom domain) is carried over if the repo has one.
+          [ -f CNAME ] && cp CNAME _site/
           # Guard: only runtime file types may be published.
-          bad=$(find _site -type f ! -name '.nojekyll' \
+          bad=$(find _site -type f ! -name '.nojekyll' ! -name 'CNAME' \
                 ! -regex '.*\.\(html\|css\|js\|json\|woff2\|txt\)$')
           if [ -n "$bad" ]; then
             echo "Non-runtime files in deploy artifact:"; echo "$bad"; exit 1
