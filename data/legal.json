@@ -1,9 +1,7 @@
 {
   "_meta": {
-    "note": "Info & legal pages rendered by renderInfoPage(). Bodies are trusted first-party HTML. Romansh (rm) falls back to German (de). Edit contactEmail once before launch; it replaces every {{contact}} token.",
     "operator": "Politikch — an independent, non-partisan civic project",
     "contactEmail": "contact.form@politikch.ch",
-    "contactRoutesNote": "Per-category recipient addresses for the in-site contact form, keyed by the form's category (origin). All are real Hostpoint aliases delivering to the privacy@politikch.ch inbox, so mail rules can filter on the To: header — which a sender can't defeat by renaming the subject. In Apple Mail add one rule per address (e.g. 'To contains feedback@politikch.ch -> Feedback'). Aliases preserve the original To header. Live aliases: contact.form@, privacy@, legal.notice@, feedback@. Subscription interest is routed to contact.form@ (subscriptions@ was removed); the subject still carries the category as a secondary, human-readable filter.",
     "contactRoutes": {
       "General enquiry": "contact.form@politikch.ch",
       "Privacy / data request": "privacy@politikch.ch",

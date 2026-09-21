@@ -1,9 +1,16 @@
 name: Deploy to GitHub Pages
 
-# Deploys the static site whenever main is updated.
+# Deploys the static site whenever main is updated — including after the
+# weekly data job. That job pushes with the built-in GITHUB_TOKEN, and GitHub
+# never lets such a push start another workflow, so a plain `on: push` never saw
+# the data commits (they only went live on the next human push). workflow_run
+# fires when the data job finishes and deploys the latest main.
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows: ["Fetch live data"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -18,16 +25,18 @@ concurrency:
 
 jobs:
   deploy:
+    # After the data job, deploy only if it succeeded.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
 
       # Rewrite every asset/data cache-busting token (?v=…) to this commit's SHA
       # so each deploy serves fresh CSS/JS/JSON and no client is left on a stale
@@ -48,6 +57,7 @@ jobs:
         run: |
           mkdir _site
           cp index.html 404.html robots.txt .nojekyll _site/
+          mkdir -p _site/.well-known && cp .well-known/security.txt _site/.well-known/
           cp -r css js fonts _site/
           rsync -a --exclude='*.md' --exclude='brochures/' data/ _site/data/
           # A CNAME file (custom domain) is carried over if the repo has one.
@@ -60,11 +70,14 @@ jobs:
           fi
           echo "Publishing $(find _site -type f | wc -l) files"
 
+      # Note: upload-pages-artifact v4+ drops hidden files by default. If
+      # Dependabot proposes v4, set include-hidden-files: true, or .nojekyll and
+      # .well-known/security.txt will silently stop being published.
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

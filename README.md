@@ -100,4 +100,10 @@ Keyboard-navigable throughout (map, seats, spectrum, cards, modal), visible focu
 
 ## Licence
 
-Code is released under the MIT Licence (see `LICENSE`). Content in `data/` consists of official authority texts (not subject to copyright under Art. 5 URG) and original editorial summaries. See `NOTICE.md` for details on sources and attribution.
+The MIT Licence (see `LICENSE`) covers the site's **code** only. It does not relicense the data in `data/`:
+
+- **Third-party datasets** (Swissvotes, BFS, parlament.ch, LINDAS, EFK, swisstopo) remain under their sources' own terms — mostly CC BY 4.0 or opendata.swiss "open use, cite the source" — and must be attributed if reused. See `COMPLIANCE.md`.
+- **Official authority texts** (e.g. the Federal Council's voting explanations) are not subject to copyright (Art. 5 URG).
+- **Original editorial summaries** (party descriptions, positions) are Politikch's own work.
+
+See `NOTICE.md` for details on sources and attribution.

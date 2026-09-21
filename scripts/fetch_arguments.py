@@ -434,6 +434,11 @@ def main(argv):
     cache = {}
     wrote = skipped = 0
     for it in eligible:
+        # Vote ids are built from upstream values and become filenames: allow
+        # only letters, digits and hyphens (e.g. vote-20260927-6880).
+        if not re.fullmatch(r"[A-Za-z0-9-]{1,80}", str(it.get("id", ""))):
+            print(f"  skipping item with unexpected id {it.get('id')!r}", file=sys.stderr)
+            continue
         dest = out_dir / f"{it['id']}.json"
         if dest.exists() and not args.force:
             skipped += 1

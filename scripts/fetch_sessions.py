@@ -315,6 +315,11 @@ def main():
     now = datetime.now(tz=timezone.utc)
     index = []
     for s in sessions:
+        # The id comes from parlament.ch and becomes a filename: accept digits
+        # only, so an unexpected value can never write outside data/sessions/.
+        if not re.fullmatch(r"\d{1,8}", str(s.get("id", ""))):
+            print(f"  skipping session with unexpected id {s.get('id')!r}", file=sys.stderr)
+            continue
         path = SESSIONS_DIR / f"{s['id']}.json"
         end = datetime.fromisoformat(s["end"] + "T00:00:00+00:00") if s.get("end") else now
         recent = (now - end) <= timedelta(days=REFRESH_WINDOW_DAYS)

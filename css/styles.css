@@ -204,17 +204,12 @@ nav.scrolled { height: 60px; box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08); }
   pointer-events: none;
 }
 .hero-text { text-align: center; margin-bottom: 40px; animation: fadeUp 0.9s ease both; }
-/* The site name set like the logo wordmark (same face, weight and tracking),
-   without the flag — large and static. */
-.hero-wordmark {
-  font-family: 'Playfair Display', serif; font-weight: 700;
-  font-size: clamp(56px, 13vw, 132px); line-height: 1;
-  letter-spacing: -0.0167em; color: var(--charcoal); margin: 0 0 18px;
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 78px); font-weight: 700; line-height: 1.05;
+  letter-spacing: -2px; color: var(--charcoal); margin: 0;
 }
-.hero-tagline {
-  font-size: clamp(16px, 2.2vw, 21px); font-weight: 300; line-height: 1.5;
-  color: var(--mid); margin: 0 auto; max-width: 560px;
-}
+.hero-title span { color: var(--red); }
 .hero-scroll-hint {
   position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 8px;
