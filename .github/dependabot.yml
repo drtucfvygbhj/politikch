@@ -1,0 +1,16 @@
+# Keeps the pinned versions current: opens a PR when a pinned GitHub Action
+# (pinned by commit SHA) or a pinned Python package has an update, so pins stay
+# both safe and patched. Review and merge like any other change.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+  - package-ecosystem: pip
+    directory: /scripts
+    schedule:
+      interval: weekly

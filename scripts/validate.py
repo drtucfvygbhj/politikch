@@ -6,6 +6,7 @@ Exits non-zero (and prints what's wrong) if any check fails, so it can
 gate merges in CI.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -151,6 +152,43 @@ def check_i18n(data):
             errors.append(f"i18n.json: '{lang}' key mismatch vs 'en': {sorted(diff)}")
 
 
+# Upstream-derived files: written by the weekly fetch job from third-party
+# sources (VoteInfo, LINDAS, Swissvotes, parlament.ch, EFK, BFS, DeepL) and
+# published without human review. The site escapes this text, but anything that
+# looks like markup or a script URL is a sign an upstream source changed or was
+# tampered with — fail loudly here, before the job commits and deploys it.
+UPSTREAM_FILES = [
+    "initiatives.json", "financing.json", "canton-data.json",
+    "sessions-index.json", "mt.json",
+]
+UPSTREAM_GLOBS = ["sessions/*.json", "overviews/*/*.json"]
+MARKUP = re.compile(r"<\s*[a-zA-Z!/?]|javascript\s*:|\bon[a-z]+\s*=", re.I)
+MAX_TEXT = 20000   # longest legitimate text today is a brochure argument (~4k)
+
+
+def check_upstream_text():
+    files = [DATA / f for f in UPSTREAM_FILES]
+    for g in UPSTREAM_GLOBS:
+        files.extend(sorted(DATA.glob(g)))
+
+    def walk(node, where):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                walk(v, f"{where}.{k}")
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                walk(v, f"{where}[{i}]")
+        elif isinstance(node, str):
+            if MARKUP.search(node):
+                errors.append(f"{where}: looks like markup/script — {node[:80]!r}")
+            elif len(node) > MAX_TEXT:
+                errors.append(f"{where}: unexpectedly long text ({len(node)} chars)")
+
+    for path in files:
+        if path.exists():
+            walk(json.loads(path.read_text(encoding="utf-8")), path.relative_to(DATA).as_posix())
+
+
 def main():
     parties_data = load("parties.json")
     initiatives_data = load("initiatives.json")
@@ -165,6 +203,8 @@ def main():
 
     if (DATA / "sessions-index.json").exists():
         check_sessions(load("sessions-index.json"), parties_data)
+
+    check_upstream_text()
 
     if errors:
         print("Validation FAILED:\n")

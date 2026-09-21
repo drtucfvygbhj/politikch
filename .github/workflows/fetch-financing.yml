@@ -28,8 +28,8 @@ name: Fetch live data
 # job opens/refreshes a GitHub issue as a reminder.
 # Initiatives are fetched first because the financing fetcher matches campaign
 # filings against the decided votes in data/initiatives.json. Committing the
-# regenerated files is what "publishes" them — the existing deploy workflow then
-# picks up that commit like any other push to main. The deployed site stays
+# regenerated files is what "publishes" them — deploy.yml runs when this job
+# completes (workflow_run) and deploys the new commit. The deployed site stays
 # fully static; only this CI job talks to the official servers.
 on:
   schedule:
@@ -44,10 +44,14 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
+      # Don't leave the write token in .git/config: the steps below run
+      # third-party code (PyPI packages, a PDF parser fed from the internet).
+      # Only the commit step gets the token, explicitly.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: '3.12'
 
@@ -92,6 +96,8 @@ jobs:
         run: python3 scripts/validate.py
 
       - name: Commit if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if git diff --quiet -- data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/overviews data/mt.json TRANSLATIONS_TODO.md; then
             echo "No changes to live data files"
@@ -101,7 +107,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/overviews data/mt.json TRANSLATIONS_TODO.md
           git commit -m "Update live data (votes, initiatives, financing, cantons, sessions, vote arguments)"
-          git push
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
 
       # Reminder to translate new titles by hand — opens or refreshes one GitHub
       # issue (uses the built-in GITHUB_TOKEN, no external/AI key). Best-effort.

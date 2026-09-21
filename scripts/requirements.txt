@@ -1,1 +1,4 @@
-openpyxl>=3.1,<4
+# Exact pins: this runs in CI with a repo write token nearby, so no silent
+# upgrades. Bump deliberately (Dependabot opens PRs for these).
+openpyxl==3.1.5
+et-xmlfile==2.0.0

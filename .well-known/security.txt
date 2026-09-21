@@ -1,0 +1,5 @@
+# How to report a security problem with politikch.ch (RFC 9116).
+Contact: mailto:contact.form@politikch.ch
+Expires: 2027-09-21T00:00:00.000Z
+Preferred-Languages: en, de, fr, it
+Canonical: https://politikch.ch/.well-known/security.txt

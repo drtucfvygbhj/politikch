@@ -14,3 +14,14 @@
    POLL_API to its base URL, e.g. 'https://your-worker.example.workers.dev'.
    No trailing slash. */
 export const POLL_API = '';
+
+/* PAID_PRODUCT_LIVE — whether the planned paid analysis product is shown.
+
+   While false, nothing on the site offers or advertises a paid product: the
+   Subscribe page and its footer link are hidden (#/subscribe goes home), and
+   the About and Privacy pages leave out their sections about it. That keeps
+   the site a free information service until the product actually exists —
+   an offer of a paid service brings the Impressum duty (UWG Art. 3(1)(s):
+   operator's real name and postal address) and needs its own privacy terms.
+   Flip to true only when the product launches and those are in place. */
+export const PAID_PRODUCT_LIVE = false;
