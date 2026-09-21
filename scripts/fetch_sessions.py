@@ -67,7 +67,7 @@ SESSIONS_DIR = DATA / "sessions"
 BASE = "https://ws.parlament.ch/odata.svc"
 UA = (
     "Politikch-data-fetcher/1.0 "
-    "(non-commercial civic-education site; contact via github.com/politikch)"
+    "(+https://politikch.ch; contact.form@politikch.ch)"
 )
 
 # How many of the most recent already-started sessions to include (≈ 5 years).

@@ -37,7 +37,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 UA = (
     "Politikch-data-fetcher/1.0 "
-    "(non-commercial civic-education site; contact via github.com/politikch)"
+    "(+https://politikch.ch; contact.form@politikch.ch)"
 )
 
 # BFS National Council 2023 results, party-level, all geographic levels

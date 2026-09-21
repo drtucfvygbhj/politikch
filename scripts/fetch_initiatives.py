@@ -51,7 +51,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 UA = (
     "Politikch-data-fetcher/1.0 "
-    "(non-commercial civic-education site; contact via github.com/politikch)"
+    "(+https://politikch.ch; contact.form@politikch.ch)"
 )
 
 CKAN_PACKAGE = (

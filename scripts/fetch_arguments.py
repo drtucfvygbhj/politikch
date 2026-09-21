@@ -55,8 +55,12 @@ import urllib.request
 from datetime import date, datetime
 from pathlib import Path
 
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-      "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36")
+# Identify honestly (site + contact), like the other fetchers. Swissvotes serves
+# this User-Agent normally (checked 2026-09-21: dataset CSV and brochure PDFs).
+UA = (
+    "Politikch-data-fetcher/1.0 "
+    "(+https://politikch.ch; contact.form@politikch.ch)"
+)
 
 # swissvotes.ch robots.txt requests "Crawl-delay: 10" — honour it (seconds
 # between successive requests). Override with POLITIKCH_CRAWL_DELAY (e.g. 0 for

@@ -18,7 +18,7 @@
    obvious: official results use solid bars, community polls use striped bars
    and carry an "unofficial poll" label. */
 
-import { POLL_API } from './config.js?v=20260921f';
+import { POLL_API } from './config.js?v=20260922b';
 
 let t = (k) => k;
 let esc = (s) => String(s);
