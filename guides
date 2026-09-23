@@ -1,0 +1,4 @@
+To take the site off, on github.com in the politikch repo:
+Add file → Create new file, name it exactly MAINTENANCE_MODE, type anything in the body (the reason and date are useful), then Commit changes.
+
+To bring it back: open that file → Delete file → Commit changes.
