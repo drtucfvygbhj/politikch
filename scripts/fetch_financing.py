@@ -45,7 +45,9 @@ UA = (
     "(+https://politikch.ch; contact.form@politikch.ch)"
 )
 REQUEST_DELAY_SECONDS = 0.5
-MAX_DONORS_SHOWN = 8
+# Every disclosed large donor is kept: the site groups all but the largest into
+# "Other donors" when drawing, and the per-party "Large donors" total and the
+# donor pages need the complete list to be correct.
 
 # Stable actor IDs on the EFK register, matched by hand to this site's party
 # keys (matched via the actors' registered names in the party_financings tree).
@@ -140,7 +142,7 @@ def parse_donors_sheet(wb, natural_sheet, legal_sheet):
                 "date": date.date().isoformat() if hasattr(date, "date") else None,
             })
     donors.sort(key=lambda d: d["amount"], reverse=True)
-    return donors[:MAX_DONORS_SHOWN]
+    return donors
 
 
 def parse_party_donors(campaign_id, form_id):
@@ -329,7 +331,6 @@ def fetch_initiatives():
 
         for side in sides.values():
             side["largeDonors"].sort(key=lambda d: d["amount"], reverse=True)
-            side["largeDonors"] = side["largeDonors"][:MAX_DONORS_SHOWN]
 
         # Skip ballots where no committee has filed anything on either side —
         # showing "CHF 0 / 0 actors" would read as "no money spent" when it
