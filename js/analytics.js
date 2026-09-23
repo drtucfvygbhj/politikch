@@ -26,6 +26,13 @@ function optedOut() {
     const flag = landing.get('analytics');
     if (flag === 'off') localStorage.setItem(OFF_KEY, '1');
     if (flag === 'on') localStorage.removeItem(OFF_KEY);
+    // Drop the parameter from the address once applied, so a copied/shared
+    // link doesn't silently opt out whoever opens it (as app.js does for ?lang=).
+    if (flag !== null) {
+      const url = new URL(location.href);
+      url.searchParams.delete('analytics');
+      history.replaceState(history.state, '', url.pathname + url.search + url.hash);
+    }
     return localStorage.getItem(OFF_KEY) === '1';
   } catch (e) { return false; }
 }
