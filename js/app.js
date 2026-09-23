@@ -1,8 +1,8 @@
-import { MAP_PATHS } from './map-data.js?v=20260923b';
-import { configureShare, wireShares, mountShare } from './share.js?v=20260923b';
-import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260923b';
-import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260923b';
-import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260923b';
+import { MAP_PATHS } from './map-data.js?v=20260924b';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260924b';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260924b';
+import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260924b';
+import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260924b';
 
 /* ============================================================
    State
@@ -64,11 +64,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json?v=20260923b').then(r => r.json()),
-    fetch('data/cantons.json?v=20260923b').then(r => r.json()),
-    fetch('data/initiatives.json?v=20260923b').then(r => r.json()),
-    fetch('data/council.json?v=20260923b').then(r => r.json()),
-    fetch('data/i18n.json?v=20260923b').then(r => r.json())
+    fetch('data/parties.json?v=20260924b').then(r => r.json()),
+    fetch('data/cantons.json?v=20260924b').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260924b').then(r => r.json()),
+    fetch('data/council.json?v=20260924b').then(r => r.json()),
+    fetch('data/i18n.json?v=20260924b').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -80,7 +80,7 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json?v=20260923b').then(r => r.ok ? r.json() : null);
+    const financing = await fetch('data/financing.json?v=20260924b').then(r => r.ok ? r.json() : null);
     if (financing) state.data.financing = financing;
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
@@ -88,14 +88,14 @@ async function loadData() {
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json?v=20260923b').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260924b').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json?v=20260923b').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260924b').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -103,7 +103,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json?v=20260923b').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260924b').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 
@@ -113,7 +113,7 @@ async function loadData() {
   // until scripts/translate.py runs with a DEEPL_API_KEY; then EN stops falling
   // back to the official language. RM has no machine translation (DeepL lacks it).
   try {
-    const mt = await fetch('data/mt.json?v=20260923b').then(r => r.ok ? r.json() : null);
+    const mt = await fetch('data/mt.json?v=20260924b').then(r => r.ok ? r.json() : null);
     state.data.mt = mt || {};
   } catch (e) { state.data.mt = {}; }
 }
@@ -284,8 +284,14 @@ const FIN_PALETTE = ['#3b6fb0', '#e07a3f', '#4c9a6b', '#c94f6d', '#8e6bbf', '#d4
 const FIN_OTHER_COLOR = '#c2bcae';
 function finColor(i) { return FIN_PALETTE[i % FIN_PALETTE.length]; }
 
-// slices: [{key,label,value,color}] with value>0. Returns a pie SVG; each slice
-// carries data-donor=key so it cross-highlights with the matching list row.
+// slices: [{key,label,value,color,href?}] with value>0. Returns a pie SVG; each
+// slice carries data-donor=key so it cross-highlights with the matching list
+// row, and a slice with an href opens that page on click / Enter (see wireHrefNav).
+function sliceLinkAttrs(s) {
+  return s.href
+    ? ` data-href="${escapeAttr(s.href)}" tabindex="0" role="link" aria-label="${escapeAttr(s.label)} · ${formatCHF(s.value)}"`
+    : '';
+}
 function renderPie(slices) {
   const total = slices.reduce((s, x) => s + x.value, 0);
   if (!(total > 0)) return '';
@@ -294,7 +300,7 @@ function renderPie(slices) {
   if (slices.length === 1) {
     const s = slices[0];
     return `<svg class="fin-pie" viewBox="0 0 120 120" role="img" aria-label="${aria}">`
-      + `<circle class="fin-slice" data-donor="${escapeAttr(s.key)}" cx="${cx}" cy="${cy}" r="${r}" fill="${s.color}">`
+      + `<circle class="fin-slice${s.href ? ' is-clickable' : ''}" data-donor="${escapeAttr(s.key)}"${sliceLinkAttrs(s)} cx="${cx}" cy="${cy}" r="${r}" fill="${s.color}">`
       + `<title>${escapeAttr(s.label)} · ${formatCHF(s.value)}</title></circle></svg>`;
   }
   let a0 = -Math.PI / 2;
@@ -304,7 +310,7 @@ function renderPie(slices) {
     const large = (a1 - a0) > Math.PI ? 1 : 0;
     const [x0, y0] = pt(a0), [x1, y1] = pt(a1);
     a0 = a1;
-    return `<path class="fin-slice" data-donor="${escapeAttr(s.key)}" d="M${cx} ${cy} L${x0} ${y0} A${r} ${r} 0 ${large} 1 ${x1} ${y1} Z" fill="${s.color}">`
+    return `<path class="fin-slice${s.href ? ' is-clickable' : ''}" data-donor="${escapeAttr(s.key)}"${sliceLinkAttrs(s)} d="M${cx} ${cy} L${x0} ${y0} A${r} ${r} 0 ${large} 1 ${x1} ${y1} Z" fill="${s.color}">`
       + `<title>${escapeAttr(s.label)} · ${formatCHF(s.value)}</title></path>`;
   }).join('');
   return `<svg class="fin-pie" viewBox="0 0 120 120" role="img" aria-label="${aria}">${paths}</svg>`;
@@ -323,8 +329,14 @@ function aggregateDonors(donors) {
   return [...map.values()].sort((a, b) => b.amount - a.amount);
 }
 
-// A pie + a highlight-linked donor list. opts: {heading, total, actors}.
+// A pie + a highlight-linked donor list. opts: {heading, total, actors,
+// shareTitle, shareRoute, compact, moreHref}. Organisations link to their donor
+// page from both the slice and the row; private individuals have no page.
 const FIN_MAX_SLICES = 8;
+const FIN_COMPACT_ROWS = 4;
+const FIN_VISIBLE_ROWS = 10;   // longer lists fold the rest behind "Show all"
+
+const donorHref = (d) => d.type === 'organization' ? `donor/${encodeURIComponent(d.slug)}` : null;
 function financingBlockHTML(donors, opts) {
   opts = opts || {};
   const head = opts.heading
@@ -338,20 +350,32 @@ function financingBlockHTML(donors, opts) {
     return `<div class="fin-block">${head}<p class="fin-none">${t('financing.noDonors')}</p></div>`;
   }
   const OTHERS = '__others__';
-  const slices = agg.slice(0, FIN_MAX_SLICES).map((d, i) => ({ key: d.slug, label: d.name, value: d.amount, color: finColor(i) }));
+  const slices = agg.slice(0, FIN_MAX_SLICES).map((d, i) => ({ key: d.slug, label: d.name, value: d.amount, color: finColor(i), href: donorHref(d) }));
   const tailSum = agg.slice(FIN_MAX_SLICES).reduce((s, d) => s + d.amount, 0);
   if (tailSum > 0) slices.push({ key: OTHERS, label: t('financing.moreDonors'), value: tailSum, color: FIN_OTHER_COLOR });
-  const rows = agg.map((d, i) => {
+  const shown = opts.compact ? agg.slice(0, FIN_COMPACT_ROWS) : agg;
+  const rowHTML = shown.map((d, i) => {
     const inPie = i < FIN_MAX_SLICES;
     const key = inPie ? d.slug : OTHERS;
     const color = inPie ? finColor(i) : FIN_OTHER_COLOR;
     const name = d.type === 'organization'
       ? `<a href="#/donor/${encodeURIComponent(d.slug)}" class="fin-name">${escapeAttr(d.name)}</a>`
       : `<span class="fin-name">${escapeAttr(d.name)}</span>`;
-    return `<div class="fin-row" data-donor="${escapeAttr(key)}" tabindex="0">`
+    const href = donorHref(d);
+    return `<div class="fin-row${href ? ' is-clickable' : ''}" data-donor="${escapeAttr(key)}"${href ? ` data-href="${escapeAttr(href)}"` : ''} tabindex="0">`
       + `<span class="fin-dot" style="background:${color}"></span>${name}`
       + `<span class="fin-amt">${formatCHF(d.amount)}</span></div>`;
-  }).join('');
+  });
+  const rows = (rowHTML.length > FIN_VISIBLE_ROWS
+    ? rowHTML.slice(0, FIN_VISIBLE_ROWS).join('')
+      + `<details class="fin-more-rows"><summary class="fin-more-summary">`
+      + `<span class="fin-more-show">${t('fin.rows.showAll').replace('{n}', rowHTML.length)}</span>`
+      + `<span class="fin-more-hide">${t('fin.rows.showFewer')}</span></summary>`
+      + rowHTML.slice(FIN_VISIBLE_ROWS).join('') + `</details>`
+    : rowHTML.join(''))
+    + (shown.length < agg.length && opts.moreHref
+      ? `<a class="fin-more" href="#/${opts.moreHref}">${t('fin.votes.moreDonors').replace('{n}', agg.length - shown.length)}</a>`
+      : '');
   const shareAttr = opts.shareTitle
     ? ` data-share="${escapeAttr(JSON.stringify(pieSpecFromDonors(agg, opts.shareTitle, opts.shareRoute)))}"`
     : '';
@@ -360,10 +384,28 @@ function financingBlockHTML(donors, opts) {
     + `<div class="fin-rows">${rows}</div></div>`;
 }
 
-// Attach cross-highlighting (slice <-> row) to every financing block in a container.
+// Attach cross-highlighting (slice <-> row) and click-through to every
+// financing block in a container.
 function wireFinancingHighlights(container) {
   if (!container) return;
-  container.querySelectorAll('.fin-block').forEach(b => wireCrossHighlight(b, 'data-donor'));
+  container.querySelectorAll('.fin-block').forEach(b => { wireCrossHighlight(b, 'data-donor'); wireHrefNav(b); });
+}
+
+// Make every [data-href] inside `root` open that route on click or Enter/Space
+// (real links inside keep their own behaviour).
+function wireHrefNav(root) {
+  if (!root || root.dataset.hrefWired) return;
+  root.dataset.hrefWired = '1';
+  const target = (e) => {
+    if (e.target.closest && e.target.closest('a[href]')) return null;
+    const el = e.target.closest && e.target.closest('[data-href]');
+    return el && root.contains(el) ? el.getAttribute('data-href') : null;
+  };
+  root.addEventListener('click', (e) => { const h = target(e); if (h) navigate(h); });
+  root.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const h = target(e); if (h) { e.preventDefault(); navigate(h); }
+  });
 }
 
 /* ---- Donor index + donor pages ------------------------------------------
@@ -424,14 +466,14 @@ function renderDonorPage(slug) {
   });
   const recips = [...byRecip.values()].sort((a, b) => b.amount - a.amount);
   const OTHERS = '__others__';
-  const slices = recips.slice(0, FIN_MAX_SLICES).map((r, i) => ({ key: r.key, label: recipientName(r.kind, r.id), value: r.amount, color: finColor(i) }));
+  const slices = recips.slice(0, FIN_MAX_SLICES).map((r, i) => ({ key: r.key, label: recipientName(r.kind, r.id), value: r.amount, color: finColor(i), href: recipientRoute(r.kind, r.id) }));
   const tail = recips.slice(FIN_MAX_SLICES).reduce((s, r) => s + r.amount, 0);
   if (tail > 0) slices.push({ key: OTHERS, label: t('financing.moreDonors'), value: tail, color: FIN_OTHER_COLOR });
   const rows = recips.map((r, i) => {
     const inPie = i < FIN_MAX_SLICES;
     const key = inPie ? r.key : OTHERS;
     const color = inPie ? finColor(i) : FIN_OTHER_COLOR;
-    return `<div class="fin-row" data-donor="${escapeAttr(key)}" tabindex="0">`
+    return `<div class="fin-row is-clickable" data-donor="${escapeAttr(key)}" data-href="${escapeAttr(recipientRoute(r.kind, r.id))}" tabindex="0">`
       + `<span class="fin-dot" style="background:${color}"></span>`
       + `<a class="fin-name" href="#/${recipientRoute(r.kind, r.id)}">${escapeAttr(recipientName(r.kind, r.id))}</a>`
       + `<span class="fin-side fin-side-${r.side}">${sideLabel(r.side)}</span>`
@@ -458,6 +500,292 @@ function renderDonorPage(slug) {
     + (meta && meta.url ? `<a class="resource-link" href="${escapeAttr(meta.url)}" target="_blank" rel="noopener noreferrer">${t('donor.website')} <span class="arrow">↗</span></a>` : '')
     + `<a class="resource-link" href="https://politikfinanzierung.efk.admin.ch" target="_blank" rel="noopener noreferrer">${t('donor.register')} <span class="arrow">↗</span></a>`
     + `</div>`;
+  wireFinancingHighlights(bodyEl);
+  wireShares(bodyEl, SHARE_CTX());
+}
+
+/* ---- Financing page (#/financing, #/financing/votes) --------------------
+   Left: what each party received, and the largest donors to parties (each
+   donor's bar split by receiving party). Right: campaign funding for the
+   current votes; #/financing/votes lists every vote with disclosed funding,
+   most recent first. Every party and organisation in a chart is hoverable
+   (cross-highlight) and clickable (its page), like the site's other graphs. */
+function financingYear(fin) {
+  const years = Object.values(fin.parties || {}).map(f => f.year).filter(Boolean);
+  return years.length ? Math.max(...years) : '';
+}
+function partyLabel(key) {
+  const p = state.data.parties[key];
+  return p ? (p.abbr || localized(p.name)) : key;
+}
+
+// Revenue sources, in tab order (Large donors first = the default). `get`
+// reads a party's figure for that source from data/financing.json.
+const PARTY_METRICS = [
+  { key: 'large', get: f => (f.largeDonors || []).reduce((n, d) => n + (d.amount || 0), 0) },
+  { key: 'mandate', get: f => f.mandateFees || 0 },
+  { key: 'monetary', get: f => f.monetaryDonations || 0 },
+  { key: 'membership', get: f => f.membershipFees || 0 },
+  { key: 'sales', get: f => f.sales || 0 },
+  { key: 'events', get: f => f.events || 0 },
+  { key: 'nonMonetary', get: f => f.nonMonetaryDonations || 0 },
+  { key: 'total', get: f => f.totalRevenue || 0 },
+];
+
+function partyRevenueTabsHTML(active) {
+  return `<div class="fin-tabs" role="tablist" aria-label="${escapeAttr(t('fin.tabs.aria'))}">`
+    + PARTY_METRICS.map(m => `<button type="button" role="tab" class="fin-tab tip-target" data-metric="${m.key}"`
+      + ` aria-selected="${m.key === active}" aria-controls="finbars-wrap" aria-describedby="fin-tip-${m.key}"`
+      + ` data-tip="${escapeAttr(t('fin.tip.' + m.key))}">${t('fin.metric.' + m.key)}</button>`).join('')
+    + `</div><div hidden>${PARTY_METRICS.map(m => `<span id="fin-tip-${m.key}">${t('fin.tip.' + m.key)}</span>`).join('')}</div>`;
+}
+
+function partyRevenueChartHTML(fin, metricKey) {
+  const metric = PARTY_METRICS.find(m => m.key === metricKey) || PARTY_METRICS[0];
+  const rows = Object.entries(fin.parties || {})
+    .filter(([k, f]) => state.data.parties[k] && f.totalRevenue > 0)
+    .map(([k, f]) => [k, f, metric.get(f)])
+    .sort((a, b) => b[2] - a[2] || b[1].totalRevenue - a[1].totalRevenue);
+  if (!rows.length) return `<p class="fin-none">${t('fin.votes.none')}</p>`;
+  const max = Math.max(rows[0][2], 1);
+  const label = t('fin.metric.' + metric.key);
+  const spec = {
+    kind: 'bars', title: `${t('fin.parties.title').replace('{year}', financingYear(fin))} — ${label}`, route: 'financing',
+    rows: rows.map(([k, , v]) => ({ label: partyLabel(k), value: v, valueText: formatCHF(v), color: state.data.parties[k].color })),
+    source: t('share.src.financing'),
+  };
+  return `<div class="finbars" data-share="${escapeAttr(JSON.stringify(spec))}" role="list" aria-label="${escapeAttr(t('fin.bars.aria') + ' — ' + label)}">`
+    + rows.map(([k, , v]) => {
+      const p = state.data.parties[k];
+      return `<div class="finbar-row is-clickable" role="link" tabindex="0" data-party="${escapeAttr(k)}" aria-label="${escapeAttr(partyLabel(k))} · ${formatCHF(v)}">`
+        + `<span class="finbar-name"><span class="fin-dot" style="background:${p.color}"></span>${escapeAttr(partyLabel(k))}</span>`
+        + `<span class="finbar-track"><span class="finbar-fill" style="width:${(v / max * 100).toFixed(1)}%;background:${p.color}"></span></span>`
+        + `<span class="finbar-amt">${formatCHF(v)}</span></div>`;
+    }).join('')
+    + `</div><div class="finbars-detail" aria-live="polite"><p class="mine-note">${t('fin.parties.hint')}</p></div>`;
+}
+
+// (Re)draw the party bars for one source and wire hover / click / share.
+function renderPartyRevenue(wrap, fin, metricKey) {
+  wrap.innerHTML = partyRevenueChartHTML(fin, metricKey);
+  const bars = wrap.querySelector('.finbars');
+  const detail = wrap.querySelector('.finbars-detail');
+  if (!bars) return;
+  wireCrossHighlight(bars);
+  wirePartyNav(bars);
+  const show = (e) => {
+    const row = e.target.closest && e.target.closest('[data-party]');
+    if (row && detail) detail.innerHTML = partyBreakdownHTML(row.getAttribute('data-party'));
+  };
+  bars.addEventListener('mouseover', show);
+  bars.addEventListener('focusin', show);
+  wireShares(wrap, SHARE_CTX());
+}
+
+// A party's revenue by source as horizontal bars in the party's colour, largest
+// first; each source carries its explanation as a tooltip (like the tabs).
+const PARTY_SOURCES = [
+  ['monetary', 'financing.monetary', f => f.monetaryDonations],
+  ['nonMonetary', 'financing.nonMonetary', f => f.nonMonetaryDonations],
+  ['events', 'financing.events', f => f.events],
+  ['sales', 'financing.sales', f => f.sales],
+  ['membership', 'financing.membershipFees', f => f.membershipFees],
+  ['mandate', 'financing.mandateFees', f => f.mandateFees],
+];
+function partySourceBarsHTML(key, f, opts) {
+  opts = opts || {};
+  const color = (state.data.parties[key] || {}).color || '#888';
+  const rows = PARTY_SOURCES.map(([m, label, get]) => ({ m, label: t(label), v: get(f) || 0 }))
+    .sort((a, b) => b.v - a.v);
+  const max = Math.max(...rows.map(r => r.v), 1);
+  const spec = opts.shareTitle ? {
+    kind: 'bars', title: opts.shareTitle, route: opts.shareRoute,
+    subtitle: `${t('financing.total')} · ${formatCHF(f.totalRevenue)} (${f.year})`,
+    rows: rows.map(r => ({ label: r.label, value: r.v, valueText: formatCHF(r.v), color })),
+    source: t('share.src.financing'),
+  } : null;
+  return `<div class="srcbars"${spec ? ` data-share="${escapeAttr(JSON.stringify(spec))}"` : ''} role="list" aria-label="${escapeAttr(t('fin.tabs.aria'))}">`
+    + rows.map(r => `<div class="srcbar-row" role="listitem">`
+      + `<span class="srcbar-name tip-target" tabindex="0" data-tip="${escapeAttr(t('fin.tip.' + r.m))}">${r.label}</span>`
+      + `<span class="srcbar-track"><span class="srcbar-fill" style="width:${r.v ? Math.max(0.6, r.v / max * 100).toFixed(1) : 0}%;background:${color}"></span></span>`
+      + `<span class="srcbar-amt">${formatCHF(r.v)}</span></div>`).join('')
+    + `</div>`;
+}
+
+// The breakdown shown under the party bars for the hovered / focused party.
+function partyBreakdownHTML(key) {
+  const f = state.data.financing.parties[key];
+  if (!f) return '';
+  return `<p class="finbars-detail-head"><span class="fin-dot" style="background:${state.data.parties[key].color}"></span>`
+    + `<strong>${escapeAttr(partyLabel(key))}</strong> · ${t('financing.total')} ${formatCHF(f.totalRevenue)} (${f.year})</p>`
+    + partySourceBarsHTML(key, f)
+    + (f.monetaryDonations > 0
+      ? `<p class="finbars-named">${t('fin.named')
+        .replace('{named}', formatCHF(PARTY_METRICS[0].get(f)))
+        .replace('{monetary}', formatCHF(f.monetaryDonations))}</p>`
+      : '');
+}
+
+function partyDonorsChartHTML(fin) {
+  const map = new Map();
+  Object.entries(fin.parties || {}).forEach(([pk, f]) => {
+    if (!state.data.parties[pk]) return;
+    (f.largeDonors || []).forEach(d => {
+      if (!d.amount) return;
+      const slug = donorSlug(d.name);
+      const e = map.get(slug) || { slug, name: donorDisplayName(d.name), type: d.type, total: 0, by: {} };
+      if (d.type === 'organization') e.type = 'organization';
+      e.total += d.amount;
+      e.by[pk] = (e.by[pk] || 0) + d.amount;
+      map.set(slug, e);
+    });
+  });
+  const list = [...map.values()].sort((a, b) => b.total - a.total).slice(0, 12);
+  if (!list.length) return `<p class="fin-none">${t('financing.noDonors')}</p>`;
+  const max = list[0].total;
+  const used = new Set();
+  const rows = list.map(e => {
+    const segs = Object.entries(e.by).sort((a, b) => b[1] - a[1]);
+    segs.forEach(([pk]) => used.add(pk));
+    const name = e.type === 'organization'
+      ? `<a class="fin-name" href="#/donor/${encodeURIComponent(e.slug)}">${escapeAttr(e.name)}</a>`
+      : `<span class="fin-name" title="${escapeAttr(t('fin.individual'))}">${escapeAttr(e.name)}</span>`;
+    return `<div class="findon-row">`
+      + `<span class="findon-name">${name}</span>`
+      + `<span class="findon-track">${segs.map(([pk, v]) => {
+        const lbl = `${partyLabel(pk)} · ${formatCHF(v)}`;
+        return `<span class="findon-seg is-clickable" data-party="${escapeAttr(pk)}" role="link" tabindex="0" title="${escapeAttr(lbl)}" aria-label="${escapeAttr(e.name + ' → ' + lbl)}" style="width:${(v / max * 100).toFixed(2)}%;background:${state.data.parties[pk].color}"></span>`;
+      }).join('')}</span>`
+      + `<span class="findon-amt">${formatCHF(e.total)}</span></div>`;
+  }).join('');
+  const legend = [...used].map(pk => `<span class="findon-leg is-clickable" data-party="${escapeAttr(pk)}" role="link" tabindex="0">`
+    + `<span class="fin-dot" style="background:${state.data.parties[pk].color}"></span>${escapeAttr(partyLabel(pk))}</span>`).join('');
+  const spec = {
+    kind: 'bars', title: t('fin.donors.title').replace('{year}', financingYear(fin)), route: 'financing',
+    rows: list.map(e => ({
+      label: e.name, value: e.total, valueText: formatCHF(e.total),
+      segments: Object.entries(e.by).sort((a, b) => b[1] - a[1]).map(([pk, v]) => ({ value: v, color: state.data.parties[pk].color })),
+    })),
+    legend: [...used].map(pk => ({ label: partyLabel(pk), color: state.data.parties[pk].color })),
+    source: t('share.src.financing'),
+  };
+  return `<div class="findon" data-share="${escapeAttr(JSON.stringify(spec))}" role="group" aria-label="${escapeAttr(t('fin.donors.aria'))}">`
+    + `<div class="findon-legend">${legend}</div>${rows}</div>`;
+}
+
+// ISO date of a vote: its voteDate, else the date in its id (vote-YYYYMMDD-…).
+function voteDayOf(id) {
+  const init = (state.data.initiatives || []).find(i => i.id === id);
+  if (init && init.voteDate) return init.voteDate;
+  const m = /vote-(\d{4})(\d{2})(\d{2})/.exec(id);
+  return m ? `${m[1]}-${m[2]}-${m[3]}` : '';
+}
+function voteDateLabel(id) {
+  const init = (state.data.initiatives || []).find(i => i.id === id);
+  if (init && init.date) return localized(init.date);
+  const day = voteDayOf(id);
+  return day ? new Date(day + 'T12:00:00Z').toLocaleDateString(CHF_LOCALES[state.lang] || 'en-CH', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
+}
+
+// One vote's campaign funding: name, type, status, date, total, the for/against
+// split, and a donor pie per side.
+function voteFinanceCardHTML(id, sides) {
+  const init = (state.data.initiatives || []).find(i => i.id === id);
+  const pro = (sides.pro && sides.pro.totalRevenue) || 0;
+  const con = (sides.contra && sides.contra.totalRevenue) || 0;
+  const total = pro + con;
+  const title = init ? initTitleHTML(init, false) : escapeAttr(id);
+  const plain = init ? initTitlePlain(init) : id;
+  const side = (key, label, amount) => financingBlockHTML((sides[key] || {}).largeDonors, {
+    heading: t(label), total: amount, compact: true, moreHref: `initiative/${id}`,
+    shareTitle: `${t(label)} — ${plain}`, shareRoute: `initiative/${id}`,
+  });
+  const pct = (v) => total ? (v / total * 100).toFixed(1) : 0;
+  return `<article class="finvote">
+      <div class="finvote-badges">
+        ${init ? `<span class="initiative-type type-${init.type}">${t('type.' + init.type)}</span>` : ''}
+        ${init ? `<span class="initiative-status status-${init.status}">${t('status.' + init.status)}</span>` : ''}
+      </div>
+      <h4 class="finvote-title"><a href="#/initiative/${escapeAttr(id)}">${title}</a></h4>
+      <p class="finvote-date">${escapeAttr(voteDateLabel(id))}</p>
+      <div class="finvote-total"><span>${t('fin.votes.total')}</span><strong>${formatCHF(total)}</strong></div>
+      <div class="finvote-split" role="img" aria-label="${escapeAttr(`${t('fin.split.aria')}: ${t('financing.pro')} ${formatCHF(pro)}, ${t('financing.contra')} ${formatCHF(con)}`)}">
+        <span class="finvote-split-pro" style="width:${pct(pro)}%"></span><span class="finvote-split-con" style="width:${pct(con)}%"></span>
+      </div>
+      <div class="finvote-splitlbl"><span>${t('financing.pro')} · ${formatCHF(pro)}</span><span>${t('financing.contra')} · ${formatCHF(con)}</span></div>
+      <div class="finvote-pies">${side('pro', 'financing.pro', pro)}${side('contra', 'financing.contra', con)}</div>
+    </article>`;
+}
+
+function renderFinancingPage(sub) {
+  const titleEl = document.getElementById('financing-title');
+  const subEl = document.getElementById('financing-sub');
+  const bodyEl = document.getElementById('financing-content');
+  if (!titleEl || !bodyEl) return;
+  const fin = state.data.financing || {};
+  const back = document.querySelector('#financing-page [data-back]');
+  if (back) back.dataset.back = sub === 'votes' ? 'financing' : '';
+  // Votes with disclosed funding, most recent first.
+  const votes = Object.entries(fin.initiatives || {})
+    .map(([id, sides]) => ({ id, sides, day: voteDayOf(id) }))
+    .sort((a, b) => b.day.localeCompare(a.day) || a.id.localeCompare(b.id));
+
+  if (sub === 'votes') {
+    titleEl.textContent = t('fin.votes.allTitle');
+    if (subEl) subEl.textContent = t('fin.sub');
+    const groups = [];
+    votes.forEach(v => {
+      const g = groups[groups.length - 1];
+      if (g && g.day === v.day) g.items.push(v); else groups.push({ day: v.day, items: [v] });
+    });
+    bodyEl.innerHTML = `<p class="info-lead">${t('fin.votes.allDesc')}</p>`
+      + (groups.length ? groups.map(g => `<section class="vote-date-group finvote-group">
+          <h3 class="vote-date-heading">${escapeAttr(voteDateLabel(g.items[0].id))}</h3>
+          <div class="finvote-grid">${g.items.map(v => voteFinanceCardHTML(v.id, v.sides)).join('')}</div>
+        </section>`).join('') : `<p class="fin-none">${t('fin.votes.none')}</p>`)
+      + renderFinancingSource();
+  } else {
+    titleEl.textContent = t('fin.title');
+    if (subEl) subEl.textContent = t('fin.sub');
+    const today = new Date().toISOString().slice(0, 10);
+    let current = votes.filter(v => v.day >= today);
+    const isCurrent = current.length > 0;
+    if (!isCurrent && votes.length) current = votes.filter(v => v.day === votes[0].day);
+    const year = financingYear(fin);
+    bodyEl.innerHTML = `<p class="info-lead">${t('fin.lead')}</p>
+      <div class="finpage-grid">
+        <div class="finpage-col">
+          <h3 class="canton-section-title">${t('fin.parties.title').replace('{year}', year)}</h3>
+          <p class="mine-note">${t('fin.parties.desc')}</p>
+          ${partyRevenueTabsHTML(state.finMetric || 'large')}
+          <div id="finbars-wrap" role="tabpanel"></div>
+          <h3 class="canton-section-title" style="margin-top:36px">${t('fin.donors.title').replace('{year}', year)}</h3>
+          <p class="mine-note">${t('fin.donors.desc')}</p>
+          ${partyDonorsChartHTML(fin)}
+        </div>
+        <div class="finpage-col">
+          <h3 class="canton-section-title">${t(isCurrent ? 'fin.votes.title' : 'fin.votes.recentTitle')}</h3>
+          <p class="mine-note">${t('fin.votes.desc')}</p>
+          ${current.length ? current.map(v => voteFinanceCardHTML(v.id, v.sides)).join('') : `<p class="fin-none">${t('fin.votes.none')}</p>`}
+          ${votes.length ? `<a class="resource-link finvote-all" href="#/financing/votes">${t('fin.votes.all')} (${votes.length}) <span class="arrow">→</span></a>` : ''}
+        </div>
+      </div>
+      ${renderFinancingSource()}
+      <div style="margin-top:16px">
+        <a class="resource-link" href="https://politikfinanzierung.efk.admin.ch" target="_blank" rel="noopener noreferrer">${t('donor.register')} <span class="arrow">↗</span></a>
+      </div>`;
+    // Party bars: one source at a time (tabs; the choice is kept while the
+    // visitor stays on the site). Hover shows the breakdown; click opens the party.
+    const wrap = bodyEl.querySelector('#finbars-wrap');
+    renderPartyRevenue(wrap, fin, state.finMetric || 'large');
+    bodyEl.querySelectorAll('.fin-tab').forEach(tab => tab.addEventListener('click', () => {
+      state.finMetric = tab.dataset.metric;
+      bodyEl.querySelectorAll('.fin-tab').forEach(b => b.setAttribute('aria-selected', String(b === tab)));
+      renderPartyRevenue(wrap, fin, state.finMetric);
+    }));
+    const donors = bodyEl.querySelector('.findon');
+    if (donors) { wireCrossHighlight(donors); wirePartyNav(donors); }
+  }
   wireFinancingHighlights(bodyEl);
   wireShares(bodyEl, SHARE_CTX());
 }
@@ -496,6 +824,7 @@ function setLang(lang) {
   if (route.view === 'votes') renderVotesPage();
   if (route.view === 'page') renderInfoPage(route.id);
   if (route.view === 'donor') renderDonorPage(decodeURIComponent(route.id));
+  if (route.view === 'financing') renderFinancingPage(route.id);
   if (route.view === 'privacy') renderPrivacyPage();
   if (route.view === 'about') renderAboutPage();
   if (route.view === 'subscribe') renderSubscribePage();
@@ -1105,19 +1434,19 @@ function refreshGlossaryLabels() {
 function initGlossary() {
   // Delegated so it also covers markers added by later renders.
   document.addEventListener('mouseover', (e) => {
-    const m = e.target.closest && e.target.closest('.term-help, .unofficial-badge');
+    const m = e.target.closest && e.target.closest('.term-help, .unofficial-badge, .tip-target');
     if (m) showGlossTip(m);
   });
   document.addEventListener('mouseout', (e) => {
-    const m = e.target.closest && e.target.closest('.term-help, .unofficial-badge');
+    const m = e.target.closest && e.target.closest('.term-help, .unofficial-badge, .tip-target');
     if (m && (!e.relatedTarget || !m.contains(e.relatedTarget))) hideGlossTip();
   });
   document.addEventListener('focusin', (e) => {
-    const m = e.target.closest && e.target.closest('.term-help, .unofficial-badge');
+    const m = e.target.closest && e.target.closest('.term-help, .unofficial-badge, .tip-target');
     if (m) showGlossTip(m);
   });
   document.addEventListener('focusout', (e) => {
-    const m = e.target.closest && e.target.closest('.term-help, .unofficial-badge');
+    const m = e.target.closest && e.target.closest('.term-help, .unofficial-badge, .tip-target');
     if (m) hideGlossTip();
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideGlossTip(); });
@@ -1188,7 +1517,7 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json?v=20260923b').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260924b').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
@@ -1797,7 +2126,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json?v=20260923b`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260924b`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -2056,14 +2385,10 @@ function renderPartyFinancing(key, p, fillFin) {
     <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:20px">
       <div class="stat-box"><div class="big" style="color:${p.color}">${formatCHF(f.totalRevenue)}</div><div class="lbl">${t('financing.total')} (${f.year})</div></div>
     </div>
-    <div class="detail-facts">
-      <div class="detail-fact"><strong>${t('financing.monetary')}</strong><span>${formatCHF(f.monetaryDonations)}</span></div>
-      <div class="detail-fact"><strong>${t('financing.nonMonetary')}</strong><span>${formatCHF(f.nonMonetaryDonations)}</span></div>
-      <div class="detail-fact"><strong>${t('financing.events')}</strong><span>${formatCHF(f.events)}</span></div>
-      <div class="detail-fact"><strong>${t('financing.sales')}</strong><span>${formatCHF(f.sales)}</span></div>
-      <div class="detail-fact"><strong>${t('financing.membershipFees')}</strong><span>${formatCHF(f.membershipFees)}</span></div>
-      <div class="detail-fact"><strong>${t('financing.mandateFees')}</strong><span>${formatCHF(f.mandateFees)}</span></div>
-    </div>
+    ${partySourceBarsHTML(key, f, { shareTitle: `${t('fin.tabs.aria')} — ${p.abbr || localized(p.name)} (${f.year})`, shareRoute: `party/${key}` })}
+    ${f.monetaryDonations > 0 ? `<p class="finbars-named">${t('fin.named')
+      .replace('{named}', formatCHF(PARTY_METRICS[0].get(f)))
+      .replace('{monetary}', formatCHF(f.monetaryDonations))}</p>` : ''}
     <h4 class="canton-section-title" style="font-size:16px;margin-top:24px">${t('financing.topDonors')}</h4>
     ${financingBlockHTML(f.largeDonors, { shareTitle: `${t('financing.topDonors')} — ${p.abbr || localized(p.name)}`, shareRoute: `party/${key}` })}
     ${renderFinancingSource()}
@@ -2093,7 +2418,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260923b')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260924b')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2103,7 +2428,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json?v=20260923b')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260924b')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2119,7 +2444,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260923b`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260924b`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -2797,7 +3122,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'feedback', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json?v=20260923b').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260924b').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -3271,7 +3596,7 @@ const _overviewCache = {};
 function ensureOverview(kind, id) {
   const key = kind + '/' + id;
   if (_overviewCache[key]) return _overviewCache[key];
-  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260923b`)
+  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260924b`)
     .then(r => r.ok ? r.json() : null).catch(() => null);
   return _overviewCache[key];
 }
@@ -3333,24 +3658,28 @@ function renderOverview(el) {
     const link = block.url
       ? ` <a href="${escapeAttr(block.url)}" target="_blank" rel="noopener noreferrer">${t('overview.official')} <span class="arrow">↗</span></a>`
       : '';
-    // Each side is a collapsed <details>, closed by default, so the page opens
-    // with neither side's text in view — the reader chooses to read one, and
-    // both behave identically (never one side shown alone; see NOTICE.md).
-    // Native <details> keeps this keyboard- and screen-reader-accessible with
-    // no JS and no dependency.
+    // Both sides always behave identically (never one side shown alone; see
+    // NOTICE.md): each shows a short preview of its first argument and a
+    // "Read more" <details> with the full list. Native <details> keeps this
+    // keyboard- and screen-reader-accessible with no dependency.
     const col = (cls, label, author, items) => `
-      <details class="ai-ov-col ${cls}">
-        <summary class="ai-ov-summary">
-          <span class="ai-ov-collabel">${label}</span>
-          <span class="ai-ov-toggle" aria-hidden="true">
-            <span class="ai-ov-toggle-show">${t('overview.show')}</span>
-            <span class="ai-ov-toggle-hide">${t('overview.hide')}</span>
-            <span class="ai-ov-chev"></span>
-          </span>
-        </summary>
+      <div class="ai-ov-col ${cls}">
+        <p class="ai-ov-collabel">${label}</p>
         <p class="ai-ov-author">${author}</p>
-        ${items.length ? argListHTML(items) : `<p class="ai-ov-preparing">${t('overview.preparing')}</p>`}
-      </details>`;
+        ${items.length ? `
+          <p class="ai-ov-preview">${escapeAttr(items[0])}</p>
+          <details class="ai-ov-more">
+            <summary class="ai-ov-summary">
+              <span class="ai-ov-toggle">
+                <span class="ai-ov-toggle-show">${t('overview.readMore')}</span>
+                <span class="ai-ov-toggle-hide">${t('overview.readLess')}</span>
+                <span class="visually-hidden"> — ${label}</span>
+                <span class="ai-ov-chev" aria-hidden="true"></span>
+              </span>
+            </summary>
+            ${argListHTML(items)}
+          </details>` : `<p class="ai-ov-preparing">${t('overview.preparing')}</p>`}
+      </div>`;
     el.innerHTML = `
       <div class="ai-ov-head"><h4 class="ai-ov-title">${t('overview.title')}</h4>${chip}</div>
       <div class="ai-ov-cols">
@@ -3426,6 +3755,7 @@ function showView(name) {
   document.getElementById('votes-page').classList.toggle('active', name === 'votes');
   document.getElementById('info-page').classList.toggle('active', name === 'info');
   document.getElementById('donor-page').classList.toggle('active', name === 'donor');
+  document.getElementById('financing-page').classList.toggle('active', name === 'financing');
   document.getElementById('privacy-page').classList.toggle('active', name === 'privacy');
   document.getElementById('about-page').classList.toggle('active', name === 'about');
   document.getElementById('subscribe-page').classList.toggle('active', name === 'subscribe');
@@ -3487,6 +3817,7 @@ function goBack(fallback) {
 function handleRoute() {
   const known = stampHistoryEntry();
   redirecting = false;
+  hideGlossTip();   // a tooltip never outlives the page it belongs to
   const { view, id } = parseHash();
   if (view === 'canton' && id) {
     renderCantonPage(id);
@@ -3515,6 +3846,9 @@ function handleRoute() {
   } else if (view === 'donor' && id) {
     renderDonorPage(decodeURIComponent(id));
     showView('donor');
+  } else if (view === 'financing') {
+    renderFinancingPage(id);
+    showView('financing');
   } else if (view === 'privacy') {
     renderPrivacyPage();
     showView('privacy');

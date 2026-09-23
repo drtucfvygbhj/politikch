@@ -12,7 +12,7 @@
    by opening the site once with ?analytics=off (?analytics=on undoes it; the
    choice is remembered in this browser only).
    ============================================================ */
-import { ANALYTICS_API } from './config.js?v=20260923b';
+import { ANALYTICS_API } from './config.js?v=20260924b';
 
 const OFF_KEY = 'politikch-analytics-off';
 

@@ -1,7 +1,7 @@
 {
   "_meta": {
     "source": "Federal Audit Office (EFK) — https://politikfinanzierung.efk.admin.ch",
-    "fetchedAt": "2026-09-22T06:14:56Z",
+    "fetchedAt": "2026-09-23T21:05:29Z",
     "note": "Figures are self-reported by parties and campaign committees under Swiss law (BPR/VPofi) and republished here as-is; the EFK does not guarantee their accuracy, and neither do we."
   },
   "parties": {
@@ -70,6 +70,293 @@
           "location": "Zürich",
           "amount": 60000.0,
           "date": "2025-09-04"
+        },
+        {
+          "name": "Raiffeisen Schweiz Genossenschaft",
+          "type": "organization",
+          "location": "St. Gallen",
+          "amount": 57945.0,
+          "date": "2025-08-26"
+        },
+        {
+          "name": "Roche Holding AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 50000.0,
+          "date": "2025-10-17"
+        },
+        {
+          "name": "Verein FDP-Kampagnen",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 50000.0,
+          "date": "2025-10-27"
+        },
+        {
+          "name": "Novartis International AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 50000.0,
+          "date": "2025-11-18"
+        },
+        {
+          "name": "Swiss International Air Lines AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 48388.0,
+          "date": "2025-08-19"
+        },
+        {
+          "name": "Schweizerische Mobiliar Versicherungsgesellschaft AG",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 37400.0,
+          "date": "2025-07-18"
+        },
+        {
+          "name": "Axa Versicherungen AG",
+          "type": "organization",
+          "location": "Winterthur",
+          "amount": 30360.0,
+          "date": "2025-06-27"
+        },
+        {
+          "name": "Hauseigentümerverband Schweiz",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 30000.0,
+          "date": "2025-06-11"
+        },
+        {
+          "name": "Fondation Groupe Mutuel",
+          "type": "organization",
+          "location": "Martigny",
+          "amount": 30000.0,
+          "date": "2025-07-04"
+        },
+        {
+          "name": "Bank Julius Baer and Co. Ltd.",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 30000.0,
+          "date": "2025-12-04"
+        },
+        {
+          "name": "Helvetia Schweiz. Versicherung",
+          "type": "organization",
+          "location": "St. Gallen",
+          "amount": 28971.75,
+          "date": "2025-06-23"
+        },
+        {
+          "name": "Interpharma",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 25000.0,
+          "date": "2025-10-06"
+        },
+        {
+          "name": "SVV",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 24600.0,
+          "date": "2025-09-25"
+        },
+        {
+          "name": "Die Mitte Kanton Luzern (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Luzern",
+          "amount": 20494.0,
+          "date": "2025-08-11"
+        },
+        {
+          "name": "Die Mitte Kanton Zürich (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 19126.0,
+          "date": "2025-07-16"
+        },
+        {
+          "name": "Die Mitte Kanton Bern (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 15686.0,
+          "date": "2025-07-22"
+        },
+        {
+          "name": "Die Mitte Kanton St. Gallen (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "St. Gallen",
+          "amount": 14405.0,
+          "date": "2025-08-12"
+        },
+        {
+          "name": "Die Mitte Aargau (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Aarau",
+          "amount": 12781.0,
+          "date": "2025-07-15"
+        },
+        {
+          "name": "Parti démocrate-chrétien du Valais (cotisation cantonale)",
+          "type": "organization",
+          "location": "Sion",
+          "amount": 10500.0,
+          "date": "2025-11-28"
+        },
+        {
+          "name": "Le Centre Fribourg (cotisation cantonale)",
+          "type": "organization",
+          "location": "Fribourg",
+          "amount": 8040.0,
+          "date": "2025-07-17"
+        },
+        {
+          "name": "Die Mitte Kanton Solothurn (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Solothurn",
+          "amount": 8020.0,
+          "date": "2025-08-07"
+        },
+        {
+          "name": "Die Mitte Graubünden (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Seewis Dorf",
+          "amount": 7457.0,
+          "date": "2025-09-02"
+        },
+        {
+          "name": "Die Mitte Oberwallis (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Brig",
+          "amount": 7017.0,
+          "date": "2025-07-15"
+        },
+        {
+          "name": "Die Mitte Thurgau (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Stettfurt",
+          "amount": 6561.0,
+          "date": "2025-12-31"
+        },
+        {
+          "name": "Il Centro (contributo cantonal)",
+          "type": "organization",
+          "location": "Bellinzona",
+          "amount": 6000.0,
+          "date": "2025-07-25"
+        },
+        {
+          "name": "Die Mitte Schwyz (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Brunnen",
+          "amount": 5371.0,
+          "date": "2025-08-07"
+        },
+        {
+          "name": "Die Mitte Kanton Zug (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Rotkreuz",
+          "amount": 5341.0,
+          "date": "2025-07-31"
+        },
+        {
+          "name": "Die Mitte Basel-Landschaft (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Liestal",
+          "amount": 4727.0,
+          "date": "2025-08-22"
+        },
+        {
+          "name": "Le Centre Genève (cotisation cantonale)",
+          "type": "organization",
+          "location": "Genève",
+          "amount": 4535.0,
+          "date": "2025-12-31"
+        },
+        {
+          "name": "Le Centre Vaud (cotisation cantonale)",
+          "type": "organization",
+          "location": "Lausanne",
+          "amount": 4364.0,
+          "date": "2025-08-25"
+        },
+        {
+          "name": "Die Mitte Uri (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Altdorf UR",
+          "amount": 4349.0,
+          "date": "2025-07-28"
+        },
+        {
+          "name": "Die Mitte Nidwalden (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Stans",
+          "amount": 4214.0,
+          "date": "2025-07-21"
+        },
+        {
+          "name": "Parti démocrate-chrétien Jura (cotisation cantonale)",
+          "type": "organization",
+          "location": "Glovelier",
+          "amount": 3259.0,
+          "date": "2025-07-21"
+        },
+        {
+          "name": "Die Mitte AI (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Appenzell",
+          "amount": 2500.0,
+          "date": "2025-07-14"
+        },
+        {
+          "name": "Die Mitte Basel-Stadt (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 2500.0,
+          "date": "2025-07-28"
+        },
+        {
+          "name": "Die Mitte Obwalden (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Alpnach Dorf",
+          "amount": 2500.0,
+          "date": "2025-07-29"
+        },
+        {
+          "name": "Partei Die Mitte Glarnerland (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Glarus",
+          "amount": 2500.0,
+          "date": "2025-08-12"
+        },
+        {
+          "name": "Die Mitte Sense (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Düdingen",
+          "amount": 2041.0,
+          "date": "2025-07-11"
+        },
+        {
+          "name": "Die Mitte Ausserrhoden (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Waldstatt",
+          "amount": 1489.0,
+          "date": "2025-12-31"
+        },
+        {
+          "name": "Le Centre du canton de Neuchâtel (cotisation cantonale)",
+          "type": "organization",
+          "location": "Neuchâtel",
+          "amount": 612.0,
+          "date": "2025-07-16"
+        },
+        {
+          "name": "Die Mitte Schaffhausen (Kantonalbeitrag)",
+          "type": "organization",
+          "location": "Ramsen",
+          "amount": 500.0,
+          "date": "2025-07-25"
         }
       ]
     },
@@ -160,6 +447,293 @@
           "location": "Bern",
           "amount": 100000.0,
           "date": "2025-10-09"
+        },
+        {
+          "name": "SCHINDLER AUFZUEGE AG",
+          "type": "organization",
+          "location": "Ebikon",
+          "amount": 75000.0,
+          "date": "2025-07-01"
+        },
+        {
+          "name": "Schweizerischer Gewerbeverband",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 70000.0,
+          "date": "2025-02-21"
+        },
+        {
+          "name": "Nestle SA",
+          "type": "organization",
+          "location": "Vevey",
+          "amount": 70000.0,
+          "date": "2025-12-22"
+        },
+        {
+          "name": "SCHWEIZERISCHE BANKIERVEREINIGUNG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 60000.0,
+          "date": "2025-07-11"
+        },
+        {
+          "name": "SWISS INTERNATIONAL AIR LINES AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 50425.0,
+          "date": "2025-10-15"
+        },
+        {
+          "name": "ANEBA HOLDING AG",
+          "type": "organization",
+          "location": "Hurden",
+          "amount": 50000.0,
+          "date": "2025-08-15"
+        },
+        {
+          "name": "Schweizerischer Versicherungsverband SVV",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 50000.0,
+          "date": "2025-04-22"
+        },
+        {
+          "name": "Roche Holding AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 50000.0,
+          "date": "2025-10-17"
+        },
+        {
+          "name": "Novartis International AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 50000.0,
+          "date": "2025-11-11"
+        },
+        {
+          "name": "Raiffeisen Schweiz Genossenschaft",
+          "type": "organization",
+          "location": "St. Gallen",
+          "amount": 48693.0,
+          "date": "2025-08-26"
+        },
+        {
+          "name": "auto-schweiz Vereinigung Schweizer Automobil-Importeure",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 40000.0,
+          "date": "2025-05-07"
+        },
+        {
+          "name": "auto-schweiz Vereinigung Schweizer Automobil-Importeure",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 40000.0,
+          "date": "2025-04-30"
+        },
+        {
+          "name": "Swiss Reinsurance Company Limited",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 40000.0,
+          "date": "2025-12-01"
+        },
+        {
+          "name": "Philip Morris Switzerland Sàr",
+          "type": "organization",
+          "location": "Lausanne",
+          "amount": 35000.0,
+          "date": "2025-01-03"
+        },
+        {
+          "name": "Schweizerische Mobiliar Versicherungsgesellschaft AG",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 34800.0,
+          "date": "2025-12-17"
+        },
+        {
+          "name": "SWISS RE MANAGEMENT LTD.",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 30132.0,
+          "date": "2025-01-07"
+        },
+        {
+          "name": "Fondation Groupe Mutuel",
+          "type": "organization",
+          "location": "Martigny",
+          "amount": 30000.0,
+          "date": "2025-10-03"
+        },
+        {
+          "name": "Hauseigentümerverband Schweiz",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 30000.0,
+          "date": "2025-08-04"
+        },
+        {
+          "name": "AXA Versicherungen AG",
+          "type": "organization",
+          "location": "Winterthur",
+          "amount": 26220.0,
+          "date": "2025-06-23"
+        },
+        {
+          "name": "Bank Julius Bär & Co. AG",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 25000.0,
+          "date": "2025-09-02"
+        },
+        {
+          "name": "Interpharma",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 25000.0,
+          "date": "2025-10-06"
+        },
+        {
+          "name": "Schweizerischer Versicherungsverband SVV",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 23900.0,
+          "date": "2025-12-12"
+        },
+        {
+          "name": "Helvetia Schweiz. Versicherung",
+          "type": "organization",
+          "location": "St. Gallen",
+          "amount": 23316.5,
+          "date": "2025-11-06"
+        },
+        {
+          "name": "Robert und Trix Heberlein",
+          "type": "individual",
+          "location": "Zumikon",
+          "amount": 20000.0,
+          "date": "2025-05-30"
+        },
+        {
+          "name": "Werner Ferdinand Meier",
+          "type": "individual",
+          "location": "Erlenbach",
+          "amount": 20000.0,
+          "date": "2025-02-27"
+        },
+        {
+          "name": "Luzius R. Sprüngli",
+          "type": "individual",
+          "location": "Zürich",
+          "amount": 20000.0,
+          "date": "2025-06-04"
+        },
+        {
+          "name": "Thomas Wellauer",
+          "type": "individual",
+          "location": "Erlenbach",
+          "amount": 20000.0,
+          "date": "2025-05-19"
+        },
+        {
+          "name": "Bucher Industries AG",
+          "type": "organization",
+          "location": "Niederweningen",
+          "amount": 20000.0,
+          "date": "2025-06-20"
+        },
+        {
+          "name": "Hesta Services AG",
+          "type": "organization",
+          "location": "Uster",
+          "amount": 20000.0,
+          "date": "2025-02-12"
+        },
+        {
+          "name": "ARTEMIS HOLDING AG",
+          "type": "organization",
+          "location": "Hergiswil",
+          "amount": 15000.0,
+          "date": "2025-03-11"
+        },
+        {
+          "name": "Baloise Versicherungen AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 15000.0,
+          "date": "2025-09-05"
+        },
+        {
+          "name": "Hauseigentümerverband Schweiz",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 15000.0,
+          "date": "2025-06-24"
+        },
+        {
+          "name": "Otto Happel",
+          "type": "individual",
+          "location": "Meggen",
+          "amount": 14900.0,
+          "date": "2025-06-26"
+        },
+        {
+          "name": "SIX Group Services AG",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 14500.0,
+          "date": "2025-10-08"
+        },
+        {
+          "name": "SIX Group Services AG",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 11000.0,
+          "date": "2025-10-08"
+        },
+        {
+          "name": "ARTEMIS HOLDING AG",
+          "type": "organization",
+          "location": "Hergiswil",
+          "amount": 10000.0,
+          "date": "2025-08-18"
+        },
+        {
+          "name": "Swiss Life AG",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 10000.0,
+          "date": "2025-07-09"
+        },
+        {
+          "name": "Baloise Versicherungen AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 5000.0,
+          "date": "2025-09-05"
+        },
+        {
+          "name": "Swiss Life AG",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 5000.0,
+          "date": "2025-07-09"
+        },
+        {
+          "name": "auto-schweiz Vereinigung Schweizer Automobil-Importeure",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 5000.0,
+          "date": "2025-11-25"
+        },
+        {
+          "name": "Otto Happel",
+          "type": "individual",
+          "location": "Meggen",
+          "amount": 2000.0,
+          "date": "2025-07-02"
         }
       ]
     },
@@ -296,6 +870,48 @@
           "location": "Zürich",
           "amount": 30000.0,
           "date": "2025-09-05"
+        },
+        {
+          "name": "Interpharma",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 25000.0,
+          "date": "2025-03-17"
+        },
+        {
+          "name": "Roche Holding AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 25000.0,
+          "date": "2025-10-17"
+        },
+        {
+          "name": "SVV",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 21100.0,
+          "date": "2025-09-25"
+        },
+        {
+          "name": "Schweiz. Mobiliarversicherungsgesellschaft AG",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 20400.0,
+          "date": "2025-05-14"
+        },
+        {
+          "name": "Pierre Kottelat",
+          "type": "individual",
+          "location": "Oberwil b. Zug",
+          "amount": 20000.0,
+          "date": "2025-02-18"
+        },
+        {
+          "name": "Kottelat Schloesing Michèle",
+          "type": "individual",
+          "location": "Zug",
+          "amount": 20000.0,
+          "date": "2025-02-20"
         }
       ]
     },
@@ -386,6 +1002,146 @@
           "location": "Vevey",
           "amount": 70000.0,
           "date": "2025-05-27"
+        },
+        {
+          "name": "Philip Morris Switzerland Sarl",
+          "type": "organization",
+          "location": "Lausanne",
+          "amount": 70000.0,
+          "date": "2025-12-12"
+        },
+        {
+          "name": "auto-schweiz Vereinigung",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 65000.0,
+          "date": "2025-09-17"
+        },
+        {
+          "name": "Schweizerische Bankiervereinigung",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 60000.0,
+          "date": "2025-07-11"
+        },
+        {
+          "name": "Raiffeisen Schweiz Genossenschaft",
+          "type": "organization",
+          "location": "St. Gallen",
+          "amount": 54174.0,
+          "date": "2025-08-26"
+        },
+        {
+          "name": "Swiss International Air Lines AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 52553.0,
+          "date": "2025-08-19"
+        },
+        {
+          "name": "Thomas Matter",
+          "type": "individual",
+          "location": "Meilen",
+          "amount": 50000.0,
+          "date": "2025-11-05"
+        },
+        {
+          "name": "Novartis International AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 50000.0,
+          "date": "2025-11-04"
+        },
+        {
+          "name": "Roche Holding AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 50000.0,
+          "date": "2025-10-17"
+        },
+        {
+          "name": "Verein FDP-Kampagnen",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 50000.0,
+          "date": "2025-10-27"
+        },
+        {
+          "name": "AXA Versicherungen AG",
+          "type": "organization",
+          "location": "Winterthur",
+          "amount": 46920.0,
+          "date": "2025-07-22"
+        },
+        {
+          "name": "Schweizerische Mobiliar Versicherungsgesellschaft AG",
+          "type": "organization",
+          "location": "Bern",
+          "amount": 39000.0,
+          "date": "2025-07-16"
+        },
+        {
+          "name": "Fondation Groupe Mutuel",
+          "type": "organization",
+          "location": "Martigny",
+          "amount": 30000.0,
+          "date": "2025-07-04"
+        },
+        {
+          "name": "Swiss Reinsurance Company Limited",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 30000.0,
+          "date": "2025-11-10"
+        },
+        {
+          "name": "Schweizerischer Versicherungsverband ASA / SVV",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 27400.0,
+          "date": "2025-05-22"
+        },
+        {
+          "name": "Helvetia Schweiz. Versicherung",
+          "type": "organization",
+          "location": "St. Gallen",
+          "amount": 27086.7,
+          "date": "2025-05-22"
+        },
+        {
+          "name": "Heinrich Herz AG",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 25000.0,
+          "date": "2025-12-19"
+        },
+        {
+          "name": "Interpharma",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 25000.0,
+          "date": "2025-05-23"
+        },
+        {
+          "name": "BANK JULIUS BAER AND CO.LTD.",
+          "type": "organization",
+          "location": "Zürich",
+          "amount": 25000.0,
+          "date": "2025-09-02"
+        },
+        {
+          "name": "Rolf Dörig",
+          "type": "individual",
+          "location": "Küsnacht",
+          "amount": 20000.0,
+          "date": "2025-07-30"
+        },
+        {
+          "name": "Baloise Versicherung AG",
+          "type": "organization",
+          "location": "Basel",
+          "amount": 20000.0,
+          "date": "2025-06-18"
         }
       ]
     },
@@ -491,6 +1247,13 @@
             "location": "Bern",
             "amount": 50000.0,
             "date": "2026-08-13"
+          },
+          {
+            "name": "Christoph Blocher",
+            "type": "individual",
+            "location": "Herrliberg",
+            "amount": 28665.42,
+            "date": "2026-07-29"
           }
         ]
       },
@@ -595,6 +1358,20 @@
             "location": "Lausanne",
             "amount": 50000.0,
             "date": "2026-06-05"
+          },
+          {
+            "name": "Fromarte",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 40000.0,
+            "date": "2026-04-21"
+          },
+          {
+            "name": "Arbeitsgemeinschaft Schweizerischer Rinderzüchter",
+            "type": "organization",
+            "location": "Zollikofen",
+            "amount": 15000.0,
+            "date": "2026-01-21"
           }
         ]
       }
@@ -714,6 +1491,111 @@
             "location": "Bern",
             "amount": 61399.0,
             "date": "2026-04-17"
+          },
+          {
+            "name": "VPOD",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 58644.0,
+            "date": "2026-04-23"
+          },
+          {
+            "name": "Syndicom",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 53383.0,
+            "date": "2026-06-02"
+          },
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2026-06-15"
+          },
+          {
+            "name": "Schweizer Tourismus-Verband",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 50000.0,
+            "date": "2026-03-16"
+          },
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2026-06-15"
+          },
+          {
+            "name": "Groupement des Entreprises Multinationales",
+            "type": "organization",
+            "location": "Genève",
+            "amount": 46000.0,
+            "date": "2026-04-24"
+          },
+          {
+            "name": "Fondation Genève Place Financière",
+            "type": "organization",
+            "location": "Genève",
+            "amount": 45000.0,
+            "date": "2026-05-01"
+          },
+          {
+            "name": "Chambre de commerce, d’industrie et des services de Genève",
+            "type": "organization",
+            "location": "Genève",
+            "amount": 40000.0,
+            "date": "2026-04-24"
+          },
+          {
+            "name": "Urs und Theresa Murbach und Nussbaum",
+            "type": "individual",
+            "location": "Au",
+            "amount": 40000.0,
+            "date": "2026-05-06"
+          },
+          {
+            "name": "GastroSuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 25000.0,
+            "date": "2026-07-09"
+          },
+          {
+            "name": "Handelskammer beider Basel",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 20000.0,
+            "date": "2026-04-08"
+          },
+          {
+            "name": "Sabine und Dominik Brändlin",
+            "type": "individual",
+            "location": "Liestal",
+            "amount": 20000.0,
+            "date": "2026-05-12"
+          },
+          {
+            "name": "HotellerieSuisse",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 15000.0,
+            "date": "2026-04-27"
+          },
+          {
+            "name": "GastroSuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 15000.0,
+            "date": "2026-04-30"
+          },
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 5000.0,
+            "date": "2026-06-24"
           }
         ]
       }
@@ -883,6 +1765,34 @@
             "location": "Bern",
             "amount": 50000.0,
             "date": "2025-08-29"
+          },
+          {
+            "name": "GastroSuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2026-02-11"
+          },
+          {
+            "name": "Centre Patronal",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 30000.0,
+            "date": "2026-02-23"
+          },
+          {
+            "name": "Hermann Ernst Hess",
+            "type": "individual",
+            "location": "Amriswil",
+            "amount": 20000.0,
+            "date": "2025-06-25"
+          },
+          {
+            "name": "Schweizerischer Baumeisterverband SBV",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 20000.0,
+            "date": "2026-02-05"
           }
         ]
       },
@@ -945,6 +1855,279 @@
             "location": "Chur",
             "amount": 100000.0,
             "date": "2025-09-01"
+          },
+          {
+            "name": "Kulturfonds Suissimage",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 100000.0,
+            "date": "2025-11-28"
+          },
+          {
+            "name": "GENOSSENSCHAFT SRG REGION BASEL",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 85000.0,
+            "date": "2025-12-11"
+          },
+          {
+            "name": "Bewegung Courage Civil",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 80000.0,
+            "date": "2026-03-04"
+          },
+          {
+            "name": "SWISSPERFORM",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 80000.0,
+            "date": "2025-12-23"
+          },
+          {
+            "name": "Schweizerischer Verband der FilmproduzentInnen",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 75000.0,
+            "date": "2026-02-12"
+          },
+          {
+            "name": "Schweizerische Interpretengenossenschaft",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 70000.0,
+            "date": "2026-01-12"
+          },
+          {
+            "name": "SUISA Genossenschaft der Urheber und Verleger von Musik",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 60000.0,
+            "date": "2026-02-12"
+          },
+          {
+            "name": "Kulturfonds Société Suisse des Auteurs (SSA)",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 57000.0,
+            "date": "2026-02-23"
+          },
+          {
+            "name": "SUISA",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2025-04-11"
+          },
+          {
+            "name": "Fondation Suisa",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 50000.0,
+            "date": "2026-01-23"
+          },
+          {
+            "name": "Daniel und Martin Meili",
+            "type": "individual",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2025-11-13"
+          },
+          {
+            "name": "Oliver Rihs",
+            "type": "individual",
+            "location": "Berlin",
+            "amount": 50000.0,
+            "date": "2025-10-28"
+          },
+          {
+            "name": "Suisseimage",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 50000.0,
+            "date": "2026-01-05"
+          },
+          {
+            "name": "Cooperativa SSR Svizzera italiana Corsi",
+            "type": "organization",
+            "location": "Comano",
+            "amount": 40000.0,
+            "date": "2026-02-17"
+          },
+          {
+            "name": "Genossenschaft SRG Bern Freiburg Wallis",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 40000.0,
+            "date": "2026-02-02"
+          },
+          {
+            "name": "Cooperativa SSR Svizzera italiana Corsi",
+            "type": "organization",
+            "location": "Comano",
+            "amount": 35921.67,
+            "date": "2026-01-08"
+          },
+          {
+            "name": "Radio- und Fernsehgenossenschaft Zürich Schaffhausen (RFZ)",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 32852.67,
+            "date": "2025-09-15"
+          },
+          {
+            "name": "Trägerschaftsverein SRG Zentralschweiz",
+            "type": "organization",
+            "location": "Luzern",
+            "amount": 30000.0,
+            "date": "2025-07-28"
+          },
+          {
+            "name": "Trägerschaft SRG Aargau Solothurn",
+            "type": "organization",
+            "location": "Aarau",
+            "amount": 30000.0,
+            "date": "2025-09-11"
+          },
+          {
+            "name": "SSA. SOCIÉTE SUISSE DES AUTEURS",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 27000.0,
+            "date": "2025-11-14"
+          },
+          {
+            "name": "Daniel Brunner",
+            "type": "individual",
+            "location": "Zug",
+            "amount": 26020.0,
+            "date": "2026-02-16"
+          },
+          {
+            "name": "Genossenschaft SRG Bern Fribourg Wallis",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 25000.0,
+            "date": "2026-03-02"
+          },
+          {
+            "name": "Kulturfonds SSA",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 25000.0,
+            "date": "2026-01-28"
+          },
+          {
+            "name": "Schweizerische Interpreten Gesellschaft SIG",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 25000.0,
+            "date": "2026-02-16"
+          },
+          {
+            "name": "Swiss Olympic",
+            "type": "organization",
+            "location": "Ittigen bei Bern",
+            "amount": 25000.0,
+            "date": "2026-02-20"
+          },
+          {
+            "name": "Swiss Olympic",
+            "type": "organization",
+            "location": "Ittigen bei Bern",
+            "amount": 24270.0,
+            "date": "2025-12-01"
+          },
+          {
+            "name": "Therese & Patrick Bachmann & Fust",
+            "type": "individual",
+            "location": "Bern",
+            "amount": 20000.0,
+            "date": "2026-01-27"
+          },
+          {
+            "name": "Stiftung für Medienvielfalt",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 20000.0,
+            "date": "2026-01-19"
+          },
+          {
+            "name": "Schweizerische Gemeinnützige Gesellschaft",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 20000.0,
+            "date": "2025-06-16"
+          },
+          {
+            "name": "European Broadcasting Union",
+            "type": "organization",
+            "location": "Le Grand Saconnex",
+            "amount": 20000.0,
+            "date": "2026-01-21"
+          },
+          {
+            "name": "Demokratie Stiftung Basel",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 20000.0,
+            "date": "2026-01-23"
+          },
+          {
+            "name": "Stiftung Phonoproduzierende",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 20000.0,
+            "date": "2026-02-11"
+          },
+          {
+            "name": "Alfred Gantner",
+            "type": "individual",
+            "location": "Meggen",
+            "amount": 20000.0,
+            "date": "2026-01-16"
+          },
+          {
+            "name": "SRG Ostschweiz",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 20000.0,
+            "date": "2025-12-05"
+          },
+          {
+            "name": "Verena Brunner Frey",
+            "type": "individual",
+            "location": "Bern",
+            "amount": 20000.0,
+            "date": "2026-02-11"
+          },
+          {
+            "name": "Suissimage",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 20000.0,
+            "date": "2026-01-15"
+          },
+          {
+            "name": "Schweizer Interpretengenossenschaft (SSFV)",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 20000.0,
+            "date": "2026-02-16"
+          },
+          {
+            "name": "Cinésuisse",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 20000.0,
+            "date": "2026-02-02"
+          },
+          {
+            "name": "IFPI Schweiz",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 15000.0,
+            "date": "2026-02-18"
           }
         ]
       }
@@ -1009,6 +2192,20 @@
             "location": "Winterthur",
             "amount": 25000.0,
             "date": "2025-11-13"
+          },
+          {
+            "name": "Müller-Möhl Foundation",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 25000.0,
+            "date": "2026-03-23"
+          },
+          {
+            "name": "Bonny Stiftung für Freiheit",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 15000.0,
+            "date": "2025-12-22"
           }
         ]
       },
@@ -1211,6 +2408,69 @@
             "location": "Genève",
             "amount": 25000.0,
             "date": "2025-08-07"
+          },
+          {
+            "name": "Handelskammer beider Basel",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 20000.0,
+            "date": "2025-09-24"
+          },
+          {
+            "name": "Zürcher Handelskammer",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 20000.0,
+            "date": "2025-11-25"
+          },
+          {
+            "name": "Fédération des entreprises romandes Genève (FER Genève)",
+            "type": "organization",
+            "location": "Genève",
+            "amount": 20000.0,
+            "date": "2025-10-29"
+          },
+          {
+            "name": "Werner Meier",
+            "type": "individual",
+            "location": "Erlenbach",
+            "amount": 20000.0,
+            "date": "2025-02-27"
+          },
+          {
+            "name": "HESTA Services AG",
+            "type": "organization",
+            "location": "Uster",
+            "amount": 20000.0,
+            "date": "2025-02-12"
+          },
+          {
+            "name": "Industrie- und Handelskammer Thurgau (IHK Thurgau)",
+            "type": "organization",
+            "location": "Weinfelden",
+            "amount": 19625.56,
+            "date": "2025-12-04"
+          },
+          {
+            "name": "ARTEMIS HOLDING AG",
+            "type": "organization",
+            "location": "Hergiswil",
+            "amount": 15000.0,
+            "date": "2025-03-11"
+          },
+          {
+            "name": "Parti Libéral-Radical Genève",
+            "type": "organization",
+            "location": "Genève",
+            "amount": 10000.0,
+            "date": "2025-10-24"
+          },
+          {
+            "name": "ARTEMIS HOLDING AG",
+            "type": "organization",
+            "location": "Hergiswil",
+            "amount": 10000.0,
+            "date": "2025-08-18"
           }
         ]
       }
@@ -1275,6 +2535,34 @@
             "location": "Zürich",
             "amount": 40000.0,
             "date": "2025-06-16"
+          },
+          {
+            "name": "HEV Schweiz",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 30000.0,
+            "date": "2025-06-16"
+          },
+          {
+            "name": "HEV Schweiz",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 25000.0,
+            "date": "2025-06-24"
+          },
+          {
+            "name": "Kantonaler Gewerbeverband St.Gallen",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 20000.0,
+            "date": "2025-06-19"
+          },
+          {
+            "name": "Hauseigentümerverband Bern und Umgebung",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 20000.0,
+            "date": "2025-05-30"
           }
         ]
       },
@@ -1485,6 +2773,279 @@
             "location": "Bern",
             "amount": 232714.0,
             "date": "2024-10-28"
+          },
+          {
+            "name": "Infra Suisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 142507.0,
+            "date": "2024-10-28"
+          },
+          {
+            "name": "Centre Patronal",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 92507.0,
+            "date": "2024-07-29"
+          },
+          {
+            "name": "Avenergy suisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 92507.0,
+            "date": "2024-10-28"
+          },
+          {
+            "name": "Centre Patronal",
+            "type": "organization",
+            "location": "Centre Patronal, Paudex",
+            "amount": 92507.0,
+            "date": "2024-06-01"
+          },
+          {
+            "name": "FER-Genève",
+            "type": "organization",
+            "location": "Genève",
+            "amount": 92507.0,
+            "date": "2024-06-01"
+          },
+          {
+            "name": "IG Engpassbeseitigung",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 89200.34,
+            "date": "2024-09-19"
+          },
+          {
+            "name": "ACS",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 77253.0,
+            "date": "2024-10-28"
+          },
+          {
+            "name": "KGV St.Gallen",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 50000.0,
+            "date": "2024-09-17"
+          },
+          {
+            "name": "TCS St.Gallen-Appenzell AI",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 50000.0,
+            "date": "2024-10-03"
+          },
+          {
+            "name": "HEV Kanton St.Gallen",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 50000.0,
+            "date": "2024-10-22"
+          },
+          {
+            "name": "TCS Sektion Bern",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 46253.0,
+            "date": "2025-01-21"
+          },
+          {
+            "name": "CCIG",
+            "type": "organization",
+            "location": "Genève",
+            "amount": 46253.0,
+            "date": "2024-08-15"
+          },
+          {
+            "name": "CVCI",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 46253.0,
+            "date": "2024-06-01"
+          },
+          {
+            "name": "FVE (fédération vaudoise des entrepreneurs)",
+            "type": "organization",
+            "location": "Tolochenaz",
+            "amount": 46253.0,
+            "date": "2024-07-01"
+          },
+          {
+            "name": "Handelskammer beider Basel",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 45000.0,
+            "date": "2025-01-20"
+          },
+          {
+            "name": "Wirtschaftskammer Baselland",
+            "type": "organization",
+            "location": "Pratteln",
+            "amount": 45000.0,
+            "date": "2025-01-20"
+          },
+          {
+            "name": "TCS Sektion Zürich",
+            "type": "organization",
+            "location": "Volketswil",
+            "amount": 29924.75,
+            "date": "2024-12-10"
+          },
+          {
+            "name": "Freiburger Arbeitgeberverband",
+            "type": "organization",
+            "location": "Fribourg",
+            "amount": 28000.0,
+            "date": "2025-01-21"
+          },
+          {
+            "name": "Les Routiers Suisses",
+            "type": "organization",
+            "location": "Echandes",
+            "amount": 27752.0,
+            "date": "2024-10-28"
+          },
+          {
+            "name": "FER-Genève",
+            "type": "organization",
+            "location": "Genf",
+            "amount": 27752.0,
+            "date": "2024-10-28"
+          },
+          {
+            "name": "strasseschweiz",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 23126.75,
+            "date": "2024-12-12"
+          },
+          {
+            "name": "HEV Stadt St.Gallen",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 20000.0,
+            "date": "2024-10-10"
+          },
+          {
+            "name": "HEV Bern",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 18501.0,
+            "date": "2025-01-21"
+          },
+          {
+            "name": "AGVS SG-AR-AI-FL",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 15000.0,
+            "date": "2024-09-06"
+          },
+          {
+            "name": "Unam",
+            "type": "organization",
+            "location": "Neuenburg",
+            "amount": 14525.0,
+            "date": "2025-01-20"
+          },
+          {
+            "name": "Bündner Gewerbeverband",
+            "type": "organization",
+            "location": "Chur",
+            "amount": 13349.0,
+            "date": "2025-01-20"
+          },
+          {
+            "name": "Bund für mehr Wohnraum",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 10500.0,
+            "date": "2024-12-03"
+          },
+          {
+            "name": "Thurgauer Gewerbeverband TGV",
+            "type": "organization",
+            "location": "Weinfelden",
+            "amount": 10000.0,
+            "date": "2024-08-30"
+          },
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 9250.75,
+            "date": "2024-12-10"
+          },
+          {
+            "name": "Berner KMU",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 9250.0,
+            "date": "2025-01-21"
+          },
+          {
+            "name": "HIV Bern",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 9250.0,
+            "date": "2025-01-21"
+          },
+          {
+            "name": "ACS St.Gallen",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 7500.0,
+            "date": "2024-09-04"
+          },
+          {
+            "name": "Centre Patronal",
+            "type": "organization",
+            "location": "Paudex",
+            "amount": 7390.5,
+            "date": "2024-12-20"
+          },
+          {
+            "name": "FER-Genève",
+            "type": "organization",
+            "location": "Genève",
+            "amount": 7390.5,
+            "date": "2024-12-20"
+          },
+          {
+            "name": "Gewerbe Stadt St.Gallen",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 5000.0,
+            "date": "2024-09-27"
+          },
+          {
+            "name": "Wirtschaftregion St.Gallen WISG",
+            "type": "organization",
+            "location": "St.Gallen",
+            "amount": 5000.0,
+            "date": "2024-10-02"
+          },
+          {
+            "name": "CCIG",
+            "type": "organization",
+            "location": "Genève",
+            "amount": 3695.25,
+            "date": "2024-12-20"
+          },
+          {
+            "name": "CVCI",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 3695.25,
+            "date": "2024-12-20"
+          },
+          {
+            "name": "FVE (fédération vaudoise des entrepreneurs)",
+            "type": "organization",
+            "location": "Tolochenaz",
+            "amount": 3695.25,
+            "date": "2024-12-20"
           }
         ]
       },
@@ -1547,6 +3108,20 @@
             "location": "Bern",
             "amount": 20000.0,
             "date": "2024-09-23"
+          },
+          {
+            "name": "Fondation Franz Weber",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 20000.0,
+            "date": "2024-11-14"
+          },
+          {
+            "name": "Grüne Schweiz",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 18000.0,
+            "date": "2024-09-26"
           }
         ]
       }
@@ -1611,6 +3186,76 @@
             "location": "Genf",
             "amount": 25000.0,
             "date": "2024-11-18"
+          },
+          {
+            "name": "SVIT Schweiz",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 25000.0,
+            "date": "2024-06-06"
+          },
+          {
+            "name": "HEV Aargau",
+            "type": "organization",
+            "location": "Baden",
+            "amount": 25000.0,
+            "date": "2024-07-19"
+          },
+          {
+            "name": "strasseschweiz",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 23126.75,
+            "date": "2024-12-12"
+          },
+          {
+            "name": "USPI Suisse",
+            "type": "organization",
+            "location": "Paudex",
+            "amount": 15000.0,
+            "date": "2024-10-14"
+          },
+          {
+            "name": "Bund für mehr Wohnraum",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 10500.0,
+            "date": "2024-12-03"
+          },
+          {
+            "name": "Centre Patronal",
+            "type": "organization",
+            "location": "Paudex",
+            "amount": 10000.0,
+            "date": "2024-10-07"
+          },
+          {
+            "name": "USPI Vaud",
+            "type": "organization",
+            "location": "Paudex",
+            "amount": 10000.0,
+            "date": "2024-10-23"
+          },
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 9250.75,
+            "date": "2024-12-10"
+          },
+          {
+            "name": "Chambre vaudoise immobilière",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 8500.0,
+            "date": "2024-11-18"
+          },
+          {
+            "name": "SVIT Romandie",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 5000.0,
+            "date": "2024-10-15"
           }
         ]
       },
@@ -1680,6 +3325,76 @@
             "location": "Genf",
             "amount": 25000.0,
             "date": "2024-11-18"
+          },
+          {
+            "name": "SVIT Schweiz",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 25000.0,
+            "date": "2024-06-06"
+          },
+          {
+            "name": "HEV Aargau",
+            "type": "organization",
+            "location": "Baden",
+            "amount": 25000.0,
+            "date": "2024-07-19"
+          },
+          {
+            "name": "strasseschweiz",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 23126.75,
+            "date": "2024-12-12"
+          },
+          {
+            "name": "USPI Suisse",
+            "type": "organization",
+            "location": "Paudex",
+            "amount": 15000.0,
+            "date": "2024-10-14"
+          },
+          {
+            "name": "Bund für mehr Wohnraum",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 10500.0,
+            "date": "2024-12-03"
+          },
+          {
+            "name": "Centre Patronal",
+            "type": "organization",
+            "location": "Paudex",
+            "amount": 10000.0,
+            "date": "2024-10-07"
+          },
+          {
+            "name": "USPI Vaud",
+            "type": "organization",
+            "location": "Paudex",
+            "amount": 10000.0,
+            "date": "2024-10-23"
+          },
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 9250.75,
+            "date": "2024-12-10"
+          },
+          {
+            "name": "Chambre vaudoise immobilière",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 8500.0,
+            "date": "2024-11-18"
+          },
+          {
+            "name": "SVIT Romandie",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 5000.0,
+            "date": "2024-10-15"
           }
         ]
       },
@@ -1749,6 +3464,111 @@
             "location": "Köniz",
             "amount": 60000.0,
             "date": "2024-11-22"
+          },
+          {
+            "name": "Visana Beteiligungen AG",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 50000.0,
+            "date": "2024-10-10"
+          },
+          {
+            "name": "VEDAG Verband Deutschschweizer Ärztegesellschaft",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2024-11-19"
+          },
+          {
+            "name": "Aerztegesellschaft des Kantons Bern",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 42000.0,
+            "date": "2024-10-18"
+          },
+          {
+            "name": "H+ Die Schweizer Spitäler",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 40000.0,
+            "date": "2024-12-30"
+          },
+          {
+            "name": "Interpharma Verband der forschenden pharmazeutischen Firmen der Schweiz",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 35000.0,
+            "date": "2024-11-26"
+          },
+          {
+            "name": "Bündnis Freiheitliches Gesundheitswesen",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 25000.0,
+            "date": "2024-10-07"
+          },
+          {
+            "name": "medswiss.net",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 25000.0,
+            "date": "2024-09-20"
+          },
+          {
+            "name": "SW!SS REHA",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 25000.0,
+            "date": "2024-09-24"
+          },
+          {
+            "name": "Universitäre Medizin Schweiz, Unimedsuisse",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 25000.0,
+            "date": "2024-09-25"
+          },
+          {
+            "name": "Ärzte-Gesellschaft des Kantons Zug",
+            "type": "organization",
+            "location": "Zug",
+            "amount": 25000.0,
+            "date": "2024-11-15"
+          },
+          {
+            "name": "Société Médicale de la Suisse Romande (SMSR)",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 25000.0,
+            "date": "2024-12-03"
+          },
+          {
+            "name": "strasseschweiz",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 23126.75,
+            "date": "2024-12-12"
+          },
+          {
+            "name": "Intergenerika",
+            "type": "organization",
+            "location": "Pratteln",
+            "amount": 20000.0,
+            "date": "2024-12-06"
+          },
+          {
+            "name": "Bund für mehr Wohnraum",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 10500.0,
+            "date": "2024-12-03"
+          },
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 9250.75,
+            "date": "2024-12-10"
           }
         ]
       },
@@ -1895,6 +3715,20 @@
             "location": "Zug",
             "amount": 25000.0,
             "date": "2024-02-23"
+          },
+          {
+            "name": "Prométerre",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 17580.0,
+            "date": "2024-09-30"
+          },
+          {
+            "name": "Landtechnik Schweiz",
+            "type": "organization",
+            "location": "Riniken",
+            "amount": 15000.0,
+            "date": "2024-06-28"
           }
         ]
       }
@@ -2138,6 +3972,90 @@
             "location": "Baden-Dättwil",
             "amount": 108282.25,
             "date": "2024-05-14"
+          },
+          {
+            "name": "FMH Verbindung der Schweizer Ärztinnen und Ärzte",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 60000.0,
+            "date": "2024-08-12"
+          },
+          {
+            "name": "Schweizerischer Apothekenverband (pharmaSuisse)",
+            "type": "organization",
+            "location": "Köniz",
+            "amount": 39700.0,
+            "date": "2024-06-27"
+          },
+          {
+            "name": "Ärzte-Gesellschaft des Kantons Zug",
+            "type": "organization",
+            "location": "Zug",
+            "amount": 30000.0,
+            "date": "2024-05-27"
+          },
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "8032 Zürich",
+            "amount": 23855.98,
+            "date": "2024-08-08"
+          },
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "8032 Zürich",
+            "amount": 20000.0,
+            "date": "2024-06-04"
+          },
+          {
+            "name": "Verband Schweizerischer Assistenz- und Oberärztinnen und -ärzte VSAO",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 20000.0,
+            "date": "2024-06-14"
+          },
+          {
+            "name": "Société Médicale de la Suisse Romande (SMSR)",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 20000.0,
+            "date": "2024-07-02"
+          },
+          {
+            "name": "Ärztenetz Nordwest AG",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 15000.0,
+            "date": "2024-04-16"
+          },
+          {
+            "name": "medswissnet",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 15000.0,
+            "date": "2024-03-28"
+          },
+          {
+            "name": "ospita",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 15000.0,
+            "date": "2024-04-26"
+          },
+          {
+            "name": "KMU- und Gewerbeverband Kanton Zürich",
+            "type": "organization",
+            "location": "8032 Zürich",
+            "amount": 10000.0,
+            "date": "2024-04-26"
+          },
+          {
+            "name": "Zürcher Handelskammer",
+            "type": "organization",
+            "location": "8021 Zürich",
+            "amount": 4250.0,
+            "date": "2024-05-22"
           }
         ]
       }
@@ -2214,6 +4132,209 @@
             "location": "Bern",
             "amount": 100000.0,
             "date": "2024-04-03"
+          },
+          {
+            "name": "Clima Now",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 100000.0,
+            "date": "2024-04-08"
+          },
+          {
+            "name": "Oak Foundation",
+            "type": "organization",
+            "location": "Cointrin",
+            "amount": 75000.0,
+            "date": "2024-04-05"
+          },
+          {
+            "name": "Swisspower AG",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 65000.0,
+            "date": "2024-03-14"
+          },
+          {
+            "name": "Groupe E SA",
+            "type": "organization",
+            "location": "Granges-Paccot",
+            "amount": 50000.0,
+            "date": "2023-12-20"
+          },
+          {
+            "name": "Romande Energie SA",
+            "type": "organization",
+            "location": "Morges",
+            "amount": 50000.0,
+            "date": "2023-12-21"
+          },
+          {
+            "name": "Electricita svizzera italiana",
+            "type": "organization",
+            "location": "Bellinzona",
+            "amount": 50000.0,
+            "date": "2024-02-14"
+          },
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2024-03-12"
+          },
+          {
+            "name": "Avenergy Suisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2024-03-12"
+          },
+          {
+            "name": "EKZ Elektrizitätswerke des Kantons Zürich",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2024-03-27"
+          },
+          {
+            "name": "Primeo Energie AG",
+            "type": "organization",
+            "location": "Münchenstein",
+            "amount": 50000.0,
+            "date": "2024-03-27"
+          },
+          {
+            "name": "Avenergy Suisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2024-04-22"
+          },
+          {
+            "name": "Achim Schwander",
+            "type": "individual",
+            "location": "Bern",
+            "amount": 50000.0,
+            "date": "2024-03-25"
+          },
+          {
+            "name": "Repower",
+            "type": "organization",
+            "location": "Poschiavo",
+            "amount": 35000.0,
+            "date": "2024-04-10"
+          },
+          {
+            "name": "Schweizerisch-Lichtensteinischer Gebäudetechnikerverband (suissetec)",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 30000.0,
+            "date": "2024-03-05"
+          },
+          {
+            "name": "auto-schweiz Vereinigung Schweizer Automobil-Importeure",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 30000.0,
+            "date": "2024-03-12"
+          },
+          {
+            "name": "Suisse Eole",
+            "type": "organization",
+            "location": "Saint-George",
+            "amount": 30000.0,
+            "date": "2024-03-12"
+          },
+          {
+            "name": "Ville de Lausanne",
+            "type": "organization",
+            "location": "Lausanne",
+            "amount": 25000.0,
+            "date": "2023-12-22"
+          },
+          {
+            "name": "EBL (Genossenschaft Elektra Baselland)",
+            "type": "organization",
+            "location": "Liestal",
+            "amount": 25000.0,
+            "date": "2024-03-12"
+          },
+          {
+            "name": "Service Industriels de Genève",
+            "type": "organization",
+            "location": "Genf",
+            "amount": 25000.0,
+            "date": "2024-03-14"
+          },
+          {
+            "name": "St. Gallisch-Appenzellische Kraftwerke AG",
+            "type": "organization",
+            "location": "St. Gallen",
+            "amount": 25000.0,
+            "date": "2024-04-03"
+          },
+          {
+            "name": "aeesuisse",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 25000.0,
+            "date": "2024-05-13"
+          },
+          {
+            "name": "FMV SA",
+            "type": "organization",
+            "location": "Sion",
+            "amount": 20000.0,
+            "date": "2024-03-12"
+          },
+          {
+            "name": "Grand Dixence SA",
+            "type": "organization",
+            "location": "Sion",
+            "amount": 20000.0,
+            "date": "2024-05-03"
+          },
+          {
+            "name": "Swisscleantech",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 20000.0,
+            "date": "2024-05-08"
+          },
+          {
+            "name": "Greenpeace",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 20000.0,
+            "date": "2024-03-08"
+          },
+          {
+            "name": "Solarspar",
+            "type": "organization",
+            "location": "Sissach",
+            "amount": 20000.0,
+            "date": "2024-03-08"
+          },
+          {
+            "name": "Zürcher Handelskammer",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 18501.0,
+            "date": "2024-05-13"
+          },
+          {
+            "name": "Energiedienst Holding AG",
+            "type": "organization",
+            "location": "Laufenburg",
+            "amount": 18501.0,
+            "date": "2024-05-28"
+          },
+          {
+            "name": "enalpin AG",
+            "type": "organization",
+            "location": "Visp",
+            "amount": 15000.0,
+            "date": "2024-03-12"
           }
         ]
       },
@@ -2305,6 +4426,69 @@
             "location": "Genève",
             "amount": 9236.0,
             "date": "2024-01-29"
+          },
+          {
+            "name": "SSM",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 5442.0,
+            "date": "2024-01-31"
+          },
+          {
+            "name": "garanto",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 5438.0,
+            "date": "2024-01-12"
+          },
+          {
+            "name": "Kapers",
+            "type": "organization",
+            "location": "Kloten",
+            "amount": 4760.0,
+            "date": "2024-01-15"
+          },
+          {
+            "name": "SMV",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 3310.45,
+            "date": "2024-01-17"
+          },
+          {
+            "name": "AvenirSocial",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 2000.0,
+            "date": "2023-12-20"
+          },
+          {
+            "name": "SzeneSchweiz",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 1286.0,
+            "date": "2024-01-31"
+          },
+          {
+            "name": "Helvetica",
+            "type": "organization",
+            "location": "Fribourg",
+            "amount": 1176.0,
+            "date": "2024-01-15"
+          },
+          {
+            "name": "Nautilus",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 1054.0,
+            "date": "2024-01-31"
+          },
+          {
+            "name": "ESPA",
+            "type": "organization",
+            "location": "Genf",
+            "amount": 534.0,
+            "date": "2024-02-20"
           }
         ]
       },
@@ -2367,6 +4551,20 @@
             "location": "Genève",
             "amount": 55000.0,
             "date": "2024-01-17"
+          },
+          {
+            "name": "Swissmem",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 25544.0,
+            "date": "2024-03-08"
+          },
+          {
+            "name": "Zürcher Handelskammer",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 20000.0,
+            "date": "2023-12-04"
           }
         ]
       }
@@ -2431,6 +4629,20 @@
             "location": "Zürich",
             "amount": 30000.0,
             "date": "2024-01-17"
+          },
+          {
+            "name": "Swiss Re Management Ltd.",
+            "type": "organization",
+            "location": "Adliswil",
+            "amount": 20000.0,
+            "date": "2023-07-21"
+          },
+          {
+            "name": "Swiss Re Management Ltd.",
+            "type": "organization",
+            "location": "Adliswil",
+            "amount": 10000.0,
+            "date": "2024-02-16"
           }
         ]
       },

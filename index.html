@@ -19,7 +19,7 @@
 
   <!-- Self-hosted fonts — no request to Google, no visitor IP leaves this origin. -->
   <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/styles.css?v=20260923b">
+  <link rel="stylesheet" href="css/styles.css?v=20260924b">
 
 </head>
 <body>
@@ -36,7 +36,7 @@
       <li><button data-scroll="parties" data-i18n="nav.parties">Parties</button></li>
       <li><button data-scroll="initiatives" data-i18n="nav.initiatives">Votes</button></li>
       <li><button data-nav="sessions" data-i18n="nav.sessions">Sessions</button></li>
-      <li><button data-scroll="hero" data-i18n="nav.cantons">Cantons</button></li>
+      <li><button data-nav="financing" data-i18n="nav.financing">Financing</button></li>
       <li><button data-nav="profile" data-i18n="nav.profile">My profile</button></li>
     </ul>
     <div class="nav-right">
@@ -86,6 +86,7 @@
             <button type="button" class="hero-link" data-scroll="cantons-map" data-i18n="nav.cantons">Cantons</button>,
             <button type="button" class="hero-link" data-scroll="parliament" data-i18n="nav.parliament">Parliament</button>,
             <button type="button" class="hero-link" data-scroll="initiatives" data-vote-tab="collecting" data-i18n="hero.sub.initiatives">Initiatives</button>,
+            <button type="button" class="hero-link" data-nav="financing" data-i18n="nav.financing">Financing</button>,
             <button type="button" class="hero-link" data-nav="sessions" data-i18n="nav.sessions">Sessions</button>
             <span data-i18n="hero.sub.after">and more</span>
           </p>
@@ -285,6 +286,18 @@
       </div>
     </div>
 
+    <!-- FINANCING (#/financing overview, #/financing/votes every vote) -->
+    <div id="financing-page" class="subpage">
+      <div class="canton-hero session-hero">
+        <div class="subpage-inner">
+          <button class="back-btn" data-back="" data-i18n="nav.back">Back</button>
+          <h1 class="canton-title" id="financing-title"></h1>
+          <p class="canton-capital" id="financing-sub"></p>
+        </div>
+      </div>
+      <div class="canton-content" id="financing-content"></div>
+    </div>
+
     <!-- INFO / LEGAL PAGES (about, methodology, data sources, privacy, legal notice, contact) -->
     <div id="info-page" class="subpage">
       <div class="canton-hero session-hero">
@@ -380,6 +393,6 @@
     </div>
   </footer>
 
-  <script type="module" src="js/app.js?v=20260923b"></script>
+  <script type="module" src="js/app.js?v=20260924b"></script>
 </body>
 </html>

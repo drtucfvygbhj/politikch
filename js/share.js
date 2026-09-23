@@ -13,7 +13,7 @@
    JSON `data-share` spec on the graph's card and calls wireShares(root, ctx).
    The spec is link-agnostic; the link is built from ctx + the current origin.
    ============================================================ */
-import { track } from './analytics.js?v=20260923b';
+import { track } from './analytics.js?v=20260924b';
 
 // The site's own domain per interface language (branding text baked into the
 // image). RM shares the German-language domain. See the project spec.
@@ -372,6 +372,66 @@ function paintPie(spec) {
   return card.canvas;
 }
 
+// BARS: horizontal bars, one per row (label · bar · value). A row either has
+// one colour or `segments` (a stacked bar, e.g. a donor split by receiving
+// party), with an optional colour legend above the bars.
+function paintBars(spec) {
+  const rows = (spec.rows || []).filter(r => r.value > 0);
+  const legend = spec.legend || [];
+  const rowH = 46;
+  const legendRows = Math.ceil(legend.length / 5);
+  const h = Math.max(640, 330 + legendRows * 30 + rows.length * rowH + 110);
+  const card = newCard(h);
+  const ctx = card.ctx;
+  const hEnd = drawHeader(ctx);
+  let y = drawTitle(ctx, spec, hEnd) + 10;
+
+  if (legend.length) {
+    const colW = (CARD_W - PAD * 2) / 5;
+    legend.forEach((it, i) => {
+      const lx = PAD + (i % 5) * colW, ly = y + Math.floor(i / 5) * 30;
+      ctx.fillStyle = it.color;
+      ctx.beginPath(); ctx.arc(lx + 7, ly - 6, 7, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = INK;
+      ctx.font = '600 17px "DM Sans", system-ui, sans-serif';
+      ctx.fillText(truncate(ctx, it.label, colW - 30), lx + 22, y + Math.floor(i / 5) * 30);
+    });
+    y += legendRows * 30 + 14;
+  }
+
+  const labelW = 300, valueW = 190;
+  const barX = PAD + labelW + 16;
+  const barW = CARD_W - PAD - valueW - 16 - barX;
+  const max = Math.max(...rows.map(r => r.value), 1);
+  rows.forEach((r, i) => {
+    const cy = y + i * rowH + rowH / 2;
+    ctx.fillStyle = INK;
+    ctx.font = '600 18px "DM Sans", system-ui, sans-serif';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(truncate(ctx, r.label, labelW), PAD, cy);
+    // track
+    ctx.fillStyle = '#f5f0e8';
+    roundRect(ctx, barX, cy - 10, barW, 20, 5); ctx.fill();
+    const segs = r.segments && r.segments.length ? r.segments : [{ value: r.value, color: r.color }];
+    let x = barX;
+    segs.forEach(sg => {
+      const w = Math.max(3, sg.value / max * barW);
+      ctx.fillStyle = sg.color;
+      roundRect(ctx, x, cy - 10, w, 20, 4); ctx.fill();
+      x += w + 2;
+    });
+    ctx.fillStyle = MUTED;
+    ctx.font = '500 17px "DM Sans", system-ui, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(r.valueText || String(r.value), CARD_W - PAD, cy);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+  });
+
+  drawFooter(ctx, h, spec);
+  return card.canvas;
+}
+
 // Shared arc/hemicycle seat layout, returning seat {x,y,color}. Mirrors the
 // site's hemicycle so the shared image resembles the page.
 function layoutSeats(seatList, cx, cy, rInner, rOuter, rows) {
@@ -640,6 +700,7 @@ function paintSpectrum(spec) {
 
 const PAINTERS = {
   pie: paintPie,
+  bars: paintBars,
   hemicycle: paintHemicycle,
   arc: (s) => paintHemicycle(Object.assign({ arc: true }, s)),
   voteHemicycle: paintVoteHemicycle,
