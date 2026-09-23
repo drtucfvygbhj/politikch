@@ -1,7 +1,7 @@
-import { MAP_PATHS } from './map-data.js?v=20260922d';
-import { configureShare, wireShares, mountShare } from './share.js?v=20260922d';
-import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260922d';
-import { PAID_PRODUCT_LIVE } from './config.js?v=20260922d';
+import { MAP_PATHS } from './map-data.js?v=20260923a';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260923a';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260923a';
+import { PAID_PRODUCT_LIVE } from './config.js?v=20260923a';
 
 /* ============================================================
    State
@@ -63,11 +63,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json?v=20260922d').then(r => r.json()),
-    fetch('data/cantons.json?v=20260922d').then(r => r.json()),
-    fetch('data/initiatives.json?v=20260922d').then(r => r.json()),
-    fetch('data/council.json?v=20260922d').then(r => r.json()),
-    fetch('data/i18n.json?v=20260922d').then(r => r.json())
+    fetch('data/parties.json?v=20260923a').then(r => r.json()),
+    fetch('data/cantons.json?v=20260923a').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260923a').then(r => r.json()),
+    fetch('data/council.json?v=20260923a').then(r => r.json()),
+    fetch('data/i18n.json?v=20260923a').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -79,7 +79,7 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json?v=20260922d').then(r => r.ok ? r.json() : null);
+    const financing = await fetch('data/financing.json?v=20260923a').then(r => r.ok ? r.json() : null);
     if (financing) state.data.financing = financing;
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
@@ -87,14 +87,14 @@ async function loadData() {
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json?v=20260922d').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260923a').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json?v=20260922d').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260923a').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -102,7 +102,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json?v=20260922d').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260923a').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 
@@ -112,7 +112,7 @@ async function loadData() {
   // until scripts/translate.py runs with a DEEPL_API_KEY; then EN stops falling
   // back to the official language. RM has no machine translation (DeepL lacks it).
   try {
-    const mt = await fetch('data/mt.json?v=20260922d').then(r => r.ok ? r.json() : null);
+    const mt = await fetch('data/mt.json?v=20260923a').then(r => r.ok ? r.json() : null);
     state.data.mt = mt || {};
   } catch (e) { state.data.mt = {}; }
 }
@@ -405,7 +405,7 @@ function renderDonorPage(slug) {
   const subEl = document.getElementById('donor-sub');
   const bodyEl = document.getElementById('donor-content');
   if (!titleEl || !bodyEl) return;
-  if (!entry) { navigate(''); return; }
+  if (!entry) { replaceRoute('#/'); return; }
   const meta = donorMaps().meta.get(slug);
   const lang = state.lang;
   titleEl.textContent = (meta && meta.name) || entry.name;
@@ -1184,7 +1184,7 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json?v=20260922d').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260923a').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
@@ -1409,7 +1409,7 @@ function renderInitiatives() {
    ============================================================ */
 function renderInitiativePage(id) {
   const init = state.data.initiatives.find(i => i.id === id);
-  if (!init) { navigate(''); return; }
+  if (!init) { replaceRoute('#/'); return; }
 
   const badge = document.getElementById('initiative-type-badge');
   badge.className = 'party-abbr';
@@ -1612,7 +1612,7 @@ function buildMap() {
    ============================================================ */
 function renderCantonPage(code) {
   const c = state.data.cantons[code];
-  if (!c) { navigate(''); return; }
+  if (!c) { replaceRoute('#/'); return; }
 
   document.getElementById('canton-title').textContent = c.name;
   document.getElementById('canton-capital').textContent = `${t('canton.capital')}: ${c.capital}`;
@@ -1793,7 +1793,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json?v=20260922d`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260923a`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -1955,7 +1955,7 @@ function cantonMuniHTML(cd, meta) {
    ============================================================ */
 function renderPartyPage(key) {
   const p = state.data.parties[key];
-  if (!p) { navigate(''); return; }
+  if (!p) { replaceRoute('#/'); return; }
 
   const hero = document.getElementById('party-hero');
   hero.style.background = `linear-gradient(135deg, ${p.color}22 0%, var(--white) 100%)`;
@@ -2089,7 +2089,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260922d')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260923a')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2099,7 +2099,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json?v=20260922d')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260923a')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2115,7 +2115,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260922d`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260923a`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -2712,7 +2712,7 @@ function openLeaningPicker(anchor, onPick) {
 function renderSessionPage(id) {
   ensureSessionsIndex().then(index => {
     const s = ((index && index.sessions) || []).find(x => String(x.id) === String(id));
-    if (!s) { navigate('sessions'); return; }
+    if (!s) { replaceRoute('#/sessions'); return; }
     const meta = (index && index._meta) || {};
     const fetched = meta.fetchedAt ? meta.fetchedAt.slice(0, 10) : '';
 
@@ -2792,7 +2792,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'feedback', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json?v=20260922d').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260923a').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -3110,6 +3110,8 @@ function profileSpectrumSVG(point, closestKey) {
     </svg>`;
 }
 
+const PROFILE_MIN_SESSION_VOTES = 3;
+
 function renderProfilePage() {
   const titleEl = document.getElementById('profile-title');
   const subEl = document.getElementById('profile-sub');
@@ -3126,9 +3128,10 @@ function renderProfilePage() {
         <div class="empty-state-icon" aria-hidden="true">${icon('ballot')}</div>
         <p>${t('profile.empty')}</p>
       </div>
+      <p class="mine-note profile-need-more">${t('profile.graphNeedMore').replace('{min}', PROFILE_MIN_SESSION_VOTES).replace('{n}', 0)}</p>
       <div class="profile-cta">
         <a class="resource-link" href="#/sessions">${t('profile.emptySessions')} <span class="arrow">↗</span></a>
-        <a class="resource-link" href="#/">${t('profile.emptyVotes')} <span class="arrow">↗</span></a>
+        <a class="resource-link" href="#/" data-scroll="initiatives">${t('profile.emptyVotes')} <span class="arrow">↗</span></a>
       </div>`;
     return;
   }
@@ -3151,18 +3154,13 @@ function renderProfilePage() {
     : `<p class="mine-note">${t('profile.topicsEmpty')}</p>`;
 
   const alignEmpty = !d.partyRanking.length;
-
-  contentEl.innerHTML = `
-    <p class="info-lead">${t('profile.lead')}</p>
-    <p class="mine-note profile-privacy">${t('profile.privacyNote')}</p>
-
-    <div class="profile-stats">
-      <div class="stat-box"><div class="big">${d.sessN}</div><div class="lbl">${t('profile.statSessions')}</div></div>
-      <div class="stat-box"><div class="big">${d.yesN}/${d.noN}</div><div class="lbl">${t('profile.statYesNo')}</div></div>
-      <div class="stat-box"><div class="big">${d.initN}</div><div class="lbl">${t('profile.statInitiatives')}</div></div>
-      <div class="stat-box"><div class="big">${d.count}</div><div class="lbl">${t('profile.statTotal')}</div></div>
-    </div>
-
+  // The alignment/spectrum charts only mean something once there is a little
+  // parliamentary data behind them: require a few session votes first.
+  const graphsReady = d.sessN >= PROFILE_MIN_SESSION_VOTES;
+  const needMore = `<p class="mine-note profile-need-more">${t('profile.graphNeedMore')
+    .replace('{min}', PROFILE_MIN_SESSION_VOTES).replace('{n}', d.sessN)}
+    <a href="#/sessions">${t('profile.enrichBrowse')} <span class="arrow">↗</span></a></p>`;
+  const charts = graphsReady ? `
     <div class="canton-grid" style="margin-top:8px">
       <div>
         <h3 class="canton-section-title">${t('profile.alignTitle')}</h3>
@@ -3175,7 +3173,22 @@ function renderProfilePage() {
         <div class="scale-row">${profileSpectrumSVG(d.point, closest && closest.key)}</div>
         <p class="mine-note">${d.point ? t('profile.spectrumDesc') : t('profile.spectrumNeedMore')}</p>
       </div>
+    </div>` : `
+    <h3 class="canton-section-title" style="margin-top:8px">${t('profile.alignTitle')}</h3>
+    ${needMore}`;
+
+  contentEl.innerHTML = `
+    <p class="info-lead">${t('profile.lead')}</p>
+    <p class="mine-note profile-privacy">${t('profile.privacyNote')}</p>
+
+    <div class="profile-stats">
+      <div class="stat-box"><div class="big">${d.sessN}</div><div class="lbl">${t('profile.statSessions')}</div></div>
+      <div class="stat-box"><div class="big">${d.yesN}/${d.noN}</div><div class="lbl">${t('profile.statYesNo')}</div></div>
+      <div class="stat-box"><div class="big">${d.initN}</div><div class="lbl">${t('profile.statInitiatives')}</div></div>
+      <div class="stat-box"><div class="big">${d.count}</div><div class="lbl">${t('profile.statTotal')}</div></div>
     </div>
+
+    ${charts}
 
     <h3 class="canton-section-title" style="margin-top:40px">${t('profile.priorTitle')}</h3>
     <p class="mine-note">${t('profile.priorDesc')}</p>
@@ -3233,7 +3246,7 @@ const _overviewCache = {};
 function ensureOverview(kind, id) {
   const key = kind + '/' + id;
   if (_overviewCache[key]) return _overviewCache[key];
-  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260922d`)
+  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260923a`)
     .then(r => r.ok ? r.json() : null).catch(() => null);
   return _overviewCache[key];
 }
@@ -3394,7 +3407,58 @@ function showView(name) {
   document.getElementById('profile-page').classList.toggle('active', name === 'profile');
 }
 
+/* Back buttons return to the page the visitor actually came from.
+   Each in-site history entry is stamped with its depth (0 = where the visit
+   started), so a back button can tell whether there is a previous page of ours
+   to go back to (history.back()) or whether the visitor landed here directly
+   (then it falls back to the button's parent route). The scroll position of
+   every entry is remembered too, so going back lands where the visitor left. */
+let routeDepth = -1;
+const scrollByDepth = {};
+
+function stampHistoryEntry() {
+  // Remember where the page being left was scrolled to (the hash has changed,
+  // but the old view is still on screen at this point).
+  if (routeDepth >= 0) scrollByDepth[routeDepth] = window.scrollY;
+  const st = history.state;
+  if (st && typeof st.depth === 'number') {
+    routeDepth = st.depth;
+    return true;                         // back/forward/reload onto a known entry
+  }
+  routeDepth += 1;
+  delete scrollByDepth[routeDepth];      // a new page at this depth replaces the old one
+  try { history.replaceState({ depth: routeDepth }, ''); } catch (e) { /* ignore */ }
+  return false;
+}
+
+function restoreScroll(known) {
+  const y = known ? (scrollByDepth[routeDepth] || 0) : 0;
+  const go = () => window.scrollTo({ top: y, behavior: 'instant' });
+  go();
+  if (!y) return;
+  // Some pages fill in asynchronously; retry until they are tall enough.
+  let tries = 0;
+  const retry = () => {
+    if (Math.abs(window.scrollY - y) < 2 || ++tries > 20) return;
+    go();
+    setTimeout(retry, 100);
+  };
+  setTimeout(retry, 100);
+}
+
+// Redirect without adding a history entry (keeps the current depth).
+function replaceRoute(hash) {
+  try { history.replaceState({ depth: routeDepth }, '', hash); } catch (e) { location.replace(hash); return; }
+  setTimeout(handleRoute, 0);   // after the current render finishes
+}
+
+function goBack(fallback) {
+  if (routeDepth > 0) history.back();
+  else navigate(fallback);
+}
+
 function handleRoute() {
+  const known = stampHistoryEntry();
   const { view, id } = parseHash();
   if (view === 'canton' && id) {
     renderCantonPage(id);
@@ -3416,7 +3480,7 @@ function handleRoute() {
     showView('votes');
   } else if (view === 'page' && (id === 'privacy' || id === 'about')) {
     // Old addresses of pages that now have their own routes — one version only.
-    location.replace(`#/${id}`);
+    replaceRoute(`#/${id}`);
   } else if (view === 'page' && id) {
     renderInfoPage(id);
     showView('info');
@@ -3430,7 +3494,7 @@ function handleRoute() {
     renderAboutPage();
     showView('about');
   } else if (view === 'subscribe' && !PAID_PRODUCT_LIVE) {
-    location.replace('#/');
+    replaceRoute('#/');
   } else if (view === 'subscribe') {
     renderSubscribePage();
     showView('subscribe');
@@ -3440,7 +3504,7 @@ function handleRoute() {
   } else {
     showView('home');
   }
-  window.scrollTo({ top: 0, behavior: 'auto' });
+  restoreScroll(known);
 }
 
 function scrollToSection(id) {
@@ -3455,20 +3519,6 @@ function scrollToSection(id) {
 }
 
 /* ============================================================
-   Scroll reveal
-   ============================================================ */
-function initScrollReveal() {
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-    return;
-  }
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-}
-
-/* ============================================================
    Mobile menu
    ============================================================ */
 function closeMobileMenu() { document.getElementById('navbar').classList.remove('menu-open'); }
@@ -3480,8 +3530,13 @@ function bindEvents() {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => setLang(btn.dataset.lang));
   });
-  document.querySelectorAll('[data-scroll]').forEach(el => {
-    el.addEventListener('click', () => scrollToSection(el.dataset.scroll));
+  // Delegated, so section links rendered later (e.g. on the profile) work too.
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('[data-scroll]');
+    if (el) { e.preventDefault(); scrollToSection(el.dataset.scroll); }
+  });
+  document.querySelectorAll('[data-back]').forEach(el => {
+    el.addEventListener('click', (e) => { e.preventDefault(); goBack(el.dataset.back); });
   });
   // "Initiatives" in the hero subtitle: go to the votes section (above) and open
   // its "Gathering signatures" tab — the popular initiatives still in progress.
@@ -3536,7 +3591,8 @@ function bindEvents() {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 
-  // Routing
+  // Routing (scroll positions are restored by handleRoute, not the browser)
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.addEventListener('hashchange', handleRoute);
 }
 
@@ -3619,7 +3675,6 @@ async function init() {
   shareChart(document.querySelector('.council-card'), () => shareCouncilSpec());
   shareChart(document.getElementById('spectrum-chart'), () => spectrumSpec(t('spec.title'), '', {}));
   renderInitiatives();
-  initScrollReveal();
   bindEvents();
   handleRoute();
 }

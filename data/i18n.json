@@ -497,7 +497,9 @@
     "contact.cancel": "Cancel",
     "contact.inline": "our contact form",
     "contact.fallback": "No email app? Write to us at",
-    "footer.feedback": "Feedback"
+    "footer.feedback": "Feedback",
+    "nav.back": "Back",
+    "profile.graphNeedMore": "Your alignment and spectrum charts appear once you’ve voted on at least {min} session votes — you have {n} so far."
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -997,7 +999,9 @@
     "contact.cancel": "Abbrechen",
     "contact.inline": "unser Kontaktformular",
     "contact.fallback": "Keine E-Mail-App? Schreiben Sie an",
-    "footer.feedback": "Feedback"
+    "footer.feedback": "Feedback",
+    "nav.back": "Zurück",
+    "profile.graphNeedMore": "Ihre Übereinstimmungs- und Spektrum-Grafiken erscheinen, sobald Sie über mindestens {min} Sessionsabstimmungen abgestimmt haben – bisher sind es {n}."
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -1497,7 +1501,9 @@
     "contact.cancel": "Annuler",
     "contact.inline": "notre formulaire de contact",
     "contact.fallback": "Pas d’app e-mail ? Écrivez-nous à",
-    "footer.feedback": "Retour"
+    "footer.feedback": "Retour",
+    "nav.back": "Retour",
+    "profile.graphNeedMore": "Vos graphiques de concordance et de positionnement s’affichent dès que vous avez voté sur au moins {min} votes de session — vous en êtes à {n}."
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -1997,7 +2003,9 @@
     "contact.cancel": "Annulla",
     "contact.inline": "il nostro modulo di contatto",
     "contact.fallback": "Nessuna app di posta? Scrivici a",
-    "footer.feedback": "Feedback"
+    "footer.feedback": "Feedback",
+    "nav.back": "Indietro",
+    "profile.graphNeedMore": "I grafici di affinità e di posizionamento compaiono non appena avrà votato su almeno {min} votazioni di sessione — finora sono {n}."
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -2497,6 +2505,8 @@
     "contact.cancel": "Interrumper",
     "contact.inline": "noss formular da contact",
     "contact.fallback": "Nagina app d’e-mail? Scrivai a",
-    "footer.feedback": "Feedback"
+    "footer.feedback": "Feedback",
+    "nav.back": "Enavos",
+    "profile.graphNeedMore": "Voss grafics da concordanza e da spectrum cumparan uschespert che Vus avais votà davart almain {min} votaziuns da sessiun — fin ussa èn quai {n}."
   }
 }
