@@ -1,0 +1,42 @@
+// Politikch analytics — Cloudflare Worker config. See README.md in this folder.
+{
+	"name": "politikch-analytics",
+	"main": "src/index.js",
+	"compatibility_date": "2025-09-01",
+	"workers_dev": true,
+	// Only beacons from these origins are recorded (comma-separated, no trailing slash).
+	"vars": {
+		"ALLOWED_ORIGINS": "https://politikch.ch,https://www.politikch.ch,https://drtucfvygbhj.github.io",
+		// Raw event rows are deleted after this many days; only the anonymous
+		// daily totals are kept (early anonymisation, per the FDPIC cookie guideline).
+		"RAW_RETENTION_DAYS": "7"
+	},
+	// No request logging on Cloudflare's side: nothing about visitors is kept
+	// beyond what the Worker itself stores.
+	"observability": { "enabled": false },
+	// Hourly: roll up finished days, delete old salts and expired raw rows.
+	"triggers": {
+		"crons": [
+			"10 * * * *"
+		]
+	},
+	// The dashboard page is bundled as plain text.
+	"rules": [
+		{
+			"type": "Text",
+			"globs": [
+				"**/*.html"
+			],
+			"fallthrough": true
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "politikch-analytics",
+			"database_id": "7741d33f-2807-46dd-a24a-adc93d9818a9"
+		}
+	]
+	// The D1 database binding ("DB") is added here by:
+	//   wrangler d1 create politikch-analytics --jurisdiction eu --binding DB --update-config
+}

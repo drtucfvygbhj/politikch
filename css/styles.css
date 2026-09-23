@@ -1595,3 +1595,8 @@ a.fin-name:hover, .fin-row:focus a.fin-name { color: var(--red); text-decoration
 @media (max-width: 640px) {
   .ai-ov-cols { grid-template-columns: minmax(0, 1fr); gap: 14px; }
 }
+
+/* Privacy page: the visit-statistics on/off switch */
+.stats-switch { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 6px 0 18px; }
+.stats-switch .stats-switch-status { margin: 0; font-weight: 500; }
+.stats-switch-btn { border: none; font-family: inherit; cursor: pointer; padding: 12px 18px; }

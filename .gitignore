@@ -27,3 +27,7 @@ audit/
 
 # CI deploy staging directory
 _site/
+
+# Analytics Worker: local Wrangler state and local secrets
+analytics-worker/.wrangler/
+analytics-worker/.dev.vars
