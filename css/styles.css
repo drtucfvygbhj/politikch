@@ -23,14 +23,18 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
   background: var(--white);
   color: var(--charcoal);
   overflow-x: hidden;
+  /* Belt and braces against sideways panning on phones: nothing may widen the
+     page past the screen (which also pushed the fixed menu button off-screen). */
+  max-width: 100%;
 }
+@supports (overflow: clip) { html, body { overflow-x: clip; } }
 
 /* Visible keyboard focus everywhere */
 :focus-visible {
@@ -299,7 +303,7 @@ section { padding: 100px 48px; }
 #parliament .section-title { color: #fff; }
 #parliament .section-desc { color: rgba(255, 255, 255, 0.5); }
 
-.chambers { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 72px; }
+.chambers { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-bottom: 72px; }
 .chamber-card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -369,7 +373,7 @@ section { padding: 100px 48px; }
 .council-seat:focus { outline: none; }
 .council-pres-ring { fill: none; stroke: #E0B84C; stroke-width: 2.5; }
 .council-star { fill: #E0B84C; font-size: 13px; }
-.council-members { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+.council-members { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 10px; }
 .council-member {
   display: flex; align-items: center; gap: 12px; text-align: left;
   padding: 12px 14px; border-radius: 12px; cursor: pointer; font-family: inherit;
@@ -390,7 +394,7 @@ section { padding: 100px 48px; }
 .council-badge-pres { background: rgba(224, 184, 76, 0.22); color: #E9C86A; }
 .council-source { font-size: 12px; color: rgba(255, 255, 255, 0.4); margin-top: 18px; text-align: center; }
 @media (max-width: 640px) {
-  .council-members { grid-template-columns: 1fr; }
+  .council-members { grid-template-columns: minmax(0, 1fr); }
 }
 .legend-seats { font-size: 10px; opacity: 0.5; margin-left: 2px; }
 
@@ -539,7 +543,7 @@ section { padding: 100px 48px; }
 .rec-pending-icon { font-size: 26px; flex: none; }
 .rec-pending p { font-size: 14px; color: var(--mid); line-height: 1.5; margin: 0; }
 @media (max-width: 640px) {
-  .rec-columns { grid-template-columns: 1fr; gap: 12px; }
+  .rec-columns { grid-template-columns: minmax(0, 1fr); gap: 12px; }
 }
 .endorse-none { font-size: 12px; color: var(--mid); font-style: italic; }
 
@@ -643,7 +647,7 @@ section { padding: 100px 48px; }
 }
 .gloss-tip.visible { opacity: 1; transform: translateY(0); }
 
-.initiatives-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+.initiatives-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 24px; }
 .initiative-card {
   background: #fff; border-radius: 12px; padding: 28px; border: 1px solid var(--border);
   transition: var(--transition); cursor: pointer; position: relative; overflow: hidden;
@@ -740,7 +744,7 @@ section { padding: 100px 48px; }
 }
 .canton-content { padding: 60px 48px; max-width: 1200px; margin: 0 auto; }
 .canton-intro { font-size: 16px; color: var(--mid); line-height: 1.7; margin-bottom: 48px; max-width: 720px; }
-.canton-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.canton-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
 .canton-section-title {
   font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600;
   margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
@@ -862,13 +866,13 @@ section { padding: 100px 48px; }
 }
 .party-desc-large { font-size: 16px; color: var(--mid); max-width: 620px; line-height: 1.7; margin-bottom: 32px; }
 .party-positions-desc { font-size: 13px; color: var(--mid); max-width: 560px; line-height: 1.6; margin: -12px 0 20px; }
-.party-positions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 8px; }
+.party-positions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); gap: 16px; margin-top: 8px; }
 .position-card { background: var(--white); border-radius: 10px; padding: 20px; border: 1px solid var(--border); }
 .position-topic { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid); margin-bottom: 8px; }
 .position-stance { font-size: 14px; font-weight: 500; color: var(--charcoal); line-height: 1.5; }
 .position-bar { margin-top: 12px; height: 4px; background: var(--cream-dark); border-radius: 2px; overflow: hidden; }
 .position-bar-fill { height: 100%; border-radius: 2px; transition: width 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
-.party-extra { max-width: 1200px; margin: 0 auto; padding: 40px 48px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.party-extra { max-width: 1200px; margin: 0 auto; padding: 40px 48px 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
 .stat-box { text-align: center; padding: 24px; background: var(--cream); border-radius: 12px; flex: 1; }
 .stat-box .big { font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 700; line-height: 1; }
 .stat-box .lbl { font-size: 12px; color: var(--mid); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
@@ -884,7 +888,7 @@ section { padding: 100px 48px; }
 /* ─── INITIATIVE DETAIL ─── */
 /* Top area: text/facts on the left, the political scale on the right half,
    spanning from the banner down to the campaign-financing section. */
-.detail-top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-bottom: 8px; }
+.detail-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; margin-bottom: 8px; }
 .detail-top-left { min-width: 0; }
 .detail-top-right { min-width: 0; }
 .detail-top-right .vote-scale { margin-top: 18px; padding-top: 0; border-top: none; }
@@ -917,11 +921,6 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes scrollPulse { 0%, 100% { opacity: 0.4; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.2); } }
 
-.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 860px) {
@@ -944,9 +943,10 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
   nav.menu-open .nav-links button { padding: 14px 24px; text-align: left; width: 100%; }
   nav.menu-open .nav-lang { display: flex; position: absolute; top: 70px; right: 24px; }
   section { padding: 70px 24px; }
-  .chambers { grid-template-columns: 1fr; gap: 24px; }
-  .canton-grid, .party-extra { grid-template-columns: 1fr; }
-  .detail-top { grid-template-columns: 1fr; gap: 28px; }
+  .chambers { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .canton-grid, .party-extra { grid-template-columns: minmax(0, 1fr); }
+  .party-extra { padding: 32px 24px 16px; }
+  .detail-top { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .init-filters, .vote-process { grid-template-columns: repeat(2, 1fr); }
   .spectrum-chart { width: 100%; }
   .canton-hero, .party-hero { padding: 90px 24px 40px; }
@@ -962,7 +962,6 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
 }
 
 /* ─── ICONS (monochrome line symbols, in the site's colours) ─── */
@@ -973,7 +972,7 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
 .empty-state-icon .icon { width: 30px; height: 30px; }
 
 /* ─── SESSIONS ─── */
-.sessions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.sessions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 18px; }
 .session-card {
   display: flex; align-items: center; gap: 16px; text-align: left; cursor: pointer;
   background: #fff; border: 1px solid var(--border); border-radius: 14px;
@@ -1007,7 +1006,7 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
 .session-hero .session-emblem .icon { width: 100%; height: 100%; stroke-width: 1; }
 
 /* Chamber-types explainer on the sessions list page */
-.chamber-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-bottom: 22px; }
+.chamber-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 16px; margin-bottom: 22px; }
 .chamber-type { display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
 .chamber-type-icon { flex: none; width: 40px; height: 40px; display: grid; place-items: center; color: var(--red); background: var(--cream); border-radius: 10px; }
 .chamber-type-icon .icon { width: 22px; height: 22px; }
@@ -1109,11 +1108,11 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
 .search-section:first-child { padding-top: 8px; }
 
 @media (max-width: 640px) {
-  .sessions-grid { grid-template-columns: 1fr; }
+  .sessions-grid { grid-template-columns: minmax(0, 1fr); }
   .session-watch { padding: 22px 20px; }
   .svote-head { gap: 8px; }
   .svote-prow { grid-template-columns: 12px 88px 1fr auto; gap: 8px; }
-  .svote-detail-body { grid-template-columns: 1fr; gap: 20px; }
+  .svote-detail-body { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .session-filters { flex-direction: column; align-items: stretch; }
   .session-vote-count { margin-left: 0; }
 }
@@ -1551,7 +1550,7 @@ a.fin-name:hover, .fin-row:focus a.fin-name { color: var(--red); text-decoration
 }
 .ai-ov-body { font-size: 15px; line-height: 1.7; color: var(--charcoal); }
 .ai-ov-preparing { font-size: 14px; color: var(--mid); font-style: italic; margin: 4px 0 0; }
-.ai-ov-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 4px; }
+.ai-ov-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; margin-top: 4px; }
 .ai-ov-col { border-left: 3px solid var(--border); padding: 2px 0 2px 14px; }
 .ai-ov-for { border-left-color: #4c9a6b; }
 .ai-ov-against { border-left-color: var(--red); }
@@ -1594,5 +1593,5 @@ a.fin-name:hover, .fin-row:focus a.fin-name { color: var(--red); text-decoration
 .vote-changes-text { font-size: 14px; line-height: 1.7; color: var(--charcoal); margin: 6px 0 0; }
 
 @media (max-width: 640px) {
-  .ai-ov-cols { grid-template-columns: 1fr; gap: 14px; }
+  .ai-ov-cols { grid-template-columns: minmax(0, 1fr); gap: 14px; }
 }
