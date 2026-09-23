@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politikch — temporarily unavailable</title>
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light">
+  <!-- The site's kill switch (see MAINTENANCE.md). When a file named
+       MAINTENANCE_MODE exists at the repo root, deploy.yml publishes THIS page
+       instead of the site. Deliberately self-contained — no CSS, JS, fonts or
+       data files — so it still works when the site itself is broken or mid-change.
+       The contact addresses stay reachable: people must still be able to reach
+       us, in particular for data-protection requests. -->
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 32px 16px; background: #faf9f6; color: #1a1a1a;
+      font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    .box { width: 100%; max-width: 560px; text-align: center; }
+    .mark {
+      width: 56px; height: 56px; margin: 0 auto 24px; border-radius: 8px;
+      background: #D0021B; position: relative;
+    }
+    .mark::before, .mark::after {
+      content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      background: #fff; border-radius: 2px;
+    }
+    .mark::before { width: 28px; height: 8px; }
+    .mark::after { width: 8px; height: 28px; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-size: 30px; margin: 0 0 20px; letter-spacing: -0.5px; }
+    p { margin: 0 0 14px; font-size: 16px; }
+    .lang { color: #6b7076; font-size: 15px; }
+    .contact { margin-top: 28px; padding-top: 20px; border-top: 1px solid #e3e0d8; font-size: 15px; color: #6b7076; }
+    a { color: #D0021B; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #14161a; color: #f2f0ea; }
+      .lang, .contact { color: #a8a49b; }
+      .contact { border-top-color: #2a2d33; }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="mark" aria-hidden="true"></div>
+    <h1>Politikch</h1>
+
+    <p lang="en">This site is temporarily unavailable. It will be back shortly.</p>
+    <p class="lang" lang="de">Diese Website ist vorübergehend nicht verfügbar. Sie ist in Kürze wieder erreichbar.</p>
+    <p class="lang" lang="fr">Ce site est temporairement indisponible. Il sera de nouveau accessible sous peu.</p>
+    <p class="lang" lang="it">Questo sito è temporaneamente non disponibile. Tornerà presto raggiungibile.</p>
+    <p class="lang" lang="rm">Questa pagina n'è per il mument betg disponibla. Ella è puspè cuntanschibla baud.</p>
+
+    <div class="contact">
+      <p>Contact: <a href="mailto:contact.form@politikch.ch">contact.form@politikch.ch</a></p>
+      <p>Data protection requests: <a href="mailto:privacy@politikch.ch">privacy@politikch.ch</a></p>
+    </div>
+  </div>
+</body>
+</html>

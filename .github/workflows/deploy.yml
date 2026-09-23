@@ -56,10 +56,23 @@ jobs:
       - name: Assemble site (allowlist)
         run: |
           mkdir _site
-          cp index.html 404.html robots.txt .nojekyll _site/
+          if [ -f MAINTENANCE_MODE ]; then
+            # Kill switch: a file named MAINTENANCE_MODE at the repo root takes the
+            # site off and publishes only the notice page, which keeps the contact
+            # and data-protection addresses reachable. Delete the file to go back
+            # live. See MAINTENANCE.md. The flag lives in the repo, so the weekly
+            # data job's deploy cannot silently bring the site back.
+            cp maintenance.html _site/index.html
+            cp maintenance.html _site/404.html
+            printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
+            touch _site/.nojekyll
+            echo "::warning::MAINTENANCE MODE — publishing the notice page only, not the site"
+          else
+            cp index.html 404.html robots.txt .nojekyll _site/
+            cp -r css js fonts _site/
+            rsync -a --exclude='*.md' --exclude='brochures/' data/ _site/data/
+          fi
           mkdir -p _site/.well-known && cp .well-known/security.txt _site/.well-known/
-          cp -r css js fonts _site/
-          rsync -a --exclude='*.md' --exclude='brochures/' data/ _site/data/
           # A CNAME file (custom domain) is carried over if the repo has one.
           [ -f CNAME ] && cp CNAME _site/
           # Guard: only runtime file types may be published.
