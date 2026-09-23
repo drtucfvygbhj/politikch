@@ -181,3 +181,57 @@ run `python3 scripts/fetch_sessions.py --force` once to backfill older sessions.
 
 (The cache token is auto-bumped on deploy; `validate.py` runs in CI — run it
 locally only if you hand-edited data before pushing.)
+
+---
+
+## Taking the site off (and back on)
+
+Three levels, strongest last. Level 1 is the normal one.
+
+### Level 1 — maintenance page (about 1 minute, phone-friendly)
+
+Publishes `maintenance.html` instead of the site: a short notice in all five
+languages, with `contact.form@` and `privacy@` still reachable. Everything else
+(domains, certificates, DNS, email) is untouched.
+
+**Off:** on github.com, open the `politikch` repo → **Add file → Create new
+file** → name it exactly `MAINTENANCE_MODE` → type anything in the body (e.g.
+the reason and date) → **Commit changes**.
+
+**On:** open the `MAINTENANCE_MODE` file → **Delete file** → **Commit changes**.
+
+Either way the deploy runs automatically and the change is live in about a
+minute. The flag lives in the repo, so the weekly data job cannot undo it.
+
+Use it for: a legal complaint or takedown request, a data error that needs
+checking, a suspected security problem, or a pause while something is finished.
+
+### Level 2 — unpublish (seconds; nothing is served at all)
+
+1. Repo → **Settings → Pages → Unpublish site**.
+2. **Actions → "Deploy to GitHub Pages" → ⋯ → Disable workflow.** Without this,
+   the next push or data job republishes the site.
+
+Visitors get GitHub's bare 404 — no notice, no contact address. Back on:
+re-enable the workflow, then **Run workflow**.
+
+### Level 3 — cut the DNS (up to 5 minutes; only if GitHub itself is the problem)
+
+Remove the A and AAAA records for the domain in the Hostpoint DNS editor. Do
+this only if the GitHub account or a workflow is compromised; also change the
+GitHub password, check 2FA, and disable the workflows.
+
+**Never** delete the repositories or the `_github-pages-challenge-…` TXT
+records at any level: they are what stops someone else claiming the domains.
+
+### Things to know
+
+- Pages are cached for 10 minutes (`cache-control: max-age=600`), so a recent
+  visitor may still see the old page for that long after any of these.
+- The three language domains redirect to `politikch.ch`, so they show the
+  maintenance page too.
+- The notice page is a normal page (HTTP 200), not a "service unavailable"
+  status, which GitHub Pages cannot send. Fine for short pauses; for a long
+  outage prefer Level 2.
+- `maintenance.html` is deliberately self-contained (no CSS, JS, fonts or data),
+  so it still works when the site itself is broken or mid-change.
