@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Politikch Analytics</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f6f5f1; --surface: #fcfcfb; --border: #e4e2dc;
+    --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #7a7873;
+    --series-1: #2a78d6; --series-1-soft: rgba(42, 120, 214, 0.12);
+    --grid: #ebe9e3; --brand: #d0021b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --bg: #121211; --surface: #1a1a19; --border: #2e2d2b;
+      --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #8f8d86;
+      --series-1: #3987e5; --series-1-soft: rgba(57, 135, 229, 0.18);
+      --grid: #2a2927; --brand: #ff4d5e;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #121211; --surface: #1a1a19; --border: #2e2d2b;
+    --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #8f8d86;
+    --series-1: #3987e5; --series-1-soft: rgba(57, 135, 229, 0.18);
+    --grid: #2a2927; --brand: #ff4d5e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text-primary); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 24px 16px 64px; }
+  header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
+  h1 { font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+  .cross { width: 22px; height: 22px; background: var(--brand); border-radius: 4px; position: relative; flex: none; }
+  .cross::before, .cross::after { content: ''; position: absolute; background: #fff; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  .cross::before { width: 12px; height: 3px; } .cross::after { width: 3px; height: 12px; }
+  .live { color: var(--text-secondary); font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #1baf7a; }
+  .ranges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+  .ranges button, .showall { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary); cursor: pointer; }
+  .ranges button[aria-pressed="true"] { background: var(--text-primary); color: var(--surface); border-color: var(--text-primary); }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--series-1); outline-offset: 2px; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 14px; }
+  .kpi { text-align: left; font: inherit; color: inherit; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+  button.kpi { cursor: pointer; }
+  .kpi[aria-pressed="true"] { border-color: var(--series-1); box-shadow: inset 0 -3px 0 var(--series-1); }
+  .kpi .lbl { font-size: 12px; color: var(--text-secondary); }
+  .kpi .val { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; min-width: 0; }
+  .card h2 { font-size: 14px; font-weight: 650; margin-bottom: 2px; }
+  .card .sub { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+  .chart-card { margin-bottom: 14px; }
+  .chart { position: relative; height: 240px; }
+  .chart svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  .axis text { fill: var(--text-muted); font-size: 11px; }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+  .tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.12); white-space: nowrap; display: none; z-index: 5; }
+  .tip strong { font-size: 14px; font-variant-numeric: tabular-nums; }
+  .tip .key { display: inline-block; width: 12px; height: 2px; background: var(--series-1); vertical-align: middle; margin-right: 6px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: right; font-weight: 500; font-size: 11px; color: var(--text-muted); padding: 0 0 6px 8px; white-space: nowrap; }
+  th:first-child { text-align: left; padding-left: 0; }
+  td { padding: 0; height: 30px; }
+  td.num { text-align: right; padding-left: 8px; font-variant-numeric: tabular-nums; color: var(--text-secondary); white-space: nowrap; }
+  td.name { position: relative; max-width: 0; width: 100%; }
+  .bar { position: absolute; left: 0; top: 3px; bottom: 3px; background: var(--series-1-soft); border-radius: 4px; }
+  .name-text { position: relative; padding: 0 8px; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .name-text a { color: inherit; text-decoration: none; }
+  .name-text a:hover { text-decoration: underline; }
+  .empty { color: var(--text-muted); font-size: 13px; padding: 8px 0; }
+  .showall { margin-top: 8px; font-size: 12px; padding: 4px 10px; }
+  .foot { margin-top: 28px; color: var(--text-muted); font-size: 12px; max-width: 760px; }
+  .foot p + p { margin-top: 6px; }
+  .error { background: #fee2e2; color: #991b1b; padding: 12px 14px; border-radius: 10px; margin-bottom: 14px; display: none; }
+  .loading { opacity: .55; transition: opacity .2s; }
+  .section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 26px 0 10px; }
+  .theme-btn { font: inherit; font-size: 12px; background: none; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 999px; padding: 4px 10px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><span class="cross" aria-hidden="true"></span>Politikch analytics</h1>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+      <span class="live" id="live"><span class="live-dot" aria-hidden="true"></span><span id="live-text">…</span></span>
+      <button class="theme-btn" id="theme-btn" type="button">Theme</button>
+    </div>
+  </header>
+
+  <div class="ranges" role="group" aria-label="Time range" id="ranges">
+    <button type="button" data-range="today">Today</button>
+    <button type="button" data-range="7d">7 days</button>
+    <button type="button" data-range="30d">30 days</button>
+    <button type="button" data-range="90d">90 days</button>
+    <button type="button" data-range="12m">12 months</button>
+    <button type="button" data-range="all">All time</button>
+  </div>
+
+  <div class="error" id="error" role="alert"></div>
+
+  <div id="main">
+    <div class="kpis" id="kpis"></div>
+
+    <div class="card chart-card">
+      <h2 id="chart-title">Visitors</h2>
+      <p class="sub" id="chart-sub"></p>
+      <div class="chart" id="chart"></div>
+    </div>
+
+    <p class="section-title">Content</p>
+    <div class="grid">
+      <div class="card" id="c-page"></div>
+      <div class="card" id="c-entry"></div>
+      <div class="card" id="c-exit"></div>
+      <div class="card" id="c-hour"></div>
+    </div>
+
+    <p class="section-title">Where visitors come from</p>
+    <div class="grid">
+      <div class="card" id="c-source"></div>
+      <div class="card" id="c-utm_source"></div>
+      <div class="card" id="c-utm_medium"></div>
+      <div class="card" id="c-utm_campaign"></div>
+      <div class="card" id="c-landing_lang"></div>
+    </div>
+
+    <p class="section-title">Location</p>
+    <div class="grid">
+      <div class="card" id="c-country"></div>
+      <div class="card" id="c-region"></div>
+      <div class="card" id="c-city"></div>
+    </div>
+
+    <p class="section-title">Technology &amp; language</p>
+    <div class="grid">
+      <div class="card" id="c-device"></div>
+      <div class="card" id="c-browser"></div>
+      <div class="card" id="c-os"></div>
+      <div class="card" id="c-screen"></div>
+      <div class="card" id="c-lang"></div>
+      <div class="card" id="c-blang"></div>
+    </div>
+
+    <p class="section-title">Actions</p>
+    <div class="grid" id="events-grid"></div>
+  </div>
+
+  <div class="foot">
+    <p><strong>How counting works.</strong> No cookies are used, so a visitor is recognised only within one day (Europe/Zurich). Someone who visits on three days counts as three visitors in longer ranges. A visit ends after 30 minutes without a new page. A bounce is a visit with a single page view. Time figures only count time the page was visible.</p>
+    <p>Finished days are summarised every hour; today is computed live. Raw records are deleted after the retention period set in the Worker, and the daily summaries are kept.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  const SITE = 'https://politikch.ch/#';
+  const $ = (id) => document.getElementById(id);
+  const fmt = new Intl.NumberFormat('de-CH');
+  let countryNames, langNames;
+  try { countryNames = new Intl.DisplayNames(['en'], { type: 'region' }); } catch (e) {}
+  try { langNames = new Intl.DisplayNames(['en'], { type: 'language' }); } catch (e) {}
+
+  let data = null;
+  let metric = 'visitors';
+  let range = 'today';
+  try { range = localStorage.getItem('pa-range') || '30d'; } catch (e) { range = '30d'; }
+
+  /* ---------- theme ---------- */
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    else document.documentElement.removeAttribute('data-theme');
+    $('theme-btn').textContent = t === 'dark' ? 'Dark' : t === 'light' ? 'Light' : 'Auto theme';
+  }
+  let theme = null;
+  try { theme = localStorage.getItem('pa-theme'); } catch (e) {}
+  applyTheme(theme);
+  $('theme-btn').addEventListener('click', () => {
+    theme = theme === null ? 'light' : theme === 'light' ? 'dark' : null;
+    try { theme ? localStorage.setItem('pa-theme', theme) : localStorage.removeItem('pa-theme'); } catch (e) {}
+    applyTheme(theme);
+  });
+
+  /* ---------- labels ---------- */
+  const EVENT_LABELS = {
+    lang: 'Language switched', search: 'Search result opened', vote: 'Votes cast on the site',
+    share: 'Shares', outbound: 'Clicks to other sites', vote_open: 'Session votes opened',
+    contact: 'Contact form opened', glossary: 'Glossary terms opened',
+  };
+  const DIM_TITLES = {
+    page: ['Top pages', 'Page views · visitors · avg. visible time'],
+    entry: ['Entry pages', 'First page of a visit'],
+    exit: ['Exit pages', 'Last page of a visit'],
+    hour: ['Busiest hours', 'Page views by hour of day (Zurich time)'],
+    source: ['Sources', 'Referring website on arrival'],
+    utm_source: ['Campaign sources', 'utm_source on arrival'],
+    utm_medium: ['Campaign media', 'utm_medium on arrival'],
+    utm_campaign: ['Campaigns', 'utm_campaign on arrival'],
+    landing_lang: ['Language links', 'Arrivals via ?lang= (e.g. the language domains)'],
+    country: ['Countries', ''],
+    region: ['Regions', 'Cantons for Switzerland'],
+    city: ['Cities', 'Approximate, from the network'],
+    device: ['Devices', ''],
+    browser: ['Browsers', ''],
+    os: ['Operating systems', ''],
+    screen: ['Screen sizes', 'Screen width'],
+    lang: ['Site language', 'Language the page was shown in'],
+    blang: ['Browser language', 'Visitor’s preferred language'],
+  };
+  function routeLabel(r) {
+    if (r === '/' || r === '') return 'Home';
+    const [, view, id] = r.split('/');
+    const dec = (s) => { try { return decodeURIComponent(s || ''); } catch (e) { return s; } };
+    const names = { party: 'Party', canton: 'Canton', initiative: 'Vote', session: 'Session', sessions: 'All sessions',
+      votes: 'Search final votes', profile: 'My profile', about: 'About', privacy: 'Privacy', page: 'Page', donor: 'Donor', subscribe: 'Subscribe' };
+    const base = names[view] || view;
+    return id ? `${base} · ${dec(id)}` : base;
+  }
+  function keyLabel(dim, k) {
+    if (dim === 'country') return (countryNames && countryNames.of(k)) || k;
+    if (dim === 'region' || dim === 'city') {
+      const [c, rest] = k.split(' · ');
+      return `${rest} (${c})`;
+    }
+    if (dim === 'lang' || dim === 'blang' || dim === 'landing_lang') {
+      if (k === 'rm') return 'Romansh';
+      return (langNames && langNames.of(k)) || k;
+    }
+    if (dim === 'page' || dim === 'entry' || dim === 'exit') return routeLabel(k);
+    return k;
+  }
+  const dur = (ms) => {
+    const s = Math.round(ms / 1000);
+    if (s < 60) return s + 's';
+    const m = Math.floor(s / 60);
+    return m < 60 ? `${m}m ${String(s % 60).padStart(2, '0')}s` : `${Math.floor(m / 60)}h ${m % 60}m`;
+  };
+  const pct = (a, b) => b ? Math.round(a / b * 100) + '%' : '–';
+
+  function el(tag, attrs, text) {
+    const e = document.createElement(tag);
+    if (attrs) for (const [k, v] of Object.entries(attrs)) {
+      if (k === 'class') e.className = v; else if (k === 'style') e.style.cssText = v; else e.setAttribute(k, v);
+    }
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  /* ---------- KPIs ---------- */
+  function renderKpis() {
+    const t = data.totals;
+    const items = [
+      ['visitors', 'Unique visitors', fmt.format(t.visitors)],
+      ['visits', 'Visits', fmt.format(t.visits)],
+      ['pageviews', 'Page views', fmt.format(t.pageviews)],
+      [null, 'Views per visit', t.visits ? (t.pageviews / t.visits).toFixed(1) : '–'],
+      [null, 'Bounce rate', pct(t.bounces, t.visits)],
+      [null, 'Avg. visit duration', t.visits ? dur(t.duration / t.visits) : '–'],
+    ];
+    const box = $('kpis');
+    box.replaceChildren();
+    for (const [m, lbl, val] of items) {
+      const b = el(m ? 'button' : 'div', m ? { type: 'button', class: 'kpi', 'aria-pressed': String(m === metric) } : { class: 'kpi' });
+      b.append(el('div', { class: 'lbl' }, lbl), el('div', { class: 'val' }, val));
+      if (m) b.addEventListener('click', () => { metric = m; renderKpis(); renderChart(); });
+      box.append(b);
+    }
+  }
+
+  /* ---------- time-series chart (single series, crosshair + tooltip) ---------- */
+  function seriesPoints() {
+    let pts = data.series.map(s => ({ label: s.label, v: s[metric] || 0 }));
+    if (data.range !== 'today' && pts.length > 120) {
+      const byMonth = new Map();
+      for (const p of pts) {
+        const k = p.label.slice(0, 7);
+        byMonth.set(k, (byMonth.get(k) || 0) + p.v);
+      }
+      pts = [...byMonth].map(([label, v]) => ({ label, v }));
+    }
+    return pts;
+  }
+  function fmtLabel(l, long) {
+    if (/^\d\d:00$/.test(l)) return l;
+    const opts = l.length === 7 ? { month: 'short', year: 'numeric' } : long ? { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' } : { day: 'numeric', month: 'short' };
+    const d = new Date(l.length === 7 ? l + '-01T12:00:00Z' : l + 'T12:00:00Z');
+    return d.toLocaleDateString('en-GB', { ...opts, timeZone: 'UTC' });
+  }
+  function niceMax(v) {
+    if (v <= 4) return 4;
+    const p = Math.pow(10, Math.floor(Math.log10(v)));
+    for (const m of [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]) if (m * p >= v) return m * p;
+    return 10 * p;
+  }
+  function renderChart() {
+    const names = { visitors: 'Unique visitors', visits: 'Visits', pageviews: 'Page views' };
+    $('chart-title').textContent = names[metric];
+    const pts = seriesPoints();
+    const monthly = pts.length && pts[0].label.length === 7;
+    $('chart-sub').textContent = data.range === 'today' ? 'By hour, today (Zurich time)' : monthly ? 'By month' : 'By day';
+    const host = $('chart');
+    host.replaceChildren();
+    const W = host.clientWidth || 800, H = host.clientHeight || 240;
+    const pad = { l: 44, r: 12, t: 10, b: 26 };
+    const iw = W - pad.l - pad.r, ih = H - pad.t - pad.b;
+    const max = niceMax(Math.max(1, ...pts.map(p => p.v)));
+    const x = (i) => pad.l + (pts.length === 1 ? iw / 2 : i * iw / (pts.length - 1));
+    const y = (v) => pad.t + ih - v / max * ih;
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', `${names[metric]} over time; values are listed in the tables below and in each point's tooltip`);
+    const mk = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+    const axis = mk('g', { class: 'axis' });
+    for (let i = 0; i <= 4; i++) {
+      const v = max * i / 4, yy = y(v);
+      axis.append(mk('line', { class: 'gridline', x1: pad.l, x2: W - pad.r, y1: yy, y2: yy }));
+      const t = mk('text', { x: pad.l - 8, y: yy + 4, 'text-anchor': 'end' }); t.textContent = fmt.format(v); axis.append(t);
+    }
+    const every = Math.max(1, Math.ceil(pts.length / Math.max(2, Math.floor(iw / 70))));
+    pts.forEach((p, i) => {
+      if (i % every) return;
+      const t = mk('text', { x: x(i), y: H - 6, 'text-anchor': 'middle' }); t.textContent = fmtLabel(p.label); axis.append(t);
+    });
+    svg.append(axis);
+    if (pts.length) {
+      const line = pts.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(p.v).toFixed(1)}`).join('');
+      svg.append(mk('path', { d: `${line}L${x(pts.length - 1)},${y(0)}L${x(0)},${y(0)}Z`, fill: 'var(--series-1-soft)' }));
+      svg.append(mk('path', { d: line, fill: 'none', stroke: 'var(--series-1)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+    }
+    const hair = mk('line', { y1: pad.t, y2: pad.t + ih, stroke: 'var(--text-muted)', 'stroke-width': 1, visibility: 'hidden' });
+    const dot = mk('circle', { r: 5, fill: 'var(--series-1)', stroke: 'var(--surface)', 'stroke-width': 2, visibility: 'hidden' });
+    svg.append(hair, dot);
+    host.append(svg);
+    const tip = el('div', { class: 'tip' });
+    host.append(tip);
+    const show = (i) => {
+      const p = pts[i]; if (!p) return;
+      hair.setAttribute('x1', x(i)); hair.setAttribute('x2', x(i)); hair.setAttribute('visibility', 'visible');
+      dot.setAttribute('cx', x(i)); dot.setAttribute('cy', y(p.v)); dot.setAttribute('visibility', 'visible');
+      tip.replaceChildren(el('strong', null, fmt.format(p.v)), document.createTextNode(' '), el('span', { class: 'key' }), document.createTextNode(names[metric]), el('br'), document.createTextNode(fmtLabel(p.label, true)));
+      tip.style.display = 'block';
+      const tx = Math.min(Math.max(x(i) - tip.offsetWidth / 2, 0), W - tip.offsetWidth);
+      tip.style.left = tx + 'px'; tip.style.top = Math.max(0, y(p.v) - tip.offsetHeight - 12) + 'px';
+    };
+    const hide = () => { hair.setAttribute('visibility', 'hidden'); dot.setAttribute('visibility', 'hidden'); tip.style.display = 'none'; };
+    svg.addEventListener('pointermove', (e) => {
+      const r = svg.getBoundingClientRect();
+      const px = (e.clientX - r.left) * W / r.width;
+      const i = pts.length === 1 ? 0 : Math.round((px - pad.l) / iw * (pts.length - 1));
+      show(Math.max(0, Math.min(pts.length - 1, i)));
+    });
+    svg.addEventListener('pointerleave', hide);
+    svg.tabIndex = 0;
+    let ki = pts.length - 1;
+    svg.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { ki = Math.max(0, ki - 1); show(ki); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { ki = Math.min(pts.length - 1, ki + 1); show(ki); e.preventDefault(); }
+    });
+    svg.addEventListener('blur', hide);
+  }
+
+  /* ---------- tables ---------- */
+  function renderTable(card, title, sub, rows, cols, opts = {}) {
+    card.replaceChildren(el('h2', null, title));
+    if (sub) card.append(el('p', { class: 'sub' }, sub));
+    else card.append(el('p', { class: 'sub' }, ' '));
+    if (!rows.length) { card.append(el('p', { class: 'empty' }, 'No data for this range yet.')); return; }
+    const limit = opts.limit || 10;
+    const max = Math.max(...rows.map(r => r[cols[0].key] || 0), 1);
+    const table = el('table');
+    const head = el('tr');
+    head.append(el('th', null, opts.nameHead || 'Name'));
+    for (const c of cols) head.append(el('th', null, c.label));
+    const thead = el('thead');
+    thead.append(head);
+    table.append(thead);
+    const body = el('tbody');
+    table.append(body);
+    const draw = (all) => {
+      body.replaceChildren();
+      for (const r of (all ? rows : rows.slice(0, limit))) {
+        const tr = el('tr');
+        const td = el('td', { class: 'name' });
+        td.append(el('span', { class: 'bar', style: `width:${Math.max(1, (r[cols[0].key] || 0) / max * 100)}%` }));
+        const nt = el('span', { class: 'name-text', title: r.label });
+        if (r.href) { const a = el('a', { href: r.href, target: '_blank', rel: 'noopener' }, r.label); nt.append(a); }
+        else nt.textContent = r.label;
+        td.append(nt);
+        tr.append(td);
+        for (const c of cols) tr.append(el('td', { class: 'num' }, c.fmt ? c.fmt(r) : fmt.format(r[c.key] || 0)));
+        body.append(tr);
+      }
+    };
+    draw(false);
+    card.append(table);
+    if (rows.length > limit) {
+      const btn = el('button', { type: 'button', class: 'showall' }, `Show all ${rows.length}`);
+      let open = false;
+      btn.addEventListener('click', () => { open = !open; draw(open); btn.textContent = open ? 'Show fewer' : `Show all ${rows.length}`; });
+      card.append(btn);
+    }
+  }
+
+  function renderHours(card) {
+    const [title, sub] = DIM_TITLES.hour;
+    card.replaceChildren(el('h2', null, title), el('p', { class: 'sub' }, sub));
+    const by = Object.fromEntries((data.dims.hour || []).map(h => [h.key, h.hits]));
+    const vals = Array.from({ length: 24 }, (_, h) => ({ h, v: by[String(h).padStart(2, '0')] || 0 }));
+    const max = niceMax(Math.max(1, ...vals.map(v => v.v)));
+    const W = 360, H = 170, pl = 30, pb = 20, pt = 6;
+    const bw = (W - pl) / 24;
+    const NS = 'http://www.w3.org/2000/svg';
+    const mk = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+    const wrap = el('div', { class: 'chart', style: 'height:180px' });
+    const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Page views by hour of day' });
+    const g = mk('g', { class: 'axis' });
+    for (let i = 0; i <= 2; i++) {
+      const yy = pt + (H - pb - pt) * (1 - i / 2);
+      g.append(mk('line', { class: 'gridline', x1: pl, x2: W, y1: yy, y2: yy }));
+      const t = mk('text', { x: pl - 6, y: yy + 4, 'text-anchor': 'end' }); t.textContent = fmt.format(max * i / 2); g.append(t);
+    }
+    [0, 6, 12, 18].forEach(h => { const t = mk('text', { x: pl + h * bw + bw / 2, y: H - 4, 'text-anchor': 'middle' }); t.textContent = String(h).padStart(2, '0'); g.append(t); });
+    svg.append(g);
+    const tip = el('div', { class: 'tip' });
+    vals.forEach(({ h, v }) => {
+      const bh = v / max * (H - pb - pt);
+      const x0 = pl + h * bw + 1, w = bw - 2, y0 = H - pb - bh;
+      const r = Math.min(4, w / 2, bh);
+      const d = bh > 0 ? `M${x0},${H - pb}V${y0 + r}Q${x0},${y0} ${x0 + r},${y0}H${x0 + w - r}Q${x0 + w},${y0} ${x0 + w},${y0 + r}V${H - pb}Z` : '';
+      if (d) svg.append(mk('path', { d, fill: 'var(--series-1)' }));
+      const hit = mk('rect', { x: pl + h * bw, y: pt, width: bw, height: H - pb - pt, fill: 'transparent', tabindex: 0 });
+      const on = () => {
+        tip.replaceChildren(el('strong', null, fmt.format(v)), document.createTextNode(` page views · ${String(h).padStart(2, '0')}:00–${String(h).padStart(2, '0')}:59`));
+        tip.style.display = 'block';
+        const rr = wrap.getBoundingClientRect();
+        const px = (pl + h * bw + bw / 2) / W * rr.width;
+        tip.style.left = Math.min(Math.max(px - tip.offsetWidth / 2, 0), rr.width - tip.offsetWidth) + 'px';
+        tip.style.top = '0px';
+      };
+      hit.addEventListener('pointerenter', on); hit.addEventListener('focus', on);
+      hit.addEventListener('pointerleave', () => tip.style.display = 'none'); hit.addEventListener('blur', () => tip.style.display = 'none');
+      svg.append(hit);
+    });
+    wrap.append(svg, tip);
+    card.append(wrap);
+  }
+
+  function renderDims() {
+    const d = data.dims;
+    const visitorsCols = [{ key: 'visitors', label: 'Visitors' }, { key: 'hits', label: 'Views' }];
+    // Pages
+    const pages = (d.page || []).map(r => ({ ...r, label: routeLabel(r.key), href: SITE + r.key }))
+      .sort((a, b) => b.hits - a.hits);
+    renderTable($('c-page'), ...DIM_TITLES.page, pages, [
+      { key: 'hits', label: 'Views' }, { key: 'visitors', label: 'Visitors' },
+      { key: 'extra', label: 'Avg. time', fmt: r => r.hits && r.extra ? dur(r.extra / r.hits) : '–' },
+    ], { nameHead: 'Page' });
+    for (const dim of ['entry', 'exit']) {
+      const rows = (d[dim] || []).map(r => ({ ...r, label: routeLabel(r.key), href: SITE + r.key })).sort((a, b) => b.hits - a.hits);
+      renderTable($('c-' + dim), ...DIM_TITLES[dim], rows, [{ key: 'hits', label: 'Visits' }], { nameHead: 'Page' });
+    }
+    renderHours($('c-hour'));
+    for (const dim of ['source', 'utm_source', 'utm_medium', 'utm_campaign', 'landing_lang', 'country', 'region', 'city', 'device', 'browser', 'os', 'screen', 'lang', 'blang']) {
+      const rows = (d[dim] || []).map(r => ({
+        ...r, label: keyLabel(dim, r.key),
+        href: dim === 'source' && r.key.includes('.') ? 'https://' + r.key : null,
+      }));
+      renderTable($('c-' + dim), ...DIM_TITLES[dim], rows, visitorsCols.concat([{ key: 'visitors', label: '%', fmt: r => pct(r.visitors, data.totals.visitors) }]));
+    }
+    // Actions, one card per event name.
+    const byName = {};
+    for (const r of (d.event || [])) {
+      const [name, prop] = r.key.split('\t');
+      (byName[name] = byName[name] || []).push({ ...r, label: prop || '(no detail)' });
+    }
+    const grid = $('events-grid');
+    grid.replaceChildren();
+    const names = Object.keys(EVENT_LABELS).filter(n => byName[n]);
+    if (!names.length) { const c = el('div', { class: 'card' }); c.append(el('h2', null, 'Actions'), el('p', { class: 'empty' }, 'No actions recorded for this range yet.')); grid.append(c); }
+    for (const n of names) {
+      const rows = byName[n].sort((a, b) => b.hits - a.hits);
+      const total = rows.reduce((s, r) => s + r.hits, 0);
+      const card = el('div', { class: 'card' });
+      renderTable(card, `${EVENT_LABELS[n]} · ${fmt.format(total)}`, '', rows, [{ key: 'hits', label: 'Count' }, { key: 'visitors', label: 'Visitors' }], { nameHead: 'Detail' });
+      grid.append(card);
+    }
+  }
+
+  /* ---------- load ---------- */
+  function setRangeButtons() {
+    document.querySelectorAll('#ranges button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.range === range)));
+  }
+  async function load() {
+    setRangeButtons();
+    $('main').classList.add('loading');
+    try {
+      const r = await fetch(location.origin + '/api/stats?range=' + encodeURIComponent(range), { credentials: 'same-origin' });
+      const j = await r.json();
+      if (!r.ok || j.error) throw new Error(j.error || r.statusText);
+      data = j;
+      $('error').style.display = 'none';
+      $('live-text').textContent = `${fmt.format(j.live.visitors || 0)} visitor${j.live.visitors === 1 ? '' : 's'} in the last 30 min`;
+      renderKpis(); renderChart(); renderDims();
+    } catch (e) {
+      $('error').textContent = 'Could not load statistics: ' + e.message;
+      $('error').style.display = 'block';
+    } finally {
+      $('main').classList.remove('loading');
+    }
+  }
+  document.querySelectorAll('#ranges button').forEach(b => b.addEventListener('click', () => {
+    range = b.dataset.range;
+    try { localStorage.setItem('pa-range', range); } catch (e) {}
+    load();
+  }));
+  let rt;
+  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => data && renderChart(), 150); });
+  // Every 5 minutes while visible: keeps D1 reads well inside the free plan.
+  setInterval(() => { if (document.visibilityState === 'visible') load(); }, 5 * 60 * 1000);
+  load();
+})();
+</script>
+</body>
+</html>

@@ -15,6 +15,16 @@
    No trailing slash. */
 export const POLL_API = '';
 
+/* ANALYTICS_API — base URL of the site's own anonymous statistics service
+   (analytics-worker/, a Cloudflare Worker). No trailing slash.
+
+   Empty = statistics off: js/analytics.js sends nothing, and the Privacy page
+   leaves out its statistics section (so it never describes processing that
+   isn't happening). Set it to the Worker's address to switch statistics on —
+   and add that same origin to connect-src in index.html's
+   Content-Security-Policy, or the browser will block the beacons. */
+export const ANALYTICS_API = 'https://politikch-analytics.soft-hill-f9fb.workers.dev';
+
 /* PAID_PRODUCT_LIVE — whether the planned paid analysis product is shown.
 
    While false, nothing on the site offers or advertises a paid product: the

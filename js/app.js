@@ -1,7 +1,8 @@
-import { MAP_PATHS } from './map-data.js?v=20260923a';
-import { configureShare, wireShares, mountShare } from './share.js?v=20260923a';
-import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260923a';
-import { PAID_PRODUCT_LIVE } from './config.js?v=20260923a';
+import { MAP_PATHS } from './map-data.js?v=20260923b';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260923b';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260923b';
+import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260923b';
+import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260923b';
 
 /* ============================================================
    State
@@ -63,11 +64,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json?v=20260923a').then(r => r.json()),
-    fetch('data/cantons.json?v=20260923a').then(r => r.json()),
-    fetch('data/initiatives.json?v=20260923a').then(r => r.json()),
-    fetch('data/council.json?v=20260923a').then(r => r.json()),
-    fetch('data/i18n.json?v=20260923a').then(r => r.json())
+    fetch('data/parties.json?v=20260923b').then(r => r.json()),
+    fetch('data/cantons.json?v=20260923b').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260923b').then(r => r.json()),
+    fetch('data/council.json?v=20260923b').then(r => r.json()),
+    fetch('data/i18n.json?v=20260923b').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -79,7 +80,7 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json?v=20260923a').then(r => r.ok ? r.json() : null);
+    const financing = await fetch('data/financing.json?v=20260923b').then(r => r.ok ? r.json() : null);
     if (financing) state.data.financing = financing;
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
@@ -87,14 +88,14 @@ async function loadData() {
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json?v=20260923a').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260923b').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json?v=20260923a').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260923b').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -102,7 +103,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json?v=20260923a').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260923b').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 
@@ -112,7 +113,7 @@ async function loadData() {
   // until scripts/translate.py runs with a DEEPL_API_KEY; then EN stops falling
   // back to the official language. RM has no machine translation (DeepL lacks it).
   try {
-    const mt = await fetch('data/mt.json?v=20260923a').then(r => r.ok ? r.json() : null);
+    const mt = await fetch('data/mt.json?v=20260923b').then(r => r.ok ? r.json() : null);
     state.data.mt = mt || {};
   } catch (e) { state.data.mt = {}; }
 }
@@ -1088,7 +1089,10 @@ function showGlossTip(el) {
   glossTip.textContent = el.dataset.tip ? el.dataset.tip : t('gloss.' + el.dataset.term);
   glossTip.classList.add('visible');
   positionGlossTip(el);
+  // Count each glossary term once per page load (hover re-shows it often).
+  if (el.dataset.term && !glossSeen.has(el.dataset.term)) { glossSeen.add(el.dataset.term); track('glossary', el.dataset.term); }
 }
+const glossSeen = new Set();
 function hideGlossTip() { if (glossTip) glossTip.classList.remove('visible'); }
 
 // Keep every marker's accessible name in sync with the current language.
@@ -1184,7 +1188,7 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json?v=20260923a').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260923b').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
@@ -1238,7 +1242,7 @@ function setupSearch() {
     box.hidden = true; box.innerHTML = ''; results = []; active = -1;
     input.setAttribute('aria-expanded', 'false');
   };
-  const go = (it) => { close(); input.value = ''; input.blur(); navigate(it.route); };
+  const go = (it) => { close(); input.value = ''; input.blur(); track('search', it.route.split('/')[0]); navigate(it.route); };
 
   const render = () => {
     box.innerHTML = '';
@@ -1793,7 +1797,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json?v=20260923a`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260923b`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -2089,7 +2093,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260923a')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260923b')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2099,7 +2103,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json?v=20260923a')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260923b')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2115,7 +2119,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260923a`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260923b`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -2560,6 +2564,7 @@ function wireVoteCards(host, votes) {
     const vote = votes.find(v => String(v.id) === String(id));
     if (!details || !vote) return;
     details.addEventListener('toggle', () => {
+      if (details.open) track('vote_open', vote.id);
       if (details.open && holder && !holder.dataset.done) {
         holder.dataset.done = '1';
         renderVoteHemicycle(holder, vote.byParty);
@@ -2792,7 +2797,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'feedback', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json?v=20260923a').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260923b').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -2822,6 +2827,7 @@ function contactButton(origin, label) {
     + `${escapeAttr(label || t('contact.inline'))}</button>`;
 }
 function openContactForm(origin, trigger) {
+  track('contact', origin);
   document.getElementById('contact-modal')?.remove();
   const overlay = document.createElement('div');
   overlay.id = 'contact-modal';
@@ -2948,6 +2954,7 @@ function proseBlocks(blocks, contactHtml) {
     (Array.isArray(b.p) ? b.p : (b.p ? [b.p] : [])).forEach(pk => {
       html += `<p>${t(pk).split('{{contact}}').join(contactHtml || '')}</p>`;
     });
+    if (b.html) html += b.html;
     return html;
   }).join('');
 }
@@ -2962,12 +2969,14 @@ function renderPrivacyPage() {
   loadLegal().then(() => {
     const contactHtml = contactButton('Privacy / data request');
     contentEl.innerHTML =
-      `<p class="info-lead">${t('privacy.lead')}</p>` +
+      `<p class="info-lead">${t(ANALYTICS_API ? 'privacy.leadAnalytics' : 'privacy.lead')}</p>` +
       proseBlocks([
         // revFADP Art. 19: who is responsible, what is processed, by whom, where.
         { h: 'privacy.h.controller', p: 'privacy.p.controller' },
         { h: 'privacy.h.storage', p: 'privacy.p.storage' },
         { h: 'privacy.h.hosting', p: ['privacy.p.hosting', 'privacy.p.hosting2'] },
+        // Described only while the statistics are actually switched on (js/config.js).
+        ...(ANALYTICS_API ? [{ h: 'privacy.h.analytics', p: ['privacy.p.analytics', 'privacy.p.analytics2'], html: '<div class="stats-switch" id="stats-switch"></div>' }] : []),
         { h: 'privacy.h.email', p: 'privacy.p.email' },
         { h: 'privacy.h.poll', p: ['privacy.p.poll', 'privacy.p.poll2'] },
         { h: 'privacy.h.commitments', p: ['privacy.p.commitments', 'privacy.p.commitments2'] },
@@ -2976,6 +2985,22 @@ function renderPrivacyPage() {
         { h: 'privacy.h.law', p: 'privacy.p.law' },
         { h: 'privacy.h.contact', p: 'privacy.p.contact' },
       ], contactHtml);
+    renderStatsSwitch();
+  });
+}
+
+// The Privacy page's statistics switch: the visitor's objection, one click away.
+function renderStatsSwitch() {
+  const host = document.getElementById('stats-switch');
+  if (!host) return;
+  const st = analyticsState();
+  const status = st === 'signal' ? 'privacy.switch.signal' : st === 'off' ? 'privacy.switch.off' : 'privacy.switch.on';
+  host.innerHTML = `<p class="stats-switch-status" role="status">${t(status)}</p>`
+    + (st === 'signal' ? '' : `<button type="button" class="resource-link stats-switch-btn">${t(st === 'off' ? 'privacy.switch.turnOn' : 'privacy.switch.turnOff')}</button>`);
+  host.querySelector('.stats-switch-btn')?.addEventListener('click', () => {
+    setAnalyticsOptOut(analyticsState() === 'on');
+    renderStatsSwitch();
+    host.querySelector('.stats-switch-btn')?.focus();
   });
 }
 
@@ -3246,7 +3271,7 @@ const _overviewCache = {};
 function ensureOverview(kind, id) {
   const key = kind + '/' + id;
   if (_overviewCache[key]) return _overviewCache[key];
-  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260923a`)
+  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260923b`)
     .then(r => r.ok ? r.json() : null).catch(() => null);
   return _overviewCache[key];
 }
@@ -3414,6 +3439,7 @@ function showView(name) {
    (then it falls back to the button's parent route). The scroll position of
    every entry is remembered too, so going back lands where the visitor left. */
 let routeDepth = -1;
+let redirecting = false;   // set when a route forwards elsewhere (not counted as a page view)
 const scrollByDepth = {};
 
 function stampHistoryEntry() {
@@ -3448,6 +3474,7 @@ function restoreScroll(known) {
 
 // Redirect without adding a history entry (keeps the current depth).
 function replaceRoute(hash) {
+  redirecting = true;
   try { history.replaceState({ depth: routeDepth }, '', hash); } catch (e) { location.replace(hash); return; }
   setTimeout(handleRoute, 0);   // after the current render finishes
 }
@@ -3459,6 +3486,7 @@ function goBack(fallback) {
 
 function handleRoute() {
   const known = stampHistoryEntry();
+  redirecting = false;
   const { view, id } = parseHash();
   if (view === 'canton' && id) {
     renderCantonPage(id);
@@ -3505,6 +3533,7 @@ function handleRoute() {
     showView('home');
   }
   restoreScroll(known);
+  if (!redirecting) trackPageview('/' + location.hash.replace(/^#\/?/, ''), state.lang);
 }
 
 function scrollToSection(id) {
@@ -3528,7 +3557,7 @@ function closeMobileMenu() { document.getElementById('navbar').classList.remove(
    ============================================================ */
 function bindEvents() {
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    btn.addEventListener('click', () => { if (btn.dataset.lang !== state.lang) track('lang', btn.dataset.lang); setLang(btn.dataset.lang); });
   });
   // Delegated, so section links rendered later (e.g. on the profile) work too.
   document.addEventListener('click', (e) => {
@@ -3604,7 +3633,11 @@ async function init() {
   configureVotes({ t, escapeAttr });
   // Keep vote-derived UI live when a vote changes: the profile's stats, and the
   // home votes list's "you voted" badges.
-  document.addEventListener('politikch:votechange', () => {
+  document.addEventListener('politikch:votechange', (e) => {
+    // Only THAT a vote was cast, and on what kind of item — never the choice:
+    // a yes/no is a political opinion (sensitive data), and it stays on the device.
+    const d = e.detail || {};
+    if (d.choice) track('vote', d.kind);
     const view = parseHash().view;
     if (view === 'profile') renderProfilePage();
     else if (view === 'home' && document.getElementById('initiatives-grid')) renderInitiatives();

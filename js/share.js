@@ -13,6 +13,7 @@
    JSON `data-share` spec on the graph's card and calls wireShares(root, ctx).
    The spec is link-agnostic; the link is built from ctx + the current origin.
    ============================================================ */
+import { track } from './analytics.js?v=20260923b';
 
 // The site's own domain per interface language (branding text baked into the
 // image). RM shares the German-language domain. See the project spec.
@@ -711,6 +712,7 @@ function closeMenu() {
 }
 
 async function saveImage(spec) {
+  track('share', 'image');
   const canvas = await renderCard(spec);
   if (!canvas) return;
   // A data: URL keeps the download working under the site's strict CSP
@@ -724,6 +726,7 @@ async function saveImage(spec) {
 }
 
 async function nativeShare(spec, ctx) {
+  track('share', 'device');
   const url = shareLink(spec, ctx);
   const text = spec.title || 'Politikch';
   try {
@@ -762,6 +765,7 @@ function toggleMenu(btn, spec, ctx) {
   }));
   const linkItem = menuItem(icon('link') + `<span>${_t('share.copyLink')}</span>`, async () => {
     const url = shareLink(spec, ctx);
+    track('share', 'link');
     try {
       await navigator.clipboard.writeText(url);
       linkItem.querySelector('span').textContent = _t('share.copied');
@@ -783,6 +787,7 @@ function toggleMenu(btn, spec, ctx) {
   SOCIALS.forEach(s => {
     menu.appendChild(menuItem(`<span class="share-soc share-soc-${s.key}" aria-hidden="true">${s.label[0]}</span><span>${s.label}</span>`, () => {
       const u = shareLink(spec, ctx);
+      track('share', s.key);
       window.open(s.url(u, shareText(spec, ctx)), '_blank', 'noopener,noreferrer');
       closeMenu();
     }));

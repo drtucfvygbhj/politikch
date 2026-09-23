@@ -365,7 +365,7 @@
     "common.notLive": "Not yet live",
     "footer.subscribe": "Subscribe",
     "privacy.title": "Privacy Policy",
-    "privacy.effective": "Effective 21 September 2026",
+    "privacy.effective": "Effective 23 September 2026",
     "privacy.lead": "Politikch is a static reference site. It collects as little personal data as possible: it sets no cookies and uses no trackers or analytics. Your language choice and your own votes stay in your browser. This policy explains the few cases where personal data is processed — hosting, email you send us and, once it is switched on, the anonymous community poll.",
     "privacy.h.controller": "Who is responsible",
     "privacy.p.controller": "Politikch is run by a private individual based in Lausanne, Switzerland, who is the controller responsible for the processing described here. Contact: privacy@politikch.ch.",
@@ -499,7 +499,16 @@
     "contact.fallback": "No email app? Write to us at",
     "footer.feedback": "Feedback",
     "nav.back": "Back",
-    "profile.graphNeedMore": "Your alignment and spectrum charts appear once you’ve voted on at least {min} session votes — you have {n} so far."
+    "profile.graphNeedMore": "Your alignment and spectrum charts appear once you’ve voted on at least {min} session votes — you have {n} so far.",
+    "privacy.leadAnalytics": "Politikch is a static reference site. It collects as little personal data as possible: it sets no cookies, uses no third-party trackers and counts visits with its own statistics, which never identify you. Your language choice and your own votes stay in your browser. This policy explains the few cases where personal data is processed — hosting, the visit statistics, email you send us and, once it is switched on, the anonymous community poll.",
+    "privacy.h.analytics": "Visit statistics (no cookies)",
+    "privacy.p.analytics": "To learn which pages are useful, the site counts visits with its own statistics service. It runs on Cloudflare Workers: Cloudflare, Inc. (USA) processes the data on our behalf under a data processing agreement, and the database is stored in the European Union. For each page view the service records the page, the time, the website you came from, your approximate location (country, region and city, derived from your IP address), your device type, browser, operating system, screen size and language. It also counts a few actions — switching language, opening a search result, a glossary term or a session vote, sharing a chart, opening the contact form, following a link to another site, and that a vote was cast on the site — but never what you searched for or how you voted. No cookies are set and nothing is stored on your device for this.",
+    "privacy.p.analytics2": "Your IP address is never stored in these statistics; Cloudflare only processes it briefly to deliver the request. To count unique visitors it is combined with your browser details and a random value that changes every day and is then deleted, and turned into a one-way code — so the same visitor cannot be recognised from one day to the next, or on other websites. Detailed records are deleted after 7 days; only anonymous daily totals are kept. Cloudflare is certified under the Swiss–U.S. Data Privacy Framework. We rely on our legitimate interest in understanding how the site is used. You can object at any time with the switch below (it saves a small setting in your browser) or by opening the site with ?analytics=off. If your browser sends a Global Privacy Control or Do Not Track signal, nothing is recorded at all.",
+    "privacy.switch.on": "Statistics are currently on in this browser.",
+    "privacy.switch.off": "You have switched the statistics off in this browser.",
+    "privacy.switch.signal": "Your browser sends a privacy signal (Global Privacy Control or Do Not Track), so no statistics are recorded.",
+    "privacy.switch.turnOff": "Switch off in this browser",
+    "privacy.switch.turnOn": "Switch back on"
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -867,7 +876,7 @@
     "common.notLive": "Noch nicht verfügbar",
     "footer.subscribe": "Abonnieren",
     "privacy.title": "Datenschutzerklärung",
-    "privacy.effective": "Gültig ab 21. September 2026",
+    "privacy.effective": "Gültig ab 23. September 2026",
     "privacy.lead": "Politikch ist eine statische Referenz-Website. Sie erhebt so wenige Personendaten wie möglich: Sie setzt keine Cookies und verwendet weder Tracker noch Analysedienste. Ihre Sprachwahl und Ihre eigenen Stimmen bleiben in Ihrem Browser. Diese Erklärung beschreibt die wenigen Fälle, in denen Personendaten bearbeitet werden — Hosting, E-Mails, die Sie uns senden, und, sobald sie eingeschaltet ist, die anonyme Community-Umfrage.",
     "privacy.h.controller": "Verantwortlich",
     "privacy.p.controller": "Politikch wird von einer Privatperson mit Sitz in Lausanne (Schweiz) betrieben, die für die hier beschriebene Datenbearbeitung verantwortlich ist. Kontakt: privacy@politikch.ch.",
@@ -1001,7 +1010,16 @@
     "contact.fallback": "Keine E-Mail-App? Schreiben Sie an",
     "footer.feedback": "Feedback",
     "nav.back": "Zurück",
-    "profile.graphNeedMore": "Ihre Übereinstimmungs- und Spektrum-Grafiken erscheinen, sobald Sie über mindestens {min} Sessionsabstimmungen abgestimmt haben – bisher sind es {n}."
+    "profile.graphNeedMore": "Ihre Übereinstimmungs- und Spektrum-Grafiken erscheinen, sobald Sie über mindestens {min} Sessionsabstimmungen abgestimmt haben – bisher sind es {n}.",
+    "privacy.leadAnalytics": "Politikch ist eine statische Referenz-Website. Sie erhebt so wenige Personendaten wie möglich: Sie setzt keine Cookies, verwendet keine Tracker von Dritten und zählt Besuche mit einer eigenen Statistik, die Sie nie identifiziert. Ihre Sprachwahl und Ihre eigenen Stimmen bleiben in Ihrem Browser. Diese Erklärung beschreibt die wenigen Fälle, in denen Personendaten bearbeitet werden – Hosting, die Besuchsstatistik, E-Mails, die Sie uns senden, und – sobald sie eingeschaltet ist – die anonyme Community-Umfrage.",
+    "privacy.h.analytics": "Besuchsstatistik (ohne Cookies)",
+    "privacy.p.analytics": "Um zu erfahren, welche Seiten nützlich sind, zählt die Website Besuche mit einem eigenen Statistikdienst. Er läuft auf Cloudflare Workers: Cloudflare, Inc. (USA) bearbeitet die Daten in unserem Auftrag gestützt auf einen Auftragsbearbeitungsvertrag; die Datenbank liegt in der Europäischen Union. Pro Seitenaufruf werden die Seite, die Uhrzeit, die Website, von der Sie kommen, Ihr ungefährer Standort (Land, Region und Ort, abgeleitet aus Ihrer IP-Adresse), Gerätetyp, Browser, Betriebssystem, Bildschirmgrösse und Sprache erfasst. Zudem werden einige Aktionen gezählt – Sprachwechsel, das Öffnen eines Suchresultats, eines Glossarbegriffs oder einer Sessionsabstimmung, das Teilen einer Grafik, das Öffnen des Kontaktformulars, das Folgen eines Links zu einer anderen Website sowie dass auf der Website abgestimmt wurde –, nie aber, wonach Sie gesucht oder wie Sie abgestimmt haben. Dafür werden keine Cookies gesetzt und nichts auf Ihrem Gerät gespeichert.",
+    "privacy.p.analytics2": "Ihre IP-Adresse wird in dieser Statistik nie gespeichert; Cloudflare bearbeitet sie nur kurz, um die Anfrage zu übermitteln. Um eindeutige Besucher zu zählen, wird sie mit Angaben zu Ihrem Browser und einem Zufallswert, der täglich wechselt und danach gelöscht wird, zu einem Einweg-Code verrechnet – so kann derselbe Besucher weder von einem Tag zum nächsten noch auf anderen Websites wiedererkannt werden. Detaillierte Einträge werden nach 7 Tagen gelöscht; aufbewahrt werden nur anonyme Tagessummen. Cloudflare ist unter dem Swiss–U.S. Data Privacy Framework zertifiziert. Wir stützen uns auf unser berechtigtes Interesse, zu verstehen, wie die Website genutzt wird. Sie können jederzeit widersprechen – mit dem Schalter unten (er speichert eine kleine Einstellung in Ihrem Browser) oder indem Sie die Website mit ?analytics=off öffnen. Sendet Ihr Browser ein Global-Privacy-Control- oder Do-Not-Track-Signal, wird gar nichts erfasst.",
+    "privacy.switch.on": "Die Statistik ist in diesem Browser derzeit eingeschaltet.",
+    "privacy.switch.off": "Sie haben die Statistik in diesem Browser ausgeschaltet.",
+    "privacy.switch.signal": "Ihr Browser sendet ein Datenschutzsignal (Global Privacy Control oder Do Not Track), daher wird keine Statistik erfasst.",
+    "privacy.switch.turnOff": "In diesem Browser ausschalten",
+    "privacy.switch.turnOn": "Wieder einschalten"
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -1369,7 +1387,7 @@
     "common.notLive": "Pas encore disponible",
     "footer.subscribe": "S’abonner",
     "privacy.title": "Politique de confidentialité",
-    "privacy.effective": "En vigueur dès le 21 septembre 2026",
+    "privacy.effective": "En vigueur dès le 23 septembre 2026",
     "privacy.lead": "Politikch est un site de référence statique. Il collecte le moins de données personnelles possible : il ne dépose aucun cookie et n’utilise ni traceurs ni outils d’analyse. Votre choix de langue et vos propres votes restent dans votre navigateur. Cette déclaration explique les rares cas où des données personnelles sont traitées — l’hébergement, les e-mails que vous nous envoyez et, dès qu’il sera activé, le sondage communautaire anonyme.",
     "privacy.h.controller": "Responsable du traitement",
     "privacy.p.controller": "Politikch est exploité par une personne privée domiciliée à Lausanne (Suisse), responsable du traitement décrit ici. Contact : privacy@politikch.ch.",
@@ -1503,7 +1521,16 @@
     "contact.fallback": "Pas d’app e-mail ? Écrivez-nous à",
     "footer.feedback": "Retour",
     "nav.back": "Retour",
-    "profile.graphNeedMore": "Vos graphiques de concordance et de positionnement s’affichent dès que vous avez voté sur au moins {min} votes de session — vous en êtes à {n}."
+    "profile.graphNeedMore": "Vos graphiques de concordance et de positionnement s’affichent dès que vous avez voté sur au moins {min} votes de session — vous en êtes à {n}.",
+    "privacy.leadAnalytics": "Politikch est un site de référence statique. Il collecte le moins de données personnelles possible : il ne dépose aucun cookie, n’utilise aucun traceur tiers et compte les visites avec ses propres statistiques, qui ne vous identifient jamais. Votre choix de langue et vos propres votes restent dans votre navigateur. La présente politique explique les rares cas où des données personnelles sont traitées : l’hébergement, les statistiques de visite, les courriels que vous nous envoyez et, une fois activé, le sondage communautaire anonyme.",
+    "privacy.h.analytics": "Statistiques de visite (sans cookies)",
+    "privacy.p.analytics": "Pour savoir quelles pages sont utiles, le site compte les visites avec son propre service de statistiques. Il fonctionne sur Cloudflare Workers : Cloudflare, Inc. (États-Unis) traite les données pour notre compte en vertu d’un contrat de sous-traitance, et la base de données est stockée dans l’Union européenne. Pour chaque page consultée, le service enregistre la page, l’heure, le site d’où vous venez, votre localisation approximative (pays, région et ville, déduits de votre adresse IP), le type d’appareil, le navigateur, le système d’exploitation, la taille d’écran et la langue. Il compte aussi quelques actions — changer de langue, ouvrir un résultat de recherche, un terme du glossaire ou un vote de session, partager un graphique, ouvrir le formulaire de contact, suivre un lien vers un autre site, et le fait qu’un vote a été exprimé sur le site —, mais jamais ce que vous avez cherché ni comment vous avez voté. Aucun cookie n’est déposé et rien n’est enregistré sur votre appareil à cette fin.",
+    "privacy.p.analytics2": "Votre adresse IP n’est jamais enregistrée dans ces statistiques ; Cloudflare ne la traite que brièvement pour acheminer la requête. Pour compter les visiteurs uniques, elle est combinée aux informations de votre navigateur et à une valeur aléatoire qui change chaque jour puis est supprimée, pour former un code à sens unique : un même visiteur ne peut donc être reconnu ni d’un jour à l’autre, ni sur d’autres sites. Les enregistrements détaillés sont supprimés après 7 jours ; seuls des totaux journaliers anonymes sont conservés. Cloudflare est certifiée selon le Swiss–U.S. Data Privacy Framework. Nous nous fondons sur notre intérêt légitime à comprendre comment le site est utilisé. Vous pouvez vous y opposer à tout moment avec l’interrupteur ci-dessous (il enregistre un petit réglage dans votre navigateur) ou en ouvrant le site avec ?analytics=off. Si votre navigateur envoie un signal Global Privacy Control ou Do Not Track, rien n’est enregistré.",
+    "privacy.switch.on": "Les statistiques sont actuellement activées dans ce navigateur.",
+    "privacy.switch.off": "Vous avez désactivé les statistiques dans ce navigateur.",
+    "privacy.switch.signal": "Votre navigateur envoie un signal de confidentialité (Global Privacy Control ou Do Not Track) : aucune statistique n’est enregistrée.",
+    "privacy.switch.turnOff": "Désactiver dans ce navigateur",
+    "privacy.switch.turnOn": "Réactiver"
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -1871,7 +1898,7 @@
     "common.notLive": "Non ancora disponibile",
     "footer.subscribe": "Abbonati",
     "privacy.title": "Informativa sulla privacy",
-    "privacy.effective": "In vigore dal 21 settembre 2026",
+    "privacy.effective": "In vigore dal 23 settembre 2026",
     "privacy.lead": "Politikch è un sito di riferimento statico. Raccoglie il minor numero possibile di dati personali: non imposta cookie e non usa strumenti di tracciamento né di analisi. La lingua scelta e i vostri voti restano nel vostro browser. Questa dichiarazione descrive i pochi casi in cui vengono trattati dati personali — l’hosting, le e-mail che ci inviate e, una volta attivato, il sondaggio anonimo della comunità.",
     "privacy.h.controller": "Titolare del trattamento",
     "privacy.p.controller": "Politikch è gestito da una persona privata con sede a Losanna (Svizzera), titolare del trattamento qui descritto. Contatto: privacy@politikch.ch.",
@@ -2005,7 +2032,16 @@
     "contact.fallback": "Nessuna app di posta? Scrivici a",
     "footer.feedback": "Feedback",
     "nav.back": "Indietro",
-    "profile.graphNeedMore": "I grafici di affinità e di posizionamento compaiono non appena avrà votato su almeno {min} votazioni di sessione — finora sono {n}."
+    "profile.graphNeedMore": "I grafici di affinità e di posizionamento compaiono non appena avrà votato su almeno {min} votazioni di sessione — finora sono {n}.",
+    "privacy.leadAnalytics": "Politikch è un sito di riferimento statico. Raccoglie il minor numero possibile di dati personali: non imposta cookie, non utilizza tracker di terzi e conta le visite con statistiche proprie, che non la identificano mai. La scelta della lingua e i suoi voti restano nel suo browser. La presente informativa spiega i pochi casi in cui vengono trattati dati personali: l’hosting, le statistiche sulle visite, le e-mail che ci invia e, una volta attivato, il sondaggio comunitario anonimo.",
+    "privacy.h.analytics": "Statistiche sulle visite (senza cookie)",
+    "privacy.p.analytics": "Per capire quali pagine sono utili, il sito conta le visite con un proprio servizio di statistica. Funziona su Cloudflare Workers: Cloudflare, Inc. (USA) tratta i dati per nostro conto in base a un contratto di elaborazione dei dati, e la banca dati è conservata nell’Unione europea. Per ogni pagina visualizzata il servizio registra la pagina, l’ora, il sito da cui proviene, la sua posizione approssimativa (paese, regione e città, ricavati dal suo indirizzo IP), il tipo di dispositivo, il browser, il sistema operativo, le dimensioni dello schermo e la lingua. Conta inoltre alcune azioni — cambiare lingua, aprire un risultato di ricerca, un termine del glossario o una votazione di sessione, condividere un grafico, aprire il modulo di contatto, seguire un link verso un altro sito e il fatto che sul sito sia stato espresso un voto —, ma mai che cosa ha cercato né come ha votato. Non vengono impostati cookie e a tal fine non viene salvato nulla sul suo dispositivo.",
+    "privacy.p.analytics2": "Il suo indirizzo IP non viene mai salvato in queste statistiche; Cloudflare lo tratta solo brevemente per inoltrare la richiesta. Per contare i visitatori unici viene combinato con i dati del suo browser e con un valore casuale che cambia ogni giorno e viene poi cancellato, per ottenere un codice irreversibile: lo stesso visitatore non può quindi essere riconosciuto da un giorno all’altro né su altri siti. I dati dettagliati vengono cancellati dopo 7 giorni; si conservano solo totali giornalieri anonimi. Cloudflare è certificata secondo lo Swiss–U.S. Data Privacy Framework. Ci basiamo sul nostro legittimo interesse a capire come viene utilizzato il sito. Può opporsi in qualsiasi momento con l’interruttore qui sotto (salva una piccola impostazione nel browser) o aprendo il sito con ?analytics=off. Se il suo browser invia un segnale Global Privacy Control o Do Not Track, non viene registrato nulla.",
+    "privacy.switch.on": "Le statistiche sono attualmente attive in questo browser.",
+    "privacy.switch.off": "Ha disattivato le statistiche in questo browser.",
+    "privacy.switch.signal": "Il suo browser invia un segnale di riservatezza (Global Privacy Control o Do Not Track), quindi non viene registrata alcuna statistica.",
+    "privacy.switch.turnOff": "Disattiva in questo browser",
+    "privacy.switch.turnOn": "Riattiva"
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -2373,7 +2409,7 @@
     "common.notLive": "Anc betg disponibel",
     "footer.subscribe": "Abunar",
     "privacy.title": "Datenschutzerklärung",
-    "privacy.effective": "Gültig ab 21. September 2026",
+    "privacy.effective": "Gültig ab 23. September 2026",
     "privacy.lead": "Politikch ist eine statische Referenz-Website. Sie erhebt so wenige Personendaten wie möglich: Sie setzt keine Cookies und verwendet weder Tracker noch Analysedienste. Ihre Sprachwahl und Ihre eigenen Stimmen bleiben in Ihrem Browser. Diese Erklärung beschreibt die wenigen Fälle, in denen Personendaten bearbeitet werden — Hosting, E-Mails, die Sie uns senden, und, sobald sie eingeschaltet ist, die anonyme Community-Umfrage.",
     "privacy.h.controller": "Verantwortlich",
     "privacy.p.controller": "Politikch wird von einer Privatperson mit Sitz in Lausanne (Schweiz) betrieben, die für die hier beschriebene Datenbearbeitung verantwortlich ist. Kontakt: privacy@politikch.ch.",
@@ -2507,6 +2543,15 @@
     "contact.fallback": "Nagina app d’e-mail? Scrivai a",
     "footer.feedback": "Feedback",
     "nav.back": "Enavos",
-    "profile.graphNeedMore": "Voss grafics da concordanza e da spectrum cumparan uschespert che Vus avais votà davart almain {min} votaziuns da sessiun — fin ussa èn quai {n}."
+    "profile.graphNeedMore": "Voss grafics da concordanza e da spectrum cumparan uschespert che Vus avais votà davart almain {min} votaziuns da sessiun — fin ussa èn quai {n}.",
+    "privacy.leadAnalytics": "Politikch ist eine statische Referenz-Website. Sie erhebt so wenige Personendaten wie möglich: Sie setzt keine Cookies, verwendet keine Tracker von Dritten und zählt Besuche mit einer eigenen Statistik, die Sie nie identifiziert. Ihre Sprachwahl und Ihre eigenen Stimmen bleiben in Ihrem Browser. Diese Erklärung beschreibt die wenigen Fälle, in denen Personendaten bearbeitet werden – Hosting, die Besuchsstatistik, E-Mails, die Sie uns senden, und – sobald sie eingeschaltet ist – die anonyme Community-Umfrage.",
+    "privacy.h.analytics": "Besuchsstatistik (ohne Cookies)",
+    "privacy.p.analytics": "Um zu erfahren, welche Seiten nützlich sind, zählt die Website Besuche mit einem eigenen Statistikdienst. Er läuft auf Cloudflare Workers: Cloudflare, Inc. (USA) bearbeitet die Daten in unserem Auftrag gestützt auf einen Auftragsbearbeitungsvertrag; die Datenbank liegt in der Europäischen Union. Pro Seitenaufruf werden die Seite, die Uhrzeit, die Website, von der Sie kommen, Ihr ungefährer Standort (Land, Region und Ort, abgeleitet aus Ihrer IP-Adresse), Gerätetyp, Browser, Betriebssystem, Bildschirmgrösse und Sprache erfasst. Zudem werden einige Aktionen gezählt – Sprachwechsel, das Öffnen eines Suchresultats, eines Glossarbegriffs oder einer Sessionsabstimmung, das Teilen einer Grafik, das Öffnen des Kontaktformulars, das Folgen eines Links zu einer anderen Website sowie dass auf der Website abgestimmt wurde –, nie aber, wonach Sie gesucht oder wie Sie abgestimmt haben. Dafür werden keine Cookies gesetzt und nichts auf Ihrem Gerät gespeichert.",
+    "privacy.p.analytics2": "Ihre IP-Adresse wird in dieser Statistik nie gespeichert; Cloudflare bearbeitet sie nur kurz, um die Anfrage zu übermitteln. Um eindeutige Besucher zu zählen, wird sie mit Angaben zu Ihrem Browser und einem Zufallswert, der täglich wechselt und danach gelöscht wird, zu einem Einweg-Code verrechnet – so kann derselbe Besucher weder von einem Tag zum nächsten noch auf anderen Websites wiedererkannt werden. Detaillierte Einträge werden nach 7 Tagen gelöscht; aufbewahrt werden nur anonyme Tagessummen. Cloudflare ist unter dem Swiss–U.S. Data Privacy Framework zertifiziert. Wir stützen uns auf unser berechtigtes Interesse, zu verstehen, wie die Website genutzt wird. Sie können jederzeit widersprechen – mit dem Schalter unten (er speichert eine kleine Einstellung in Ihrem Browser) oder indem Sie die Website mit ?analytics=off öffnen. Sendet Ihr Browser ein Global-Privacy-Control- oder Do-Not-Track-Signal, wird gar nichts erfasst.",
+    "privacy.switch.on": "Die Statistik ist in diesem Browser derzeit eingeschaltet.",
+    "privacy.switch.off": "Sie haben die Statistik in diesem Browser ausgeschaltet.",
+    "privacy.switch.signal": "Ihr Browser sendet ein Datenschutzsignal (Global Privacy Control oder Do Not Track), daher wird keine Statistik erfasst.",
+    "privacy.switch.turnOff": "In diesem Browser ausschalten",
+    "privacy.switch.turnOn": "Wieder einschalten"
   }
 }
