@@ -10,16 +10,24 @@ Thanks for helping keep Politikch accurate. It's a small, dependency-free static
 
 ## Making a change
 
-1. Edit the relevant file in `data/` (content) or the `css`/`js` files (behaviour and design).
-2. Run the validator:
+Every change follows [`GUARDRAILS.md`](GUARDRAILS.md). In practice:
+
+1. Once per clone, turn on the pre-push check:
    ```bash
-   python3 scripts/validate.py
+   git config core.hooksPath .githooks
    ```
-3. Serve locally and click through what you changed:
+2. Edit the relevant file in `data/` (content) or the `css`/`js` files (behaviour and design).
+3. Run the guardrail checks and fix anything marked **BLOCK**:
    ```bash
-   python3 -m http.server 8000
+   python3 scripts/check.py
    ```
-4. Open a pull request. CI will re-run the validator automatically.
+4. Serve locally and click through what you changed (at least EN, DE, FR; desktop and phone width):
+   ```bash
+   python3 -m http.server 8001
+   ```
+5. Commit. For every **FLAG** the owner has approved, add one line to the commit message:
+   `Approved-Rule: <ID> — why this is fine`. The push is refused while a flag is unsigned,
+   and `deploy.yml` won't deploy until the checks pass.
 
 ## Data invariants (enforced by CI)
 

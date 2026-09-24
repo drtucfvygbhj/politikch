@@ -923,7 +923,14 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
 
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 860px) {
+/* Top bar: the links, search and language buttons need ~1,150px in one row.
+   Tighten the spacing on small laptops; below 1,100px use the menu button. */
+@media (max-width: 1240px) {
+  nav { padding: 0 28px; }
+  .nav-links { gap: 20px; }
+  .nav-search-input { width: 170px; }
+}
+@media (max-width: 1100px) {
   .nav-links, .nav-lang { display: none; }
   .nav-toggle { display: flex; }
   /* Phone: the logo, the search field and the menu button have to share one
@@ -942,6 +949,9 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
   }
   nav.menu-open .nav-links button { padding: 14px 24px; text-align: left; width: 100%; }
   nav.menu-open .nav-lang { display: flex; position: absolute; top: 70px; right: 24px; }
+}
+
+@media (max-width: 860px) {
   section { padding: 70px 24px; }
   .chambers { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .canton-grid, .party-extra { grid-template-columns: minmax(0, 1fr); }
@@ -1734,3 +1744,10 @@ a.fin-name:hover, .fin-row:focus a.fin-name { color: var(--red); text-decoration
   .srcbar-amt { grid-area: amt; }
   .srcbar-track { grid-area: track; }
 }
+
+/* Financing page: section heading with a "See all" link on the right */
+.finpage-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
+.finpage-head .canton-section-title { margin-bottom: 0; border-bottom: none; }
+.fin-seeall { flex: none; font-size: 13px; font-weight: 600; color: var(--red); text-decoration: none; white-space: nowrap; padding-bottom: 12px; }
+.fin-seeall:hover { text-decoration: underline; }
+.fin-seeall:focus-visible { outline: none; box-shadow: var(--focus); border-radius: 4px; }

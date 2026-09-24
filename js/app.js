@@ -1,8 +1,8 @@
-import { MAP_PATHS } from './map-data.js?v=20260924b';
-import { configureShare, wireShares, mountShare } from './share.js?v=20260924b';
-import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260924b';
-import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260924b';
-import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260924b';
+import { MAP_PATHS } from './map-data.js?v=20260924c';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260924c';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260924c';
+import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260924c';
+import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260924c';
 
 /* ============================================================
    State
@@ -64,11 +64,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json?v=20260924b').then(r => r.json()),
-    fetch('data/cantons.json?v=20260924b').then(r => r.json()),
-    fetch('data/initiatives.json?v=20260924b').then(r => r.json()),
-    fetch('data/council.json?v=20260924b').then(r => r.json()),
-    fetch('data/i18n.json?v=20260924b').then(r => r.json())
+    fetch('data/parties.json?v=20260924c').then(r => r.json()),
+    fetch('data/cantons.json?v=20260924c').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260924c').then(r => r.json()),
+    fetch('data/council.json?v=20260924c').then(r => r.json()),
+    fetch('data/i18n.json?v=20260924c').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -80,22 +80,22 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json?v=20260924b').then(r => r.ok ? r.json() : null);
-    if (financing) state.data.financing = financing;
+    const financing = await fetch('data/financing.json?v=20260924c').then(r => r.ok ? r.json() : null);
+    if (financing) state.data.financing = anonymiseIndividualDonors(financing);
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
   // Optional: per-canton facts fetched at build time from official BFS
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json?v=20260924b').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260924c').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json?v=20260924b').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260924c').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -103,7 +103,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json?v=20260924b').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260924c').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 
@@ -113,7 +113,7 @@ async function loadData() {
   // until scripts/translate.py runs with a DEEPL_API_KEY; then EN stops falling
   // back to the official language. RM has no machine translation (DeepL lacks it).
   try {
-    const mt = await fetch('data/mt.json?v=20260924b').then(r => r.ok ? r.json() : null);
+    const mt = await fetch('data/mt.json?v=20260924c').then(r => r.ok ? r.json() : null);
     state.data.mt = mt || {};
   } catch (e) { state.data.mt = {}; }
 }
@@ -249,8 +249,25 @@ function renderFinancingSource() {
    "Economiesuisse", "economiesuisse Verband der Schweizer Unternehmen"). We
    merge those to one canonical donor via the alias table in
    data/donor-descriptions.json, so a donor's page and its search entry gather
-   every contribution. Only organisations get a page; individuals are shown as
-   plain text (privacy). */
+   every contribution. Only organisations are named and get a page. A private
+   person is only ever "Private individual" with the amount: no name, place,
+   page, search entry or grouping across records, because a political donation
+   reveals a political opinion (GUARDRAILS.md PRIV-08). The fetcher already drops
+   the name; anonymiseIndividualDonors strips it again in case it ever returns. */
+function anonymiseIndividualDonors(fin) {
+  let n = 0;
+  const strip = (list) => (list || []).forEach(d => {
+    if (d.type === 'organization') return;
+    delete d.name; delete d.location;
+    d._key = `private-${n++}`;
+  });
+  Object.values(fin.parties || {}).forEach(f => strip(f.largeDonors));
+  Object.values(fin.initiatives || {}).forEach(s => ['pro', 'contra'].forEach(k => strip((s[k] || {}).largeDonors)));
+  return fin;
+}
+const isOrgDonor = (d) => d.type === 'organization';
+const donorKey = (d) => isOrgDonor(d) ? donorSlug(d.name) : d._key;
+const donorLabel = (d) => isOrgDonor(d) ? donorDisplayName(d.name) : t('fin.individual');
 function slugify(s) {
   return normStr(s).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 64) || 'x';
 }
@@ -320,10 +337,9 @@ function renderPie(slices) {
 function aggregateDonors(donors) {
   const map = new Map();
   (donors || []).forEach(d => {
-    const slug = donorSlug(d.name);
-    const e = map.get(slug) || { slug, name: donorDisplayName(d.name), type: d.type, amount: 0 };
+    const slug = donorKey(d);
+    const e = map.get(slug) || { slug, name: donorLabel(d), type: d.type, amount: 0 };
     e.amount += d.amount || 0;
-    if (d.type === 'organization') e.type = 'organization';
     map.set(slug, e);
   });
   return [...map.values()].sort((a, b) => b.amount - a.amount);
@@ -415,10 +431,9 @@ function buildDonorIndex() {
   if (state._donorIndex) return state._donorIndex;
   const idx = new Map();
   const add = (d, recip) => {
-    if (!d || !d.amount) return;
+    if (!d || !d.amount || !isOrgDonor(d)) return;
     const slug = donorSlug(d.name);
     const e = idx.get(slug) || { slug, name: donorDisplayName(d.name), type: d.type, locations: new Set(), total: 0, contributions: [] };
-    if (d.type === 'organization') e.type = 'organization';
     if (d.location) e.locations.add(d.location);
     e.total += d.amount;
     e.contributions.push({ kind: recip.kind, id: recip.id, side: recip.side, amount: d.amount, date: d.date });
@@ -632,9 +647,8 @@ function partyDonorsChartHTML(fin) {
     if (!state.data.parties[pk]) return;
     (f.largeDonors || []).forEach(d => {
       if (!d.amount) return;
-      const slug = donorSlug(d.name);
-      const e = map.get(slug) || { slug, name: donorDisplayName(d.name), type: d.type, total: 0, by: {} };
-      if (d.type === 'organization') e.type = 'organization';
+      const slug = donorKey(d);
+      const e = map.get(slug) || { slug, name: donorLabel(d), type: d.type, total: 0, by: {} };
       e.total += d.amount;
       e.by[pk] = (e.by[pk] || 0) + d.amount;
       map.set(slug, e);
@@ -649,7 +663,7 @@ function partyDonorsChartHTML(fin) {
     segs.forEach(([pk]) => used.add(pk));
     const name = e.type === 'organization'
       ? `<a class="fin-name" href="#/donor/${encodeURIComponent(e.slug)}">${escapeAttr(e.name)}</a>`
-      : `<span class="fin-name" title="${escapeAttr(t('fin.individual'))}">${escapeAttr(e.name)}</span>`;
+      : `<span class="fin-name">${escapeAttr(e.name)}</span>`;
     return `<div class="findon-row">`
       + `<span class="findon-name">${name}</span>`
       + `<span class="findon-track">${segs.map(([pk, v]) => {
@@ -764,7 +778,10 @@ function renderFinancingPage(sub) {
           ${partyDonorsChartHTML(fin)}
         </div>
         <div class="finpage-col">
-          <h3 class="canton-section-title">${t(isCurrent ? 'fin.votes.title' : 'fin.votes.recentTitle')}</h3>
+          <div class="finpage-head">
+            <h3 class="canton-section-title">${t(isCurrent ? 'fin.votes.title' : 'fin.votes.recentTitle')}</h3>
+            ${votes.length ? `<a class="fin-seeall" href="#/financing/votes" aria-label="${escapeAttr(t('fin.votes.all'))} (${votes.length})">${t('fin.votes.seeAll')} (${votes.length}) <span class="arrow" aria-hidden="true">→</span></a>` : ''}
+          </div>
           <p class="mine-note">${t('fin.votes.desc')}</p>
           ${current.length ? current.map(v => voteFinanceCardHTML(v.id, v.sides)).join('') : `<p class="fin-none">${t('fin.votes.none')}</p>`}
           ${votes.length ? `<a class="resource-link finvote-all" href="#/financing/votes">${t('fin.votes.all')} (${votes.length}) <span class="arrow">→</span></a>` : ''}
@@ -1517,7 +1534,7 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json?v=20260924b').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260924c').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
@@ -2126,7 +2143,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json?v=20260924b`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260924c`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -2418,7 +2435,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260924b')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260924c')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2428,7 +2445,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json?v=20260924b')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260924c')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2444,7 +2461,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260924b`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260924c`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -3122,7 +3139,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'feedback', 'legal', 'contact'];
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json?v=20260924b').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260924c').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -3596,7 +3613,7 @@ const _overviewCache = {};
 function ensureOverview(kind, id) {
   const key = kind + '/' + id;
   if (_overviewCache[key]) return _overviewCache[key];
-  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260924b`)
+  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260924c`)
     .then(r => r.ok ? r.json() : null).catch(() => null);
   return _overviewCache[key];
 }
@@ -3608,7 +3625,9 @@ function overviewSectionHTML(kind, id, officialUrl) {
 // content yet (brochure not published) -> honest "being prepared" state.
 function pickArgBlock(data, id) {
   if (!data || !data.lang) return null;
-  const hasText = (b) => b && ((b.pros && b.pros.length) || (b.cons && b.cons.length));
+  // Both sides or neither: a language with only one side is skipped, so one side
+  // is never shown alone (GUARDRAILS.md POL-01).
+  const hasText = (b) => b && b.pros && b.pros.length && b.cons && b.cons.length;
   const officialUrl = (src) => (data.sourceUrl || {})[src]
     || Object.values(data.sourceUrl || {})[0] || null;
   // 1) Official text in the active language.
@@ -3617,13 +3636,13 @@ function pickArgBlock(data, id) {
     return { lang: state.lang, pros: b.pros || [], cons: b.cons || [],
              url: officialUrl(state.lang) };
   }
-  // 2) English machine translation (DeepL), if the UI is English.
-  if (state.lang === 'en') {
-    const m = state.data.mt && state.data.mt.args && state.data.mt.args[id];
-    if (hasText(m)) {
-      return { lang: 'en', mt: true, pros: m.pros || [], cons: m.cons || [],
-               url: officialUrl(m.src) };
-    }
+  // 2) Machine translation (DeepL) into the UI language — English or Italian,
+  //    stored as mt.args[id][lang]. Used only when both sides came back.
+  const m = state.data.mt && state.data.mt.args && state.data.mt.args[id]
+    && state.data.mt.args[id][state.lang];
+  if (m && m.pros && m.pros.length && m.cons && m.cons.length) {
+    return { lang: state.lang, mt: true, pros: m.pros, cons: m.cons,
+             url: officialUrl(m.src) };
   }
   // 3) Fall back to another official language (shown with a language chip).
   for (const l of ['de', 'fr', 'it']) {

@@ -101,6 +101,17 @@ def check_financing(data, parties_data, initiatives_data):
             if not isinstance(v, (int, float)) or v < 0:
                 errors.append(f"financing.json: initiative {key}.{side}.totalRevenue must be a non-negative number")
 
+    # GUARDRAILS.md PRIV-08: a private person's donation reveals a political
+    # opinion, so an individual donor is only ever "Private individual" — the
+    # data must carry no name or place for them.
+    lists = [(f"parties.{k}", e.get("largeDonors")) for k, e in data.get("parties", {}).items()]
+    lists += [(f"initiatives.{k}.{s}", (sides.get(s) or {}).get("largeDonors"))
+              for k, sides in data.get("initiatives", {}).items() for s in ("pro", "contra")]
+    for where, donors in lists:
+        for d in donors or []:
+            if d.get("type") != "organization" and ({"name", "location"} & d.keys()):
+                errors.append(f"financing.json: {where} has a private individual with a name or place (PRIV-08)")
+
 
 def check_sessions(index, parties_data):
     # sessions-index.json + data/sessions/<id>.json are optional: absent means
@@ -189,6 +200,20 @@ def check_upstream_text():
             walk(json.loads(path.read_text(encoding="utf-8")), path.relative_to(DATA).as_posix())
 
 
+def check_mt_args(data):
+    # GUARDRAILS.md POL-01: a machine-translated argument set always carries both
+    # sides; one side must never be published translated on its own.
+    for iid, by_lang in (data or {}).get("args", {}).items():
+        if not isinstance(by_lang, dict):
+            errors.append(f"mt.json: args.{iid} must map language -> {{pros, cons}}")
+            continue
+        for tl, e in by_lang.items():
+            if tl not in ("en", "it"):
+                errors.append(f"mt.json: args.{iid}.{tl} is not a supported target language")
+            if not (isinstance(e, dict) and e.get("pros") and e.get("cons")):
+                errors.append(f"mt.json: args.{iid}.{tl} must have both pros and cons (POL-01)")
+
+
 def main():
     parties_data = load("parties.json")
     initiatives_data = load("initiatives.json")
@@ -203,6 +228,9 @@ def main():
 
     if (DATA / "sessions-index.json").exists():
         check_sessions(load("sessions-index.json"), parties_data)
+
+    if (DATA / "mt.json").exists():
+        check_mt_args(load("mt.json"))
 
     check_upstream_text()
 

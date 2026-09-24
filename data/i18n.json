@@ -552,7 +552,8 @@
     "fin.tip.total": "All revenue the party’s national organisation reported to the Federal Audit Office (EFK) for the year, from every source above.",
     "fin.named": "Named donors (over CHF 15,000): {named} of {monetary} in monetary donations.",
     "fin.rows.showAll": "Show all {n} donors",
-    "fin.rows.showFewer": "Show fewer"
+    "fin.rows.showFewer": "Show fewer",
+    "fin.votes.seeAll": "See all"
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -1107,7 +1108,8 @@
     "fin.tip.total": "Sämtliche Einnahmen, die die nationale Partei der Eidgenössischen Finanzkontrolle (EFK) für das Jahr gemeldet hat, aus allen obigen Quellen.",
     "fin.named": "Namentlich offengelegte Spenden (über 15 000 Franken): {named} von {monetary} Geldspenden.",
     "fin.rows.showAll": "Alle {n} Geldgeber anzeigen",
-    "fin.rows.showFewer": "Weniger anzeigen"
+    "fin.rows.showFewer": "Weniger anzeigen",
+    "fin.votes.seeAll": "Alle anzeigen"
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -1662,7 +1664,8 @@
     "fin.tip.total": "L’ensemble des recettes que le parti national a déclarées au Contrôle fédéral des finances (CDF) pour l’année, toutes sources confondues.",
     "fin.named": "Donateurs nommés (plus de 15 000 francs) : {named} sur {monetary} de dons en argent.",
     "fin.rows.showAll": "Afficher les {n} donateurs",
-    "fin.rows.showFewer": "Afficher moins"
+    "fin.rows.showFewer": "Afficher moins",
+    "fin.votes.seeAll": "Tout voir"
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -2148,8 +2151,8 @@
     "changes.source": "Riassunto ufficiale dai lavori parlamentari (Curia Vista, parlament.ch).",
     "changes.official": "Dettagli completi su parlament.ch",
     "mt.badge": "traduzione automatica",
-    "mt.tip": "Tradotto automaticamente in inglese da DeepL dal testo ufficiale tedesco/francese/italiano — traduzione non ufficiale. Fa fede la fonte ufficiale.",
-    "overview.sourceMt": "Traduzione automatica in inglese (DeepL) degli argomenti ufficiali a favore/contro.",
+    "mt.tip": "Tradotto automaticamente in italiano da DeepL dal testo ufficiale tedesco o francese — traduzione non ufficiale. Fa fede la fonte ufficiale.",
+    "overview.sourceMt": "Traduzione automatica in italiano (DeepL) degli argomenti ufficiali a favore/contro.",
     "changes.sourceMt": "Traduzione automatica in inglese (DeepL) del riassunto ufficiale dei lavori parlamentari (Curia Vista).",
     "contact.title": "Contattaci",
     "contact.category": "Categoria",
@@ -2217,7 +2220,8 @@
     "fin.tip.total": "Tutte le entrate che il partito nazionale ha dichiarato al Controllo federale delle finanze (CDF) per l’anno, da tutte le fonti indicate.",
     "fin.named": "Donatori resi noti (oltre 15 000 franchi): {named} su {monetary} di donazioni in denaro.",
     "fin.rows.showAll": "Mostra tutti i {n} donatori",
-    "fin.rows.showFewer": "Mostra meno"
+    "fin.rows.showFewer": "Mostra meno",
+    "fin.votes.seeAll": "Vedi tutti"
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -2772,6 +2776,7 @@
     "fin.tip.total": "Tut las entradas che la partida naziunala ha annunzià a la Controlla federala da finanzas (CDF) per l’onn, da tut las funtaunas survart.",
     "fin.named": "Donaturs numnads (dapli che 15 000 francs): {named} da {monetary} donaziuns monetaras.",
     "fin.rows.showAll": "Mussar tut ils {n} donaturs",
-    "fin.rows.showFewer": "Mussar main"
+    "fin.rows.showFewer": "Mussar main",
+    "fin.votes.seeAll": "Mussar tut"
   }
 }

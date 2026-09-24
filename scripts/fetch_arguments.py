@@ -130,6 +130,17 @@ def _polite_wait():
     _last_fetch[0] = time.time()
 
 
+# A larger response is refused rather than read into memory (GUARDRAILS.md SEC-09).
+MAX_BYTES = 64 * 1024 * 1024
+
+
+def read_capped(resp):
+    data = resp.read(MAX_BYTES + 1)
+    if len(data) > MAX_BYTES:
+        raise ValueError(f"response larger than {MAX_BYTES} bytes: {resp.geturl()}")
+    return data
+
+
 def http_get(url, retries=6):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
     last = None
@@ -137,7 +148,7 @@ def http_get(url, retries=6):
         _polite_wait()
         try:
             with urllib.request.urlopen(req, timeout=90) as resp:
-                return resp.read()
+                return read_capped(resp)
         except Exception as e:  # noqa: BLE001 — transient proxy/network errors
             last = e
             time.sleep(1.5 * (attempt + 1))
@@ -257,6 +268,9 @@ def brochure_sections(pdf_bytes, lang):
             "kind": kind,
             "subtitle": subtitle.strip(" :–-"),
             "tokens": norm_tokens(subtitle),
+            # The subtitle runs on into the argument text; its first words are
+            # the vorlage's own short name, the strongest signal for matching.
+            "lead": norm_tokens(" ".join(subtitle.split()[:4])),
             "text": _clean_section(body, lang, kind),
         })
     doc.close()
@@ -299,14 +313,16 @@ def match_section(sections, item, kind):
     """
     itok = norm_tokens((item.get("title") or {}).get("de", "")) \
         | norm_tokens((item.get("title") or {}).get("fr", ""))
-    cands = sorted(((len(s["tokens"] & itok), s)
+    # Score = (overlap with the subtitle's first words, overall overlap): body
+    # words that leak into the subtitle can't outvote the vorlage's own name.
+    cands = sorted((((len(s.get("lead", set()) & itok), len(s["tokens"] & itok)), s)
                     for s in sections if s["kind"] == kind and s["tokens"]),
                    key=lambda x: x[0], reverse=True)
     if not cands:
         return None
     if len(cands) == 1:                     # sole candidate of this kind
         return cands[0][1]
-    if cands[0][0] == 0:                     # nothing matches — don't guess
+    if cands[0][0] == (0, 0):                # nothing matches — don't guess
         return None
     if cands[0][0] > cands[1][0]:            # a single clear winner
         return cands[0][1]
@@ -380,7 +396,15 @@ def build_for_item(item, sv_index, brochure_cache, pdf_dir=None):
             sec = match_section(sections, item, kind)
             if sec and sec["text"]:
                 block[kind] = sec["text"]
-        if block.get("pros") or block.get("cons"):
+        # Both sides or nothing: a language where only one side was extracted is
+        # dropped (the page then falls back to another official language), so one
+        # side can never be shown alone (GUARDRAILS.md POL-01).
+        if bool(block.get("pros")) != bool(block.get("cons")):
+            print(f"    ! {item['id']} ({lang}): only the "
+                  f"{'for' if block.get('pros') else 'against'} side was found — "
+                  f"language skipped", file=sys.stderr)
+            continue
+        if block.get("pros") and block.get("cons"):
             out_lang[lang] = block
             # Link users to the official Chancellery ballot page for the brochure,
             # not the (Swissvotes-hosted) PDF we happened to fetch the bytes from.

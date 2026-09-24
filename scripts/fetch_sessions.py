@@ -115,13 +115,24 @@ TYPE_MAP = {
 }
 
 
+# A larger response is refused rather than read into memory (GUARDRAILS.md SEC-09).
+MAX_BYTES = 32 * 1024 * 1024
+
+
+def read_capped(resp):
+    data = resp.read(MAX_BYTES + 1)
+    if len(data) > MAX_BYTES:
+        raise ValueError(f"response larger than {MAX_BYTES} bytes: {resp.geturl()}")
+    return data
+
+
 def http_get(url, tries=4):
     last = None
     for attempt in range(tries):
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
-                return json.loads(r.read().decode("utf-8"))
+                return json.loads(read_capped(r).decode("utf-8"))
         except Exception as e:  # noqa: BLE001
             last = e
             time.sleep(1.5 * (attempt + 1))

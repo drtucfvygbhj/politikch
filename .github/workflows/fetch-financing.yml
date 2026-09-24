@@ -16,9 +16,10 @@ name: Fetch live data
 #     Assembly sessions, their final votes and per-party tallies (parlament.ch
 #     OData web service). Settled sessions are cached per file; only recent ones
 #     are re-fetched, so this stays cheap as history grows.
-#   * data/mt.json — English MACHINE translations (DeepL, a dedicated translation
-#     engine, not an LLM) of the texts with no official English: session vote
-#     titles, for/against arguments and session summaries. Labelled "machine
+#   * data/mt.json — MACHINE translations (DeepL, a dedicated translation
+#     engine, not an LLM) of texts with no official version: into English the
+#     session vote titles, session summaries and for/against arguments; into
+#     Italian the for/against arguments. Labelled "machine
 #     translation" on the site and linked to the official source. Needs the
 #     DEEPL_API_KEY secret; without it this no-ops and English keeps its
 #     official-language fallback.
@@ -35,6 +36,11 @@ on:
   schedule:
     - cron: '0 4 * * 1' # weekly, Monday 04:00 UTC
   workflow_dispatch:
+    inputs:
+      allow_data_changes:
+        description: "Publish even though the data guard flagged the refresh (check it against the official source first)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -50,10 +56,17 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 2            # the data guard compares with the published commit
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.12'
+
+      # First: do our sources still allow what we do? If a licence code or a
+      # robots.txt changed, stop here so nothing is fetched or published under
+      # terms nobody has reviewed (GUARDRAILS.md SRC-10).
+      - name: Check sources' terms (licence codes, robots.txt)
+        run: python3 scripts/monitor_sources.py
 
       - name: Install dependencies
         run: |
@@ -79,12 +92,13 @@ jobs:
       - name: Fetch Federal Assembly sessions & final votes
         run: python3 scripts/fetch_sessions.py
 
-      # Machine-translate the English gaps (session titles, for/against arguments,
-      # session summaries) via DeepL — a dedicated translation engine, not an LLM.
+      # Machine-translate the gaps via DeepL — a dedicated translation engine, not
+      # an LLM: EN for session titles, summaries and for/against arguments; IT for
+      # the for/against arguments (both sides together, never one alone).
       # Output is labelled "machine translation" on the site and linked to the
       # official source. No-ops without the secret, so the site keeps its
       # official-language fallback. RM has no machine translation (DeepL lacks it).
-      - name: Machine-translate English gaps (DeepL)
+      - name: Machine-translate English & Italian gaps (DeepL)
         env:
           DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
         run: python3 scripts/translate.py
@@ -94,6 +108,16 @@ jobs:
 
       - name: Validate data files
         run: python3 scripts/validate.py
+
+      # A refresh that looks like a broken or tampered source (results changing,
+      # votes disappearing, files shrinking) is not published (GUARDRAILS.md OPS-04).
+      - name: Guard against suspicious data changes
+        env:
+          ALLOW_DATA_CHANGES: ${{ inputs.allow_data_changes }}
+        run: python3 scripts/data_guard.py
+
+      - name: Guardrail checks
+        run: python3 scripts/check.py --base HEAD --data-job --strict
 
       - name: Commit if changed
         env:
@@ -108,6 +132,20 @@ jobs:
           git add data/initiatives.json data/financing.json data/canton-data.json data/sessions-index.json data/sessions data/overviews data/mt.json TRANSLATIONS_TODO.md
           git commit -m "Update live data (votes, initiatives, financing, cantons, sessions, vote arguments)"
           git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+
+      # Tell the owner when the job stopped (source terms changed, suspicious data,
+      # failed checks): one open issue, refreshed on every failed run.
+      - name: Open/refresh "data job stopped" issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Weekly data job stopped — nothing was published"
+          body="The weekly data job stopped before publishing. See the run log for the reason: $RUN_URL"
+          num=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          if [ -n "$num" ]; then gh issue comment "$num" --body "$body" || true
+          else gh issue create --title "$title" --body "$body" || true; fi
 
       # Reminder to translate new titles by hand — opens or refreshes one GitHub
       # issue (uses the built-in GITHUB_TOKEN, no external/AI key). Best-effort.
