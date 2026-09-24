@@ -11,7 +11,8 @@ that no longer allow it:
     last reviewed (snapshot in scripts/guardrails/robots-snapshot.json).
 
 It also warns (without stopping anything) when a site certificate expires within
-21 days or can't be checked.
+21 days or can't be checked, or a licence couldn't be read. In CI the warnings are
+also written to $MONITOR_WARNINGS_FILE, from which the workflow opens an issue.
 
   python3 scripts/monitor_sources.py            # check (exit 1 on drift)
   python3 scripts/monitor_sources.py --update   # accept the current robots.txt files
@@ -19,6 +20,7 @@ It also warns (without stopping anything) when a site certificate expires within
 """
 import hashlib
 import json
+import os
 import socket
 import ssl
 import sys
@@ -136,6 +138,9 @@ def main(argv):
     for w in warnings:
         print(f"  ! {w}")
         print(f"::warning::{w}")
+    out = os.environ.get("MONITOR_WARNINGS_FILE")
+    if out:
+        Path(out).write_text("".join(f"- {w}\n" for w in warnings), "utf-8")
     if drift:
         print("\nSource terms changed — the data job stops so nothing is published under terms "
               "we haven't reviewed (GUARDRAILS.md SRC-10):")
