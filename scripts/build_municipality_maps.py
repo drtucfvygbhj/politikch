@@ -22,6 +22,7 @@ import re
 import sys
 import urllib.request
 from pathlib import Path
+from licences import licence_meta  # the file's licence (scripts/licences.py)
 
 ROOT = Path(__file__).resolve().parent.parent
 UA = "Politikch-map-builder/1.0 (+https://politikch.ch; contact.form@politikch.ch)"
@@ -183,6 +184,7 @@ def main():
                 idx["p"] = e["pop"]
             search_index.append(idx)
         payload = {
+            "_meta": licence_meta(f"municipalities/{code}.json"),
             "w": round(TARGET_W, 1),
             "h": height,
             "source": "swisstopo swissBOUNDARIES3D (2020); population EINWOHNERZ.",
@@ -196,7 +198,8 @@ def main():
     # + population), biggest first for sensible default ranking.
     search_index.sort(key=lambda e: -(e.get("p", 0)))
     (ROOT / "data" / "municipalities-index.json").write_text(
-        json.dumps({"_meta": {"source": "swisstopo swissBOUNDARIES3D via data/municipalities/*.json",
+        json.dumps({"_meta": {**licence_meta("municipalities-index.json"),
+                              "source": "swisstopo swissBOUNDARIES3D via data/municipalities/*.json",
                               "count": len(search_index)}, "m": search_index},
                    ensure_ascii=False, separators=(",", ":")) + "\n",
         encoding="utf-8")

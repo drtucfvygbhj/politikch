@@ -1,21 +1,39 @@
-MIT License
+Copyright (c) 2026 the operator of Politikch (politikch.ch). All rights reserved.
 
-Copyright (c) 2026 Politikch contributors
+This repository contains two kinds of material, under different terms.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. THE WEBSITE — all rights reserved
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+   The source code (js/, css/, index.html, 404.html, maintenance.html,
+   scripts/, analytics-worker/, .github/), the design and layout, the
+   interface and page text (data/i18n.json, data/legal.json), the
+   share-image designs, and the names and logos "Politikch", "PolitikCH" and
+   "PCH" are not licensed for reuse.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+   You may read the source and link to the site. You may not copy, republish,
+   mirror or adapt the website or its code, or use its names or logos, without
+   written permission. (Publishing a public repository lets other GitHub users
+   view and fork it on GitHub, as GitHub's Terms of Service provide; that
+   permission does not extend beyond GitHub.)
+
+2. THE DATA — open, see data/LICENSE.txt
+
+   The data files in data/ may be reused, including commercially. Politikch's
+   own data is licensed under Creative Commons Attribution 4.0 International
+   (CC BY 4.0); official data passed on from public sources keeps its source's
+   terms; official texts are not protected by copyright (Swiss Copyright Act,
+   Art. 5). Each file states its licence and required credit in its "_meta"
+   section; data/LICENSE.txt lists them all. Reuse of the data does not imply
+   any connection with or endorsement by Politikch.
+
+3. FONTS
+
+   The fonts in fonts/ are licensed under the SIL Open Font License 1.1
+   (fonts/OFL.txt).
+
+Earlier versions of this repository, up to and including commit 733e141
+(24 September 2026), were published under the MIT License. Copies obtained
+under that licence keep it. It does not apply to anything added or changed
+after that commit.
+
+For permission to reuse anything not covered above: contact.form@politikch.ch

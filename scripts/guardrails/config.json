@@ -28,7 +28,11 @@
     "twitter.com": {"role": "link", "use": "share link, opened only when the visitor clicks"},
     "www.facebook.com": {"role": "link", "use": "share link, opened only when the visitor clicks"},
     "wa.me": {"role": "link", "use": "share link, opened only when the visitor clicks"},
-    "www.linkedin.com": {"role": "link", "use": "share link, opened only when the visitor clicks"}
+    "www.linkedin.com": {"role": "link", "use": "share link, opened only when the visitor clicks"},
+    "creativecommons.org": {"role": "link", "use": "CC BY 4.0 licence text (scripts/licences.py)"},
+    "opendata.swiss": {"role": "link", "use": "opendata.swiss terms of use (scripts/licences.py)"},
+    "www.fedlex.admin.ch": {"role": "link", "use": "Copyright Act Art. 5 (scripts/licences.py)"},
+    "github.com": {"role": "link", "use": "repository link in data/LICENSE.txt"}
   },
 
   "monitorDomains": ["politikch.ch", "www.politikch.ch", "politicsch.ch", "politicach.ch", "politiquech.ch"],
@@ -123,6 +127,7 @@
       ["fonts/*", ["LIC-01"]],
       ["CNAME*", ["HOST-03"]],
       ["LICENSE*", ["LIC-07"]],
+      ["scripts/licences.py", ["LIC-07"]],
       ["data/LICENSE*", ["LIC-07"]],
       [".well-known/*", ["SEC-06"]],
       ["MAINTENANCE_MODE", ["OPS-08"]]

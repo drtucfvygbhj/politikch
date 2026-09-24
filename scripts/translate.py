@@ -67,6 +67,7 @@ import urllib.error
 import urllib.request
 from datetime import date
 from pathlib import Path
+from licences import licence_meta  # the file's licence (scripts/licences.py)
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -392,6 +393,7 @@ def main(argv):
 def _write(stores):
     doc = {
         "_meta": {
+            **licence_meta("mt.json"),
             "engine": "DeepL",
             "target": "EN-GB (titles, summaries, arguments); IT (arguments)",
             "generatedAt": date.today().isoformat(),

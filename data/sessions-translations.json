@@ -1,7 +1,11 @@
 {
   "_meta": {
     "note": "Unofficial English and Romansh translations of the final-vote act titles. Swiss federal acts have official titles only in German, French and Italian; these are provided by Politikch for convenience and are not official.",
-    "count": 259
+    "count": 259,
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Politikch (politikch.ch), CC BY 4.0 — unofficial translations; the official DE/FR/IT titles prevail",
+    "commercialReuse": "yes, with credit"
   },
   "titles": {
     "29768": {

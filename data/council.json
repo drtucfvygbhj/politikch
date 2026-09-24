@@ -3,7 +3,11 @@
     "source": "Swiss Federal Council (Federal Chancellery, admin.ch)",
     "sourceUrl": "https://www.admin.ch/gov/en/start/federal-council.html",
     "note": "Switzerland's seven-member federal executive. All seven share power equally as a collegial body; one member serves a one-year term as President of the Confederation on rotation, chairing meetings without additional powers.",
-    "presidencyYear": 2026
+    "presidencyYear": 2026,
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Politikch (politikch.ch), CC BY 4.0. Figures: Federal Statistical Office (BFS); Federal Council: admin.ch",
+    "commercialReuse": "yes, with credit"
   },
   "members": [
     { "name": "Guy Parmelin",             "party": "SVP",   "canton": "VD", "since": 2016, "role": "president" },

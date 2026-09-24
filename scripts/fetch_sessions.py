@@ -58,6 +58,7 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from licences import licence_meta  # the file's licence (scripts/licences.py)
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -341,6 +342,7 @@ def main():
             try:
                 votes = build_session(s)
                 path.write_text(json.dumps({
+                    "_meta": licence_meta(f"sessions/{s['id']}.json"),
                     "id": s["id"], "season": s["season"], "year": s["year"],
                     "start": s["start"], "end": s.get("end"),
                     "legislativePeriod": s.get("legislativePeriod"),
@@ -358,6 +360,7 @@ def main():
 
     INDEX.write_text(json.dumps({
         "_meta": {
+            **licence_meta("sessions-index.json"),
             "source": "Federal Assembly OData web service (ws.parlament.ch)",
             "channel": "https://www.youtube.com/@ParlCH",
             "fetchedAt": now.isoformat(timespec="seconds"),

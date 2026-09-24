@@ -155,7 +155,7 @@ promise to be non-partisan.
 | LIC-03 | The repo's MIT licence must not appear to cover third-party data — `data/` keeps a notice that it stays under its sources' terms. | BLOCK (notice present) |
 | LIC-04 | No copying of text/code from other sites or projects without a compatible licence. | REVIEW |
 
-### 7.1 Licensing model: "open data, protected website" — *adopted by owner 2026-09-24, not yet implemented*
+### 7.1 Licensing model: "open data, protected website" — *adopted by owner 2026-09-24, implemented 2026-09-24*
 
 Goal: anyone may reuse the **data** (including commercially), nobody may clone
 the **website**.
@@ -200,22 +200,23 @@ the **website**.
 | Name & logo | Word mark **PolitikCH**; logo = **"PCH" set in Playfair Display** (the site's display font); the language domains | **Not licensed**; register with the IPI | Stops lookalike sites and false endorsement regardless of copyright |
 | Fonts | `fonts/` | Stay under **SIL OFL 1.1** (their own licence) | Not ours |
 
-**What implementing it involves (not done yet)**
+**How it is implemented**
 
-1. Replace `LICENSE` (MIT) with an all-rights-reserved notice for the website,
-   and add `data/LICENSE.txt` (published — `.txt` passes the deploy guard)
-   with the per-layer table above and the exact attribution strings.
-2. Add `_meta.license`, `_meta.attribution` and `_meta.commercialReuse` to every
-   `data/*.json` file (the fetchers write them; 13 of 14 files already have
-   `_meta`, `sessions/*.json` and `overviews/**` still need one).
-3. A **"Data & reuse" page** in five languages: what's free to use, how to
-   credit, per-file licence, what isn't licensed (site, name, logo), and a
-   no-endorsement line. Update the legal notice's "Intellectual property"
-   section to match.
-4. Optionally: move the website code to a private repo and publish only
+1. ✅ `LICENSE`: all rights reserved for the website, and it points to the
+   data licence. It records that versions up to `733e141` were MIT and keep that
+   licence. `data/LICENSE.txt` (published) is generated from `scripts/licences.py`.
+2. ✅ Every published data file carries `_meta.license`, `licenseUrl`,
+   `attribution` and `commercialReuse`, taken from `scripts/licences.py`, the
+   single source of truth. The fetchers stamp their own output, and
+   `python3 scripts/licences.py --stamp` stamps hand-edited files.
+   `i18n.json` and `legal.json` are website text and are not licensed.
+3. ✅ **Data & reuse** page (`#/page/reuse`, footer link) in EN/DE/FR/IT. As
+   with the other legal pages, Romansh falls back to German with a note. The
+   legal notice's "Intellectual property" section now points to it.
+4. *Optional, not done:* move the website code to a private repo and publish only
    `data/` publicly. Note that GitHub Pages from a private repo needs a paid
    GitHub plan, or the planned move off Pages.
-5. Register the marks with the IPI (Swissreg). Before filing:
+5. *Owner's step, not done:* register the marks with the IPI (Swissreg). Before filing:
    - **Descriptiveness risk.** "Politik" + "CH" can be read as "politics,
      Switzerland"; the IPI refuses marks that only describe the service plus an
      indication of origin (MSchG Art. 2(a)). Plain lettering in a standard font
@@ -448,4 +449,4 @@ Stage 1 findings E-01/E-02/G-01 cover them — re-check, don't assume.
 
 | Automated — BLOCK | Automated — FLAG (needs sign-off) | Still REVIEW / not yet automated |
 |---|---|---|
-| Data validity and invariants, i18n parity (VALIDATE, OPS-03) · SEC-01 (ratchet) · SEC-02 · SEC-03 · SEC-04 · SEC-05 · SEC-06 · SEC-07 · SEC-08 (exact pins) · SEC-09 · SEC-10 · SEC-11 · SRC-01 (static + VoteInfo host guard at run time) · SRC-02 (paid product vs `terms_ask`) · SRC-03 · SRC-05 · SRC-06 · SRC-09 · SRC-10 (weekly) · PRIV-01 (static) · PRIV-02 · PRIV-03 · PRIV-05 · PRIV-06 · PRIV-08 · PRIV-10 · POL-01 · POL-12 · POL-13 · HOST-01 · HOST-04 (warnings → GitHub issue) · LIC-01 · OPS-01 · OPS-04 (data guard) | Every file in the trigger table · UNKNOWN files (default rule) · POL-05 banned words · POL-09 quiet period · PRIV-04 privacy text · PRIV-07 poll · SEC-03 CSP edits · OPS-04 hand-edited generated data · OPS-07 billable DeepL | OPS-02 route smoke test, OPS-05 accessibility, OPS-06 mobile/performance (need a headless browser in CI — a new dependency, owner to decide) · POL-02/03/04/06/07/10 editorial judgement · SEC-08 hash pinning · LIC-03/05–09 (licensing model not implemented yet) · SRC-07/08/11 · PRIV-09/11/12 · PROC-01/03 (CLAUDE.md instructs; not machine-enforced) |
+| Data validity and invariants, i18n parity (VALIDATE, OPS-03) · SEC-01 (ratchet) · SEC-02 · SEC-03 · SEC-04 · SEC-05 · SEC-06 · SEC-07 · SEC-08 (exact pins) · SEC-09 · SEC-10 · SEC-11 · SRC-01 (static + VoteInfo host guard at run time) · SRC-02 (paid product vs `terms_ask`) · SRC-03 · SRC-05 · SRC-06 · SRC-09 · SRC-10 (weekly) · PRIV-01 (static) · PRIV-02 · PRIV-03 · PRIV-05 · PRIV-06 · PRIV-08 · PRIV-10 · POL-01 · POL-12 · POL-13 · HOST-01 · HOST-04 (warnings → GitHub issue) · LIC-01 · LIC-03 · LIC-05 · LIC-06 · LIC-08 (via PRIV-08) · LIC-09 · OPS-01 · OPS-04 (data guard) | Every file in the trigger table (incl. LIC-07 licence files) · UNKNOWN files (default rule) · POL-05 banned words · POL-09 quiet period · PRIV-04 privacy text · PRIV-07 poll · SEC-03 CSP edits · OPS-04 hand-edited generated data · OPS-07 billable DeepL | OPS-02 route smoke test, OPS-05 accessibility, OPS-06 mobile/performance (need a headless browser in CI — a new dependency, owner to decide) · POL-02/03/04/06/07/10 editorial judgement · SEC-08 hash pinning · LIC-02/04 (dependency and copied-text licences) · SRC-07/08/11 · PRIV-09/11/12 · PROC-01/03 (CLAUDE.md instructs; not machine-enforced) |

@@ -2,7 +2,11 @@
   "_meta": {
     "source": "Decided federal votes: VoteInfo (Federal Chancellery / Federal Statistical Office), opendata.swiss dataset 'echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen'. Upcoming scheduled votes and pending/signature-gathering initiatives: Federal Chancellery linked-data cubes (politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party recommendations (Parolen): Swissvotes (Année Politique Suisse, Uni Bern), CC BY-NC-SA. Official authority texts are not subject to copyright (Art. 5 URG).",
     "fetchedAt": "2026-09-22T06:05:45Z",
-    "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive."
+    "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive.",
+    "license": "LicenseRef-mixed-source-terms",
+    "licenseUrl": "https://opendata.swiss/en/terms-of-use",
+    "attribution": "Federal Statistical Office and Federal Chancellery (VoteInfo, LINDAS); party recommendations and English short titles: Swissvotes (Année Politique Suisse, University of Bern), CC BY 4.0",
+    "commercialReuse": "ask the source: VoteInfo results are published under 'ask for permission' terms for commercial use (Federal Statistical Office)"
   },
   "initiatives": [
     {

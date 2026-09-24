@@ -1,7 +1,11 @@
 {
   "_meta": {
     "source": "Federal Statistical Office (BFS) — population figures are approximate, rounded to the latest available annual estimate.",
-    "note": "NC seats = number of National Council seats apportioned to the canton by population."
+    "note": "NC seats = number of National Council seats apportioned to the canton by population.",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Politikch (politikch.ch), CC BY 4.0. Figures: Federal Statistical Office (BFS); Federal Council: admin.ch",
+    "commercialReuse": "yes, with credit"
   },
   "cantons": {
     "ZH": { "name": "Zürich", "capital": "Zürich", "pop": "1,590,000", "area": "1,729 km²", "seats": 36, "language": "German", "joined": "1351",
