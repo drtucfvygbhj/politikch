@@ -1,0 +1,61 @@
+{
+ "_about": "robots.txt of every fetched host, as last reviewed. Regenerate with `python3 scripts/monitor_sources.py --update` after reviewing the change (flagged: PROC-05).",
+ "reviewed": "2026-09-24",
+ "hosts": {
+  "ckan.opendata.swiss": {
+   "status": 200,
+   "sha": "ed2bd3798e99d8df",
+   "text": "User-agent: *\nDisallow: /dataset/rate/\nDisallow: /revision/\nDisallow: /dataset/*/history\nDisallow: /api/\nCrawl-Delay: 10"
+  },
+  "ogd-static.voteinfo-app.ch": {
+   "status": "none",
+   "sha": "e3b0c44298fc1c14",
+   "text": ""
+  },
+  "dam-api.bfs.admin.ch": {
+   "status": "none",
+   "sha": "e3b0c44298fc1c14",
+   "text": ""
+  },
+  "cached.lindas.admin.ch": {
+   "status": 200,
+   "sha": "efdb5938a9736727",
+   "text": "User-agent: *\nDisallow: /"
+  },
+  "swissvotes.ch": {
+   "status": 200,
+   "sha": "232b196fc6ef7082",
+   "text": "User-agent: *\nCrawl-delay: 10\nDisallow: /auth/"
+  },
+  "politikfinanzierung.efk.admin.ch": {
+   "status": "none",
+   "sha": "e3b0c44298fc1c14",
+   "text": ""
+  },
+  "www.agvchapp.bfs.admin.ch": {
+   "status": 200,
+   "sha": "88fe4193dddea2ff",
+   "text": "User-agent: *\nCrawl-delay: 10\nDisallow: /api*"
+  },
+  "ws.parlament.ch": {
+   "status": "none",
+   "sha": "e3b0c44298fc1c14",
+   "text": ""
+  },
+  "api-free.deepl.com": {
+   "status": "none",
+   "sha": "e3b0c44298fc1c14",
+   "text": ""
+  },
+  "api.deepl.com": {
+   "status": "none",
+   "sha": "e3b0c44298fc1c14",
+   "text": ""
+  },
+  "labs.karavia.ch": {
+   "status": "none",
+   "sha": "e3b0c44298fc1c14",
+   "text": ""
+  }
+ }
+}

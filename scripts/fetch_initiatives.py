@@ -39,6 +39,7 @@ Design notes:
 import json
 import csv
 import io
+import os
 import re
 import sys
 import time
@@ -66,7 +67,7 @@ INITIATIVE_CUBE = "https://politics.ld.admin.ch/political-rights/popular-initiat
 POPULAR_VOTE_CUBE = "https://politics.ld.admin.ch/political-rights/popular-vote/1"
 
 # Swissvotes — the academic database of Swiss popular votes (Année Politique
-# Suisse, Uni Bern). Its open dataset (CC BY-NC-SA) carries each party's official
+# Suisse, Uni Bern). Its open dataset (CC BY 4.0) carries each party's official
 # voting recommendation (Parole) per ballot, which no federal source publishes.
 # Used only to annotate votes with party recommendations and to fill the English
 # short title for upcoming ballots (LINDAS has no English there).
@@ -155,13 +156,43 @@ PENDING_PAGE = {
 }
 
 
+# swissvotes.ch and ckan.opendata.swiss ask for 10 s between requests in their
+# robots.txt (Crawl-delay). Honoured on every attempt, retries included
+# (GUARDRAILS.md SRC-05). Override with POLITIKCH_CRAWL_DELAY for local testing.
+CRAWL_DELAY_HOSTS = {"swissvotes.ch", "ckan.opendata.swiss"}
+# Hosts the VoteInfo metadata may point the per-day result files to.
+VOTEINFO_HOSTS = {"ogd-static.voteinfo-app.ch", "dam-api.bfs.admin.ch"}
+CRAWL_DELAY = float(os.environ.get("POLITIKCH_CRAWL_DELAY", "10"))
+_last_hit = {}
+# Nothing this script downloads comes near this; a larger response is refused
+# rather than read into memory (GUARDRAILS.md SEC-09).
+MAX_BYTES = 64 * 1024 * 1024
+
+
+def _polite_wait(url):
+    host = urllib.parse.urlsplit(url).hostname or ""
+    if host in CRAWL_DELAY_HOSTS and CRAWL_DELAY > 0:
+        wait = CRAWL_DELAY - (time.time() - _last_hit.get(host, 0.0))
+        if wait > 0:
+            time.sleep(wait)
+    _last_hit[host] = time.time()
+
+
+def read_capped(resp):
+    data = resp.read(MAX_BYTES + 1)
+    if len(data) > MAX_BYTES:
+        raise ValueError(f"response larger than {MAX_BYTES} bytes: {resp.geturl()}")
+    return data
+
+
 def http_get(url, retries=6):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
     last = None
     for attempt in range(retries):
+        _polite_wait(url)
         try:
             with urllib.request.urlopen(req, timeout=60) as resp:
-                return resp.read()
+                return read_capped(resp)
         except Exception as e:  # noqa: BLE001 — transient proxy/network errors
             last = e
             time.sleep(1.5 * (attempt + 1))
@@ -181,7 +212,7 @@ def sparql(query, retries=6):
     for attempt in range(retries):
         try:
             with urllib.request.urlopen(req, timeout=90) as resp:
-                return json.loads(resp.read())["results"]["bindings"]
+                return json.loads(read_capped(resp))["results"]["bindings"]
         except Exception as e:  # noqa: BLE001
             last = e
             time.sleep(1.5 * (attempt + 1))
@@ -351,6 +382,12 @@ def fetch_votes(today):
 
     items = []
     for iso, url in dated:
+        # The per-day URLs come from the dataset's metadata, not from us: only
+        # follow them to the hosts in the source registry (GUARDRAILS.md SRC-01).
+        host = urllib.parse.urlsplit(url).hostname or ""
+        if not url.startswith("https://") or host not in VOTEINFO_HOSTS:
+            print(f"  ! {iso}: skipped — {host or url} is not an approved VoteInfo host", file=sys.stderr)
+            continue
         try:
             day = fetch_json(url)
         except Exception as e:  # noqa: BLE001

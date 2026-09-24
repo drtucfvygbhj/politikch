@@ -27,7 +27,7 @@ the owner's permission) — plus CC BY (reuse incl. commercial, attribution).
 | **BFS** election results | National Council / canton results | automatic | **CC BY 4.0** | ✅ attribution |
 | **BFS** geo / municipality register | maps, counts | automatic | `terms_open` | ✅ |
 | **LINDAS** (Chancellery) | pending / upcoming initiatives | automatic (SPARQL) | `terms_by` / CC BY | ✅ cite source |
-| **EFK** register | party / campaign financing | automatic | official transparency register | ✅ cite source |
+| **EFK** register | party / campaign financing (organisations named; private individuals anonymised) | automatic | opendata.swiss `terms_open` (verified 2026-09-24) | ✅ |
 | **VoteInfo** (BFS) | federal **vote results & titles** (real-time feed) | automatic | `terms_ask` — see note | ✅ *(via the two routes below)* |
 
 Attribution is surfaced in-app for every source (see `NOTICE.md` and the
@@ -35,10 +35,14 @@ Attribution is surfaced in-app for every source (see `NOTICE.md` and the
 
 ## Machine translation (DeepL)
 
-English texts that have no official version (session vote titles, for/against
-arguments, session summaries) are machine-translated by **DeepL** at build time
-(`scripts/translate.py` → `data/mt.json`), labelled "machine translation" on the
-site with a link to the official source. Commercial status:
+Texts with no official version in a site language are machine-translated by
+**DeepL** at build time (`scripts/translate.py` → `data/mt.json`): into **English**
+the session vote titles, session summaries and for/against arguments; into
+**Italian** the for/against arguments (the brochure is fetched automatically only
+in DE/FR; an official Italian brochure, when added, always takes precedence).
+Both sides of a vote are translated together and stored only when both are
+complete. Everything is labelled "machine translation" on the site with a link
+to the official source. Commercial status:
 
 - **Output ownership:** DeepL's terms grant the customer full, unrestricted
   rights to use the translations, including commercially — DeepL claims no
@@ -53,9 +57,10 @@ site with a link to the official source. Commercial status:
   free allowance: new "Developer" accounts get **1,000,000 characters one-time**
   (not monthly); legacy "API Free" (`:fx`) accounts get 500,000/month recurring.
   Either way `scripts/translate.py` reads the real remaining quota and stays
-  under it. Our volume (~196k chars once, then ~120k/year) makes the one-time
-  million last **~6–7 years**; when exhausted, English falls back to the official
-  language (no charge). Four safety layers (see the script header): the
+  under it. Our volume (~207k chars once, then ~150k/year: ~37k session texts,
+  ~56k arguments into English and ~56k into Italian, at ~10 federal proposals a
+  year) makes the one-time million last **about 5 years** (English-only would be
+  ~8); when exhausted, texts fall back to the official language (no charge). Four safety layers (see the script header): the
   no-payment-method account (the real guarantee), refusing a billable (non-`:fx`)
   key, the `/v2/usage` cap minus a safety margin, and a per-run cap that only
   writes fully-translated items.

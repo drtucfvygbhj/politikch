@@ -28,7 +28,9 @@ Usage:
 import csv
 import io
 import json
+import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -60,10 +62,35 @@ NC_PARTY_KEY = {
 }
 
 
+# www.agvchapp.bfs.admin.ch asks for 10 s between requests (robots.txt
+# Crawl-delay); its REST API is documented by the BFS for programmatic use.
+CRAWL_DELAY = float(os.environ.get("POLITIKCH_CRAWL_DELAY", "10"))
+_last_hit = [0.0]
+
+
+def _polite_wait():
+    wait = CRAWL_DELAY - (time.time() - _last_hit[0])
+    if wait > 0:
+        time.sleep(wait)
+    _last_hit[0] = time.time()
+
+
+# A larger response is refused rather than read into memory (GUARDRAILS.md SEC-09).
+MAX_BYTES = 32 * 1024 * 1024
+
+
+def read_capped(resp):
+    data = resp.read(MAX_BYTES + 1)
+    if len(data) > MAX_BYTES:
+        raise ValueError(f"response larger than {MAX_BYTES} bytes: {resp.geturl()}")
+    return data
+
+
 def http_get(url):
+    _polite_wait()
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
     with urllib.request.urlopen(req, timeout=60) as resp:
-        return resp.read()
+        return read_capped(resp)
 
 
 def canton_num_to_code():

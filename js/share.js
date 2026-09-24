@@ -13,7 +13,7 @@
    JSON `data-share` spec on the graph's card and calls wireShares(root, ctx).
    The spec is link-agnostic; the link is built from ctx + the current origin.
    ============================================================ */
-import { track } from './analytics.js?v=20260924b';
+import { track } from './analytics.js?v=20260924c';
 
 // The site's own domain per interface language (branding text baked into the
 // image). RM shares the German-language domain. See the project spec.

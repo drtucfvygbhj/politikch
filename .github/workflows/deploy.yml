@@ -24,7 +24,35 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Nothing is deployed unless the guardrail checks (GUARDRAILS.md,
+  # scripts/check.py) pass on the exact commit being deployed. For a push, every
+  # flagged change since the previous main must carry the owner's sign-off
+  # ("Approved-Rule: …" in a commit message); the data job's own refresh was
+  # already checked before it was committed.
+  check:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Guardrail checks
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: python3 scripts/check.py ${BEFORE:+--base "$BEFORE"} --strict
+
   deploy:
+    needs: check
     # After the data job, deploy only if it succeeded.
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
@@ -34,6 +62,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}   # the same commit the check job passed
 
       - name: Setup Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0

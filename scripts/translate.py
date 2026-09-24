@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
-"""Machine-translate official DE/FR/IT texts into English via DeepL (build-time).
+"""Machine-translate official DE/FR/IT texts via DeepL (build-time).
 
-Fills the English gaps the site otherwise shows in a fallback language:
-  * session (parliamentary) vote titles — Swiss acts have no official EN title;
-  * the Federal Council for/against arguments (data/overviews/initiative/*.json);
-  * the session "what this vote is about" summaries (data/sessions/*.json).
+Fills the gaps the site otherwise shows in a fallback language:
+  * session (parliamentary) vote titles -> English (acts have no official EN title);
+  * the session "what this vote is about" summaries -> English;
+  * the for/against arguments (data/overviews/initiative/*.json) -> English AND
+    Italian. The brochure is fetched automatically only in DE/FR (Swissvotes has
+    no IT), so Italian readers would otherwise get German or French. An official
+    Italian brochure, once added, always takes precedence over the machine one.
 
-English only. DeepL has no Romansh, so RM keeps its official DE/FR/IT fallback
-with a language chip — nothing here touches RM.
+Both sides of a vote are translated as ONE item and stored only if every
+paragraph of both came back, so one side can never appear translated alone
+(GUARDRAILS.md POL-01). DeepL has no Romansh, so RM keeps its official DE/FR/IT
+fallback with a language chip — nothing here touches RM.
 
 These are DEDICATED machine translations from DeepL, a purpose-built translation
 engine — NOT LLM-generated content. Every one is shown on the site with a
@@ -33,8 +38,9 @@ Four independent layers, strongest first:
      NOTE: DeepL's free allowance for new "Developer" accounts is 1,000,000
      characters ONE-TIME (not monthly); legacy "API Free" (:fx) accounts get
      500,000/month recurring. This script reads the real remaining quota from
-     DeepL's /v2/usage, so it works either way. Our volume (~0.2M once, then
-     ~0.12M/yr) leaves the one-time million lasting several years; when it's
+     DeepL's /v2/usage, so it works either way. Our volume (~0.21M once, then
+     ~0.15M/yr incl. Italian arguments) leaves the one-time million lasting about
+     5 years; when it's
      exhausted the site simply falls back to the official language.
   1. KEY CHECK: the script REFUSES to run with a non-free key (one that could be
      billed) unless DEEPL_ALLOW_PAID=1 is set deliberately.
@@ -69,6 +75,9 @@ OVERVIEWS = DATA / "overviews" / "initiative"
 SESSIONS = DATA / "sessions"
 
 TARGET = "EN-GB"            # site English leans European/British (en-CH locale)
+# The for/against arguments get every language they lack officially that DeepL
+# offers: site language code -> DeepL target code.
+ARG_TARGETS = {"en": "EN-GB", "it": "IT"}
 SRC_LANGS = ("DE", "FR", "IT")   # official Swiss languages we translate FROM
 BATCH = 40                 # texts per DeepL request (also bounded by 128 KiB)
 
@@ -118,14 +127,14 @@ def deepl_usage(key):
         return None, None
 
 
-def deepl(texts, src, key, retries=5):
-    """Translate a list of texts DE/FR/IT -> English. Returns list, same order."""
+def deepl(texts, src, key, target=TARGET, retries=5):
+    """Translate a list of texts from `src` into `target`. Returns list, same order."""
     if not texts:
         return []
     body = json.dumps({
         "text": texts,
         "source_lang": src,
-        "target_lang": TARGET,
+        "target_lang": target,
         "preserve_formatting": True,
     }).encode("utf-8")
     req = urllib.request.Request(
@@ -181,6 +190,13 @@ def collect(existing):
             return True
         return False
 
+    def cached_arg_ok(iid, tl, src_text):
+        e = ((existing.get("args") or {}).get(str(iid)) or {}).get(tl)
+        if e and e.get("h") == h(src_text):
+            keep["args"].setdefault(str(iid), {})[tl] = e
+            return True
+        return False
+
     # 1) Session vote titles (title.{de,fr,it}; no official EN) + summaries
     for f in sorted(SESSIONS.glob("*.json")):
         data = json.loads(f.read_text("utf-8"))
@@ -201,24 +217,27 @@ def collect(existing):
                     jobs.append({"store": "summaries", "id": v["id"], "src": ssrc,
                                  "texts": [stext], "shape": "text"})
 
-    # 2) Federal Council for/against arguments (DE/FR present; EN falls back)
+    # 2) For/against arguments (official DE/FR; EN and IT fall back otherwise).
+    #    One job per missing language, carrying BOTH sides together.
     for f in sorted(OVERVIEWS.glob("*.json")):
         data = json.loads(f.read_text("utf-8"))
         lang = data.get("lang") or {}
-        if lang.get("en"):
-            continue
         src = pick_src(lang)
         if not src:
             continue
         block = lang[src.lower()]
         pros, cons = block.get("pros") or [], block.get("cons") or []
+        if not (pros and cons):
+            continue  # never translate one side on its own
         src_join = "\n".join(pros) + "␟" + "\n".join(cons)  # hash both sides
         iid = f.stem
-        if pros or cons:
-            if not cached_ok("args", iid, src_join):
-                jobs.append({"store": "args", "id": iid, "src": src,
-                             "texts": pros + cons, "shape": "args",
-                             "np": len(pros), "hkey": src_join})
+        for tl, target in ARG_TARGETS.items():
+            if lang.get(tl) or tl == src.lower():
+                continue  # an official text in that language exists
+            if not cached_arg_ok(iid, tl, src_join):
+                jobs.append({"store": "args", "id": iid, "src": src, "tl": tl,
+                             "target": target, "texts": pros + cons,
+                             "shape": "args", "np": len(pros), "hkey": src_join})
     return jobs, keep
 
 
@@ -228,12 +247,13 @@ def run(jobs, keep, key, budget, limit=0):
     the rest for a later run. Only WHOLE items (all their texts translated) are
     stored, so nothing is written half-translated. Returns (out, done, sent)."""
     out = {k: dict(v) for k, v in keep.items()}
-    by_src = {}
+    out["args"] = {iid: dict(v) for iid, v in keep.get("args", {}).items()}
+    by_pair = {}
     for j in jobs:
-        by_src.setdefault(j["src"], []).append(j)
+        by_pair.setdefault((j["src"], j.get("target", TARGET)), []).append(j)
     done = sent = 0
     stop = False
-    for src, group in by_src.items():
+    for (src, target), group in by_pair.items():
         if stop:
             break
         flat, owners = [], []
@@ -258,7 +278,7 @@ def run(jobs, keep, key, budget, limit=0):
             if not batch:
                 break
             try:
-                res = deepl(batch, src, key)
+                res = deepl(batch, src, key, target)
             except QuotaExceeded:
                 print("  DeepL free allowance reached — stopping cleanly; the rest "
                       "stays on the official-language fallback.", file=sys.stderr)
@@ -279,10 +299,15 @@ def run(jobs, keep, key, budget, limit=0):
             if j["shape"] == "text":
                 entry = {"t": texts[0], "src": j["src"].lower(),
                          "h": h(j["texts"][0])}
-            else:  # args
+            else:  # args — both sides, nested per target language
                 np = j["np"]
                 entry = {"pros": texts[:np], "cons": texts[np:],
                          "src": j["src"].lower(), "h": h(j["hkey"])}
+                out["args"].setdefault(str(j["id"]), {})[j["tl"]] = entry
+                done += 1
+                if limit and done >= limit:
+                    return out, done, sent
+                continue
             out[j["store"]][str(j["id"])] = entry
             done += 1
             if limit and done >= limit:
@@ -368,11 +393,12 @@ def _write(stores):
     doc = {
         "_meta": {
             "engine": "DeepL",
-            "target": "EN-GB",
+            "target": "EN-GB (titles, summaries, arguments); IT (arguments)",
             "generatedAt": date.today().isoformat(),
-            "note": "Unofficial machine translations (English) of official "
-                    "DE/FR/IT texts, by DeepL. Shown with a machine-translation "
-                    "badge and a link to the official source.",
+            "note": "Unofficial machine translations of official DE/FR/IT texts, "
+                    "by DeepL. titles/summaries: {id: English}; args: {id: {en|it: "
+                    "{pros, cons}}}. Shown with a machine-translation badge and a "
+                    "link to the official source.",
         },
         "titles": stores.get("titles", {}),
         "args": stores.get("args", {}),

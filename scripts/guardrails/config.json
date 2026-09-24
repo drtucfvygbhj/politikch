@@ -1,0 +1,132 @@
+{
+  "_about": "Machine-readable part of GUARDRAILS.md, used by scripts/check.py, scripts/monitor_sources.py and scripts/data_guard.py. Changing this file is itself a flagged change (PROC-05).",
+
+  "sources": {
+    "_about": "SRC-01/02/05/10. Every host a script or workflow contacts or links to. role: fetch = contacted by a fetcher; link = only written into data as a link for visitors; namespace = an RDF/XML namespace, never contacted; self = our own site. robots: what the host's robots.txt said when verified; apiDocs: the provider's own documentation that permits programmatic use of a path robots.txt disallows.",
+    "ckan.opendata.swiss": {"role": "fetch", "owner": "opendata.swiss (Federal Statistical Office)", "use": "VoteInfo dataset metadata", "licence": "metadata", "commercial": "yes", "crawlDelay": 10, "robots": "Disallow: /api/; Crawl-delay: 10", "apiDocs": "https://handbook.opendata.swiss/de/content/nutzen/api-nutzen.html", "verified": "2026-09-24"},
+    "ogd-static.voteinfo-app.ch": {"role": "fetch", "owner": "Federal Statistical Office (VoteInfo)", "use": "federal vote results per voting day", "licence": "terms_ask", "commercial": "ask", "ckan": "echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen", "terms": ["terms_ask"], "robots": "none (403)", "verified": "2026-09-24"},
+    "dam-api.bfs.admin.ch": {"role": "fetch", "owner": "Federal Statistical Office", "use": "older VoteInfo days; National Council 2023 results", "licence": "terms_ask (VoteInfo) / terms_by (election results)", "commercial": "ask (VoteInfo) / yes with credit (elections)", "robots": "none (404)", "verified": "2026-09-24"},
+    "cached.lindas.admin.ch": {"role": "fetch", "owner": "Federal Chancellery via LINDAS (Swiss Federal Archives)", "use": "pending and upcoming initiatives", "licence": "open government data, no licence stated on the cubes; official facts", "commercial": "yes", "robots": "Disallow: /", "apiDocs": "https://schema.ld.admin.ch/sparqlEndpoint", "verified": "2026-09-24"},
+    "swissvotes.ch": {"role": "fetch", "owner": "Année Politique Suisse, University of Bern", "use": "party recommendations, EN short titles, brochure PDFs", "licence": "CC BY 4.0 (dataset); brochure text URG Art. 5", "commercial": "yes with credit", "crawlDelay": 10, "robots": "Crawl-delay: 10; Disallow: /auth/", "verified": "2026-09-24"},
+    "politikfinanzierung.efk.admin.ch": {"role": "fetch", "owner": "Swiss Federal Audit Office (EFK)", "use": "party and campaign financing", "licence": "terms_open", "commercial": "yes", "ckan": "politikfinanzierung", "terms": ["terms_open"], "robots": "none (404)", "verified": "2026-09-24"},
+    "www.agvchapp.bfs.admin.ch": {"role": "fetch", "owner": "Federal Statistical Office", "use": "municipality register (counts)", "licence": "terms_open", "commercial": "yes", "ckan": "historisiertes-gemeindeverzeichnis-der-schweiz", "terms": ["terms_open"], "crawlDelay": 10, "robots": "Disallow: /api*; Crawl-delay: 10", "apiDocs": "https://www.agvchapp.bfs.admin.ch/documents/rest_api_de.pdf", "verified": "2026-09-24"},
+    "ws.parlament.ch": {"role": "fetch", "owner": "Parliamentary Services", "use": "sessions, final votes, business summaries", "licence": "terms_by", "commercial": "yes with credit", "ckan": "webservices-httpws-old-parlament-ch", "terms": ["terms_by"], "robots": "none (404)", "verified": "2026-09-24"},
+    "api-free.deepl.com": {"role": "fetch", "owner": "DeepL SE", "use": "machine translation (free Developer plan)", "licence": "DeepL T&C: output assigned to us; credit DeepL; free plan may keep inputs (public texts only, OPS-09)", "commercial": "yes", "verified": "2026-09-24"},
+    "api.deepl.com": {"role": "fetch", "owner": "DeepL SE", "use": "machine translation (paid plan, only with DEEPL_ALLOW_PAID)", "licence": "DeepL T&C", "commercial": "yes", "verified": "2026-09-24"},
+    "labs.karavia.ch": {"role": "fetch", "owner": "mirror of swisstopo swissBOUNDARIES3D (2020)", "use": "municipality map geometry (one-off, manual script)", "licence": "swisstopo terms_by (credit)", "commercial": "yes with credit", "verified": "2026-09-24"},
+    "www.bk.admin.ch": {"role": "link", "owner": "Federal Chancellery", "use": "links to official ballot pages (never fetched: admin.ch blocks bots)"},
+    "politics.ld.admin.ch": {"role": "namespace", "use": "LINDAS cube identifiers"},
+    "cube.link": {"role": "namespace", "use": "SPARQL prefix"},
+    "schema.org": {"role": "namespace", "use": "SPARQL prefix"},
+    "www.w3.org": {"role": "namespace", "use": "XML/SVG namespaces"},
+    "www.youtube.com": {"role": "link", "use": "link to the Federal Assembly's official channel (never embedded)"},
+    "www.parlament.ch": {"role": "link", "use": "links to Curia Vista business pages"},
+    "politikch.ch": {"role": "self", "use": "our site (User-Agent contact URL)"},
+    "x-access-token": {"role": "self", "use": "git push URL placeholder in the data workflow"},
+    "politikch-analytics.soft-hill-f9fb.workers.dev": {"role": "self", "use": "our analytics Worker (ANALYTICS_API)"},
+    "your-worker.example.workers.dev": {"role": "namespace", "use": "example in a comment"},
+    "twitter.com": {"role": "link", "use": "share link, opened only when the visitor clicks"},
+    "www.facebook.com": {"role": "link", "use": "share link, opened only when the visitor clicks"},
+    "wa.me": {"role": "link", "use": "share link, opened only when the visitor clicks"},
+    "www.linkedin.com": {"role": "link", "use": "share link, opened only when the visitor clicks"}
+  },
+
+  "monitorDomains": ["politikch.ch", "www.politikch.ch", "politicsch.ch", "politicach.ch", "politiquech.ch"],
+
+  "voteinfoHosts": ["ogd-static.voteinfo-app.ch", "dam-api.bfs.admin.ch"],
+
+  "csp": {
+    "_about": "SEC-03 / PRIV-02. The exact published policy. Any change is flagged; loosening is blocked.",
+    "default-src": ["'self'"],
+    "script-src": ["'self'"],
+    "style-src": ["'self'", "'unsafe-inline'"],
+    "img-src": ["'self'", "data:"],
+    "font-src": ["'self'"],
+    "connect-src": ["'self'", "https://politikch-analytics.soft-hill-f9fb.workers.dev"],
+    "base-uri": ["'self'"],
+    "form-action": ["'none'"],
+    "object-src": ["'none'"]
+  },
+
+  "storageKeys": {
+    "_about": "PRIV-03 (FMG Art. 45c). Every key the site stores on a visitor's device, and where the Privacy page describes it.",
+    "politikch-lang": "privacy.p.storage",
+    "politikch-votes": "privacy.p.storage",
+    "politikch-votes-pushed": "poll only (POLL_API); must be added to privacy.p.storage before the poll is switched on",
+    "politikch-analytics-off": "privacy.p.analytics2"
+  },
+
+  "analytics": {
+    "_about": "PRIV-05. What the Worker may record; must match the Privacy page.",
+    "events": ["lang", "search", "vote", "share", "outbound", "vote_open", "contact", "glossary"],
+    "eventsColumns": ["id", "ts", "day", "hour", "kind", "route", "entry", "name", "prop", "ref", "utm_source", "utm_medium", "utm_campaign", "country", "region", "city", "device", "browser", "os", "screen", "lang", "blang", "visitor", "duration"],
+    "rawRetentionDays": "7",
+    "optOutMarkers": ["globalPrivacyControl", "doNotTrack", "webdriver", "localhost", "'analytics'"]
+  },
+
+  "attribution": {
+    "_about": "SRC-03/04. Words that must stay on the Sources page in each language, and the DeepL credit in the MT strings.",
+    "sourcesPage": {
+      "en": ["swisstopo", "Swissvotes", "CC BY", "parlament", "LINDAS", "opendata", "EFK", "BFS"],
+      "de": ["swisstopo", "Swissvotes", "CC BY", "parlament", "LINDAS", "opendata", "EFK", "BFS"],
+      "fr": ["swisstopo", "Swissvotes", "CC BY", "parlament", "LINDAS", "opendata", "CDF", "OFS"],
+      "it": ["swisstopo", "Swissvotes", "CC BY", "parlament", "LINDAS", "opendata", "CDF", "UST"]
+    },
+    "deeplKeys": ["mt.tip", "overview.sourceMt"]
+  },
+
+  "bannedWords": {
+    "_about": "POL-05. Checked only in text a change ADDS to editorial files (not official texts reproduced verbatim). A hit needs the owner's sign-off.",
+    "en": ["extreme", "extremist", "radical", "dangerous", "fringe", "far-left", "far-right", "populist", "reckless", "disastrous", "absurd", "ridiculous", "scandalous", "shameful", "lies", "propaganda", "vote yes", "vote no", "you should vote"],
+    "de": ["extrem", "extremistisch", "radikal", "gefährlich", "populistisch", "rechtsextrem", "linksextrem", "skandalös", "absurd", "lächerlich", "verantwortungslos", "Lügen", "Propaganda", "stimmen Sie Ja", "stimmen Sie Nein"],
+    "fr": ["extrême", "extrémiste", "radical", "dangereux", "populiste", "scandaleux", "absurde", "ridicule", "irresponsable", "mensonges", "propagande", "votez oui", "votez non"],
+    "it": ["estremo", "estremista", "radicale", "pericoloso", "populista", "scandaloso", "assurdo", "ridicolo", "irresponsabile", "menzogne", "propaganda", "votate sì", "votate no"],
+    "rm": ["extrem", "radical", "populistic", "propaganda"]
+  },
+
+  "claimPhrases": {
+    "_about": "POL-10 / POL-12. Claims about ourselves that are false today. Blocked anywhere in published files.",
+    "phrases": ["non-commercial", "noncommercial", "nicht kommerziell", "nichtkommerziell", "non commercial", "non commerciale", "Politikch is an official", "Politikch ist eine offizielle", "Politikch est un site officiel", "Politikch è un sito ufficiale", "an official publication", "amtliche Publikation", "publication officielle", "pubblicazione ufficiale", "on behalf of the Confederation", "im Auftrag des Bundes", "au nom de la Confédération", "a nome della Confederazione"]
+  },
+
+  "quietPeriodDays": 10,
+
+  "published": ["index.html", "404.html", "robots.txt", "maintenance.html", "css/", "js/", "fonts/", "data/", ".well-known/"],
+
+  "generatedData": ["data/initiatives.json", "data/financing.json", "data/canton-data.json", "data/sessions-index.json", "data/sessions/", "data/overviews/", "data/mt.json", "TRANSLATIONS_TODO.md"],
+
+  "editorialFiles": ["data/i18n.json", "data/parties.json", "data/donor-descriptions.json", "data/legal.json", "data/initiatives-translations.json", "data/sessions-translations.json", "data/cantons.json", "data/council.json", "index.html", "maintenance.html"],
+
+  "triggers": {
+    "_about": "Changed file (glob) -> rules that must be signed off ('Approved-Rule: <ID> — reason' in a commit message). Files matching no pattern here or in 'reviewOnly' are flagged UNKNOWN (default rule).",
+    "flag": [
+      ["GUARDRAILS.md", ["PROC-05"]],
+      ["scripts/check.py", ["PROC-05"]],
+      ["scripts/guardrails/*", ["PROC-05"]],
+      ["scripts/data_guard.py", ["PROC-05"]],
+      ["scripts/monitor_sources.py", ["PROC-05"]],
+      [".githooks/*", ["PROC-05"]],
+      [".github/workflows/*", ["SEC-07"]],
+      [".github/dependabot.yml", ["SEC-08"]],
+      ["scripts/requirements*.txt", ["SEC-08", "LIC-02"]],
+      ["scripts/fetch_*.py", ["SRC-01"]],
+      ["scripts/translate.py", ["SRC-01", "OPS-07", "OPS-09"]],
+      ["scripts/build_municipality_maps.py", ["SRC-01"]],
+      ["analytics-worker/**", ["PRIV-04", "PRIV-05"]],
+      ["js/analytics.js", ["PRIV-04", "PRIV-06"]],
+      ["js/config.js", ["PRIV-07", "POL-12", "HOST-01"]],
+      ["js/myvotes.js", ["PRIV-01"]],
+      ["js/share.js", ["PRIV-01", "HOST-03"]],
+      ["data/legal.json", ["PRIV-04", "POL-12"]],
+      ["data/donor-descriptions.json", ["POL-07"]],
+      ["data/parties.json", ["POL-04", "POL-06"]],
+      ["fonts/*", ["LIC-01"]],
+      ["CNAME*", ["HOST-03"]],
+      ["LICENSE*", ["LIC-07"]],
+      ["data/LICENSE*", ["LIC-07"]],
+      [".well-known/*", ["SEC-06"]],
+      ["MAINTENANCE_MODE", ["OPS-08"]]
+    ],
+    "reviewOnly": ["js/app.js", "js/map-data.js", "css/*", "index.html", "404.html", "maintenance.html", "robots.txt", "data/*.json", "data/sessions/*", "data/overviews/**", "data/municipalities/*", "data/brochures/README.md", "*.md", "scripts/validate.py", "scripts/check_translations.py", "guides", ".gitignore", ".claude/launch.json", "Start Politikch.command", "CLAUDE.md", "TRANSLATIONS_TODO.md"]
+  }
+}

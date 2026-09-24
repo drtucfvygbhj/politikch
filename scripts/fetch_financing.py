@@ -75,10 +75,21 @@ BUDGET_DONORS_LABEL = "Offenlegung von Zuwendungen über 15 000 Franken"
 PARTY_DONORS_LABEL = "Offenlegung von Zuwendungen über 15 000 Franken"
 
 
+# A larger response is refused rather than read into memory (GUARDRAILS.md SEC-09).
+MAX_BYTES = 32 * 1024 * 1024
+
+
+def read_capped(resp):
+    data = resp.read(MAX_BYTES + 1)
+    if len(data) > MAX_BYTES:
+        raise ValueError(f"response larger than {MAX_BYTES} bytes: {resp.geturl()}")
+    return data
+
+
 def http_get(path):
     req = urllib.request.Request(BASE + path, headers={"User-Agent": UA, "Accept": "*/*"})
     with urllib.request.urlopen(req, timeout=30) as resp:
-        return resp.read()
+        return read_capped(resp)
 
 
 def fetch_json(path):
@@ -120,12 +131,13 @@ def parse_donors_sheet(wb, natural_sheet, legal_sheet):
         for r in wb[natural_sheet].iter_rows(min_row=2, values_only=True):
             if not r or not r[0]:
                 continue
-            # natural-person sheets: ...name, first name, municipality, ..., amount, date (last 4 cols)
-            name, first, muni, _, amount, date = r[-6], r[-5], r[-4], r[-3], r[-2], r[-1]
+            # natural-person sheets: ...name, first name, municipality, ..., amount, date (last 4 cols).
+            # A private person's name and municipality are never kept: a political
+            # donation reveals a political opinion (sensitive data, revFADP Art. 5(c)),
+            # so the site shows them only as "Private individual" (GUARDRAILS.md PRIV-08).
+            amount, date = r[-2], r[-1]
             donors.append({
-                "name": f"{first} {name}".strip(),
                 "type": "individual",
-                "location": muni,
                 "amount": amount or 0,
                 "date": date.date().isoformat() if hasattr(date, "date") else None,
             })
