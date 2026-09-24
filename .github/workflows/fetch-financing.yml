@@ -66,7 +66,29 @@ jobs:
       # robots.txt changed, stop here so nothing is fetched or published under
       # terms nobody has reviewed (GUARDRAILS.md SRC-10).
       - name: Check sources' terms (licence codes, robots.txt)
+        env:
+          MONITOR_WARNINGS_FILE: ${{ runner.temp }}/source-warnings.txt
         run: python3 scripts/monitor_sources.py
+
+      # Warnings that don't stop the job (a certificate about to expire or
+      # broken, a licence that couldn't be read) still reach the owner: one open
+      # issue, refreshed with each week's warnings; closed once a week is clean.
+      - name: Open/refresh "source check warnings" issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WARN_FILE: ${{ runner.temp }}/source-warnings.txt
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Weekly source check: warnings to review"
+          num=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          if [ -s "$WARN_FILE" ]; then
+            body="$(printf 'The weekly source check found:\n\n%s\n\nRun: %s' "$(cat "$WARN_FILE")" "$RUN_URL")"
+            if [ -n "$num" ]; then gh issue comment "$num" --body "$body" || true
+            else gh issue create --title "$title" --body "$body" || true; fi
+          elif [ -f "$WARN_FILE" ] && [ -n "$num" ]; then
+            gh issue close "$num" --comment "This week's source check found no warnings. Run: $RUN_URL" || true
+          fi
 
       - name: Install dependencies
         run: |
