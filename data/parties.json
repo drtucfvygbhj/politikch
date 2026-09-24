@@ -5,7 +5,11 @@
     "spectrum_axes": {
       "x": "Economic policy: 0 = redistributive/left, 100 = market-oriented/right",
       "y": "Social policy: 0 = progressive/libertarian, 100 = traditional/conservative"
-    }
+    },
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Politikch (politikch.ch), CC BY 4.0. Seat counts: Parliamentary Services (parlament.ch)",
+    "commercialReuse": "yes, with credit"
   },
   "parties": {
     "SVP": {

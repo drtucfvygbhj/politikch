@@ -1,4 +1,10 @@
 {
+  "_meta": {
+    "license": "LicenseRef-opendata.swiss-terms_by",
+    "licenseUrl": "https://opendata.swiss/en/terms-of-use",
+    "attribution": "Parliamentary Services of the Federal Assembly (parlament.ch)",
+    "commercialReuse": "yes, with credit"
+  },
   "id": 5202,
   "season": "special",
   "year": 2024,

@@ -100,10 +100,15 @@ Keyboard-navigable throughout (map, seats, spectrum, cards, modal), visible focu
 
 ## Licence
 
-The MIT Licence (see `LICENSE`) covers the site's **code** only. It does not relicense the data in `data/`:
+**Open data, protected website.**
 
-- **Third-party datasets** (Swissvotes, BFS, parlament.ch, LINDAS, EFK, swisstopo) remain under their sources' own terms — mostly CC BY 4.0 or opendata.swiss "open use, cite the source" — and must be attributed if reused. See `COMPLIANCE.md`.
-- **Official authority texts** (e.g. the Federal Council's voting explanations) are not subject to copyright (Art. 5 URG).
-- **Original editorial summaries** (party descriptions, positions) are Politikch's own work.
+- **The website** (code, design, interface and page text, and the names and logos "Politikch", "PolitikCH" and "PCH") is **all rights reserved**. See `LICENSE`. Versions up to commit `733e141` were published under MIT, and copies of those keep that licence.
+- **The data** in `data/` may be reused, including commercially:
+  - Politikch's own data (party descriptions and spectrum, donor descriptions, unofficial and machine translations, canton and Federal Council compilations) is **CC BY 4.0**.
+  - Official data passed on (VoteInfo, LINDAS, Swissvotes, BFS, parlament.ch, EFK, swisstopo) keeps **its source's terms**.
+  - Official texts are public domain (**Art. 5 URG**).
+
+  Every data file states its licence and required credit in `_meta`. `data/LICENSE.txt` lists them all, and the site's **Data & reuse** page (`#/page/reuse`) explains them. The single source of truth is `scripts/licences.py`.
+- **Fonts**: SIL Open Font License 1.1 (`fonts/OFL.txt`).
 
 See `NOTICE.md` for details on sources and attribution.

@@ -1,7 +1,11 @@
 {
   "_meta": {
     "note": "Editorial one-sentence descriptions + register-name aliases for major organisation donors. Romansh falls back to German. Descriptions by Politikch; contribution figures come from the EFK register (data/financing.json).",
-    "count": 31
+    "count": 31,
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Politikch (politikch.ch), CC BY 4.0",
+    "commercialReuse": "yes, with credit"
   },
   "donors": {
     "economiesuisse": {

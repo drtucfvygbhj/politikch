@@ -30,6 +30,8 @@ ROOT = Path(__file__).resolve().parent.parent
 GR = ROOT / "scripts" / "guardrails"
 sys.path.insert(0, str(GR))
 import jsscan  # noqa: E402
+sys.path.insert(0, str(ROOT / "scripts"))
+import licences  # noqa: E402
 
 CFG = json.loads((GR / "config.json").read_text("utf-8"))
 SINK_BASELINE = GR / "sinks-baseline.json"
@@ -454,6 +456,45 @@ def check_data_links():
             block("SEC-02", f"{p.relative_to(ROOT)}: unsafe link {m.group(0)[:70]}")
 
 
+def check_licensing():
+    # LIC-03/05/06: every data file carries exactly the licence scripts/licences.py
+    # gives it, and data/LICENSE.txt is generated from the same table.
+    for rel in licences.data_files():
+        if rel in licences.WEBSITE_FILES:
+            continue
+        try:
+            want = licences.licence_meta(rel)
+        except KeyError:
+            block("LIC-05", f"data/{rel}: no licence defined in scripts/licences.py")
+            continue
+        meta = (json.loads(read(f"data/{rel}")) or {}).get("_meta") or {}
+        for k, v in want.items():
+            if not meta.get(k):
+                block("LIC-05", f"data/{rel}: _meta.{k} is missing — run `python3 scripts/licences.py --stamp`")
+            elif meta[k] != v:
+                block("LIC-06", f"data/{rel}: _meta.{k} doesn't match scripts/licences.py (relabelled data?)")
+    notice = read("data/LICENSE.txt")
+    if not notice:
+        block("LIC-03", "data/LICENSE.txt is missing")
+    elif notice != licences.notice_text():
+        block("LIC-03", "data/LICENSE.txt is out of date — run `python3 scripts/licences.py --write-notice`")
+    lic = read("LICENSE")
+    if "All rights reserved" not in lic or "data/LICENSE.txt" not in lic or "Permission is hereby granted" in lic:
+        block("LIC-03", "LICENSE must reserve the website's rights and point to data/LICENSE.txt")
+    # LIC-09: the Data & reuse page stays complete in every language.
+    legal = json.loads(read("data/legal.json") or "{}")
+    page = (legal.get("pages") or {}).get("reuse") or {}
+    for lang in ("en", "de", "fr", "it"):
+        body = (page.get("body") or {}).get(lang, "")
+        for must in ("CC BY 4.0", "Politikch", "PolitikCH", "PCH", "data/LICENSE.txt"):
+            if must not in body:
+                block("LIC-09", f"Data & reuse page ({lang}) no longer mentions '{must}'")
+    if 'href="#/page/reuse"' not in read("index.html"):
+        block("LIC-09", "the footer no longer links to the Data & reuse page")
+    if "'reuse'" not in read("js/app.js"):
+        block("LIC-09", "app.js no longer lists the Data & reuse page")
+
+
 def check_both_sides():
     app = read("js/app.js")
     if not ("col('ai-ov-for'" in app and "col('ai-ov-against'" in app):
@@ -641,6 +682,7 @@ def main(argv):
     check_privacy_code()
     check_personal_data(files)
     check_data_links()
+    check_licensing()
     check_both_sides()
     check_claims()
     check_hosting_and_media(files)

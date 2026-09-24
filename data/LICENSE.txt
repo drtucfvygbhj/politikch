@@ -1,0 +1,94 @@
+Politikch data — licences and how to credit
+===========================================
+
+You may reuse the data files in this folder, including commercially, on the
+terms below. The website itself — its code, design, interface and page text
+(i18n.json and legal.json in this folder) — and the names and logos
+"Politikch", "PolitikCH" and "PCH" are NOT licensed: see LICENSE at
+https://github.com/drtucfvygbhj/politikch and https://politikch.ch/#/page/reuse
+
+Every JSON file repeats its own terms in its "_meta" section.
+
+Our own data is licensed under Creative Commons Attribution 4.0 International
+(CC BY 4.0, https://creativecommons.org/licenses/by/4.0/). Credit it as
+"Source: Politikch (politikch.ch), CC BY 4.0" and say if you changed it.
+Official data we pass on stays under its source's terms: credit the source.
+Official texts are not protected by copyright (Swiss Copyright Act, Art. 5).
+
+Private individuals who donated to parties or campaigns are never named.
+Reusing the data does not imply any connection with or endorsement by
+Politikch. The data is provided as is, without warranty; Politikch's editorial
+data is not official, and official sources prevail.
+
+
+File by file
+------------
+
+parties.json
+  What:        Party descriptions, positions and spectrum placements (editorial); seat counts
+  Licence:     CC-BY-4.0  (https://creativecommons.org/licenses/by/4.0/)
+  Credit:      Politikch (politikch.ch), CC BY 4.0. Seat counts: Parliamentary Services (parlament.ch)
+  Commercial:  yes, with credit
+
+donor-descriptions.json
+  What:        One-sentence descriptions of donor organisations (editorial)
+  Licence:     CC-BY-4.0  (https://creativecommons.org/licenses/by/4.0/)
+  Credit:      Politikch (politikch.ch), CC BY 4.0
+  Commercial:  yes, with credit
+
+initiatives-translations.json, sessions-translations.json
+  What:        Unofficial English and Romansh translations of official titles
+  Licence:     CC-BY-4.0  (https://creativecommons.org/licenses/by/4.0/)
+  Credit:      Politikch (politikch.ch), CC BY 4.0 — unofficial translations; the official DE/FR/IT titles prevail
+  Commercial:  yes, with credit
+
+cantons.json, council.json
+  What:        Canton and Federal Council facts compiled by Politikch
+  Licence:     CC-BY-4.0  (https://creativecommons.org/licenses/by/4.0/)
+  Credit:      Politikch (politikch.ch), CC BY 4.0. Figures: Federal Statistical Office (BFS); Federal Council: admin.ch
+  Commercial:  yes, with credit
+
+mt.json
+  What:        Machine translations (English, Italian) of official texts
+  Licence:     CC-BY-4.0  (https://creativecommons.org/licenses/by/4.0/)
+  Credit:      Politikch (politikch.ch), CC BY 4.0. Machine translation by DeepL — unofficial; the official text prevails
+  Commercial:  yes, with credit (to Politikch and DeepL)
+
+financing.json
+  What:        Party and campaign financing (private individuals are not named)
+  Licence:     LicenseRef-opendata.swiss-terms_open  (https://opendata.swiss/en/terms-of-use)
+  Credit:      Swiss Federal Audit Office (EFK), political financing register
+  Commercial:  yes
+
+canton-data.json
+  What:        National Council results by canton; municipality and district counts
+  Licence:     LicenseRef-opendata.swiss-terms_by  (https://opendata.swiss/en/terms-of-use)
+  Credit:      Federal Statistical Office (BFS)
+  Commercial:  yes, with credit
+
+sessions-index.json, sessions/*.json
+  What:        Federal Assembly sessions, final votes and tallies
+  Licence:     LicenseRef-opendata.swiss-terms_by  (https://opendata.swiss/en/terms-of-use)
+  Credit:      Parliamentary Services of the Federal Assembly (parlament.ch)
+  Commercial:  yes, with credit
+
+municipalities-index.json, municipalities/*.json
+  What:        Municipality names, populations and simplified boundaries
+  Licence:     LicenseRef-opendata.swiss-terms_by  (https://opendata.swiss/en/terms-of-use)
+  Credit:      Federal Office of Topography swisstopo (swissBOUNDARIES3D), simplified by Politikch
+  Commercial:  yes, with credit
+
+initiatives.json
+  What:        Federal votes, results, pending initiatives, party recommendations
+  Licence:     LicenseRef-mixed-source-terms  (https://opendata.swiss/en/terms-of-use)
+  Credit:      Federal Statistical Office and Federal Chancellery (VoteInfo, LINDAS); party recommendations and English short titles: Swissvotes (Année Politique Suisse, University of Bern), CC BY 4.0
+  Commercial:  ask the source: VoteInfo results are published under 'ask for permission' terms for commercial use (Federal Statistical Office)
+
+overviews/*/*.json
+  What:        Federal Council voting explanations: for/against arguments, verbatim
+  Licence:     LicenseRef-URG-Art-5-official-text  (https://www.fedlex.admin.ch/eli/cc/1993/1798_1798_1798/de#art_5)
+  Credit:      Federal Council voting explanations, Federal Chancellery (brochure PDFs via Swissvotes)
+  Commercial:  official text, not protected by copyright (URG Art. 5); the 'for' arguments are written by the initiative or referendum committee
+
+i18n.json, legal.json
+  Website text — not licensed (all rights reserved).

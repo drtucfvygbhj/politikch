@@ -54,6 +54,7 @@ import time
 import urllib.request
 from datetime import date, datetime
 from pathlib import Path
+from licences import licence_meta  # the file's licence (scripts/licences.py)
 
 # Identify honestly (site + contact), like the other fetchers. Swissvotes serves
 # this User-Agent normally (checked 2026-09-21: dataset CSV and brochure PDFs).
@@ -414,6 +415,7 @@ def build_for_item(item, sv_index, brochure_cache, pdf_dir=None):
     if not out_lang:
         return None, ("no brochure/section found" if anr else "no Swissvotes match")
     return {
+        "_meta": licence_meta(f"overviews/initiative/{item['id']}.json"),
         "generatedAt": date.today().isoformat(),
         "source": "Federal Council voting explanations (Erläuterungen des "
                   "Bundesrates), Federal Chancellery — official text under Art. 5 URG",

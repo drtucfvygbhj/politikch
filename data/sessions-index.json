@@ -2,7 +2,11 @@
   "_meta": {
     "source": "Federal Assembly OData web service (ws.parlament.ch)",
     "channel": "https://www.youtube.com/@ParlCH",
-    "fetchedAt": "2026-09-22T06:15:02+00:00"
+    "fetchedAt": "2026-09-22T06:15:02+00:00",
+    "license": "LicenseRef-opendata.swiss-terms_by",
+    "licenseUrl": "https://opendata.swiss/en/terms-of-use",
+    "attribution": "Parliamentary Services of the Federal Assembly (parlament.ch)",
+    "commercialReuse": "yes, with credit"
   },
   "sessions": [
     {

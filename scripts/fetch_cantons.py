@@ -35,6 +35,7 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from licences import licence_meta  # the file's licence (scripts/licences.py)
 
 ROOT = Path(__file__).resolve().parent.parent
 UA = (
@@ -206,6 +207,7 @@ def main():
 
     output = {
         "_meta": {
+            **licence_meta("canton-data.json"),
             "source": "Federal Statistical Office (BFS) — National Council 2023 "
                       "results and the official municipality register, via "
                       "opendata.swiss.",

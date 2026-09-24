@@ -48,6 +48,7 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from licences import licence_meta  # the file's licence (scripts/licences.py)
 
 ROOT = Path(__file__).resolve().parent.parent
 UA = (
@@ -752,6 +753,7 @@ def main():
 
     output = {
         "_meta": {
+            **licence_meta("initiatives.json"),
             "source": (
                 "Decided federal votes: VoteInfo (Federal Chancellery / Federal "
                 "Statistical Office), opendata.swiss dataset "

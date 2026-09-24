@@ -31,6 +31,7 @@ import urllib.request
 from datetime import datetime, timezone
 from io import BytesIO
 from pathlib import Path
+from licences import licence_meta  # the file's licence (scripts/licences.py)
 
 try:
     import openpyxl
@@ -371,6 +372,7 @@ def main():
 
     output = {
         "_meta": {
+            **licence_meta("financing.json"),
             "source": "Federal Audit Office (EFK) — https://politikfinanzierung.efk.admin.ch",
             "fetchedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "note": (
