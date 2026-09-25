@@ -509,8 +509,14 @@ def check_both_sides():
 
 
 def check_claims():
+    # Claims about Politikch itself live in our own text. Official texts reproduced
+    # verbatim (arguments, parliamentary summaries, fetched titles) may quote such
+    # phrases about someone else ("a study commissioned by the Confederation").
+    official = [g for g in CFG["generatedData"] if g.startswith("data/")]
     for f in tracked():
         if not any(f == p or f.startswith(p) for p in CFG["published"]) or f.startswith("fonts/"):
+            continue
+        if any(f == g or (g.endswith("/") and f.startswith(g)) for g in official):
             continue
         low = read(f).lower()
         for phrase in CFG["claimPhrases"]["phrases"]:
