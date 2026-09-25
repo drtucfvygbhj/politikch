@@ -31,3 +31,6 @@ _site/
 # Analytics Worker: local Wrangler state and local secrets
 analytics-worker/.wrangler/
 analytics-worker/.dev.vars
+
+# Local admin tool: settings backups (machine-specific)
+admin/.backup/

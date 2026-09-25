@@ -95,7 +95,7 @@
 
   "quietPeriodDays": 10,
 
-  "published": ["index.html", "404.html", "robots.txt", "maintenance.html", "css/", "js/", "fonts/", "data/", ".well-known/"],
+  "published": ["index.html", "404.html", "robots.txt", "maintenance.html", "css/", "js/", "fonts/", "data/", "images/", ".well-known/"],
 
   "generatedData": ["data/initiatives.json", "data/financing.json", "data/canton-data.json", "data/sessions-index.json", "data/sessions/", "data/overviews/", "data/mt.json", "TRANSLATIONS_TODO.md"],
 
@@ -130,8 +130,10 @@
       ["scripts/licences.py", ["LIC-07"]],
       ["data/LICENSE*", ["LIC-07"]],
       [".well-known/*", ["SEC-06"]],
-      ["MAINTENANCE_MODE", ["OPS-08"]]
+      ["MAINTENANCE_MODE", ["OPS-08"]],
+      ["images/*", ["LIC-01", "POL-10", "PRIV-09"]],
+      ["admin/server.py", ["PROC-02"]]
     ],
-    "reviewOnly": ["js/app.js", "js/map-data.js", "css/*", "index.html", "404.html", "maintenance.html", "robots.txt", "data/*.json", "data/sessions/*", "data/overviews/**", "data/municipalities/*", "data/brochures/README.md", "*.md", "scripts/validate.py", "scripts/check_translations.py", "guides", ".gitignore", ".claude/launch.json", "Start Politikch.command", "CLAUDE.md", "TRANSLATIONS_TODO.md"]
+    "reviewOnly": ["js/app.js", "js/map-data.js", "css/*", "index.html", "404.html", "maintenance.html", "robots.txt", "data/*.json", "data/sessions/*", "data/overviews/**", "data/municipalities/*", "data/brochures/README.md", "*.md", "scripts/validate.py", "scripts/check_translations.py", "guides", ".gitignore", ".claude/launch.json", "Start Politikch.command", "CLAUDE.md", "TRANSLATIONS_TODO.md", "js/news.js", "js/design.js", "js/site-settings.js", "js/site-images.js", "admin/index.html", "admin/admin.js", "admin/admin.css", "Start Admin.command"]
   }
 }
