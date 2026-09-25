@@ -1,8 +1,8 @@
-import { MAP_PATHS } from './map-data.js?v=20260924d';
-import { configureShare, wireShares, mountShare } from './share.js?v=20260924d';
-import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260924d';
-import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260924d';
-import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260924d';
+import { MAP_PATHS } from './map-data.js?v=20260925a';
+import { configureShare, wireShares, mountShare } from './share.js?v=20260925a';
+import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260925a';
+import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260925a';
+import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260925a';
 
 /* ============================================================
    State
@@ -64,11 +64,11 @@ const SEASON_ICON = { spring: 'spring', summer: 'summer', autumn: 'autumn', wint
    ============================================================ */
 async function loadData() {
   const [parties, cantons, initiatives, council, i18n] = await Promise.all([
-    fetch('data/parties.json?v=20260924d').then(r => r.json()),
-    fetch('data/cantons.json?v=20260924d').then(r => r.json()),
-    fetch('data/initiatives.json?v=20260924d').then(r => r.json()),
-    fetch('data/council.json?v=20260924d').then(r => r.json()),
-    fetch('data/i18n.json?v=20260924d').then(r => r.json())
+    fetch('data/parties.json?v=20260925a').then(r => r.json()),
+    fetch('data/cantons.json?v=20260925a').then(r => r.json()),
+    fetch('data/initiatives.json?v=20260925a').then(r => r.json()),
+    fetch('data/council.json?v=20260925a').then(r => r.json()),
+    fetch('data/i18n.json?v=20260925a').then(r => r.json())
   ]);
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
@@ -80,7 +80,7 @@ async function loadData() {
   // scripts/fetch_financing.py). Missing file or fetch failure just means
   // no live figures yet — pages fall back to the "see official register" copy.
   try {
-    const financing = await fetch('data/financing.json?v=20260924d').then(r => r.ok ? r.json() : null);
+    const financing = await fetch('data/financing.json?v=20260925a').then(r => r.ok ? r.json() : null);
     if (financing) state.data.financing = anonymiseIndividualDonors(financing);
   } catch (e) { /* keep the empty default; placeholders will show */ }
 
@@ -88,14 +88,14 @@ async function loadData() {
   // open data (see scripts/fetch_cantons.py). Missing/failed just means the
   // canton sections keep their "data coming from …" placeholders.
   try {
-    const cantonData = await fetch('data/canton-data.json?v=20260924d').then(r => r.ok ? r.json() : null);
+    const cantonData = await fetch('data/canton-data.json?v=20260925a').then(r => r.ok ? r.json() : null);
     if (cantonData) state.data.cantonData = cantonData;
   } catch (e) { /* keep placeholders */ }
 
   // Optional: unofficial English titles for initiatives whose official name is
   // only registered in a national language (data/initiatives-translations.json).
   try {
-    const it = await fetch('data/initiatives-translations.json?v=20260924d').then(r => r.ok ? r.json() : null);
+    const it = await fetch('data/initiatives-translations.json?v=20260925a').then(r => r.ok ? r.json() : null);
     state.data.initTrans = (it && it.titles) || {};
   } catch (e) { state.data.initTrans = {}; }
 
@@ -103,7 +103,7 @@ async function loadData() {
   // donors (data/donor-descriptions.json). Missing just means donor pages show
   // a neutral factual note and variant spellings aren't merged.
   try {
-    const di = await fetch('data/donor-descriptions.json?v=20260924d').then(r => r.ok ? r.json() : null);
+    const di = await fetch('data/donor-descriptions.json?v=20260925a').then(r => r.ok ? r.json() : null);
     state.data.donorInfo = di || { donors: {} };
   } catch (e) { state.data.donorInfo = { donors: {} }; }
 
@@ -113,7 +113,7 @@ async function loadData() {
   // until scripts/translate.py runs with a DEEPL_API_KEY; then EN stops falling
   // back to the official language. RM has no machine translation (DeepL lacks it).
   try {
-    const mt = await fetch('data/mt.json?v=20260924d').then(r => r.ok ? r.json() : null);
+    const mt = await fetch('data/mt.json?v=20260925a').then(r => r.ok ? r.json() : null);
     state.data.mt = mt || {};
   } catch (e) { state.data.mt = {}; }
 }
@@ -233,8 +233,27 @@ function shareChart(host, getSpec) {
    from the official EFK register — see scripts/fetch_financing.py)
    ============================================================ */
 const CHF_LOCALES = { en: 'en-CH', de: 'de-CH', fr: 'fr-CH', it: 'it-CH', rm: 'rm-CH' };
+// Browsers ship no Romansh locale data and fall back to US English, so Romansh
+// numbers use the Swiss German grouping (203'000) and Romansh dates are written
+// out by hand ("27 da settember 2026", "1 d'avust 2026"), like the fetchers do.
+const NUM_LOCALES = { ...CHF_LOCALES, rm: 'de-CH' };
+const RM_MONTHS = ['schaner', 'favrer', 'mars', 'avrigl', 'matg', 'zercladur', 'fanadur',
+  'avust', 'settember', 'october', 'november', 'december'];
+function formatLongDate(d, utc) {
+  if (state.lang !== 'rm') {
+    return new Intl.DateTimeFormat(CHF_LOCALES[state.lang] || 'en-CH',
+      { day: 'numeric', month: 'long', year: 'numeric', ...(utc ? { timeZone: 'UTC' } : {}) }).format(d);
+  }
+  const m = RM_MONTHS[utc ? d.getUTCMonth() : d.getMonth()];
+  const day = utc ? d.getUTCDate() : d.getDate();
+  const year = utc ? d.getUTCFullYear() : d.getFullYear();
+  return `${day} ${/^[aeiou]/.test(m) ? "d'" : 'da '}${m} ${year}`;
+}
+function formatInt(n) {
+  return new Intl.NumberFormat(NUM_LOCALES[state.lang] || 'en-CH', { maximumFractionDigits: 0 }).format(n || 0);
+}
 function formatCHF(n) {
-  const locale = CHF_LOCALES[state.lang] || 'en-CH';
+  const locale = NUM_LOCALES[state.lang] || 'en-CH';
   return new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(n || 0) + ' CHF';
 }
 
@@ -698,7 +717,7 @@ function voteDateLabel(id) {
   const init = (state.data.initiatives || []).find(i => i.id === id);
   if (init && init.date) return localized(init.date);
   const day = voteDayOf(id);
-  return day ? new Date(day + 'T12:00:00Z').toLocaleDateString(CHF_LOCALES[state.lang] || 'en-CH', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
+  return day ? formatLongDate(new Date(day + 'T12:00:00Z'), true) : '';
 }
 
 // One vote's campaign funding: name, type, status, date, total, the for/against
@@ -1055,7 +1074,7 @@ function renderFederalCouncil() {
   const ordered = members.slice().sort((a, b) => rank(a) - rank(b) || a.since - b.since);
   listEl.innerHTML = ordered.map(m => {
     const p = parties[m.party] || {};
-    const cantonName = (state.data.cantons[m.canton] || {}).name || m.canton;
+    const cantonName = localized((state.data.cantons[m.canton] || {}).name) || m.canton;
     let badge = '';
     if (m.role === 'president') badge = `<span class="council-badge council-badge-pres">${fillYear(t('council.president'), year)}</span>`;
     else if (m.role === 'vice') badge = `<span class="council-badge">${fillYear(t('council.vice'), year)}</span>`;
@@ -1497,8 +1516,10 @@ function coreSearchItems() {
       route: `party/${key}`, hay: normStr(`${p.abbr} ${names}`) });
   });
   Object.entries(state.data.cantons || {}).forEach(([code, c]) => {
-    items.push({ type: 'canton', label: c.name, sub: `${code} · ${c.capital || ''}`,
-      route: `canton/${code}`, hay: normStr(`${c.name} ${code} ${c.capital || ''}`) });
+    // Searchable by the canton's name and capital in every language ("Genf" finds GE).
+    const all = (o) => Object.values(o || {}).join(' ');
+    items.push({ type: 'canton', label: localized(c.name), sub: `${code} · ${localized(c.capital)}`,
+      route: `canton/${code}`, hay: normStr(`${all(c.name)} ${code} ${all(c.capital)}`) });
   });
   (state.data.initiatives || []).forEach(it => {
     const title = initTitlePlain(it);
@@ -1534,11 +1555,11 @@ function sessionSearchItems() {
 
 function loadMuniSearchItems() {
   if (muniSearchItems) return Promise.resolve(muniSearchItems);
-  return fetch('data/municipalities-index.json?v=20260924d').then(r => r.ok ? r.json() : null).then(d => {
+  return fetch('data/municipalities-index.json?v=20260925a').then(r => r.ok ? r.json() : null).then(d => {
     const rows = (d && d.m) || [];
     muniSearchItems = rows.map(m => ({
       type: 'city', label: m.n, pop: m.p || 0,
-      sub: (state.data.cantons[m.c] || {}).name || m.c,
+      sub: localized((state.data.cantons[m.c] || {}).name) || m.c,
       route: `canton/${m.c}`, hay: normStr(m.n),
     }));
     return muniSearchItems;
@@ -1921,7 +1942,7 @@ function buildMap() {
     path.setAttribute('id', code);
     path.setAttribute('tabindex', '0');
     path.setAttribute('role', 'button');
-    const name = () => state.data.cantons[code]?.name || code;
+    const name = () => localized(state.data.cantons[code]?.name) || code;
     path.setAttribute('aria-label', name());
 
     const showTip = e => {
@@ -1964,17 +1985,18 @@ function renderCantonPage(code) {
   const c = state.data.cantons[code];
   if (!c) { replaceRoute('#/'); return; }
 
-  document.getElementById('canton-title').textContent = c.name;
-  document.getElementById('canton-capital').textContent = `${t('canton.capital')}: ${c.capital}`;
+  const cName = localized(c.name);
+  document.getElementById('canton-title').textContent = cName;
+  document.getElementById('canton-capital').textContent = `${t('canton.capital')}: ${localized(c.capital)}`;
   document.getElementById('canton-emblem').textContent = code;
 
   document.getElementById('canton-stats').innerHTML = `
-    <div class="canton-stat"><div class="canton-stat-val">${c.pop}</div><div class="canton-stat-label">${t('canton.stat.pop')}</div></div>
-    <div class="canton-stat"><div class="canton-stat-val">${c.area}</div><div class="canton-stat-label">${t('canton.stat.area')}</div></div>
+    <div class="canton-stat"><div class="canton-stat-val">${escapeAttr(formatInt(c.pop))}</div><div class="canton-stat-label">${t('canton.stat.pop')}</div></div>
+    <div class="canton-stat"><div class="canton-stat-val">${escapeAttr(formatInt(c.area))} km²</div><div class="canton-stat-label">${t('canton.stat.area')}</div></div>
     <div class="canton-stat"><div class="canton-stat-val">${c.seats}</div><div class="canton-stat-label">${t('canton.stat.seats')}</div></div>
     <div class="canton-stat"><div class="canton-stat-val">${c.joined}</div><div class="canton-stat-label">${t('canton.stat.joined')}</div></div>`;
 
-  const fill = (key) => t(key).replace('{name}', c.name);
+  const fill = (key) => t(key).replace('{name}', cName);
   const cd = (state.data.cantonData && state.data.cantonData.cantons) ? state.data.cantonData.cantons[code] : null;
   const meta = (state.data.cantonData && state.data.cantonData._meta) || {};
   const emptyBox = (icon, key) =>
@@ -1984,7 +2006,7 @@ function renderCantonPage(code) {
   const muniBody = cantonMuniHTML(cd, meta) || emptyBox(icon('buildings'), 'canton.empty.municipalities');
 
   document.getElementById('canton-content').innerHTML = `
-    <p class="canton-intro">${c.desc}</p>
+    <p class="canton-intro">${escapeAttr(localized(c.desc))}</p>
     <div class="canton-grid">
       <div>
         <h3 class="canton-section-title">${t('canton.elections')}${termHelp('nationalCouncil')}</h3>
@@ -2090,7 +2112,7 @@ function cantonNCHTML(cd, c) {
 
   const heading = t('canton.nc.heading').replace('{year}', nc.year);
   const note = nc.totalSeats === 1
-    ? `<p class="cnc-note">${t('canton.nc.singleSeat').replace('{name}', c.name)}</p>` : '';
+    ? `<p class="cnc-note">${escapeAttr(t('canton.nc.singleSeat').replace('{name}', localized(c.name)))}</p>` : '';
   return `<div class="cnc">
     <div class="cnc-head">${heading} · <strong>${nc.totalSeats}</strong> ${t('canton.stat.seats')}</div>
     <div class="hemicycle canton-hemicycle" id="canton-nc-hemicycle"></div>
@@ -2120,7 +2142,7 @@ function ensureMuniTip() {
   return muniTip;
 }
 function muniTipHTML(m) {
-  const pop = m.pop != null ? Number(m.pop).toLocaleString('de-CH') : null;
+  const pop = m.pop != null ? formatInt(m.pop) : null;
   return `<strong>${escapeAttr(m.name)}</strong>`
     + (m.capital ? `<span class="muni-tip-badge">${t('canton.map.capital')}</span>` : '')
     + (pop ? `<div class="muni-tip-row">${t('canton.map.pop')}: <b>${pop}</b></div>` : '')
@@ -2143,7 +2165,7 @@ function hideMuniTip() { if (muniTip) muniTip.style.opacity = '0'; }
 function renderCantonMap(cd, code) {
   const host = document.getElementById('canton-muni-body');
   if (!host) return;
-  fetch(`data/municipalities/${code}.json?v=20260924d`).then(r => r.ok ? r.json() : null).then(map => {
+  fetch(`data/municipalities/${code}.json?v=20260925a`).then(r => r.ok ? r.json() : null).then(map => {
     if (!map || !map.municipalities || !map.municipalities.length) return; // keep the count fallback
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(NS, 'svg');
@@ -2157,7 +2179,7 @@ function renderCantonMap(cd, code) {
       path.setAttribute('class', 'muni' + (m.capital ? ' muni-capital' : ''));
       path.setAttribute('tabindex', '0');
       path.setAttribute('role', 'img');
-      const popTxt = m.pop != null ? `, ${t('canton.map.pop')} ${Number(m.pop).toLocaleString('de-CH')}` : '';
+      const popTxt = m.pop != null ? `, ${t('canton.map.pop')} ${formatInt(m.pop)}` : '';
       path.setAttribute('aria-label', m.name + popTxt);
       // Note: do NOT re-order the node on hover — mutating the hovered element
       // suppresses the follow-up mousemove and breaks the tooltip.
@@ -2435,7 +2457,7 @@ const sessionFileCache = {};
 
 function ensureSessionsIndex() {
   if (sessionsIndexPromise) return sessionsIndexPromise;
-  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260924d')
+  sessionsIndexPromise = fetch('data/sessions-index.json?v=20260925a')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionsIndex = d || { sessions: [] }; return state.data.sessionsIndex; })
     .catch(() => { state.data.sessionsIndex = { sessions: [] }; return state.data.sessionsIndex; });
@@ -2445,7 +2467,7 @@ function ensureSessionsIndex() {
 // kept separate from the official per-session files. Only used for the English UI.
 function ensureSessionTranslations() {
   if (sessionTransPromise) return sessionTransPromise;
-  sessionTransPromise = fetch('data/sessions-translations.json?v=20260924d')
+  sessionTransPromise = fetch('data/sessions-translations.json?v=20260925a')
     .then(r => r.ok ? r.json() : null)
     .then(d => { state.data.sessionTrans = (d && d.titles) || {}; return state.data.sessionTrans; })
     .catch(() => { state.data.sessionTrans = {}; return state.data.sessionTrans; });
@@ -2461,7 +2483,7 @@ function voteTransTitle(v) {
 }
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
-  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260924d`)
+  sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260925a`)
     .then(r => r.ok ? r.json() : null)
     .catch(() => null);
   return sessionFileCache[id];
@@ -2470,15 +2492,15 @@ function ensureSessionFile(id) {
 function sessionName(s) { return `${t('session.' + s.season)} ${s.year}`; }
 
 function formatSessionDates(start, end) {
-  const locale = CHF_LOCALES[state.lang] || 'en-CH';
   const s = new Date(start + 'T00:00:00');
-  const full = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric' });
-  if (!end) return full.format(s);
+  if (!end) return formatLongDate(s);
   const e = new Date(end + 'T00:00:00');
   if (s.getMonth() === e.getMonth() && s.getFullYear() === e.getFullYear()) {
-    return `${new Intl.DateTimeFormat(locale, { day: 'numeric' }).format(s)}–${full.format(e)}`;
+    const startDay = state.lang === 'rm' ? String(s.getDate())
+      : new Intl.DateTimeFormat(CHF_LOCALES[state.lang] || 'en-CH', { day: 'numeric' }).format(s);
+    return `${startDay}–${formatLongDate(e)}`;
   }
-  return `${full.format(s)} – ${full.format(e)}`;
+  return `${formatLongDate(s)} – ${formatLongDate(e)}`;
 }
 
 function sessionVotesLabel(n) {
@@ -3139,7 +3161,7 @@ const INFO_SLUGS = ['methodology', 'sources', 'reuse', 'feedback', 'legal', 'con
 let legalPromise = null;
 function loadLegal() {
   if (!legalPromise) {
-    legalPromise = fetch('data/legal.json?v=20260924d').then(r => (r.ok ? r.json() : null)).catch(() => null);
+    legalPromise = fetch('data/legal.json?v=20260925a').then(r => (r.ok ? r.json() : null)).catch(() => null);
   }
   return legalPromise;
 }
@@ -3613,7 +3635,7 @@ const _overviewCache = {};
 function ensureOverview(kind, id) {
   const key = kind + '/' + id;
   if (_overviewCache[key]) return _overviewCache[key];
-  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260924d`)
+  _overviewCache[key] = fetch(`data/overviews/${kind}/${encodeURIComponent(id)}.json?v=20260925a`)
     .then(r => r.ok ? r.json() : null).catch(() => null);
   return _overviewCache[key];
 }
@@ -3653,6 +3675,14 @@ function pickArgBlock(data, id) {
   }
   return null;
 }
+// Who wrote each side (data.sides, from fetch_arguments.py): an initiative
+// committee argues for its initiative; a referendum committee argues against the
+// law it challenged; the Federal Council and Parliament argue the other side.
+const ARG_AUTHOR = {
+  initiativeCommittee: 'overview.forAuthor',
+  federalCouncil: 'overview.againstAuthor',
+  referendumCommittee: 'overview.author.referendumCommittee',
+};
 function argListHTML(items) {
   return `<ul class="ai-ov-list">${items.map(p => `<li>${escapeAttr(p)}</li>`).join('')}</ul>`;
 }
@@ -3664,9 +3694,19 @@ function renderOverview(el) {
   el.innerHTML = `<div class="ai-ov-body" data-ov-body><p class="mine-note">${t('overview.loading')}</p></div>`;
   ensureOverview(kind, id).then(data => {
     const block = pickArgBlock(data, id);
+    const sides = (data && data.sides) || { pros: 'initiativeCommittee', cons: 'federalCouncil' };
     if (!block) {
-      el.innerHTML = `<div class="ai-ov-head"><h4 class="ai-ov-title">${t('overview.title')}</h4></div>` +
-        `<p class="ai-ov-preparing">${t('overview.preparing')}</p>`;
+      // Upcoming vote: the brochure isn't out yet. Decided vote: it exists but
+      // couldn't be reproduced here cleanly (e.g. no committee, or a joint
+      // initiative/counter-proposal layout), so say so and link the official source.
+      const init = (state.data.initiatives || []).find(i => i.id === id);
+      const decided = !!init && (init.status === 'adopted' || init.status === 'rejected');
+      const official = el.dataset.official;
+      const msg = !decided ? `<p class="ai-ov-preparing">${t('overview.preparing')}</p>`
+        : `<p class="ai-ov-preparing">${t('overview.unavailable')}`
+          + (official ? ` <a href="${escapeAttr(official)}" target="_blank" rel="noopener noreferrer">${t('overview.official')} <span class="arrow">↗</span></a>` : '')
+          + '</p>';
+      el.innerHTML = `<div class="ai-ov-head"><h4 class="ai-ov-title">${t('overview.title')}</h4></div>` + msg;
       return;
     }
     const chip = block.mt
@@ -3702,8 +3742,8 @@ function renderOverview(el) {
     el.innerHTML = `
       <div class="ai-ov-head"><h4 class="ai-ov-title">${t('overview.title')}</h4>${chip}</div>
       <div class="ai-ov-cols">
-        ${col('ai-ov-for', t('overview.for'), t('overview.forAuthor'), block.pros)}
-        ${col('ai-ov-against', t('overview.against'), t('overview.againstAuthor'), block.cons)}
+        ${col('ai-ov-for', t('overview.for'), t(ARG_AUTHOR[sides.pros]), block.pros)}
+        ${col('ai-ov-against', t('overview.against'), t(ARG_AUTHOR[sides.cons]), block.cons)}
       </div>
       <p class="ai-ov-disclaimer">${t(block.mt ? 'overview.sourceMt' : 'overview.source')}${link}</p>`;
   });

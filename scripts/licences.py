@@ -74,8 +74,8 @@ LICENCES = [
     {"files": ["overviews/*/*.json"], "what": "Federal Council voting explanations: for/against arguments, verbatim",
      "license": "LicenseRef-URG-Art-5-official-text", "licenseUrl": "https://www.fedlex.admin.ch/eli/cc/1993/1798_1798_1798/de#art_5",
      "attribution": "Federal Council voting explanations, Federal Chancellery (brochure PDFs via Swissvotes)",
-     "commercialReuse": "official text, not protected by copyright (URG Art. 5); the 'for' arguments are "
-                        "written by the initiative or referendum committee"},
+     "commercialReuse": "official text, not protected by copyright (URG Art. 5); one side is written by the "
+                        "initiative or referendum committee, the other by the Federal Council and Parliament"},
 ]
 
 # Published files that are part of the website, not data: not licensed (LICENSE).

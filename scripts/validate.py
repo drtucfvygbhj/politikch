@@ -200,6 +200,50 @@ def check_upstream_text():
             walk(json.loads(path.read_text(encoding="utf-8")), path.relative_to(DATA).as_posix())
 
 
+def check_all_languages():
+    # Editorial and composed texts must exist in every site language, so no page
+    # quietly falls back to another language (official DE/FR/IT texts and their
+    # machine translations are handled separately).
+    def need(obj, where):
+        if not isinstance(obj, dict):
+            errors.append(f"{where} must be a per-language object")
+            return
+        missing = [l for l in LANGS if not (obj.get(l) or "").strip()]
+        if missing:
+            errors.append(f"{where} is missing {missing}")
+    parties = (load("parties.json") or {}).get("parties", {})
+    for k, pa in parties.items():
+        need(pa.get("name"), f"parties.json: {k}.name")
+        need(pa.get("desc"), f"parties.json: {k}.desc")
+        for i, pos in enumerate(pa.get("positions") or []):
+            need(pos.get("stance"), f"parties.json: {k}.positions[{i}].stance")
+    for code, c in ((load("cantons.json") or {}).get("cantons", {})).items():
+        for f in ("name", "capital", "language", "desc"):
+            need(c.get(f), f"cantons.json: {code}.{f}")
+    for slug, dd in ((load("donor-descriptions.json") or {}).get("donors", {})).items():
+        need(dd.get("desc"), f"donor-descriptions.json: {slug}.desc")
+    for it in ((load("initiatives.json") or {}).get("initiatives", [])):
+        for f in ("desc", "date"):
+            need(it.get(f), f"initiatives.json: {it.get('id')}.{f}")
+
+
+def check_argument_text():
+    # Official arguments must be clean verbatim text: no page furniture (vote
+    # tables, footnotes, navigation, badge links) and never one side alone.
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from fetch_arguments import FURNITURE, BADGE_LINK  # same rules as the fetcher
+    for path in sorted((DATA / "overviews").rglob("*.json")):
+        d = json.loads(path.read_text(encoding="utf-8"))
+        rel = path.relative_to(DATA).as_posix()
+        for lang, block in (d.get("lang") or {}).items():
+            if bool(block.get("pros")) != bool(block.get("cons")):
+                errors.append(f"{rel}: {lang} has only one side (POL-01)")
+            for side in ("pros", "cons"):
+                for i, para in enumerate(block.get(side) or []):
+                    if FURNITURE.search(para) or BADGE_LINK.search(para):
+                        errors.append(f"{rel}: {lang}.{side}[{i}] contains page layout, not argument text")
+
+
 def check_mt_args(data):
     # GUARDRAILS.md POL-01: a machine-translated argument set always carries both
     # sides; one side must never be published translated on its own.
@@ -221,6 +265,8 @@ def main():
     check_cantons(load("cantons.json"))
     check_initiatives(initiatives_data)
     check_i18n(load("i18n.json"))
+    check_all_languages()
+    check_argument_text()
 
     financing_path = DATA / "financing.json"
     if financing_path.exists():

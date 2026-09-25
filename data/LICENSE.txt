@@ -88,7 +88,7 @@ overviews/*/*.json
   What:        Federal Council voting explanations: for/against arguments, verbatim
   Licence:     LicenseRef-URG-Art-5-official-text  (https://www.fedlex.admin.ch/eli/cc/1993/1798_1798_1798/de#art_5)
   Credit:      Federal Council voting explanations, Federal Chancellery (brochure PDFs via Swissvotes)
-  Commercial:  official text, not protected by copyright (URG Art. 5); the 'for' arguments are written by the initiative or referendum committee
+  Commercial:  official text, not protected by copyright (URG Art. 5); one side is written by the initiative or referendum committee, the other by the Federal Council and Parliament
 
 i18n.json, legal.json
   Website text — not licensed (all rights reserved).

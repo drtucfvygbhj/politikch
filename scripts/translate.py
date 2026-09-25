@@ -219,8 +219,11 @@ def collect(existing):
                                  "texts": [stext], "shape": "text"})
 
     # 2) For/against arguments (official DE/FR; EN and IT fall back otherwise).
-    #    One job per missing language, carrying BOTH sides together.
-    for f in sorted(OVERVIEWS.glob("*.json")):
+    #    One job per missing language, carrying BOTH sides together. Newest vote
+    #    first, and ahead of the session texts (see the reorder below): each run is
+    #    capped, and the arguments are what readers need most before a vote.
+    arg_jobs = []
+    for f in sorted(OVERVIEWS.glob("*.json"), reverse=True):
         data = json.loads(f.read_text("utf-8"))
         lang = data.get("lang") or {}
         src = pick_src(lang)
@@ -236,10 +239,10 @@ def collect(existing):
             if lang.get(tl) or tl == src.lower():
                 continue  # an official text in that language exists
             if not cached_arg_ok(iid, tl, src_join):
-                jobs.append({"store": "args", "id": iid, "src": src, "tl": tl,
+                arg_jobs.append({"store": "args", "id": iid, "src": src, "tl": tl,
                              "target": target, "texts": pros + cons,
                              "shape": "args", "np": len(pros), "hkey": src_join})
-    return jobs, keep
+    return arg_jobs + jobs, keep
 
 
 def run(jobs, keep, key, budget, limit=0):
@@ -249,12 +252,18 @@ def run(jobs, keep, key, budget, limit=0):
     stored, so nothing is written half-translated. Returns (out, done, sent)."""
     out = {k: dict(v) for k, v in keep.items()}
     out["args"] = {iid: dict(v) for iid, v in keep.get("args", {}).items()}
-    by_pair = {}
+    # Consecutive jobs with the same language pair share requests; the queue order
+    # (arguments first, newest first) is kept, so the per-run cap spends on them first.
+    groups = []
     for j in jobs:
-        by_pair.setdefault((j["src"], j.get("target", TARGET)), []).append(j)
+        pair = (j["src"], j.get("target", TARGET))
+        if groups and groups[-1][0] == pair:
+            groups[-1][1].append(j)
+        else:
+            groups.append((pair, [j]))
     done = sent = 0
     stop = False
-    for (src, target), group in by_pair.items():
+    for (src, target), group in groups:
         if stop:
             break
         flat, owners = [], []

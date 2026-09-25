@@ -121,30 +121,35 @@ PHASES = {
     "im_sammelstadium": {
         "status": "collecting",
         "stage": {"en": "signature gathering", "de": "im Sammelstadium",
-                  "fr": "récolte des signatures", "it": "raccolta firme"},
+                  "fr": "récolte des signatures", "it": "raccolta firme",
+                  "rm": "rimnada da suttascripziuns"},
     },
     "in_auszaehlung": {
         "status": "pending",
         "stage": {"en": "signatures being verified", "de": "in Auszählung",
-                  "fr": "décompte des signatures", "it": "conteggio delle firme"},
+                  "fr": "décompte des signatures", "it": "conteggio delle firme",
+                  "rm": "las suttascripziuns vegnan dumbradas"},
     },
     "beim_bundesrat_haengig": {
         "status": "pending",
         "stage": {"en": "pending before the Federal Council",
                   "de": "beim Bundesrat hängig",
                   "fr": "pendante devant le Conseil fédéral",
-                  "it": "pendente davanti al Consiglio federale"},
+                  "it": "pendente davanti al Consiglio federale",
+                  "rm": "pendenta tar il Cussegl federal"},
     },
     "beim_parlament_haengig": {
         "status": "pending",
         "stage": {"en": "pending before Parliament", "de": "beim Parlament hängig",
                   "fr": "pendante devant le Parlement",
-                  "it": "pendente davanti al Parlamento"},
+                  "it": "pendente davanti al Parlamento",
+                  "rm": "pendenta tar il parlament"},
     },
     "abstimmungsreif": {
         "status": "pending",
         "stage": {"en": "ready to be put to a vote", "de": "abstimmungsreif",
-                  "fr": "prête pour la votation", "it": "pronta per la votazione"},
+                  "fr": "prête pour la votation", "it": "pronta per la votazione",
+                  "rm": "pronta per la votaziun"},
     },
 }
 
@@ -194,6 +199,13 @@ def http_get(url, retries=6):
         try:
             with urllib.request.urlopen(req, timeout=60) as resp:
                 return read_capped(resp)
+        except urllib.error.HTTPError as e:
+            # 4xx (e.g. a brochure not published yet) is an answer, not a glitch:
+            # don't hammer the source with retries.
+            if 400 <= e.code < 500 and e.code != 429:
+                raise
+            last = e
+            time.sleep(1.5 * (attempt + 1))
         except Exception as e:  # noqa: BLE001 — transient proxy/network errors
             last = e
             time.sleep(1.5 * (attempt + 1))
@@ -228,7 +240,8 @@ def fmt_date(iso, lang, prefix_voted, prefix_future=None, today=None):
     if lang == "de":
         body = f"{d}. {month} {y}"
     elif lang == "rm":
-        body = f"{d} da {month} {y}"
+        # "da" elides before a vowel: 1 d'avust, 3 d'avrigl, 7 d'october.
+        body = f"{d} {'d' + chr(39) if month[0] in 'aeiou' else 'da '}{month} {y}"
     else:
         body = f"{d} {month} {y}"
     prefix = prefix_voted
@@ -285,6 +298,14 @@ def titles_from_voteinfo(vorlage):
     return out
 
 
+def rm_kind(is_initiative):
+    """Romansh noun phrase and participle ending: 'iniziativa' is feminine, 'object' masculine."""
+    if is_initiative:
+        return {"np": "Ina iniziativa dal pievel federala", "acc": "acceptada", "ref": "refusada",
+                "sub": "suttamessa"}
+    return {"np": "In object da referendum federal", "acc": "acceptà", "ref": "refusà", "sub": "suttamess"}
+
+
 def compose_vote_desc(vorlage, is_initiative, today):
     res = vorlage.get("resultat") or {}
     beendet = vorlage.get("vorlageBeendet")
@@ -297,6 +318,7 @@ def compose_vote_desc(vorlage, is_initiative, today):
         "fr": "initiative populaire" if is_initiative else "objet soumis au référendum",
         "it": "iniziativa popolare" if is_initiative else "oggetto in referendum",
     }
+    rk = rm_kind(is_initiative)
     desc = {}
     if beendet and yes is not None:
         y = f"{yes:.1f}".replace(".", ",")
@@ -316,6 +338,8 @@ def compose_vote_desc(vorlage, is_initiative, today):
             desc["it"] = (f"Un'{kind['it']} federale accettata dal popolo con "
                           f"il {y}% di sì"
                           + (f" (partecipazione {t}%)." if t else "."))
+            desc["rm"] = (f"{rk['np']} {rk['acc']} dal pievel cun {y}% gea"
+                          + (f" (participaziun {t}%)." if t else "."))
         else:
             no = f"{100 - yes:.1f}".replace(".", ",")
             nod = f"{100 - yes:.1f}"
@@ -331,11 +355,14 @@ def compose_vote_desc(vorlage, is_initiative, today):
             desc["it"] = (f"Un'{kind['it']} federale respinta dal popolo, con "
                           f"il {no}% di no"
                           + (f" (partecipazione {t}%)." if t else "."))
+            desc["rm"] = (f"{rk['np']} {rk['ref']} dal pievel, cun {no}% na"
+                          + (f" (participaziun {t}%)." if t else "."))
     else:
         desc["en"] = f"A federal {kind['en']} scheduled for a nationwide vote."
         desc["de"] = f"Eine eidgenössische {kind['de']}, die zur Abstimmung kommt."
         desc["fr"] = f"Une {kind['fr']} fédérale soumise à la votation."
         desc["it"] = f"Un'{kind['it']} federale sottoposta alla votazione."
+        desc["rm"] = f"{rk['np']} che vegn {rk['sub']} a la votaziun."
     return desc
 
 
@@ -498,6 +525,9 @@ SELECT ?id ?beginn ?phaseCode ?de ?fr ?it WHERE {{
             desc["it"] = (f"Iniziativa popolare nella fase di raccolta firme. Ha tempo "
                           f"fino al {fmt_date(deadline, 'it', '')} per raccogliere "
                           f"100 000 firme valide e arrivare alla votazione.")
+            desc["rm"] = (f"Iniziativa dal pievel en la fasa da rimnar suttascripziuns. "
+                          f"Ella ha temp fin ils {fmt_date(deadline, 'rm', '')} per rimnar "
+                          f"100 000 suttascripziuns valaivlas e chaschunar ina votaziun dal pievel.")
         else:
             desc["en"] = (f"Popular initiative that has qualified and is now pending "
                           f"({stage['en']}), awaiting its nationwide vote.")
@@ -507,6 +537,8 @@ SELECT ?id ?beginn ?phaseCode ?de ?fr ?it WHERE {{
                           f"({stage['fr']}), avant la votation populaire.")
             desc["it"] = (f"Iniziativa popolare riuscita, attualmente pendente "
                           f"({stage['it']}), prima della votazione popolare.")
+            desc["rm"] = (f"Iniziativa dal pievel reussida, actualmain pendenta "
+                          f"({stage['rm']}), avant la votaziun dal pievel.")
         item = {
             "id": f"initiative-{iid}",
             "type": "initiative",
@@ -604,6 +636,8 @@ SELECT ?id ?date ?typ ?de ?fr ?it WHERE {{
                   f"{fmt_date(date_iso, 'fr', '')}.",
             "it": f"Un'{kind['it']} federale in votazione il "
                   f"{fmt_date(date_iso, 'it', '')}.",
+            "rm": f"{rm_kind(is_init)['np']} che vegn {rm_kind(is_init)['sub']} a la "
+                  f"votaziun ils {fmt_date(date_iso, 'rm', '')}.",
         }
         items.append({
             "id": f"vote-{date_iso.replace('-', '')}-{iid}",

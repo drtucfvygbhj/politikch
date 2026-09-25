@@ -8,57 +8,343 @@
     "commercialReuse": "yes, with credit"
   },
   "cantons": {
-    "ZH": { "name": "Zürich", "capital": "Zürich", "pop": "1,590,000", "area": "1,729 km²", "seats": 36, "language": "German", "joined": "1351",
-      "desc": "The most populous canton and economic engine of Switzerland, home to the largest city and a major global financial centre." },
-    "BE": { "name": "Bern", "capital": "Bern (federal city)", "pop": "1,052,000", "area": "5,959 km²", "seats": 24, "language": "German / French", "joined": "1353",
-      "desc": "The second largest canton by area and host of the federal city. Bern is bilingual and politically diverse." },
-    "LU": { "name": "Luzern", "capital": "Luzern", "pop": "420,000", "area": "1,494 km²", "seats": 9, "language": "German", "joined": "1332",
-      "desc": "A central Swiss canton known for lake and mountain tourism, historically Catholic and Centre-leaning." },
-    "UR": { "name": "Uri", "capital": "Altdorf", "pop": "37,000", "area": "1,077 km²", "seats": 1, "language": "German", "joined": "1291",
-      "desc": "One of the three founding cantons of the Swiss Confederation in 1291, at the heart of the Gotthard route." },
-    "SZ": { "name": "Schwyz", "capital": "Schwyz", "pop": "163,000", "area": "908 km²", "seats": 4, "language": "German", "joined": "1291",
-      "desc": "The canton from which Switzerland takes its name, and a founding member of the original confederation." },
-    "OW": { "name": "Obwalden", "capital": "Sarnen", "pop": "39,000", "area": "491 km²", "seats": 1, "language": "German", "joined": "1291",
-      "desc": "A half-canton of Unterwalden, known for a low flat tax rate that has attracted businesses." },
-    "NW": { "name": "Nidwalden", "capital": "Stans", "pop": "44,000", "area": "276 km²", "seats": 1, "language": "German", "joined": "1291",
-      "desc": "The second half-canton of Unterwalden, small but historically significant as a founding community." },
-    "GL": { "name": "Glarus", "capital": "Glarus", "pop": "41,000", "area": "685 km²", "seats": 1, "language": "German", "joined": "1352",
-      "desc": "Known for its Landsgemeinde, an open-air assembly where citizens still vote by show of hands." },
-    "ZG": { "name": "Zug", "capital": "Zug", "pop": "130,000", "area": "239 km²", "seats": 3, "language": "German", "joined": "1352",
-      "desc": "One of the wealthiest cantons per capita, a hub for international corporations and blockchain firms." },
-    "FR": { "name": "Fribourg", "capital": "Fribourg", "pop": "330,000", "area": "1,671 km²", "seats": 7, "language": "French / German", "joined": "1481",
-      "desc": "A bilingual canton straddling the French-German language border (Röstigraben), historically Catholic." },
-    "SO": { "name": "Solothurn", "capital": "Solothurn", "pop": "285,000", "area": "791 km²", "seats": 6, "language": "German", "joined": "1481",
-      "desc": "Home to a striking Baroque old town, Solothurn has a rich historical and cultural heritage." },
-    "BS": { "name": "Basel-Stadt", "capital": "Basel", "pop": "196,000", "area": "37 km²", "seats": 4, "language": "German", "joined": "1501",
-      "desc": "The smallest canton by area, Basel-Stadt is a pharmaceutical and cultural hub on the Rhine." },
-    "BL": { "name": "Basel-Landschaft", "capital": "Liestal", "pop": "295,000", "area": "518 km²", "seats": 7, "language": "German", "joined": "1501",
-      "desc": "Surrounding Basel-Stadt, this canton split off in 1832 and is home to many pharmaceutical workers." },
-    "SH": { "name": "Schaffhausen", "capital": "Schaffhausen", "pop": "84,000", "area": "298 km²", "seats": 2, "language": "German", "joined": "1501",
-      "desc": "The northernmost canton, famous for the Rhine Falls, Europe's most powerful waterfall by volume." },
-    "AR": { "name": "Appenzell Ausserrhoden", "capital": "Herisau", "pop": "56,000", "area": "243 km²", "seats": 1, "language": "German", "joined": "1513",
-      "desc": "The Protestant half of Appenzell, known for embroidery and rolling pre-Alpine hills." },
-    "AI": { "name": "Appenzell Innerrhoden", "capital": "Appenzell", "pop": "16,500", "area": "173 km²", "seats": 1, "language": "German", "joined": "1513",
-      "desc": "The smallest canton by population, and the last in Switzerland to grant women the cantonal vote, in 1990 by court order." },
-    "SG": { "name": "St. Gallen", "capital": "St. Gallen", "pop": "525,000", "area": "2,026 km²", "seats": 12, "language": "German", "joined": "1803",
-      "desc": "Historically known for its abbey and textile industry, today a major economic region of eastern Switzerland." },
-    "GR": { "name": "Graubünden", "capital": "Chur", "pop": "203,000", "area": "7,105 km²", "seats": 5, "language": "German / Romansh / Italian", "joined": "1803",
-      "desc": "The largest canton by area and Switzerland's only trilingual canton, home to St. Moritz and Davos." },
-    "AG": { "name": "Aargau", "capital": "Aarau", "pop": "720,000", "area": "1,404 km²", "seats": 16, "language": "German", "joined": "1803",
-      "desc": "A populous industrial canton in the Swiss heartland, known for its castles and Roman heritage at Vindonissa." },
-    "TG": { "name": "Thurgau", "capital": "Frauenfeld", "pop": "290,000", "area": "991 km²", "seats": 6, "language": "German", "joined": "1803",
-      "desc": "An agricultural and industrial canton on Lake Constance, with a strong tradition of apple growing." },
-    "TI": { "name": "Ticino", "capital": "Bellinzona", "pop": "354,000", "area": "2,812 km²", "seats": 8, "language": "Italian", "joined": "1803",
-      "desc": "Switzerland's only Italian-speaking canton, south of the Alps, with a Mediterranean character." },
-    "VD": { "name": "Vaud", "capital": "Lausanne", "pop": "830,000", "area": "3,212 km²", "seats": 19, "language": "French", "joined": "1803",
-      "desc": "The second most populous canton, home to Lausanne, Lake Geneva's northern shore and many international bodies." },
-    "VS": { "name": "Valais", "capital": "Sion", "pop": "360,000", "area": "5,224 km²", "seats": 8, "language": "French / German", "joined": "1815",
-      "desc": "A bilingual mountain canton containing the highest Swiss Alpine peaks, including the Matterhorn." },
-    "NE": { "name": "Neuchâtel", "capital": "Neuchâtel", "pop": "176,000", "area": "803 km²", "seats": 4, "language": "French", "joined": "1815",
-      "desc": "A centre of Swiss watchmaking, with a rich horological heritage along the Jura arc." },
-    "GE": { "name": "Geneva", "capital": "Geneva", "pop": "515,000", "area": "282 km²", "seats": 12, "language": "French", "joined": "1815",
-      "desc": "An international city and canton, home to UN agencies, the Red Cross and a cosmopolitan diplomatic community." },
-    "JU": { "name": "Jura", "capital": "Delémont", "pop": "74,000", "area": "838 km²", "seats": 2, "language": "French", "joined": "1979",
-      "desc": "Switzerland's youngest canton, created in 1979 after a decades-long autonomy movement from Bern." }
+    "ZH": {
+      "name": {"en": "Zurich", "de": "Zürich", "fr": "Zurich", "it": "Zurigo", "rm": "Turitg"},
+      "capital": {"en": "Zurich", "de": "Zürich", "fr": "Zurich", "it": "Zurigo", "rm": "Turitg"},
+      "pop": 1590000, "area": 1729, "seats": 36, "joined": "1351",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "The most populous canton and economic engine of Switzerland, home to the largest city and a major global financial centre.",
+        "de": "Der bevölkerungsreichste Kanton und Wirtschaftsmotor der Schweiz, mit der grössten Stadt des Landes und einem bedeutenden internationalen Finanzplatz.",
+        "fr": "Le canton le plus peuplé et le moteur économique de la Suisse, qui abrite la plus grande ville du pays et une place financière de premier plan au niveau mondial.",
+        "it": "Il Cantone più popoloso e il motore economico della Svizzera, sede della città più grande e di un'importante piazza finanziaria internazionale.",
+        "rm": "Il chantun il pli populà ed il motor economic da la Svizra, cun la pli gronda citad ed ina impurtanta plazza finanziala internaziunala."
+      }
+    },
+    "BE": {
+      "name": {"en": "Bern", "de": "Bern", "fr": "Berne", "it": "Berna", "rm": "Berna"},
+      "capital": {"en": "Bern (federal city)", "de": "Bern (Bundesstadt)", "fr": "Berne (ville fédérale)", "it": "Berna (città federale)", "rm": "Berna (citad federala)"},
+      "pop": 1052000, "area": 5959, "seats": 24, "joined": "1353",
+      "language": {"en": "German / French", "de": "Deutsch / Französisch", "fr": "allemand / français", "it": "tedesco / francese", "rm": "tudestg / franzos"},
+      "desc": {
+        "en": "The second largest canton by area and host of the federal city. Bern is bilingual and politically diverse.",
+        "de": "Der flächenmässig zweitgrösste Kanton und Sitz der Bundesstadt. Bern ist zweisprachig und politisch vielfältig.",
+        "fr": "Le deuxième canton par la superficie et siège de la ville fédérale. Berne est bilingue et politiquement diversifiée.",
+        "it": "Il secondo Cantone per superficie e sede della città federale. Berna è bilingue e politicamente variegata.",
+        "rm": "Il segund pli grond chantun tenor surfatscha e sedia da la citad federala. Berna è bilingua e politicamain multifara."
+      }
+    },
+    "LU": {
+      "name": {"en": "Lucerne", "de": "Luzern", "fr": "Lucerne", "it": "Lucerna", "rm": "Lucerna"},
+      "capital": {"en": "Lucerne", "de": "Luzern", "fr": "Lucerne", "it": "Lucerna", "rm": "Lucerna"},
+      "pop": 420000, "area": 1494, "seats": 9, "joined": "1332",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "A central Swiss canton known for lake and mountain tourism, historically Catholic and Centre-leaning.",
+        "de": "Ein Zentralschweizer Kanton, bekannt für Tourismus an See und Berg, historisch katholisch und der Mitte zugeneigt.",
+        "fr": "Un canton de Suisse centrale connu pour le tourisme lacustre et alpin, historiquement catholique et proche du Centre.",
+        "it": "Un Cantone della Svizzera centrale noto per il turismo di lago e di montagna, storicamente cattolico e vicino al Centro.",
+        "rm": "In chantun da la Svizra centrala enconuschent per il turissem al lai ed en las muntognas, istoricamain catolic e vischin al Center."
+      }
+    },
+    "UR": {
+      "name": {"en": "Uri", "de": "Uri", "fr": "Uri", "it": "Uri", "rm": "Uri"},
+      "capital": {"en": "Altdorf", "de": "Altdorf", "fr": "Altdorf", "it": "Altdorf", "rm": "Altdorf"},
+      "pop": 37000, "area": 1077, "seats": 1, "joined": "1291",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "One of the three founding cantons of the Swiss Confederation in 1291, at the heart of the Gotthard route.",
+        "de": "Einer der drei Gründungskantone der Eidgenossenschaft von 1291, im Herzen der Gotthardroute.",
+        "fr": "L'un des trois cantons fondateurs de la Confédération en 1291, au cœur de l'axe du Gothard.",
+        "it": "Uno dei tre Cantoni fondatori della Confederazione nel 1291, nel cuore dell'asse del San Gottardo.",
+        "rm": "In dals trais chantuns fundaturs da la Confederaziun svizra il 1291, en il cor da la ruta dal Gottard."
+      }
+    },
+    "SZ": {
+      "name": {"en": "Schwyz", "de": "Schwyz", "fr": "Schwytz", "it": "Svitto", "rm": "Sviz"},
+      "capital": {"en": "Schwyz", "de": "Schwyz", "fr": "Schwytz", "it": "Svitto", "rm": "Sviz"},
+      "pop": 163000, "area": 908, "seats": 4, "joined": "1291",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "The canton from which Switzerland takes its name, and a founding member of the original confederation.",
+        "de": "Der Kanton, dem die Schweiz ihren Namen verdankt, und Gründungsmitglied der ursprünglichen Eidgenossenschaft.",
+        "fr": "Le canton qui a donné son nom à la Suisse, et membre fondateur de la Confédération originelle.",
+        "it": "Il Cantone da cui la Svizzera prende il nome, membro fondatore della Confederazione originaria.",
+        "rm": "Il chantun che ha dà ses num a la Svizra, e commember fundatur da la Confederaziun originala."
+      }
+    },
+    "OW": {
+      "name": {"en": "Obwalden", "de": "Obwalden", "fr": "Obwald", "it": "Obvaldo", "rm": "Sursilvania"},
+      "capital": {"en": "Sarnen", "de": "Sarnen", "fr": "Sarnen", "it": "Sarnen", "rm": "Sarnen"},
+      "pop": 39000, "area": 491, "seats": 1, "joined": "1291",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "A half-canton of Unterwalden, known for a low flat tax rate that has attracted businesses.",
+        "de": "Ein Halbkanton von Unterwalden, bekannt für einen tiefen Einheitssteuersatz, der Unternehmen angezogen hat.",
+        "fr": "Un demi-canton d'Unterwald, connu pour son faible taux d'imposition unique qui a attiré des entreprises.",
+        "it": "Un semicantone di Untervaldo, noto per un'aliquota d'imposta unica bassa che ha attirato imprese.",
+        "rm": "In mez chantun dad Unterwalden, enconuschent per sia tariffa da taglia unitara bassa che ha attratg interpresas."
+      }
+    },
+    "NW": {
+      "name": {"en": "Nidwalden", "de": "Nidwalden", "fr": "Nidwald", "it": "Nidvaldo", "rm": "Sutsilvania"},
+      "capital": {"en": "Stans", "de": "Stans", "fr": "Stans", "it": "Stans", "rm": "Stans"},
+      "pop": 44000, "area": 276, "seats": 1, "joined": "1291",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "The second half-canton of Unterwalden, small but historically significant as a founding community.",
+        "de": "Der zweite Halbkanton von Unterwalden – klein, aber als Gründungsgemeinschaft historisch bedeutend.",
+        "fr": "Le second demi-canton d'Unterwald, petit mais historiquement important en tant que communauté fondatrice.",
+        "it": "Il secondo semicantone di Untervaldo, piccolo ma storicamente importante come comunità fondatrice.",
+        "rm": "Il segund mez chantun dad Unterwalden, pitschen, ma istoricamain impurtant sco cuminanza fundatura."
+      }
+    },
+    "GL": {
+      "name": {"en": "Glarus", "de": "Glarus", "fr": "Glaris", "it": "Glarona", "rm": "Glaruna"},
+      "capital": {"en": "Glarus", "de": "Glarus", "fr": "Glaris", "it": "Glarona", "rm": "Glaruna"},
+      "pop": 41000, "area": 685, "seats": 1, "joined": "1352",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "Known for its Landsgemeinde, an open-air assembly where citizens still vote by show of hands.",
+        "de": "Bekannt für seine Landsgemeinde, eine Versammlung unter freiem Himmel, an der die Stimmberechtigten noch immer mit erhobener Hand abstimmen.",
+        "fr": "Connu pour sa Landsgemeinde, une assemblée en plein air où les citoyens votent encore à main levée.",
+        "it": "Noto per la sua Landsgemeinde, un'assemblea all'aperto in cui i cittadini votano ancora per alzata di mano.",
+        "rm": "Enconuschent per sia Landsgemeinde, ina radunanza sut tschiel avert, nua che las burgaisas ed ils burgais votan anc adina cun auzar il maun."
+      }
+    },
+    "ZG": {
+      "name": {"en": "Zug", "de": "Zug", "fr": "Zoug", "it": "Zugo", "rm": "Zug"},
+      "capital": {"en": "Zug", "de": "Zug", "fr": "Zoug", "it": "Zugo", "rm": "Zug"},
+      "pop": 130000, "area": 239, "seats": 3, "joined": "1352",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "One of the wealthiest cantons per capita, a hub for international corporations and blockchain firms.",
+        "de": "Einer der pro Kopf wohlhabendsten Kantone, ein Zentrum für internationale Konzerne und Blockchain-Unternehmen.",
+        "fr": "L'un des cantons les plus riches par habitant, pôle pour les multinationales et les entreprises de la blockchain.",
+        "it": "Uno dei Cantoni più ricchi pro capite, polo per multinazionali e imprese della blockchain.",
+        "rm": "In dals chantuns ils pli beneschants per abitant, in center per concerns internaziunals ed interpresas da blockchain."
+      }
+    },
+    "FR": {
+      "name": {"en": "Fribourg", "de": "Freiburg", "fr": "Fribourg", "it": "Friburgo", "rm": "Friburg"},
+      "capital": {"en": "Fribourg", "de": "Freiburg", "fr": "Fribourg", "it": "Friburgo", "rm": "Friburg"},
+      "pop": 330000, "area": 1671, "seats": 7, "joined": "1481",
+      "language": {"en": "French / German", "de": "Französisch / Deutsch", "fr": "français / allemand", "it": "francese / tedesco", "rm": "franzos / tudestg"},
+      "desc": {
+        "en": "A bilingual canton straddling the French-German language border (Röstigraben), historically Catholic.",
+        "de": "Ein zweisprachiger Kanton beidseits der deutsch-französischen Sprachgrenze (Röstigraben), historisch katholisch.",
+        "fr": "Un canton bilingue à cheval sur la frontière linguistique entre le français et l'allemand (Röstigraben), historiquement catholique.",
+        "it": "Un Cantone bilingue a cavallo del confine linguistico tra francese e tedesco (Röstigraben), storicamente cattolico.",
+        "rm": "In chantun bilingua sin omaduas varts dal cunfin linguistic tranter franzos e tudestg (Röstigraben), istoricamain catolic."
+      }
+    },
+    "SO": {
+      "name": {"en": "Solothurn", "de": "Solothurn", "fr": "Soleure", "it": "Soletta", "rm": "Soloturn"},
+      "capital": {"en": "Solothurn", "de": "Solothurn", "fr": "Soleure", "it": "Soletta", "rm": "Soloturn"},
+      "pop": 285000, "area": 791, "seats": 6, "joined": "1481",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "Home to a striking Baroque old town, Solothurn has a rich historical and cultural heritage.",
+        "de": "Mit ihrer eindrücklichen barocken Altstadt verfügt Solothurn über ein reiches historisches und kulturelles Erbe.",
+        "fr": "Dotée d'une remarquable vieille ville baroque, Soleure possède un riche patrimoine historique et culturel.",
+        "it": "Con il suo notevole centro storico barocco, Soletta vanta un ricco patrimonio storico e culturale.",
+        "rm": "Cun sia impressiunanta citad veglia barocca ha Soloturn in rich patrimoni istoric e cultural."
+      }
+    },
+    "BS": {
+      "name": {"en": "Basel-Stadt", "de": "Basel-Stadt", "fr": "Bâle-Ville", "it": "Basilea Città", "rm": "Basilea-Citad"},
+      "capital": {"en": "Basel", "de": "Basel", "fr": "Bâle", "it": "Basilea", "rm": "Basilea"},
+      "pop": 196000, "area": 37, "seats": 4, "joined": "1501",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "The smallest canton by area, Basel-Stadt is a pharmaceutical and cultural hub on the Rhine.",
+        "de": "Der flächenmässig kleinste Kanton: Basel-Stadt ist ein Pharma- und Kulturzentrum am Rhein.",
+        "fr": "Plus petit canton par la superficie, Bâle-Ville est un pôle pharmaceutique et culturel sur le Rhin.",
+        "it": "Il Cantone più piccolo per superficie, Basilea Città è un polo farmaceutico e culturale sul Reno.",
+        "rm": "Il pli pitschen chantun tenor surfatscha, Basilea-Citad è in center farmaceutic e cultural al Rain."
+      }
+    },
+    "BL": {
+      "name": {"en": "Basel-Landschaft", "de": "Basel-Landschaft", "fr": "Bâle-Campagne", "it": "Basilea Campagna", "rm": "Basilea-Champagna"},
+      "capital": {"en": "Liestal", "de": "Liestal", "fr": "Liestal", "it": "Liestal", "rm": "Liestal"},
+      "pop": 295000, "area": 518, "seats": 7, "joined": "1501",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "Surrounding Basel-Stadt, this canton split off in 1832 and is home to many pharmaceutical workers.",
+        "de": "Der Kanton rund um Basel-Stadt spaltete sich 1832 ab; hier wohnen viele Beschäftigte der Pharmaindustrie.",
+        "fr": "Entourant Bâle-Ville, ce canton s'en est séparé en 1832 et abrite de nombreux employés de l'industrie pharmaceutique.",
+        "it": "Attorno a Basilea Città, questo Cantone se ne separò nel 1832 e vi abitano molti lavoratori dell'industria farmaceutica.",
+        "rm": "Enturn Basilea-Citad, quest chantun è sa separà il 1832, e qua abitan blers emploiads da l'industria farmaceutica."
+      }
+    },
+    "SH": {
+      "name": {"en": "Schaffhausen", "de": "Schaffhausen", "fr": "Schaffhouse", "it": "Sciaffusa", "rm": "Schaffusa"},
+      "capital": {"en": "Schaffhausen", "de": "Schaffhausen", "fr": "Schaffhouse", "it": "Sciaffusa", "rm": "Schaffusa"},
+      "pop": 84000, "area": 298, "seats": 2, "joined": "1501",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "The northernmost canton, famous for the Rhine Falls, Europe's most powerful waterfall by volume.",
+        "de": "Der nördlichste Kanton, berühmt für den Rheinfall, den gemessen an der Wassermenge mächtigsten Wasserfall Europas.",
+        "fr": "Le canton le plus septentrional, célèbre pour les chutes du Rhin, la cascade la plus puissante d'Europe par son débit.",
+        "it": "Il Cantone più settentrionale, famoso per le cascate del Reno, le più potenti d'Europa per portata.",
+        "rm": "Il chantun il pli al nord, famus per la cascada dal Rain, la pli pussanta da l'Europa tenor la quantitad d'aua."
+      }
+    },
+    "AR": {
+      "name": {"en": "Appenzell Ausserrhoden", "de": "Appenzell Ausserrhoden", "fr": "Appenzell Rhodes-Extérieures", "it": "Appenzello Esterno", "rm": "Appenzell Dadora"},
+      "capital": {"en": "Herisau", "de": "Herisau", "fr": "Herisau", "it": "Herisau", "rm": "Herisau"},
+      "pop": 56000, "area": 243, "seats": 1, "joined": "1513",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "The Protestant half of Appenzell, known for embroidery and rolling pre-Alpine hills.",
+        "de": "Der reformierte Teil des Appenzellerlands, bekannt für Stickerei und sanfte voralpine Hügel.",
+        "fr": "La moitié protestante d'Appenzell, connue pour la broderie et ses douces collines préalpines.",
+        "it": "La metà protestante di Appenzello, nota per il ricamo e le dolci colline prealpine.",
+        "rm": "La mesadad protestanta dad Appenzell, enconuschenta per la ricamaria e las collinas prealpinas."
+      }
+    },
+    "AI": {
+      "name": {"en": "Appenzell Innerrhoden", "de": "Appenzell Innerrhoden", "fr": "Appenzell Rhodes-Intérieures", "it": "Appenzello Interno", "rm": "Appenzell Dadens"},
+      "capital": {"en": "Appenzell", "de": "Appenzell", "fr": "Appenzell", "it": "Appenzell", "rm": "Appenzell"},
+      "pop": 16500, "area": 173, "seats": 1, "joined": "1513",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "The smallest canton by population, and the last in Switzerland to grant women the cantonal vote, in 1990 by court order.",
+        "de": "Der bevölkerungsmässig kleinste Kanton und der letzte der Schweiz, der den Frauen das kantonale Stimmrecht gewährte – 1990 auf Anordnung des Bundesgerichts.",
+        "fr": "Le plus petit canton par la population, et le dernier de Suisse à avoir accordé le droit de vote cantonal aux femmes, en 1990 sur décision du Tribunal fédéral.",
+        "it": "Il Cantone meno popoloso e l'ultimo in Svizzera a concedere alle donne il diritto di voto cantonale, nel 1990 per decisione del Tribunale federale.",
+        "rm": "Il chantun il main populà e l'ultim da la Svizra che ha concedì a las dunnas il dretg da votar chantunal, il 1990 per decisiun dal Tribunal federal."
+      }
+    },
+    "SG": {
+      "name": {"en": "St. Gallen", "de": "St. Gallen", "fr": "Saint-Gall", "it": "San Gallo", "rm": "Son Gagl"},
+      "capital": {"en": "St. Gallen", "de": "St. Gallen", "fr": "Saint-Gall", "it": "San Gallo", "rm": "Son Gagl"},
+      "pop": 525000, "area": 2026, "seats": 12, "joined": "1803",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "Historically known for its abbey and textile industry, today a major economic region of eastern Switzerland.",
+        "de": "Historisch bekannt für seine Abtei und die Textilindustrie, heute eine wichtige Wirtschaftsregion der Ostschweiz.",
+        "fr": "Historiquement connu pour son abbaye et son industrie textile, aujourd'hui une importante région économique de Suisse orientale.",
+        "it": "Storicamente noto per la sua abbazia e l'industria tessile, oggi un'importante regione economica della Svizzera orientale.",
+        "rm": "Istoricamain enconuschent per sia claustra e per l'industria da textilias, oz ina impurtanta regiun economica da la Svizra orientala."
+      }
+    },
+    "GR": {
+      "name": {"en": "Graubünden", "de": "Graubünden", "fr": "Grisons", "it": "Grigioni", "rm": "Grischun"},
+      "capital": {"en": "Chur", "de": "Chur", "fr": "Coire", "it": "Coira", "rm": "Cuira"},
+      "pop": 203000, "area": 7105, "seats": 5, "joined": "1803",
+      "language": {"en": "German / Romansh / Italian", "de": "Deutsch / Rätoromanisch / Italienisch", "fr": "allemand / romanche / italien", "it": "tedesco / romancio / italiano", "rm": "tudestg / rumantsch / talian"},
+      "desc": {
+        "en": "The largest canton by area and Switzerland's only trilingual canton, home to St. Moritz and Davos.",
+        "de": "Der flächenmässig grösste Kanton und der einzige dreisprachige der Schweiz, mit St. Moritz und Davos.",
+        "fr": "Le plus grand canton par la superficie et le seul canton trilingue de Suisse, où se trouvent Saint-Moritz et Davos.",
+        "it": "Il Cantone più esteso e l'unico trilingue della Svizzera, dove si trovano St. Moritz e Davos.",
+        "rm": "Il pli grond chantun tenor surfatscha e l'unic chantun trilingua da la Svizra, cun San Murezzan e Tavau."
+      }
+    },
+    "AG": {
+      "name": {"en": "Aargau", "de": "Aargau", "fr": "Argovie", "it": "Argovia", "rm": "Argovia"},
+      "capital": {"en": "Aarau", "de": "Aarau", "fr": "Aarau", "it": "Aarau", "rm": "Aarau"},
+      "pop": 720000, "area": 1404, "seats": 16, "joined": "1803",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "A populous industrial canton in the Swiss heartland, known for its castles and Roman heritage at Vindonissa.",
+        "de": "Ein bevölkerungsreicher Industriekanton im Schweizer Mittelland, bekannt für seine Burgen und das römische Erbe in Vindonissa.",
+        "fr": "Un canton industriel peuplé au cœur du Plateau suisse, connu pour ses châteaux et son héritage romain à Vindonissa.",
+        "it": "Un popoloso Cantone industriale nel cuore dell'Altopiano svizzero, noto per i suoi castelli e l'eredità romana di Vindonissa.",
+        "rm": "In chantun industrial populà en il cor dal Plaun svizzer, enconuschent per ses chastels e per l'ierta romana a Vindonissa."
+      }
+    },
+    "TG": {
+      "name": {"en": "Thurgau", "de": "Thurgau", "fr": "Thurgovie", "it": "Turgovia", "rm": "Turgovia"},
+      "capital": {"en": "Frauenfeld", "de": "Frauenfeld", "fr": "Frauenfeld", "it": "Frauenfeld", "rm": "Frauenfeld"},
+      "pop": 290000, "area": 991, "seats": 6, "joined": "1803",
+      "language": {"en": "German", "de": "Deutsch", "fr": "allemand", "it": "tedesco", "rm": "tudestg"},
+      "desc": {
+        "en": "An agricultural and industrial canton on Lake Constance, with a strong tradition of apple growing.",
+        "de": "Ein Landwirtschafts- und Industriekanton am Bodensee mit einer ausgeprägten Tradition im Apfelanbau.",
+        "fr": "Un canton agricole et industriel au bord du lac de Constance, avec une forte tradition de culture de la pomme.",
+        "it": "Un Cantone agricolo e industriale sul Lago di Costanza, con una forte tradizione nella coltivazione delle mele.",
+        "rm": "In chantun agricul ed industrial al Lai da Constanza, cun ina ferma tradiziun da cultivar maila."
+      }
+    },
+    "TI": {
+      "name": {"en": "Ticino", "de": "Tessin", "fr": "Tessin", "it": "Ticino", "rm": "Tessin"},
+      "capital": {"en": "Bellinzona", "de": "Bellinzona", "fr": "Bellinzona", "it": "Bellinzona", "rm": "Bellinzona"},
+      "pop": 354000, "area": 2812, "seats": 8, "joined": "1803",
+      "language": {"en": "Italian", "de": "Italienisch", "fr": "italien", "it": "italiano", "rm": "talian"},
+      "desc": {
+        "en": "Switzerland's only Italian-speaking canton, south of the Alps, with a Mediterranean character.",
+        "de": "Der einzige italienischsprachige Kanton der Schweiz, südlich der Alpen, mit mediterranem Charakter.",
+        "fr": "Le seul canton italophone de Suisse, au sud des Alpes, au caractère méditerranéen.",
+        "it": "L'unico Cantone di lingua italiana della Svizzera, a sud delle Alpi, dal carattere mediterraneo.",
+        "rm": "L'unic chantun da lingua taliana da la Svizra, al sid da las Alps, cun in caracter mediterran."
+      }
+    },
+    "VD": {
+      "name": {"en": "Vaud", "de": "Waadt", "fr": "Vaud", "it": "Vaud", "rm": "Vad"},
+      "capital": {"en": "Lausanne", "de": "Lausanne", "fr": "Lausanne", "it": "Losanna", "rm": "Losanna"},
+      "pop": 830000, "area": 3212, "seats": 19, "joined": "1803",
+      "language": {"en": "French", "de": "Französisch", "fr": "français", "it": "francese", "rm": "franzos"},
+      "desc": {
+        "en": "The second most populous canton, home to Lausanne, Lake Geneva's northern shore and many international bodies.",
+        "de": "Der Kanton mit der zweitgrössten Bevölkerung, mit Lausanne, dem Nordufer des Genfersees und vielen internationalen Organisationen.",
+        "fr": "Le deuxième canton le plus peuplé, avec Lausanne, la rive nord du Léman et de nombreuses organisations internationales.",
+        "it": "Il secondo Cantone più popoloso, con Losanna, la sponda settentrionale del Lemano e numerose organizzazioni internazionali.",
+        "rm": "Il segund chantun il pli populà, cun Losanna, la riva dal nord dal Lai da Genevra e bleras organisaziuns internaziunalas."
+      }
+    },
+    "VS": {
+      "name": {"en": "Valais", "de": "Wallis", "fr": "Valais", "it": "Vallese", "rm": "Vallais"},
+      "capital": {"en": "Sion", "de": "Sitten", "fr": "Sion", "it": "Sion", "rm": "Sion"},
+      "pop": 360000, "area": 5224, "seats": 8, "joined": "1815",
+      "language": {"en": "French / German", "de": "Französisch / Deutsch", "fr": "français / allemand", "it": "francese / tedesco", "rm": "franzos / tudestg"},
+      "desc": {
+        "en": "A bilingual mountain canton containing the highest Swiss Alpine peaks, including the Matterhorn.",
+        "de": "Ein zweisprachiger Bergkanton mit den höchsten Gipfeln der Schweizer Alpen, darunter das Matterhorn.",
+        "fr": "Un canton alpin bilingue qui compte les plus hauts sommets des Alpes suisses, dont le Cervin.",
+        "it": "Un Cantone alpino bilingue con le vette più alte delle Alpi svizzere, tra cui il Cervino.",
+        "rm": "In chantun alpin bilingua cun las pli autas piztgas da las Alps svizras, tranter auter il Matterhorn."
+      }
+    },
+    "NE": {
+      "name": {"en": "Neuchâtel", "de": "Neuenburg", "fr": "Neuchâtel", "it": "Neuchâtel", "rm": "Neuchâtel"},
+      "capital": {"en": "Neuchâtel", "de": "Neuenburg", "fr": "Neuchâtel", "it": "Neuchâtel", "rm": "Neuchâtel"},
+      "pop": 176000, "area": 803, "seats": 4, "joined": "1815",
+      "language": {"en": "French", "de": "Französisch", "fr": "français", "it": "francese", "rm": "franzos"},
+      "desc": {
+        "en": "A centre of Swiss watchmaking, with a rich horological heritage along the Jura arc.",
+        "de": "Ein Zentrum der Schweizer Uhrenindustrie mit einem reichen uhrmacherischen Erbe entlang des Jurabogens.",
+        "fr": "Un centre de l'horlogerie suisse, au riche patrimoine horloger le long de l'Arc jurassien.",
+        "it": "Un centro dell'orologeria svizzera, con un ricco patrimonio orologiero lungo l'Arco giurassiano.",
+        "rm": "In center da l'industria d'uras svizra, cun in rich patrimoni da far uras lung l'artg dal Jura."
+      }
+    },
+    "GE": {
+      "name": {"en": "Geneva", "de": "Genf", "fr": "Genève", "it": "Ginevra", "rm": "Genevra"},
+      "capital": {"en": "Geneva", "de": "Genf", "fr": "Genève", "it": "Ginevra", "rm": "Genevra"},
+      "pop": 515000, "area": 282, "seats": 12, "joined": "1815",
+      "language": {"en": "French", "de": "Französisch", "fr": "français", "it": "francese", "rm": "franzos"},
+      "desc": {
+        "en": "An international city and canton, home to UN agencies, the Red Cross and a cosmopolitan diplomatic community.",
+        "de": "Eine internationale Stadt und ein internationaler Kanton, Sitz von UNO-Organisationen, des Roten Kreuzes und einer weltoffenen diplomatischen Gemeinschaft.",
+        "fr": "Une ville et un canton internationaux, siège d'agences de l'ONU, de la Croix-Rouge et d'une communauté diplomatique cosmopolite.",
+        "it": "Una città e un Cantone internazionali, sede di agenzie dell'ONU, della Croce Rossa e di una comunità diplomatica cosmopolita.",
+        "rm": "Ina citad ed in chantun internaziunals, sedia d'agenturas da l'ONU, da la Crusch cotschna e d'ina cuminanza diplomatica cosmopolita."
+      }
+    },
+    "JU": {
+      "name": {"en": "Jura", "de": "Jura", "fr": "Jura", "it": "Giura", "rm": "Giura"},
+      "capital": {"en": "Delémont", "de": "Delsberg", "fr": "Delémont", "it": "Delémont", "rm": "Delémont"},
+      "pop": 74000, "area": 838, "seats": 2, "joined": "1979",
+      "language": {"en": "French", "de": "Französisch", "fr": "français", "it": "francese", "rm": "franzos"},
+      "desc": {
+        "en": "Switzerland's youngest canton, created in 1979 after a decades-long autonomy movement from Bern.",
+        "de": "Der jüngste Kanton der Schweiz, 1979 nach einer jahrzehntelangen Autonomiebewegung gegenüber Bern gegründet.",
+        "fr": "Le plus jeune canton de Suisse, créé en 1979 au terme d'un mouvement autonomiste de plusieurs décennies face à Berne.",
+        "it": "Il Cantone più giovane della Svizzera, creato nel 1979 dopo un movimento autonomista durato decenni nei confronti di Berna.",
+        "rm": "Il chantun il pli giuven da la Svizra, fundà il 1979 suenter in moviment d'autonomia da decennis envers Berna."
+      }
+    }
   }
 }

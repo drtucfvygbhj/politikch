@@ -35,11 +35,19 @@ def load_titles(name):
 
 # A language is covered if the item already carries that title (e.g. VoteInfo
 # supplies an official English title) OR a hand-made translation exists for it.
+def _real(lang, text):
+    """A title only counts if it is really in that language: fetch_initiatives.py
+    writes a pending initiative's English title as the German name framed in
+    English ("Federal popular initiative «…»"), which is a placeholder."""
+    text = (text or "").strip()
+    return bool(text) and not (lang == "en" and text.startswith("Federal popular initiative «"))
+
+
 def missing_langs(own_title, entry):
     own_title = own_title or {}
     entry = entry or {}
     return [lg for lg in LANGS
-            if not ((own_title.get(lg) or "").strip() or (entry.get(lg) or "").strip())]
+            if not (_real(lg, own_title.get(lg)) or (entry.get(lg) or "").strip())]
 
 
 def source_title(title):

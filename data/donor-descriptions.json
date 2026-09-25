@@ -20,7 +20,8 @@
         "en": "The umbrella association of the Swiss economy, representing large companies and sector associations in federal policy.",
         "de": "Der Dachverband der Schweizer Wirtschaft, der Grossunternehmen und Branchenverbände in der Bundespolitik vertritt.",
         "fr": "L'organisation faîtière de l'économie suisse, qui représente les grandes entreprises et les associations de branche dans la politique fédérale.",
-        "it": "L'organizzazione mantello dell'economia svizzera, che rappresenta grandi imprese e associazioni di settore nella politica federale."
+        "it": "L'organizzazione mantello dell'economia svizzera, che rappresenta grandi imprese e associazioni di settore nella politica federale.",
+        "rm": "L'organisaziun da tetg da l'economia svizra che represchenta grondas interpresas ed associaziuns da branscha en la politica federala."
       }
     },
     "ubs": {
@@ -34,7 +35,8 @@
         "en": "Switzerland's largest bank and one of the world's biggest wealth managers, based in Zurich.",
         "de": "Die grösste Bank der Schweiz und einer der weltweit grössten Vermögensverwalter, mit Sitz in Zürich.",
         "fr": "La plus grande banque de Suisse et l'un des plus grands gestionnaires de fortune au monde, sise à Zurich.",
-        "it": "La più grande banca svizzera e uno dei maggiori gestori patrimoniali al mondo, con sede a Zurigo."
+        "it": "La più grande banca svizzera e uno dei maggiori gestori patrimoniali al mondo, con sede a Zurigo.",
+        "rm": "La pli gronda banca da la Svizra ed in dals pli gronds administraturs da facultads dal mund, cun sedia a Turitg."
       }
     },
     "swiss-life": {
@@ -47,7 +49,8 @@
         "en": "Switzerland's largest life-insurance and pensions group, based in Zurich.",
         "de": "Der grösste Lebensversicherungs- und Vorsorgekonzern der Schweiz, mit Sitz in Zürich.",
         "fr": "Le plus grand groupe suisse d'assurance-vie et de prévoyance, sis à Zurich.",
-        "it": "Il maggiore gruppo svizzero di assicurazioni sulla vita e previdenza, con sede a Zurigo."
+        "it": "Il maggiore gruppo svizzero di assicurazioni sulla vita e previdenza, con sede a Zurigo.",
+        "rm": "Il pli grond concern d'assicuranzas da vita e da prevenziun da la Svizra, cun sedia a Turitg."
       }
     },
     "nestle": {
@@ -61,7 +64,8 @@
         "en": "The Vevey-based food and drink multinational, one of the largest in the world.",
         "de": "Der in Vevey ansässige Lebensmittelkonzern, einer der grössten der Welt.",
         "fr": "La multinationale de l'alimentation basée à Vevey, l'une des plus grandes au monde.",
-        "it": "La multinazionale alimentare con sede a Vevey, tra le più grandi al mondo."
+        "it": "La multinazionale alimentare con sede a Vevey, tra le più grandi al mondo.",
+        "rm": "Il concern d'alimentaziun cun sedia a Vevey, in dals pli gronds dal mund."
       }
     },
     "novartis": {
@@ -75,7 +79,8 @@
         "en": "A Basel-based multinational pharmaceutical company, one of the largest in the world.",
         "de": "Ein in Basel ansässiges multinationales Pharmaunternehmen, eines der grössten der Welt.",
         "fr": "Une entreprise pharmaceutique multinationale basée à Bâle, l'une des plus grandes au monde.",
-        "it": "Un'azienda farmaceutica multinazionale con sede a Basilea, tra le più grandi al mondo."
+        "it": "Un'azienda farmaceutica multinazionale con sede a Basilea, tra le più grandi al mondo.",
+        "rm": "Ina interpresa farmaceutica multinaziunala cun sedia a Basilea, ina da las pli grondas dal mund."
       }
     },
     "swisscom": {
@@ -88,7 +93,8 @@
         "en": "Switzerland's largest telecommunications provider, majority-owned by the Confederation.",
         "de": "Der grösste Telekommunikationsanbieter der Schweiz, mehrheitlich im Besitz des Bundes.",
         "fr": "Le premier opérateur de télécommunications de Suisse, détenu majoritairement par la Confédération.",
-        "it": "Il maggiore operatore di telecomunicazioni svizzero, di proprietà maggioritaria della Confederazione."
+        "it": "Il maggiore operatore di telecomunicazioni svizzero, di proprietà maggioritaria della Confederazione.",
+        "rm": "Il pli grond purschider da telecommunicaziun da la Svizra, per la gronda part en possess da la Confederaziun."
       }
     },
     "raiffeisen": {
@@ -102,7 +108,8 @@
         "en": "A cooperative banking group and one of Switzerland's leading retail banks.",
         "de": "Eine genossenschaftliche Bankengruppe und eine der führenden Retailbanken der Schweiz.",
         "fr": "Un groupe bancaire coopératif, l'une des principales banques de détail de Suisse.",
-        "it": "Un gruppo bancario cooperativo, tra le principali banche al dettaglio svizzere."
+        "it": "Un gruppo bancario cooperativo, tra le principali banche al dettaglio svizzere.",
+        "rm": "Ina gruppa da bancas cooperativa ed ina da las bancas da detagl principalas da la Svizra."
       }
     },
     "zurich-insurance": {
@@ -116,7 +123,8 @@
         "en": "A Zurich-based global insurance group, one of Switzerland's largest insurers.",
         "de": "Ein global tätiger Versicherungskonzern mit Sitz in Zürich, einer der grössten Versicherer der Schweiz.",
         "fr": "Un groupe d'assurance mondial sis à Zurich, l'un des plus grands assureurs de Suisse.",
-        "it": "Un gruppo assicurativo globale con sede a Zurigo, tra i maggiori assicuratori svizzeri."
+        "it": "Un gruppo assicurativo globale con sede a Zurigo, tra i maggiori assicuratori svizzeri.",
+        "rm": "In concern d'assicuranzas activ en tut il mund cun sedia a Turitg, in dals pli gronds assicuraders da la Svizra."
       }
     },
     "swiss-re": {
@@ -130,7 +138,8 @@
         "en": "A Zurich-based global reinsurance company, among the world's largest reinsurers.",
         "de": "Ein global tätiger Rückversicherer mit Sitz in Zürich, einer der grössten der Welt.",
         "fr": "Un réassureur mondial basé à Zurich, parmi les plus grands au monde.",
-        "it": "Un riassicuratore globale con sede a Zurigo, tra i maggiori al mondo."
+        "it": "Un riassicuratore globale con sede a Zurigo, tra i maggiori al mondo.",
+        "rm": "In reassicurader activ en tut il mund cun sedia a Turitg, in dals pli gronds dal mund."
       }
     },
     "axa-switzerland": {
@@ -144,7 +153,8 @@
         "en": "The Swiss arm of the AXA group and one of the country's leading insurers.",
         "de": "Die Schweizer Einheit der AXA-Gruppe und einer der führenden Versicherer des Landes.",
         "fr": "La filiale suisse du groupe AXA, l'un des principaux assureurs du pays.",
-        "it": "La filiale svizzera del gruppo AXA, tra i principali assicuratori del Paese."
+        "it": "La filiale svizzera del gruppo AXA, tra i principali assicuratori del Paese.",
+        "rm": "L'unitad svizra da la gruppa AXA ed in dals assicuraders principals dal pajais."
       }
     },
     "mobiliar": {
@@ -157,7 +167,8 @@
         "en": "Switzerland's oldest private insurer, organised on a cooperative basis.",
         "de": "Der älteste private Versicherer der Schweiz, genossenschaftlich verankert.",
         "fr": "Le plus ancien assureur privé de Suisse, à ancrage coopératif.",
-        "it": "Il più antico assicuratore privato svizzero, di matrice cooperativa."
+        "it": "Il più antico assicuratore privato svizzero, di matrice cooperativa.",
+        "rm": "Il pli vegl assicurader privat da la Svizra, cun ragischs cooperativas."
       }
     },
     "alpiq": {
@@ -171,7 +182,8 @@
         "en": "A Swiss electricity producer and energy-trading company.",
         "de": "Ein Schweizer Stromproduzent und Energiehandelsunternehmen.",
         "fr": "Un producteur d'électricité et négociant en énergie suisse.",
-        "it": "Un produttore di elettricità e società di commercio di energia svizzera."
+        "it": "Un produttore di elettricità e società di commercio di energia svizzera.",
+        "rm": "Ina interpresa svizra da producziun d'electricitad e da commerzi d'energia."
       }
     },
     "axpo": {
@@ -184,7 +196,8 @@
         "en": "Switzerland's largest producer of renewable energy, owned by cantons and cantonal utilities.",
         "de": "Der grösste Produzent erneuerbarer Energie der Schweiz, im Besitz von Kantonen und Kantonswerken.",
         "fr": "Le plus grand producteur d'énergie renouvelable de Suisse, propriété de cantons et de services industriels.",
-        "it": "Il maggiore produttore di energia rinnovabile svizzero, di proprietà di cantoni e aziende cantonali."
+        "it": "Il maggiore produttore di energia rinnovabile svizzero, di proprietà di cantoni e aziende cantonali.",
+        "rm": "Il pli grond producent d'energia regenerabla da la Svizra, en possess da chantuns e d'ovras electricas chantunalas."
       }
     },
     "bkw": {
@@ -198,7 +211,8 @@
         "en": "A Bern-based energy and infrastructure group.",
         "de": "Ein Energie- und Infrastrukturkonzern mit Sitz in Bern.",
         "fr": "Un groupe énergétique et d'infrastructures basé à Berne.",
-        "it": "Un gruppo energetico e infrastrutturale con sede a Berna."
+        "it": "Un gruppo energetico e infrastrutturale con sede a Berna.",
+        "rm": "In concern d'energia e d'infrastructura cun sedia a Berna."
       }
     },
     "hev-schweiz": {
@@ -213,7 +227,8 @@
         "en": "The Swiss Homeowners Association, representing the interests of property owners.",
         "de": "Der Hauseigentümerverband Schweiz, der die Interessen der Wohn- und Grundeigentümer vertritt.",
         "fr": "L'association suisse des propriétaires fonciers (HEV), qui défend les intérêts des propriétaires.",
-        "it": "L'associazione svizzera dei proprietari immobiliari (HEV), che rappresenta gli interessi dei proprietari."
+        "it": "L'associazione svizzera dei proprietari immobiliari (HEV), che rappresenta gli interessi dei proprietari.",
+        "rm": "L'associaziun dals possessurs da chasas da la Svizra, che represchenta ils interess dals proprietaris d'abitaziuns e da bains immobigliars."
       }
     },
     "gewerbeverband": {
@@ -228,7 +243,8 @@
         "en": "The Swiss Trade Association, the umbrella body for small and medium-sized enterprises (SMEs).",
         "de": "Der Schweizerische Gewerbeverband, die Dachorganisation der kleinen und mittleren Unternehmen (KMU).",
         "fr": "L'Union suisse des arts et métiers, l'organisation faîtière des petites et moyennes entreprises (PME).",
-        "it": "L'Unione svizzera delle arti e mestieri, l'organizzazione mantello delle piccole e medie imprese (PMI)."
+        "it": "L'Unione svizzera delle arti e mestieri, l'organizzazione mantello delle piccole e medie imprese (PMI).",
+        "rm": "L'Uniun svizra da mastergn, l'organisaziun da tetg da las pitschnas e mesaunas interpresas (PMI)."
       }
     },
     "arbeitgeberverband": {
@@ -242,7 +258,8 @@
         "en": "The Swiss Employers' Association, representing employers in economic and social policy.",
         "de": "Der Schweizerische Arbeitgeberverband, der die Arbeitgeber in der Wirtschafts- und Sozialpolitik vertritt.",
         "fr": "L'Union patronale suisse, qui représente les employeurs dans la politique économique et sociale.",
-        "it": "L'Unione svizzera degli imprenditori, che rappresenta i datori di lavoro nella politica economica e sociale."
+        "it": "L'Unione svizzera degli imprenditori, che rappresenta i datori di lavoro nella politica economica e sociale.",
+        "rm": "L'Uniun svizra dals patruns, che represchenta ils patruns en la politica economica e sociala."
       }
     },
     "svv": {
@@ -257,7 +274,8 @@
         "en": "The Swiss Insurance Association, the umbrella body of private insurers.",
         "de": "Der Schweizerische Versicherungsverband, die Dachorganisation der privaten Versicherer.",
         "fr": "L'Association suisse d'assurances, l'organisation faîtière des assureurs privés.",
-        "it": "L'Associazione svizzera d'assicurazioni, l'organizzazione mantello degli assicuratori privati."
+        "it": "L'Associazione svizzera d'assicurazioni, l'organizzazione mantello degli assicuratori privati.",
+        "rm": "L'Associaziun svizra d'assicuranzas, l'organisaziun da tetg dals assicuraders privats."
       }
     },
     "bankiervereinigung": {
@@ -270,7 +288,8 @@
         "en": "The umbrella association of the Swiss banking sector.",
         "de": "Der Dachverband des Schweizer Bankensektors.",
         "fr": "L'association faîtière du secteur bancaire suisse.",
-        "it": "L'associazione mantello del settore bancario svizzero."
+        "it": "L'associazione mantello del settore bancario svizzero.",
+        "rm": "L'organisaziun da tetg dal sectur bancar svizzer."
       }
     },
     "swissmem": {
@@ -283,7 +302,8 @@
         "en": "The association of the Swiss mechanical, electrical and metal industries (MEM).",
         "de": "Der Verband der Schweizer Maschinen-, Elektro- und Metallindustrie (MEM).",
         "fr": "L'association des industries suisses des machines, des équipements électriques et des métaux (MEM).",
-        "it": "L'associazione dell'industria svizzera meccanica, elettrica e metallurgica (MEM)."
+        "it": "L'associazione dell'industria svizzera meccanica, elettrica e metallurgica (MEM).",
+        "rm": "L'associaziun da l'industria svizra da maschinas, electrotecnica e metal (MEM)."
       }
     },
     "gastrosuisse": {
@@ -297,7 +317,8 @@
         "en": "The trade association of the Swiss hospitality industry (hotels and restaurants).",
         "de": "Der Branchenverband des Schweizer Gastgewerbes (Hotellerie und Restauration).",
         "fr": "L'association de branche de l'hôtellerie-restauration suisse.",
-        "it": "L'associazione di categoria del settore alberghiero e della ristorazione svizzeri."
+        "it": "L'associazione di categoria del settore alberghiero e della ristorazione svizzeri.",
+        "rm": "L'associaziun da branscha da la gastronomia svizra (hotellaria e restauraziun)."
       }
     },
     "fmh": {
@@ -311,7 +332,8 @@
         "en": "The professional association of Swiss physicians.",
         "de": "Der Berufsverband der Schweizer Ärztinnen und Ärzte.",
         "fr": "L'association professionnelle des médecins suisses.",
-        "it": "L'associazione professionale dei medici svizzeri."
+        "it": "L'associazione professionale dei medici svizzeri.",
+        "rm": "L'associaziun professiunala da las medias e dals medis svizzers."
       }
     },
     "tcs": {
@@ -324,7 +346,8 @@
         "en": "Switzerland's largest mobility and motoring association.",
         "de": "Der grösste Mobilitäts- und Automobilclub der Schweiz.",
         "fr": "Le plus grand club de mobilité et d'automobile de Suisse.",
-        "it": "Il più grande club di mobilità e automobilistico della Svizzera."
+        "it": "Il più grande club di mobilità e automobilistico della Svizzera.",
+        "rm": "Il pli grond club da mobilitad e d'automobils da la Svizra."
       }
     },
     "pro-natura": {
@@ -337,7 +360,8 @@
         "en": "Switzerland's oldest nature-conservation organisation.",
         "de": "Die älteste Naturschutzorganisation der Schweiz.",
         "fr": "La plus ancienne organisation de protection de la nature de Suisse.",
-        "it": "La più antica organizzazione svizzera per la protezione della natura."
+        "it": "La più antica organizzazione svizzera per la protezione della natura.",
+        "rm": "La pli veglia organisaziun per la protecziun da la natira da la Svizra."
       }
     },
     "wwf-schweiz": {
@@ -350,7 +374,8 @@
         "en": "The Swiss branch of the World Wide Fund for Nature, an environmental organisation.",
         "de": "Die Schweizer Sektion des World Wide Fund for Nature, eine Umweltorganisation.",
         "fr": "La section suisse du World Wide Fund for Nature, une organisation environnementale.",
-        "it": "La sezione svizzera del World Wide Fund for Nature, un'organizzazione ambientalista."
+        "it": "La sezione svizzera del World Wide Fund for Nature, un'organizzazione ambientalista.",
+        "rm": "La secziun svizra dal World Wide Fund for Nature, ina organisaziun d'ambient."
       }
     },
     "unia": {
@@ -365,7 +390,8 @@
         "en": "Switzerland's largest trade union, representing workers across many sectors.",
         "de": "Die grösste Gewerkschaft der Schweiz, die Arbeitnehmende vieler Branchen vertritt.",
         "fr": "Le plus grand syndicat de Suisse, représentant les salariés de nombreux secteurs.",
-        "it": "Il più grande sindacato svizzero, che rappresenta i lavoratori di molti settori."
+        "it": "Il più grande sindacato svizzero, che rappresenta i lavoratori di molti settori.",
+        "rm": "Il pli grond sindicat da la Svizra, che represchenta lavurantas e lavurants da bleras branschas."
       }
     },
     "digitalswitzerland": {
@@ -378,7 +404,8 @@
         "en": "A cross-industry initiative promoting Switzerland as a hub for digital innovation.",
         "de": "Eine branchenübergreifende Initiative zur Förderung der Schweiz als Standort für digitale Innovation.",
         "fr": "Une initiative intersectorielle promouvant la Suisse comme pôle d'innovation numérique.",
-        "it": "Un'iniziativa intersettoriale che promuove la Svizzera come polo di innovazione digitale."
+        "it": "Un'iniziativa intersettoriale che promuove la Svizzera come polo di innovazione digitale.",
+        "rm": "Ina iniziativa da differentas branschas per promover la Svizra sco lieu per l'innovaziun digitala."
       }
     },
     "svp": {
@@ -392,7 +419,8 @@
         "en": "A national-conservative party and currently the largest party in the Federal Assembly.",
         "de": "Eine nationalkonservative Partei und derzeit die stärkste Partei der Bundesversammlung.",
         "fr": "Un parti conservateur-nationaliste, actuellement le plus grand parti de l'Assemblée fédérale.",
-        "it": "Un partito nazional-conservatore, attualmente il maggiore partito dell'Assemblea federale."
+        "it": "Un partito nazional-conservatore, attualmente il maggiore partito dell'Assemblea federale.",
+        "rm": "Ina partida naziunal-conservativa ed actualmain la pli ferma partida da l'Assamblea federala."
       }
     },
     "sp": {
@@ -406,7 +434,8 @@
         "en": "A major centre-left party in Switzerland.",
         "de": "Eine grosse Mitte-links-Partei der Schweiz.",
         "fr": "Un grand parti de centre-gauche en Suisse.",
-        "it": "Un grande partito di centro-sinistra in Svizzera."
+        "it": "Un grande partito di centro-sinistra in Svizzera.",
+        "rm": "Ina gronda partida da center-sanestra da la Svizra."
       }
     },
     "fdp": {
@@ -420,7 +449,8 @@
         "en": "A major centre-right, economically liberal party in Switzerland.",
         "de": "Eine grosse wirtschaftsliberale Mitte-rechts-Partei der Schweiz.",
         "fr": "Un grand parti de centre-droit, libéral sur le plan économique, en Suisse.",
-        "it": "Un grande partito di centro-destra, economicamente liberale, in Svizzera."
+        "it": "Un grande partito di centro-destra, economicamente liberale, in Svizzera.",
+        "rm": "Ina gronda partida liberala-economica da center-dretga da la Svizra."
       }
     },
     "gruene": {
@@ -433,7 +463,8 @@
         "en": "A left-green environmental party in Switzerland.",
         "de": "Eine grün-linke Umweltpartei der Schweiz.",
         "fr": "Un parti écologiste de gauche en Suisse.",
-        "it": "Un partito ecologista di sinistra in Svizzera."
+        "it": "Un partito ecologista di sinistra in Svizzera.",
+        "rm": "Ina partida ecologica verda-sanestra da la Svizra."
       }
     }
   }
