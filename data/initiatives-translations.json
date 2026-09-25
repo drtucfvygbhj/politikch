@@ -1,7 +1,7 @@
 {
   "_meta": {
     "note": "Unofficial English and Romansh titles for initiatives whose official name is only registered in a national language (German/French/Italian). Provided by Politikch for convenience; not official. See the official source.",
-    "count": 63,
+    "count": 64,
     "license": "CC-BY-4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "attribution": "Politikch (politikch.ch), CC BY 4.0 — unofficial translations; the official DE/FR/IT titles prevail",
@@ -12,93 +12,123 @@
       "rm": "Iniziativa dal pievel: «Per ina nutriziun segira – tras il rinforzament d'ina producziun indigena durabla, dapli aliments vegetabels ed aua da baiver netta (Iniziativa per la nutriziun)»"
     },
     "initiative-573": {
+      "en": "Popular initiative: “Yes to protection against abusive rents (Rent Initiative)”",
       "rm": "Iniziativa dal pievel: «Gea a la protecziun cunter fittanzas abusivas (Iniziativa sin il pretsch da fittanza)»"
     },
     "initiative-569": {
+      "en": "Popular initiative: “For responsible large companies – to protect people and the environment”",
       "rm": "Iniziativa dal pievel: «Per interpresas responsablas – per proteger l'uman e l'ambient»"
     },
     "initiative-567": {
+      "en": "Popular initiative: “For a sustainable, future-oriented Swiss financial centre (Financial Centre Initiative)”",
       "rm": "Iniziativa dal pievel: «Per ina plazza finanziara svizra durabla ed orientada a l'avegnir (Iniziativa per la plazza finanziara)»"
     },
     "initiative-566": {
+      "en": "Popular initiative: “For a direct-democratic and competitive Switzerland – no passive EU membership (Compass Initiative)”",
       "rm": "Iniziativa dal pievel: «Per ina Svizra directamain democratica e concurrenziala – nagina commembraziun passiva en l'UE (Iniziativa cumpass)»"
     },
     "initiative-564": {
+      "en": "Popular initiative: “For Switzerland to join the UN Treaty on the Prohibition of Nuclear Weapons (Nuclear Weapons Ban Initiative)”",
       "rm": "Iniziativa dal pievel: «Per l'adesiun da la Svizra al contract da las Naziuns Unidas davart il scumond d'armas atomicas (Iniziativa cunter armas atomicas)»"
     },
     "initiative-563": {
+      "en": "Popular initiative: “For a secure supply of renewable energy (Solar Initiative)”",
       "rm": "Iniziativa dal pievel: «Per in provediment segir cun energias renovablas (Iniziativa solara)»"
     },
     "initiative-562": {
+      "en": "Popular initiative: “Stop asylum abuse! (Border Protection Initiative)”",
       "rm": "Iniziativa dal pievel: «Stgar l'abus d'asil! (Iniziativa per la protecziun dal cunfin)»"
     },
     "initiative-558": {
+      "en": "Popular initiative: “Against the destruction of our forests by wind turbines (Forest Protection Initiative)”",
       "rm": "Iniziativa dal pievel: «Cunter la destrucziun da noss guauds tras turbinas da vent (Iniziativa per la protecziun dal guaud)»"
     },
     "initiative-559": {
+      "en": "Popular initiative: “To protect direct democracy where wind farms are concerned (Municipality Protection Initiative)”",
       "rm": "Iniziativa dal pievel: «Per la protecziun da la democrazia directa tar parcs da vent (Iniziativa per la protecziun da las vischnancas)»"
     },
     "initiative-549": {
+      "en": "Popular initiative: “For a modern citizenship law (Democracy Initiative)”",
       "rm": "Iniziativa dal pievel: «Per in dretg da burgais modern (Iniziativa per la democrazia)»"
     },
     "initiative-547": {
+      "en": "Popular initiative: “Yes to a future without animal testing”",
       "rm": "Iniziativa dal pievel: «Gea ad in avegnir senza experiments cun bestias»"
     },
     "initiative-550": {
+      "en": "Popular initiative: “For equality for people with disabilities (Inclusion Initiative)”",
       "rm": "Iniziativa dal pievel: «Per l'egualitad da persunas cun impediments (Iniziativa d'inclusiun)»"
     },
     "initiative-548": {
+      "en": "Popular initiative: “Yes to secure medical supplies”",
       "rm": "Iniziativa dal pievel: «Gea a la segirezza da la provediment medicinala»"
     },
     "initiative-530": {
+      "en": "Popular initiative: “Yes to an import ban on fur products made with animal cruelty (Fur Initiative)”",
       "rm": "Iniziativa dal pievel: «Gea al scumond d'import per products da pel producids cun crudeltad cunter bestias (Iniziativa per la pel)»"
     },
     "initiative-529": {
+      "en": "Popular initiative: “Yes to an import ban on foie gras (Foie Gras Initiative)”",
       "rm": "Iniziativa dal pievel: «Gea al scumond d'import per fio grass (Iniziativa cunter il fio grass)»"
     },
     "initiative-571": {
+      "en": "Popular initiative: “For people-centred politics (No Lobbying)”",
       "rm": "Iniziativa dal pievel: «Per ina politica orientada al pievel (No Lobbying)»"
     },
     "initiative-570": {
+      "en": "Popular initiative: “A strong society and economy through parental leave (Family Time Initiative)”",
       "rm": "Iniziativa dal pievel: «Ina societad ed economia ferma grazia al temp da geniturs (Iniziativa per il temp da famiglia)»"
     },
     "initiative-572": {
+      "en": "Popular initiative: “For solar installations without a building permit”",
       "rm": "Iniziativa dal pievel: «Per implants solars senza permissiun»"
     },
     "initiative-574": {
+      "en": "Popular initiative: “For donation-funded aid and protection for people fleeing (Refugee Aid Initiative)”",
       "rm": "Iniziativa dal pievel: «Per agid da fugia basà sin donaziuns e concessiun da protecziun (Iniziativa per l'agid da fugia)»"
     },
     "initiative-575": {
+      "en": "Popular initiative: “For the recognition of the State of Palestine”",
       "rm": "Iniziativa dal pievel: «Per la renconuschientscha dal stadi da Palestina»"
     },
     "initiative-576": {
+      "en": "Popular initiative: “For protection against harmful radiation! (Millimetre Wave Initiative)”",
       "rm": "Iniziativa dal pievel: «Per la protecziun cunter radiaziun nuscheivla! (Iniziativa cunter las undas milimetricas)»"
     },
     "initiative-577": {
+      "en": "Popular initiative: “To boost purchasing power (Purchasing Power Initiative)”",
       "rm": "Iniziativa dal pievel: «Per rinforzar la pussanza da cumpra (Iniziativa per la pussanza da cumpra)»"
     },
     "initiative-578": {
+      "en": "Popular initiative: “To protect fundamental rights and democracy in the digital space (Internet Initiative)”",
       "rm": "Iniziativa dal pievel: «Per la protecziun dals dretgs fundamentals e da la democrazia en il spazi digital (Iniziativa per l'internet)»"
     },
     "initiative-579": {
+      "en": "Popular initiative: “For a fair balance between the federal administration and the population (Administration Brake)”",
       "rm": "Iniziativa dal pievel: «Per in equiliber gist tranter l'administraziun federala e la populaziun (Frain da l'administraziun)»"
     },
     "initiative-580": {
+      "en": "Popular initiative: “For strong public transport and fair air fares (Mobility Voucher Initiative)”",
       "rm": "Iniziativa dal pievel: «Per in traffic public ferm e pretschs d'aviun gists (Iniziativa per il bon da mobilitad)»"
     },
     "initiative-581": {
+      "en": "Popular initiative: “No to the F-35”",
       "rm": "Iniziativa dal pievel: «Na al F-35»"
     },
     "initiative-582": {
+      "en": "Popular initiative: “To secure the pollination of crops and wild plants by insects (Bee Initiative)”",
       "rm": "Iniziativa dal pievel: «Per garantir l'impollinaziun da plantas culturalas e selvadias tras inserts (Iniziativa per las avieuls)»"
     },
     "initiative-583": {
+      "en": "Popular initiative: “For Switzerland's digital security”",
       "rm": "Iniziativa dal pievel: «Per la segirezza digitala da la Svizra»"
     },
     "initiative-584": {
+      "en": "Popular initiative: “For a transparent state to strengthen trust in the authorities (Trust Initiative)”",
       "rm": "Iniziativa dal pievel: «Per in stadi transparent per rinforzar la fidanza en las autoritads (Iniziativa da fidanza)»"
     },
     "initiative-585": {
+      "en": "Popular initiative: “For a fair and sustainable public transport policy (for free public transport)”",
       "rm": "Iniziativa dal pievel: «Per ina politica gista e durabla per il traffic public (per in traffic public gratuit)»"
     },
     "vote-20260927-6880": {
@@ -196,6 +226,10 @@
     },
     "vote-20230618-6640": {
       "rm": "Midada da la Lescha federala davart las basas legalas per ordinaziuns dal Cussegl federal per surmuntar l'epidemia da COVID-19 (Lescha davart il COVID-19)"
+    },
+    "initiative-586": {
+      "en": "Popular initiative: “Those who drive people to flee must pay (Initiative for countries of origin to bear the costs)”",
+      "rm": "Iniziativa dal pievel: «Tgi che scatscha umans, sto pajar (Iniziativa per che ils stadis d'origin surpiglian ils custs)»"
     }
   }
 }

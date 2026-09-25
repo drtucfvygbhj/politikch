@@ -348,6 +348,19 @@ by the owner, with the reason recorded:
 7. ~~No storage inventory~~ — **done**: `storageKeys` in the config (PRIV-03).
 8. **Uncommitted changes in the working tree** now pass every BLOCK check. The
    flags they raise need the owner's sign-off at commit.
+11. **Languages (2026-09-24).** Filled once, enforced from now on:
+    - Every editorial text in all five languages: canton names, capitals and
+      descriptions; donor descriptions; vote descriptions (now also composed in
+      Romansh by the fetcher); all initiative titles in English and Romansh.
+      `validate.py` `check_all_languages()` blocks gaps.
+    - The official arguments now cover decided votes and referendums too, with
+      the correct side per author, and are cleaned of brochure layout.
+      `validate.py` `check_argument_text()` blocks layout or one-sided text.
+    - Still falling back by design: Romansh for long official texts (arguments,
+      session summaries) has no machine translation (DeepL lacks Romansh), so
+      Romansh readers see the official German with a language chip. The legal
+      pages show German with a note, like before. English and Italian argument
+      translations come from DeepL in the weekly job, arguments first.
 10. ~~French arguments for vote 6890 (27 Sept) had only the "against" side~~ —
     **fixed 2026-09-24**: fetcher matching bug fixed, French "for" side restored,
     one-sided languages now dropped by the fetcher, blocked by the checks and
