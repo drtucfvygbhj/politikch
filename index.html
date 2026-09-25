@@ -20,10 +20,36 @@
   <!-- Self-hosted fonts — no request to Google, no visitor IP leaves this origin. -->
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css?v=20260925a">
+  <link rel="stylesheet" href="css/news.css?v=20260925a">
+  <!-- Site settings (set in the local admin tool) and the design switch: 1.0 = the
+       original layout (frozen), 1.1 = the news layout. Applied before first paint. -->
+  <script src="js/site-settings.js?v=20260925a"></script>
+  <script src="js/site-images.js?v=20260925a"></script>
+  <script src="js/design.js?v=20260925a"></script>
 
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- 1.1 MASTHEAD (filled by js/news.js). Not a <nav>: the 1.0 stylesheet's bare
+       `nav {}` rule is the fixed top bar. -->
+  <header id="news-header" class="v11">
+    <div class="n-wrap">
+      <div class="n-topline">
+        <span class="n-date" id="n-date"></span>
+        <span class="n-tools"><a class="n-acct" id="n-acct" href="#/profile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span id="n-acct-t">My profile</span></a><span class="n-langs" id="n-langs" role="group" aria-label="Language"></span><span class="n-search" id="n-search"></span></span>
+      </div>
+      <div class="n-mast">
+        <a class="n-name" href="#/" data-home><span class="n-cross" aria-hidden="true"></span><span class="n-name-text">Politikch</span></a>
+        <p class="n-tag" id="n-tag"></p>
+      </div>
+      <div class="n-nav" id="n-nav" role="navigation" aria-label="Main">
+        <button type="button" class="n-menu-btn" id="n-menu-btn" aria-expanded="false" aria-controls="n-menu">Menu</button>
+        <ul class="n-menu" id="n-menu"></ul>
+      </div>
+      <div class="n-ticker" id="n-ticker" role="region" aria-label="Live"></div>
+    </div>
+  </header>
 
   <!-- NAV -->
   <nav id="navbar">
@@ -194,6 +220,45 @@
         </div>
       </section>
 
+    </div>
+
+    <!-- 1.1 FRONT PAGE (filled by js/news.js) -->
+    <div id="home-news" class="v11"></div>
+
+    <!-- 1.1 VOTES LIST (#/ballots/<tab>): the 1.0 votes section is moved in here -->
+    <div id="ballots-page" class="subpage">
+      <div class="canton-hero session-hero">
+        <div class="subpage-inner">
+          <button class="back-btn" data-back="" data-i18n="nav.back">Back</button>
+          <h1 class="canton-title" data-i18n="init.title">Recent &amp; pending national votes</h1>
+          <p class="canton-capital" data-i18n="init.label">Direct democracy</p>
+        </div>
+      </div>
+      <div class="canton-content" id="ballots-slot"></div>
+    </div>
+
+    <!-- 1.1 PARLIAMENT AND PARTIES (#/assembly/<spectrum|nc|cs|fc>) -->
+    <div id="assembly-page" class="subpage">
+      <div class="canton-hero session-hero">
+        <div class="subpage-inner">
+          <button class="back-btn" data-back="" data-i18n="nav.back">Back</button>
+          <h1 class="canton-title" data-i18n="news.asm.title">Parliament and parties</h1>
+          <p class="canton-capital" data-i18n="news.asm.sub"></p>
+        </div>
+      </div>
+      <div class="canton-content" id="assembly-content"></div>
+    </div>
+
+    <!-- 1.1 CANTON SPOTLIGHT PAGE (#/cantons/<code>) -->
+    <div id="spotlight-page" class="subpage">
+      <div class="canton-hero session-hero">
+        <div class="subpage-inner">
+          <button class="back-btn" data-back="" data-i18n="nav.back">Back</button>
+          <h1 class="canton-title" data-i18n="news.cs.pageTitle">Cantons at a glance</h1>
+          <p class="canton-capital" data-i18n="news.cs.pageSub"></p>
+        </div>
+      </div>
+      <div class="canton-content" id="spotlight-content"></div>
     </div>
 
     <!-- CANTON PAGE -->
@@ -393,6 +458,9 @@
       <a href="#/page/feedback" data-i18n="footer.feedback">Feedback</a>
     </div>
   </footer>
+
+  <!-- 1.1 FOOTER (filled by js/news.js) -->
+  <div id="news-footer" class="v11" role="contentinfo"></div>
 
   <script type="module" src="js/app.js?v=20260925a"></script>
 </body>

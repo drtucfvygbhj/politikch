@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <meta name="admin-token" content="%%TOKEN%%">
+  <title>Politikch admin</title>
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/admin.css">
+  <script src="/admin.js" defer></script>
+</head>
+<body>
+  <div class="adminbar">Admin · local only · not the public site</div>
+  <div class="wrap">
+    <div class="topline">
+      <span>Local only · 127.0.0.1:8002 · nothing here is published</span>
+      <span>Changes go live only when you commit and push</span>
+    </div>
+    <header class="mast">
+      <span class="name"><span class="cross" aria-hidden="true"></span>Politikch <em>admin</em></span>
+      <p class="tag">Managing the main site · <a href="http://localhost:8001/" target="_blank" rel="noopener noreferrer">open the site on localhost:8001 ↗</a></p>
+    </header>
+    <nav class="tabs" aria-label="Sections">
+      <button type="button" data-tab="overview" class="on">Overview</button>
+      <button type="button" data-tab="design">Design</button>
+      <button type="button" data-tab="images">Images</button>
+      <button type="button" data-tab="links">Vote links</button>
+      <button type="button" data-tab="checks">Checks</button>
+    </nav>
+    <div id="flash" class="flash" role="status" aria-live="polite" hidden></div>
+
+    <!-- OVERVIEW -->
+    <section class="panel on" id="tab-overview">
+      <div class="cols3">
+        <div class="mod"><div class="k">Maintenance mode</div><div id="ov-maint"></div></div>
+        <div class="mod"><div class="k">Next federal ballot</div><div id="ov-ballot"></div></div>
+        <div class="mod"><div class="k">Parliament</div><div id="ov-session"></div></div>
+      </div>
+      <div class="cols2">
+        <div class="mod"><div class="k">Data freshness</div><p class="meta">The weekly data job (Mondays 04:00 UTC) refreshes these. Anything older than 8 days needs a look in the GitHub Actions tab.</p><table class="tbl" id="ov-fresh"></table></div>
+        <div class="mod">
+          <div class="k">Changed files (not yet committed)</div><ul class="plain mono" id="ov-changed"></ul>
+          <div class="k mt">Translations to do</div><pre class="pre" id="ov-trans"></pre>
+        </div>
+      </div>
+      <div class="mod"><div class="k">Routine</div>
+        <ol class="routine">
+          <li>Once a week after the Monday data job: check the freshness table above and the GitHub issues it opens.</li>
+          <li>Before every push: run <b>Checks</b>, sign off any flags in the commit message, and look at the changed pages on localhost:8001 (EN, DE, FR; desktop and phone width).</li>
+          <li>Quiet period: in the 10 days before a ballot, only corrections, privacy fixes and the automatic data refresh change the vote pages.</li>
+          <li>Maintenance mode is switched only by you: create or delete the <code>MAINTENANCE_MODE</code> file in the repo (see MAINTENANCE.md). This tool never touches it.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- DESIGN -->
+    <section class="panel" id="tab-design">
+      <div class="design">
+        <form id="design-form" class="controls" autocomplete="off">
+          <div class="mod"><div class="k">Version everyone sees</div>
+            <label class="radio"><input type="radio" name="design" value="1.1"> <b>1.1</b> — news layout <span class="meta">(maintained; checked before every update)</span></label>
+            <label class="radio"><input type="radio" name="design" value="1.0"> <b>1.0</b> — original layout <span class="meta">(kept, frozen, no longer updated)</span></label>
+          </div>
+          <div class="mod"><div class="k">Fonts</div>
+            <label class="field">Headlines <select name="headline"></select></label>
+            <p class="specimen serif" id="spec-head">Neutrality Initiative · Nationalrat</p>
+            <label class="field">Body text <select name="body"></select></label>
+            <p class="specimen" id="spec-body">The National Council has 200 seats. Die Bundesversammlung tagt viermal im Jahr.</p>
+          </div>
+          <div class="mod"><div class="k">Title section (1.1)</div>
+            <div class="title-schematic" id="title-schematic" aria-hidden="true"><span>Politikch</span></div>
+            <div id="title-sliders"></div>
+          </div>
+          <div class="mod"><div class="k">Columns and lines (1.1)</div>
+            <div class="schematic" id="schematic" aria-hidden="true"><i class="l"></i><i class="c"></i><i class="r"></i></div>
+            <div id="sliders"></div>
+            <p class="meta warn" id="ratio-warn" hidden>The centre column has to stay at least as wide as each side column.</p>
+            <p class="meta">The centre column always keeps its place; graphics rearrange themselves when a column gets narrow.</p>
+          </div>
+          <div class="mod"><div class="k">"Live" rules</div>
+            <label class="field">A ballot is live from <input type="number" name="ballotDays" min="0" max="90"> days before (postal voting window)</label>
+            <label class="field">Signature collections are live when a deadline is within <input type="number" name="deadlineDays" min="0" max="60"> days</label>
+          </div>
+          <div class="mod"><div class="k">Rotation</div>
+            <label class="field">Canton spotlight: every <input type="number" name="canton" min="4" max="60"> seconds</label>
+            <label class="field">Explainer: every <input type="number" name="explainer" min="4" max="60"> seconds</label>
+          </div>
+          <div class="actions">
+            <button type="submit" class="primary">Save &amp; preview</button>
+            <button type="button" id="undo">Undo last save</button>
+            <button type="button" id="defaults">Reset form to defaults</button>
+          </div>
+          <div class="golive"><button type="button" class="live" data-publish="settings">Make changes live</button>
+            <span class="pub-state" data-kind="settings"></span></div>
+        </form>
+        <div class="preview">
+          <div class="preview-bar"><span class="k">The real website · preview with the saved settings</span>
+            <span><button type="button" data-w="100%" class="on">Desktop</button><button type="button" data-w="375px">Phone 375 px</button><button type="button" id="reload">Reload</button></span></div>
+          <div class="frame-wrap"><span class="frame-label" aria-hidden="true">Website</span><iframe id="preview" title="Preview of the site" src="about:blank"></iframe></div>
+          <p class="meta">The preview is a read-only copy of the site served by the admin itself (127.0.0.1:8003), always with the saved settings.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGES -->
+    <section class="panel" id="tab-images">
+      <div class="cols2">
+        <form class="mod" id="upload-form" autocomplete="off">
+          <div class="k">Add a photo</div>
+          <p class="meta">Your own institutional photos only. The photo is cropped to 3:2, resized to 1600 and 800 px and saved as WebP here in the browser — which also removes the camera and location data.</p>
+          <label class="field">Photo <input type="file" name="file" accept="image/*"></label>
+          <canvas id="up-preview" width="480" height="320" hidden></canvas>
+          <div id="alt-fields"></div>
+          <label class="field">Credit <input type="text" name="credit" maxlength="120" value="Photo: Politikch"></label>
+          <label class="field">Licence <input type="text" name="licence" maxlength="200" value="© Politikch — own photograph, all rights reserved"></label>
+          <label class="check"><input type="checkbox" name="confirm"> My own photo · no identifiable people · no coats of arms, federal logos or campaign posters in the picture</label>
+          <div class="actions"><button type="submit" class="primary">Add to library</button></div>
+          <p class="meta">New photos show in the Design preview straight away. They reach the public site only when you press "Publish images".</p>
+        </form>
+        <div class="mod">
+          <div class="k">Which photo goes with which vote</div>
+          <p class="meta">"Automatic" uses the library in turn. Votes without any photo show a neutral placeholder.</p>
+          <table class="tbl" id="assign"></table>
+          <div class="actions"><button type="button" class="primary" id="save-assign">Save assignments</button></div>
+        </div>
+      </div>
+      <div class="mod"><div class="k">Library</div><div class="library" id="library"></div></div>
+      <div class="golive"><button type="button" class="live" data-publish="images">Publish images</button>
+        <span class="pub-state" data-kind="images"></span></div>
+    </section>
+
+    <!-- VOTE LINKS -->
+    <section class="panel" id="tab-links">
+      <div class="mod"><div class="k">Parliament's final vote for each proposal</div>
+        <p class="meta">Shown as "What Parliament decided" on the front page. Suggestions come from matching titles in the session data — confirm each one against parlament.ch. For an initiative, the final vote is on the federal decree that sets out Parliament's recommendation.</p>
+        <div id="links"></div>
+        <div class="actions"><button type="button" class="primary" id="save-links">Save links</button></div>
+        <div class="golive"><button type="button" class="live" data-publish="settings">Make changes live</button>
+          <span class="pub-state" data-kind="settings"></span></div>
+      </div>
+    </section>
+
+    <!-- CHECKS -->
+    <section class="panel" id="tab-checks">
+      <div class="mod"><div class="k">Guardrail checks</div>
+        <p class="meta">Runs <code>scripts/check.py</code> and <code>scripts/validate.py</code> on the working copy — the same checks the pre-push hook and CI run. A BLOCK must be fixed; each FLAG needs an <code>Approved-Rule:</code> line from you in the commit message.</p>
+        <div class="actions"><button type="button" class="primary" id="run-checks">Run checks</button></div>
+        <div id="check-out"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Publish panel (one for each button; filled by admin.js) -->
+  <div class="pub-back" id="pub" hidden>
+    <div class="pub-box" role="dialog" aria-modal="true" aria-labelledby="pub-title">
+      <div class="k" id="pub-kicker"></div>
+      <h2 class="pub-title" id="pub-title"></h2>
+      <div id="pub-body"></div>
+      <div class="actions">
+        <button type="button" class="primary" id="pub-go" hidden>Publish now</button>
+        <button type="button" id="pub-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

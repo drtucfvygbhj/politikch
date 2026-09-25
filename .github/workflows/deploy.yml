@@ -101,13 +101,21 @@ jobs:
             cp index.html 404.html robots.txt .nojekyll _site/
             cp -r css js fonts _site/
             rsync -a --exclude='*.md' --exclude='brochures/' data/ _site/data/
+            # The owner's own photos (WebP only), published with the admin's
+            # "Publish images" button. check.py blocks any image without a
+            # licence record in images/LICENSES.json (LIC-01); the record itself
+            # stays in the repo and is not published.
+            if [ -d images ]; then
+              mkdir -p _site/images
+              find images -maxdepth 1 -type f -name '*.webp' -exec cp {} _site/images/ \;
+            fi
           fi
           mkdir -p _site/.well-known && cp .well-known/security.txt _site/.well-known/
           # A CNAME file (custom domain) is carried over if the repo has one.
           [ -f CNAME ] && cp CNAME _site/
           # Guard: only runtime file types may be published.
           bad=$(find _site -type f ! -name '.nojekyll' ! -name 'CNAME' \
-                ! -regex '.*\.\(html\|css\|js\|json\|woff2\|txt\)$')
+                ! -regex '.*\.\(html\|css\|js\|json\|woff2\|txt\|webp\)$')
           if [ -n "$bad" ]; then
             echo "Non-runtime files in deploy artifact:"; echo "$bad"; exit 1
           fi

@@ -3,6 +3,7 @@ import { configureShare, wireShares, mountShare } from './share.js?v=20260925a';
 import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260925a';
 import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260925a';
 import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260925a';
+import { configureNews, newsActive, mountNewsChrome, renderNewsChrome, renderNewsHome, relayoutNews, renderSpotlightPage, renderAssemblyPage, renderNewsProfile } from './news.js?v=20260925a';
 
 /* ============================================================
    State
@@ -73,6 +74,7 @@ async function loadData() {
   state.data.parties = parties.parties;
   state.data.cantons = cantons.cantons;
   state.data.initiatives = initiatives.initiatives;
+  state.data.initMeta = initiatives._meta || {};
   state.data.council = council;
   state.data.i18n = i18n;
 
@@ -865,6 +867,7 @@ function setLang(lang) {
   if (route.view === 'about') renderAboutPage();
   if (route.view === 'subscribe') renderSubscribePage();
   if (route.view === 'profile') renderProfilePage();
+  if (newsActive()) { renderNewsChrome(); renderNewsHome(); if (route.view === 'cantons') renderSpotlightPage(route.id); if (route.view === 'assembly') renderAssemblyPage(route.id); }
   refreshGlossaryLabels();
 }
 
@@ -3508,6 +3511,7 @@ function renderProfilePage() {
   if (!titleEl || !contentEl) return;
   titleEl.textContent = t('profile.title');
   if (subEl) subEl.textContent = t('profile.sub');
+  if (newsActive()) { renderNewsProfile(); return; }
 
   const d = computeMyLeaning();
 
@@ -3805,7 +3809,12 @@ function navigate(path) {
 }
 
 function showView(name) {
-  document.getElementById('home-content').style.display = name === 'home' ? 'block' : 'none';
+  const news = newsActive();
+  document.getElementById('home-content').style.display = (name === 'home' && !news) ? 'block' : 'none';
+  document.getElementById('home-news').style.display = (name === 'home' && news) ? 'block' : 'none';
+  document.getElementById('ballots-page').classList.toggle('active', name === 'ballots');
+  document.getElementById('spotlight-page').classList.toggle('active', name === 'spotlight');
+  document.getElementById('assembly-page').classList.toggle('active', name === 'assembly');
   document.getElementById('canton-page').classList.toggle('active', name === 'canton');
   document.getElementById('party-page').classList.toggle('active', name === 'party');
   document.getElementById('initiative-page').classList.toggle('active', name === 'initiative');
@@ -3922,11 +3931,28 @@ function handleRoute() {
   } else if (view === 'profile') {
     renderProfilePage();
     showView('profile');
+  } else if (view === 'ballots' && newsActive()) {
+    openBallotsTab(id);
+    showView('ballots');
+  } else if (view === 'assembly' && newsActive()) {
+    showView('assembly');
+    renderAssemblyPage(id);
+  } else if (view === 'cantons' && newsActive()) {
+    showView('spotlight');
+    renderSpotlightPage(id);
   } else {
     showView('home');
+    if (newsActive()) setTimeout(relayoutNews, 0);   // columns are measured while visible
   }
   restoreScroll(known);
   if (!redirecting) trackPageview('/' + location.hash.replace(/^#\/?/, ''), state.lang);
+}
+
+// 1.1: the votes list lives on its own page (#/ballots/<tab>); the tab comes from the route.
+function openBallotsTab(tab) {
+  const key = TAB_STATUSES[tab] ? tab : 'upcoming';   // only the four known tab names reach the selector
+  const btn = [...document.querySelectorAll('#initiatives .filter-btn[data-tab]')].find(b => b.dataset.tab === key);
+  if (btn && !btn.classList.contains('active')) btn.click();
 }
 
 function scrollToSection(id) {
@@ -4070,6 +4096,19 @@ async function init() {
   }
 
   buildMap();
+  if (newsActive()) {
+    configureNews({
+      state, t, localized, track, setLang, formatLongDate, formatSessionDates, formatInt, sessionName,
+      ensureSessionsIndex, ensureSessionFile, ensureSessionTranslations,
+      voteTransTitle, mtVoteTitle, unofficialBadge, mtBadge, initTitleHTML, initTitlePlain,
+      computeMyLeaning, fillProfileEnrich, wireVoteWidgets, profileMin: PROFILE_MIN_SESSION_VOTES,
+    });
+    mountNewsChrome();
+    // The votes list (tabs, search, cards) moves to its own page in 1.1.
+    document.getElementById('ballots-slot').appendChild(document.getElementById('initiatives'));
+    renderNewsChrome();
+    renderNewsHome();
+  }
   applyStaticTranslations();
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.lang === lang);

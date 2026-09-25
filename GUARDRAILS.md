@@ -319,6 +319,11 @@ The owner approves; then the edit, `check.sh`, local preview, change-log entry.
 | any `innerHTML`/template rendering in `js/app.js` | SEC-01, POL-01/08/13, OPS-02/03 |
 | vote pages, dates, results, process steps | POL-01/03/09 |
 | `fonts/`, images, icons | LIC-01, POL-10 |
+| `images/*` (owner's photos) + `images/LICENSES.json` | LIC-01, POL-10, PRIV-09 (a photo passes only with a licence record; alt text in five languages) |
+| `js/site-settings.js` (admin) | reviewed; POL-03 when the Parliament final-vote links change |
+| `js/news.js`, `js/design.js`, `js/site-images.js` | SEC-01 (sink scanner), OPS-03 |
+| `admin/server.py` (local admin, publishes) | PROC-02 |
+| `.github/workflows/deploy.yml` | SEC-06, SEC-07 |
 | `.github/workflows/*` | SEC-06/07/10, OPS-01 |
 | `CNAME`, `LANG_DOMAIN`, `?lang=` | HOST-03 |
 | `GUARDRAILS.md`, `check.sh` | PROC-05 |
@@ -439,7 +444,30 @@ Runs while the site is in maintenance mode too. Compliant, but it contacts sourc
 | Poll sync (`politikch-votes-pushed`, network calls) — **off** (`POLL_API` empty); the key is never written while off | ✅ · turning on = PRIV-07 (the key must then be added to the storage text) |
 | 404 page redirects to the home page keeping the `#` route | ✅ |
 
-### 13.6 Outside this repo (not reviewed here)
+### 13.6 Local admin site — `admin/` (never published)
+
+Runs only on the owner's machine (`Start Admin.command`, 127.0.0.1:8002; a read-only,
+uncached copy of the site for its preview on :8003). It writes only
+`js/site-settings.js`, `js/site-images.js`, `images/` and its own `admin/.backup/`,
+and every change needs a per-start token and a same-origin request.
+
+It has two separate publish buttons, each pressed by the owner:
+
+| Button | Commits | Tab |
+|---|---|---|
+| Make changes live | `js/site-settings.js` only | Design / Vote links |
+| Publish images | `images/` + `js/site-images.js` only | Images |
+
+Each one builds the commit in a temporary, clean git worktree on `origin/main` (so
+other uncommitted work is neither published nor judged), runs `check.py` there,
+asks the owner to type a reason for every flagged rule (those become the
+`Approved-Rule:` lines, PROC-04) and to confirm the local preview (PROC-03), then
+commits and pushes through the normal pre-push hook — never `--no-verify`. It
+refuses when `main` is behind GitHub or the 1.1 code isn't on `origin/main` yet.
+Uploaded photos show in the admin preview straight away but reach the public site
+only through "Publish images". Everything else still goes through the normal git flow.
+
+### 13.7 Outside this repo (not reviewed here)
 
 The three language-domain redirect repos, DNS/registrar (Hostpoint), mailboxes.
 Stage 1 findings E-01/E-02/G-01 cover them — re-check, don't assume.

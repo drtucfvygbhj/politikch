@@ -528,6 +528,52 @@ def check_claims():
                 block("POL-12", f"{f}: says '{phrase}'")
 
 
+def registered_images():
+    """Photos under images/ with a complete licence record in images/LICENSES.json
+    (written by the admin tool): 'images/<id>-800.webp' / '-1600.webp' whose entry
+    names a credit and a licence."""
+    try:
+        reg = json.loads(read("images/LICENSES.json")).get("images", {})
+    except Exception:  # noqa: BLE001 — no register yet means no registered images
+        return set()
+    out = set()
+    for iid, e in reg.items():
+        if not (isinstance(e, dict) and str(e.get("credit", "")).strip() and str(e.get("licence", "")).strip()):
+            continue
+        for name in e.get("files", []):
+            if re.fullmatch(re.escape(iid) + r"-(800|1600)\.webp", str(name)):
+                out.add("images/" + name)
+    return out
+
+
+def check_site_images(registered):
+    """LIC-01 / OPS-03: every photo js/site-images.js puts on the site exists, has a
+    licence record, and has alt text in all five languages."""
+    try:
+        m = re.search(r"window\.PCH_IMAGES\s*=\s*(\{.*\})\s*;\s*$", read("js/site-images.js"), re.S)
+        lib = json.loads(m.group(1)).get("library", {}) if m else {}
+    except Exception:  # noqa: BLE001
+        block("LIC-01", "js/site-images.js is not readable")
+        return
+    for iid, e in lib.items():
+        for key in ("w800", "w1600"):
+            f = "images/" + str(e.get(key, ""))
+            if f not in registered or not (ROOT / f).is_file():
+                block("LIC-01", f"js/site-images.js uses {f} without the file or its licence record")
+        alt = e.get("alt") or {}
+        missing = [l for l in ("en", "de", "fr", "it", "rm") if not str(alt.get(l, "")).strip()]
+        if missing:
+            block("OPS-03", f"photo {iid} has no alt text in {', '.join(missing).upper()}")
+
+
+def settings_links(text):
+    m = re.search(r"window\.PCH_SETTINGS\s*=\s*(\{.*\})\s*;\s*$", text or "", re.S)
+    try:
+        return json.loads(m.group(1)).get("parliamentLinks", {}) if m else {}
+    except ValueError:
+        return None
+
+
 def check_hosting_and_media(files):
     cfg = read("js/config.js")
     if re.search(r"PAID_PRODUCT_LIVE\s*=\s*true", cfg) and "actions/deploy-pages" in read(".github/workflows/deploy.yml"):
@@ -539,9 +585,13 @@ def check_hosting_and_media(files):
                                 "commercial use — record the permission in the source registry first")
     if re.search(r"export const POLL_API = '[^']+'", cfg):
         flag("PRIV-07", "the community poll is switched on (POLL_API) — needs its privacy review")
+    registered = registered_images()
     for f in files:
         if re.search(r"\.(pdf|png|jpe?g|gif|webp|svg|mp4|webm|mp3|ico)$", f, re.I):
+            if f in registered:          # the owner's own photo, with a licence record (LIC-01)
+                continue
             block("SRC-09", f"{f}: media files need a recorded licence before they're added (LIC-01)")
+    check_site_images(registered)
     for f in ["index.html"] + js_files():
         if re.search(r"<(iframe|embed|object)\b", read(f), re.I):
             block("SRC-09", f"{f}: embeds third-party content")
@@ -641,6 +691,14 @@ def check_changes(base, worktree_dirty, data_job=False):
             for w in words:
                 if re.search(r"(?i)(?<![\wÀ-ÿ])" + re.escape(w) + r"(?![\wÀ-ÿ])", added):
                     flag("POL-05", f"{f}: adds '{w}' ({lang}) — confirm it is neutral")
+    # SEC-06: the deploy allowlist / file-type guard may only change with sign-off.
+    if ".github/workflows/deploy.yml" in files:
+        flag("SEC-06", "deploy.yml changed — confirm the allowlist and file-type guard still publish runtime files only")
+    # POL-03: which official final vote a vote page shows is a result shown on the site.
+    if "js/site-settings.js" in files:
+        old = git("show", f"{base}:js/site-settings.js", check=False)
+        if settings_links(old) != settings_links(read("js/site-settings.js")):
+            flag("POL-03", "the Parliament final-vote links in js/site-settings.js changed — check each one against parlament.ch")
     # PRIV-04 / SEC-03: privacy text or CSP edited.
     if "data/i18n.json" in files and any('"privacy.' in ln for ln in added_lines(base, "data/i18n.json")):
         flag("PRIV-04", "Privacy-page text changed — confirm it still matches what the code does")
