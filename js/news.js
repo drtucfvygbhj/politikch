@@ -75,20 +75,20 @@ function wireNewsShares(root) {
 }
 const shareSrc = (k) => t('share.src.' + k);
 function hemiShare(key, name, total, route) {
-  return () => ({ kind: 'hemicycle', title: name, subtitle: tf('news.seats', { n: total }), total, route, source: shareSrc('parliament'),
+  return () => ({ kind: 'hemicycle', kicker: t('parl.label'), title: name, subtitle: tf('news.seats', { n: total }), total, route, source: shareSrc('parliament'),
     seats: partyOrder().filter(k => party(k)[key]).map(k => ({ label: pShort(k), color: pColor(k), seats: party(k)[key] })) });
 }
 function councilShare(route) {
   return () => {
     const counts = {};
     ((D().council && D().council.members) || []).forEach(m => { counts[m.party] = (counts[m.party] || 0) + 1; });
-    return { kind: 'arc', title: t('council.title'), subtitle: t('council.sub'), route, source: shareSrc('council'),
+    return { kind: 'arc', kicker: t('council.label'), title: t('council.title'), subtitle: t('council.sub'), route, source: shareSrc('council'),
       total: Object.values(counts).reduce((a, b) => a + b, 0),
       seats: partyOrder().filter(k => counts[k]).map(k => ({ label: pShort(k), color: pColor(k), seats: counts[k] })) };
   };
 }
 function spectrumShare(route) {
-  return () => ({ kind: 'spectrum', title: t('spec.title'), route, source: shareSrc('spectrum'),
+  return () => ({ kind: 'spectrum', kicker: t('nav.parties'), title: t('spec.title'), route, source: shareSrc('spectrum'),
     axes: { left: t('spec.axisLeft'), right: t('spec.axisRight'), top: t('spec.axisTop'), bottom: t('spec.axisBottom') },
     dots: partyOrder().filter(k => party(k).spectrum).map(k => ({ label: pShort(k), x: party(k).spectrum.x, y: party(k).spectrum.y, color: pColor(k), on: true })) });
 }
@@ -99,7 +99,7 @@ function yesNoRow(label, yes, no, valueText) {
 const yesNoLegend = () => [{ label: t('news.yes'), color: YES }, { label: t('news.no'), color: NO }];
 function cantonShare(code, route) {
   const nc = D().cantonData.cantons[code].nc;
-  return { kind: 'bars', title: C.localized(D().cantons[code].name), route, source: shareSrc('canton'),
+  return { kind: 'bars', kicker: t('news.cs.k'), title: C.localized(D().cantons[code].name), route, source: shareSrc('canton'),
     subtitle: tf(nc.totalSeats === 1 ? 'news.cs.meta1' : 'news.cs.meta', { year: nc.year, n: nc.totalSeats }),
     rows: (nc.parties || []).filter(x => x.strength).sort((a, b) => b.strength - a.strength)
       .map(x => ({ label: C.localized(x.name), value: x.strength, valueText: num(x.strength) + '%', color: pColor(x.key) })) };
@@ -485,7 +485,7 @@ function moneyFig(i) {
     return tf(a === 1 ? 'news.money.actor1' : 'news.money.actors', { n: a }) + ' · ' + tf(d === 1 ? 'news.money.donation1' : 'news.money.donations', { n: d });
   };
   // Both sides always go into the image together, even at CHF 0 (POL-01).
-  const share = shareId(() => ({ kind: 'bars', title: C.initTitlePlain(i), subtitle: t('news.m.money') + ' · ' + tf('news.money.h', { amount: money(pv + cv) }),
+  const share = shareId(() => ({ kind: 'bars', kicker: t('news.m.money'), title: C.initTitlePlain(i), subtitle: tf('news.money.h', { amount: money(pv + cv) }),
     route: 'initiative/' + i.id, source: shareSrc('financing'),
     rows: [{ label: t('news.for'), value: pv, valueText: money(pv), color: YES, keep: true }, { label: t('news.against'), value: cv, valueText: money(cv), color: NO, keep: true }] }));
   return '<div class="n-fig" data-hl data-nshare="' + escapeAttr(share) + '">' + head +
@@ -529,7 +529,7 @@ export function parlFigHTML(i, raw) {
   const initiative = f.initiative || f.decree;
   const res = C.voteResult(raw);
   const note = f.initiative || f.decree ? C.voteFrameNote(raw) : t('news.parl.noteAct');
-  const share = shareId(() => ({ kind: 'voteHemicycle', title: C.initTitlePlain(i), subtitle: t(initiative ? 'news.parl.hInit' : 'news.parl.hAct'),
+  const share = shareId(() => ({ kind: 'voteHemicycle', kicker: t('news.parl.k'), title: C.initTitlePlain(i), subtitle: t(initiative ? 'news.parl.hInit' : 'news.parl.hAct') + (f.initiative && raw.passed ? ' · ' + res.text : ''),
     route: 'initiative/' + i.id, source: shareSrc('votes'), tallies: { yes: tly.yes || 0, no: tly.no || 0, abstain: tly.abstain || 0 },
     labels: f.initiative ? { yes: yesL, no: noL } : null,
     groups: groups.map(g => ({ label: party(g) ? pShort(g) : g, color: pColor(g), yes: by[g].yes || 0, no: by[g].no || 0, abstain: by[g].abstain || 0 })) }));
@@ -592,7 +592,7 @@ function leftBlocks(files, last) {
   const dec = decided().slice(0, 5);
   if (dec.length) {
     const yesOf = (i) => { const m = /([\d.]+)% (yes|no)/.exec((i.outcome && i.outcome.en) || ''); return m ? (m[2] === 'yes' ? Number(m[1]) : 100 - Number(m[1])) : null; };
-    const resShare = shareId(() => ({ kind: 'bars', title: t('news.res.k'), route: 'ballots/decided', source: shareSrc('results'), legend: yesNoLegend(),
+    const resShare = shareId(() => ({ kind: 'bars', kicker: t('nav.initiatives'), title: t('news.res.k'), route: 'ballots/decided', source: shareSrc('results'), legend: yesNoLegend(),
       rows: dec.filter(i => yesOf(i) !== null).map(i => yesNoRow(C.initTitlePlain(i), yesOf(i), 100 - yesOf(i), num(yesOf(i)) + '% ' + t('news.tally.yes'))) }));
     out.push(pos('results', `<section class="n-blk n-mod" data-nshare="${escapeAttr(resShare)}"><div class="n-k">${escapeAttr(t('news.res.k'))}</div><ul class="n-list">` +
       dec.map(i => {
@@ -619,7 +619,7 @@ function leftBlocks(files, last) {
         `<div class="n-bar"><span style="flex:${escapeAttr(y)};background:${escapeAttr(YES)}" data-ntip="${escapeAttr(y + ' ' + yl)}"></span><span style="flex:${escapeAttr(n)};background:${escapeAttr(NO)}" data-ntip="${escapeAttr(n + ' ' + nl)}"></span></div>` +
         `<p class="n-meta">${escapeAttr(t('parl.nc') + ' · ' + (f.initiative ? y + ' ' + yl + ', ' + n + ' ' + nl : y + '–' + n) + ' · ' + result + ' · ' + shortDate(v.voteEnd))}</p></li>`;
     }).join('');
-    const fvShare = shareId(() => ({ kind: 'bars', title: t('news.fv.k'), subtitle: tf('news.fv.meta', { session: C.sessionName(last), n: votes.length }),
+    const fvShare = shareId(() => ({ kind: 'bars', kicker: t('nav.parliament'), title: t('news.fv.k'), subtitle: tf('news.fv.meta', { session: C.sessionName(last), n: votes.length }),
       route: 'session/' + last.id, source: shareSrc('votes'), legend: yesNoLegend(),
       rows: votes.slice(0, 5).map(raw => { const f = C.voteFrame(raw), v = C.orientVote(raw), y = v.tally?.yes || 0, n = v.tally?.no || 0;
         return yesNoRow(sessionVotePlain(raw) + (f.initiative ? ' (' + f.yes + ' / ' + f.no + ')' : ''), y, n, y + '–' + n); }) }));
@@ -693,7 +693,7 @@ function rightBlocks() {
   if (pf.length) {
     const max = fp[pf[0]].totalRevenue;
     const year = Math.max(...pf.map(k => fp[k].year || 0));
-    const pfShare = shareId(() => ({ kind: 'bars', title: tf('news.pf.k', { year }), subtitle: t('news.pf.h'), route: 'financing', source: shareSrc('financing'),
+    const pfShare = shareId(() => ({ kind: 'bars', kicker: tf('news.pf.k', { year }), title: t('news.pf.h'), route: 'financing', source: shareSrc('financing'),
       rows: pf.map(k => ({ label: pName(k), value: fp[k].totalRevenue, valueText: money(fp[k].totalRevenue), color: pColor(k) })) }));
     out.push(pos('partyfinances', `<section class="n-blk n-mod" data-hl data-nshare="${escapeAttr(pfShare)}"><div class="n-k">${escapeAttr(tf('news.pf.k', { year }))}</div><h3 class="n-mh"><a href="#/financing">${escapeAttr(t('news.pf.h'))}</a></h3><ul class="n-hbars">` +
       pf.map(k => `<li><a href="#/party/${escapeAttr(k)}" data-k="p-${escapeAttr(k)}" data-ntip="${escapeAttr(pName(k) + ' · ' + money(fp[k].totalRevenue))}"><span class="n">${escapeAttr(pShort(k))}</span>` +
