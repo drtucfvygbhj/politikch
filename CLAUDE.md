@@ -21,3 +21,10 @@ Every change follows `GUARDRAILS.md`. In short:
    don't start the data job by hand.
 7. Legal questions go to the owner, and on to a lawyer when GUARDRAILS.md §10 says so. Never
    present a legal conclusion as settled.
+8. **PolitikCH+ articles are written by a person (ED-09).** Never draft, rewrite
+   or add sentences to an article, not even as a suggestion to edit. You may
+   research, find sources, suggest an outline or structure, write checklists
+   and guides, and proofread: mark spelling, grammar, punctuation, consistency
+   and possible factual errors, and let the editor fix them. Article translations
+   go through the labelled DeepL pipeline (ED-10), not through you. How articles
+   are written: `EDITORIAL.md`; what happens before launch: `LAUNCH_PLAN.md`.

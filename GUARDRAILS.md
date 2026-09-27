@@ -1,6 +1,8 @@
 # Politikch — Change guardrails (rulebook)
 
-**Status: in force since 2026-09-24.** This file is the single source of truth
+**Status: in force since 2026-09-24. §15 (PolitikCH+) adopted by the owner
+2026-09-27; it is dormant until articles exist, except ED-09 (claims) and ED-13
+(paywall paths), which are enforced now.** This file is the single source of truth
 for the pre-change review and for the automated checks (`scripts/check.py`,
 `scripts/data_guard.py`, `scripts/monitor_sources.py`; configuration in
 `scripts/guardrails/config.json`). Every rule has an ID; the checks, the review
@@ -108,7 +110,12 @@ promise to be non-partisan.
 | POL-10 | **No official look.** No Swiss coat of arms (shield), cantonal or communal arms, federal logos, or wording implying we are an authority ("official", "Confederation", "the Federal Chancellery says"). Party logos not used; party colours only. Independence disclaimer stays on the legal page. | BLOCK (asset + phrase scan) |
 | POL-11 | **Corrections path.** The contact/corrections route stays reachable in every language; a known factual error is fixed or placeholder-ed, never left up. | REVIEW |
 | POL-12 | **Claims about ourselves.** No "non-commercial", "official", "certified", "complete", "real-time" claims unless true. Changes to `PAID_PRODUCT_LIVE` or anything advertising a paid product require the Impressum with real name + postal address (UWG Art. 3(1)(s)) and ToS in the same change. | BLOCK (phrase scan) + FLAG |
-| POL-13 | **AI/MT labelling.** Machine translation is always badged and credits DeepL; no LLM-generated text published as fact. Any future AI-written content is labelled and human-reviewed before publishing (EU AI Act Art. 50 for EU readers). | BLOCK (badge present where `mt.json` used) + REVIEW |
+| POL-13 | **AI/MT labelling.** Machine translation is always badged and credits DeepL; no LLM-generated text published as fact. Any future AI-written content is labelled and human-reviewed before publishing (EU AI Act Art. 50 for EU readers). For PolitikCH+ articles, ED-09 and ED-10 apply. | BLOCK (badge present where `mt.json` used) + REVIEW |
+
+**Scope of §4.** These rules govern the **reference layer**: every page on the
+site today. The reference layer stays neutral. PolitikCH+ articles (§15) may
+reach conclusions; for them §15 replaces POL-01, POL-05, POL-06 and POL-09, and
+every other rule in this file still applies.
 
 ---
 
@@ -285,6 +292,28 @@ vote · processor contracts). This review adds:
   (UBS, economiesuisse, …) next to their political donations exposed under UWG
   Art. 3(1)(a) or ZGB Art. 28 if a wording is contested?
 
+Added 2026-09-27 for PolitikCH+ (§15) and the operator's identity:
+
+- **Q15 — Periodical duties and media liability.** Is an online subscription
+  publication a "periodical" whose imprint must name the seat and a responsible
+  editor (StGB Art. 322(2))? How does media liability (StGB Art. 28, 322bis)
+  apply to unsigned articles?
+- **Q16 — Campaign-finance rules.** Can an article that recommends a vote, or
+  paid promotion of it, make Politikch a campaign actor under the BPR
+  transparency rules (CHF 50,000 threshold)?
+- **Q17 — Quoting party material.** How far does the quotation right (URG Art.
+  25) cover quoting party campaign material (posters, press releases) in paid
+  articles?
+- **Q18 — Press Council.** Should Politikch declare that it follows the Swiss
+  Press Council's code, and what follows from that?
+- **Q19 — Operator and anonymity.** (a) Can the imprint, the privacy policy's
+  controller (revFADP Art. 19) and the UWG Art. 3(1)(s) identity duty all be
+  met by naming an association (Verein) with a domicile address, without naming
+  a person on the site? (b) Must a Verein that sells subscriptions register in
+  the commercial register (ZGB Art. 61(2))? (c) May a Verein pay its editor, and
+  what purpose clause keeps the Verein lawful (ZGB Art. 60)? Blocks: S1-F-01
+  (free site) and the PolitikCH+ launch.
+
 ---
 
 ## 11. The pre-change review (what Claude produces before editing anything)
@@ -326,6 +355,9 @@ The owner approves; then the edit, `check.sh`, local preview, change-log entry.
 | `.github/workflows/deploy.yml` | SEC-06, SEC-07 |
 | `.github/workflows/*` | SEC-06/07/10, OPS-01 |
 | `CNAME`, `LANG_DOMAIN`, `?lang=` | HOST-03 |
+| `EDITORIAL.md`, `LAUNCH_PLAN.md` | §15 (ED-*), reviewed |
+| `about.*`, `subscribe.*` i18n keys describing PolitikCH+ | ED-01, ED-09, ED-10, POL-12 |
+| any future PolitikCH+ code or article data (renderer, backend, translation of articles) | ED-02/04/05/08/10/13, SEC-01, PRIV-11, OPS-09 |
 | `GUARDRAILS.md`, `check.sh` | PROC-05 |
 | anything else | default FLAG |
 
@@ -372,6 +404,14 @@ by the owner, with the reason recorded:
     skipped by the page (POL-01).
 9. Stage 1 items still open per its report (branch protection, language-domain
    DNS/TLS, Domain Shield, Dependabot etc.) — to be re-checked, not assumed.
+12. **PolitikCH+ (2026-09-27).** §15 adopted; `EDITORIAL.md` (how articles are
+    written) and `LAUNCH_PLAN.md` (every step from today to after launch, with
+    what each stage must comply with) added. The planned-product text on the
+    About and Subscribe pages now describes PolitikCH+ (hidden while
+    `PAID_PRODUCT_LIVE` is false); the visible About text scopes "never tells
+    readers how to vote" to the reference pages. Still open and **LEGAL-HIGH**:
+    S1-F-01, the privacy policy doesn't name the controller. The planned fix is
+    the Verein (Q19, `LAUNCH_PLAN.md` Stage B).
 
 ---
 
@@ -490,4 +530,52 @@ Stage 1 findings E-01/E-02/G-01 cover them — re-check, don't assume.
 
 | Automated — BLOCK | Automated — FLAG (needs sign-off) | Still REVIEW / not yet automated |
 |---|---|---|
-| Data validity and invariants, i18n parity (VALIDATE, OPS-03) · SEC-01 (ratchet) · SEC-02 · SEC-03 · SEC-04 · SEC-05 · SEC-06 · SEC-07 · SEC-08 (exact pins) · SEC-09 · SEC-10 · SEC-11 · SRC-01 (static + VoteInfo host guard at run time) · SRC-02 (paid product vs `terms_ask`) · SRC-03 · SRC-05 · SRC-06 · SRC-09 · SRC-10 (weekly) · PRIV-01 (static) · PRIV-02 · PRIV-03 · PRIV-05 · PRIV-06 · PRIV-08 · PRIV-10 · POL-01 · POL-12 · POL-13 · HOST-01 · HOST-04 (warnings → GitHub issue) · LIC-01 · LIC-03 · LIC-05 · LIC-06 · LIC-08 (via PRIV-08) · LIC-09 · OPS-01 · OPS-04 (data guard) | Every file in the trigger table (incl. LIC-07 licence files) · UNKNOWN files (default rule) · POL-05 banned words · POL-09 quiet period · PRIV-04 privacy text · PRIV-07 poll · SEC-03 CSP edits · OPS-04 hand-edited generated data · OPS-07 billable DeepL | OPS-02 route smoke test, OPS-05 accessibility, OPS-06 mobile/performance (need a headless browser in CI — a new dependency, owner to decide) · POL-02/03/04/06/07/10 editorial judgement · SEC-08 hash pinning · LIC-02/04 (dependency and copied-text licences) · SRC-07/08/11 · PRIV-09/11/12 · PROC-01/03 (CLAUDE.md instructs; not machine-enforced) |
+| Data validity and invariants, i18n parity (VALIDATE, OPS-03) · SEC-01 (ratchet) · SEC-02 · SEC-03 · SEC-04 · SEC-05 · SEC-06 · SEC-07 · SEC-08 (exact pins) · SEC-09 · SEC-10 · SEC-11 · SRC-01 (static + VoteInfo host guard at run time) · SRC-02 (paid product vs `terms_ask`) · SRC-03 · SRC-05 · SRC-06 · SRC-09 · SRC-10 (weekly) · ED-09 (AI claims, via the POL-12 phrase scan) · ED-13 (no article paths in the repo) · PRIV-01 (static) · PRIV-02 · PRIV-03 · PRIV-05 · PRIV-06 · PRIV-08 · PRIV-10 · POL-01 · POL-12 · POL-13 · HOST-01 · HOST-04 (warnings → GitHub issue) · LIC-01 · LIC-03 · LIC-05 · LIC-06 · LIC-08 (via PRIV-08) · LIC-09 · OPS-01 · OPS-04 (data guard) | Every file in the trigger table (incl. LIC-07 licence files) · UNKNOWN files (default rule) · POL-05 banned words · POL-09 quiet period · PRIV-04 privacy text · PRIV-07 poll · SEC-03 CSP edits · OPS-04 hand-edited generated data · OPS-07 billable DeepL | OPS-02 route smoke test, OPS-05 accessibility, OPS-06 mobile/performance (need a headless browser in CI — a new dependency, owner to decide) · POL-02/03/04/06/07/10 editorial judgement · SEC-08 hash pinning · LIC-02/04 (dependency and copied-text licences) · SRC-07/08/11 · PRIV-09/11/12 · PROC-01/03 (CLAUDE.md instructs; not machine-enforced) |
+
+---
+
+## 15. PolitikCH+ — the paid analysis articles (ED) — *adopted by owner 2026-09-27*
+
+**What it is.** PolitikCH+ is a planned paid tier of political analysis: votes,
+initiatives, parliamentary decisions and campaigns. Unlike the reference layer,
+its articles reach conclusions. Based on evidence, they may criticise or commend
+a proposal, a party or a campaign, and may recommend how to vote. Articles
+appear in the same front page as the reference pages, clearly marked.
+
+**Status.** Dormant: no article exists and `PAID_PRODUCT_LIVE` is false. ED-09
+(the claims part) and ED-13 (the paywall paths) are enforced by `check.py` now.
+The other checks are built together with the article code (`LAUNCH_PLAN.md`
+Stage D). How to write an article, step by step: `EDITORIAL.md`.
+
+**Scope.** Everything outside PolitikCH+ is the reference layer and keeps every
+rule in §2–§9 unchanged. For PolitikCH+ articles:
+
+- still apply: POL-02 (no invented figures), POL-03, POL-07, POL-10, POL-11,
+  POL-12 and every SRC, PRIV, SEC, OPS, LIC, HOST and PROC rule;
+- replaced: POL-01 → ED-05 · POL-05 → ED-04 and ED-06 (a banned-word hit in an
+  article is reviewed with the article, not signed off word by word) · POL-09 →
+  ED-08 · POL-13 → ED-09 and ED-10;
+- not applied: POL-06 (symmetry). Each article is judged on its evidence, not
+  balanced against other articles.
+
+| ID | Rule | Level |
+|---|---|---|
+| ED-01 | **Non-partisan and independent.** Non-partisan means: Politikch belongs to no party; its editors hold no party membership, public office or campaign role; it takes no money (donations, advertising, sponsorship) from parties, campaign committees, or organisations campaigning on a pending vote. Conclusions follow the evidence, whoever that favours. Funding sources are disclosed once a year after launch. | REVIEW + public statement |
+| ED-02 | **Marking.** Every PolitikCH+ article carries a red border, the text label **"PolitikCH+"** and its type label wherever it appears: front-page card, top and bottom of the article, related-article boxes on reference pages, search results, share images and any newsletter. Reference items never carry them. The label text is required (colour alone fails WCAG 1.4.1). The red must be clearly distinct from the "live" dot (`--n-live`) and from party colours. The "+" is never drawn as a white cross on red (Swiss cross, Q2). | BLOCK (render check, built with the renderer) |
+| ED-03 | **Types.** *Explainer*: explains, reaches no conclusion. *Analysis*: evaluates on the evidence and may criticise, commend and recommend a vote in the same article. There is no separate opinion or recommendation type. | BLOCK (type field) |
+| ED-04 | **Evidence and sources.** Every figure and every factual claim cites its source; all sources are listed in full at the bottom of the article. Where the same data is on the reference site, it is also an underlined link to that place on the site, which opens with the data highlighted until the reader clicks or taps anywhere else. Every judgement rests on facts shown in the article. Value judgements are worded as judgements and inferences about motives as inferences. The headline and teaser, which are free to read, meet this rule on their own. | BLOCK (source list present; internal data links resolve) + REVIEW |
+| ED-05 | **Both sides.** An Analysis of a vote gives at least one argument for Yes and at least one for No; otherwise it is not published. An Analysis not tied to a vote gives at least one argument on each side of its central question. How each argument is treated (endorsed, scrutinised on the facts, or simply presented) is decided article by article. | BLOCK (both sides present) |
+| ED-06 | **Right of reply.** Before publishing a serious accusation against a named party, person or organisation (misconduct, deception, bad faith, hypocrisy, a broken promise), ask them in writing for comment with at least two working days to answer, and include the reply or "did not respond by <date>". The request and the answer are kept on record, outside the public repo (they are correspondence). Follows Swiss Press Council guideline 3.8. | FLAG (field required) |
+| ED-07 | **Recommendations.** Allowed on any vote, federal, cantonal or communal, inside an Analysis. The reasoning addresses both sides (ED-05). "No recommendation" is a valid conclusion. Published before that ballot's quiet period starts (ED-08). Never shown on a reference page, beyond a marked link. No recommendation on a vote in which an editor has a personal interest. | REVIEW |
+| ED-08 | **Quiet period.** In the 10 days before a ballot, no new Analysis about a proposal on that ballot, and no new serious accusation (ED-06) about its campaign. Corrections are allowed. Applies to every ballot an article covers, cantonal and communal included. | BLOCK (date check, built with the renderer) |
+| ED-09 | **Human authorship.** Every article is written by a person. AI may be used for research, finding sources, outlines, structure, guides, checklists and proofreading. Proofreading means marking spelling, grammar, punctuation and consistency errors and possible factual errors; the editor accepts or rejects each correction and writes any rewording themselves. AI never drafts, rewrites or adds sentences, even with later edits. Public claims describe what is human, positively ("written by a person"); never "AI-free", "no AI" or similar. | BLOCK (claim phrases, `claimPhrases`) + REVIEW |
+| ED-10 | **Translation.** The English original is authoritative and always linked. German and French: machine translation (DeepL, paid plan per OPS-09), checked by the editor, labelled "Machine translation (DeepL), checked by our editor". Italian: machine translation labelled "not checked by our editor", and **not published** for an Analysis with a recommendation or with a serious accusation (ED-06); Italian readers get links to EN/DE/FR. No Romansh. A fixed glossary (`EDITORIAL.md`) is applied to every translation. | BLOCK (labels, built with the renderer) + REVIEW |
+| ED-11 | **Byline and identity.** Byline: "PolitikCH+ editorial". The About page states truthfully how many people write (e.g. "currently one editor") and never implies a larger team (UWG Art. 3(1)(b)). The operator is identified as the law requires (Q15, Q19). | REVIEW |
+| ED-12 | **Corrections.** A confirmed error is corrected within 48 hours, with a dated note on the article and an entry in a public corrections log. Translations are corrected with the original. | REVIEW |
+| ED-13 | **Paywall and reader privacy.** Article text never goes into the public repo or the static site: only the logged-in backend serves it. No reading history per subscriber beyond what billing needs; analytics never link an article to a subscriber (PRIV-11). | BLOCK (`paywalledPaths` in the config) + FLAG |
+
+**Definitions.** *Serious accusation*: a statement that someone acted wrongly or
+dishonestly, or that is otherwise likely to harm their reputation seriously.
+*Source*: where a reader can check the fact, primary where possible (official
+record, parliamentary vote, the party's own publication). *Editor*: the person
+who writes and signs off an article; today the owner.
