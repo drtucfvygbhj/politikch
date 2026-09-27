@@ -352,6 +352,8 @@ The owner approves; then the edit, `check.sh`, local preview, change-log entry.
 | `js/site-settings.js` (admin) | reviewed; POL-03 when the Parliament final-vote links change |
 | `js/news.js`, `js/design.js`, `js/site-images.js` | SEC-01 (sink scanner), OPS-03 |
 | `admin/server.py` (local admin, publishes) | PROC-02 |
+| `admin/preview-agent.js` (helper added to the admin's preview only, never published) | SEC-01, PROC-02 |
+| text edited in the admin (`data/i18n.json`, `parties.json`, `cantons.json`, `donor-descriptions.json`, `legal.json`) | as for each file above; `check.py` runs before "Publish text" |
 | `.github/workflows/deploy.yml` | SEC-06, SEC-07 |
 | `.github/workflows/*` | SEC-06/07/10, OPS-01 |
 | `CNAME`, `LANG_DOMAIN`, `?lang=` | HOST-03 |
@@ -488,15 +490,42 @@ Runs while the site is in maintenance mode too. Compliant, but it contacts sourc
 
 Runs only on the owner's machine (`Start Admin.command`, 127.0.0.1:8002; a read-only,
 uncached copy of the site for its preview on :8003). It writes only
-`js/site-settings.js`, `js/site-images.js`, `images/` and its own `admin/.backup/`,
-and every change needs a per-start token and a same-origin request.
+`js/site-settings.js`, `js/site-images.js`, `images/`, the text files below and its
+own `admin/.backup/` (including the undo history), and every change needs a
+per-start token and a same-origin request.
 
-It has two separate publish buttons, each pressed by the owner:
+*Added 2026-09-27 (owner-approved review):*
+
+- **Edit text.** Clicking a text in the preview finds where it comes from and opens
+  it in all five languages. Editable: the interface text (`data/i18n.json`) and our
+  own editorial texts (`data/parties.json`, `data/cantons.json`,
+  `data/donor-descriptions.json`, `data/legal.json` paragraphs without links or
+  formatting). Not editable: official and fetched texts (titles, arguments, results,
+  session and financing data; SRC-08, OPS-04). Plain text only; `{placeholders}`
+  must stay; files are changed without reformatting. Privacy and legal text can be
+  edited but raise their flags (PRIV-04, POL-12, LIC-07) at publishing.
+- **Edit positioning.** Two clicks swap two front-page blocks (any column, the
+  proposal stories included). The order is `positions` in `js/site-settings.js`.
+  Once the stories leave the published order (by declared funding), the note under
+  them no longer names that rule (POL-12).
+- **Undo / redo** for every change made in the admin except adding or deleting a
+  photo. A step is refused if the file was changed outside the admin since.
+- **Photo metadata.** The browser lists what the original file carries (camera,
+  date, GPS, author, software, XMP/IPTC, colour profile), redraws the photo, removes
+  EXIF/XMP/ICC chunks from the new WebP files and checks them; the server refuses a
+  WebP that still carries any.
+- **Preview helper.** The preview port adds `admin/preview-agent.js` to the page it
+  serves. It reports clicks to the admin page (origin-checked `postMessage`) only
+  while an edit mode is on, writes nothing, and is never part of the published site
+  (`admin/` is outside the deploy allowlist).
+
+It has three separate publish buttons, each pressed by the owner:
 
 | Button | Commits | Tab |
 |---|---|---|
 | Make changes live | `js/site-settings.js` only | Design / Vote links |
 | Publish images | `images/` + `js/site-images.js` only | Images |
+| Publish text | `data/i18n.json`, `data/parties.json`, `data/cantons.json`, `data/donor-descriptions.json`, `data/legal.json` only | Design (Edit text) |
 
 Each one builds the commit in a temporary, clean git worktree on `origin/main` (so
 other uncommitted work is neither published nor judged), runs `check.py` there,

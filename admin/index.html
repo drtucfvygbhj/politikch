@@ -29,6 +29,11 @@
       <button type="button" data-tab="links">Vote links</button>
       <button type="button" data-tab="checks">Checks</button>
     </nav>
+    <div class="histbar">
+      <button type="button" id="h-undo" disabled>↶ Undo</button>
+      <button type="button" id="h-redo" disabled>↷ Redo</button>
+      <span class="meta" id="h-state">Nothing to undo.</span>
+    </div>
     <div id="flash" class="flash" role="status" aria-live="polite" hidden></div>
 
     <!-- OVERVIEW -->
@@ -89,7 +94,6 @@
           </div>
           <div class="actions">
             <button type="submit" class="primary">Save &amp; preview</button>
-            <button type="button" id="undo">Undo last save</button>
             <button type="button" id="defaults">Reset form to defaults</button>
           </div>
           <div class="golive"><button type="button" class="live" data-publish="settings">Make changes live</button>
@@ -98,8 +102,17 @@
         <div class="preview">
           <div class="preview-bar"><span class="k">The real website · preview with the saved settings</span>
             <span><button type="button" data-w="100%" class="on">Desktop</button><button type="button" data-w="375px">Phone 375 px</button><button type="button" id="reload">Reload</button></span></div>
+          <div class="modebar">
+            <button type="button" id="mode-text" aria-pressed="false">Edit text</button>
+            <button type="button" id="mode-pos" aria-pressed="false">Edit positioning</button>
+            <button type="button" id="pos-reset">Reset positions</button>
+            <span class="meta" id="mode-hint">Switch on a mode, then click in the preview.</span>
+          </div>
+          <div class="editor" id="editor" hidden></div>
           <div class="frame-wrap"><span class="frame-label" aria-hidden="true">Website</span><iframe id="preview" title="Preview of the site" src="about:blank"></iframe></div>
-          <p class="meta">The preview is a read-only copy of the site served by the admin itself (127.0.0.1:8003), always with the saved settings.</p>
+          <p class="meta">The preview is a read-only copy of the site served by the admin itself (127.0.0.1:8003), always with the saved settings. In an edit mode, clicks in it select instead of following links.</p>
+          <div class="golive"><button type="button" class="live" data-publish="text">Publish text</button>
+            <span class="pub-state" data-kind="text"></span></div>
         </div>
       </div>
     </section>
@@ -109,9 +122,10 @@
       <div class="cols2">
         <form class="mod" id="upload-form" autocomplete="off">
           <div class="k">Add a photo</div>
-          <p class="meta">Your own institutional photos only. The photo is cropped to 3:2, resized to 1600 and 800 px and saved as WebP here in the browser — which also removes the camera and location data.</p>
+          <p class="meta">Your own institutional photos only. The photo is cropped to 3:2, resized to 1600 and 800 px and redrawn as new WebP files here in the browser. Everything else in the original file (camera, date, location, author, software) is left behind; below the photo you see what was found and removed, and the new files are checked before they are saved.</p>
           <label class="field">Photo <input type="file" name="file" accept="image/*"></label>
           <canvas id="up-preview" width="480" height="320" hidden></canvas>
+          <div id="up-meta" class="meta" hidden></div>
           <div id="alt-fields"></div>
           <label class="field">Credit <input type="text" name="credit" maxlength="120" value="Photo: Politikch"></label>
           <label class="field">Licence <input type="text" name="licence" maxlength="200" value="© Politikch — own photograph, all rights reserved"></label>

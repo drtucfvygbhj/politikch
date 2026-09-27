@@ -19,7 +19,7 @@
     live: { ballotDays: 28, deadlineDays: 7 }, rotation: { canton: 9, explainer: 12 } };
   const STACKS = { playfair: "'Playfair Display', Georgia, serif", dmsans: "'DM Sans', system-ui, sans-serif",
     serif: "Charter, 'Iowan Old Style', Georgia, serif", sans: 'system-ui, -apple-system, Helvetica, Arial, sans-serif' };
-  let S = null, ST = null, IMG = { library: {}, assign: {} }, PUB = {};
+  let S = null, ST = null, IMG = { library: {}, assign: {} }, PUB = {}, H = { undo: null, redo: null, undoCount: 0, redoCount: 0 };
 
   function el(tag, attrs, kids) {
     const e = document.createElement(tag);
@@ -130,8 +130,8 @@
     s.rotation = { canton: Number(f.canton.value), explainer: Number(f.explainer.value) };
     return s;
   }
-  async function saveSettings(s, msg) {
-    const j = await api('/api/settings', s);
+  async function saveSettings(s, msg, label) {
+    const j = await api('/api/settings', Object.assign({}, s, { _label: label || 'Design settings' }));
     S = j.settings; fillDesign(S); renderLinks(); reloadPreview(); refreshStatus();
     flash(msg || 'Saved to js/site-settings.js. It goes live when you commit and push.');
   }
@@ -139,13 +139,39 @@
     e.preventDefault();
     try { await saveSettings(readDesign()); } catch (err) { flash(err.message, true); }
   });
-  $('#undo').addEventListener('click', async () => {
-    try { const j = await api('/api/undo', {}); S = j.settings; fillDesign(S); reloadPreview(); refreshStatus(); flash('Restored the previous settings.'); }
-    catch (err) { flash(err.message, true); }
+  /* ---------- undo / redo (every change made here, except adding or deleting a photo) ---------- */
+  function renderHistory() {
+    $('#h-undo').disabled = !H.undo; $('#h-redo').disabled = !H.redo;
+    $('#h-undo').title = H.undo ? 'Undo: ' + H.undo : 'Nothing to undo';
+    $('#h-redo').title = H.redo ? 'Redo: ' + H.redo : 'Nothing to redo';
+    $('#h-state').textContent = H.undo ? `Last change: ${H.undo}` : 'Nothing to undo.';
+  }
+  async function historyStep(dir) {
+    try {
+      const j = await api('/api/history/' + dir, {});
+      S = j.settings; IMG = j.images || IMG; H = j.history || H;
+      fillDesign(S); renderLinks(); renderImages(); reloadPreview(); await refreshStatus();
+      flash((dir === 'undo' ? 'Undone: ' : 'Redone: ') + j.label);
+    } catch (err) { flash(err.message, true); }
+  }
+  $('#h-undo').addEventListener('click', () => historyStep('undo'));
+  $('#h-redo').addEventListener('click', () => historyStep('redo'));
+  // Cmd/Ctrl+Z and Shift+Cmd/Ctrl+Z (or Ctrl+Y), except while typing in a field.
+  document.addEventListener('keydown', (e) => {
+    if (!(e.metaKey || e.ctrlKey) || e.target.closest('input, textarea, select, [contenteditable]')) return;
+    const k = e.key.toLowerCase();
+    if (k === 'z' && !e.shiftKey && H.undo) { e.preventDefault(); historyStep('undo'); }
+    else if (((k === 'z' && e.shiftKey) || k === 'y') && H.redo) { e.preventDefault(); historyStep('redo'); }
   });
   $('#defaults').addEventListener('click', () => { const s = clone(S); Object.assign(s, clone(DEFAULTS)); fillDesign(s); flash('Form reset to the defaults — press "Save & preview" to apply.'); });
 
-  function reloadPreview() { $('#preview').src = PREVIEW + '/?lang=en#/'; }
+  // The preview reloads where it was (page and language), as reported by its helper.
+  const view = { hash: '#/', lang: 'en' };
+  function reloadPreview() {
+    const hash = /^#\/[\w\/%.-]*$/.test(view.hash) ? view.hash : '#/';
+    const lang = LANGS.includes(view.lang) ? view.lang : 'en';
+    $('#preview').src = `${PREVIEW}/?lang=${lang}&_=${Date.now()}${hash}`;
+  }
   $('#reload').addEventListener('click', reloadPreview);
   // Desktop is drawn at a real 1400 px and scaled down to fit; the phone view is 375 px, unscaled.
   let previewWidth = 1400;
@@ -163,6 +189,105 @@
   }));
   window.addEventListener('resize', sizePreview);
 
+  /* ---------- edit modes in the preview: text and positioning ----------
+     The preview (another port) carries admin/preview-agent.js; it reports clicks
+     here with postMessage. Messages from anywhere else are ignored. */
+  let editMode = null, firstPick = null;
+  const tellPreview = (msg) => { const w = $('#preview').contentWindow; if (w) w.postMessage(msg, PREVIEW); };
+  const HINTS = { text: 'Click any text in the preview to edit it.', position: 'Click a block, then the block to swap it with.' };
+  function setMode(m) {
+    editMode = editMode === m ? null : m;
+    firstPick = null;
+    $('#mode-text').setAttribute('aria-pressed', editMode === 'text' ? 'true' : 'false');
+    $('#mode-pos').setAttribute('aria-pressed', editMode === 'position' ? 'true' : 'false');
+    $('#mode-hint').textContent = HINTS[editMode] || 'Switch on a mode, then click in the preview.';
+    if (editMode !== 'text') $('#editor').hidden = true;
+    tellPreview({ type: 'mode', mode: editMode });
+  }
+  $('#mode-text').addEventListener('click', () => setMode('text'));
+  $('#mode-pos').addEventListener('click', () => setMode('position'));
+  window.addEventListener('message', (e) => {
+    if (e.origin !== PREVIEW || e.source !== $('#preview').contentWindow || !e.data || typeof e.data !== 'object') return;
+    const d = e.data;
+    if (typeof d.hash === 'string') view.hash = d.hash || '#/';
+    if (LANGS.includes(d.lang)) view.lang = d.lang;
+    if (d.type === 'ready') { firstPick = null; tellPreview({ type: 'mode', mode: editMode }); }
+    if (d.type === 'pick-text' && editMode === 'text') openEditor(String(d.text || ''), view.lang);
+    if (d.type === 'pick-pos' && editMode === 'position') pickBlock(String(d.id || ''), d.arrangement);
+  });
+
+  // Positioning: the first click marks a block, the second swaps the two (any
+  // columns). Saved as the full order in js/site-settings.js ("positions").
+  const blockName = (id) => id.startsWith('story:') ? 'story ' + id.slice(6) : id;
+  async function pickBlock(id, arr) {
+    if (!id) return;
+    if (!firstPick) { firstPick = id; $('#mode-hint').textContent = `Marked "${blockName(id)}" — now click the block to swap it with.`; return; }
+    if (firstPick === id) { firstPick = null; tellPreview({ type: 'clear' }); $('#mode-hint').textContent = HINTS.position; return; }
+    const a = { l: [...(arr && arr.l || [])], c: [...(arr && arr.c || [])], r: [...(arr && arr.r || [])] };
+    const where = (x) => { for (const k of ['l', 'c', 'r']) { const i = a[k].indexOf(x); if (i >= 0) return [k, i]; } return null; };
+    const p1 = where(firstPick), p2 = where(id);
+    const first = firstPick;
+    firstPick = null;
+    if (!p1 || !p2) { flash('Could not find both blocks — click them again.', true); tellPreview({ type: 'clear' }); return; }
+    a[p1[0]][p1[1]] = id; a[p2[0]][p2[1]] = first;
+    const s = clone(S); s.positions = a;
+    try {
+      await saveSettings(s, `Swapped "${blockName(first)}" and "${blockName(id)}". It goes live with "Make changes live".`, `Swapped ${blockName(first)} and ${blockName(id)}`);
+      $('#mode-hint').textContent = HINTS.position;
+    } catch (err) { flash(err.message, true); }
+  }
+  $('#pos-reset').addEventListener('click', async () => {
+    if (!S.positions) return flash('The front page already uses the standard order.');
+    const s = clone(S); delete s.positions;
+    try { await saveSettings(s, 'Front page back to the standard order.', 'Positions reset'); } catch (err) { flash(err.message, true); }
+  });
+
+  // Text: find where the clicked text comes from, then edit it in all languages.
+  const LANG_NAMES = { en: 'English', de: 'German', fr: 'French', it: 'Italian', rm: 'Romansh' };
+  async function openEditor(text, lang) {
+    const box = $('#editor');
+    box.hidden = false;
+    box.replaceChildren(el('div', { class: 'k', text: 'Edit text' }), el('p', { class: 'meta', text: 'Looking it up…' }));
+    let cands = [];
+    try { cands = (await api('/api/text/find', { text, lang })).candidates; } catch (err) { box.replaceChildren(el('p', { class: 'blocked', text: err.message })); return; }
+    const head = [el('div', { class: 'k', text: 'Edit text' }), el('div', { class: 'quote', text: text.length > 300 ? text.slice(0, 300) + '…' : text })];
+    if (!cands.length) {
+      box.replaceChildren(...head, el('p', { class: 'meta', text: 'Not found in the interface text or our editorial files. It is data (official or fetched texts, figures, names — they stay as the source publishes them), or it is put together from several pieces: click a smaller part of it.' }),
+        el('div', { class: 'actions' }, [el('button', { type: 'button', text: 'Close', onclick: () => { box.hidden = true; } })]));
+      return;
+    }
+    const form = el('form', {});
+    const pick = (c) => {
+      const fields = LANGS.filter(l => l in c.values).map(l => {
+        const v = c.values[l] || '';
+        return el('label', { class: 'field' }, [document.createTextNode(LANG_NAMES[l] + (l === lang ? ' (shown in the preview)' : '')),
+          el('textarea', { name: l, rows: String(Math.min(10, Math.max(2, Math.ceil(v.length / 70)))), disabled: !!c.locked }, [document.createTextNode(v)])]);
+      });
+      const notes = [el('p', { class: 'meta', text: `${c.file} · ${c.label}` })];
+      if (c.locked) notes.push(el('p', { class: 'blocked', text: c.locked }));
+      else notes.push(el('p', { class: 'meta', text: 'Change every language together. Keep {placeholders} as they are. Saving changes the file here only; "Publish text" runs the checks (neutral wording, privacy text, legal pages) and asks for your sign-off.' }));
+      form.replaceChildren(...notes, ...fields, el('div', { class: 'actions' }, [
+        el('button', { type: 'submit', class: 'primary', text: 'Save text', disabled: !!c.locked }),
+        el('button', { type: 'button', text: 'Cancel', onclick: () => { box.hidden = true; } })]));
+      form.onsubmit = async (ev) => {
+        ev.preventDefault();
+        const values = {};
+        LANGS.filter(l => l in c.values).forEach(l => { values[l] = form.elements[l].value; });
+        try {
+          const j = await api('/api/text/save', { file: c.file, path: c.path, values });
+          H = j.history || H; renderHistory();
+          box.hidden = true; reloadPreview(); await refreshStatus();
+          flash(`Saved in ${c.file}. It goes live with "Publish text".`);
+        } catch (err) { flash(err.message, true); }
+      };
+    };
+    const list = cands.length > 1 ? el('div', { class: 'cands' }, [el('p', { class: 'meta', text: 'This text matches several entries — pick the one you mean:' }),
+      ...cands.map((c, n) => el('label', {}, [el('input', { type: 'radio', name: 'cand', checked: n === 0, onchange: () => pick(c) }),
+        document.createTextNode(` ${c.label} — “${(c.values[lang] || '').slice(0, 80)}”`)]))]) : null;
+    box.replaceChildren(...head, ...(list ? [list] : []), form);
+    pick(cands[0]);
+  }
+
   /* ---------- images ---------- */
   const up = $('#upload-form');
   let processed = null;
@@ -172,7 +297,119 @@
   function blobToDataURL(blob) {
     return new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(blob); });
   }
+  /* Metadata: list what the original file carries (so you can see what is being
+     left behind), and check that the new WebP files carry none. */
+  function tiffTags(dv, start) {
+    const out = [];
+    const le = dv.getUint16(start) === 0x4949;
+    const u16 = (o) => dv.getUint16(start + o, le), u32 = (o) => dv.getUint32(start + o, le);
+    const ascii = (o, n) => { let s = ''; for (let i = 0; i < n - 1 && start + o + i < dv.byteLength; i++) s += String.fromCharCode(dv.getUint8(start + o + i)); return s.trim(); };
+    const readIfd = (off, names) => {
+      const found = {};
+      if (off <= 0 || start + off + 2 > dv.byteLength) return found;
+      const n = u16(off);
+      for (let i = 0; i < n && start + off + 2 + i * 12 + 12 <= dv.byteLength; i++) {
+        const e = off + 2 + i * 12, tag = u16(e), type = u16(e + 2), count = u32(e + 4);
+        if (type === 2) found[tag] = ascii(count <= 4 ? e + 8 : u32(e + 8), count);
+        else found[tag] = u32(e + 8);
+      }
+      return found;
+    };
+    const ifd0 = readIfd(u32(4));
+    const cam = [ifd0[0x010F], ifd0[0x0110]].filter(x => typeof x === 'string' && x).join(' ');
+    if (cam) out.push('camera: ' + cam);
+    if (typeof ifd0[0x0131] === 'string' && ifd0[0x0131]) out.push('software: ' + ifd0[0x0131]);
+    if (typeof ifd0[0x013B] === 'string' && ifd0[0x013B]) out.push('author: ' + ifd0[0x013B]);
+    if (typeof ifd0[0x8298] === 'string' && ifd0[0x8298]) out.push('copyright note');
+    const exif = ifd0[0x8769] ? readIfd(ifd0[0x8769]) : {};
+    const when = exif[0x9003] || ifd0[0x0132];
+    if (typeof when === 'string' && when) out.push('date taken: ' + when);
+    if (exif[0xA431]) out.push('camera serial number');
+    if (typeof exif[0xA434] === 'string' && exif[0xA434]) out.push('lens: ' + exif[0xA434]);
+    if (ifd0[0x8825]) { const gps = readIfd(ifd0[0x8825]); out.push(gps[2] || gps[4] ? 'GPS location' : 'GPS data'); }
+    if (!out.length) out.push('EXIF data');
+    return out;
+  }
+  async function inspectMetadata(file) {
+    const buf = await file.arrayBuffer();
+    const dv = new DataView(buf), u8 = new Uint8Array(buf);
+    const found = [];
+    const bytes = new TextDecoder('latin1');                  // one character per byte (markers are ASCII)
+    const str = (o, n) => bytes.decode(u8.subarray(o, o + n));
+    try {
+      if (dv.getUint16(0) === 0xFFD8) {                       // JPEG: walk the segments
+        let o = 2;
+        while (o + 4 <= dv.byteLength && dv.getUint8(o) === 0xFF) {
+          const m = dv.getUint8(o + 1), len = dv.getUint16(o + 2);
+          if (m === 0xDA || m === 0xD9) break;
+          if (m === 0xE1 && str(o + 4, 6) === 'Exif\0\0') found.push(...tiffTags(dv, o + 10));
+          else if (m === 0xE1 && str(o + 4, 28).startsWith('http://ns.adobe.com/xap/1.0/')) found.push('XMP data (may include author, location, editing history)');
+          else if (m === 0xED) found.push('IPTC data (captions, names, places)');
+          else if (m === 0xE2 && str(o + 4, 11) === 'ICC_PROFILE') found.push('colour profile');
+          else if (m === 0xFE) found.push('comment');
+          o += 2 + len;
+        }
+      } else if (u8[0] === 0x89 && str(1, 3) === 'PNG') {     // PNG: walk the chunks
+        let o = 8;
+        while (o + 8 <= dv.byteLength) {
+          const len = dv.getUint32(o), type = str(o + 4, 4);
+          if (type === 'eXIf') found.push(...tiffTags(dv, o + 8));
+          else if (['tEXt', 'iTXt', 'zTXt'].includes(type)) found.push('text notes');
+          else if (type === 'iCCP') found.push('colour profile');
+          if (type === 'IEND') break;
+          o += 12 + len;
+        }
+      } else {                                               // HEIC and others: look for the markers
+        const text = str(0, Math.min(u8.length, 2000000));
+        const ex = text.indexOf('Exif\0\0');
+        if (ex >= 0) found.push(...tiffTags(dv, ex + 6));
+        if (text.includes('x:xmpmeta')) found.push('XMP data (may include author, location, editing history)');
+      }
+    } catch (e) { found.push('metadata that could not be read'); }
+    return [...new Set(found)];
+  }
+  // Take the metadata chunks out of a WebP (data: URL): EXIF, XMP and the ICC
+  // colour profile the browser adds (it can name the display). The VP8X header
+  // flags for them are cleared and the RIFF size fixed. Pixels are untouched.
+  function stripWebp(dataUrl) {
+    const bin = atob(dataUrl.split(',')[1]);
+    const keep = [];
+    for (let o = 12; o + 8 <= bin.length;) {
+      const tag = bin.slice(o, o + 4);
+      const size = (bin.charCodeAt(o + 4) | (bin.charCodeAt(o + 5) << 8) | (bin.charCodeAt(o + 6) << 16) | (bin.charCodeAt(o + 7) << 24)) >>> 0;
+      let chunk = bin.slice(o, o + 8 + size + (size & 1));
+      if (tag === 'VP8X') chunk = chunk.slice(0, 8) + String.fromCharCode(chunk.charCodeAt(8) & ~0x2C) + chunk.slice(9);
+      if (!['EXIF', 'XMP ', 'ICCP'].includes(tag)) keep.push(chunk);
+      o += 8 + size + (size & 1);
+    }
+    const body = 'WEBP' + keep.join('');
+    const n = body.length;
+    const riff = 'RIFF' + String.fromCharCode(n & 255, (n >> 8) & 255, (n >> 16) & 255, (n >>> 24) & 255) + body;
+    return 'data:image/webp;base64,' + btoa(riff);
+  }
+  // Chunks of a WebP (data: URL) that would carry metadata.
+  function webpMetadata(dataUrl) {
+    const bin = atob(dataUrl.split(',')[1]);
+    const bad = [];
+    for (let o = 12; o + 8 <= bin.length;) {
+      const tag = bin.slice(o, o + 4);
+      const size = bin.charCodeAt(o + 4) | (bin.charCodeAt(o + 5) << 8) | (bin.charCodeAt(o + 6) << 16) | (bin.charCodeAt(o + 7) << 24);
+      if (['EXIF', 'XMP ', 'ICCP'].includes(tag)) bad.push(tag.trim());
+      o += 8 + size + (size & 1);
+    }
+    return bad;
+  }
+  function showMetadata(found) {
+    const box = $('#up-meta');
+    box.hidden = false;
+    box.replaceChildren(
+      el('p', { class: 'meta', text: found.length ? 'Found in the original file and left behind:' : 'No metadata found in the original file.' }),
+      ...(found.length ? [el('ul', { class: 'metalist' }, found.map(f => el('li', { text: f })))] : []),
+      el('p', { class: 'ok', text: 'Checked: the new WebP files carry no metadata (no EXIF, XMP or colour profile).' }));
+  }
+
   async function processImage(file) {
+    const found = await inspectMetadata(file);
     const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' });
     const ratio = 3 / 2;
     let sw = bmp.width, sh = bmp.height, sx = 0, sy = 0;
@@ -185,17 +422,22 @@
       for (const q of [0.82, 0.72, 0.6]) {
         const blob = await new Promise(r => c.toBlob(r, 'image/webp', q));
         if (!blob || blob.type !== 'image/webp') throw new Error('This browser cannot save WebP. Use Chrome, Edge or Firefox.');
-        if (blob.size <= cap) return blobToDataURL(blob);
+        if (blob.size <= cap) return stripWebp(await blobToDataURL(blob));
       }
       throw new Error('The photo is still too large after compression.');
     };
     const pv = $('#up-preview');
     pv.getContext('2d').drawImage(bmp, sx, sy, sw, sh, 0, 0, pv.width, pv.height);
     pv.hidden = false;
-    return { w1600: await make(1600, 1400000), w800: await make(800, 560000), small: sw < 1200 };
+    const out = { w1600: await make(1600, 1400000), w800: await make(800, 560000), small: sw < 1200 };
+    const left = [...webpMetadata(out.w1600), ...webpMetadata(out.w800)];
+    if (left.length) throw new Error('The new files still carry metadata (' + left.join(', ') + ') — they are not saved.');
+    showMetadata(found);
+    return out;
   }
   up.elements.file.addEventListener('change', async () => {
     processed = null;
+    $('#up-meta').hidden = true;
     const file = up.elements.file.files[0];
     if (!file) return;
     try {
@@ -213,7 +455,7 @@
     try {
       const j = await api('/api/images', { w1600: processed.w1600, w800: processed.w800, alt, credit: up.elements.credit.value,
         licence: up.elements.licence.value, confirm: up.elements.confirm.checked });
-      IMG = j.images; processed = null; up.reset(); $('#up-preview').hidden = true;
+      IMG = j.images; processed = null; up.reset(); $('#up-preview').hidden = true; $('#up-meta').hidden = true;
       await refreshStatus(); renderImages(); reloadPreview(); flash('Added to the library as ' + j.id + ' — visible in the Design preview; public after "Publish images".');
     } catch (err) { flash(err.message, true); } finally { btn.disabled = false; }
   });
@@ -236,6 +478,7 @@
     const f = el('form', { class: 'card' }, [
       el('img', { src: '/images/' + e.w800, alt: e.alt.en || '' }),
       el('div', {}, [el('b', { text: id }), document.createTextNode(' · added ' + (r.added || '?'))]),
+      el('p', { class: (ST.imageMeta || {})[id] && ST.imageMeta[id].length ? 'blocked' : 'meta', text: (ST.imageMeta || {})[id] && ST.imageMeta[id].length ? 'Carries metadata: ' + ST.imageMeta[id].join(', ') : 'No metadata in the files.' }),
       ...fields, el('label', { class: 'field' }, [document.createTextNode('Credit'), credit]), el('label', { class: 'field' }, [document.createTextNode('Licence'), licence]),
       el('div', { class: 'actions' }, [el('button', { type: 'submit', text: 'Save text' }), el('button', { type: 'button', text: 'Delete', onclick: async () => {
         if (!confirm('Delete ' + id + ' from the library and from disk?')) return;
@@ -303,13 +546,14 @@
       if (r && r.value) { const [session, vote] = r.value.split(':').map(Number); s.parliamentLinks[v.id] = { session, vote }; }
     });
     Object.entries(S.parliamentLinks || {}).forEach(([k, val]) => { if (!(ST.linkVotes || []).some(v => v.id === k)) s.parliamentLinks[k] = val; });
-    try { await saveSettings(s, 'Vote links saved.'); } catch (err) { flash(err.message, true); }
+    try { await saveSettings(s, 'Vote links saved.', 'Vote links'); } catch (err) { flash(err.message, true); }
   });
 
   /* ---------- publish (two separate buttons) ---------- */
   const PUB_TEXT = {
     settings: { kicker: 'Make changes live', title: 'Publish the design settings', what: 'Only js/site-settings.js is committed and pushed — design version, fonts, sizes, live rules, rotation and vote links.' },
     images: { kicker: 'Publish images', title: 'Publish the photos', what: 'Only images/ and js/site-images.js are committed and pushed — the photos, their licence record, alt text and which vote each one goes with.' },
+    text: { kicker: 'Publish text', title: 'Publish the text edits', what: 'Only the text files edited here are committed and pushed: data/i18n.json, data/parties.json, data/cantons.json, data/donor-descriptions.json, data/legal.json.' },
   };
   function renderPubState() {
     $$('.pub-state').forEach(el => {
@@ -382,15 +626,15 @@
   /* ---------- boot ---------- */
   async function refreshStatus() {
     const j = await api('/api/state');
-    ST = j.status; PUB = j.publish || {};
+    ST = j.status; PUB = j.publish || {}; H = j.history || H;
     if (!S) S = j.settings;
-    renderOverview(); renderPubState();
+    renderOverview(); renderPubState(); renderHistory();
   }
   (async () => {
     try {
       const j = await api('/api/state');
-      S = j.settings; ST = j.status; IMG = j.images || IMG; PUB = j.publish || {};
-      buildDesignForm(); fillDesign(S); renderOverview(); renderImages(); renderLinks(); renderPubState();
+      S = j.settings; ST = j.status; IMG = j.images || IMG; PUB = j.publish || {}; H = j.history || H;
+      buildDesignForm(); fillDesign(S); renderOverview(); renderImages(); renderLinks(); renderPubState(); renderHistory();
     } catch (err) { flash('Could not load: ' + err.message, true); }
   })();
 })();
