@@ -7,6 +7,7 @@
    frozen. Which one visitors get is set in js/site-settings.js.
    ============================================================ */
 import { MAP_PATHS } from './map-data.js?v=20260925a';
+import { mountShare } from './share.js?v=20260925a';
 
 let C = null;                          // context from app.js (state, t, helpers)
 export function configureNews(ctx) { C = ctx; }
@@ -48,6 +49,65 @@ function inDays(n) { return n <= 0 ? t('news.days.today') : n === 1 ? t('news.da
 function daysLeft(n) { return n <= 0 ? t('news.left.today') : n === 1 ? t('news.left.one') : tf('news.left.many', { n }); }
 function liveDot(on) {
   return on ? `<span class="n-live" role="img" aria-label="${escapeAttr(t('news.live'))}"></span>` : '';
+}
+
+/* ---- share buttons ----
+   Every graph carries a share button (save as image, copy link, device share,
+   social sites). The image is redrawn from the data by js/share.js. A graph's
+   markup carries data-nshare="<id>"; the id points at a function that builds
+   the spec when the button is pressed, so it is always in the current language.
+   Only public data goes in — never anything from the visitor's own votes
+   (PRIV-01), so the profile graph has no share button. */
+const shareSpecs = new Map();
+let shareSeq = 0;
+function shareId(getSpec) {
+  const id = 's' + (++shareSeq);
+  shareSpecs.set(id, getSpec);
+  return id;
+}
+function wireNewsShares(root) {
+  root.querySelectorAll('[data-nshare]').forEach(el => {
+    const get = shareSpecs.get(el.dataset.nshare);
+    if (get) mountShare(el, get, { origin: location.origin });
+  });
+  const present = new Set([...document.querySelectorAll('[data-nshare]')].map(el => el.dataset.nshare));
+  [...shareSpecs.keys()].forEach(k => { if (!present.has(k)) shareSpecs.delete(k); });
+}
+const shareSrc = (k) => t('share.src.' + k);
+function hemiShare(key, name, total, route) {
+  return () => ({ kind: 'hemicycle', title: name, subtitle: tf('news.seats', { n: total }), total, route, source: shareSrc('parliament'),
+    seats: partyOrder().filter(k => party(k)[key]).map(k => ({ label: pShort(k), color: pColor(k), seats: party(k)[key] })) });
+}
+function councilShare(route) {
+  return () => {
+    const counts = {};
+    ((D().council && D().council.members) || []).forEach(m => { counts[m.party] = (counts[m.party] || 0) + 1; });
+    return { kind: 'arc', title: t('council.title'), subtitle: t('council.sub'), route, source: shareSrc('council'),
+      total: Object.values(counts).reduce((a, b) => a + b, 0),
+      seats: partyOrder().filter(k => counts[k]).map(k => ({ label: pShort(k), color: pColor(k), seats: counts[k] })) };
+  };
+}
+function spectrumShare(route) {
+  return () => ({ kind: 'spectrum', title: t('spec.title'), route, source: shareSrc('spectrum'),
+    axes: { left: t('spec.axisLeft'), right: t('spec.axisRight'), top: t('spec.axisTop'), bottom: t('spec.axisBottom') },
+    dots: partyOrder().filter(k => party(k).spectrum).map(k => ({ label: pShort(k), x: party(k).spectrum.x, y: party(k).spectrum.y, color: pColor(k), on: true })) });
+}
+// Yes/No stacked bars (results, final votes); zero-width parts are left out.
+function yesNoRow(label, yes, no, valueText) {
+  return { label, value: yes + no, valueText, segments: [{ value: yes, color: YES }, { value: no, color: NO }].filter(x => x.value > 0) };
+}
+const yesNoLegend = () => [{ label: t('news.yes'), color: YES }, { label: t('news.no'), color: NO }];
+function cantonShare(code, route) {
+  const nc = D().cantonData.cantons[code].nc;
+  return { kind: 'bars', title: C.localized(D().cantons[code].name), route, source: shareSrc('canton'),
+    subtitle: tf(nc.totalSeats === 1 ? 'news.cs.meta1' : 'news.cs.meta', { year: nc.year, n: nc.totalSeats }),
+    rows: (nc.parties || []).filter(x => x.strength).sort((a, b) => b.strength - a.strength)
+      .map(x => ({ label: C.localized(x.name), value: x.strength, valueText: num(x.strength) + '%', color: pColor(x.key) })) };
+}
+// Plain title of a session final vote (for share images, which carry no badges).
+function sessionVotePlain(v) {
+  const title = v.title || {};
+  return title[lang()] || C.voteTransTitle(v) || C.mtVoteTitle(v) || title.de || title.fr || title.it || v.business || '';
 }
 
 /* ---- parties ---- */
@@ -138,6 +198,7 @@ export function mountNewsChrome() {
     if (e.key === 'Escape') { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); if (document.activeElement && nav.contains(document.activeElement)) document.activeElement.blur(); }
   });
   wireTooltips();
+  wireTicker();
   fitTitle();
   window.addEventListener('resize', fitTitle);
   if (document.fonts) document.fonts.ready.then(fitTitle);
@@ -260,6 +321,54 @@ function renderTicker(L) {
     '<span class="n-dup" aria-hidden="true">' + row(-1) + '</span></div></div>';
 }
 
+/* The Live row can be moved by hand: with the pointer on it, the mouse wheel or
+   trackpad scrolls the row instead of the page, and on a touch screen it can be
+   dragged sideways. The row stays paused while the pointer is on it (CSS) and
+   carries on from wherever it was left. With reduced motion the row doesn't
+   move by itself and is an ordinary horizontal scroller. */
+function wireTicker() {
+  const host = document.getElementById('n-ticker');
+  if (!host) return;
+  const anim = () => { const tt = host.querySelector('.n-tt'); return tt && tt.getAnimations ? tt.getAnimations()[0] : null; };
+  // Move the row by px pixels (positive = further along).
+  const move = (px) => {
+    const tt = host.querySelector('.n-tt'), a = anim();
+    if (!tt) return false;
+    if (!a) { const tv = host.querySelector('.n-tv'); tv.scrollLeft += px; return true; }
+    const dur = Number(a.effect.getComputedTiming().duration) || 1;
+    const half = tt.scrollWidth / 2 || 1;
+    a.currentTime = (((Number(a.currentTime) || 0) + px * dur / half) % dur + dur) % dur;
+    return true;
+  };
+  host.addEventListener('wheel', (e) => {
+    const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? host.offsetWidth : 1;
+    const d = (Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY) * unit;
+    if (d && move(d)) e.preventDefault();
+  }, { passive: false });
+  let drag = null, moved = false;
+  host.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'touch') return;
+    drag = { x: e.clientX }; moved = false;
+    const a = anim(); if (a) a.pause();
+  });
+  host.addEventListener('pointermove', (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x;
+    if (Math.abs(dx) > 4) moved = true;
+    drag.x = e.clientX;
+    move(-dx);
+  });
+  const end = () => {
+    if (!drag) return;
+    drag = null;
+    setTimeout(() => { const a = anim(); if (a && !host.matches(':hover')) a.play(); }, 1500);
+  };
+  host.addEventListener('pointerup', end);
+  host.addEventListener('pointercancel', end);
+  // A drag is not a tap on the item under the finger.
+  host.addEventListener('click', (e) => { if (moved) { e.preventDefault(); moved = false; } }, true);
+}
+
 function renderFooter(model) {
   const host = document.getElementById('news-footer');
   const cols = model.filter((c, n) => n !== 3).map(cat =>
@@ -369,7 +478,11 @@ function moneyFig(i) {
     const a = s.actorCount || 0, d = (s.largeDonors || []).length;
     return tf(a === 1 ? 'news.money.actor1' : 'news.money.actors', { n: a }) + ' · ' + tf(d === 1 ? 'news.money.donation1' : 'news.money.donations', { n: d });
   };
-  return '<div class="n-fig" data-hl>' + head +
+  // Both sides always go into the image together, even at CHF 0 (POL-01).
+  const share = shareId(() => ({ kind: 'bars', title: C.initTitlePlain(i), subtitle: t('news.m.money') + ' · ' + tf('news.money.h', { amount: money(pv + cv) }),
+    route: 'initiative/' + i.id, source: shareSrc('financing'),
+    rows: [{ label: t('news.for'), value: pv, valueText: money(pv), color: YES, keep: true }, { label: t('news.against'), value: cv, valueText: money(cv), color: NO, keep: true }] }));
+  return '<div class="n-fig" data-hl data-nshare="' + escapeAttr(share) + '">' + head +
     `<h4 class="n-ft">${escapeAttr(tf('news.money.h', { amount: money(pv + cv) }))}</h4>` +
     `<div class="n-split"><div data-k="for"><span class="n-lbl" style="color:${escapeAttr(YES)}">${escapeAttr(t('news.for'))}</span><span class="n-big">${escapeAttr(money(pv))}</span></div>` +
     `<div data-k="against" class="n-right"><span class="n-lbl" style="color:${escapeAttr(NO)}">${escapeAttr(t('news.against'))}</span><span class="n-big">${escapeAttr(money(cv))}</span></div></div>` +
@@ -399,7 +512,10 @@ function parlFig(i, files) {
   for (let x = 0; x < absent; x++) dots.push({ fill: ABSENT, k: 'v-absent', tip: tf('news.parl.absentTip', { n: absent }) });
   const tly = v.tally || {};
   const initiative = i.type === 'initiative';
-  return '<div class="n-fig" data-hl>' + `<div class="n-k">${escapeAttr(t('news.parl.k'))}</div>` +
+  const share = shareId(() => ({ kind: 'voteHemicycle', title: C.initTitlePlain(i), subtitle: t(initiative ? 'news.parl.hInit' : 'news.parl.hAct'),
+    route: 'initiative/' + i.id, source: shareSrc('votes'), tallies: { yes: tly.yes || 0, no: tly.no || 0, abstain: tly.abstain || 0 },
+    groups: groups.map(g => ({ label: party(g) ? pShort(g) : g, color: pColor(g), yes: by[g].yes || 0, no: by[g].no || 0, abstain: by[g].abstain || 0 })) }));
+  return '<div class="n-fig" data-hl data-nshare="' + escapeAttr(share) + '">' + `<div class="n-k">${escapeAttr(t('news.parl.k'))}</div>` +
     `<h4 class="n-ft">${escapeAttr(t(initiative ? 'news.parl.hInit' : 'news.parl.hAct'))}</h4>` +
     '<div class="n-parl"><div>' + hemicycle(dots.slice(0, 200), 8, t('news.parl.hInit')) + '</div><div>' +
     `<div class="n-tally"><span data-k="v-yes"><b style="color:${escapeAttr(YES)}">${escapeAttr(tly.yes || 0)}</b> ${escapeAttr(t('news.tally.yes'))}</span>` +
@@ -444,7 +560,10 @@ function leftBlocks(files, last) {
 
   const dec = decided().slice(0, 5);
   if (dec.length) {
-    out.push(`<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.res.k'))}</div><ul class="n-list">` +
+    const yesOf = (i) => { const m = /([\d.]+)% (yes|no)/.exec((i.outcome && i.outcome.en) || ''); return m ? (m[2] === 'yes' ? Number(m[1]) : 100 - Number(m[1])) : null; };
+    const resShare = shareId(() => ({ kind: 'bars', title: t('news.res.k'), route: 'ballots/decided', source: shareSrc('results'), legend: yesNoLegend(),
+      rows: dec.filter(i => yesOf(i) !== null).map(i => yesNoRow(C.initTitlePlain(i), yesOf(i), 100 - yesOf(i), num(yesOf(i)) + '% ' + t('news.tally.yes'))) }));
+    out.push(`<section class="n-blk n-mod" data-nshare="${escapeAttr(resShare)}"><div class="n-k">${escapeAttr(t('news.res.k'))}</div><ul class="n-list">` +
       dec.map(i => {
         const m = /([\d.]+)% (yes|no)/.exec((i.outcome && i.outcome.en) || '');
         const yes = m ? (m[2] === 'yes' ? Number(m[1]) : 100 - Number(m[1])) : null;
@@ -464,7 +583,10 @@ function leftBlocks(files, last) {
         `<div class="n-bar"><span style="flex:${escapeAttr(y)};background:${escapeAttr(YES)}" data-ntip="${escapeAttr(y + ' ' + t('news.tally.yes'))}"></span><span style="flex:${escapeAttr(n)};background:${escapeAttr(NO)}" data-ntip="${escapeAttr(n + ' ' + t('news.tally.no'))}"></span></div>` +
         `<p class="n-meta">${escapeAttr(t('parl.nc') + ' · ' + y + '–' + n + ' · ' + t(v.passed ? 'status.adopted' : 'status.rejected') + ' · ' + shortDate(v.voteEnd))}</p></li>`;
     }).join('');
-    out.push(`<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.fv.k'))}</div>` +
+    const fvShare = shareId(() => ({ kind: 'bars', title: t('news.fv.k'), subtitle: tf('news.fv.meta', { session: C.sessionName(last), n: votes.length }),
+      route: 'session/' + last.id, source: shareSrc('votes'), legend: yesNoLegend(),
+      rows: votes.slice(0, 5).map(v => yesNoRow(sessionVotePlain(v), v.tally?.yes || 0, v.tally?.no || 0, (v.tally?.yes || 0) + '–' + (v.tally?.no || 0))) }));
+    out.push(`<section class="n-blk n-mod" data-nshare="${escapeAttr(fvShare)}"><div class="n-k">${escapeAttr(t('news.fv.k'))}</div>` +
       `<p class="n-meta">${escapeAttr(tf('news.fv.meta', { session: C.sessionName(last), n: votes.length }))}</p><ul class="n-list">` + rows + '</ul>' +
       `<a class="n-more" href="#/session/${escapeAttr(last.id)}">${escapeAttr(tf('news.fv.all', { n: votes.length }))}</a></section>`);
   }
@@ -506,8 +628,8 @@ function rightBlocks() {
   const order = partyOrder();
   const leg = (key) => legend(order.filter(k => party(k)[key]).map(k => ['p-' + k, pColor(k), pShort(k) + ' ' + party(k)[key], '#/party/' + k]));
   out.push(`<section class="n-blk n-mod" id="news-assembly" data-hl><div class="n-k">${escapeAttr(t('parl.label'))}</div>` +
-    `<h3 class="n-mh n-cs-h"><span>${escapeAttr(t('parl.nc') + ' · ' + tf('news.seats', { n: 200 }))}</span><a class="n-cs-more" href="#/assembly/nc">${escapeAttr(t('news.cs.detail'))}</a></h3>` + hemicycle(chamberDots('ncSeats', t('parl.nc')), 8, t('parl.nc')) + leg('ncSeats') +
-    `<h3 class="n-mh n-mt">${escapeAttr(t('parl.cs') + ' · ' + tf('news.seats', { n: 46 }))}</h3>` + hemicycle(chamberDots('csSeats', t('parl.cs')), 4, t('parl.cs')) + leg('csSeats') +
+    `<h3 class="n-mh n-cs-h"><span>${escapeAttr(t('parl.nc') + ' · ' + tf('news.seats', { n: 200 }))}</span><a class="n-cs-more" href="#/assembly/nc">${escapeAttr(t('news.cs.detail'))}</a></h3>` + '<div class="n-g" data-nshare="' + escapeAttr(shareId(hemiShare('ncSeats', t('parl.nc'), 200, 'assembly/nc'))) + '">' + hemicycle(chamberDots('ncSeats', t('parl.nc')), 8, t('parl.nc')) + '</div>' + leg('ncSeats') +
+    `<h3 class="n-mh n-mt">${escapeAttr(t('parl.cs') + ' · ' + tf('news.seats', { n: 46 }))}</h3>` + '<div class="n-g" data-nshare="' + escapeAttr(shareId(hemiShare('csSeats', t('parl.cs'), 46, 'assembly/cs'))) + '">' + hemicycle(chamberDots('csSeats', t('parl.cs')), 4, t('parl.cs')) + '</div>' + leg('csSeats') +
     `<p class="n-src">${escapeAttr(t('share.src.parliament'))}</p></section>`);
 
   const members = (D().council && D().council.members) || [];
@@ -518,13 +640,13 @@ function rightBlocks() {
     members.forEach(m => { counts[m.party] = (counts[m.party] || 0) + 1; });
     out.push(`<section class="n-blk n-mod" id="news-council" data-hl><div class="n-k">${escapeAttr(t('council.title'))}</div>` +
       `<h3 class="n-mh n-cs-h"><span>${escapeAttr(pres ? tf('news.fc.h', { name: pres.name }) : t('council.sub'))}</span><a class="n-cs-more" href="#/assembly/fc">${escapeAttr(t('news.cs.detail'))}</a></h3>` +
-      hemicycle(arc.map(([m, n]) => ({ fill: pColor(m.party), k: `m-${n} p-${m.party}`, tip: m.name + ' · ' + pShort(m.party) })), 1, t('council.title')) +
+      '<div class="n-g" data-nshare="' + escapeAttr(shareId(councilShare('assembly/fc'))) + '">' + hemicycle(arc.map(([m, n]) => ({ fill: pColor(m.party), k: `m-${n} p-${m.party}`, tip: m.name + ' · ' + pShort(m.party) })), 1, t('council.title')) + '</div>' +
       legend(order.filter(k => counts[k]).map(k => ['p-' + k, pColor(k), pShort(k) + ' ' + counts[k], '#/party/' + k])) +
       '<ul class="n-plain">' + members.map((m, n) => `<li data-k="m-${escapeAttr(n)} p-${escapeAttr(m.party)}" tabindex="0"><i style="background:${escapeAttr(pColor(m.party))}"></i>${escapeAttr(m.name)}<span>${escapeAttr(pShort(m.party) + (m.role === 'president' ? ' · ' + t('news.president') : ''))}</span></li>`).join('') +
       `</ul><p class="n-src">${escapeAttr(t('council.source'))}</p></section>`);
   }
 
-  out.push(`<section class="n-blk n-mod" id="news-spectrum" data-hl><div class="n-k">${escapeAttr(t('spec.title'))}</div>` +
+  out.push(`<section class="n-blk n-mod" id="news-spectrum" data-hl data-nshare="${escapeAttr(shareId(spectrumShare('assembly/spectrum')))}"><div class="n-k">${escapeAttr(t('spec.title'))}</div>` +
     `<h3 class="n-mh n-cs-h"><span>${escapeAttr(t('news.sp.h'))}</span><a class="n-cs-more" href="#/assembly/spectrum">${escapeAttr(t('news.cs.detail'))}</a></h3>` +
     spectrumSVG({}) +
     `<p class="n-src">${escapeAttr(t('news.sp.src'))} · <a href="#/page/methodology">${escapeAttr(t('footer.method'))}</a></p></section>`);
@@ -534,7 +656,9 @@ function rightBlocks() {
   if (pf.length) {
     const max = fp[pf[0]].totalRevenue;
     const year = Math.max(...pf.map(k => fp[k].year || 0));
-    out.push(`<section class="n-blk n-mod" data-hl><div class="n-k">${escapeAttr(tf('news.pf.k', { year }))}</div><h3 class="n-mh"><a href="#/financing">${escapeAttr(t('news.pf.h'))}</a></h3><ul class="n-hbars">` +
+    const pfShare = shareId(() => ({ kind: 'bars', title: tf('news.pf.k', { year }), subtitle: t('news.pf.h'), route: 'financing', source: shareSrc('financing'),
+      rows: pf.map(k => ({ label: pName(k), value: fp[k].totalRevenue, valueText: money(fp[k].totalRevenue), color: pColor(k) })) }));
+    out.push(`<section class="n-blk n-mod" data-hl data-nshare="${escapeAttr(pfShare)}"><div class="n-k">${escapeAttr(tf('news.pf.k', { year }))}</div><h3 class="n-mh"><a href="#/financing">${escapeAttr(t('news.pf.h'))}</a></h3><ul class="n-hbars">` +
       pf.map(k => `<li><a href="#/party/${escapeAttr(k)}" data-k="p-${escapeAttr(k)}" data-ntip="${escapeAttr(pName(k) + ' · ' + money(fp[k].totalRevenue))}"><span class="n">${escapeAttr(pShort(k))}</span>` +
         `<span class="b"><i style="width:${escapeAttr((fp[k].totalRevenue / max * 100).toFixed(1))}%;background:${escapeAttr(pColor(k))}"></i></span><span class="v">${escapeAttr(money(fp[k].totalRevenue))}</span></a></li>`).join('') +
       `</ul><p class="n-src">${escapeAttr(t('news.pf.src'))}</p></section>`);
@@ -542,7 +666,7 @@ function rightBlocks() {
 
   // Canton spotlight: rotates; the map and the first canton are drawn here, the rotator fills later ones.
   const bounds = mapBounds();
-  out.push(`<section class="n-blk n-mod n-rot" id="n-canton" data-hl><div class="n-k">${escapeAttr(t('news.cs.k'))}</div><div class="n-tbar" aria-hidden="true"><i></i><b class="n-pz"></b></div>` +
+  out.push(`<section class="n-blk n-mod n-rot" id="n-canton" data-hl data-nshare="${escapeAttr(shareId(() => cantonNow && cantonShare(cantonNow, 'cantons/' + cantonNow)))}"><div class="n-k">${escapeAttr(t('news.cs.k'))}</div><div class="n-tbar" aria-hidden="true"><i></i><b class="n-pz"></b></div>` +
     `<h3 class="n-mh n-cs-h"><a id="n-c-name" href="#/"></a><a class="n-cs-more" id="n-c-detail" href="#/cantons">${escapeAttr(t('news.cs.detail'))}</a></h3>` +
     `<svg class="n-chart n-map" viewBox="${escapeAttr(bounds)}" role="group" aria-label="${escapeAttr(t('nav.cantons'))}">` +
     Object.keys(MAP_PATHS).map(c => `<path d="${escapeAttr(MAP_PATHS[c].d)}" data-c="${escapeAttr(c)}" data-ntip="${escapeAttr(C.localized(D().cantons[c]?.name) || c)}" tabindex="0" role="button" aria-label="${escapeAttr(C.localized(D().cantons[c]?.name) || c)}"/>`).join('') +
@@ -686,11 +810,12 @@ export async function renderNewsHome() {
     '</div><div class="n-col n-col-c">' + centre.join('') + '</div><div class="n-col n-col-r">' + right.join('') + '</div></div></div></div>';
   wireHighlights(host);
   wireRows(host);
+  wireNewsShares(host);
   startRotators();
   layout();
   if (!layoutWired) {
     layoutWired = true;
-    let tmr; window.addEventListener('resize', () => { clearTimeout(tmr); tmr = setTimeout(layout, 120); });
+    let tmr; window.addEventListener('resize', () => { setStickTops(); clearTimeout(tmr); tmr = setTimeout(layout, 120); });
     if (document.fonts) document.fonts.ready.then(layout);
   }
 }
@@ -741,11 +866,12 @@ function wireTooltips() {
   window.addEventListener('scroll', () => tip.classList.remove('on'), { passive: true });
 }
 
-/* Flowing columns. The centre column is the anchor: it always keeps its own
-   place and width, so a story and its graphics never jump to another column.
-   A side column that is shorter simply stops. Once the centre ends, whatever
-   is left of the side columns continues below it, the two sharing the full
-   width (or one side alone taking all of it). */
+/* Columns side by side. All three run to the end of the longest one. A shorter
+   column scrolls with the page until its own end reaches the bottom of the
+   window, then stops there while the others go on; scrolling back up, it starts
+   moving again at the same point. Done with position: sticky on each column's
+   inner wrapper, its top set to (window height - column height) so the column
+   sticks by its bottom edge. Phones get one column. */
 let layoutWired = false;
 function layout() {
   const flow = document.getElementById('n-flow');
@@ -753,7 +879,7 @@ function layout() {
   const blocks = { l: [], c: [], r: [] };
   flow.querySelectorAll('.n-col').forEach(col => {
     const k = col.classList.contains('n-col-l') ? 'l' : col.classList.contains('n-col-c') ? 'c' : 'r';
-    blocks[k].push(...col.children);
+    blocks[k].push(...(col.querySelector(':scope > .n-stick') || col).children);
   });
   const lay = SETTINGS().layout || {};
   const W = { l: Number(lay.left) || 1, c: Number(lay.centre) || 2, r: Number(lay.right) || 1 };
@@ -761,44 +887,35 @@ function layout() {
   // In the three-column band no column may get narrower than its graphics need
   // (sides 170 px, centre 380 px of content), whatever the admin sliders say.
   const MIN = { l: 'calc(170px + var(--n-gutter))', c: 'calc(380px + 2 * var(--n-gutter))', r: 'calc(170px + var(--n-gutter))' };
-  const makeBand = (keys, weights) => {
-    const band = document.createElement('div'); band.className = 'n-band';
-    band.style.gridTemplateColumns = keys.map(k => `minmax(${keys.length === 3 ? MIN[k] : '0'},${weights[k]}fr)`).join(' ');
-    const cols = {};
-    keys.forEach(k => { const c = document.createElement('div'); c.className = 'n-col n-col-' + k; cols[k] = c; band.appendChild(c); });
-    flow.appendChild(band);
-    return cols;
-  };
+  const band = document.createElement('div'); band.className = 'n-band';
+  flow.appendChild(band);
   if (window.innerWidth <= 900) {
-    const cols = makeBand(['c'], { c: 1 });
-    cols.c.parentElement.classList.add('one');
-    ['c', 'l', 'r'].forEach(k => blocks[k].forEach(b => cols.c.appendChild(b)));
+    band.classList.add('one');
+    band.style.gridTemplateColumns = 'minmax(0,1fr)';
+    const col = document.createElement('div'); col.className = 'n-col n-col-c';
+    band.appendChild(col);
+    ['c', 'l', 'r'].forEach(k => blocks[k].forEach(b => col.appendChild(b)));
+    stickObserver.disconnect();
     return;
   }
-  // Band 1: the three columns side by side.
-  const cols = makeBand(['l', 'c', 'r'], W);
-  ['l', 'c', 'r'].forEach(k => blocks[k].forEach(b => cols[k].appendChild(b)));
-  const top = cols.c.parentElement.getBoundingClientRect().top;
-  const lastBottom = k => { const b = cols[k].lastElementChild; return b ? b.getBoundingClientRect().bottom - top : 0; };
-  const H = lastBottom('c');
-  // Side blocks that start below the end of the centre move into the next band.
-  const rest = { l: [], r: [] };
-  ['l', 'r'].forEach(k => { rest[k] = [...cols[k].children].filter(b => b.getBoundingClientRect().top - top >= H); });
-  let active = ['l', 'r'].filter(k => rest[k].length);
-  while (active.length) {
-    rest.l.concat(rest.r).forEach(b => b.remove());
-    const band = makeBand(active, { l: W.l, r: W.r });
-    active.forEach(k => { rest[k].forEach(b => band[k].appendChild(b)); band[k].classList.add('wide'); });
-    if (active.length === 1) break;
-    const t2 = band[active[0]].parentElement.getBoundingClientRect().top;
-    const h = k => { const b = band[k].lastElementChild; return b ? b.getBoundingClientRect().bottom - t2 : 0; };
-    const shortest = h('l') <= h('r') ? 'l' : 'r', other = shortest === 'l' ? 'r' : 'l';
-    const H2 = h(shortest);
-    rest[shortest] = [];
-    rest[other] = [...band[other].children].filter(b => b.getBoundingClientRect().top - t2 >= H2);
-    active = rest[other].length ? [other] : [];
-  }
+  band.style.gridTemplateColumns = ['l', 'c', 'r'].map(k => `minmax(${MIN[k]},${W[k]}fr)`).join(' ');
+  stickObserver.disconnect();
+  ['l', 'c', 'r'].forEach(k => {
+    const col = document.createElement('div'); col.className = 'n-col n-col-' + k;
+    const inner = document.createElement('div'); inner.className = 'n-stick';
+    blocks[k].forEach(b => inner.appendChild(b));
+    col.appendChild(inner); band.appendChild(col);
+    stickObserver.observe(inner);
+  });
+  setStickTops();
 }
+// Recomputed whenever a column changes height (rotating panels, images, fonts).
+function setStickTops() {
+  document.querySelectorAll('#n-flow .n-stick').forEach(el => {
+    el.style.top = Math.min(0, window.innerHeight - el.offsetHeight) + 'px';
+  });
+}
+const stickObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(setStickTops) : { observe() {}, disconnect() {} };
 export function relayoutNews() { layout(); }
 
 /* Rotating panels (canton spotlight, explainer) with a timer bar. Paused while
@@ -831,7 +948,7 @@ function rotator(el, n, render, ms, start, group) {
 }
 function fade(el) { el.classList.remove('n-fade'); void el.offsetWidth; el.classList.add('n-fade'); }
 
-let outsideWired = false, cantonRot = null;
+let outsideWired = false, cantonRot = null, cantonNow = null, spotNow = null;
 function startRotators() {
   stopRotators('home');
   const rot = SETTINGS().rotation || {};
@@ -844,6 +961,7 @@ function startRotators() {
     cEl.querySelector('#n-c-src').textContent = tf('news.cs.src', { s: Math.round(cantonMs / 1000) });
     cantonRot = rotator(cEl, codes.length, (j, anim) => {
       const code = codes[j], nc = cd[code].nc;
+      cantonNow = code;
       const a = cEl.querySelector('#n-c-name');
       a.textContent = C.localized(D().cantons[code].name); a.href = '#/canton/' + code;
       cEl.querySelector('#n-c-detail').href = '#/cantons/' + code;
@@ -900,15 +1018,17 @@ export function renderSpotlightPage(startCode) {
     Object.keys(MAP_PATHS).map(c => `<path d="${escapeAttr(MAP_PATHS[c].d)}" data-c="${escapeAttr(c)}" data-ntip="${escapeAttr(C.localized(D().cantons[c]?.name) || c)}" tabindex="0" role="button" aria-label="${escapeAttr(C.localized(D().cantons[c]?.name) || c)}"/>`).join('') +
     cantonLabels() +
     `</svg><p class="n-src">${escapeAttr(t('news.cs.hint'))}</p></div>` +
-    `<div class="n-spot-side"><div class="n-k">${escapeAttr(t('news.cs.k'))}</div><div class="n-tbar" aria-hidden="true"><i></i><b class="n-pz"></b></div>` +
+    `<div class="n-spot-side" data-nshare="${escapeAttr(shareId(() => spotNow && cantonShare(spotNow, 'cantons/' + spotNow)))}"><div class="n-k">${escapeAttr(t('news.cs.k'))}</div><div class="n-tbar" aria-hidden="true"><i></i><b class="n-pz"></b></div>` +
     '<h2 class="n-spot-name"><a id="s-name" href="#/"></a></h2><p class="n-meta" id="s-sub"></p><dl class="n-facts" id="s-facts"></dl>' +
     '<h3 class="n-mh" id="s-nch"></h3><div class="n-bar tall" id="s-bar"></div><table class="n-ptable" id="s-table"></table>' +
     `<a class="n-more" id="s-more" href="#/">${escapeAttr(t('news.cs.more'))}</a><p class="n-src" id="s-src"></p></div></div>`;
   wireHighlights(host);
+  wireNewsShares(host);
   const el = document.getElementById('n-spot');
   const sign = d => (d > 0 ? '▲ ' : d < 0 ? '▼ ' : '– ') + num(Math.abs(d));
   spotRot = rotator(el, codes.length, (j, anim) => {
     const code = codes[j], c = D().cantons[code], data = cd[code], nc = data.nc;
+    spotNow = code;
     const name = C.localized(c.name);
     const a = el.querySelector('#s-name'); a.textContent = name; a.href = '#/canton/' + code;
     el.querySelector('#s-more').href = '#/canton/' + code;
@@ -968,8 +1088,10 @@ export function renderAssemblyPage(section) {
   members.forEach(m => { counts[m.party] = (counts[m.party] || 0) + 1; });
   const role = m => m.role === 'president' ? tf('council.president', { year }) : m.role === 'vice' ? tf('council.vice', { year }) : '';
 
+  const specs = { spectrum: spectrumShare('assembly/spectrum'), nc: hemiShare('ncSeats', t('parl.nc'), 200, 'assembly/nc'),
+    cs: hemiShare('csSeats', t('parl.cs'), 46, 'assembly/cs'), fc: councilShare('assembly/fc') };
   const sectionHTML = (id, kicker, title, graphic, side) =>
-    `<section class="n-asm" id="asm-${escapeAttr(id)}" data-hl><div class="n-asm-g"><div class="n-k">${escapeAttr(kicker)}</div><h2 class="n-asm-h">${escapeAttr(title)}</h2>` + graphic + '</div><div class="n-asm-side">' + side + '</div></section>';
+    `<section class="n-asm" id="asm-${escapeAttr(id)}" data-hl><div class="n-asm-g" data-nshare="${escapeAttr(shareId(specs[id]))}"><div class="n-k">${escapeAttr(kicker)}</div><h2 class="n-asm-h">${escapeAttr(title)}</h2>` + graphic + '</div><div class="n-asm-side">' + side + '</div></section>';
 
   host.innerHTML =
     sectionHTML('spectrum', t('nav.parties'), t('spec.title'), spectrumSVG({ big: true }),
@@ -990,6 +1112,7 @@ export function renderAssemblyPage(section) {
         `<span>${escapeAttr([pShort(m.party), role(m), m.since ? tf('council.since', { year: m.since }) : ''].filter(Boolean).join(' · '))}</span></li>`).join('') +
       `</ul><p class="n-body n-mt">${escapeAttr(t('gloss.president'))}</p><p class="n-src">${escapeAttr(t('council.source'))}</p>`);
   wireHighlights(host);
+  wireNewsShares(host);
   const target = document.getElementById('asm-' + (['spectrum', 'nc', 'cs', 'fc'].includes(section) ? section : 'spectrum'));
   if (target && section) setTimeout(() => target.scrollIntoView({ block: 'start' }), 80);
 }

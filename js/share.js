@@ -376,7 +376,7 @@ function paintPie(spec) {
 // one colour or `segments` (a stacked bar, e.g. a donor split by receiving
 // party), with an optional colour legend above the bars.
 function paintBars(spec) {
-  const rows = (spec.rows || []).filter(r => r.value > 0);
+  const rows = (spec.rows || []).filter(r => r.value > 0 || r.keep);   // keep: always drawn (both sides of a vote, POL-01)
   const legend = spec.legend || [];
   const rowH = 46;
   const legendRows = Math.ceil(legend.length / 5);
