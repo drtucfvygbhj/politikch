@@ -516,3 +516,12 @@ html[data-design="1.1"] .share-btn:hover, html[data-design="1.1"] .share-btn:foc
 html[data-design="1.1"] .share-btn svg { width: 15px; height: 15px; }
 html[data-design="1.1"] .n-g > .share-btn { top: 0; }
 .n-g { position: relative; }
+
+/* ---- proposal page: positioning from Parliament's final vote ---- */
+.gv-endorsers { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.gv-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.endorse-chip.gv-no, .endorse-chip.gv-split { background: #fff !important; color: var(--n-ink); box-shadow: inset 0 0 0 2px var(--c); }
+.endorse-chip.gv-split { background: linear-gradient(90deg, var(--c) 50%, #fff 50%) !important; }
+.gv-note { margin-top: 8px; font-size: 12px; line-height: 1.5; }
+.init-parl:not(:empty) { margin-top: 40px; max-width: 760px; }
+html[data-design="1.1"] .vote-scale.share-host .vote-endorsers { padding-right: 36px; }   /* clear of the share button */

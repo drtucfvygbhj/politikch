@@ -3,7 +3,7 @@ import { configureShare, wireShares, mountShare } from './share.js?v=20260925a';
 import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260925a';
 import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260925a';
 import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260925a';
-import { configureNews, newsActive, mountNewsChrome, renderNewsChrome, renderNewsHome, relayoutNews, renderSpotlightPage, renderAssemblyPage, renderNewsProfile, rmNotice } from './news.js?v=20260925a';
+import { configureNews, newsActive, mountNewsChrome, renderNewsChrome, renderNewsHome, relayoutNews, renderSpotlightPage, renderAssemblyPage, renderNewsProfile, rmNotice, parlFigHTML, wireNewsGraphics } from './news.js?v=20260925a';
 
 /* ============================================================
    State
@@ -1227,6 +1227,78 @@ function voteScaleHTML(init, opts) {
     </div>`;
 }
 
+// Political scale for one proposal from Parliament's final vote on it: each
+// parliamentary group in its colour by how its majority voted — filled for yes,
+// a ring for no; a group that split evenly is half-filled. Parties without a
+// group of their own (they sit in a larger group) are grey. The marker is the
+// average position of the groups that voted yes. For an initiative the vote is
+// on the federal decree (Parliament's recommendation), not on the initiative,
+// and the labels say so.
+function groupMajority(g) {
+  const y = g.yes || 0, n = g.no || 0;
+  return y > n ? 'yes' : n > y ? 'no' : (y ? 'split' : null);
+}
+function groupVoteScaleHTML(init, vote, opts) {
+  opts = opts || {};
+  const by = vote.byParty || {};
+  const parties = Object.entries(state.data.parties).filter(([, p]) => p.spectrum)
+    .sort((a, b) => a[1].spectrum.x - b[1].spectrum.x);
+  const side = {};
+  parties.forEach(([k]) => { side[k] = by[k] ? groupMajority(by[k]) : null; });
+  const decree = init.type === 'initiative';
+  const tip = (k, p) => p.abbr + ': ' + (by[k]
+    ? t('init.gv.tip').replace('{y}', by[k].yes || 0).replace('{n}', by[k].no || 0).replace('{a}', by[k].abstain || 0)
+    : t('init.gv.noGroup'));
+  const row = (label, which) => {
+    const chips = parties.filter(([k]) => side[k] === which).map(([k, p]) =>
+      `<button type="button" class="endorse-chip endorse-chip-btn${escapeAttr(which === 'yes' ? '' : ' gv-' + which)}" data-party="${escapeAttr(k)}" style="${escapeAttr('--c:' + p.color + (which === 'yes' ? ';background:' + p.color : ''))}" title="${escapeAttr(tip(k, p))}">${escapeAttr(p.abbr)}</button>`).join('');
+    return chips ? `<div class="gv-row"><span class="endorse-label">${escapeAttr(label)}</span>` + chips + '</div>' : '';
+  };
+  const chips = row(t(decree ? 'init.gv.yesDecree' : 'init.gv.yesAct'), 'yes') + row(t('init.gv.no'), 'no') + row(t('init.gv.split'), 'split');
+
+  const dots = parties.map(([k, p]) => {
+    const cx = p.spectrum.x, cy = 100 - p.spectrum.y, sd = side[k];
+    const ring = `<circle cx="${escapeAttr(cx)}" cy="${escapeAttr(cy)}" r="5.6" style="${escapeAttr('fill:#fff;stroke:' + p.color + ';stroke-width:2.2px')}"></circle>`;
+    const circle = sd === 'yes' ? `<circle cx="${escapeAttr(cx)}" cy="${escapeAttr(cy)}" r="6.5" fill="${escapeAttr(p.color)}"></circle>`
+      : sd === 'no' ? ring
+      : sd === 'split' ? ring + `<path d="${escapeAttr(`M${cx},${cy - 5.6} a5.6,5.6 0 0,0 0,11.2 z`)}" fill="${escapeAttr(p.color)}"></path>`
+      : `<circle cx="${escapeAttr(cx)}" cy="${escapeAttr(cy)}" r="5" class="ms-off"></circle>`;
+    return `<g class="ms-dot" data-party="${escapeAttr(k)}" role="button" tabindex="0" aria-label="${escapeAttr(tip(k, p))}">` + circle + `<title>${escapeAttr(tip(k, p))}</title></g>`;
+  }).join('');
+
+  const yes = parties.filter(([k]) => side[k] === 'yes');
+  let marker = '', avgX = 50, avgY = 50;
+  if (yes.length) {
+    avgX = yes.reduce((a, [, p]) => a + p.spectrum.x, 0) / yes.length;
+    avgY = yes.reduce((a, [, p]) => a + p.spectrum.y, 0) / yes.length;
+    const mx = +avgX.toFixed(1), my = +(100 - avgY).toFixed(1), left = avgX < 50;
+    marker = `<line class="ms-lead" x1="${escapeAttr(mx)}" y1="${escapeAttr(my)}" x2="${escapeAttr(left ? -3 : 103)}" y2="1"></line>` +
+      `<circle class="ms-mid-core" cx="${escapeAttr(mx)}" cy="${escapeAttr(my)}" r="2.6"></circle>` +
+      `<text class="ms-callout" x="${escapeAttr(left ? -10 : 110)}" y="1" text-anchor="${escapeAttr(left ? 'end' : 'start')}">${escapeAttr(leaningWords(avgX, avgY))}</text>`;
+  }
+  const noGroup = parties.filter(([k]) => !by[k]).map(([, p]) => p.abbr);
+  const note = t(decree ? 'init.gv.noteDecree' : 'init.gv.noteAct').replace('{date}', formatLongDate(new Date(vote.voteEnd + 'T00:00:00'))) +
+    (noGroup.length ? ' ' + t('init.gv.greyNote').replace('{parties}', noGroup.join(', ')) : '');
+  let spec = null;
+  if (opts.share) {
+    spec = spectrumSpec(opts.share.title, opts.share.route, {
+      onKeys: yes.map(([k]) => k),
+      marker: yes.length ? { x: avgX, y: 100 - avgY, label: leaningWords(avgX, avgY) } : null,
+    });
+    spec.subtitle = t(decree ? 'init.gv.yesDecree' : 'init.gv.yesAct');
+  }
+  return '<div class="vote-scale vote-scale-lg vote-scale-interactive gv-scale" data-scale' + (spec ? ` data-share="${escapeAttr(JSON.stringify(spec))}"` : '') + '>' +
+    '<div class="vote-endorsers gv-endorsers">' + (chips || `<span class="endorse-none">${escapeAttr(t('init.gv.none'))}</span>`) + '</div>' +
+    `<div class="scale-row"><svg class="mini-spectrum" viewBox="-32 -14 164 138" role="img" aria-label="${escapeAttr(t('init.scaleTitle'))}">` +
+    '<line class="ms-axis" x1="0" y1="50" x2="100" y2="50"></line><line class="ms-axis" x1="50" y1="0" x2="50" y2="100"></line>' +
+    `<text class="ms-lbl" x="-5" y="51" text-anchor="end">${escapeAttr(t('spec.axisLeft'))}</text>` +
+    `<text class="ms-lbl" x="105" y="51" text-anchor="start">${escapeAttr(t('spec.axisRight'))}</text>` +
+    `<text class="ms-lbl" x="50" y="-6" text-anchor="middle">${escapeAttr(t('spec.axisTop'))}</text>` +
+    `<text class="ms-lbl" x="50" y="108" text-anchor="middle">${escapeAttr(t('spec.axisBottom'))}</text>` +
+    dots + marker + '</svg></div>' +
+    `<p class="mine-note gv-note">${escapeAttr(note)} <a href="#/page/methodology">${escapeAttr(t('footer.method'))} <span class="arrow">↗</span></a></p></div>`;
+}
+
 // ---- Floating "political priorities" tooltip for the position scales ----
 // A pointer-following panel over the mini spectrum and the home "Where the
 // parties stand" chart. Over open plot area it ranks example political
@@ -1806,6 +1878,10 @@ function renderInitiativePage(id) {
     </div>` : '';
 
   const fillFin = (fkey) => t(fkey).replace('{name}', initTitlePlain(init));
+  // 1.1: a linked National Council final vote (admin → Vote links) drives the
+  // positioning graphic and adds "What Parliament decided"; without one, the
+  // positioning comes from the party recommendations, labelled as such.
+  const parlLink = newsActive() ? ((window.PCH_SETTINGS || {}).parliamentLinks || {})[id] : null;
   const content = document.getElementById('initiative-content');
   content.innerHTML = `
     <div class="detail-top">
@@ -1823,7 +1899,8 @@ function renderInitiativePage(id) {
       </div>
       <div class="detail-top-right">
         <h3 class="canton-section-title" style="margin-top:0">${t('init.scaleTitle')}</h3>
-        ${voteScaleHTML(init, { large: true, interactive: true, share: { title: `${t('init.scaleTitle')} — ${initTitlePlain(init)}`, route: `initiative/${id}` } })}
+        <div id="init-scale">${parlLink ? '' : voteScaleHTML(init, { large: true, interactive: true, share: { title: `${t('init.scaleTitle')} — ${initTitlePlain(init)}`, route: `initiative/${id}` } }) +
+          (newsActive() ? `<p class="mine-note gv-note">${escapeAttr(t('init.gv.fromRecs'))} <a href="#/page/methodology">${escapeAttr(t('footer.method'))} <span class="arrow">↗</span></a></p>` : '')}</div>
         <div class="mine-block">
           <h3 class="canton-section-title" style="font-size:16px">${t('mine.sectionTitle')}</h3>
           ${voteWidgetHTML('initiative', id, { poll: initiativePollEligible(init) })}
@@ -1832,13 +1909,47 @@ function renderInitiativePage(id) {
       </div>
     </div>
     <div class="ai-ov-wrap" style="margin-top:40px">${overviewSectionHTML('initiative', id, init.url)}</div>
+    <div class="init-parl" id="init-parl"></div>
     <h3 class="canton-section-title" style="margin-top:48px">${t('rec.title')}${termHelp('parole')}</h3>
     ${recommendationColumnsHTML(init)}
     <h3 class="canton-section-title" style="margin-top:48px">${t('init.financing.title')}</h3>
     ${renderInitiativeFinancing(id, fillFin)}`;
 
+  if (parlLink) fillInitiativeParliament(init, parlLink);
+  wireScaleParties(content);
+  wireFinancingHighlights(content);
+  wireShares(content, SHARE_CTX());
+  wireVoteWidgets(content);
+  wireOverviews(content);
+}
+
+// Fill the positioning graphic and "What Parliament decided" once the session
+// file of the linked final vote is loaded. If the vote can't be found the page
+// falls back to the party recommendations.
+function fillInitiativeParliament(init, link) {
+  ensureSessionFile(link.session).then(file => {
+    const scale = document.getElementById('init-scale');
+    if (!scale || parseHash().id !== init.id) return;           // navigated away
+    const vote = ((file && file.votes) || []).find(v => v.id === link.vote);
+    const shareOpts = { title: `${t('init.scaleTitle')} — ${initTitlePlain(init)}`, route: `initiative/${init.id}` };
+    if (!vote) {
+      scale.innerHTML = voteScaleHTML(init, { large: true, interactive: true, share: shareOpts }) +
+        `<p class="mine-note gv-note">${escapeAttr(t('init.gv.fromRecs'))} <a href="#/page/methodology">${escapeAttr(t('footer.method'))} <span class="arrow">↗</span></a></p>`;
+    } else {
+      scale.innerHTML = groupVoteScaleHTML(init, vote, { share: shareOpts });
+      const parl = document.getElementById('init-parl');
+      parl.innerHTML = parlFigHTML(init, vote);
+      wireNewsGraphics(parl);
+    }
+    wireScaleParties(scale);
+    wireShares(scale, SHARE_CTX());
+  });
+}
+
+// Party dots and chips on a positioning graphic open the party's page.
+function wireScaleParties(root) {
   // Party dots on the detail scale are clickable and reveal their initials on hover.
-  content.querySelectorAll('.ms-dot[data-party]').forEach(g => {
+  root.querySelectorAll('.ms-dot[data-party]').forEach(g => {
     const key = g.dataset.party;
     g.addEventListener('click', () => navigate('party/' + key));
     g.addEventListener('keydown', e => {
@@ -1846,13 +1957,9 @@ function renderInitiativePage(id) {
     });
   });
   // The "endorsed by" chips and the recommendation-column chips are clickable.
-  content.querySelectorAll('.endorse-chip-btn[data-party], .rec-chip[data-party]').forEach(btn => {
+  root.querySelectorAll('.endorse-chip-btn[data-party], .rec-chip[data-party]').forEach(btn => {
     btn.addEventListener('click', () => navigate('party/' + btn.dataset.party));
   });
-  wireFinancingHighlights(content);
-  wireShares(content, SHARE_CTX());
-  wireVoteWidgets(content);
-  wireOverviews(content);
 }
 
 // A present/future item people can still influence — so it carries a live
