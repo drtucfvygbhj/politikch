@@ -89,8 +89,14 @@
   },
 
   "claimPhrases": {
-    "_about": "POL-10 / POL-12. Claims about ourselves that are false today. Blocked anywhere in published files.",
-    "phrases": ["non-commercial", "noncommercial", "nicht kommerziell", "nichtkommerziell", "non commercial", "non commerciale", "Politikch is an official", "Politikch ist eine offizielle", "Politikch est un site officiel", "Politikch è un sito ufficiale", "an official publication", "amtliche Publikation", "publication officielle", "pubblicazione ufficiale", "on behalf of the Confederation", "im Auftrag des Bundes", "au nom de la Confédération", "a nome della Confederazione"]
+    "_about": "POL-10 / POL-12 / ED-09. Claims about ourselves that are false today. Blocked anywhere in published files (whole words; skipped after a negation). AI: we say what is human ('written by a person'), never that no AI is used — AI is used for research and proofreading (GUARDRAILS §15 ED-09).",
+    "phrases": ["non-commercial", "noncommercial", "nicht kommerziell", "nichtkommerziell", "non commercial", "non commerciale", "Politikch is an official", "Politikch ist eine offizielle", "Politikch est un site officiel", "Politikch è un sito ufficiale", "an official publication", "amtliche Publikation", "publication officielle", "pubblicazione ufficiale", "on behalf of the Confederation", "im Auftrag des Bundes", "au nom de la Confédération", "a nome della Confederazione",
+                "AI-free", "without AI", "no AI was used", "no AI used", "no AI involved", "free of AI", "KI-frei", "ohne KI", "keine KI", "ohne künstliche Intelligenz", "sans IA", "aucune IA", "sans intelligence artificielle", "senza IA", "nessuna IA", "senza intelligenza artificiale"]
+  },
+
+  "paywalledPaths": {
+    "_about": "ED-13. PolitikCH+ article text is served only by the logged-in backend; no file may exist under these paths in the (public) repo.",
+    "paths": ["data/articles/", "articles/", "plus/"]
   },
 
   "quietPeriodDays": 10,

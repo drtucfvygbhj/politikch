@@ -520,12 +520,21 @@ def check_claims():
             continue
         low = read(f).lower()
         for phrase in CFG["claimPhrases"]["phrases"]:
-            for m in re.finditer(re.escape(phrase.lower()), low):
+            # Whole words only: "no AI used" must not match inside other words.
+            for m in re.finditer(r"(?<!\w)" + re.escape(phrase.lower()) + r"(?!\w)", low):
                 # "Politikch is NOT an official website" is the disclaimer we want.
                 before = low[max(0, m.start() - 30):m.start()]
                 if re.search(r"\b(not|no|keine?|nicht|pas|non|n[’']est)\b", before):
                     continue
                 block("POL-12", f"{f}: says '{phrase}'")
+
+
+def check_paywalled_paths(files):
+    # ED-13: the repo is public, so PolitikCH+ article text in it would bypass the paywall.
+    for f in files:
+        for p in CFG["paywalledPaths"]["paths"]:
+            if f.startswith(p):
+                block("ED-13", f"{f}: PolitikCH+ article text may not be in the repo — the backend serves it")
 
 
 def registered_images():
@@ -749,6 +758,7 @@ def main(argv):
     check_licensing()
     check_both_sides()
     check_claims()
+    check_paywalled_paths(files)
     check_hosting_and_media(files)
 
     base = resolve_base(args.base)
