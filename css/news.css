@@ -271,8 +271,9 @@ html:not([data-design="1.1"]) #n-tip { display: none; }
 /* ---- canton initials on the big map ---- */
 .n-map .n-ml { font-family: var(--n-sans); font-size: 11px; font-weight: 700; fill: #6f6b62; pointer-events: none; letter-spacing: 0.02em; }
 .n-map .n-ml.on { fill: #fff; }
+.n-map .n-ml.out.on { fill: var(--n-accent); }   /* label outside its canton (GL) */
 .n-map .n-ml-l { stroke: #8a877e; stroke-width: 0.8; pointer-events: none; }
-.n-asm-fc { max-width: 460px; }
+.n-asm-fc { max-width: 320px; }
 
 /* ---- "My profile" in the masthead ---- */
 .n-acct { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; text-decoration: none; color: var(--n-ink); padding: 2px 4px; }
@@ -283,7 +284,7 @@ html:not([data-design="1.1"]) #n-tip { display: none; }
 .n-asm { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 44px; align-items: start; border-top: var(--n-rule) solid var(--n-ink); padding: 14px 0 44px; scroll-margin-top: 16px; }
 .n-asm:first-child { border-top: none; padding-top: 0; }
 .n-asm-h { font-family: var(--n-serif); font-size: 32px; line-height: 1.12; margin: 2px 0 14px; }
-.n-asm-g .n-chart { max-width: 720px; }
+.n-asm-g .n-chart { max-width: 500px; }
 .n-asm-side .n-body { min-height: 0; margin-bottom: 12px; }
 .n-ptable td a { text-decoration: none; } .n-ptable td a:hover { color: var(--n-accent); text-decoration: underline; }
 .n-spec .n-sl { paint-order: stroke; stroke: #fff; stroke-width: 2.5px; stroke-linejoin: round; }
@@ -488,3 +489,17 @@ html[data-design="1.1"] .votes-open-btn { border-radius: 2px !important; }
   .n-live, .n-tt, .n-fade { animation: none !important; }
   .n-tv { overflow-x: auto; } .n-dup { display: none !important; }
 }
+
+/* ---- profile: empty spectrum ---- */
+.n-spec-q circle { fill: #fff; stroke: var(--n-ink); stroke-width: 1.2; }
+.n-spec-q .n-q { font-family: var(--n-serif); font-size: 24px; font-weight: 700; fill: var(--n-ink); }
+.n-spec .n-spec-q .n-q-l { font-weight: 700; stroke-width: 7px; }
+
+/* ---- Romansh notice (under the Live row) ---- */
+.n-rmnote { position: relative; border-bottom: 1px solid var(--n-rule-c); background: var(--n-hover); padding: 10px 44px 10px 14px; font-size: 13px; line-height: 1.45; }
+.n-rmnote p { margin: 0; } .n-rmnote p + p { margin-top: 4px; color: var(--n-mid); }
+.n-rmnote-x { position: absolute; top: 6px; right: 6px; width: 32px; height: 32px; border: 0; background: none; font-size: 20px; line-height: 1; cursor: pointer; color: var(--n-ink); }
+.n-rmnote-x:hover, .n-rmnote-x:focus-visible { color: var(--n-accent); }
+
+/* ---- centre column on phones: campaign money only ---- */
+@media (max-width: 600px) { .n-no-phone { display: none; } }
