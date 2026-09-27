@@ -696,9 +696,58 @@ def fetch_recommendations():
             "tokens": norm_tokens(title),
             "en": (row.get("titel_kurz_e") or "").strip(),
             "recs": recs,
+            "anr": (row.get(anr_key) or "").strip() if anr_key else "",
+            "parl": parliament_fields(row),
         })
     print(f"  {len(rows)} Swissvotes ballots parsed")
     return rows
+
+
+# Parliament's handling of each ballot (Swissvotes codebook): the business
+# number and draft, the legal form, Parliament's recommendation and the
+# National Council final vote counted relative to the proposal itself. For a
+# popular initiative Parliament votes on a federal decree that sets out its
+# recommendation, so "for" here is a no to a decree recommending rejection.
+SV_FORM = {"1": "mandatory", "2": "optional", "3": "initiative", "4": "counter", "5": "tiebreak"}
+SV_POSITION = {"1": "accept", "2": "reject", "3": "none", "8": "counter", "9": "initiative"}
+
+
+def parliament_fields(row):
+    business = (row.get("gesch_nr") or "").strip()
+    if not re.fullmatch(r"\d{2}\.\d{3}", business):
+        return None
+    out = {"business": business,
+           "form": SV_FORM.get((row.get("rechtsform") or "").strip()),
+           "position": SV_POSITION.get((row.get("bv-pos") or "").strip())}
+    bill = (row.get("entwurf_nr") or "").strip()
+    if bill.isdigit():
+        out["bill"] = int(bill)
+    ja, nein = (row.get("nrja") or "").strip(), (row.get("nrnein") or "").strip()
+    if ja.isdigit() and nein.isdigit():
+        out["ncFor"], out["ncAgainst"] = int(ja), int(nein)
+    return out
+
+
+def sv_number(anr):
+    """Swissvotes ballot number (688, 682.1) as the Chancellery's (6880, 6821)."""
+    try:
+        return str(round(float(anr) * 10))
+    except ValueError:
+        return None
+
+
+def annotate_parliament(items, sv_rows):
+    """Attach Parliament's handling of each ballot, matched on the ballot number
+    (the id ends with the Chancellery's number, Swissvotes' number x 10)."""
+    by_nr = {sv_number(r["anr"]): r for r in sv_rows if r.get("anr") and r.get("parl")}
+    n = 0
+    for it in items:
+        m = re.fullmatch(r"vote-\d{8}-(\d+)", it.get("id", ""))
+        row = by_nr.get(m.group(1)) if m else None
+        if row:
+            it["parliament"] = row["parl"]
+            n += 1
+    print(f"  Parliament's handling attached to {n} votes")
 
 
 def annotate_recommendations(items, sv_rows):
@@ -770,6 +819,7 @@ def main():
 
     # Party recommendations (and English short titles) onto every dated vote.
     annotate_recommendations(upcoming + votes, sv_rows)
+    annotate_parliament(upcoming + votes, sv_rows)
 
     # Order for the default (flat) list: upcoming soonest-first, then
     # qualified-pending, then signature-gathering by nearest deadline, then
@@ -795,9 +845,12 @@ def main():
                 "Upcoming scheduled votes and pending/signature-gathering "
                 "initiatives: Federal Chancellery linked-data cubes "
                 "(politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party "
-                "recommendations (Parolen): Swissvotes (Année Politique Suisse, "
-                "Uni Bern), CC BY-NC-SA. Official authority texts are not subject "
-                "to copyright (Art. 5 URG)."
+                "recommendations (Parolen) and Parliament's handling of each ballot "
+                "(business number, recommendation, National Council final vote): "
+                "Swissvotes (Année Politique Suisse, Uni Bern), CC BY 4.0, modified "
+                "(the link to the Federal Assembly's final vote is added by "
+                "scripts/fetch_sessions.py). Official authority texts are not "
+                "subject to copyright (Art. 5 URG)."
             ),
             "fetchedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "note": (

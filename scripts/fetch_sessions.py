@@ -255,7 +255,7 @@ def fetch_business_meta(business_ids):
 def fetch_final_votes(session_id):
     subj = " or ".join(f"Subject eq '{s}'" for s in FINAL_VOTE_SUBJECTS)
     filt = f"IdSession eq {session_id} and ({subj})"
-    select = "ID,BusinessNumber,BusinessShortNumber,BusinessTitle,BillTitle,VoteEnd"
+    select = "ID,BusinessNumber,BusinessShortNumber,BusinessTitle,BillTitle,BillNumber,MeaningYes,MeaningNo,VoteEnd"
     by_id, order = {}, []
     for lang in TITLE_LANGS:
         for v in odata("Vote", select=select, filt=filt, orderby="VoteEnd", lang=lang):
@@ -270,8 +270,132 @@ def fetch_final_votes(session_id):
                     "title": {},
                     "voteEnd": (dotnet_date(v.get("VoteEnd")) or datetime.now(timezone.utc)).date().isoformat(),
                 }
+                add_meaning(by_id[vid], v)
             by_id[vid]["title"][lang.lower()] = title.strip()
     return [by_id[i] for i in order]
+
+
+# What a Yes and a No meant in the vote, as the Parliamentary Services record it
+# (official text, kept verbatim; entered once, in German or French, the same in
+# every language version). For a federal decree on a popular initiative it says
+# which way the decree recommends, e.g. "Annahme der Vorlage (Empfehlung auf
+# Ablehnung der Volksinitiative)".
+def add_meaning(vote, row):
+    yes, no = (row.get("MeaningYes") or "").strip(), (row.get("MeaningNo") or "").strip()
+    if yes or no:
+        vote["meaning"] = {"yes": yes[:300], "no": no[:300]}
+    if isinstance(row.get("BillNumber"), int):
+        vote["bill"] = row["BillNumber"]
+
+
+def is_initiative_decree(vote):
+    """A federal decree on a popular initiative (not a counter-proposal): its
+    Yes adopts Parliament's recommendation, not the initiative."""
+    t = ((vote.get("title") or {}).get("de") or "").lower()
+    return "volksinitiative" in t and "gegenentwurf" not in t and "gegenvorschlag" not in t
+
+
+def decree_direction(meaning_yes):
+    """Which way a decree recommends, only when the official text says so plainly."""
+    m = (meaning_yes or "").lower()
+    rej = re.search(r"ablehnung der (eidgenössischen )?volksinitiative|rejeter l[’']?(initiative|iv\.)", m)
+    acc = re.search(r"annahme der (eidgenössischen )?volksinitiative|accepter l[’']?(initiative|iv\.)", m)
+    if rej and not acc:
+        return "reject"
+    if acc and not rej:
+        return "accept"
+    return None
+
+
+def annotate_decree(vote):
+    """Mark a decree on a popular initiative with the direction it recommends
+    (from the official meaning text; checked against Swissvotes later)."""
+    if not is_initiative_decree(vote):
+        vote.pop("initiativeDecree", None)
+        return
+    rec = decree_direction((vote.get("meaning") or {}).get("yes"))
+    vote["initiativeDecree"] = {"recommend": rec, "source": "parlament.ch" if rec else None}
+
+
+def backfill_meanings(session_id, votes):
+    """Settled sessions are reused from disk; fetch the meaning of each vote once
+    for files written before it was recorded. Returns True if anything changed."""
+    if all("meaning" in v for v in votes):
+        return False
+    subj = " or ".join(f"Subject eq '{s}'" for s in FINAL_VOTE_SUBJECTS)
+    rows = odata("Vote", select="ID,BillNumber,MeaningYes,MeaningNo",
+                 filt=f"IdSession eq {session_id} and ({subj})")
+    by_id = {r["ID"]: r for r in rows}
+    changed = False
+    for v in votes:
+        r = by_id.get(v["id"])
+        if r and "meaning" not in v:
+            add_meaning(v, r)
+            changed = True
+    return changed
+
+
+# Link each ballot to the National Council final vote behind it: same business
+# number, and the vote counts agree with Swissvotes' (counted relative to the
+# proposal). Two independent sources agreeing is the test; nothing is guessed.
+# Swissvotes' recommendation also confirms (or fills in) the decree direction;
+# where the two disagree the direction is dropped and a warning printed.
+def link_ballots(session_votes):
+    path = DATA / "initiatives.json"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return set()
+    by_business = {}
+    for sid, v in session_votes:
+        by_business.setdefault(v.get("business"), []).append((sid, v))
+    touched_sessions, linked, changed = set(), 0, False
+    for item in data.get("initiatives", []):
+        par = item.get("parliament")
+        if not par or par.get("form") == "tiebreak" or "ncFor" not in par:
+            continue
+        found = []
+        for sid, v in by_business.get(par["business"], []):
+            t = v.get("tally") or {}
+            decree = is_initiative_decree(v)
+            if par["form"] == "initiative":
+                if not decree or par.get("position") not in ("reject", "accept"):
+                    continue
+                pro, con = (t.get("no"), t.get("yes")) if par["position"] == "reject" else (t.get("yes"), t.get("no"))
+            else:
+                if decree:
+                    continue
+                pro, con = t.get("yes"), t.get("no")
+            if (pro, con) == (par["ncFor"], par["ncAgainst"]):
+                found.append((sid, v))
+        if len(found) != 1:
+            if par.get("link"):
+                par.pop("link")
+                changed = True
+            continue
+        sid, v = found[0]
+        link = {"session": sid, "vote": v["id"]}
+        if par.get("link") != link:
+            par["link"] = link
+            changed = True
+        linked += 1
+        if par["form"] == "initiative":
+            d = v.get("initiativeDecree") or {}
+            if d.get("recommend") is None:
+                v["initiativeDecree"] = {"recommend": par["position"], "source": "swissvotes"}
+                touched_sessions.add(sid)
+            elif d.get("recommend") != par["position"]:
+                print(f"  ! vote {v['id']}: parlament.ch says {d['recommend']}, Swissvotes says {par['position']} — direction dropped",
+                      file=sys.stderr)
+                v["initiativeDecree"] = {"recommend": None, "source": "conflict"}
+                touched_sessions.add(sid)
+            elif d.get("source") == "parlament.ch":
+                v["initiativeDecree"]["source"] = "parlament.ch+swissvotes"
+                touched_sessions.add(sid)
+    if changed:
+        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"  linked {linked} ballots to their National Council final vote")
+    return touched_sessions
 
 
 def fetch_tally(vote_id):
@@ -308,6 +432,7 @@ def build_session(session):
         v["tally"] = total
         v["byParty"] = by_party
         v["passed"] = total["yes"] > total["no"]
+        annotate_decree(v)
         kept.append(v)
     return kept
 
@@ -326,6 +451,7 @@ def main():
     SESSIONS_DIR.mkdir(parents=True, exist_ok=True)
     now = datetime.now(tz=timezone.utc)
     index = []
+    files = {}                                  # session id -> (path, file dict) for the linking step
     for s in sessions:
         # The id comes from parlament.ch and becomes a filename: accept digits
         # only, so an unexpected value can never write outside data/sessions/.
@@ -337,7 +463,15 @@ def main():
         recent = (now - end) <= timedelta(days=REFRESH_WINDOW_DAYS)
         # Reuse a settled session already on disk; refetch recent/missing ones.
         if path.exists() and not force and not recent:
-            votes = json.loads(path.read_text(encoding="utf-8")).get("votes", [])
+            doc = json.loads(path.read_text(encoding="utf-8"))
+            votes = doc.get("votes", [])
+            try:
+                if backfill_meanings(s["id"], votes):
+                    for v in votes:
+                        annotate_decree(v)
+                    path.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            except Exception as e:  # noqa: BLE001
+                print(f"  session {s['id']}: meanings not added ({e})", file=sys.stderr)
         else:
             try:
                 votes = build_session(s)
@@ -351,12 +485,21 @@ def main():
             except Exception as e:  # noqa: BLE001
                 print(f"  session {s['id']} fetch failed ({e}); using existing file if any.", file=sys.stderr)
                 votes = json.loads(path.read_text(encoding="utf-8")).get("votes", []) if path.exists() else []
+        if path.exists():
+            files[s["id"]] = path
         topics = sorted({tk for v in votes for tk in v.get("topics", [])})
         entry = {k: s[k] for k in ("id", "abbr", "season", "year", "start", "end", "legislativePeriod")}
         entry["voteCount"] = len(votes)
         entry["topics"] = topics
         index.append(entry)
         print(f"  {s['season']} {s['year']} (id {s['id']}): {len(votes)} final votes")
+
+    # Link ballots to their final votes; rewrite the session files whose decree
+    # direction the cross-check with Swissvotes confirmed or changed.
+    docs = {sid: json.loads(p.read_text(encoding="utf-8")) for sid, p in files.items()}
+    touched = link_ballots([(sid, v) for sid, d in docs.items() for v in d.get("votes", [])])
+    for sid in touched:
+        files[sid].write_text(json.dumps(docs[sid], ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     INDEX.write_text(json.dumps({
         "_meta": {

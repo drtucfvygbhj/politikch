@@ -120,14 +120,28 @@ async function castPoll(kind, id, choice, prev, keepalive) {
 // Choices are Yes / No for both initiatives and session votes, so alignment
 // scoring is uniform. opts.poll marks an item as poll-eligible (present/future
 // initiative, or any session vote). opts.meta carries session party majorities.
+// opts.frame relabels the buttons without changing what is stored: for a
+// federal decree on a popular initiative they read "for / against the
+// initiative" ({forChoice: the stored choice that means "for", for, against}).
 export function voteWidgetHTML(kind, id, opts) {
   opts = opts || {};
   const poll = opts.poll ? '1' : '';
   const meta = opts.meta ? esc(JSON.stringify(opts.meta)) : '';
-  return `<div class="vote-widget" data-vk="${esc(kind)}" data-vi="${esc(id)}" data-poll="${poll}"${meta ? ` data-meta="${meta}"` : ''}></div>`;
+  const f = opts.frame;
+  const frame = f ? ' data-for="' + escapeAttr(f.forChoice === 'no' ? 'no' : 'yes') + '" data-lfor="' + escapeAttr(f.for) + '" data-lagainst="' + escapeAttr(f.against) + '"' : '';
+  return `<div class="vote-widget" data-vk="${esc(kind)}" data-vi="${esc(id)}" data-poll="${poll}"${meta ? ` data-meta="${meta}"` : ''}` + frame + '></div>';
 }
+const escapeAttr = (s) => esc(s);   // the site's escaper (injected as esc)
 
-function choiceLabel(c) { return c === 'yes' ? t('mine.yes') : t('mine.no'); }
+function choiceLabel(c, el) {
+  if (el && el.dataset.for) return c === el.dataset.for ? el.dataset.lfor : el.dataset.lagainst;
+  return c === 'yes' ? t('mine.yes') : t('mine.no');
+}
+// Button order: "for" first, as Yes is everywhere else.
+function choiceOrder(el) {
+  if (el && el.dataset.for) return el.dataset.for === 'no' ? ['no', 'yes'] : ['yes', 'no'];
+  return ['yes', 'no'];
+}
 
 function pollBarsHTML(tally) {
   const yes = (tally && tally.yes) || 0;
@@ -160,7 +174,11 @@ function renderWidget(el) {
   const choice = getVote(kind, id);
   const voted = choice === 'yes' || choice === 'no';
 
-  const btn = (c) => `<button type="button" class="vote-btn vote-btn-${c}${choice === c ? ' active' : ''}" data-choice="${c}" aria-pressed="${choice === c ? 'true' : 'false'}">${choiceLabel(c)}</button>`;
+  // The colour follows the meaning: the "for" button looks like Yes elsewhere.
+  const look = (c) => (el.dataset.for ? (c === el.dataset.for ? 'yes' : 'no') : c);
+  const btn = (c) => '<button type="button" class="vote-btn vote-btn-' + escapeAttr(look(c)) + (choice === c ? ' active' : '') + '" data-choice="' + escapeAttr(c) +
+    '" aria-pressed="' + (choice === c ? 'true' : 'false') + '">' + escapeAttr(choiceLabel(c, el)) + '</button>';
+  const [first, second] = choiceOrder(el);
 
   let html = `
     <div class="vote-widget-head">
@@ -168,11 +186,11 @@ function renderWidget(el) {
       <span class="unofficial-chip" title="${esc(t('mine.unofficialHint'))}">${t('mine.unofficialChip')}</span>
     </div>
     <div class="vote-choices" role="group" aria-label="${esc(t('mine.castLabel'))}">
-      ${btn('yes')}${btn('no')}
+      ` + btn(first) + btn(second) + `
     </div>`;
 
   if (voted) {
-    html += `<div class="vote-you">${t('mine.youVoted').replace('{choice}', `<strong>${choiceLabel(choice)}</strong>`)} · <button type="button" class="vote-clear" data-clear>${t('mine.clear')}</button></div>`;
+    html += '<div class="vote-you">' + t('mine.youVoted').replace('{choice}', '<strong>' + escapeAttr(choiceLabel(choice, el)) + '</strong>') + ` · <button type="button" class="vote-clear" data-clear>${t('mine.clear')}</button></div>`;
   }
   if (isPoll) {
     html += `<div class="poll-slot" data-poll-slot>${

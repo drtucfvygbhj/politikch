@@ -211,8 +211,11 @@ function currentRoute() {
 function plainVoteTitle(v) {
   return voteTransTitle(v) || (v.title && (v.title[state.lang] || v.title.de || v.title.fr || v.title.it || v.title.en)) || ('#' + v.businessNumber);
 }
-// Vote-hemicycle share spec from a session vote's per-party Yes/No/abstain.
-function voteHemiSpec(vote) {
+// Vote-hemicycle share spec from a session vote's per-party Yes/No/abstain
+// (counted for/against the initiative for a decree on one, with those labels).
+function voteHemiSpec(raw) {
+  const vote = orientVote(raw);
+  const f = voteFrame(raw);
   const parties = state.data.parties;
   const ordered = Object.keys(vote.byParty)
     .filter(k => parties[k])
@@ -223,7 +226,8 @@ function voteHemiSpec(vote) {
     y += g.yes || 0; n += g.no || 0; ab += g.abstain || 0;
     return { label: parties[k].abbr || k, color: parties[k].color || '#999', yes: g.yes || 0, no: g.no || 0, abstain: g.abstain || 0 };
   });
-  return { kind: 'voteHemicycle', title: plainVoteTitle(vote), route: currentRoute(), groups, tallies: { yes: y, no: n, abstain: ab }, source: t('share.src.votes') };
+  return { kind: 'voteHemicycle', title: plainVoteTitle(vote), route: currentRoute(), groups, tallies: { yes: y, no: n, abstain: ab },
+    labels: f.initiative ? { yes: f.yes, no: f.no } : null, subtitle: f.initiative || f.decree ? voteFrameNote(raw) : undefined, source: t('share.src.votes') };
 }
 // Attach a share button to a chart card, resolving its spec lazily.
 function shareChart(host, getSpec) {
@@ -1238,23 +1242,35 @@ function groupMajority(g) {
   const y = g.yes || 0, n = g.no || 0;
   return y > n ? 'yes' : n > y ? 'no' : (y ? 'split' : null);
 }
-function groupVoteScaleHTML(init, vote, opts) {
+// The National Council final vote behind a proposal: linked by the data job
+// (business number + vote counts agreeing with Swissvotes), unless the admin
+// set one by hand.
+function parliamentLink(init) {
+  return ((window.PCH_SETTINGS || {}).parliamentLinks || {})[init.id] || (init.parliament && init.parliament.link) || null;
+}
+
+function groupVoteScaleHTML(init, rawVote, opts) {
   opts = opts || {};
+  const f = voteFrame(rawVote);
+  const vote = orientVote(rawVote);
   const by = vote.byParty || {};
   const parties = Object.entries(state.data.parties).filter(([, p]) => p.spectrum)
     .sort((a, b) => a[1].spectrum.x - b[1].spectrum.x);
   const side = {};
   parties.forEach(([k]) => { side[k] = by[k] ? groupMajority(by[k]) : null; });
-  const decree = init.type === 'initiative';
+  // Labels: for / against the initiative when the decree's direction is known;
+  // yes / no to the decree when it isn't; yes / no to the act otherwise.
+  const decree = f.decree && !f.initiative;
   const tip = (k, p) => p.abbr + ': ' + (by[k]
-    ? t('init.gv.tip').replace('{y}', by[k].yes || 0).replace('{n}', by[k].no || 0).replace('{a}', by[k].abstain || 0)
+    ? t(f.initiative ? 'init.gv.tipInit' : 'init.gv.tip').replace('{y}', by[k].yes || 0).replace('{n}', by[k].no || 0).replace('{a}', by[k].abstain || 0)
     : t('init.gv.noGroup'));
   const row = (label, which) => {
     const chips = parties.filter(([k]) => side[k] === which).map(([k, p]) =>
       `<button type="button" class="endorse-chip endorse-chip-btn${escapeAttr(which === 'yes' ? '' : ' gv-' + which)}" data-party="${escapeAttr(k)}" style="${escapeAttr('--c:' + p.color + (which === 'yes' ? ';background:' + p.color : ''))}" title="${escapeAttr(tip(k, p))}">${escapeAttr(p.abbr)}</button>`).join('');
     return chips ? `<div class="gv-row"><span class="endorse-label">${escapeAttr(label)}</span>` + chips + '</div>' : '';
   };
-  const chips = row(t(decree ? 'init.gv.yesDecree' : 'init.gv.yesAct'), 'yes') + row(t('init.gv.no'), 'no') + row(t('init.gv.split'), 'split');
+  const chips = row(f.initiative ? f.yes : t(decree ? 'init.gv.yesDecree' : 'init.gv.yesAct'), 'yes') +
+    row(f.initiative ? f.no : t('init.gv.no'), 'no') + row(t('init.gv.split'), 'split');
 
   const dots = parties.map(([k, p]) => {
     const cx = p.spectrum.x, cy = 100 - p.spectrum.y, sd = side[k];
@@ -1274,10 +1290,13 @@ function groupVoteScaleHTML(init, vote, opts) {
     const mx = +avgX.toFixed(1), my = +(100 - avgY).toFixed(1), left = avgX < 50;
     marker = `<line class="ms-lead" x1="${escapeAttr(mx)}" y1="${escapeAttr(my)}" x2="${escapeAttr(left ? -3 : 103)}" y2="1"></line>` +
       `<circle class="ms-mid-core" cx="${escapeAttr(mx)}" cy="${escapeAttr(my)}" r="2.6"></circle>` +
-      `<text class="ms-callout" x="${escapeAttr(left ? -10 : 110)}" y="1" text-anchor="${escapeAttr(left ? 'end' : 'start')}">${escapeAttr(leaningWords(avgX, avgY))}</text>`;
+      // Two short lines ("Right," / "Conservative") so the words stay inside the graphic.
+      `<text class="ms-callout" x="${escapeAttr(left ? -10 : 110)}" y="1" text-anchor="${escapeAttr(left ? 'end' : 'start')}">` +
+      leaningWords(avgX, avgY).split(', ').map((w, n, all) => `<tspan x="${escapeAttr(left ? -10 : 110)}" dy="${escapeAttr(n ? 9 : 0)}">${escapeAttr(w + (n < all.length - 1 ? ',' : ''))}</tspan>`).join('') + '</text>';
   }
   const noGroup = parties.filter(([k]) => !by[k]).map(([, p]) => p.abbr);
-  const note = t(decree ? 'init.gv.noteDecree' : 'init.gv.noteAct').replace('{date}', formatLongDate(new Date(vote.voteEnd + 'T00:00:00'))) +
+  const note = (f.initiative ? voteFrameNote(rawVote) + ' ' : '') +
+    t(f.initiative ? 'init.gv.noteInit' : decree ? 'init.gv.noteDecree' : 'init.gv.noteAct').replace('{date}', formatLongDate(new Date(vote.voteEnd + 'T00:00:00'))) +
     (noGroup.length ? ' ' + t('init.gv.greyNote').replace('{parties}', noGroup.join(', ')) : '');
   let spec = null;
   if (opts.share) {
@@ -1285,7 +1304,7 @@ function groupVoteScaleHTML(init, vote, opts) {
       onKeys: yes.map(([k]) => k),
       marker: yes.length ? { x: avgX, y: 100 - avgY, label: leaningWords(avgX, avgY) } : null,
     });
-    spec.subtitle = t(decree ? 'init.gv.yesDecree' : 'init.gv.yesAct');
+    spec.subtitle = f.initiative ? f.yes : t(decree ? 'init.gv.yesDecree' : 'init.gv.yesAct');
   }
   return '<div class="vote-scale vote-scale-lg vote-scale-interactive gv-scale" data-scale' + (spec ? ` data-share="${escapeAttr(JSON.stringify(spec))}"` : '') + '>' +
     '<div class="vote-endorsers gv-endorsers">' + (chips || `<span class="endorse-none">${escapeAttr(t('init.gv.none'))}</span>`) + '</div>' +
@@ -1296,6 +1315,7 @@ function groupVoteScaleHTML(init, vote, opts) {
     `<text class="ms-lbl" x="50" y="-6" text-anchor="middle">${escapeAttr(t('spec.axisTop'))}</text>` +
     `<text class="ms-lbl" x="50" y="108" text-anchor="middle">${escapeAttr(t('spec.axisBottom'))}</text>` +
     dots + marker + '</svg></div>' +
+    (decree ? voteMeaningHTML(rawVote) : '') +
     `<p class="mine-note gv-note">${escapeAttr(note)} <a href="#/page/methodology">${escapeAttr(t('footer.method'))} <span class="arrow">↗</span></a></p></div>`;
 }
 
@@ -1881,7 +1901,7 @@ function renderInitiativePage(id) {
   // 1.1: a linked National Council final vote (admin → Vote links) drives the
   // positioning graphic and adds "What Parliament decided"; without one, the
   // positioning comes from the party recommendations, labelled as such.
-  const parlLink = newsActive() ? ((window.PCH_SETTINGS || {}).parliamentLinks || {})[id] : null;
+  const parlLink = newsActive() ? parliamentLink(init) : null;
   const content = document.getElementById('initiative-content');
   content.innerHTML = `
     <div class="detail-top">
@@ -2786,13 +2806,16 @@ function makeSessionCard(s) {
 }
 
 /* ---- One final-vote block (collapsed head + expandable details) ---- */
-function sessionVoteHTML(v) {
+function sessionVoteHTML(raw) {
+  const v = orientVote(raw);
+  const f = voteFrame(raw);
   const cast = v.tally.yes + v.tally.no + v.tally.abstain;
   const pct = (n) => cast ? (n / cast * 100).toFixed(1) : 0;
   const seg = (kind, n) => n > 0 ? `<span class="svote-seg svote-seg-${kind}" style="width:${pct(n)}%"></span>` : '';
-  const resultCls = v.passed ? 'yes' : 'no';
-  const resultTxt = v.passed ? t('session.passed') : t('session.rejected');
-  const tallyAria = `${t('session.yes')} ${v.tally.yes}, ${t('session.no')} ${v.tally.no}, ${t('session.abstain')} ${v.tally.abstain}`;
+  const res = voteResult(raw);
+  const resultCls = res.cls;
+  const resultTxt = escapeAttr(res.text);
+  const tallyAria = escapeAttr(`${f.yes} ${v.tally.yes}, ${f.no} ${v.tally.no}, ${t('session.abstain')} ${v.tally.abstain}`);
 
   const topicChips = (v.topics || []).map(tk =>
     `<span class="svote-topic">${t('session.topic.' + tk)}</span>`).join('');
@@ -2808,9 +2831,10 @@ function sessionVoteHTML(v) {
     <div class="svote-tally" role="img" aria-label="${tallyAria}">
       ${seg('yes', v.tally.yes)}${seg('no', v.tally.no)}${seg('abs', v.tally.abstain)}
     </div>
+    ${f.initiative || f.decree ? `<p class="svote-frame">${escapeAttr(voteFrameNote(raw))}</p>` : ''}
     <div class="svote-counts">
-      <span class="svote-c svote-c-yes">${t('session.yes')} ${v.tally.yes}</span>
-      <span class="svote-c svote-c-no">${t('session.no')} ${v.tally.no}</span>
+      <span class="svote-c svote-c-yes">${escapeAttr(f.yes)} ${v.tally.yes}</span>
+      <span class="svote-c svote-c-no">${escapeAttr(f.no)} ${v.tally.no}</span>
       ${v.tally.abstain ? `<span class="svote-c svote-c-abs">${t('session.abstain')} ${v.tally.abstain}</span>` : ''}
     </div>
     <details class="svote-details">
@@ -2818,7 +2842,7 @@ function sessionVoteHTML(v) {
       <div class="svote-detail-body">
         <div class="svote-meaning">
           <h4>${t('session.meaningTitle')}</h4>
-          <p>${t('session.meaningBody')}</p>
+          <p>${escapeAttr(voteFrameNote(raw))}</p>` + voteMeaningHTML(raw) + `
           ${voteChangesHTML(v)}
           <div class="svote-tags">
             ${topicChips ? `<div class="svote-tagrow"><span class="svote-taglbl">${t('session.topicsLabel')}</span><span class="svote-tagvals">${topicChips}</span></div>` : ''}
@@ -2827,16 +2851,15 @@ function sessionVoteHTML(v) {
           <a class="resource-link resource-link-compact" href="${businessUrl(v)}" target="_blank" rel="noopener noreferrer">${t('session.officialDossier')} <span class="arrow">↗</span></a>
           <div class="svote-leaning">
             <h4>${t('leaning.title')}</h4>
-            <p class="svote-leaning-desc">${t('leaning.desc')}</p>
-            ${voteLeaningHTML(v)}
+            <p class="svote-leaning-desc">${escapeAttr(t(f.initiative ? 'leaning.descInit' : 'leaning.desc'))}</p>` + voteLeaningHTML(raw) + `
           </div>
         </div>
         <div class="svote-graphic">
           <h4>${t('session.graphicTitle')}</h4>
           <div class="svote-hemi" data-hemi></div>
           <div class="svote-hemi-legend">
-            <span class="svh-key svh-key-yes">${t('session.legendYes')}</span>
-            <span class="svh-key svh-key-no">${t('session.legendNo')}</span>
+            <span class="svh-key svh-key-yes">${escapeAttr(f.initiative ? f.yes : t('session.legendYes'))}</span>
+            <span class="svh-key svh-key-no">${escapeAttr(f.initiative ? f.no : t('session.legendNo'))}</span>
             <span class="svh-key svh-key-abs">${t('session.legendAbstain')}</span>
           </div>
           <h4 style="margin-top:22px">${t('session.byPartyTitle')}</h4>
@@ -2844,12 +2867,69 @@ function sessionVoteHTML(v) {
           <div class="mine-block">
             <h4 style="margin-top:22px">${t('mine.opinionTitle')}</h4>
             <p class="mine-note">${t('mine.opinionDesc')}</p>
-            ${voteWidgetHTML('session', v.id, { poll: true, meta: { parties: partyMajorities(v.byParty), topics: v.topics || [] } })}
+            ` + sessionWidgetHTML(raw) + `
           </div>
         </div>
       </div>
     </details>
   </div>`;
+}
+
+/* ---- How to read a final vote ----
+   Most final votes adopt or reject an act, so Yes means yes to it. A federal
+   decree on a popular initiative is different: it sets out Parliament's
+   recommendation, so a Yes there means "adopt the recommendation" — usually to
+   reject the initiative. The fetcher records which way each decree recommends
+   (from the official meaning of Yes, checked against Swissvotes). With a known
+   direction the vote is counted relative to the initiative, as Swissvotes does:
+   for / against the initiative. Everything that shows a final vote goes through
+   voteFrame / orientVote, so it reads the same way everywhere. */
+function voteFrame(v) {
+  const d = v && v.initiativeDecree;
+  if (d && (d.recommend === 'reject' || d.recommend === 'accept')) {
+    return { initiative: true, flip: d.recommend === 'reject', recommend: d.recommend,
+      yes: t('vote.o.for'), no: t('vote.o.against') };
+  }
+  return { initiative: false, decree: !!d, flip: false, yes: t('session.yes'), no: t('session.no') };
+}
+// The vote with yes/no counted as for/against the initiative where needed.
+function orientVote(v) {
+  if (!v || v._oriented || !voteFrame(v).flip) return v;
+  const sw = (g) => ({ yes: (g && g.no) || 0, no: (g && g.yes) || 0, abstain: (g && g.abstain) || 0 });
+  const byParty = {};
+  Object.keys(v.byParty || {}).forEach(k => { byParty[k] = sw(v.byParty[k]); });
+  return Object.assign({}, v, { tally: sw(v.tally), byParty, _oriented: true });
+}
+// Result chip: Parliament's recommendation for a decree, else adopted/rejected.
+function voteResult(v) {
+  const f = voteFrame(v);
+  if (f.initiative && v.passed) {
+    const yes = f.recommend === 'accept';
+    return { cls: yes ? 'yes' : 'no', text: t(yes ? 'vote.o.recYes' : 'vote.o.recNo') };
+  }
+  return { cls: v.passed ? 'yes' : 'no', text: t(v.passed ? 'session.passed' : 'session.rejected') };
+}
+// The official meaning of Yes, where it says more than "adopt the draft".
+function voteMeaningHTML(v) {
+  const m = v && v.meaning && v.meaning.yes;
+  if (!m || !/[(]/.test(m)) return '';
+  const lang = /^(adopter|rejeter)/i.test(m) ? 'fr' : 'de';
+  return `<p class="svote-official"><span class="svote-official-k">${escapeAttr(t('vote.o.meaning'))}</span> <q lang="${escapeAttr(lang)}">${escapeAttr(m)}</q></p>`;
+}
+// What the Yes/No of this vote refers to (shown with the vote).
+function voteFrameNote(v) {
+  const f = voteFrame(v);
+  if (f.initiative) return t(f.recommend === 'accept' ? 'vote.o.noteAccept' : 'vote.o.noteReject');
+  if (f.decree) return t('vote.o.unknown');
+  return t('session.meaningBody');
+}
+// The visitor's own vote on a final vote. Stored as Yes/No on the vote itself
+// (with the parties' Yes/No), so the profile stays consistent; for a decree on
+// an initiative the buttons read "for / against the initiative".
+function sessionWidgetHTML(v) {
+  const f = voteFrame(v);
+  const frame = f.initiative ? { forChoice: f.flip ? 'no' : 'yes', for: t('vote.o.for'), against: t('vote.o.against') } : null;
+  return voteWidgetHTML('session', v.id, { poll: true, frame, meta: { parties: partyMajorities(v.byParty), topics: v.topics || [] } });
 }
 
 // Reduce a session vote's per-party Yes/No/abstain to a single stance per party
@@ -2877,7 +2957,7 @@ function votePartyRowsHTML(v) {
     return `<div class="svote-prow is-clickable" data-party="${k}" role="button" tabindex="0" aria-label="${escapeAttr(localized(p.name) || p.abbr)}">
       <span class="svote-pdot" style="background:${p.color}"></span>
       <span class="svote-pabbr">${p.abbr}</span>
-      <span class="svote-pbar" role="img" aria-label="${p.abbr}: ${t('session.yes')} ${g.yes}, ${t('session.no')} ${g.no}, ${t('session.abstain')} ${g.abstain}">
+      <span class="svote-pbar" role="img" aria-label="${escapeAttr(`${p.abbr}: ${voteFrame(v).yes} ${g.yes}, ${voteFrame(v).no} ${g.no}, ${t('session.abstain')} ${g.abstain}`)}">
         ${g.yes > 0 ? `<span class="svote-seg svote-seg-yes" style="width:${gp(g.yes)}%"></span>` : ''}
         ${g.no > 0 ? `<span class="svote-seg svote-seg-no" style="width:${gp(g.no)}%"></span>` : ''}
         ${g.abstain > 0 ? `<span class="svote-seg svote-seg-abs" style="width:${gp(g.abstain)}%"></span>` : ''}
@@ -2914,7 +2994,8 @@ function voteMargin(v) {
 // Mini 2-D spectrum for one vote: each party dot filled if its members mostly
 // voted Yes, greyed otherwise, with a marker at the Yes-coalition's weighted
 // position and short words describing that leaning (same chart as the votes).
-function voteLeaningHTML(v) {
+function voteLeaningHTML(raw) {
+  const v = orientVote(raw);
   const lean = voteLeaning(v);
   if (!lean) return `<p class="rec-source">${t('leaning.none')}</p>`;
   const parties = Object.entries(state.data.parties);
@@ -3042,7 +3123,7 @@ function wireVoteCards(host, votes) {
       if (details.open) track('vote_open', vote.id);
       if (details.open && holder && !holder.dataset.done) {
         holder.dataset.done = '1';
-        renderVoteHemicycle(holder, vote.byParty);
+        renderVoteHemicycle(holder, orientVote(vote).byParty);
         const g = el.querySelector('.svote-graphic');
         wireCrossHighlight(g);
         wirePartyNav(g);
@@ -3098,7 +3179,7 @@ function mountVotesExplorer(hostEl, votes) {
   const topicEl = q1('[data-x-topic]');
   const resultEl = q1('[data-x-result]');
 
-  const dist = (v) => { const l = voteLeaning(v); return l ? (l.x - st.target.x) ** 2 + (l.y - st.target.y) ** 2 : Infinity; };
+  const dist = (v) => { const l = voteLeaning(orientVote(v)); return l ? (l.x - st.target.x) ** 2 + (l.y - st.target.y) ** 2 : Infinity; };
   const byDate = (a, b) => (b.voteEnd || '').localeCompare(a.voteEnd || '');
 
   const filtered = () => {
@@ -3721,7 +3802,7 @@ function fillProfileEnrich() {
       host.innerHTML = votes.map(v => `
         <div class="enrich-item">
           <a class="enrich-title" href="#/session/${sessions[0].id}">${escapeAttr(plainVoteTitle(v))}</a>
-          ${voteWidgetHTML('session', v.id, { poll: true, meta: { parties: partyMajorities(v.byParty), topics: v.topics || [] } })}
+          ` + sessionWidgetHTML(v) + `
         </div>`).join('');
       wireVoteWidgets(host);
       wireOverviews(host);
@@ -4210,6 +4291,7 @@ async function init() {
       ensureSessionsIndex, ensureSessionFile, ensureSessionTranslations,
       voteTransTitle, mtVoteTitle, unofficialBadge, mtBadge, initTitleHTML, initTitlePlain,
       computeMyLeaning, fillProfileEnrich, wireVoteWidgets, profileMin: PROFILE_MIN_SESSION_VOTES,
+      voteFrame, orientVote, voteResult, voteFrameNote, parliamentLink,
     });
     mountNewsChrome();
     // The votes list (tabs, search, cards) moves to its own page in 1.1.

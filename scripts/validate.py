@@ -77,6 +77,20 @@ def check_initiatives(data):
                 errors.append(f"initiatives.json: {label} missing '{field}'")
         if "en" not in init.get("title", {}):
             errors.append(f"initiatives.json: {label} title missing English text")
+        par = init.get("parliament")
+        if par is not None:
+            if not re.fullmatch(r"\d{2}\.\d{3}", str(par.get("business", ""))):
+                errors.append(f"initiatives.json: {label} parliament.business must look like 24.092")
+            if par.get("form") not in (None, "mandatory", "optional", "initiative", "counter", "tiebreak"):
+                errors.append(f"initiatives.json: {label} parliament.form invalid")
+            if par.get("position") not in (None, "accept", "reject", "none", "counter", "initiative"):
+                errors.append(f"initiatives.json: {label} parliament.position invalid")
+            for k in ("ncFor", "ncAgainst"):
+                if k in par and (not isinstance(par[k], int) or par[k] < 0):
+                    errors.append(f"initiatives.json: {label} parliament.{k} must be a non-negative integer")
+            link = par.get("link")
+            if link is not None and not (isinstance(link.get("session"), int) and isinstance(link.get("vote"), int)):
+                errors.append(f"initiatives.json: {label} parliament.link must hold integer session and vote")
 
 
 def check_financing(data, parties_data, initiatives_data):
@@ -146,6 +160,34 @@ def check_sessions(index, parties_data):
             for pk in (v.get("byParty") or {}):
                 if pk not in known_parties:
                     errors.append(f"sessions/{s.get('id')}.json: vote {v.get('id')} references unknown party '{pk}'")
+            # A federal decree on a popular initiative: its Yes adopts Parliament's
+            # recommendation. The direction is "reject", "accept" or explicitly
+            # unknown (null) — never guessed.
+            dec = v.get("initiativeDecree")
+            if dec is not None and (not isinstance(dec, dict) or dec.get("recommend") not in ("reject", "accept", None)):
+                errors.append(f"sessions/{s.get('id')}.json: vote {v.get('id')} initiativeDecree.recommend must be reject, accept or null")
+            m = v.get("meaning")
+            if m is not None and not (isinstance(m, dict) and all(isinstance(m.get(k, ""), str) for k in ("yes", "no"))):
+                errors.append(f"sessions/{s.get('id')}.json: vote {v.get('id')} meaning must hold yes/no texts")
+            title_de = ((v.get("title") or {}).get("de") or "").lower()
+            if "meaning" in v and "volksinitiative" in title_de and "gegenentwurf" not in title_de \
+                    and "gegenvorschlag" not in title_de and dec is None:
+                errors.append(f"sessions/{s.get('id')}.json: vote {v.get('id')} is a decree on a popular initiative but has no initiativeDecree")
+
+
+def check_parliament_links(initiatives_data):
+    """Every automatic link points at a final vote that exists."""
+    for init in (initiatives_data or {}).get("initiatives", []):
+        link = (init.get("parliament") or {}).get("link")
+        if not link:
+            continue
+        path = DATA / "sessions" / f"{link.get('session')}.json"
+        try:
+            ids = {v.get("id") for v in json.loads(path.read_text(encoding="utf-8")).get("votes", [])}
+        except Exception:  # noqa: BLE001
+            ids = set()
+        if link.get("vote") not in ids:
+            errors.append(f"initiatives.json: {init.get('id')} links to final vote {link.get('vote')} not found in sessions/{link.get('session')}.json")
 
 
 def check_i18n(data):
@@ -274,6 +316,7 @@ def main():
 
     if (DATA / "sessions-index.json").exists():
         check_sessions(load("sessions-index.json"), parties_data)
+        check_parliament_links(initiatives_data)
 
     if (DATA / "mt.json").exists():
         check_mt_args(load("mt.json"))

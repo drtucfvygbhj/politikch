@@ -555,7 +555,8 @@ function paintVoteHemicycle(spec) {
     { k: 'abstain', v: tal.abstain, c: MUTED },
   ];
   ctx.font = '600 18px "DM Sans", system-ui, sans-serif';
-  const chipLabels = chips.map(c => `${_t('share.vote.' + c.k)}: ${c.v}`);
+  // spec.labels renames Yes/No (a decree on an initiative is counted for / against it).
+  const chipLabels = chips.map(c => `${(spec.labels && spec.labels[c.k]) || _t('share.vote.' + c.k)}: ${c.v}`);
   const chipW = chipLabels.map(l => ctx.measureText(l).width + 40);
   const gap = 16;
   let totalW = chipW.reduce((a, b) => a + b, 0) + gap * (chips.length - 1);
