@@ -3,6 +3,7 @@
 (function () {
   'use strict';
   const TOKEN = document.querySelector('meta[name="admin-token"]').content;
+  const PREVIEW = document.querySelector('meta[name="admin-preview"]').content;   // the site copy the preview shows
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const LANGS = ['en', 'de', 'fr', 'it', 'rm'];
@@ -144,7 +145,7 @@
   });
   $('#defaults').addEventListener('click', () => { const s = clone(S); Object.assign(s, clone(DEFAULTS)); fillDesign(s); flash('Form reset to the defaults — press "Save & preview" to apply.'); });
 
-  function reloadPreview() { $('#preview').src = 'http://127.0.0.1:8003/?lang=en#/'; }
+  function reloadPreview() { $('#preview').src = PREVIEW + '/?lang=en#/'; }
   $('#reload').addEventListener('click', reloadPreview);
   // Desktop is drawn at a real 1400 px and scaled down to fit; the phone view is 375 px, unscaled.
   let previewWidth = 1400;
@@ -255,29 +256,53 @@
   });
 
   /* ---------- vote links ---------- */
+  // Every proposal Parliament has voted on (or may have): upcoming, decided,
+  // pending. Title matches are only suggestions — nothing is linked until you
+  // choose it and save (POL-03: check each one against parlament.ch).
+  const curiaUrl = (n) => `https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=${encodeURIComponent(n)}`;
+  const STATUS_LABEL = { upcoming: 'Upcoming', adopted: 'Adopted', rejected: 'Rejected', pending: 'Pending' };
   function renderLinks() {
     const links = S.parliamentLinks || {};
-    $('#links').replaceChildren(...ST.votes.map(v => {
+    const votes = ST.linkVotes || [];
+    const linked = votes.filter(v => links[v.id]).length;
+    $('#links-count').textContent = `${linked} of ${votes.length} proposals linked.`;
+    $('#links').replaceChildren(...votes.map(v => {
       const cur = links[v.id];
       const name = 'link-' + v.id;
       const opts = [el('label', { class: 'cand' }, [el('input', { type: 'radio', name, value: '', checked: !cur }), document.createTextNode(' No link (the graphic is left out)')])];
       const cands = v.candidates.slice();
       if (cur && !cands.some(c => c.session === cur.session && c.vote === cur.vote)) cands.unshift({ session: cur.session, vote: cur.vote, title: '(current link)', date: '', tally: null });
-      cands.forEach(c => opts.push(el('label', { class: 'cand' }, [
-        el('input', { type: 'radio', name, value: c.session + ':' + c.vote, checked: !!cur && cur.session === c.session && cur.vote === c.vote }),
-        document.createTextNode(` ${c.title}`), el('div', { class: 'meta', text: `session ${c.session} · vote ${c.vote} · ${c.date || ''}` +
-          (c.tally ? ` · ${c.tally.yes} yes, ${c.tally.no} no, ${c.tally.abstain} abstained` : '') })])));
-      return el('div', {}, [el('p', { class: 'vote-h', text: v.title }), el('p', { class: 'meta', text: `${v.date} · ${v.type} · ${v.id}` }), ...opts]);
+      if (!v.candidates.length) opts.push(el('p', { class: 'meta', text: 'No matching final vote in the session data (it may be older than the data, or not voted yet).' }));
+      cands.forEach(c => opts.push(el('label', { class: 'cand' + (c.score === 1 ? ' exact' : '') }, [
+        el('input', { type: 'radio', name, value: c.session + ':' + c.vote, 'data-score': String(c.score ?? ''), checked: !!cur && cur.session === c.session && cur.vote === c.vote }),
+        document.createTextNode(` ${c.title}`), el('div', { class: 'meta' }, [
+          document.createTextNode(`${c.score === 1 ? 'exact title match' : c.score ? 'partial match (' + Math.round(c.score * 100) + '%)' : ''} · session ${c.session} · vote ${c.vote} · ${c.date || ''}` +
+            (c.tally ? ` · ${c.tally.yes} yes, ${c.tally.no} no, ${c.tally.abstain} abstained` : '')),
+          ...(c.business ? [document.createTextNode(' · '), el('a', { href: curiaUrl(c.business), target: '_blank', rel: 'noopener noreferrer', text: 'check on parlament.ch ↗' })] : [])])])));
+      return el('div', { class: 'link-vote' + (cur ? ' is-linked' : '') }, [el('p', { class: 'vote-h', text: v.title }),
+        el('p', { class: 'meta', text: `${STATUS_LABEL[v.status] || v.status} · ${v.date || 'no ballot date yet'} · ${v.type} · ${v.id}` }), ...opts]);
     }));
   }
+  // Pre-select the exact title match wherever a proposal has no link yet. It
+  // only fills the form: nothing changes until you check them and press Save.
+  $('#links-exact').addEventListener('click', () => {
+    let n = 0;
+    (ST.linkVotes || []).forEach(v => {
+      const box = document.querySelectorAll(`input[name="link-${CSS.escape(v.id)}"]`);
+      const none = [...box].find(r => r.value === '');
+      const exact = [...box].filter(r => r.dataset.score === '1');
+      if (none && none.checked && exact.length === 1) { exact[0].checked = true; n++; }
+    });
+    flash(n ? `${n} exact matches selected — check each on parlament.ch, then Save links.` : 'No unlinked proposal has a single exact match.');
+  });
   $('#save-links').addEventListener('click', async () => {
     const s = clone(S);
     s.parliamentLinks = {};
-    ST.votes.forEach(v => {
+    (ST.linkVotes || []).forEach(v => {
       const r = document.querySelector(`input[name="link-${CSS.escape(v.id)}"]:checked`);
       if (r && r.value) { const [session, vote] = r.value.split(':').map(Number); s.parliamentLinks[v.id] = { session, vote }; }
     });
-    Object.entries(S.parliamentLinks || {}).forEach(([k, val]) => { if (!ST.votes.some(v => v.id === k)) s.parliamentLinks[k] = val; });
+    Object.entries(S.parliamentLinks || {}).forEach(([k, val]) => { if (!(ST.linkVotes || []).some(v => v.id === k)) s.parliamentLinks[k] = val; });
     try { await saveSettings(s, 'Vote links saved.'); } catch (err) { flash(err.message, true); }
   });
 

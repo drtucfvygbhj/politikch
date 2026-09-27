@@ -496,7 +496,11 @@ function parlFig(i, files) {
   const link = (SETTINGS().parliamentLinks || {})[i.id];
   const file = link && files[link.session];
   const v = file && (file.votes || []).find(x => x.id === link.vote);
-  if (!v) return '';
+  return v ? parlFigHTML(i, v) : '';
+}
+// "What Parliament decided" for proposal i and its linked National Council
+// final vote v: the vote as a hemicycle, the tally and what a yes means.
+export function parlFigHTML(i, v) {
   const by = v.byParty || {};
   // byParty holds parliamentary-group counts (e.g. the SVP group includes Lega, EDU and MCG members).
   const groups = Object.keys(by).sort((a, b) => (party(a)?.spectrum?.x ?? 50) - (party(b)?.spectrum?.x ?? 50));
@@ -784,6 +788,9 @@ const EXPLAINERS = [
   ['parl.cs', 'councilOfStates'], ['council.title', 'federalCouncil'], ['news.ex.president', 'president'],
   ['nav.sessions', 'session'], ['session.votesTitle', 'finalVote'], ['nav.cantons', 'canton'],
 ];
+
+// Highlights and share buttons for 1.1 graphics placed on other pages.
+export function wireNewsGraphics(root) { wireHighlights(root); wireNewsShares(root); }
 
 /* ---- render + behaviour ---- */
 let homeToken = 0;

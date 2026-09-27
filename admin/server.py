@@ -301,17 +301,39 @@ def words(s):
     return {w for w in re.findall(r"[a-zäöüéèàç]{5,}", (s or "").lower())}
 
 
+_SESSIONS = {"key": None, "files": []}
+
+
+def session_files():
+    """Every data/sessions/*.json, re-read only when one of them changed."""
+    paths = sorted(glob.glob(str(ROOT / "data" / "sessions" / "*.json")))
+    key = tuple((p, os.path.getmtime(p)) for p in paths)
+    if key != _SESSIONS["key"]:
+        _SESSIONS.update(key=key, files=[load_json(p, {}) or {} for p in paths])
+    return _SESSIONS["files"]
+
+
 def link_candidates(init):
-    """National Council final votes whose title matches the proposal (for the Vote links page)."""
+    """National Council final votes whose title matches the proposal (for the Vote links page).
+    An initiative only matches a decree on a popular initiative, a referendum only
+    an act that isn't one, so a counter-proposal is never offered as the initiative's
+    own vote (a counter-proposal decree goes with the referendum on it). A score of 1.0 means the quoted initiative title (or the whole act
+    title) appears in the vote's title; it is a suggestion, never a link."""
     de = (init.get("title") or {}).get("de", "")
     m = re.search(r"«(.+?)»", de)
     key = (m.group(1) if m else de)
     kw = words(key)
+    is_init = init.get("type") == "initiative"
+    if init.get("status") == "collecting":
+        return []                      # still collecting signatures: Parliament hasn't voted
     out = []
-    for f in sorted(glob.glob(str(ROOT / "data" / "sessions" / "*.json"))):
-        sf = load_json(f, {}) or {}
+    for sf in session_files():
         for v in sf.get("votes", []):
             t = (v.get("title") or {}).get("de", "")
+            tl = t.lower()
+            on_initiative = "volksinitiative" in tl and "gegenentwurf" not in tl and "gegenvorschlag" not in tl
+            if on_initiative != is_init:
+                continue
             if m and key[:40].lower() in t.lower():
                 score = 1.0
             else:
@@ -319,7 +341,7 @@ def link_candidates(init):
                 score = len(kw & tw) / max(len(kw), 1)
             if score >= 0.6:
                 out.append({"session": sf.get("id"), "vote": v.get("id"), "title": t, "date": v.get("voteEnd"),
-                            "tally": v.get("tally"), "score": round(score, 2)})
+                            "tally": v.get("tally"), "score": round(score, 2), "business": v.get("businessNumber")})
     out.sort(key=lambda c: (-c["score"], c["date"] or ""), reverse=False)
     return out[:5]
 
@@ -357,6 +379,14 @@ def status():
         votes.append({"id": i["id"], "date": i["voteDate"], "type": i.get("type"),
                       "title": (i.get("title") or {}).get("en") or (i.get("title") or {}).get("de"),
                       "funding": total, "candidates": link_candidates(i)})
+    # Vote links: every proposal except those still collecting signatures —
+    # upcoming (soonest first), then decided (newest first), then pending.
+    def by(status, newest=False):
+        return sorted((i for i in inits if i.get("status") in status), key=lambda i: (i.get("voteDate") or "", i["id"]), reverse=newest)
+    link_votes = [{"id": i["id"], "date": i.get("voteDate") or "", "type": i.get("type"), "status": i.get("status"),
+                   "title": (i.get("title") or {}).get("en") or (i.get("title") or {}).get("de"),
+                   "candidates": link_candidates(i)}
+                  for i in by({"upcoming"}) + by({"adopted", "rejected"}, newest=True) + by({"pending"})]
     return {
         "today": today.isoformat(),
         "maintenance": {"on": maint.exists(), "text": maint.read_text("utf-8") if maint.exists() else ""},
@@ -366,6 +396,7 @@ def status():
         "translations": todo.read_text("utf-8") if todo.exists() else "",
         "changed": git,
         "votes": votes,
+        "linkVotes": link_votes,
         "fonts": FONTS,
         "limits": LIMITS,
         "register": (load_json(REGISTER, {}) or {}).get("images", {}),
@@ -557,7 +588,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self.send(403, {"error": "wrong host"})
         path = urlparse(self.path).path
         if path in ("/", "/index.html"):
-            html = (ADMIN / "index.html").read_text("utf-8").replace("%%TOKEN%%", TOKEN)
+            html = (ADMIN / "index.html").read_text("utf-8").replace("%%TOKEN%%", TOKEN).replace("%%PREVIEW%%", f"http://{HOST}:{PREVIEW_PORT}")
             return self.send(200, html, "text/html; charset=utf-8")
         if path in STATIC:
             f, ctype = STATIC[path]

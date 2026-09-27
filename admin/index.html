@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
   <meta name="admin-token" content="%%TOKEN%%">
+  <meta name="admin-preview" content="%%PREVIEW%%">
   <title>Politikch admin</title>
   <link rel="stylesheet" href="/css/fonts.css">
   <link rel="stylesheet" href="/admin.css">
@@ -133,7 +134,9 @@
     <!-- VOTE LINKS -->
     <section class="panel" id="tab-links">
       <div class="mod"><div class="k">Parliament's final vote for each proposal</div>
-        <p class="meta">Shown as "What Parliament decided" on the front page. Suggestions come from matching titles in the session data — confirm each one against parlament.ch. For an initiative, the final vote is on the federal decree that sets out Parliament's recommendation.</p>
+        <p class="meta">Shown as "What Parliament decided" on the front page and on each proposal's page, where it also colours the political positioning by how each parliamentary group voted. Suggestions come from matching titles in the session data — confirm each one against parlament.ch. For an initiative, the final vote is on the federal decree that sets out Parliament's recommendation; a counter-proposal is linked to the referendum on it.</p>
+        <p class="meta" id="links-count"></p>
+        <div class="actions"><button type="button" id="links-exact">Select exact title matches</button></div>
         <div id="links"></div>
         <div class="actions"><button type="button" class="primary" id="save-links">Save links</button></div>
         <div class="golive"><button type="button" class="live" data-publish="settings">Make changes live</button>

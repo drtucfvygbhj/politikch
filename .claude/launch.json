@@ -19,6 +19,18 @@
       ],
       "port": 8002,
       "url": "http://127.0.0.1:8002"
+    },
+    {
+      "name": "admin-test",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "PCH_ADMIN_PORT=8012",
+        "PCH_PREVIEW_PORT=8013",
+        "python3",
+        "admin/server.py"
+      ],
+      "port": 8012,
+      "url": "http://127.0.0.1:8012"
     }
   ]
 }
