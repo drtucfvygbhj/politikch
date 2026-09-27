@@ -165,7 +165,7 @@ function pieSpecFromDonors(agg, title, route, totalLabel) {
   const total = agg.reduce((s, d) => s + d.amount, 0);
   const tl = totalLabel || t('financing.total');
   return {
-    kind: 'pie', title, route, subtitle: `${tl} · ${formatCHF(total)}`,
+    kind: 'pie', kicker: t('nav.financing'), title, route, subtitle: `${tl} · ${formatCHF(total)}`,
     slices, totalText: formatCHF(total), totalLabel: tl,
     source: t('share.src.financing'),
   };
@@ -182,7 +182,7 @@ function spectrumSpec(title, route, opts) {
       color: p.color, on: on ? on.has(k) : true,
     }));
   const spec = {
-    kind: 'spectrum', title, route, dots,
+    kind: 'spectrum', kicker: t('nav.parties'), title, route, dots,
     axes: { left: t('spec.axisLeft'), right: t('spec.axisRight'), top: t('spec.axisTop'), bottom: t('spec.axisBottom') },
     source: t('share.src.spectrum'),
   };
@@ -226,7 +226,7 @@ function voteHemiSpec(raw) {
     y += g.yes || 0; n += g.no || 0; ab += g.abstain || 0;
     return { label: parties[k].abbr || k, color: parties[k].color || '#999', yes: g.yes || 0, no: g.no || 0, abstain: g.abstain || 0 };
   });
-  return { kind: 'voteHemicycle', title: plainVoteTitle(vote), route: currentRoute(), groups, tallies: { yes: y, no: n, abstain: ab },
+  return { kind: 'voteHemicycle', kicker: t('parl.nc') + ' · ' + t('session.votesTitle'), title: plainVoteTitle(vote), route: currentRoute(), groups, tallies: { yes: y, no: n, abstain: ab },
     labels: f.initiative ? { yes: f.yes, no: f.no } : null, subtitle: f.initiative || f.decree ? voteFrameNote(raw) : undefined, source: t('share.src.votes') };
 }
 // Attach a share button to a chart card, resolving its spec lazily.
@@ -590,7 +590,7 @@ function partyRevenueChartHTML(fin, metricKey) {
   const max = Math.max(rows[0][2], 1);
   const label = t('fin.metric.' + metric.key);
   const spec = {
-    kind: 'bars', title: `${t('fin.parties.title').replace('{year}', financingYear(fin))} — ${label}`, route: 'financing',
+    kind: 'bars', kicker: t('nav.financing'), title: `${t('fin.parties.title').replace('{year}', financingYear(fin))} — ${label}`, route: 'financing',
     rows: rows.map(([k, , v]) => ({ label: partyLabel(k), value: v, valueText: formatCHF(v), color: state.data.parties[k].color })),
     source: t('share.src.financing'),
   };
@@ -639,7 +639,7 @@ function partySourceBarsHTML(key, f, opts) {
     .sort((a, b) => b.v - a.v);
   const max = Math.max(...rows.map(r => r.v), 1);
   const spec = opts.shareTitle ? {
-    kind: 'bars', title: opts.shareTitle, route: opts.shareRoute,
+    kind: 'bars', kicker: t('nav.financing'), title: opts.shareTitle, route: opts.shareRoute,
     subtitle: `${t('financing.total')} · ${formatCHF(f.totalRevenue)} (${f.year})`,
     rows: rows.map(r => ({ label: r.label, value: r.v, valueText: formatCHF(r.v), color })),
     source: t('share.src.financing'),
@@ -700,7 +700,7 @@ function partyDonorsChartHTML(fin) {
   const legend = [...used].map(pk => `<span class="findon-leg is-clickable" data-party="${escapeAttr(pk)}" role="link" tabindex="0">`
     + `<span class="fin-dot" style="background:${state.data.parties[pk].color}"></span>${escapeAttr(partyLabel(pk))}</span>`).join('');
   const spec = {
-    kind: 'bars', title: t('fin.donors.title').replace('{year}', financingYear(fin)), route: 'financing',
+    kind: 'bars', kicker: t('nav.financing'), title: t('fin.donors.title').replace('{year}', financingYear(fin)), route: 'financing',
     rows: list.map(e => ({
       label: e.name, value: e.total, valueText: formatCHF(e.total),
       segments: Object.entries(e.by).sort((a, b) => b[1] - a[1]).map(([pk, v]) => ({ value: v, color: state.data.parties[pk].color })),

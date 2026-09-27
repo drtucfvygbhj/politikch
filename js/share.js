@@ -41,21 +41,44 @@ export function configureShare({ t, lang } = {}) {
   if (typeof lang === 'function') _lang = lang;
 }
 
+/* ---- Look ----------------------------------------------------------------
+   The images take the look of the design visitors get: 1.1 (the news design:
+   maroon accent, square shapes, the fonts chosen in the admin, purple/green for
+   yes/no) or 1.0 (the original, frozen). Picked each time an image is drawn. */
+const LEGACY = {
+  v11: false, accent: RED, ink: INK, muted: MUTED, mid: MUTED, hair: HAIR,
+  serif: '"Playfair Display", Georgia, serif', sans: '"DM Sans", system-ui, sans-serif',
+};
+function newsTheme() {
+  const css = getComputedStyle(document.documentElement);
+  const v = (k, d) => (css.getPropertyValue(k) || '').trim() || d;
+  return {
+    v11: true, accent: '#7A1C2A', ink: '#161616', muted: '#7d7a72', mid: '#5f5e5a', hair: '#dcdad3',
+    serif: v('--n-serif', "'Playfair Display', Georgia, serif"), sans: v('--n-sans', "'DM Sans', system-ui, sans-serif"),
+    yes: '#534AB7', no: '#0F6E56', abst: '#8a877e', absent: '#e6e4dd',
+  };
+}
+let T = LEGACY;
+// The 1.1 title block (section rule + kicker) is taller: every card grows by it.
+const extraH = () => (T.v11 ? 44 : 0);
+function pickTheme() {
+  T = document.documentElement.getAttribute('data-design') === '1.1' ? newsTheme() : LEGACY;
+}
+
 /* ---- Fonts --------------------------------------------------------------
    Canvas text only uses a web font once it is actually loaded, so make sure
-   the weights we draw with are ready before rendering. */
-let fontsReady = null;
+   the weights we draw with are ready before rendering (per font choice). */
+const fontsReady = {};
 function ensureFonts() {
-  if (fontsReady) return fontsReady;
-  const faces = [
-    '300 16px "DM Sans"', '400 16px "DM Sans"', '500 16px "DM Sans"',
-    '600 16px "DM Sans"', '700 16px "DM Sans"', '700 34px "Playfair Display"',
-  ];
+  const key = T.serif + '|' + T.sans;
+  if (fontsReady[key]) return fontsReady[key];
+  const faces = ['300', '400', '500', '600', '700'].map(w => `${w} 16px ${T.sans}`)
+    .concat(['400', '700'].map(w => `${w} 34px ${T.serif}`));
   const load = (document.fonts && document.fonts.load)
     ? Promise.all(faces.map(f => document.fonts.load(f).catch(() => {})))
     : Promise.resolve();
-  fontsReady = load.then(() => document.fonts && document.fonts.ready).catch(() => {});
-  return fontsReady;
+  fontsReady[key] = load.then(() => document.fonts && document.fonts.ready).catch(() => {});
+  return fontsReady[key];
 }
 
 /* ---- Small canvas helpers ---------------------------------------------- */
@@ -73,8 +96,17 @@ function roundRect(ctx, x, y, w, h, r) {
 // The Politikch mark: a red rounded square carrying a white Swiss cross,
 // matching the site's CSS logo proportions (arm 0.5, thickness 0.125).
 function drawLogo(ctx, x, y, size) {
+  if (T.v11) {                           // 1.1: the square mark of the masthead (.n-cross)
+    ctx.fillStyle = T.accent;
+    ctx.fillRect(x, y, size, size);
+    ctx.fillStyle = '#fff';
+    const cx = x + size / 2, cy = y + size / 2, arm = size * 0.59, thick = size * 0.18;
+    ctx.fillRect(cx - arm / 2, cy - thick / 2, arm, thick);
+    ctx.fillRect(cx - thick / 2, cy - arm / 2, thick, arm);
+    return;
+  }
   roundRect(ctx, x, y, size, size, size * 0.16);
-  ctx.fillStyle = RED;
+  ctx.fillStyle = T.accent;
   ctx.fill();
   ctx.fillStyle = '#fff';
   const arm = size * 0.5, thick = size * 0.14;
@@ -129,17 +161,27 @@ function newCard(height) {
   ctx.textBaseline = 'alphabetic';
   ctx.fillStyle = CARD_BG;
   ctx.fillRect(0, 0, CARD_W, height);
-  // A restrained top rule in the Swiss red.
-  ctx.fillStyle = RED;
-  ctx.fillRect(0, 0, CARD_W, 6);
+  // 1.0: a restrained top rule in the Swiss red. 1.1: the masthead's heavy
+  // black rule.
+  ctx.fillStyle = T.v11 ? T.ink : T.accent;
+  ctx.fillRect(0, 0, CARD_W, T.v11 ? 5 : 6);
   return { canvas, ctx, w: CARD_W, h: height };
 }
 
 function drawHeader(ctx) {
   const y = 44;
+  if (T.v11) {                           // 1.1: mark + nameplate, like the masthead
+    drawLogo(ctx, PAD, y + 4, 34);
+    ctx.fillStyle = T.ink;
+    ctx.font = `400 40px ${T.serif}`;
+    ctx.textBaseline = 'middle';
+    ctx.fillText('Politikch', PAD + 34 + 14, y + 22);
+    ctx.textBaseline = 'alphabetic';
+    return y + 44 + 24;
+  }
   drawLogo(ctx, PAD, y, 44);
-  ctx.fillStyle = INK;
-  ctx.font = '700 34px "Playfair Display", Georgia, serif';
+  ctx.fillStyle = T.ink;
+  ctx.font = `700 34px ${T.serif}`;
   ctx.textBaseline = 'middle';
   ctx.fillText('Politikch', PAD + 44 + 16, y + 24);
   ctx.textBaseline = 'alphabetic';
@@ -147,10 +189,35 @@ function drawHeader(ctx) {
 }
 
 function drawTitle(ctx, spec, top) {
-  ctx.fillStyle = INK;
+  if (T.v11) {                           // 1.1: section rule, kicker, headline, deck
+    ctx.fillStyle = T.ink;
+    ctx.fillRect(PAD, top, CARD_W - PAD * 2, 2);
+    let y = top + 30;
+    if (spec.kicker) {
+      ctx.fillStyle = T.accent;
+      ctx.font = `700 14px ${T.sans}`;
+      ctx.letterSpacing = '1.6px';
+      ctx.fillText(truncate(ctx, String(spec.kicker).toUpperCase(), CARD_W - PAD * 2), PAD, y);
+      ctx.letterSpacing = '0px';
+      y += 14;
+    }
+    ctx.fillStyle = T.ink;
+    ctx.font = `700 38px ${T.serif}`;
+    const lines = wrapLines(ctx, spec.title || '', CARD_W - PAD * 2, 2);
+    y += 34;
+    lines.forEach(l => { ctx.fillText(l, PAD, y); y += 44; });
+    if (spec.subtitle) {
+      ctx.fillStyle = T.mid;
+      ctx.font = `400 19px ${T.sans}`;
+      const sub = wrapLines(ctx, spec.subtitle, CARD_W - PAD * 2, 3);
+      sub.forEach(l => { ctx.fillText(l, PAD, y); y += 26; });
+    }
+    return y + 8;
+  }
+  ctx.fillStyle = T.ink;
   // Match the site's section titles exactly: Playfair Display 700, tight
   // tracking; only the size differs.
-  ctx.font = '700 40px "Playfair Display", Georgia, serif';
+  ctx.font = `700 40px ${T.serif}`;
   ctx.letterSpacing = '-1px';
   ctx.textBaseline = 'alphabetic';
   const lines = wrapLines(ctx, spec.title || '', CARD_W - PAD * 2, 2);
@@ -158,8 +225,8 @@ function drawTitle(ctx, spec, top) {
   lines.forEach(l => { ctx.fillText(l, PAD, y); y += 46; });
   ctx.letterSpacing = '0px';
   if (spec.subtitle) {
-    ctx.fillStyle = MUTED;
-    ctx.font = '300 20px "DM Sans", system-ui, sans-serif';
+    ctx.fillStyle = T.muted;
+    ctx.font = `300 20px ${T.sans}`;
     const sub = wrapLines(ctx, spec.subtitle, CARD_W - PAD * 2, 2);
     y += 4;
     sub.forEach(l => { ctx.fillText(l, PAD, y); y += 27; });
@@ -180,13 +247,13 @@ function drawFooter(ctx, h, spec) {
   const y = h - 74;
   // Source caption above the divider (the figures' official source).
   if (spec.source) {
-    ctx.fillStyle = MUTED;
-    ctx.font = '400 16px "DM Sans", system-ui, sans-serif';
+    ctx.fillStyle = T.muted;
+    ctx.font = `400 16px ${T.sans}`;
     ctx.textAlign = 'left';
     ctx.textBaseline = 'alphabetic';
     ctx.fillText(truncate(ctx, spec.source, CARD_W - PAD * 2), PAD, y - 12);
   }
-  ctx.strokeStyle = HAIR;
+  ctx.strokeStyle = T.hair;
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(PAD, y);
@@ -198,21 +265,21 @@ function drawFooter(ctx, h, spec) {
   const domain = LANG_DOMAIN[lang] || LANG_DOMAIN.en;
   ctx.textBaseline = 'middle';
   ctx.textAlign = 'left';
-  ctx.fillStyle = RED;
-  ctx.font = '700 24px "DM Sans", system-ui, sans-serif';
+  ctx.fillStyle = T.accent;
+  ctx.font = `700 24px ${T.sans}`;
   const dx = PAD + 26 + 12;
   ctx.fillText(domain, dx, y + 30);
   const route = spec.route;
   if (route) {
     const dw = ctx.measureText(domain).width;
-    ctx.fillStyle = MUTED;
-    ctx.font = '400 18px "DM Sans", system-ui, sans-serif';
+    ctx.fillStyle = T.muted;
+    ctx.font = `400 18px ${T.sans}`;
     ctx.fillText(truncate(ctx, '/#/' + route, 360), dx + dw + 10, y + 30);
   }
   // Right: independent · non-partisan mark (kept distinct from the source line).
   ctx.textAlign = 'right';
-  ctx.fillStyle = MUTED;
-  ctx.font = '400 16px "DM Sans", system-ui, sans-serif';
+  ctx.fillStyle = T.muted;
+  ctx.font = `400 16px ${T.sans}`;
   const note = _t('share.imageNote');
   ctx.fillText(note && note !== 'share.imageNote' ? note : 'Independent · non-partisan', CARD_W - PAD, y + 30);
   ctx.textAlign = 'left';
@@ -227,11 +294,10 @@ function drawLegend(ctx, items, x, top, colW, rowH) {
   items.forEach((it, i) => {
     const cx = x + col * colW;
     ctx.fillStyle = it.color;
-    ctx.beginPath();
-    ctx.arc(cx + 6, cy - 5, 6, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = INK;
-    ctx.font = '500 17px "DM Sans", system-ui, sans-serif';
+    if (T.v11) ctx.fillRect(cx, cy - 11, 12, 12);   // square swatch, like .n-legend
+    else { ctx.beginPath(); ctx.arc(cx + 6, cy - 5, 6, 0, Math.PI * 2); ctx.fill(); }
+    ctx.fillStyle = T.ink;
+    ctx.font = `500 17px ${T.sans}`;
     const valText = it.valueText || '';
     ctx.textAlign = 'right';
     const valW = valText ? ctx.measureText(valText).width : 0;
@@ -239,7 +305,7 @@ function drawLegend(ctx, items, x, top, colW, rowH) {
     const nameMax = colW - 22 - (valW ? valW + 14 : 0);
     ctx.fillText(truncate(ctx, it.label, nameMax), cx + 20, cy);
     if (valText) {
-      ctx.fillStyle = MUTED;
+      ctx.fillStyle = T.muted;
       ctx.textAlign = 'right';
       ctx.fillText(valText, cx + colW - 16, cy);
       ctx.textAlign = 'left';
@@ -260,7 +326,7 @@ function paintPie(spec) {
   const slices = (spec.slices || []).filter(s => s.value > 0);
   const total = slices.reduce((s, x) => s + x.value, 0) || 1;
   const rows = Math.max(slices.length, 1);
-  const h = Math.max(720, 300 + rows * 34 + 120) + 40;
+  const h = (Math.max(720, 300 + rows * 34 + 120) + 40) + extraH();
   const card = newCard(h);
   const ctx = card.ctx;
   const hEnd = drawHeader(ctx);
@@ -311,7 +377,7 @@ function paintPie(spec) {
     cols[side].push(m);
   });
   const pct = (f) => Math.round(f * 100) + '%';
-  ctx.font = '500 16px "DM Sans", system-ui, sans-serif';
+  ctx.font = `500 16px ${T.sans}`;
   const lineH = 40;
   ['left', 'right'].forEach(side => {
     const arr = cols[side].sort((a, b) => Math.sin(a.mid) - Math.sin(b.mid));
@@ -357,11 +423,11 @@ function paintPie(spec) {
       ctx.textAlign = side === 'right' ? 'left' : 'right';
       const tx = side === 'right' ? endX + 16 : endX - 16;
       const maxTextW = side === 'right' ? (CARD_W - PAD - tx) : (tx - PAD);
-      ctx.fillStyle = INK;
-      ctx.font = '600 17px "DM Sans", system-ui, sans-serif';
+      ctx.fillStyle = T.ink;
+      ctx.font = `600 17px ${T.sans}`;
       ctx.fillText(truncate(ctx, m.s.label, maxTextW), tx, m.y - 4);
-      ctx.fillStyle = MUTED;
-      ctx.font = '400 15px "DM Sans", system-ui, sans-serif';
+      ctx.fillStyle = T.muted;
+      ctx.font = `400 15px ${T.sans}`;
       const detail = (m.s.valueText ? m.s.valueText + ' · ' : '') + pct(m.frac);
       ctx.fillText(truncate(ctx, detail, maxTextW), tx, m.y + 15);
     });
@@ -380,7 +446,7 @@ function paintBars(spec) {
   const legend = spec.legend || [];
   const rowH = 46;
   const legendRows = Math.ceil(legend.length / 5);
-  const h = Math.max(640, 330 + legendRows * 30 + rows.length * rowH + 110);
+  const h = (Math.max(640, 330 + legendRows * 30 + rows.length * rowH + 110)) + extraH();
   const card = newCard(h);
   const ctx = card.ctx;
   const hEnd = drawHeader(ctx);
@@ -391,9 +457,10 @@ function paintBars(spec) {
     legend.forEach((it, i) => {
       const lx = PAD + (i % 5) * colW, ly = y + Math.floor(i / 5) * 30;
       ctx.fillStyle = it.color;
-      ctx.beginPath(); ctx.arc(lx + 7, ly - 6, 7, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = INK;
-      ctx.font = '600 17px "DM Sans", system-ui, sans-serif';
+      if (T.v11) ctx.fillRect(lx, ly - 13, 14, 14);
+      else { ctx.beginPath(); ctx.arc(lx + 7, ly - 6, 7, 0, Math.PI * 2); ctx.fill(); }
+      ctx.fillStyle = T.ink;
+      ctx.font = `600 17px ${T.sans}`;
       ctx.fillText(truncate(ctx, it.label, colW - 30), lx + 22, y + Math.floor(i / 5) * 30);
     });
     y += legendRows * 30 + 14;
@@ -405,23 +472,32 @@ function paintBars(spec) {
   const max = Math.max(...rows.map(r => r.value), 1);
   rows.forEach((r, i) => {
     const cy = y + i * rowH + rowH / 2;
-    ctx.fillStyle = INK;
-    ctx.font = '600 18px "DM Sans", system-ui, sans-serif';
+    ctx.fillStyle = T.ink;
+    ctx.font = `600 18px ${T.sans}`;
     ctx.textBaseline = 'middle';
     ctx.fillText(truncate(ctx, r.label, labelW), PAD, cy);
-    // track
-    ctx.fillStyle = '#f5f0e8';
-    roundRect(ctx, barX, cy - 10, barW, 20, 5); ctx.fill();
     const segs = r.segments && r.segments.length ? r.segments : [{ value: r.value, color: r.color }];
     let x = barX;
-    segs.forEach(sg => {
-      const w = Math.max(3, sg.value / max * barW);
-      ctx.fillStyle = sg.color;
-      roundRect(ctx, x, cy - 10, w, 20, 4); ctx.fill();
-      x += w + 2;
-    });
-    ctx.fillStyle = MUTED;
-    ctx.font = '500 17px "DM Sans", system-ui, sans-serif';
+    if (T.v11) {                         // 1.1: flat bars, parts side by side (.n-bar)
+      segs.forEach(sg => {
+        const w = Math.max(2, sg.value / max * barW);
+        ctx.fillStyle = sg.color;
+        ctx.fillRect(x, cy - 9, w, 18);
+        x += w + 1;
+      });
+    } else {
+      // track
+      ctx.fillStyle = '#f5f0e8';
+      roundRect(ctx, barX, cy - 10, barW, 20, 5); ctx.fill();
+      segs.forEach(sg => {
+        const w = Math.max(3, sg.value / max * barW);
+        ctx.fillStyle = sg.color;
+        roundRect(ctx, x, cy - 10, w, 20, 4); ctx.fill();
+        x += w + 2;
+      });
+    }
+    ctx.fillStyle = T.muted;
+    ctx.font = `500 17px ${T.sans}`;
     ctx.textAlign = 'right';
     ctx.fillText(r.valueText || String(r.value), CARD_W - PAD, cy);
     ctx.textAlign = 'left';
@@ -461,7 +537,7 @@ function paintHemicycle(spec) {
   const groups = (spec.seats || []).filter(g => g.seats > 0);
   const total = groups.reduce((s, g) => s + g.seats, 0) || 1;
   const legendRows = Math.ceil(groups.length / 2);
-  const h = Math.max(760, 340 + 260 + legendRows * 34 + 60) + 40;
+  const h = (Math.max(760, 340 + 260 + legendRows * 34 + 60) + 40) + extraH();
   const card = newCard(h);
   const ctx = card.ctx;
   const hEnd = drawHeader(ctx);
@@ -485,12 +561,12 @@ function paintHemicycle(spec) {
   });
   // Big total in the arc's mouth — Playfair Display 700, matching the site's
   // hemicycle total figure.
-  ctx.fillStyle = INK;
+  ctx.fillStyle = T.ink;
   ctx.textAlign = 'center';
-  ctx.font = '700 46px "Playfair Display", Georgia, serif';
+  ctx.font = `700 46px ${T.serif}`;
   ctx.fillText(String(spec.total != null ? spec.total : total), cx, cy - 14);
-  ctx.fillStyle = MUTED;
-  ctx.font = '400 17px "DM Sans", system-ui, sans-serif';
+  ctx.fillStyle = T.muted;
+  ctx.font = `400 17px ${T.sans}`;
   if (spec.totalLabel) ctx.fillText(spec.totalLabel, cx, cy + 12);
   ctx.textAlign = 'left';
 
@@ -522,7 +598,7 @@ function paintVoteHemicycle(spec) {
   const total = seatList.length || 1;
   const tal = spec.tallies || { yes: 0, no: 0, abstain: 0 };
   const legendRows = Math.ceil(groups.length / 2);
-  const h = Math.max(780, 360 + 260 + 60 + legendRows * 34 + 60) + 40;
+  const h = (Math.max(780, 360 + 260 + 60 + legendRows * 34 + 60) + 40) + extraH();
   const card = newCard(h);
   const ctx = card.ctx;
   const hEnd = drawHeader(ctx);
@@ -534,6 +610,7 @@ function paintVoteHemicycle(spec) {
   const rInner = rOuter * 0.34;
   const cy = arcTop + rOuter + 6;
   const dotR = Math.max(5, Math.min(8, 520 / total + 4));
+  if (T.v11) return paintVoteHemicycleNews(spec, card, ctx, groups, tal, cx, cy, rInner, rOuter, dotR, h);
   const seats = layoutSeats(seatList, cx, cy, rInner, rOuter, 7);
   seats.forEach(({ x, y, seat }) => {
     ctx.beginPath();
@@ -551,10 +628,10 @@ function paintVoteHemicycle(spec) {
   // Tally chips (Yes / No / Abstain) centred under the arc.
   const chips = [
     { k: 'yes', v: tal.yes, c: '#3d7a4b' },
-    { k: 'no', v: tal.no, c: RED },
-    { k: 'abstain', v: tal.abstain, c: MUTED },
+    { k: 'no', v: tal.no, c: T.accent },
+    { k: 'abstain', v: tal.abstain, c: T.muted },
   ];
-  ctx.font = '600 18px "DM Sans", system-ui, sans-serif';
+  ctx.font = `600 18px ${T.sans}`;
   // spec.labels renames Yes/No (a decree on an initiative is counted for / against it).
   const chipLabels = chips.map(c => `${(spec.labels && spec.labels[c.k]) || _t('share.vote.' + c.k)}: ${c.v}`);
   const chipW = chipLabels.map(l => ctx.measureText(l).width + 40);
@@ -589,12 +666,55 @@ function paintVoteHemicycle(spec) {
   return card.canvas;
 }
 
+// 1.1: seats in the vote's colours (purple yes / for, green no / against, white
+// abstained, grey absent), grouped by parliamentary group left to right, as in
+// "What Parliament decided"; the tally as text with coloured figures; the
+// groups listed with their yes · no · abstained.
+function paintVoteHemicycleNews(spec, card, ctx, groups, tal, cx, cy, rInner, rOuter, dotR, h) {
+  const seats = [];
+  groups.forEach(g => {
+    for (let i = 0; i < (g.yes || 0); i++) seats.push('yes');
+    for (let i = 0; i < (g.abstain || 0); i++) seats.push('abs');
+    for (let i = 0; i < (g.no || 0); i++) seats.push('no');
+  });
+  const house = Math.max(200, seats.length);
+  while (seats.length < house) seats.push('absent');
+  const r = Math.max(4.5, Math.min(7, 460 / house + 3.5));
+  layoutSeats(seats, cx, cy, rInner, rOuter, 8).forEach(({ x, y, seat }) => {
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle = seat === 'yes' ? T.yes : seat === 'no' ? T.no : seat === 'absent' ? T.absent : '#fff';
+    ctx.fill();
+    if (seat === 'abs') { ctx.lineWidth = 1.2; ctx.strokeStyle = T.abst; ctx.stroke(); }
+  });
+  const lbl = (k) => (spec.labels && spec.labels[k]) || _t('share.vote.' + k);
+  const parts = [[tal.yes, lbl('yes'), T.yes], [tal.no, lbl('no'), T.no], [tal.abstain, lbl('abstain'), T.ink]];
+  ctx.textBaseline = 'alphabetic';
+  let width = 0;
+  const gap = 34;
+  parts.forEach(([n, l]) => { ctx.font = `700 30px ${T.serif}`; width += ctx.measureText(String(n)).width + 8; ctx.font = `400 18px ${T.sans}`; width += ctx.measureText(l).width + gap; });
+  let x = cx - (width - gap) / 2;
+  const ty = cy + 48;
+  parts.forEach(([n, l, c]) => {
+    ctx.fillStyle = c; ctx.font = `700 30px ${T.serif}`; ctx.fillText(String(n), x, ty); x += ctx.measureText(String(n)).width + 8;
+    ctx.fillStyle = T.ink; ctx.font = `400 18px ${T.sans}`; ctx.fillText(l, x, ty); x += ctx.measureText(l).width + gap;
+  });
+  const items = groups.filter(g => (g.yes + g.no + g.abstain) > 0).map(g => ({ label: g.label, color: g.color, valueText: `${g.yes} · ${g.no} · ${g.abstain}` }));
+  const legTop = ty + 58;
+  const colW = (CARD_W - PAD * 2) / 2;
+  const half = Math.ceil(items.length / 2);
+  drawLegend(ctx, items.slice(0, half), PAD, legTop, colW, 34);
+  drawLegend(ctx, items.slice(half), PAD + colW, legTop, colW, 34);
+  drawFooter(ctx, h, spec);
+  return card.canvas;
+}
+
 // SPECTRUM: the two-axis political-landscape scatter (home "Where the parties
 // stand", and a vote's endorsement scale). Dots may be highlighted (on) or
 // greyed (off); an optional marker shows a coalition's average position.
 function paintSpectrum(spec) {
   const dots = spec.dots || [];
-  const h = 940;
+  const h = (940) + extraH();
   const card = newCard(h);
   const ctx = card.ctx;
   const hEnd = drawHeader(ctx);
@@ -603,15 +723,16 @@ function paintSpectrum(spec) {
   // Every share image is light (all-white card), so the spectrum plot is drawn
   // on white with a hairline frame regardless of where it appears on the site.
   const panel = '#ffffff';
-  const frame = HAIR;
+  const frame = T.hair;
   const axisCol = 'rgba(0,0,0,0.10)';
-  const axisLabel = MUTED;
+  const axisLabel = T.muted;
   const ringCol = '#ffffff';
 
   const size = Math.min(560, h - contentTop - 150);
   const plotX = (CARD_W - size) / 2;
   const plotY = contentTop + 30;
   const axes = spec.axes || {};
+  if (T.v11) return paintSpectrumNews(spec, card, ctx, dots, axes, plotX, plotY, size, h);
   // Plot panel (rounded, like .spectrum-chart-inner)
   roundRect(ctx, plotX, plotY, size, size, 14);
   ctx.fillStyle = panel;
@@ -628,7 +749,7 @@ function paintSpectrum(spec) {
   ctx.stroke();
   // Axis labels — uppercase + tracking, like .axis-label
   ctx.fillStyle = axisLabel;
-  ctx.font = '600 14px "DM Sans", system-ui, sans-serif';
+  ctx.font = `600 14px ${T.sans}`;
   ctx.letterSpacing = '1.5px';
   ctx.textBaseline = 'middle';
   const up = (s) => String(s || '').toUpperCase();
@@ -647,7 +768,7 @@ function paintSpectrum(spec) {
   // Optional average marker + leader to a callout
   if (spec.marker) {
     const mx = px(spec.marker.x), my = plotY + (spec.marker.y / 100) * size;
-    const mCol = INK;
+    const mCol = T.ink;
     ctx.strokeStyle = mCol;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -660,7 +781,7 @@ function paintSpectrum(spec) {
     ctx.beginPath();
     ctx.arc(mx, my, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.font = '700 15px "DM Sans", system-ui, sans-serif';
+    ctx.font = `700 15px ${T.sans}`;
     ctx.textAlign = left ? 'left' : 'right';
     ctx.textBaseline = 'middle';
     ctx.fillText(spec.marker.label, left ? plotX + 12 : plotX + size - 12, plotY + 18);
@@ -681,7 +802,7 @@ function paintSpectrum(spec) {
     if (on) { ctx.shadowColor = 'rgba(0,0,0,0.30)'; ctx.shadowBlur = 12; ctx.shadowOffsetY = 4; }
     ctx.beginPath();
     ctx.arc(x, y, rr, 0, Math.PI * 2);
-    ctx.fillStyle = on ? (d.color || RED) : '#d9d6ce';
+    ctx.fillStyle = on ? (d.color || T.accent) : '#d9d6ce';
     ctx.fill();
     ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
     // white ring
@@ -689,12 +810,75 @@ function paintSpectrum(spec) {
     ctx.strokeStyle = on ? ringCol : 'rgba(0,0,0,0.06)';
     ctx.stroke();
     ctx.fillStyle = on ? '#fff' : '#8b8f93';
-    ctx.font = `700 ${Math.round(rr * 0.82)}px "DM Sans", system-ui, sans-serif`;
+    ctx.font = `700 ${Math.round(rr * 0.82)}px ${T.sans}`;
     ctx.fillText((d.label || '').slice(0, 3).toUpperCase(), x, y + rr * 0.06);
   });
   ctx.textAlign = 'left';
   ctx.textBaseline = 'alphabetic';
 
+  drawFooter(ctx, h, spec);
+  return card.canvas;
+}
+
+// 1.1: as "Where the parties stand" on the site — thin axes, quiet axis labels,
+// every party the same size with its short name beside it (placed where it
+// overlaps nothing); parties not highlighted in grey; optional average marker.
+function paintSpectrumNews(spec, card, ctx, dots, axes, plotX, plotY, size, h) {
+  const px = (v) => plotX + (v / 100) * size;
+  const py = (v) => plotY + ((100 - v) / 100) * size;
+  ctx.strokeStyle = T.hair; ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(plotX - 20, plotY + size / 2); ctx.lineTo(plotX + size + 20, plotY + size / 2);
+  ctx.moveTo(plotX + size / 2, plotY - 10); ctx.lineTo(plotX + size / 2, plotY + size + 10);
+  ctx.stroke();
+  ctx.fillStyle = T.muted; ctx.font = `400 17px ${T.sans}`;
+  ctx.textAlign = 'left'; if (axes.left) ctx.fillText(axes.left, plotX - 18, plotY + size / 2 - 10);
+  ctx.textAlign = 'right'; if (axes.right) ctx.fillText(axes.right, plotX + size + 18, plotY + size / 2 - 10);
+  ctx.textAlign = 'left';
+  if (axes.top) ctx.fillText(axes.top, plotX + size / 2 + 10, plotY + 4);
+  if (axes.bottom) ctx.fillText(axes.bottom, plotX + size / 2 + 10, plotY + size + 2);
+  const R = 12;
+  const boxes = dots.map(d => ({ x0: px(d.x) - R, x1: px(d.x) + R, y0: py(d.y) - R, y1: py(d.y) + R }));
+  const hit = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
+  const placed = [];
+  const order = dots.slice().sort((a, b) => (a.on === b.on) ? 0 : (a.on === false ? -1 : 1));
+  order.forEach(d => {
+    const x = px(d.x), y = py(d.y), on = d.on !== false;
+    ctx.beginPath(); ctx.arc(x, y, R, 0, Math.PI * 2);
+    ctx.fillStyle = on ? (d.color || T.accent) : '#d9d6ce'; ctx.fill();
+  });
+  if (spec.marker) {
+    const mx = px(spec.marker.x), my = plotY + (spec.marker.y / 100) * size, left = spec.marker.x < 50;
+    ctx.strokeStyle = T.ink; ctx.lineWidth = 1.2; ctx.setLineDash([4, 4]);
+    ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(left ? plotX + 6 : plotX + size - 6, plotY + 28); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = T.ink; ctx.beginPath(); ctx.arc(mx, my, 5, 0, Math.PI * 2); ctx.fill();
+    ctx.font = `700 17px ${T.sans}`; ctx.textAlign = left ? 'left' : 'right';
+    ctx.fillText(spec.marker.label, left ? plotX + 12 : plotX + size - 12, plotY + 22);
+    ctx.textAlign = 'left';
+  }
+  ctx.font = `600 17px ${T.sans}`;
+  ctx.textBaseline = 'middle';
+  order.forEach(d => {
+    const x = px(d.x), y = py(d.y), w = ctx.measureText(d.label || '').width;
+    const cands = [[R + 6, 0, 'left'], [-R - 6, 0, 'right'], [0, -R - 12, 'center'], [0, R + 12, 'center'],
+      [R + 4, -R - 4, 'left'], [R + 4, R + 4, 'left'], [-R - 4, -R - 4, 'right'], [-R - 4, R + 4, 'right']];
+    let best = null, bestScore = Infinity;
+    cands.forEach(([dx, dy, a]) => {
+      const tx = x + dx, x0 = a === 'left' ? tx : a === 'right' ? tx - w : tx - w / 2;
+      const b = { x0, x1: x0 + w, y0: y + dy - 10, y1: y + dy + 10 };
+      let sc = 0;
+      placed.forEach(o => { if (hit(b, o)) sc += 10; });
+      boxes.forEach((o, i) => { if (dots[i] !== d && hit(b, o)) sc += 10; });
+      if (sc < bestScore) { bestScore = sc; best = { tx, ty: y + dy, a, b }; }
+    });
+    placed.push(best.b);
+    ctx.textAlign = best.a;
+    ctx.lineWidth = 5; ctx.strokeStyle = '#fff'; ctx.lineJoin = 'round';
+    ctx.strokeText(d.label || '', best.tx, best.ty);
+    ctx.fillStyle = d.on === false ? T.muted : T.ink;
+    ctx.fillText(d.label || '', best.tx, best.ty);
+  });
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
   drawFooter(ctx, h, spec);
   return card.canvas;
 }
@@ -709,6 +893,7 @@ const PAINTERS = {
 };
 
 async function renderCard(spec) {
+  pickTheme();
   await ensureFonts();
   const painter = PAINTERS[spec.kind];
   if (!painter) return null;
