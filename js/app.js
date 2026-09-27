@@ -3,7 +3,7 @@ import { configureShare, wireShares, mountShare } from './share.js?v=20260925a';
 import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260925a';
 import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260925a';
 import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260925a';
-import { configureNews, newsActive, mountNewsChrome, renderNewsChrome, renderNewsHome, relayoutNews, renderSpotlightPage, renderAssemblyPage, renderNewsProfile } from './news.js?v=20260925a';
+import { configureNews, newsActive, mountNewsChrome, renderNewsChrome, renderNewsHome, relayoutNews, renderSpotlightPage, renderAssemblyPage, renderNewsProfile, rmNotice } from './news.js?v=20260925a';
 
 /* ============================================================
    State
@@ -843,6 +843,7 @@ function applyStaticTranslations() {
 
 function setLang(lang) {
   if (!SUPPORTED_LANGS.includes(lang)) lang = 'en';
+  const prev = state.lang;
   state.lang = lang;
   try { localStorage.setItem('politikch-lang', lang); } catch (e) { /* ignore */ }
   document.querySelectorAll('.lang-btn').forEach(b => {
@@ -867,7 +868,7 @@ function setLang(lang) {
   if (route.view === 'about') renderAboutPage();
   if (route.view === 'subscribe') renderSubscribePage();
   if (route.view === 'profile') renderProfilePage();
-  if (newsActive()) { renderNewsChrome(); renderNewsHome(); if (route.view === 'cantons') renderSpotlightPage(route.id); if (route.view === 'assembly') renderAssemblyPage(route.id); }
+  if (newsActive()) { renderNewsChrome(); renderNewsHome(); if (route.view === 'cantons') renderSpotlightPage(route.id); if (route.view === 'assembly') renderAssemblyPage(route.id); rmNotice(prev); }
   refreshGlossaryLabels();
 }
 
@@ -4108,6 +4109,7 @@ async function init() {
     document.getElementById('ballots-slot').appendChild(document.getElementById('initiatives'));
     renderNewsChrome();
     renderNewsHome();
+    rmNotice(null);
   }
   applyStaticTranslations();
   document.querySelectorAll('.lang-btn').forEach(b => {

@@ -273,6 +273,30 @@ function renderFooter(model) {
     `<div class="n-fbase"><span>${escapeAttr(t('news.copy'))}</span><span class="n-langs">` + langButtons() + '</span></div></div>';
 }
 
+/* Romansh notice: long official texts and the legal pages have no Romansh
+   version, so opening the site in Romansh says so, in Romansh and in the
+   language the visitor came from (German when there was none). Nothing is
+   stored: it shows each time Romansh is opened, until closed. */
+export function rmNotice(prev) {
+  const old = document.getElementById('n-rmnote');
+  if (lang() !== 'rm') { if (old) old.remove(); return; }
+  if (prev === 'rm') return;                         // re-render in Romansh: keep it as it is
+  const other = prev && prev !== 'rm' ? prev : 'de';
+  const say = (l, k) => (C.state.data.i18n[l] || {})[k] || t(k);
+  const box = document.createElement('div');
+  box.id = 'n-rmnote'; box.className = 'n-rmnote'; box.setAttribute('role', 'status');
+  [['rm', say('rm', 'news.rmNotice')], [other, say(other, 'news.rmNotice')]].forEach(([l, text]) => {
+    const para = document.createElement('p'); para.lang = l; para.textContent = text; box.appendChild(para);
+  });
+  const close = document.createElement('button');
+  close.type = 'button'; close.className = 'n-rmnote-x'; close.textContent = '×';
+  close.setAttribute('aria-label', t('news.close'));
+  close.addEventListener('click', () => box.remove());
+  box.appendChild(close);
+  if (old) old.replaceWith(box);
+  else document.getElementById('n-ticker').insertAdjacentElement('afterend', box);
+}
+
 /* ============================================================
    Front page
    ============================================================ */
@@ -289,7 +313,7 @@ function hemicycle(dots, rows, label) {
   radii.forEach((r, ri) => { for (let j = 0; j < per[ri]; j++) pts.push([Math.PI - Math.PI * (per[ri] > 1 ? j / (per[ri] - 1) : 0.5), r]); });
   pts.sort((a, b) => (b[0] - a[0]) || (a[1] - b[1]));
   const rad = rows > 1 ? Math.min(6.2, (R - r0) / (rows - 1) * 0.42) : 13;
-  const vb = rows > 1 ? '0 0 220 118' : '25 20 170 100';
+  const vb = rows > 1 ? '0 0 220 118' : '25 20 170 103';
   return `<svg class="n-chart" viewBox="${escapeAttr(vb)}" role="img" aria-label="${escapeAttr(label)}">` +
     pts.map(([a, r], i) => {
       const d = dots[i]; if (!d) return '';
@@ -355,28 +379,6 @@ function moneyFig(i) {
     `<p class="n-src">${escapeAttr(t('news.money.src'))}</p></div>`;
 }
 
-function recsFig(i) {
-  const rec = i.recommendations || {};
-  const head = `<div class="n-k">${escapeAttr(t('news.rec.k'))}</div>`;
-  if (!Object.keys(rec).length) return '<div class="n-fig">' + head + `<p class="n-empty">${escapeAttr(t('news.rec.empty'))}</p></div>`;
-  const groups = { yes: [], no: [], none: [] };
-  partyOrder().forEach(k => groups[rec[k] === 'yes' || rec[k] === 'no' ? rec[k] : 'none'].push(k));
-  const seats = {};
-  Object.keys(groups).forEach(g => { seats[g] = groups[g].reduce((s, k) => s + (party(k).ncSeats || 0), 0); });
-  const segs = [['yes', t('news.yes'), YES], ['no', t('news.no'), NO], ['none', t('news.rec.none'), '']].filter(s => seats[s[0]]);
-  const bar = segs.map(([g, label, col]) =>
-    `<span class="${escapeAttr(g === 'none' ? 'n-none' : '')}" data-k="r-${escapeAttr(g)}" data-ntip="${escapeAttr(tf('news.rec.tip', { label, n: seats[g] }))}" style="flex:${escapeAttr(seats[g])};${escapeAttr(col ? 'background:' + col : '')}">${escapeAttr(label + ' · ' + seats[g])}</span>`).join('');
-  const names = segs.map(([g]) => `<span class="n-grp" style="flex:${escapeAttr(seats[g])}">` +
-    groups[g].map(k => `<a href="#/party/${escapeAttr(k)}" data-k="r-${escapeAttr(g)}" data-ntip="${escapeAttr(pName(k) + ' · ' + tf('news.seats', { n: party(k).ncSeats || 0 }))}">${escapeAttr(pShort(k))}</a>`).join(' ') + '</span>').join('');
-  const zero = [];
-  if (!seats.yes) zero.push(t('news.rec.noYes'));
-  if (!seats.no) zero.push(t('news.rec.noNo'));
-  return '<div class="n-fig" data-hl>' + head + `<h4 class="n-ft">${escapeAttr(t('news.rec.h'))}</h4>` +
-    '<div class="n-bar tall labelled">' + bar + '</div><div class="n-names n-meta">' + names + '</div>' +
-    (zero.length ? `<p class="n-meta">${escapeAttr(zero.join(' · '))}</p>` : '') +
-    `<p class="n-src">${escapeAttr(t('news.rec.src'))}</p></div>`;
-}
-
 function parlFig(i, files) {
   const link = (SETTINGS().parliamentLinks || {})[i.id];
   const file = link && files[link.session];
@@ -417,8 +419,8 @@ function stories(nb, files) {
     out.push(`<article class="n-blk n-story${escapeAttr(n === 0 ? ' lead' : '')}"><div class="n-kicker">${escapeAttr(t('news.tick.vote') + ' · ' + longDate(i.voteDate) + ' · ' + inDays(d))} <span class="n-dim">· ${escapeAttr(kind)}</span></div>` +
       `<h2 class="n-hl${escapeAttr(C.initTitlePlain(i).length > 70 ? ' long' : '')}"><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h2>' + storyImage(i, n) + '</article>');
     out.push('<div class="n-blk n-part">' + moneyFig(i) + '</div>');
-    out.push('<div class="n-blk n-part">' + recsFig(i) + '</div>');
-    out.push('<div class="n-blk n-part end">' + parlFig(i, files) +
+    const parl = parlFig(i, files);
+    out.push('<div class="n-blk n-part end">' + (parl ? '<div class="n-no-phone">' + parl + '</div>' : '') +
       `<a class="n-more" href="#/initiative/${escapeAttr(i.id)}">${escapeAttr(t('news.more'))}</a></div>`);
   });
   out.push(`<p class="n-blk n-rule-note">${escapeAttr(t('news.order'))} <a href="#/page/methodology">${escapeAttr(t('news.orderLink'))}</a></p>`);
@@ -438,6 +440,19 @@ function leftBlocks(files, last) {
       `<h3 class="n-mh"><a href="#/session/${escapeAttr(cur.id)}">${escapeAttr(C.sessionName(cur))}</a>` + liveDot(true) + '</h3>' +
       `<div class="n-bar"><span style="flex:${escapeAttr(done)};background:var(--n-ink)"></span><span style="flex:${escapeAttr(total - done)};background:var(--n-rule-c)"></span></div>` +
       `<p class="n-meta">${escapeAttr(shortDate(cur.start) + ' – ' + shortDate(cur.end) + ' · ' + tf('news.now.week', { w: week, total: weeks, date: shortDate(cur.end) }))}</p></section>`);
+  }
+
+  const dec = decided().slice(0, 5);
+  if (dec.length) {
+    out.push(`<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.res.k'))}</div><ul class="n-list">` +
+      dec.map(i => {
+        const m = /([\d.]+)% (yes|no)/.exec((i.outcome && i.outcome.en) || '');
+        const yes = m ? (m[2] === 'yes' ? Number(m[1]) : 100 - Number(m[1])) : null;
+        const bar = yes === null ? '' : `<div class="n-bar"><span style="flex:${escapeAttr(yes.toFixed(1))};background:${escapeAttr(YES)}" data-ntip="${escapeAttr(num(yes) + '% ' + t('news.tally.yes'))}"></span><span style="flex:${escapeAttr((100 - yes).toFixed(1))};background:${escapeAttr(NO)}" data-ntip="${escapeAttr(num(100 - yes) + '% ' + t('news.tally.no'))}"></span></div>`;
+        const date = voteDateOf(i.id);
+        return `<li class="n-row" data-href="#/initiative/${escapeAttr(i.id)}"><h4 class="n-clamp"><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h4>' + bar +
+          `<p class="n-meta">${escapeAttr(C.localized(i.outcome) + (date ? ' · ' + longDate(date) : ''))}</p></li>`;
+      }).join('') + `</ul><a class="n-more" href="#/ballots/decided">${escapeAttr(t('news.res.all'))}</a></section>`);
   }
 
   if (last && files[last.id]) {
@@ -460,19 +475,6 @@ function leftBlocks(files, last) {
       coll.slice(0, 5).map(i => `<li class="n-row" data-href="#/initiative/${escapeAttr(i.id)}"><h4><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h4>' +
         `<p class="n-meta">${escapeAttr(tf('news.sig.row', { date: longDate(i.deadline), left: daysLeft(dayDiff(i.deadline)) }))}</p></li>`).join('') +
       `</ul><a class="n-more" href="#/ballots/collecting">${escapeAttr(tf('news.sig.all', { n: coll.length }))}</a></section>`);
-  }
-
-  const dec = decided().slice(0, 5);
-  if (dec.length) {
-    out.push(`<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.res.k'))}</div><ul class="n-list">` +
-      dec.map(i => {
-        const m = /([\d.]+)% (yes|no)/.exec((i.outcome && i.outcome.en) || '');
-        const yes = m ? (m[2] === 'yes' ? Number(m[1]) : 100 - Number(m[1])) : null;
-        const bar = yes === null ? '' : `<div class="n-bar"><span style="flex:${escapeAttr(yes.toFixed(1))};background:${escapeAttr(YES)}" data-ntip="${escapeAttr(num(yes) + '% ' + t('news.tally.yes'))}"></span><span style="flex:${escapeAttr((100 - yes).toFixed(1))};background:${escapeAttr(NO)}" data-ntip="${escapeAttr(num(100 - yes) + '% ' + t('news.tally.no'))}"></span></div>`;
-        const date = voteDateOf(i.id);
-        return `<li class="n-row" data-href="#/initiative/${escapeAttr(i.id)}"><h4 class="n-clamp"><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h4>' + bar +
-          `<p class="n-meta">${escapeAttr(C.localized(i.outcome) + (date ? ' · ' + longDate(date) : ''))}</p></li>`;
-      }).join('') + `</ul><a class="n-more" href="#/ballots/decided">${escapeAttr(t('news.res.all'))}</a></section>`);
   }
 
   const dates = [];
@@ -555,9 +557,11 @@ function rightBlocks() {
 /* Party spectrum: traditional at the top, as on the rest of the site; all dots
    the same size. Labels are placed one by one in the first free spot around
    their dot, so they never overlap each other or another party's dot.
-   opts.you = {x, y} adds the visitor's own position (profile page). */
+   opts.you = {x, y} adds the visitor's own position (profile page): a black
+   ring with a white centre. opts.empty draws the bare axes with a question mark
+   and opts.empty as its caption (profile page, before enough votes). */
 function spectrumSVG(opts) {
-  const order = partyOrder();
+  const order = opts.empty ? [] : partyOrder();
   const X = v => 20 + v * 1.8, Y = v => 180 - v * 1.6;
   const pts = order.map(k => { const sp = party(k).spectrum || { x: 50, y: 50 }; return { k, x: X(sp.x), y: Y(sp.y), label: pShort(k) }; });
   const boxes = [];
@@ -588,17 +592,25 @@ function spectrumSVG(opts) {
       `<text x="${escapeAttr(L.tx.toFixed(0))}" y="${escapeAttr(L.ty.toFixed(0))}" text-anchor="${escapeAttr(L.a)}" class="n-sl">${escapeAttr(p.label)}</text></a>`;
   }).join('');
   const you = opts.you
-    ? `<g class="n-you"><circle cx="${escapeAttr(X(opts.you.x).toFixed(1))}" cy="${escapeAttr(Y(opts.you.y).toFixed(1))}" r="7" fill="#161616" stroke="#fff" stroke-width="2"/>` +
+    ? `<g class="n-you"><circle cx="${escapeAttr(X(opts.you.x).toFixed(1))}" cy="${escapeAttr(Y(opts.you.y).toFixed(1))}" r="7.5" fill="#161616" stroke="#fff" stroke-width="1.5"/>` +
+      `<circle cx="${escapeAttr(X(opts.you.x).toFixed(1))}" cy="${escapeAttr(Y(opts.you.y).toFixed(1))}" r="3" fill="#fff"/>` +
       `<text x="${escapeAttr(X(opts.you.x).toFixed(1))}" y="${escapeAttr((Y(opts.you.y) - 11).toFixed(1))}" text-anchor="middle" class="n-sl n-you-l">${escapeAttr(t('profile.you'))}</text></g>`
     : '';
   return `<svg class="n-chart n-spec${escapeAttr(opts.big ? ' big' : '')}" viewBox="0 0 220 200" role="group" aria-label="${escapeAttr(opts.aria || t('spec.title'))}"><line x1="110" y1="14" x2="110" y2="186" class="n-ax"/><line x1="14" y1="100" x2="206" y2="100" class="n-ax"/>` +
     `<text x="16" y="96" class="n-al">${escapeAttr(t('spec.axisLeft'))}</text><text x="204" y="96" class="n-al" text-anchor="end">${escapeAttr(t('spec.axisRight'))}</text>` +
-    `<text x="114" y="20" class="n-al">${escapeAttr(t('spec.axisTop'))}</text><text x="114" y="194" class="n-al">${escapeAttr(t('spec.axisBottom'))}</text>` + marks + you + '</svg>';
+    `<text x="114" y="20" class="n-al">${escapeAttr(t('spec.axisTop'))}</text><text x="114" y="194" class="n-al">${escapeAttr(t('spec.axisBottom'))}</text>` + marks + you +
+    (opts.empty ? `<g class="n-spec-q"><circle cx="110" cy="100" r="17"/><text x="110" y="109" text-anchor="middle" class="n-q">?</text>` +
+      `<text x="110" y="136" text-anchor="middle" class="n-sl n-q-l">${escapeAttr(opts.empty)}</text></g>` : '') + '</svg>';
 }
 
-/* Canton initials for the big map. The stylised shapes overlap in a few places
-   (Basel, Appenzell), so labels are placed largest canton first; a label that
-   would collide moves to the nearest free spot and gets a thin leader line. */
+/* Canton initials for the big map. The stylised shapes overlap in a few places,
+   so labels are placed largest canton first; a label that would collide moves
+   to the nearest free spot and gets a thin leader line. The smallest cantons
+   squeezed inside a neighbour (Basel-Stadt, both Appenzells) carry no initials —
+   their name shows on hover and in the spotlight — and Glarus, which sits under
+   the edge of Graubünden, is labelled in the open space above it. */
+const LABEL_SKIP = ['BS', 'AR', 'AI'];
+const LABEL_AT = { GL: [632, 226] };
 function cantonLabels() {
   const area = d => {
     const n = (d.match(/-?\d+(\.\d+)?/g) || []).map(Number);
@@ -606,14 +618,18 @@ function cantonLabels() {
     for (let i = 0; i + 3 < n.length + 2; i += 2) { const j = (i + 2) % n.length; a += n[i] * n[j + 1] - n[j] * n[i + 1]; }
     return Math.abs(a / 2);
   };
-  const codes = Object.keys(MAP_PATHS).filter(c => MAP_PATHS[c].c).sort((a, b) => area(MAP_PATHS[b].d) - area(MAP_PATHS[a].d));
+  const codes = Object.keys(MAP_PATHS).filter(c => MAP_PATHS[c].c && !LABEL_SKIP.includes(c)).sort((a, b) => area(MAP_PATHS[b].d) - area(MAP_PATHS[a].d));
   const placed = [];
   const hit = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
   const offsets = [[0, 0], [0, -14], [0, 14], [18, 0], [-18, 0], [18, -12], [-18, -12], [18, 12], [-18, 12], [0, -26], [0, 26], [30, 0], [-30, 0]];
   return codes.map(c => {
     const [cx, cy] = MAP_PATHS[c].c;
     let pos = offsets[0], box = null;
-    for (const o of offsets) {
+    if (LABEL_AT[c]) {
+      pos = [LABEL_AT[c][0] - cx, LABEL_AT[c][1] - cy];
+      box = { x0: cx + pos[0] - 10, x1: cx + pos[0] + 10, y0: cy + pos[1] - 7, y1: cy + pos[1] + 6 };
+    }
+    for (const o of (box ? [] : offsets)) {
       const b = { x0: cx + o[0] - 10, x1: cx + o[0] + 10, y0: cy + o[1] - 7, y1: cy + o[1] + 6 };
       if (!placed.some(p => hit(b, p))) { pos = o; box = b; break; }
     }
@@ -621,7 +637,7 @@ function cantonLabels() {
     placed.push(box);
     const tx = cx + pos[0], ty = cy + pos[1];
     const lead = (pos[0] || pos[1]) ? `<line class="n-ml-l" x1="${escapeAttr(cx)}" y1="${escapeAttr(cy)}" x2="${escapeAttr(tx)}" y2="${escapeAttr(ty - 3)}"/>` : '';
-    return lead + `<text class="n-ml" data-c="${escapeAttr(c)}" x="${escapeAttr(tx)}" y="${escapeAttr(ty + 4)}" text-anchor="middle">${escapeAttr(c)}</text>`;
+    return lead + `<text class="n-ml${escapeAttr(LABEL_AT[c] ? ' out' : '')}" data-c="${escapeAttr(c)}" x="${escapeAttr(tx)}" y="${escapeAttr(ty + 4)}" text-anchor="middle">${escapeAttr(c)}</text>`;
   }).join('');
 }
 
@@ -987,34 +1003,39 @@ export function renderNewsProfile() {
   if (!el) return;
   const d = C.computeMyLeaning();
   const min = C.profileMin;
+  const ready = d.sessN >= min;
+  const need = tf('profile.graphNeedMore', { min, n: d.sessN });
+  // The spectrum always shows: empty, with a question mark and the number of
+  // session votes it needs, until there are enough votes behind a position.
+  const spectrum = `<section class="n-mod" data-hl><div class="n-k">${escapeAttr(t('profile.spectrumTitle'))}</div>` +
+    (ready && d.point
+      ? spectrumSVG({ you: d.point, aria: t('profile.spectrumAria') }) + `<p class="n-meta">${escapeAttr(t('profile.spectrumDesc'))}</p>`
+      : spectrumSVG({ empty: tf('profile.spectrumQ', { min }), aria: t('profile.spectrumAria') }) +
+        (ready || !d.count ? `<p class="n-meta">${escapeAttr(ready ? t('profile.spectrumNeedMore') : need)}</p>` : '')) + '</section>';
   if (!d.count) {
     el.innerHTML = `<div class="n-prof"><p class="n-lead">${escapeAttr(t('profile.empty'))}</p>` +
-      `<p class="n-meta">${escapeAttr(tf('profile.graphNeedMore', { min, n: 0 }))}</p>` +
+      '<div class="n-prof-grid">' + spectrum + '</div>' +
       `<p><a class="n-more" href="#/sessions">${escapeAttr(t('profile.emptySessions'))} →</a> &nbsp; <a class="n-more" href="#/ballots/upcoming">${escapeAttr(t('profile.emptyVotes'))} →</a></p></div>`;
     return;
   }
   const closest = d.partyRanking[0];
-  const ready = d.sessN >= min;
   const stat = (n, label) => `<div><b>${escapeAttr(n)}</b><span>${escapeAttr(label)}</span></div>`;
   const align = d.partyRanking.length
     ? '<ul class="n-hbars">' + d.partyRanking.map(r => `<li><a href="#/party/${escapeAttr(r.key)}" data-k="p-${escapeAttr(r.key)}" data-ntip="${escapeAttr(pName(r.key) + ' · ' + r.pct + '%')}"><span class="n">${escapeAttr(pShort(r.key))}</span>` +
       `<span class="b"><i style="width:${escapeAttr(r.pct)}%;background:${escapeAttr(pColor(r.key))}"></i></span><span class="v">${escapeAttr(r.pct)}%</span></a></li>`).join('') + '</ul>'
     : `<p class="n-meta">${escapeAttr(t('profile.alignNeedMore'))}</p>`;
-  const charts = ready
-    ? '<div class="n-prof-grid">' +
-      `<section class="n-mod" data-hl><div class="n-k">${escapeAttr(t('profile.alignTitle'))}</div>` +
+  const alignment = ready
+    ? `<section class="n-mod" data-hl><div class="n-k">${escapeAttr(t('profile.alignTitle'))}</div>` +
       (closest ? `<h3 class="n-mh">${escapeAttr(tf('profile.closest', { party: pShort(closest.key), pct: closest.pct }))}</h3>` : '') +
-      `<p class="n-meta">${escapeAttr(t('profile.alignNote'))}</p>` + align + '</section>' +
-      `<section class="n-mod" data-hl><div class="n-k">${escapeAttr(t('profile.spectrumTitle'))}</div>` + spectrumSVG({ you: d.point, aria: t('profile.spectrumAria') }) +
-      `<p class="n-meta">${escapeAttr(t(d.point ? 'profile.spectrumDesc' : 'profile.spectrumNeedMore'))}</p></section></div>`
-    : `<section class="n-mod"><div class="n-k">${escapeAttr(t('profile.alignTitle'))}</div><p class="n-meta">${escapeAttr(tf('profile.graphNeedMore', { min, n: d.sessN }))}</p>` +
+      `<p class="n-meta">${escapeAttr(t('profile.alignNote'))}</p>` + align + '</section>'
+    : `<section class="n-mod"><div class="n-k">${escapeAttr(t('profile.alignTitle'))}</div><p class="n-meta">${escapeAttr(need)}</p>` +
       `<a class="n-more" href="#/sessions">${escapeAttr(t('profile.enrichBrowse'))} →</a></section>`;
   const topics = d.topics.length
     ? '<ul class="n-plain">' + d.topics.map(x => `<li>${escapeAttr(t('session.topic.' + x.k))}<span>${escapeAttr(x.n)}</span></li>`).join('') + '</ul>'
     : `<p class="n-meta">${escapeAttr(t('profile.topicsEmpty'))}</p>`;
   el.innerHTML = `<div class="n-prof"><p class="n-lead">${escapeAttr(t('profile.lead'))}</p><p class="n-meta">${escapeAttr(t('profile.privacyNote'))}</p>` +
     '<div class="n-stats">' + stat(d.count, t('profile.statTotal')) + stat(d.sessN, t('profile.statSessions')) + stat(d.yesN + ' / ' + d.noN, t('profile.statYesNo')) + stat(d.initN, t('profile.statInitiatives')) + '</div>' +
-    charts +
+    '<div class="n-prof-grid">' + alignment + spectrum + '</div>' +
     `<section class="n-mod"><div class="n-k">${escapeAttr(t('profile.priorTitle'))}</div><p class="n-meta">${escapeAttr(t('profile.priorDesc'))}</p>` + topics + '</section>' +
     `<section class="n-mod"><div class="n-k">${escapeAttr(t('profile.enrichTitle'))}</div><p class="n-meta">${escapeAttr(t('profile.enrichDesc'))} <a href="#/sessions">${escapeAttr(t('profile.enrichBrowse'))} →</a></p>` +
     '<div class="enrich-list" id="profile-enrich"></div></section></div>';
