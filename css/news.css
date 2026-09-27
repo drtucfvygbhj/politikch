@@ -503,3 +503,16 @@ html[data-design="1.1"] .votes-open-btn { border-radius: 2px !important; }
 
 /* ---- centre column on phones: campaign money only ---- */
 @media (max-width: 600px) { .n-no-phone { display: none; } }
+
+/* ---- columns: a shorter column stops at its end (top set in news.js) ---- */
+.n-stick { position: sticky; }
+
+/* ---- Live row: a finger drags it sideways; vertical swipes still scroll the page ---- */
+.n-tv { touch-action: pan-y; }
+
+/* ---- share buttons on 1.1 graphs: small square at the top right ---- */
+html[data-design="1.1"] .share-btn { top: 6px; right: 0; width: 28px; height: 28px; border-color: var(--n-rule-c); background: #fff; color: var(--n-mid); backdrop-filter: none; }
+html[data-design="1.1"] .share-btn:hover, html[data-design="1.1"] .share-btn:focus-visible { color: var(--n-accent); border-color: var(--n-accent); }
+html[data-design="1.1"] .share-btn svg { width: 15px; height: 15px; }
+html[data-design="1.1"] .n-g > .share-btn { top: 0; }
+.n-g { position: relative; }
