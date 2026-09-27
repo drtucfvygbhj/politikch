@@ -114,3 +114,17 @@ button.live:hover { background: var(--accent-fill); color: #fff; }
 .cand.exact { font-weight: 600; }
 .link-vote { border-left: 3px solid transparent; padding-left: 10px; }
 .link-vote.is-linked { border-left-color: var(--accent, #7A1C2A); }
+
+/* undo / redo, always at hand */
+.histbar { position: sticky; top: 0; z-index: 20; display: flex; gap: 8px; align-items: center; justify-content: flex-end; background: var(--bg); padding: 6px 0; border-bottom: 1px solid var(--rule); margin: -24px 0 18px; }
+.histbar .meta { margin: 0; }
+/* edit modes over the preview */
+.modebar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
+.modebar .meta { margin: 0; }
+.modebar button[aria-pressed="true"] { background: var(--accent-fill); border-color: var(--accent-fill); color: #fff; }
+.editor { border: 2px solid var(--rule-strong); padding: 12px 14px; margin: 8px 0 12px; background: #fff; }
+.editor .quote { background: var(--panel); border-left: 3px solid var(--accent); padding: 6px 10px; font-size: 13px; margin: 6px 0 10px; }
+.editor textarea { display: block; width: 100%; margin-top: 4px; font: inherit; font-size: 14px; padding: 7px 9px; background: var(--panel); border: 1px solid var(--rule); resize: vertical; }
+.editor textarea[disabled] { opacity: 0.6; }
+.editor .cands label { display: block; font-size: 13px; padding: 4px 0; border-top: 1px solid var(--rule); cursor: pointer; }
+.metalist { margin: 4px 0 0; padding-left: 18px; }

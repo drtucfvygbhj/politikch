@@ -451,6 +451,12 @@ function sessionVoteTitle(v) {
   return escapeAttr(l ? title[l] : (v.business || '')) + (l ? ` <abbr class="svote-lang" title="${escapeAttr(t('session.titleLangNote'))}">${escapeAttr(l.toUpperCase())}</abbr>` : '');
 }
 
+/* ---- block ids ----
+   Every front-page block carries data-pos="<id>" so the admin can rearrange
+   them (Edit positioning); the order is kept in PCH_SETTINGS.positions. The
+   three parts of one proposal's story share an id and move together. */
+function pos(id, html) { return html.replace(/^<(\w+)/, (m, tag) => '<' + tag + ' data-pos="' + escapeAttr(id) + '"'); }
+
 /* ---- centre: one story per proposal on the next ballot ---- */
 function storyImage(i, n) {
   const img = window.PCH_IMAGES || {};
@@ -536,15 +542,27 @@ function stories(nb, files) {
   nb.items.forEach((i, n) => {
     const d = dayDiff(i.voteDate);
     const kind = t(i.type === 'initiative' ? 'type.initiative' : 'type.referendum');
-    out.push(`<article class="n-blk n-story${escapeAttr(n === 0 ? ' lead' : '')}"><div class="n-kicker">${escapeAttr(t('news.tick.vote') + ' · ' + longDate(i.voteDate) + ' · ' + inDays(d))} <span class="n-dim">· ${escapeAttr(kind)}</span></div>` +
-      `<h2 class="n-hl${escapeAttr(C.initTitlePlain(i).length > 70 ? ' long' : '')}"><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h2>' + storyImage(i, n) + '</article>');
-    out.push('<div class="n-blk n-part">' + moneyFig(i) + '</div>');
+    out.push(pos('story:' + i.id, `<article class="n-blk n-story${escapeAttr(n === 0 ? ' lead' : '')}"><div class="n-kicker">${escapeAttr(t('news.tick.vote') + ' · ' + longDate(i.voteDate) + ' · ' + inDays(d))} <span class="n-dim">· ${escapeAttr(kind)}</span></div>` +
+      `<h2 class="n-hl${escapeAttr(C.initTitlePlain(i).length > 70 ? ' long' : '')}"><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h2>' + storyImage(i, n) + '</article>'));
+    out.push(pos('story:' + i.id, '<div class="n-blk n-part">' + moneyFig(i) + '</div>'));
     const parl = parlFig(i, files);
-    out.push('<div class="n-blk n-part end">' + (parl ? '<div class="n-no-phone">' + parl + '</div>' : '') +
-      `<a class="n-more" href="#/initiative/${escapeAttr(i.id)}">${escapeAttr(t('news.more'))}</a></div>`);
+    out.push(pos('story:' + i.id, '<div class="n-blk n-part end">' + (parl ? '<div class="n-no-phone">' + parl + '</div>' : '') +
+      `<a class="n-more" href="#/initiative/${escapeAttr(i.id)}">${escapeAttr(t('news.more'))}</a></div>`));
   });
-  out.push(`<p class="n-blk n-rule-note">${escapeAttr(t('news.order'))} <a href="#/page/methodology">${escapeAttr(t('news.orderLink'))}</a></p>`);
+  // The note names the ordering rule only while the stories follow it; once the
+  // order has been changed in the admin it no longer claims one (POL-12).
+  out.push(pos('ordernote', `<p class="n-blk n-rule-note">${escapeAttr(t(storiesInDefaultOrder(nb) ? 'news.order' : 'news.orderPlain'))} <a href="#/page/methodology">${escapeAttr(t('news.orderLink'))}</a></p>`));
   return out;
+}
+// Do the saved positions keep the stories in the published order (funding)?
+function storiesInDefaultOrder(nb) {
+  const P = SETTINGS().positions;
+  if (!P) return true;
+  const ids = nb.items.map(i => 'story:' + i.id);
+  if (ids.some(id => (P.l || []).includes(id) || (P.r || []).includes(id))) return false;
+  const placed = (P.c || []).filter(id => ids.includes(id));
+  const expected = ids.filter(id => placed.includes(id));
+  return placed.join() === expected.join();
 }
 
 /* ---- left column: what is happening now ---- */
@@ -556,10 +574,10 @@ function leftBlocks(files, last) {
     const total = Math.round((end - start) / 864e5) + 1;
     const done = Math.min(total, Math.max(1, Math.round((todayDate() - start) / 864e5) + 1));
     const week = Math.floor((done - 1) / 7) + 1, weeks = Math.max(1, Math.ceil(total / 7));
-    out.push(`<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.now.k'))}</div>` +
+    out.push(pos('now', `<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.now.k'))}</div>` +
       `<h3 class="n-mh"><a href="#/session/${escapeAttr(cur.id)}">${escapeAttr(C.sessionName(cur))}</a>` + liveDot(true) + '</h3>' +
       `<div class="n-bar"><span style="flex:${escapeAttr(done)};background:var(--n-ink)"></span><span style="flex:${escapeAttr(total - done)};background:var(--n-rule-c)"></span></div>` +
-      `<p class="n-meta">${escapeAttr(shortDate(cur.start) + ' – ' + shortDate(cur.end) + ' · ' + tf('news.now.week', { w: week, total: weeks, date: shortDate(cur.end) }))}</p></section>`);
+      `<p class="n-meta">${escapeAttr(shortDate(cur.start) + ' – ' + shortDate(cur.end) + ' · ' + tf('news.now.week', { w: week, total: weeks, date: shortDate(cur.end) }))}</p></section>`));
   }
 
   const dec = decided().slice(0, 5);
@@ -567,7 +585,7 @@ function leftBlocks(files, last) {
     const yesOf = (i) => { const m = /([\d.]+)% (yes|no)/.exec((i.outcome && i.outcome.en) || ''); return m ? (m[2] === 'yes' ? Number(m[1]) : 100 - Number(m[1])) : null; };
     const resShare = shareId(() => ({ kind: 'bars', title: t('news.res.k'), route: 'ballots/decided', source: shareSrc('results'), legend: yesNoLegend(),
       rows: dec.filter(i => yesOf(i) !== null).map(i => yesNoRow(C.initTitlePlain(i), yesOf(i), 100 - yesOf(i), num(yesOf(i)) + '% ' + t('news.tally.yes'))) }));
-    out.push(`<section class="n-blk n-mod" data-nshare="${escapeAttr(resShare)}"><div class="n-k">${escapeAttr(t('news.res.k'))}</div><ul class="n-list">` +
+    out.push(pos('results', `<section class="n-blk n-mod" data-nshare="${escapeAttr(resShare)}"><div class="n-k">${escapeAttr(t('news.res.k'))}</div><ul class="n-list">` +
       dec.map(i => {
         const m = /([\d.]+)% (yes|no)/.exec((i.outcome && i.outcome.en) || '');
         const yes = m ? (m[2] === 'yes' ? Number(m[1]) : 100 - Number(m[1])) : null;
@@ -575,7 +593,7 @@ function leftBlocks(files, last) {
         const date = voteDateOf(i.id);
         return `<li class="n-row" data-href="#/initiative/${escapeAttr(i.id)}"><h4 class="n-clamp"><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h4>' + bar +
           `<p class="n-meta">${escapeAttr(C.localized(i.outcome) + (date ? ' · ' + longDate(date) : ''))}</p></li>`;
-      }).join('') + `</ul><a class="n-more" href="#/ballots/decided">${escapeAttr(t('news.res.all'))}</a></section>`);
+      }).join('') + `</ul><a class="n-more" href="#/ballots/decided">${escapeAttr(t('news.res.all'))}</a></section>`));
   }
 
   if (last && files[last.id]) {
@@ -590,17 +608,17 @@ function leftBlocks(files, last) {
     const fvShare = shareId(() => ({ kind: 'bars', title: t('news.fv.k'), subtitle: tf('news.fv.meta', { session: C.sessionName(last), n: votes.length }),
       route: 'session/' + last.id, source: shareSrc('votes'), legend: yesNoLegend(),
       rows: votes.slice(0, 5).map(v => yesNoRow(sessionVotePlain(v), v.tally?.yes || 0, v.tally?.no || 0, (v.tally?.yes || 0) + '–' + (v.tally?.no || 0))) }));
-    out.push(`<section class="n-blk n-mod" data-nshare="${escapeAttr(fvShare)}"><div class="n-k">${escapeAttr(t('news.fv.k'))}</div>` +
+    out.push(pos('finalvotes', `<section class="n-blk n-mod" data-nshare="${escapeAttr(fvShare)}"><div class="n-k">${escapeAttr(t('news.fv.k'))}</div>` +
       `<p class="n-meta">${escapeAttr(tf('news.fv.meta', { session: C.sessionName(last), n: votes.length }))}</p><ul class="n-list">` + rows + '</ul>' +
-      `<a class="n-more" href="#/session/${escapeAttr(last.id)}">${escapeAttr(tf('news.fv.all', { n: votes.length }))}</a></section>`);
+      `<a class="n-more" href="#/session/${escapeAttr(last.id)}">${escapeAttr(tf('news.fv.all', { n: votes.length }))}</a></section>`));
   }
 
   const coll = collecting();
   if (coll.length) {
-    out.push(`<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.sig.k'))}</div><p class="n-meta">${escapeAttr(t('news.sig.meta'))}</p><ul class="n-list">` +
+    out.push(pos('signatures', `<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.sig.k'))}</div><p class="n-meta">${escapeAttr(t('news.sig.meta'))}</p><ul class="n-list">` +
       coll.slice(0, 5).map(i => `<li class="n-row" data-href="#/initiative/${escapeAttr(i.id)}"><h4><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h4>' +
         `<p class="n-meta">${escapeAttr(tf('news.sig.row', { date: longDate(i.deadline), left: daysLeft(dayDiff(i.deadline)) }))}</p></li>`).join('') +
-      `</ul><a class="n-more" href="#/ballots/collecting">${escapeAttr(tf('news.sig.all', { n: coll.length }))}</a></section>`);
+      `</ul><a class="n-more" href="#/ballots/collecting">${escapeAttr(tf('news.sig.all', { n: coll.length }))}</a></section>`));
   }
 
   const dates = [];
@@ -611,8 +629,8 @@ function leftBlocks(files, last) {
   coll.slice(0, 2).forEach(i => dates.push([i.deadline, t('news.dates.deadline'), '#/initiative/' + i.id]));
   dates.sort((a, b) => (a[0] < b[0] ? -1 : 1));
   if (dates.length) {
-    out.push(`<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.dates.k'))}</div><ul class="n-dates">` +
-      dates.slice(0, 7).map(([d, label, href]) => `<li><a href="${escapeAttr(href)}"><b>${escapeAttr(shortDate(d))}</b><span>${escapeAttr(label)}</span></a></li>`).join('') + '</ul></section>');
+    out.push(pos('dates', `<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.dates.k'))}</div><ul class="n-dates">` +
+      dates.slice(0, 7).map(([d, label, href]) => `<li><a href="${escapeAttr(href)}"><b>${escapeAttr(shortDate(d))}</b><span>${escapeAttr(label)}</span></a></li>`).join('') + '</ul></section>'));
   }
   return out;
 }
@@ -631,10 +649,10 @@ function rightBlocks() {
   const out = [];
   const order = partyOrder();
   const leg = (key) => legend(order.filter(k => party(k)[key]).map(k => ['p-' + k, pColor(k), pShort(k) + ' ' + party(k)[key], '#/party/' + k]));
-  out.push(`<section class="n-blk n-mod" id="news-assembly" data-hl><div class="n-k">${escapeAttr(t('parl.label'))}</div>` +
+  out.push(pos('assembly', `<section class="n-blk n-mod" id="news-assembly" data-hl><div class="n-k">${escapeAttr(t('parl.label'))}</div>` +
     `<h3 class="n-mh n-cs-h"><span>${escapeAttr(t('parl.nc') + ' · ' + tf('news.seats', { n: 200 }))}</span><a class="n-cs-more" href="#/assembly/nc">${escapeAttr(t('news.cs.detail'))}</a></h3>` + '<div class="n-g" data-nshare="' + escapeAttr(shareId(hemiShare('ncSeats', t('parl.nc'), 200, 'assembly/nc'))) + '">' + hemicycle(chamberDots('ncSeats', t('parl.nc')), 8, t('parl.nc')) + '</div>' + leg('ncSeats') +
     `<h3 class="n-mh n-mt">${escapeAttr(t('parl.cs') + ' · ' + tf('news.seats', { n: 46 }))}</h3>` + '<div class="n-g" data-nshare="' + escapeAttr(shareId(hemiShare('csSeats', t('parl.cs'), 46, 'assembly/cs'))) + '">' + hemicycle(chamberDots('csSeats', t('parl.cs')), 4, t('parl.cs')) + '</div>' + leg('csSeats') +
-    `<p class="n-src">${escapeAttr(t('share.src.parliament'))}</p></section>`);
+    `<p class="n-src">${escapeAttr(t('share.src.parliament'))}</p></section>`));
 
   const members = (D().council && D().council.members) || [];
   if (members.length) {
@@ -642,18 +660,18 @@ function rightBlocks() {
     const pres = members.find(m => m.role === 'president');
     const counts = {};
     members.forEach(m => { counts[m.party] = (counts[m.party] || 0) + 1; });
-    out.push(`<section class="n-blk n-mod" id="news-council" data-hl><div class="n-k">${escapeAttr(t('council.title'))}</div>` +
+    out.push(pos('council', `<section class="n-blk n-mod" id="news-council" data-hl><div class="n-k">${escapeAttr(t('council.title'))}</div>` +
       `<h3 class="n-mh n-cs-h"><span>${escapeAttr(pres ? tf('news.fc.h', { name: pres.name }) : t('council.sub'))}</span><a class="n-cs-more" href="#/assembly/fc">${escapeAttr(t('news.cs.detail'))}</a></h3>` +
       '<div class="n-g" data-nshare="' + escapeAttr(shareId(councilShare('assembly/fc'))) + '">' + hemicycle(arc.map(([m, n]) => ({ fill: pColor(m.party), k: `m-${n} p-${m.party}`, tip: m.name + ' · ' + pShort(m.party) })), 1, t('council.title')) + '</div>' +
       legend(order.filter(k => counts[k]).map(k => ['p-' + k, pColor(k), pShort(k) + ' ' + counts[k], '#/party/' + k])) +
       '<ul class="n-plain">' + members.map((m, n) => `<li data-k="m-${escapeAttr(n)} p-${escapeAttr(m.party)}" tabindex="0"><i style="background:${escapeAttr(pColor(m.party))}"></i>${escapeAttr(m.name)}<span>${escapeAttr(pShort(m.party) + (m.role === 'president' ? ' · ' + t('news.president') : ''))}</span></li>`).join('') +
-      `</ul><p class="n-src">${escapeAttr(t('council.source'))}</p></section>`);
+      `</ul><p class="n-src">${escapeAttr(t('council.source'))}</p></section>`));
   }
 
-  out.push(`<section class="n-blk n-mod" id="news-spectrum" data-hl data-nshare="${escapeAttr(shareId(spectrumShare('assembly/spectrum')))}"><div class="n-k">${escapeAttr(t('spec.title'))}</div>` +
+  out.push(pos('spectrum', `<section class="n-blk n-mod" id="news-spectrum" data-hl data-nshare="${escapeAttr(shareId(spectrumShare('assembly/spectrum')))}"><div class="n-k">${escapeAttr(t('spec.title'))}</div>` +
     `<h3 class="n-mh n-cs-h"><span>${escapeAttr(t('news.sp.h'))}</span><a class="n-cs-more" href="#/assembly/spectrum">${escapeAttr(t('news.cs.detail'))}</a></h3>` +
     spectrumSVG({}) +
-    `<p class="n-src">${escapeAttr(t('news.sp.src'))} · <a href="#/page/methodology">${escapeAttr(t('footer.method'))}</a></p></section>`);
+    `<p class="n-src">${escapeAttr(t('news.sp.src'))} · <a href="#/page/methodology">${escapeAttr(t('footer.method'))}</a></p></section>`));
 
   const fp = D().financing?.parties || {};
   const pf = Object.keys(fp).filter(k => party(k) && fp[k].totalRevenue).sort((a, b) => fp[b].totalRevenue - fp[a].totalRevenue);
@@ -662,23 +680,23 @@ function rightBlocks() {
     const year = Math.max(...pf.map(k => fp[k].year || 0));
     const pfShare = shareId(() => ({ kind: 'bars', title: tf('news.pf.k', { year }), subtitle: t('news.pf.h'), route: 'financing', source: shareSrc('financing'),
       rows: pf.map(k => ({ label: pName(k), value: fp[k].totalRevenue, valueText: money(fp[k].totalRevenue), color: pColor(k) })) }));
-    out.push(`<section class="n-blk n-mod" data-hl data-nshare="${escapeAttr(pfShare)}"><div class="n-k">${escapeAttr(tf('news.pf.k', { year }))}</div><h3 class="n-mh"><a href="#/financing">${escapeAttr(t('news.pf.h'))}</a></h3><ul class="n-hbars">` +
+    out.push(pos('partyfinances', `<section class="n-blk n-mod" data-hl data-nshare="${escapeAttr(pfShare)}"><div class="n-k">${escapeAttr(tf('news.pf.k', { year }))}</div><h3 class="n-mh"><a href="#/financing">${escapeAttr(t('news.pf.h'))}</a></h3><ul class="n-hbars">` +
       pf.map(k => `<li><a href="#/party/${escapeAttr(k)}" data-k="p-${escapeAttr(k)}" data-ntip="${escapeAttr(pName(k) + ' · ' + money(fp[k].totalRevenue))}"><span class="n">${escapeAttr(pShort(k))}</span>` +
         `<span class="b"><i style="width:${escapeAttr((fp[k].totalRevenue / max * 100).toFixed(1))}%;background:${escapeAttr(pColor(k))}"></i></span><span class="v">${escapeAttr(money(fp[k].totalRevenue))}</span></a></li>`).join('') +
-      `</ul><p class="n-src">${escapeAttr(t('news.pf.src'))}</p></section>`);
+      `</ul><p class="n-src">${escapeAttr(t('news.pf.src'))}</p></section>`));
   }
 
   // Canton spotlight: rotates; the map and the first canton are drawn here, the rotator fills later ones.
   const bounds = mapBounds();
-  out.push(`<section class="n-blk n-mod n-rot" id="n-canton" data-hl data-nshare="${escapeAttr(shareId(() => cantonNow && cantonShare(cantonNow, 'cantons/' + cantonNow)))}"><div class="n-k">${escapeAttr(t('news.cs.k'))}</div><div class="n-tbar" aria-hidden="true"><i></i><b class="n-pz"></b></div>` +
+  out.push(pos('canton', `<section class="n-blk n-mod n-rot" id="n-canton" data-hl data-nshare="${escapeAttr(shareId(() => cantonNow && cantonShare(cantonNow, 'cantons/' + cantonNow)))}"><div class="n-k">${escapeAttr(t('news.cs.k'))}</div><div class="n-tbar" aria-hidden="true"><i></i><b class="n-pz"></b></div>` +
     `<h3 class="n-mh n-cs-h"><a id="n-c-name" href="#/"></a><a class="n-cs-more" id="n-c-detail" href="#/cantons">${escapeAttr(t('news.cs.detail'))}</a></h3>` +
     `<svg class="n-chart n-map" viewBox="${escapeAttr(bounds)}" role="group" aria-label="${escapeAttr(t('nav.cantons'))}">` +
     Object.keys(MAP_PATHS).map(c => `<path d="${escapeAttr(MAP_PATHS[c].d)}" data-c="${escapeAttr(c)}" data-ntip="${escapeAttr(C.localized(D().cantons[c]?.name) || c)}" tabindex="0" role="button" aria-label="${escapeAttr(C.localized(D().cantons[c]?.name) || c)}"/>`).join('') +
     '</svg><p class="n-meta" id="n-c-meta"></p><div class="n-bar tall" id="n-c-bar"></div><ul class="n-cleg" id="n-c-leg"></ul>' +
-    `<p class="n-src" id="n-c-src"></p></section>`);
+    `<p class="n-src" id="n-c-src"></p></section>`));
 
-  out.push(`<section class="n-blk n-mod n-rot" id="n-expl"><div class="n-k">${escapeAttr(t('news.ex.k'))}</div><div class="n-tbar" aria-hidden="true"><i></i><b class="n-pz"></b></div>` +
-    '<h3 class="n-mh" id="n-e-title"></h3><p class="n-body" id="n-e-body"></p><p class="n-src" id="n-e-count"></p></section>');
+  out.push(pos('explainer', `<section class="n-blk n-mod n-rot" id="n-expl"><div class="n-k">${escapeAttr(t('news.ex.k'))}</div><div class="n-tbar" aria-hidden="true"><i></i><b class="n-pz"></b></div>` +
+    '<h3 class="n-mh" id="n-e-title"></h3><p class="n-body" id="n-e-body"></p><p class="n-src" id="n-e-count"></p></section>'));
   return out;
 }
 
@@ -888,6 +906,7 @@ function layout() {
     const k = col.classList.contains('n-col-l') ? 'l' : col.classList.contains('n-col-c') ? 'c' : 'r';
     blocks[k].push(...(col.querySelector(':scope > .n-stick') || col).children);
   });
+  arrange(blocks);
   const lay = SETTINGS().layout || {};
   const W = { l: Number(lay.left) || 1, c: Number(lay.centre) || 2, r: Number(lay.right) || 1 };
   flow.innerHTML = '';
@@ -916,6 +935,31 @@ function layout() {
   });
   setStickTops();
 }
+// Put the blocks in the order saved in the admin (PCH_SETTINGS.positions:
+// column → block ids). Blocks the saved order doesn't know (a new ballot's
+// stories, a new section) keep their own column and place. The first story in
+// the centre column is the lead story.
+function arrange(blocks) {
+  const P = SETTINGS().positions;
+  if (P) {
+    const units = {}, home = { l: [], c: [], r: [] };
+    ['l', 'c', 'r'].forEach(k => blocks[k].forEach((b, n) => {
+      const id = b.dataset.pos || `_${k}${n}`;
+      if (!units[id]) { units[id] = []; home[k].push(id); }
+      units[id].push(b);
+    }));
+    const used = new Set(), out = { l: [], c: [], r: [] };
+    ['l', 'c', 'r'].forEach(k => (P[k] || []).forEach(id => { if (units[id] && !used.has(id)) { out[k].push(id); used.add(id); } }));
+    ['l', 'c', 'r'].forEach(k => home[k].forEach((id, n) => { if (!used.has(id)) { out[k].splice(Math.min(n, out[k].length), 0, id); used.add(id); } }));
+    ['l', 'c', 'r'].forEach(k => { blocks[k] = out[k].flatMap(id => units[id]); });
+  }
+  const lead = blocks.c.find(b => b.classList.contains('n-story'));
+  [...blocks.l, ...blocks.c, ...blocks.r].filter(b => b.classList.contains('n-story')).forEach(b => {
+    b.classList.toggle('lead', b === lead);
+    const ph = b.querySelector('.n-photo'); if (ph) ph.classList.toggle('lead', b === lead);
+  });
+}
+
 // Recomputed whenever a column changes height (rotating panels, images, fonts).
 function setStickTops() {
   document.querySelectorAll('#n-flow .n-stick').forEach(el => {

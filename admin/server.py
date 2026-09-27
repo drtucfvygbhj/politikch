@@ -12,6 +12,13 @@ What it does
     browser), alt text in five languages, credit, licence; assign them to votes.
     Files go to images/, the licence record to images/LICENSES.json (LIC-01).
   * Vote links: which National Council final vote belongs to each proposal.
+  * Edit text: click any text in the preview and change it in all five
+    languages — interface text (data/i18n.json) and our own editorial texts
+    (party, canton and donor descriptions, the legal pages). Official and
+    fetched texts can't be edited here (SRC-08, OPS-04).
+  * Edit positioning: click two blocks of the front page to swap them; the
+    order is kept in js/site-settings.js.
+  * Undo / redo for every change made here except adding or deleting a photo.
   * Status and checks: maintenance mode (read-only, SEC-10), data freshness,
     next ballot, sitting session, translations to do, changed files, and a
     button that runs scripts/check.py and scripts/validate.py.
@@ -21,9 +28,17 @@ Safety
   * Every request must carry the Host 127.0.0.1:8002 / localhost:8002 (stops DNS
     rebinding); every change needs the per-start token embedded in the page and a
     same-origin Origin header (stops other websites in your browser from posting
-    here). Writes are limited to js/site-settings.js, images/ and admin/.backup/.
-  * Two publish buttons, pressed by you: "Make changes live" commits only
-    js/site-settings.js, "Publish images" only images/ + js/site-images.js. Each
+    here). Writes are limited to js/site-settings.js, images/, the text files
+    listed in TEXT_FILES and admin/.backup/.
+  * Photos: the browser redraws every photo into a new WebP (which drops all
+    metadata); the server refuses a WebP that still carries EXIF, XMP or ICC
+    data.
+  * The preview (a separate port) gets a small helper script, admin/preview-agent.js,
+    that reports clicks back to this page in the edit modes. It is served only by
+    the preview and is never part of the site.
+  * Three publish buttons, pressed by you: "Make changes live" commits only
+    js/site-settings.js, "Publish images" only images/ + js/site-images.js,
+    "Publish text" only the files in TEXT_FILES. Each
     builds the commit in a temporary clean worktree on origin/main, runs
     scripts/check.py there, takes your typed reason for every flagged rule
     (the Approved-Rule: lines) and your preview confirmation, then commits and
@@ -58,6 +73,7 @@ ALLOWED_HOSTS = {f"127.0.0.1:{PORT}", f"localhost:{PORT}"}
 ALLOWED_ORIGINS = {f"http://{h}" for h in ALLOWED_HOSTS}
 PREVIEW_HOSTS = {f"127.0.0.1:{PREVIEW_PORT}", f"localhost:{PREVIEW_PORT}"}
 # Only what the deploy allowlist publishes is served by the preview.
+AGENT_PATH = "/__admin/preview-agent.js"   # served only by the preview port, never part of the site
 PREVIEW_ALLOW = re.compile(r"^/(index\.html|404\.html|(css|js|fonts)/[\w.-]+|data/(?!brochures/)[\w./-]+\.json|images/[\w.-]+\.webp)$")
 
 SETTINGS_JS = ROOT / "js" / "site-settings.js"
@@ -86,10 +102,16 @@ IMAGES_HEADER = ("/* Politikch photos — written by the local admin tool (admin
                  "   Which photo goes with which vote, with alt text in five languages and a credit.\n"
                  "   Published separately from the design settings (\"Publish images\" in the admin);\n"
                  "   every file listed here must have a licence record in images/LICENSES.json (LIC-01). */\n")
+# Texts the admin may edit: the interface text and our own editorial files.
+# Official or fetched texts (titles, arguments, results, session data) are not
+# here: they must stay verbatim (SRC-08) and the data job would overwrite them.
+TEXT_FILES = ["data/i18n.json", "data/parties.json", "data/cantons.json", "data/donor-descriptions.json", "data/legal.json"]
 PUBLISH = {
     "settings": {"paths": ["js/site-settings.js"], "title": "Admin: make design settings live"},
     "images": {"paths": ["js/site-images.js", "images"], "title": "Admin: publish images"},
+    "text": {"paths": TEXT_FILES, "title": "Admin: publish text edits"},
 }
+HISTORY = BACKUPS / "history.json"
 HEADER = ("/* Politikch site settings — written by the local admin tool (admin/, localhost:8002).\n"
           "   Change these there, not by hand: the tool validates every value. Applies to every\n"
           "   visitor; there is no per-visitor choice. Read by js/design.js and js/news.js. */\n")
@@ -181,6 +203,20 @@ def clean_settings(body):
             raise BadRequest(f"final vote {vote} not found in session {sid}")
         links[vid] = {"session": sid, "vote": vote}
     out["parliamentLinks"] = links
+    pos = body.get("positions")
+    if pos:
+        if not isinstance(pos, dict):
+            raise BadRequest("positions: expected columns")
+        seen, out["positions"] = set(), {}
+        for col in ("l", "c", "r"):
+            ids = pos.get(col) or []
+            if not isinstance(ids, list) or len(ids) > 80:
+                raise BadRequest("positions: at most 80 blocks per column")
+            for i in ids:
+                if not isinstance(i, str) or not re.fullmatch(r"[a-z]+(:[\w.-]{1,60})?", i) or i in seen:
+                    raise BadRequest(f"positions: bad block id {i!r}")
+                seen.add(i)
+            out["positions"][col] = ids
     return out
 
 
@@ -222,7 +258,29 @@ def data_url_webp(s, cap, name):
         raise BadRequest(f"{name}: too large ({len(raw) // 1024} KB, limit {cap // 1024} KB)")
     if not (raw[:4] == b"RIFF" and raw[8:12] == b"WEBP"):
         raise BadRequest(f"{name}: not a WebP file")
+    meta = webp_metadata(raw)
+    if meta:
+        raise BadRequest(f"{name}: the file still carries {', '.join(meta)} — it was not redrawn in the browser; add it again")
     return raw
+
+
+def webp_metadata(raw):
+    """Metadata a WebP carries: EXIF / XMP / ICC chunks, or the VP8X flags for them.
+    A photo redrawn on a canvas has none; anything found means it wasn't."""
+    found = []
+    i = 12
+    while i + 8 <= len(raw):
+        tag, size = raw[i:i + 4], int.from_bytes(raw[i + 4:i + 8], "little")
+        if tag == b"EXIF":
+            found.append("EXIF (camera, date, location)")
+        elif tag == b"XMP ":
+            found.append("XMP")
+        elif tag == b"ICCP":
+            found.append("an ICC profile")
+        elif tag == b"VP8X" and size >= 1 and raw[i + 8] & 0x2C:
+            found.append("metadata flags")
+        i += 8 + size + (size & 1)
+    return sorted(set(found))
 
 
 def clean_text(s, name, limit=300, required=True):
@@ -294,6 +352,265 @@ def delete_image(body):
         del reg["images"][iid]
         REGISTER.write_text(json.dumps(reg, indent=2, ensure_ascii=False) + "\n", "utf-8")
     write_images(imgs)
+
+
+# ---------------------------------------------------------------- undo / redo
+# Every change made here is recorded as the files' contents before and after.
+# Undo puts "before" back, redo puts "after" back — but only if the file still
+# holds exactly what the admin left there, so a hand edit or a git pull in the
+# meantime is never overwritten. Adding or deleting a photo is not recorded.
+JOURNALED = [SETTINGS_JS, IMAGES_JS, REGISTER] + [ROOT / f for f in TEXT_FILES]
+
+
+def _snap(paths):
+    return {str(Path(p).relative_to(ROOT)): (Path(p).read_text("utf-8") if Path(p).exists() else None) for p in paths}
+
+
+def _history():
+    h = load_json(HISTORY, None) or {}
+    return {"undo": h.get("undo", []), "redo": h.get("redo", [])}
+
+
+def _save_history(h):
+    BACKUPS.mkdir(exist_ok=True)
+    HISTORY.write_text(json.dumps(h, ensure_ascii=False), "utf-8")
+
+
+def journaled(label, fn):
+    before = _snap(JOURNALED)
+    out = fn()
+    after = _snap(JOURNALED)
+    changed = [k for k in before if before[k] != after[k]]
+    if changed:
+        h = _history()
+        h["undo"] = (h["undo"] + [{"label": label, "at": dt.datetime.now().isoformat(timespec="seconds"),
+                                   "before": {k: before[k] for k in changed}, "after": {k: after[k] for k in changed}}])[-40:]
+        h["redo"] = []
+        _save_history(h)
+    return out
+
+
+def history_step(direction):
+    h = _history()
+    src, dst = (h["undo"], h["redo"]) if direction == "undo" else (h["redo"], h["undo"])
+    if not src:
+        raise BadRequest(f"Nothing to {direction}.")
+    e = src[-1]
+    expect, put = (e["after"], e["before"]) if direction == "undo" else (e["before"], e["after"])
+    allowed = {str(p.relative_to(ROOT)) for p in JOURNALED}
+    for rel, content in expect.items():
+        if rel not in allowed:
+            raise BadRequest("history entry names an unexpected file")
+        cur = (ROOT / rel).read_text("utf-8") if (ROOT / rel).exists() else None
+        if cur != content:
+            raise BadRequest(f"{rel} was changed outside the admin since — {direction} would overwrite that, so it is not done.")
+    for rel, content in put.items():
+        if content is None:
+            (ROOT / rel).unlink(missing_ok=True)
+        else:
+            (ROOT / rel).write_text(content, "utf-8")
+    src.pop()
+    dst.append(e)
+    _save_history(h)
+    return e["label"]
+
+
+def history_state():
+    h = _history()
+    return {"undo": h["undo"][-1]["label"] if h["undo"] else None, "redo": h["redo"][-1]["label"] if h["redo"] else None,
+            "undoCount": len(h["undo"]), "redoCount": len(h["redo"])}
+
+
+# ---------------------------------------------------------------- text editing
+import html as _html
+
+BLOCK_RE = re.compile(r"<(h[1-6]|p|li)>(.*?)</\1>", re.S)
+PLACEHOLDER = re.compile(r"\{\w+\}")
+
+
+def _norm(s):
+    return " ".join(_html.unescape(re.sub(r"<[^>]+>", "", str(s))).split()).casefold()
+
+
+def _is_localized(d):
+    return isinstance(d, dict) and len(d) >= 2 and set(d) <= set(LANGS) and all(isinstance(v, str) for v in d.values())
+
+
+def _walk(obj, path=()):
+    """Every localized text ({en:…, de:…}) in an editorial file, with its path."""
+    if _is_localized(obj):
+        yield list(path), obj
+        return
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if k != "_meta":
+                yield from _walk(v, path + (k,))
+
+
+def _legal_blocks(body):
+    return [m.group(2) for m in BLOCK_RE.finditer(body or "")]
+
+
+def _score(value, text, raw_text):
+    n = _norm(value)
+    if not n:
+        return 0
+    if n == text:
+        return 3
+    # A text with {placeholders}: the clicked text is it with the gaps filled in,
+    # or contains it (when the fixed words make up a good part of the text).
+    if PLACEHOLDER.search(value):
+        literal = _norm(PLACEHOLDER.sub("", value))
+        if len(literal) >= 6:
+            pat = ".+?".join(re.escape(_norm(x)) for x in PLACEHOLDER.split(value))
+            if re.fullmatch(pat, text):
+                return 2.5
+            if len(literal) >= 0.4 * len(text) and re.search(pat, text):
+                return 2
+    # Part of a longer text (e.g. one sentence clicked in a paragraph), or a text
+    # that makes up most of what was clicked.
+    if len(text) >= 20 and (text in n or (n in text and len(n) >= 0.6 * len(text))):
+        return 1
+    return 0
+
+
+def text_candidates(body):
+    """Where a text clicked in the preview comes from: the entries whose text
+    in the preview's language matches it, best first."""
+    lang = body.get("lang") if body.get("lang") in LANGS else "en"
+    raw_text = str(body.get("text") or "")[:4000]
+    text = _norm(raw_text)
+    if len(text) < 2:
+        return []
+    out = []
+    i18n = load_json(ROOT / "data" / "i18n.json", {}) or {}
+    for key, v in (i18n.get(lang) or {}).items():
+        sc = _score(v, text, raw_text)
+        if sc:
+            out.append({"file": "data/i18n.json", "path": [key], "label": key, "score": sc,
+                        "values": {l: (i18n.get(l) or {}).get(key, "") for l in LANGS}})
+    for f in TEXT_FILES[1:4]:
+        data = load_json(ROOT / f, {}) or {}
+        for path, loc in _walk(data):
+            sc = _score(loc.get(lang, ""), text, raw_text) if lang in loc else 0
+            if sc:
+                out.append({"file": f, "path": path, "label": " › ".join(path), "score": sc, "values": dict(loc)})
+    legal = (load_json(ROOT / "data" / "legal.json", {}) or {}).get("pages", {})
+    for page, d in legal.items():
+        if _is_localized(d.get("title")) and lang in d["title"]:
+            sc = _score(d["title"][lang], text, raw_text)
+            if sc:
+                out.append({"file": "data/legal.json", "path": ["pages", page, "title"], "label": f"legal › {page} › title", "score": sc, "values": dict(d["title"])})
+        body_ = d.get("body") or {}
+        blocks = {l: _legal_blocks(b) for l, b in body_.items()}
+        for n, blk in enumerate(blocks.get(lang, [])):
+            sc = _score(blk, text, raw_text)
+            if sc:
+                same = {l: bl for l, bl in blocks.items() if len(bl) == len(blocks[lang])}
+                cand = {"file": "data/legal.json", "path": ["pages", page, "body", n], "label": f"legal › {page} › paragraph {n + 1}", "score": sc,
+                        "values": {l: _html.unescape(bl[n]) for l, bl in same.items()}}
+                if any("<" in bl[n] for bl in same.values()):
+                    cand["locked"] = "This paragraph contains links or formatting — edit data/legal.json by hand."
+                out.append(cand)
+    for c in out:
+        if c["file"] != "data/legal.json" and any("<" in v for v in c["values"].values()):
+            c["locked"] = "This text contains formatting — edit it by hand."
+    out.sort(key=lambda c: (-c["score"], abs(len(_norm(c["values"].get(lang, ""))) - len(text))))
+    return out[:10]
+
+
+def _write_json(rel, raw, new_obj, pairs):
+    """Write an edited JSON file without reformatting it: files written by
+    json.dumps(indent=2) are dumped again; hand-formatted ones get each changed
+    string replaced in place, and the result must parse back to new_obj."""
+    path = ROOT / rel
+    old_obj = json.loads(raw)
+    if json.dumps(old_obj, indent=2, ensure_ascii=False) + "\n" == raw:
+        path.write_text(json.dumps(new_obj, indent=2, ensure_ascii=False) + "\n", "utf-8")
+        return
+    text = raw
+    for old, new in pairs:
+        enc = json.dumps(old, ensure_ascii=False)
+        if text.count(enc) != 1:
+            raise BadRequest(f"{rel}: this text appears more than once in the file — edit it by hand")
+        text = text.replace(enc, json.dumps(new, ensure_ascii=False))
+    if json.loads(text) != new_obj:
+        raise BadRequest(f"{rel}: could not change the file safely — edit it by hand")
+    path.write_text(text, "utf-8")
+
+
+def _clean_value(lang, new, old, keep_placeholders):
+    new = str(new if new is not None else "").strip()
+    if not new:
+        raise BadRequest(f"{lang.upper()}: the text can't be empty")
+    if len(new) > 5000 or re.search(r"[<>]|javascript:", new, re.I):
+        raise BadRequest(f"{lang.upper()}: plain text only (no < or >), at most 5000 characters")
+    if keep_placeholders and set(PLACEHOLDER.findall(new)) != set(PLACEHOLDER.findall(old)):
+        raise BadRequest(f"{lang.upper()}: keep the placeholders {' '.join(sorted(set(PLACEHOLDER.findall(old)))) or '(none)'} exactly as they are")
+    return new
+
+
+def save_text(body):
+    rel = body.get("file")
+    path = body.get("path")
+    values = body.get("values") or {}
+    if rel not in TEXT_FILES or not isinstance(path, list) or not path or not isinstance(values, dict):
+        raise BadRequest("unknown text")
+    raw = (ROOT / rel).read_text("utf-8")
+    data = json.loads(raw)
+    pairs = []
+    if rel == "data/i18n.json":
+        key = path[0]
+        if len(path) != 1 or not all(key in (data.get(l) or {}) for l in LANGS):
+            raise BadRequest("unknown text")
+        for l, v in values.items():
+            if l not in LANGS:
+                raise BadRequest("unknown language")
+            old = data[l][key]
+            if "<" in old:
+                raise BadRequest("This text contains formatting — edit it by hand.")
+            new = _clean_value(l, v, old, True)
+            if new != old:
+                pairs.append((old, new))
+                data[l][key] = new
+    elif rel == "data/legal.json" and len(path) == 4 and path[2] == "body":
+        page = (data.get("pages") or {}).get(path[1])
+        if not page or not isinstance(path[3], int):
+            raise BadRequest("unknown text")
+        for l, v in values.items():
+            bodytxt = (page.get("body") or {}).get(l)
+            if bodytxt is None:
+                raise BadRequest("unknown language")
+            ms = list(BLOCK_RE.finditer(bodytxt))
+            if path[3] >= len(ms):
+                raise BadRequest("unknown paragraph")
+            m = ms[path[3]]
+            if "<" in m.group(2):
+                raise BadRequest("This paragraph contains links or formatting — edit data/legal.json by hand.")
+            new = _clean_value(l, v, _html.unescape(m.group(2)), False)
+            inner = _html.escape(new, quote=False)
+            if inner != m.group(2):
+                new_body = bodytxt[:m.start(2)] + inner + bodytxt[m.end(2):]
+                pairs.append((bodytxt, new_body))
+                page["body"][l] = new_body
+    else:
+        node = data
+        for k in path:
+            if not isinstance(node, dict) or k not in node or k == "_meta":
+                raise BadRequest("unknown text")
+            node = node[k]
+        if not _is_localized(node):
+            raise BadRequest("unknown text")
+        for l, v in values.items():
+            if l not in node:
+                raise BadRequest("unknown language")
+            new = _clean_value(l, v, node[l], True)
+            if new != node[l]:
+                pairs.append((node[l], new))
+                node[l] = new
+    if not pairs:
+        raise BadRequest("Nothing changed.")
+    _write_json(rel, raw, data, pairs)
 
 
 # ---------------------------------------------------------------- status
@@ -400,6 +717,7 @@ def status():
         "fonts": FONTS,
         "limits": LIMITS,
         "register": (load_json(REGISTER, {}) or {}).get("images", {}),
+        "imageMeta": {f.name[:17]: webp_metadata(f.read_bytes()) for f in sorted(IMAGES.glob("*-1600.webp"))} if IMAGES.exists() else {},
     }
 
 
@@ -412,14 +730,6 @@ def run_checks():
         except (OSError, subprocess.SubprocessError) as e:
             out[name] = {"code": -1, "output": str(e)}
     return out
-
-
-def undo():
-    old = sorted(BACKUPS.glob("site-settings-*.js")) if BACKUPS.exists() else []
-    if not old:
-        raise BadRequest("nothing to undo")
-    shutil.copy2(old[-1], SETTINGS_JS)
-    old[-1].unlink()
 
 
 # ---------------------------------------------------------------- publishing
@@ -603,7 +913,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self.send(200, (IMAGES / m.group(1)).read_bytes(), "image/webp")
         if path == "/api/state":
             pub = {k: {"pending": pending_files(k)} for k in PUBLISH}
-            return self.send(200, {"settings": read_settings(), "images": read_images(), "status": status(), "publish": pub})
+            return self.send(200, {"settings": read_settings(), "images": read_images(), "status": status(), "publish": pub, "history": history_state()})
         return self.send(404, {"error": "not found"})
 
     def do_POST(self):
@@ -621,22 +931,27 @@ class Handler(http.server.BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(n) or b"{}")
             path = urlparse(self.path).path
             if path == "/api/settings":
-                write_settings(clean_settings(body))
-                return self.send(200, {"ok": True, "settings": read_settings()})
-            if path == "/api/undo":
-                undo()
-                return self.send(200, {"ok": True, "settings": read_settings()})
+                journaled(str(body.pop("_label", "") or "Settings saved")[:80], lambda: write_settings(clean_settings(body)))
+                return self.send(200, {"ok": True, "settings": read_settings(), "history": history_state()})
+            if path in ("/api/history/undo", "/api/history/redo"):
+                label = history_step(path.rsplit("/", 1)[1])
+                return self.send(200, {"ok": True, "label": label, "settings": read_settings(), "images": read_images(), "history": history_state()})
+            if path == "/api/text/find":
+                return self.send(200, {"candidates": text_candidates(body)})
+            if path == "/api/text/save":
+                journaled("Text: " + " › ".join(str(x) for x in (body.get("path") or []))[:80], lambda: save_text(body))
+                return self.send(200, {"ok": True, "history": history_state()})
             if path == "/api/images":
                 iid = upload_image(body)
                 return self.send(200, {"ok": True, "id": iid, "images": read_images()})
             if path == "/api/images/update":
-                update_image(body)
+                journaled("Photo text", lambda: update_image(body))
                 return self.send(200, {"ok": True, "images": read_images()})
             if path == "/api/images/delete":
                 delete_image(body)
                 return self.send(200, {"ok": True, "images": read_images()})
             if path == "/api/images/assign":
-                assign_images(body)
+                journaled("Photo assignments", lambda: assign_images(body))
                 return self.send(200, {"ok": True, "images": read_images()})
             if path == "/api/publish/preview":
                 return self.send(200, publish_preview(body))
@@ -668,11 +983,29 @@ class PreviewHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header("X-Content-Type-Options", "nosniff")
         super().end_headers()
 
+    def _send_bytes(self, data, ctype):
+        self.send_response(200)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
+
     def do_GET(self):
         path = urlparse(self.path).path
         if path == "/":
             path = "/index.html"
-        if self.headers.get("Host", "") not in PREVIEW_HOSTS or ".." in path or not PREVIEW_ALLOW.match(path):
+        if self.headers.get("Host", "") not in PREVIEW_HOSTS or ".." in path:
+            self.send_error(404)
+            return
+        # The edit modes: the page gets the helper script (with the admin's port,
+        # the only origin it talks to); the site's own files are not changed.
+        if path == AGENT_PATH:
+            return self._send_bytes((ADMIN / "preview-agent.js").read_bytes(), "text/javascript; charset=utf-8")
+        if path == "/index.html":
+            page = (ROOT / "index.html").read_text("utf-8")
+            tag = f'<script type="module" src="{AGENT_PATH}?admin={PORT}"></script>'
+            return self._send_bytes(page.replace("</body>", tag + "\n</body>", 1).encode("utf-8"), "text/html; charset=utf-8")
+        if not PREVIEW_ALLOW.match(path):
             self.send_error(404)
             return
         self.path = path
