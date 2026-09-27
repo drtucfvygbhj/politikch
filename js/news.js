@@ -754,9 +754,10 @@ function spectrumSVG(opts) {
    to the nearest free spot and gets a thin leader line. The smallest cantons
    squeezed inside a neighbour (Basel-Stadt, both Appenzells) carry no initials —
    their name shows on hover and in the spotlight — and Glarus, which sits under
-   the edge of Graubünden, is labelled in the open space above it. */
+   the edge of Graubünden, is labelled just below its visible tip, in the gap
+   between Schwyz, Uri and Graubünden (checked to touch none of them). */
 const LABEL_SKIP = ['BS', 'AR', 'AI'];
-const LABEL_AT = { GL: [632, 226] };
+const LABEL_AT = { GL: [591, 290] };
 function cantonLabels() {
   const area = d => {
     const n = (d.match(/-?\d+(\.\d+)?/g) || []).map(Number);
@@ -782,7 +783,7 @@ function cantonLabels() {
     if (!box) box = { x0: cx - 10, x1: cx + 10, y0: cy - 7, y1: cy + 6 };
     placed.push(box);
     const tx = cx + pos[0], ty = cy + pos[1];
-    const lead = (pos[0] || pos[1]) ? `<line class="n-ml-l" x1="${escapeAttr(cx)}" y1="${escapeAttr(cy)}" x2="${escapeAttr(tx)}" y2="${escapeAttr(ty - 3)}"/>` : '';
+    const lead = (pos[0] || pos[1]) && !LABEL_AT[c] ? `<line class="n-ml-l" x1="${escapeAttr(cx)}" y1="${escapeAttr(cy)}" x2="${escapeAttr(tx)}" y2="${escapeAttr(ty - 3)}"/>` : '';
     return lead + `<text class="n-ml${escapeAttr(LABEL_AT[c] ? ' out' : '')}" data-c="${escapeAttr(c)}" x="${escapeAttr(tx)}" y="${escapeAttr(ty + 4)}" text-anchor="middle">${escapeAttr(c)}</text>`;
   }).join('');
 }
@@ -816,6 +817,25 @@ export async function renderNewsHome() {
   const host = document.getElementById('home-news');
   if (!host) return;
   const token = ++homeToken;
+  // Wired before the first render, so a resize while the page is still loading
+  // isn't missed.
+  if (!layoutWired) {
+    layoutWired = true;
+    // Re-lay out when the width changes: the resize event, plus a ResizeObserver
+    // on the page for the cases where no resize event comes (some embedded or
+    // emulated views). Height changes alone only move the sticky offsets.
+    let tmr, lastW = document.documentElement.clientWidth;
+    const onResize = () => {
+      setStickTops();
+      const w = document.documentElement.clientWidth;
+      if (w === lastW) return;
+      lastW = w;
+      clearTimeout(tmr); tmr = setTimeout(layout, 120);
+    };
+    window.addEventListener('resize', onResize);
+    if (typeof ResizeObserver === 'function') new ResizeObserver(onResize).observe(document.documentElement);
+    if (document.fonts) document.fonts.ready.then(layout);
+  }
   const idx = await C.ensureSessionsIndex();
   await C.ensureSessionTranslations();
   sessionsCache = (idx && idx.sessions) || [];
@@ -833,16 +853,17 @@ export async function renderNewsHome() {
   const left = leftBlocks(files, last), centre = stories(nb, files), right = rightBlocks();
   host.innerHTML = '<div class="n-wrap"><div class="n-flow" id="n-flow"><div class="n-band"><div class="n-col n-col-l">' + left.join('') +
     '</div><div class="n-col n-col-c">' + centre.join('') + '</div><div class="n-col n-col-r">' + right.join('') + '</div></div></div></div>';
+  // Each block remembers its own column and place, so the columns can be rebuilt
+  // after the page has been one column (phone width) and is wide again.
+  host.querySelectorAll('#n-flow .n-col').forEach(col => {
+    const k = col.classList.contains('n-col-l') ? 'l' : col.classList.contains('n-col-c') ? 'c' : 'r';
+    [...col.children].forEach((b, n) => { b.dataset.home = k + ':' + n; });
+  });
   wireHighlights(host);
   wireRows(host);
   wireNewsShares(host);
   startRotators();
   layout();
-  if (!layoutWired) {
-    layoutWired = true;
-    let tmr; window.addEventListener('resize', () => { setStickTops(); clearTimeout(tmr); tmr = setTimeout(layout, 120); });
-    if (document.fonts) document.fonts.ready.then(layout);
-  }
 }
 
 // Hovering (or focusing) anything with data-k lights up everything in the same
@@ -902,10 +923,10 @@ function layout() {
   const flow = document.getElementById('n-flow');
   if (!flow || flow.offsetParent === null) return;           // not on screen (another page is open)
   const blocks = { l: [], c: [], r: [] };
-  flow.querySelectorAll('.n-col').forEach(col => {
-    const k = col.classList.contains('n-col-l') ? 'l' : col.classList.contains('n-col-c') ? 'c' : 'r';
-    blocks[k].push(...(col.querySelector(':scope > .n-stick') || col).children);
-  });
+  const all = [];
+  flow.querySelectorAll('.n-col').forEach(col => all.push(...(col.querySelector(':scope > .n-stick') || col).children));
+  all.map(b => { const [k, n] = String(b.dataset.home || 'c:0').split(':'); return { b, k: blocks[k] ? k : 'c', n: Number(n) || 0 }; })
+    .sort((x, y) => x.n - y.n).forEach(({ b, k }) => blocks[k].push(b));
   arrange(blocks);
   const lay = SETTINGS().layout || {};
   const W = { l: Number(lay.left) || 1, c: Number(lay.centre) || 2, r: Number(lay.right) || 1 };
@@ -915,7 +936,7 @@ function layout() {
   const MIN = { l: 'calc(170px + var(--n-gutter))', c: 'calc(380px + 2 * var(--n-gutter))', r: 'calc(170px + var(--n-gutter))' };
   const band = document.createElement('div'); band.className = 'n-band';
   flow.appendChild(band);
-  if (window.innerWidth <= 900) {
+  if (window.innerWidth < oneColumnBelow(flow, lay, W)) {
     band.classList.add('one');
     band.style.gridTemplateColumns = 'minmax(0,1fr)';
     const col = document.createElement('div'); col.className = 'n-col n-col-c';
@@ -958,6 +979,18 @@ function arrange(blocks) {
     b.classList.toggle('lead', b === lead);
     const ph = b.querySelector('.n-photo'); if (ph) ph.classList.toggle('lead', b === lead);
   });
+}
+
+// One column once the window is narrower than the centre column normally is
+// (its width at the full page width set in the admin), and never while the three
+// columns wouldn't fit at their minimum widths.
+function oneColumnBelow(flow, lay, W) {
+  const wrap = getComputedStyle(flow.closest('.n-wrap') || flow);
+  const pad = (parseFloat(wrap.paddingLeft) || 0) + (parseFloat(wrap.paddingRight) || 0);
+  const gutter = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--n-gutter')) || 0;
+  const normalCentre = ((Number(lay.maxWidth) || 1320) - pad) * W.c / (W.l + W.c + W.r);
+  const threeMin = 170 + 380 + 170 + 4 * gutter + pad;
+  return Math.max(normalCentre, threeMin);
 }
 
 // Recomputed whenever a column changes height (rotating panels, images, fonts).
