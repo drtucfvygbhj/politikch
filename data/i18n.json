@@ -668,7 +668,20 @@
     "news.cs.hint": "Click a canton to keep it · double-click to open its page",
     "news.asm.title": "Parliament and parties",
     "news.asm.sub": "The two chambers, the Federal Council and where the parties stand",
-    "news.asm.seatShare": "Share of seats"
+    "news.asm.seatShare": "Share of seats",
+    "vote.o.for": "For the initiative",
+    "vote.o.against": "Against the initiative",
+    "vote.o.recNo": "Parliament recommends No",
+    "vote.o.recYes": "Parliament recommends Yes",
+    "vote.o.noteReject": "Parliament’s final vote was on a federal decree recommending that voters reject the initiative. It is counted here relative to the initiative: a No to the decree counts as for the initiative, a Yes as against.",
+    "vote.o.noteAccept": "Parliament’s final vote was on a federal decree recommending that voters accept the initiative. It is counted here relative to the initiative: a Yes to the decree counts as for the initiative, a No as against.",
+    "vote.o.unknown": "This final vote was on the federal decree setting out Parliament’s recommendation on the popular initiative. The official data doesn’t say clearly which way it recommended, so Yes and No refer to the decree.",
+    "vote.o.meaning": "What a Yes meant (official wording):",
+    "leaning.descInit": "Where the vote for the initiative sat on the spectrum — each party placed by its position, weighted by how many of its members voted for it.",
+    "init.gv.noteInit": "Group majorities in the National Council’s final vote of {date}. Filled: for the initiative; ring: against. The marker is the average position of the groups for it.",
+    "init.gv.tipInit": "{y} for · {n} against · {a} abstained",
+    "news.parl.groupInit": "{party} group: {y} for · {n} against · {a} abstained",
+    "news.parl.srcInit": "Final vote on the federal decree, {date} · Source: parlament.ch; direction and link checked with Swissvotes (Année Politique Suisse, CC BY 4.0) · counted relative to the initiative · seats grouped by parliamentary group"
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -1339,7 +1352,20 @@
     "news.cs.hint": "Kanton anklicken, um ihn zu behalten · Doppelklick öffnet seine Seite",
     "news.asm.title": "Parlament und Parteien",
     "news.asm.sub": "Die beiden Kammern, der Bundesrat und wo die Parteien stehen",
-    "news.asm.seatShare": "Sitzanteil"
+    "news.asm.seatShare": "Sitzanteil",
+    "vote.o.for": "Für die Initiative",
+    "vote.o.against": "Gegen die Initiative",
+    "vote.o.recNo": "Parlament empfiehlt Nein",
+    "vote.o.recYes": "Parlament empfiehlt Ja",
+    "vote.o.noteReject": "Die Schlussabstimmung des Parlaments galt einem Bundesbeschluss, der dem Volk die Ablehnung der Initiative empfiehlt. Hier wird sie auf die Initiative bezogen gezählt: Ein Nein zum Beschluss zählt als für die Initiative, ein Ja als dagegen.",
+    "vote.o.noteAccept": "Die Schlussabstimmung des Parlaments galt einem Bundesbeschluss, der dem Volk die Annahme der Initiative empfiehlt. Hier wird sie auf die Initiative bezogen gezählt: Ein Ja zum Beschluss zählt als für die Initiative, ein Nein als dagegen.",
+    "vote.o.unknown": "Diese Schlussabstimmung galt dem Bundesbeschluss mit der Empfehlung des Parlaments zur Volksinitiative. Aus den amtlichen Daten geht nicht klar hervor, in welche Richtung er empfiehlt; Ja und Nein beziehen sich daher auf den Beschluss.",
+    "vote.o.meaning": "Bedeutung von Ja (amtlicher Wortlaut):",
+    "leaning.descInit": "Wo die Stimmen für die Initiative im Spektrum lagen – jede Partei an ihrer Position, gewichtet nach der Zahl ihrer Mitglieder, die dafür stimmten.",
+    "init.gv.noteInit": "Mehrheiten der Fraktionen in der Schlussabstimmung des Nationalrats vom {date}. Gefüllt: für die Initiative; Ring: dagegen. Die Markierung zeigt die durchschnittliche Position der Fraktionen, die dafür waren.",
+    "init.gv.tipInit": "{y} dafür · {n} dagegen · {a} Enthaltungen",
+    "news.parl.groupInit": "Fraktion {party}: {y} dafür · {n} dagegen · {a} Enthaltungen",
+    "news.parl.srcInit": "Schlussabstimmung über den Bundesbeschluss, {date} · Quelle: parlament.ch; Richtung und Zuordnung geprüft mit Swissvotes (Année Politique Suisse, CC BY 4.0) · auf die Initiative bezogen gezählt · Sitze nach Fraktion"
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -2010,7 +2036,20 @@
     "news.cs.hint": "Cliquez sur un canton pour le garder · double-cliquez pour ouvrir sa page",
     "news.asm.title": "Parlement et partis",
     "news.asm.sub": "Les deux chambres, le Conseil fédéral et le positionnement des partis",
-    "news.asm.seatShare": "Part des sièges"
+    "news.asm.seatShare": "Part des sièges",
+    "vote.o.for": "Pour l’initiative",
+    "vote.o.against": "Contre l’initiative",
+    "vote.o.recNo": "Le Parlement recommande le non",
+    "vote.o.recYes": "Le Parlement recommande le oui",
+    "vote.o.noteReject": "Le vote final du Parlement portait sur un arrêté fédéral recommandant au peuple de rejeter l’initiative. Il est compté ici par rapport à l’initiative : un non à l’arrêté compte comme pour l’initiative, un oui comme contre.",
+    "vote.o.noteAccept": "Le vote final du Parlement portait sur un arrêté fédéral recommandant au peuple d’accepter l’initiative. Il est compté ici par rapport à l’initiative : un oui à l’arrêté compte comme pour l’initiative, un non comme contre.",
+    "vote.o.unknown": "Ce vote final portait sur l’arrêté fédéral qui fixe la recommandation du Parlement sur l’initiative populaire. Les données officielles n’indiquent pas clairement dans quel sens il recommande ; oui et non se rapportent donc à l’arrêté.",
+    "vote.o.meaning": "Sens du oui (texte officiel) :",
+    "leaning.descInit": "Où se situaient les voix pour l’initiative sur l’échiquier – chaque parti à sa position, pondéré par le nombre de ses membres qui ont voté pour.",
+    "init.gv.noteInit": "Majorités des groupes lors du vote final du Conseil national du {date}. Plein : pour l’initiative ; anneau : contre. Le repère indique la position moyenne des groupes favorables.",
+    "init.gv.tipInit": "{y} pour · {n} contre · {a} abstentions",
+    "news.parl.groupInit": "Groupe {party} : {y} pour · {n} contre · {a} abstentions",
+    "news.parl.srcInit": "Vote final sur l’arrêté fédéral, {date} · Source : parlament.ch ; sens et lien vérifiés avec Swissvotes (Année Politique Suisse, CC BY 4.0) · compté par rapport à l’initiative · sièges par groupe parlementaire"
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -2681,7 +2720,20 @@
     "news.cs.hint": "Clicca su un cantone per mantenerlo · doppio clic per aprire la sua pagina",
     "news.asm.title": "Parlamento e partiti",
     "news.asm.sub": "Le due camere, il Consiglio federale e dove si collocano i partiti",
-    "news.asm.seatShare": "Quota di seggi"
+    "news.asm.seatShare": "Quota di seggi",
+    "vote.o.for": "A favore dell’iniziativa",
+    "vote.o.against": "Contro l’iniziativa",
+    "vote.o.recNo": "Il Parlamento raccomanda il no",
+    "vote.o.recYes": "Il Parlamento raccomanda il sì",
+    "vote.o.noteReject": "La votazione finale del Parlamento riguardava un decreto federale che raccomanda al popolo di respingere l’iniziativa. Qui è conteggiata rispetto all’iniziativa: un no al decreto conta come a favore dell’iniziativa, un sì come contro.",
+    "vote.o.noteAccept": "La votazione finale del Parlamento riguardava un decreto federale che raccomanda al popolo di accettare l’iniziativa. Qui è conteggiata rispetto all’iniziativa: un sì al decreto conta come a favore dell’iniziativa, un no come contro.",
+    "vote.o.unknown": "Questa votazione finale riguardava il decreto federale che stabilisce la raccomandazione del Parlamento sull’iniziativa popolare. I dati ufficiali non indicano chiaramente in quale senso raccomanda; sì e no si riferiscono quindi al decreto.",
+    "vote.o.meaning": "Significato del sì (testo ufficiale):",
+    "leaning.descInit": "Dove si collocavano i voti a favore dell’iniziativa sullo spettro – ogni partito nella sua posizione, ponderato per il numero dei suoi membri che hanno votato a favore.",
+    "init.gv.noteInit": "Maggioranze dei gruppi nella votazione finale del Consiglio nazionale del {date}. Pieno: a favore dell’iniziativa; anello: contro. Il segno indica la posizione media dei gruppi favorevoli.",
+    "init.gv.tipInit": "{y} a favore · {n} contro · {a} astensioni",
+    "news.parl.groupInit": "Gruppo {party}: {y} a favore · {n} contro · {a} astensioni",
+    "news.parl.srcInit": "Votazione finale sul decreto federale, {date} · Fonte: parlament.ch; senso e collegamento verificati con Swissvotes (Année Politique Suisse, CC BY 4.0) · conteggiata rispetto all’iniziativa · seggi per gruppo parlamentare"
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -3352,6 +3404,19 @@
     "news.cs.hint": "Cliccai sin in chantun per al tegnair · cliccai duas giadas per avrir sia pagina",
     "news.asm.title": "Parlament e partidas",
     "news.asm.sub": "Las duas chombras, il Cussegl federal e nua che las partidas stattan",
-    "news.asm.seatShare": "Part dals sezs"
+    "news.asm.seatShare": "Part dals sezs",
+    "vote.o.for": "Per l’iniziativa",
+    "vote.o.against": "Cunter l’iniziativa",
+    "vote.o.recNo": "Il parlament recumonda na",
+    "vote.o.recYes": "Il parlament recumonda gea",
+    "vote.o.noteReject": "La votaziun finala dal parlament concerneva in conclus federal che recumonda al pievel da refusar l’iniziativa. Qua vegn ella quintada areguard l’iniziativa: in na al conclus quinta sco per l’iniziativa, in gea sco cunter.",
+    "vote.o.noteAccept": "La votaziun finala dal parlament concerneva in conclus federal che recumonda al pievel d’acceptar l’iniziativa. Qua vegn ella quintada areguard l’iniziativa: in gea al conclus quinta sco per l’iniziativa, in na sco cunter.",
+    "vote.o.unknown": "Questa votaziun finala concerneva il conclus federal cun la recumandaziun dal parlament davart l’iniziativa dal pievel. Las datas uffizialas na mussan betg cleramain en tge direcziun ch’el recumonda; gea e na sa refereschan perquai al conclus.",
+    "vote.o.meaning": "Significaziun da gea (text uffizial):",
+    "leaning.descInit": "Nua che las vuschs per l’iniziativa sa chattavan en il spectrum – mintga partida a sia posiziun, ponderada tenor il dumber da ses commembers che han votà per.",
+    "init.gv.noteInit": "Maioritads da las fracziuns en la votaziun finala dal Cussegl naziunal dals {date}. Emplenì: per l’iniziativa; rintg: cunter. Il segn mussa la posiziun media da las fracziuns per.",
+    "init.gv.tipInit": "{y} per · {n} cunter · {a} abstenziuns",
+    "news.parl.groupInit": "Fracziun {party}: {y} per · {n} cunter · {a} abstenziuns",
+    "news.parl.srcInit": "Votaziun finala davart il conclus federal, {date} · Funtauna: parlament.ch; direcziun e colliaziun verifitgadas cun Swissvotes (Année Politique Suisse, CC BY 4.0) · quintà areguard l’iniziativa · sezs tenor fracziun"
   }
 }

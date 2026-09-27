@@ -499,21 +499,26 @@ function moneyFig(i) {
 }
 
 function parlFig(i, files) {
-  const link = (SETTINGS().parliamentLinks || {})[i.id];
+  const link = C.parliamentLink(i);
   const file = link && files[link.session];
   const v = file && (file.votes || []).find(x => x.id === link.vote);
   return v ? parlFigHTML(i, v) : '';
 }
 // "What Parliament decided" for proposal i and its linked National Council
 // final vote v: the vote as a hemicycle, the tally and what a yes means.
-export function parlFigHTML(i, v) {
+export function parlFigHTML(i, raw) {
+  // A decree on an initiative is counted for / against the initiative (see
+  // voteFrame in app.js); anything else is Yes / No to the act.
+  const f = C.voteFrame(raw);
+  const v = C.orientVote(raw);
+  const yesL = f.initiative ? f.yes : t('news.yes'), noL = f.initiative ? f.no : t('news.no');
   const by = v.byParty || {};
   // byParty holds parliamentary-group counts (e.g. the SVP group includes Lega, EDU and MCG members).
   const groups = Object.keys(by).sort((a, b) => (party(a)?.spectrum?.x ?? 50) - (party(b)?.spectrum?.x ?? 50));
   const dots = [];
   groups.forEach(g => {
     const b = by[g];
-    const tip = tf('news.parl.group', { party: party(g) ? pShort(g) : g, y: b.yes || 0, n: b.no || 0, a: b.abstain || 0 });
+    const tip = tf(f.initiative ? 'news.parl.groupInit' : 'news.parl.group', { party: party(g) ? pShort(g) : g, y: b.yes || 0, n: b.no || 0, a: b.abstain || 0 });
     for (let x = 0; x < (b.yes || 0); x++) dots.push({ fill: YES, k: `g-${g} v-yes`, tip });
     for (let x = 0; x < (b.abstain || 0); x++) dots.push({ fill: ABST, k: `g-${g} v-abstain`, tip });
     for (let x = 0; x < (b.no || 0); x++) dots.push({ fill: NO, k: `g-${g} v-no`, tip });
@@ -521,19 +526,23 @@ export function parlFigHTML(i, v) {
   const absent = Math.max(0, 200 - dots.length);
   for (let x = 0; x < absent; x++) dots.push({ fill: ABSENT, k: 'v-absent', tip: tf('news.parl.absentTip', { n: absent }) });
   const tly = v.tally || {};
-  const initiative = i.type === 'initiative';
+  const initiative = f.initiative || f.decree;
+  const res = C.voteResult(raw);
+  const note = f.initiative || f.decree ? C.voteFrameNote(raw) : t('news.parl.noteAct');
   const share = shareId(() => ({ kind: 'voteHemicycle', title: C.initTitlePlain(i), subtitle: t(initiative ? 'news.parl.hInit' : 'news.parl.hAct'),
     route: 'initiative/' + i.id, source: shareSrc('votes'), tallies: { yes: tly.yes || 0, no: tly.no || 0, abstain: tly.abstain || 0 },
+    labels: f.initiative ? { yes: yesL, no: noL } : null,
     groups: groups.map(g => ({ label: party(g) ? pShort(g) : g, color: pColor(g), yes: by[g].yes || 0, no: by[g].no || 0, abstain: by[g].abstain || 0 })) }));
   return '<div class="n-fig" data-hl data-nshare="' + escapeAttr(share) + '">' + `<div class="n-k">${escapeAttr(t('news.parl.k'))}</div>` +
     `<h4 class="n-ft">${escapeAttr(t(initiative ? 'news.parl.hInit' : 'news.parl.hAct'))}</h4>` +
     '<div class="n-parl"><div>' + hemicycle(dots.slice(0, 200), 8, t('news.parl.hInit')) + '</div><div>' +
-    `<div class="n-tally"><span data-k="v-yes"><b style="color:${escapeAttr(YES)}">${escapeAttr(tly.yes || 0)}</b> ${escapeAttr(t('news.tally.yes'))}</span>` +
-    `<span data-k="v-no"><b style="color:${escapeAttr(NO)}">${escapeAttr(tly.no || 0)}</b> ${escapeAttr(t('news.tally.no'))}</span>` +
+    `<div class="n-tally"><span data-k="v-yes"><b style="color:${escapeAttr(YES)}">${escapeAttr(tly.yes || 0)}</b> ${escapeAttr(f.initiative ? yesL : t('news.tally.yes'))}</span>` +
+    `<span data-k="v-no"><b style="color:${escapeAttr(NO)}">${escapeAttr(tly.no || 0)}</b> ${escapeAttr(f.initiative ? noL : t('news.tally.no'))}</span>` +
     `<span data-k="v-abstain"><b>${escapeAttr(tly.abstain || 0)}</b> ${escapeAttr(t('news.tally.abst'))}</span></div>` +
-    legend([['v-yes', YES, t('news.yes')], ['v-no', NO, t('news.no')], ['v-abstain', '#fff;box-shadow:inset 0 0 0 1px #8a877e', t('news.tally.abst')], ['v-absent', ABSENT, t('news.absent')]]) +
-    `<p class="n-note">${escapeAttr(t(initiative ? 'news.parl.noteInit' : 'news.parl.noteAct'))}</p></div></div>` +
-    `<p class="n-src">${escapeAttr(tf('news.parl.src', { date: longDate(v.voteEnd) }))}</p></div>`;
+    (f.initiative && raw.passed ? `<p class="n-rec">${escapeAttr(res.text)}</p>` : '') +
+    legend([['v-yes', YES, yesL], ['v-no', NO, noL], ['v-abstain', '#fff;box-shadow:inset 0 0 0 1px #8a877e', t('news.tally.abst')], ['v-absent', ABSENT, t('news.absent')]]) +
+    `<p class="n-note">${escapeAttr(note)}</p></div></div>` +
+    `<p class="n-src">${escapeAttr(tf(f.initiative ? 'news.parl.srcInit' : 'news.parl.src', { date: longDate(v.voteEnd) }))}</p></div>`;
 }
 
 function stories(nb, files) {
@@ -599,15 +608,21 @@ function leftBlocks(files, last) {
   if (last && files[last.id]) {
     const votes = (files[last.id].votes || []).slice()
       .sort((a, b) => Math.abs((a.tally?.yes || 0) - (a.tally?.no || 0)) - Math.abs((b.tally?.yes || 0) - (b.tally?.no || 0)));
-    const rows = votes.slice(0, 5).map(v => {
+    // A decree on an initiative is shown for / against the initiative, with
+    // Parliament's recommendation instead of "adopted".
+    const rows = votes.slice(0, 5).map(raw => {
+      const f = C.voteFrame(raw), v = C.orientVote(raw);
       const y = v.tally?.yes || 0, n = v.tally?.no || 0;
-      return `<li class="n-row" data-href="#/session/${escapeAttr(last.id)}"><h4 class="n-clamp"><a href="#/session/${escapeAttr(last.id)}">` + sessionVoteTitle(v) + '</a></h4>' +
-        `<div class="n-bar"><span style="flex:${escapeAttr(y)};background:${escapeAttr(YES)}" data-ntip="${escapeAttr(y + ' ' + t('news.tally.yes'))}"></span><span style="flex:${escapeAttr(n)};background:${escapeAttr(NO)}" data-ntip="${escapeAttr(n + ' ' + t('news.tally.no'))}"></span></div>` +
-        `<p class="n-meta">${escapeAttr(t('parl.nc') + ' · ' + y + '–' + n + ' · ' + t(v.passed ? 'status.adopted' : 'status.rejected') + ' · ' + shortDate(v.voteEnd))}</p></li>`;
+      const yl = f.initiative ? f.yes : t('news.tally.yes'), nl = f.initiative ? f.no : t('news.tally.no');
+      const result = f.initiative ? C.voteResult(raw).text : t(v.passed ? 'status.adopted' : 'status.rejected');
+      return `<li class="n-row" data-href="#/session/${escapeAttr(last.id)}"><h4 class="n-clamp"><a href="#/session/${escapeAttr(last.id)}">` + sessionVoteTitle(raw) + '</a></h4>' +
+        `<div class="n-bar"><span style="flex:${escapeAttr(y)};background:${escapeAttr(YES)}" data-ntip="${escapeAttr(y + ' ' + yl)}"></span><span style="flex:${escapeAttr(n)};background:${escapeAttr(NO)}" data-ntip="${escapeAttr(n + ' ' + nl)}"></span></div>` +
+        `<p class="n-meta">${escapeAttr(t('parl.nc') + ' · ' + (f.initiative ? y + ' ' + yl + ', ' + n + ' ' + nl : y + '–' + n) + ' · ' + result + ' · ' + shortDate(v.voteEnd))}</p></li>`;
     }).join('');
     const fvShare = shareId(() => ({ kind: 'bars', title: t('news.fv.k'), subtitle: tf('news.fv.meta', { session: C.sessionName(last), n: votes.length }),
       route: 'session/' + last.id, source: shareSrc('votes'), legend: yesNoLegend(),
-      rows: votes.slice(0, 5).map(v => yesNoRow(sessionVotePlain(v), v.tally?.yes || 0, v.tally?.no || 0, (v.tally?.yes || 0) + '–' + (v.tally?.no || 0))) }));
+      rows: votes.slice(0, 5).map(raw => { const f = C.voteFrame(raw), v = C.orientVote(raw), y = v.tally?.yes || 0, n = v.tally?.no || 0;
+        return yesNoRow(sessionVotePlain(raw) + (f.initiative ? ' (' + f.yes + ' / ' + f.no + ')' : ''), y, n, y + '–' + n); }) }));
     out.push(pos('finalvotes', `<section class="n-blk n-mod" data-nshare="${escapeAttr(fvShare)}"><div class="n-k">${escapeAttr(t('news.fv.k'))}</div>` +
       `<p class="n-meta">${escapeAttr(tf('news.fv.meta', { session: C.sessionName(last), n: votes.length }))}</p><ul class="n-list">` + rows + '</ul>' +
       `<a class="n-more" href="#/session/${escapeAttr(last.id)}">${escapeAttr(tf('news.fv.all', { n: votes.length }))}</a></section>`));
@@ -842,10 +857,9 @@ export async function renderNewsHome() {
   const d = isoToday();
   const last = sessionsCache.find(s => s.voteCount > 0 && s.end <= d) || sessionsCache.find(s => s.voteCount > 0) || null;
   const nb = nextBallot();
-  const links = SETTINGS().parliamentLinks || {};
   const want = new Set();
   if (last) want.add(last.id);
-  if (nb) nb.items.forEach(i => { if (links[i.id]) want.add(links[i.id].session); });
+  if (nb) nb.items.forEach(i => { const l = C.parliamentLink(i); if (l) want.add(l.session); });
   const files = {};
   await Promise.all([...want].map(id => C.ensureSessionFile(id).then(f => { files[id] = f; })));
   if (token !== homeToken) return;          // a newer render (e.g. language change) took over
