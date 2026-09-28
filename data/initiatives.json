@@ -1,81 +1,14 @@
 {
   "_meta": {
-    "source": "Decided federal votes: VoteInfo (Federal Chancellery / Federal Statistical Office), opendata.swiss dataset 'echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen'. Upcoming scheduled votes and pending/signature-gathering initiatives: Federal Chancellery linked-data cubes (politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party recommendations (Parolen): Swissvotes (Année Politique Suisse, Uni Bern), CC BY-NC-SA. Official authority texts are not subject to copyright (Art. 5 URG).",
-    "fetchedAt": "2026-09-22T06:05:45Z",
-    "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive.",
     "license": "LicenseRef-mixed-source-terms",
     "licenseUrl": "https://opendata.swiss/en/terms-of-use",
     "attribution": "Federal Statistical Office and Federal Chancellery (VoteInfo, LINDAS); party recommendations and English short titles: Swissvotes (Année Politique Suisse, University of Bern), CC BY 4.0",
-    "commercialReuse": "ask the source: VoteInfo results are published under 'ask for permission' terms for commercial use (Federal Statistical Office)"
+    "commercialReuse": "ask the source: VoteInfo results are published under 'ask for permission' terms for commercial use (Federal Statistical Office)",
+    "source": "Decided federal votes: VoteInfo (Federal Chancellery / Federal Statistical Office), opendata.swiss dataset 'echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen'. Upcoming scheduled votes and pending/signature-gathering initiatives: Federal Chancellery linked-data cubes (politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party recommendations (Parolen) and Parliament's handling of each ballot (business number, recommendation, National Council final vote): Swissvotes (Année Politique Suisse, Uni Bern), CC BY 4.0, modified (the link to the Federal Assembly's final vote is added by scripts/fetch_sessions.py). Official authority texts are not subject to copyright (Art. 5 URG).",
+    "fetchedAt": "2026-09-28T10:21:30Z",
+    "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive."
   },
   "initiatives": [
-    {
-      "id": "vote-20260927-6880",
-      "type": "initiative",
-      "title": {
-        "en": "Neutrality Initiative",
-        "de": "Volksinitiative «Wahrung der schweizerischen Neutralität (Neutralitätsinitiative)»",
-        "fr": "Initiative populaire «Sauvegarder la neutralité suisse (initiative sur la neutralité)»",
-        "it": "Iniziativa popolare dell'11.04.2024 «Salvaguardia della neutralità svizzera (Iniziativa sulla neutralità)»"
-      },
-      "desc": {
-        "en": "A federal popular initiative scheduled for a nationwide vote on 27 September 2026.",
-        "de": "Eine eidgenössische Volksinitiative, die am 27. September 2026 zur Abstimmung kommt.",
-        "fr": "Une initiative populaire fédérale soumise à la votation du 27 septembre 2026.",
-        "it": "Un'iniziativa popolare federale in votazione il 27 settembre 2026.",
-        "rm": "Ina iniziativa dal pievel federala che vegn suttamessa a la votaziun ils 27 da settember 2026."
-      },
-      "status": "upcoming",
-      "date": {
-        "en": "Federal vote on 27 September 2026",
-        "de": "Abstimmung am 27. September 2026",
-        "fr": "Votation du 27 septembre 2026",
-        "it": "Votazione del 27 settembre 2026",
-        "rm": "Votaziun federala ils 27 da settember 2026"
-      },
-      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260927/index.html",
-      "voteDate": "2026-09-27",
-      "recommendations": {
-        "SVP": "yes",
-        "SP": "no",
-        "FDP": "no",
-        "GLP": "no",
-        "EVP": "no"
-      }
-    },
-    {
-      "id": "vote-20260927-6890",
-      "type": "initiative",
-      "title": {
-        "en": "«Food Initiative»",
-        "de": "Volksinitiative «Für eine sichere Ernährung – durch Stärkung einer nachhaltigen inländischen Produktion, mehr pflanzliche Lebensmittel und sauberes Trinkwasser (Ernährungsinitiative)»",
-        "fr": "Initiative populaire «Pour une alimentation sûre – grâce au renforcement de la production indigène durable, à davantage de denrées alimentaires végétales et à une eau potable propre (initiative sur l’alimentation)»",
-        "it": "Iniziativa popolare «Per un’alimentazione sicura – mediante il rafforzamento di una produzione nazionale sostenibile, più derrate alimentari vegetali e acqua potabile pulita (Iniziativa sull’alimentazione)»"
-      },
-      "desc": {
-        "en": "A federal popular initiative scheduled for a nationwide vote on 27 September 2026.",
-        "de": "Eine eidgenössische Volksinitiative, die am 27. September 2026 zur Abstimmung kommt.",
-        "fr": "Une initiative populaire fédérale soumise à la votation du 27 septembre 2026.",
-        "it": "Un'iniziativa popolare federale in votazione il 27 settembre 2026.",
-        "rm": "Ina iniziativa dal pievel federala che vegn suttamessa a la votaziun ils 27 da settember 2026."
-      },
-      "status": "upcoming",
-      "date": {
-        "en": "Federal vote on 27 September 2026",
-        "de": "Abstimmung am 27. September 2026",
-        "fr": "Votation du 27 septembre 2026",
-        "it": "Votazione del 27 settembre 2026",
-        "rm": "Votaziun federala ils 27 da settember 2026"
-      },
-      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260927/index.html",
-      "voteDate": "2026-09-27",
-      "recommendations": {
-        "SP": "no",
-        "FDP": "no",
-        "GLP": "no",
-        "EVP": "no"
-      }
-    },
     {
       "id": "vote-20261129-6900",
       "type": "referendum",
@@ -101,7 +34,25 @@
         "rm": "Votaziun federala ils 29 da november 2026"
       },
       "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
-      "voteDate": "2026-11-29"
+      "voteDate": "2026-11-29",
+      "recommendations": {
+        "SP": "yes",
+        "MITTE": "yes",
+        "FDP": "no",
+        "GPS": "yes"
+      },
+      "parliament": {
+        "business": "24.073",
+        "form": "mandatory",
+        "position": "accept",
+        "bill": 3,
+        "ncFor": 108,
+        "ncAgainst": 85,
+        "link": {
+          "session": 5214,
+          "vote": 36540
+        }
+      }
     },
     {
       "id": "vote-20261129-6910",
@@ -128,7 +79,23 @@
         "rm": "Votaziun federala ils 29 da november 2026"
       },
       "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
-      "voteDate": "2026-11-29"
+      "voteDate": "2026-11-29",
+      "recommendations": {
+        "FDP": "no",
+        "GPS": "yes"
+      },
+      "parliament": {
+        "business": "24.080",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 50,
+        "ncAgainst": 131,
+        "link": {
+          "session": 5214,
+          "vote": 36541
+        }
+      }
     },
     {
       "id": "vote-20261129-6920",
@@ -155,7 +122,24 @@
         "rm": "Votaziun federala ils 29 da november 2026"
       },
       "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
-      "voteDate": "2026-11-29"
+      "voteDate": "2026-11-29",
+      "recommendations": {
+        "MITTE": "yes",
+        "FDP": "no",
+        "GPS": "no"
+      },
+      "parliament": {
+        "business": "25.018",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 97,
+        "ncAgainst": 102,
+        "link": {
+          "session": 5214,
+          "vote": 36544
+        }
+      }
     },
     {
       "id": "vote-20261129-6930",
@@ -182,7 +166,25 @@
         "rm": "Votaziun federala ils 29 da november 2026"
       },
       "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
-      "voteDate": "2026-11-29"
+      "voteDate": "2026-11-29",
+      "recommendations": {
+        "SP": "no",
+        "MITTE": "yes",
+        "FDP": "yes",
+        "GPS": "no"
+      },
+      "parliament": {
+        "business": "25.024",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 122,
+        "ncAgainst": 68,
+        "link": {
+          "session": 5211,
+          "vote": 35460
+        }
+      }
     },
     {
       "id": "initiative-573",
@@ -350,11 +352,11 @@
         "it": "Iniziativa popolare federale 'Fermare gli abusi nell'asilo! (Iniziativa per la protezione delle frontiere)'"
       },
       "desc": {
-        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare.",
-        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pendenta tar il Cussegl federal), avant la votaziun dal pievel."
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare.",
+        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pendenta tar il parlament), avant la votaziun dal pievel."
       },
       "status": "pending",
       "date": {
@@ -1007,6 +1009,119 @@
       "deadline": "2028-03-08"
     },
     {
+      "id": "vote-20260927-6880",
+      "type": "initiative",
+      "title": {
+        "en": "Popular Initiative 'Safeguard Swiss neutrality (Neutrality Initiative)'",
+        "de": "Volksinitiative «Wahrung der schweizerischen Neutralität (Neutralitätsinitiative)»",
+        "fr": "Initiative populaire « Sauvegarder la neutralité suisse (initiative sur la neutralité) »",
+        "it": "Iniziativa popolare «Salvaguardia della neutralità svizzera (Iniziativa sulla neutralità)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 70.2% voting no (turnout 47.1%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 70,2% Nein abgelehnt (Stimmbeteiligung 47,1%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 70,2% de non (participation 47,1%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 70,2% di no (partecipazione 47,1%).",
+        "rm": "Ina iniziativa dal pievel federala refusada dal pievel, cun 70,2% na (participaziun 47,1%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 27 September 2026",
+        "de": "Abstimmung 27. September 2026",
+        "fr": "Votation du 27 septembre 2026",
+        "it": "Votazione del 27 settembre 2026",
+        "rm": "Votaziun ils 27 da settember 2026"
+      },
+      "outcome": {
+        "en": "Rejected (70.2% no)",
+        "de": "Abgelehnt (70,2% Nein)",
+        "fr": "Rejetée (70,2% non)",
+        "it": "Respinta (70,2% no)",
+        "rm": "Refusada (70,2% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260927/index.html",
+      "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
+        "MITTE": "no",
+        "FDP": "no",
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "yes",
+        "LEGA": "yes",
+        "MCG": "yes"
+      },
+      "parliament": {
+        "business": "24.092",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 65,
+        "ncAgainst": 124,
+        "link": {
+          "session": 5212,
+          "vote": 35945
+        }
+      }
+    },
+    {
+      "id": "vote-20260927-6890",
+      "type": "initiative",
+      "title": {
+        "en": "Popular Initiative 'For food security – through increased sustainable domestic production, more plant-based food and clean drinking water (Food Initiative)'",
+        "de": "Volksinitiative «Für eine sichere Ernährung – durch Stärkung einer nachhaltigen inländischen Produktion, mehr pflanzliche Lebensmittel und sauberes Trinkwasser (Ernährungsinitiative)»",
+        "fr": "Initiative populaire « Pour une alimentation sûre – grâce au renforcement de la protection indigène durable, à davantage de denrées alimentaires végétales et à une eau potable propre (initiative sur l’alimentation) »",
+        "it": "Iniziativa popolare «Per un’alimentazione sicura – mediante il rafforzamento di una produzione nazionale sostenibile, più derrate alimentari vegetali e acqua potabile pulita (Iniziativa sull’alimentazione)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative rejected by voters, with 72.5% voting no (turnout 47.0%).",
+        "de": "Eine eidgenössische Volksinitiative, vom Volk mit 72,5% Nein abgelehnt (Stimmbeteiligung 47,0%).",
+        "fr": "Une initiative populaire fédérale rejetée par le peuple, avec 72,5% de non (participation 47,0%).",
+        "it": "Un'iniziativa popolare federale respinta dal popolo, con il 72,5% di no (partecipazione 47,0%).",
+        "rm": "Ina iniziativa dal pievel federala refusada dal pievel, cun 72,5% na (participaziun 47,0%)."
+      },
+      "status": "rejected",
+      "date": {
+        "en": "Voted 27 September 2026",
+        "de": "Abstimmung 27. September 2026",
+        "fr": "Votation du 27 septembre 2026",
+        "it": "Votazione del 27 settembre 2026",
+        "rm": "Votaziun ils 27 da settember 2026"
+      },
+      "outcome": {
+        "en": "Rejected (72.5% no)",
+        "de": "Abgelehnt (72,5% Nein)",
+        "fr": "Rejetée (72,5% non)",
+        "it": "Respinta (72,5% no)",
+        "rm": "Refusada (72,5% na)"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20260927/index.html",
+      "recommendations": {
+        "SVP": "no",
+        "SP": "no",
+        "MITTE": "no",
+        "FDP": "no",
+        "GLP": "no",
+        "EVP": "no",
+        "EDU": "no",
+        "LEGA": "no",
+        "MCG": "no"
+      },
+      "parliament": {
+        "business": "25.067",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 0,
+        "ncAgainst": 194,
+        "link": {
+          "session": 5212,
+          "vote": 35949
+        }
+      }
+    },
+    {
       "id": "vote-20260614-6860",
       "type": "initiative",
       "title": {
@@ -1048,6 +1163,18 @@
         "EVP": "no",
         "EDU": "yes",
         "MCG": "yes"
+      },
+      "parliament": {
+        "business": "25.026",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 67,
+        "ncAgainst": 123,
+        "link": {
+          "session": 5211,
+          "vote": 35461
+        }
       }
     },
     {
@@ -1092,6 +1219,18 @@
         "EVP": "no",
         "EDU": "yes",
         "MCG": "yes"
+      },
+      "parliament": {
+        "business": "25.033",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 120,
+        "ncAgainst": 76,
+        "link": {
+          "session": 5210,
+          "vote": 35049
+        }
       }
     },
     {
@@ -1136,6 +1275,18 @@
         "EVP": "no",
         "EDU": "yes",
         "MCG": "yes"
+      },
+      "parliament": {
+        "business": "24.063",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 15,
+        "ncAgainst": 179,
+        "link": {
+          "session": 5210,
+          "vote": 35035
+        }
       }
     },
     {
@@ -1180,6 +1331,18 @@
         "EVP": "yes",
         "EDU": "yes",
         "MCG": "yes"
+      },
+      "parliament": {
+        "business": "24.063",
+        "form": "counter",
+        "position": "accept",
+        "bill": 2,
+        "ncFor": 183,
+        "ncAgainst": 7,
+        "link": {
+          "session": 5210,
+          "vote": 34884
+        }
       }
     },
     {
@@ -1224,6 +1387,18 @@
         "EVP": "no",
         "EDU": "yes",
         "MCG": "yes"
+      },
+      "parliament": {
+        "business": "24.060",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 76,
+        "ncAgainst": 115,
+        "link": {
+          "session": 5210,
+          "vote": 35034
+        }
       }
     },
     {
@@ -1268,6 +1443,18 @@
         "EVP": "yes",
         "EDU": "no",
         "MCG": "no"
+      },
+      "parliament": {
+        "business": "25.022",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 69,
+        "ncAgainst": 127,
+        "link": {
+          "session": 5210,
+          "vote": 35041
+        }
       }
     },
     {
@@ -1312,6 +1499,18 @@
         "EVP": "no",
         "EDU": "no",
         "MCG": "no"
+      },
+      "parliament": {
+        "business": "24.026",
+        "form": "optional",
+        "position": "accept",
+        "bill": 2,
+        "ncFor": 101,
+        "ncAgainst": 93,
+        "link": {
+          "session": 5209,
+          "vote": 34677
+        }
       }
     },
     {
@@ -1357,6 +1556,18 @@
         "EDU": "no",
         "LEGA": "no",
         "MCG": "no"
+      },
+      "parliament": {
+        "business": "24.079",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 18,
+        "ncAgainst": 173,
+        "link": {
+          "session": 5209,
+          "vote": 34682
+        }
       }
     },
     {
@@ -1402,6 +1613,18 @@
         "EDU": "no",
         "LEGA": "no",
         "MCG": "no"
+      },
+      "parliament": {
+        "business": "24.082",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 57,
+        "ncAgainst": 132,
+        "link": {
+          "session": 5209,
+          "vote": 34683
+        }
       }
     },
     {
@@ -1446,6 +1669,18 @@
         "EDU": "yes",
         "LEGA": "yes",
         "MCG": "no"
+      },
+      "parliament": {
+        "business": "22.454",
+        "form": "mandatory",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 123,
+        "ncAgainst": 57,
+        "link": {
+          "session": 5206,
+          "vote": 33885
+        }
       }
     },
     {
@@ -1490,6 +1725,18 @@
         "EVP": "yes",
         "EDU": "no",
         "MCG": "yes"
+      },
+      "parliament": {
+        "business": "23.073",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 170,
+        "ncAgainst": 25,
+        "link": {
+          "session": 5206,
+          "vote": 33887
+        }
       }
     },
     {
@@ -1534,6 +1781,18 @@
         "EVP": "yes",
         "EDU": "no",
         "LEGA": "no"
+      },
+      "parliament": {
+        "business": "24.021",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 61,
+        "ncAgainst": 133,
+        "link": {
+          "session": 5205,
+          "vote": 33460
+        }
       }
     },
     {
@@ -1577,6 +1836,18 @@
         "GLP": "no",
         "EVP": "no",
         "EDU": "yes"
+      },
+      "parliament": {
+        "business": "23.032",
+        "form": "optional",
+        "position": "accept",
+        "bill": 2,
+        "ncFor": 107,
+        "ncAgainst": 87,
+        "link": {
+          "session": 5122,
+          "vote": 31417
+        }
       }
     },
     {
@@ -1620,6 +1891,18 @@
         "GLP": "no",
         "EVP": "no",
         "EDU": "yes"
+      },
+      "parliament": {
+        "business": "15.455",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 108,
+        "ncAgainst": 85,
+        "link": {
+          "session": 5122,
+          "vote": 31396
+        }
       }
     },
     {
@@ -1662,6 +1945,18 @@
         "GPS": "no",
         "GLP": "yes",
         "EDU": "yes"
+      },
+      "parliament": {
+        "business": "18.475",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 123,
+        "ncAgainst": 72,
+        "link": {
+          "session": 5122,
+          "vote": 31400
+        }
       }
     },
     {
@@ -1704,6 +1999,18 @@
         "GLP": "yes",
         "EVP": "yes",
         "EDU": "yes"
+      },
+      "parliament": {
+        "business": "09.528",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 141,
+        "ncAgainst": 42,
+        "link": {
+          "session": 5201,
+          "vote": 31758
+        }
       }
     },
     {
@@ -1749,6 +2056,18 @@
         "EDU": "no",
         "LEGA": "no",
         "MCG": "no"
+      },
+      "parliament": {
+        "business": "22.025",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 2,
+        "ncFor": 72,
+        "ncAgainst": 124,
+        "link": {
+          "session": 5201,
+          "vote": 31763
+        }
       }
     },
     {
@@ -1794,6 +2113,18 @@
         "EDU": "yes",
         "LEGA": "yes",
         "MCG": "no"
+      },
+      "parliament": {
+        "business": "20.089",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 113,
+        "ncAgainst": 69,
+        "link": {
+          "session": 5118,
+          "vote": 30269
+        }
       }
     },
     {
@@ -1838,6 +2169,18 @@
         "EVP": "no",
         "EDU": "no",
         "MCG": "yes"
+      },
+      "parliament": {
+        "business": "21.063",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 70,
+        "ncAgainst": 123,
+        "link": {
+          "session": 5122,
+          "vote": 31405
+        }
       }
     },
     {
@@ -1882,6 +2225,18 @@
         "EVP": "yes",
         "EDU": "yes",
         "MCG": "no"
+      },
+      "parliament": {
+        "business": "21.067",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 31,
+        "ncAgainst": 110,
+        "link": {
+          "session": 5122,
+          "vote": 31407
+        }
       }
     },
     {
@@ -1926,6 +2281,18 @@
         "EVP": "no",
         "EDU": "yes",
         "MCG": "no"
+      },
+      "parliament": {
+        "business": "22.075",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 49,
+        "ncAgainst": 145,
+        "link": {
+          "session": 5122,
+          "vote": 31411
+        }
       }
     },
     {
@@ -1969,6 +2336,18 @@
         "GLP": "yes",
         "EVP": "yes",
         "MCG": "yes"
+      },
+      "parliament": {
+        "business": "21.047",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 177,
+        "ncAgainst": 19,
+        "link": {
+          "session": 5122,
+          "vote": 31404
+        }
       }
     },
     {
@@ -2014,6 +2393,18 @@
         "EDU": "no",
         "LEGA": "yes",
         "MCG": "yes"
+      },
+      "parliament": {
+        "business": "22.043",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 69,
+        "ncAgainst": 126,
+        "link": {
+          "session": 5118,
+          "vote": 30275
+        }
       }
     },
     {
@@ -2059,6 +2450,18 @@
         "EDU": "yes",
         "LEGA": "no",
         "MCG": "no"
+      },
+      "parliament": {
+        "business": "22.054",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 40,
+        "ncAgainst": 143,
+        "link": {
+          "session": 5121,
+          "vote": 30929
+        }
       }
     },
     {
@@ -2101,6 +2504,14 @@
         "GLP": "yes",
         "EVP": "yes",
         "LEGA": "yes"
+      },
+      "parliament": {
+        "business": "22.036",
+        "form": "mandatory",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 127,
+        "ncAgainst": 59
       }
     },
     {
@@ -2145,6 +2556,14 @@
         "EVP": "yes",
         "EDU": "no",
         "LEGA": "no"
+      },
+      "parliament": {
+        "business": "21.501",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 139,
+        "ncAgainst": 51
       }
     },
     {
@@ -2189,6 +2608,14 @@
         "EVP": "yes",
         "EDU": "no",
         "LEGA": "no"
+      },
+      "parliament": {
+        "business": "22.046",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 140,
+        "ncAgainst": 50
       }
     }
   ]
