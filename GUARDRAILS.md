@@ -349,7 +349,7 @@ The owner approves; then the edit, `check.sh`, local preview, change-log entry.
 | vote pages, dates, results, process steps | POL-01/03/09 |
 | `fonts/`, images, icons | LIC-01, POL-10 |
 | `images/*` (owner's photos) + `images/LICENSES.json` | LIC-01, POL-10, PRIV-09 (a photo passes only with a licence record; alt text in five languages) |
-| `js/site-settings.js` (admin) | reviewed; POL-03 when the Parliament final-vote links change |
+| `js/site-settings.js` (admin) | reviewed; POL-03 when the Parliament final-vote links or a decree direction change |
 | `js/news.js`, `js/design.js`, `js/site-images.js` | SEC-01 (sink scanner), OPS-03 |
 | `admin/server.py` (local admin, publishes) | PROC-02 |
 | `admin/preview-agent.js` (helper added to the admin's preview only, never published) | SEC-01, PROC-02 |

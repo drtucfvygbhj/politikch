@@ -575,10 +575,10 @@ def check_site_images(registered):
             block("OPS-03", f"photo {iid} has no alt text in {', '.join(missing).upper()}")
 
 
-def settings_links(text):
+def settings_part(text, key):
     m = re.search(r"window\.PCH_SETTINGS\s*=\s*(\{.*\})\s*;\s*$", text or "", re.S)
     try:
-        return json.loads(m.group(1)).get("parliamentLinks", {}) if m else {}
+        return json.loads(m.group(1)).get(key, {}) if m else {}
     except ValueError:
         return None
 
@@ -706,8 +706,13 @@ def check_changes(base, worktree_dirty, data_job=False):
     # POL-03: which official final vote a vote page shows is a result shown on the site.
     if "js/site-settings.js" in files:
         old = git("show", f"{base}:js/site-settings.js", check=False)
-        if settings_links(old) != settings_links(read("js/site-settings.js")):
+        new = read("js/site-settings.js")
+        if settings_part(old, "parliamentLinks") != settings_part(new, "parliamentLinks"):
             flag("POL-03", "the Parliament final-vote links in js/site-settings.js changed — check each one against parlament.ch")
+        # Which way a decree on a popular initiative recommends decides whether
+        # its final vote is shown for or against the initiative.
+        if settings_part(old, "decreeDirections") != settings_part(new, "decreeDirections"):
+            flag("POL-03", "a decree direction in js/site-settings.js changed — check each decree on parlament.ch or Fedlex")
     # PRIV-04 / SEC-03: privacy text or CSP edited.
     if "data/i18n.json" in files and any('"privacy.' in ln for ln in added_lines(base, "data/i18n.json")):
         flag("PRIV-04", "Privacy-page text changed — confirm it still matches what the code does")
