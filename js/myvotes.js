@@ -57,7 +57,9 @@ export function getAllVotes() { return readStore(); }
 
 // Set (or clear, when choice is null) the user's vote. `meta` may carry, for a
 // session vote, { parties: {SVP:'yes',…}, topics:[…] } so the profile can score
-// alignment without re-fetching the session file.
+// alignment without re-fetching the session file, and, for a decree on a
+// popular initiative, `for`: the stored choice that means "for the initiative"
+// (kept as `f`, so the profile can count the vote the way it reads).
 export function setVote(kind, id, choice, meta) {
   const d = readStore();
   const b = d[bucket(kind)];
@@ -67,9 +69,21 @@ export function setVote(kind, id, choice, meta) {
     b[id] = Object.assign({}, b[id], { c: choice, t: Date.now() });
     if (meta && meta.parties) b[id].p = meta.parties;
     if (meta && meta.topics) b[id].topics = meta.topics;
+    if (meta && meta.for) b[id].f = meta.for; else if (meta) delete b[id].f;
   }
   writeStore(d);
   document.dispatchEvent(new CustomEvent('politikch:votechange', { detail: { kind, id, choice } }));
+}
+// Keep a saved session vote's `f` in step with how the vote now reads (votes
+// saved before `f` existed, or a decree whose direction became known later).
+// Silent: the choice itself is unchanged.
+function syncFor(kind, id, f) {
+  if (kind !== 'session') return;
+  const d = readStore();
+  const e = d.sessions[id];
+  if (!e || (e.f || null) === (f || null)) return;
+  if (f) e.f = f; else delete e.f;
+  writeStore(d);
 }
 
 // What the poll server currently believes this device voted, kept in a SEPARATE
@@ -143,26 +157,32 @@ function choiceOrder(el) {
   return ['yes', 'no'];
 }
 
-function pollBarsHTML(tally) {
-  const yes = (tally && tally.yes) || 0;
-  const no = (tally && tally.no) || 0;
-  const total = yes + no;
-  const py = total ? Math.round(yes / total * 100) : 0;
-  const pn = total ? 100 - py : 0;
+// The poll reads like the buttons: on a decree on a popular initiative it is
+// "for / against the initiative", in that order and colour.
+function pollBarsHTML(tally, el) {
+  const n = { yes: (tally && tally.yes) || 0, no: (tally && tally.no) || 0 };
+  const total = n.yes + n.no;
+  const [first, second] = choiceOrder(el);
+  const p1 = total ? Math.round(n[first] / total * 100) : 0;
+  const p2 = total ? 100 - p1 : 0;
+  const look = (c) => (el && el.dataset.for ? (c === el.dataset.for ? 'yes' : 'no') : c);
+  const aria = el && el.dataset.for
+    ? `${t('mine.pollTag')}: ${choiceLabel(first, el)} ${p1}%, ${choiceLabel(second, el)} ${p2}%`
+    : t('mine.pollAria').replace('{yes}', p1).replace('{no}', p2);
   const nfmt = new Intl.NumberFormat();
   return `
-    <div class="poll-block" role="img" aria-label="${esc(t('mine.pollAria').replace('{yes}', py).replace('{no}', pn))}">
+    <div class="poll-block" role="img" aria-label="${escapeAttr(aria)}">
       <div class="poll-head">
         <span class="poll-tag">${t('mine.pollTag')}</span>
         <span class="poll-total">${total ? t('mine.pollCount').replace('{n}', nfmt.format(total)) : t('mine.pollEmpty')}</span>
       </div>
       <div class="poll-bar">
-        <span class="poll-seg poll-seg-yes" style="width:${py}%"></span>
-        <span class="poll-seg poll-seg-no" style="width:${pn}%"></span>
+        <span class="poll-seg poll-seg-${escapeAttr(look(first))}" style="width:${escapeAttr(p1)}%"></span>
+        <span class="poll-seg poll-seg-${escapeAttr(look(second))}" style="width:${escapeAttr(p2)}%"></span>
       </div>
       <div class="poll-legend">
-        <span class="poll-k poll-k-yes">${t('mine.yes')} ${py}%</span>
-        <span class="poll-k poll-k-no">${t('mine.no')} ${pn}%</span>
+        <span class="poll-k poll-k-${escapeAttr(look(first))}">${escapeAttr(choiceLabel(first, el))} ${escapeAttr(p1)}%</span>
+        <span class="poll-k poll-k-${escapeAttr(look(second))}">${escapeAttr(choiceLabel(second, el))} ${escapeAttr(p2)}%</span>
       </div>
     </div>`;
 }
@@ -173,6 +193,7 @@ function renderWidget(el) {
   const isPoll = el.dataset.poll === '1';
   const choice = getVote(kind, id);
   const voted = choice === 'yes' || choice === 'no';
+  if (voted) syncFor(kind, id, el.dataset.for);
 
   // The colour follows the meaning: the "for" button looks like Yes elsewhere.
   const look = (c) => (el.dataset.for ? (c === el.dataset.for ? 'yes' : 'no') : c);
@@ -211,8 +232,10 @@ function renderWidget(el) {
 }
 
 function metaOf(el) {
-  if (!el.dataset.meta) return null;
-  try { return JSON.parse(el.dataset.meta); } catch (e) { return null; }
+  let m = null;
+  if (el.dataset.meta) { try { m = JSON.parse(el.dataset.meta); } catch (e) { m = null; } }
+  if (m && el.dataset.for) m.for = el.dataset.for;
+  return m;
 }
 
 function onPick(el, choice) {
@@ -280,7 +303,7 @@ async function loadPoll(el) {
 }
 function paintPoll(el, tally) {
   const slot = el.querySelector('[data-poll-slot]');
-  if (slot) slot.innerHTML = pollBarsHTML(tally);
+  if (slot) slot.innerHTML = pollBarsHTML(tally, el);
 }
 function paintPollByKey(key, tally) {
   document.querySelectorAll('.vote-widget').forEach(el => {

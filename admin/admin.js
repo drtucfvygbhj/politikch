@@ -132,7 +132,7 @@
   }
   async function saveSettings(s, msg, label) {
     const j = await api('/api/settings', Object.assign({}, s, { _label: label || 'Design settings' }));
-    S = j.settings; fillDesign(S); renderLinks(); reloadPreview(); refreshStatus();
+    S = j.settings; fillDesign(S); renderLinks(); renderDecrees(); reloadPreview(); refreshStatus();
     flash(msg || 'Saved to js/site-settings.js. It goes live when you commit and push.');
   }
   form.addEventListener('submit', async (e) => {
@@ -150,7 +150,7 @@
     try {
       const j = await api('/api/history/' + dir, {});
       S = j.settings; IMG = j.images || IMG; H = j.history || H;
-      fillDesign(S); renderLinks(); renderImages(); reloadPreview(); await refreshStatus();
+      fillDesign(S); renderLinks(); renderDecrees(); renderImages(); reloadPreview(); await refreshStatus();
       flash((dir === 'undo' ? 'Undone: ' : 'Redone: ') + j.label);
     } catch (err) { flash(err.message, true); }
   }
@@ -549,6 +549,37 @@
     try { await saveSettings(s, 'Vote links saved.', 'Vote links'); } catch (err) { flash(err.message, true); }
   });
 
+  // Decrees on a popular initiative whose direction the data leaves open. Only
+  // you set one, after checking the decree (POL-03); the data's own wins.
+  const DIR_LABEL = { '': 'Not set — shown as Yes / No to the decree', reject: 'Recommends rejecting the initiative', accept: 'Recommends accepting the initiative' };
+  function renderDecrees() {
+    const dirs = S.decreeDirections || {};
+    const list = ST.openDecrees || [];
+    if (!list.length) { $('#decrees').replaceChildren(el('p', { class: 'meta', text: 'Every decree on a popular initiative has a direction from the data. Nothing to set.' })); return; }
+    $('#decrees').replaceChildren(...list.map(d => {
+      const name = 'dir-' + d.vote, cur = dirs[d.vote] || '';
+      const sides = Object.entries(d.sides || {}).map(([k, s]) => `${k} ${s}`).join(', ');
+      return el('div', { class: 'link-vote' + (cur ? ' is-linked' : '') }, [
+        el('p', { class: 'vote-h', text: d.title }),
+        el('p', { class: 'meta' }, [document.createTextNode(`session ${d.session} · vote ${d.vote} · ${d.date || ''}` +
+          (d.tally ? ` · ${d.tally.yes} yes, ${d.tally.no} no` : '') + ' · '),
+          ...(d.business ? [el('a', { href: curiaUrl(d.business), target: '_blank', rel: 'noopener noreferrer', text: 'check on parlament.ch ↗' })] : [])]),
+        el('p', { class: 'meta', text: `Official meaning of Yes: “${(d.meaning || {}).yes || '—'}”` }),
+        el('p', { class: 'meta', text: `Groups (hint only): ${sides || '—'}` }),
+        ...Object.entries(DIR_LABEL).map(([val, label]) => el('label', { class: 'cand' }, [
+          el('input', { type: 'radio', name, value: val, checked: cur === val }), document.createTextNode(' ' + label)]))]);
+    }));
+  }
+  $('#save-decrees').addEventListener('click', async () => {
+    const s = clone(S);
+    s.decreeDirections = {};
+    (ST.openDecrees || []).forEach(d => {
+      const r = document.querySelector(`input[name="dir-${CSS.escape(String(d.vote))}"]:checked`);
+      if (r && r.value) s.decreeDirections[d.vote] = r.value;
+    });
+    try { await saveSettings(s, 'Directions saved. They go live with "Make changes live".', 'Decree directions'); } catch (err) { flash(err.message, true); }
+  });
+
   /* ---------- publish (two separate buttons) ---------- */
   const PUB_TEXT = {
     settings: { kicker: 'Make changes live', title: 'Publish the design settings', what: 'Only js/site-settings.js is committed and pushed — design version, fonts, sizes, live rules, rotation and vote links.' },
@@ -634,7 +665,7 @@
     try {
       const j = await api('/api/state');
       S = j.settings; ST = j.status; IMG = j.images || IMG; PUB = j.publish || {}; H = j.history || H;
-      buildDesignForm(); fillDesign(S); renderOverview(); renderImages(); renderLinks(); renderPubState(); renderHistory();
+      buildDesignForm(); fillDesign(S); renderOverview(); renderImages(); renderLinks(); renderDecrees(); renderPubState(); renderHistory();
     } catch (err) { flash('Could not load: ' + err.message, true); }
   })();
 })();

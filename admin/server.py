@@ -97,6 +97,7 @@ DEFAULT_SETTINGS = {
     "live": {"ballotDays": 28, "deadlineDays": 7},
     "rotation": {"canton": 9, "explainer": 12},
     "parliamentLinks": {},
+    "decreeDirections": {},
 }
 IMAGES_HEADER = ("/* Politikch photos — written by the local admin tool (admin/, localhost:8002).\n"
                  "   Which photo goes with which vote, with alt text in five languages and a credit.\n"
@@ -203,6 +204,23 @@ def clean_settings(body):
             raise BadRequest(f"final vote {vote} not found in session {sid}")
         links[vid] = {"session": sid, "vote": vote}
     out["parliamentLinks"] = links
+    # Which way a decree on a popular initiative recommends, set by the owner
+    # only where the official wording leaves it open (POL-03: checked against the
+    # decree itself). The data's own direction always wins, so an entry the data
+    # has since settled is dropped rather than refused.
+    open_ids = {str(d["vote"]) for d in open_decrees()}
+    all_ids = {str(v.get("id")) for sf in session_files() for v in sf.get("votes", [])}
+    dirs = {}
+    for vid, rec in (body.get("decreeDirections") or {}).items():
+        if not rec:
+            continue
+        if rec not in ("reject", "accept"):
+            raise BadRequest(f"decree {vid}: direction must be reject or accept")
+        if str(vid) not in all_ids:
+            raise BadRequest(f"final vote {vid} not found in the session data")
+        if str(vid) in open_ids:
+            dirs[str(vid)] = rec
+    out["decreeDirections"] = dirs
     pos = body.get("positions")
     if pos:
         if not isinstance(pos, dict):
@@ -663,6 +681,27 @@ def link_candidates(init):
     return out[:5]
 
 
+def open_decrees():
+    """Final votes on a decree on a popular initiative whose direction the data
+    job couldn't read from the official wording (for the Vote links page)."""
+    out = []
+    for sf in session_files():
+        for v in sf.get("votes", []):
+            d = v.get("initiativeDecree")
+            if d is None or d.get("recommend") in ("reject", "accept"):
+                continue
+            sides = {}
+            for k, g in (v.get("byParty") or {}).items():
+                y, n = g.get("yes", 0), g.get("no", 0)
+                if y or n:
+                    sides[k] = "yes" if y > n else "no" if n > y else "split"
+            out.append({"session": sf.get("id"), "vote": v.get("id"), "title": (v.get("title") or {}).get("de", ""),
+                        "date": v.get("voteEnd"), "meaning": v.get("meaning") or {}, "tally": v.get("tally"),
+                        "sides": sides, "business": v.get("businessNumber")})
+    out.sort(key=lambda d: d["date"] or "", reverse=True)
+    return out
+
+
 def status():
     today = dt.date.today()
     inits = initiatives()
@@ -714,6 +753,7 @@ def status():
         "changed": git,
         "votes": votes,
         "linkVotes": link_votes,
+        "openDecrees": open_decrees(),
         "fonts": FONTS,
         "limits": LIMITS,
         "register": (load_json(REGISTER, {}) or {}).get("images", {}),

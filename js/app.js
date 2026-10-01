@@ -2886,11 +2886,21 @@ function sessionVoteHTML(raw) {
    voteFrame / orientVote, so it reads the same way everywhere. */
 function voteFrame(v) {
   const d = v && v.initiativeDecree;
-  if (d && (d.recommend === 'reject' || d.recommend === 'accept')) {
-    return { initiative: true, flip: d.recommend === 'reject', recommend: d.recommend,
+  const rec = d && decreeDirection(v, d);
+  if (rec) {
+    return { initiative: true, flip: rec === 'reject', recommend: rec,
       yes: t('vote.o.for'), no: t('vote.o.against') };
   }
   return { initiative: false, decree: !!d, flip: false, yes: t('session.yes'), no: t('session.no') };
+}
+// The direction from the data; where the official wording doesn't say it
+// plainly, the one the owner set in the admin after checking the decree
+// (js/site-settings.js "decreeDirections", POL-03). Never overrides the data.
+function decreeDirection(v, d) {
+  const ok = (r) => r === 'reject' || r === 'accept';
+  if (ok(d.recommend)) return d.recommend;
+  const set = ((window.PCH_SETTINGS || {}).decreeDirections || {})[v.id];
+  return ok(set) ? set : null;
 }
 // The vote with yes/no counted as for/against the initiative where needed.
 function orientVote(v) {
@@ -3185,8 +3195,10 @@ function mountVotesExplorer(hostEl, votes) {
   const filtered = () => {
     let out = votes.slice();
     if (st.topic) out = out.filter(v => (v.topics || []).includes(st.topic));
-    if (st.result === 'adopted') out = out.filter(v => v.passed);
-    else if (st.result === 'rejected') out = out.filter(v => !v.passed);
+    // By the result shown on the vote: a decree on a popular initiative goes
+    // with Parliament's recommendation (recommends No -> rejected).
+    if (st.result === 'adopted') out = out.filter(v => voteResult(v).cls === 'yes');
+    else if (st.result === 'rejected') out = out.filter(v => voteResult(v).cls === 'no');
     const q = st.q.trim().toLowerCase();
     if (q) out = out.filter(v => (voteTitlePlain(v) + ' ' + (v.business || '')).toLowerCase().includes(q));
     // Ordering: a chosen margin sort is primary (with leaning as tiebreaker when
@@ -3641,7 +3653,10 @@ function computeMyLeaning() {
     if (init && init.recommendations) tally(init.recommendations, e.c, INITIATIVE_WEIGHT);
   });
   Object.entries(store.sessions || {}).forEach(([, e]) => {
-    sessN++; if (e.c === 'yes') yesN++; else if (e.c === 'no') noN++;
+    // Yes / No as the vote reads: on a decree on a popular initiative, "for the
+    // initiative" (e.f) counts as Yes, like a Yes to the initiative itself.
+    const c = e.f ? (e.c === e.f ? 'yes' : 'no') : e.c;
+    sessN++; if (c === 'yes') yesN++; else if (c === 'no') noN++;
     if (e.p) tally(e.p, e.c, SESSION_WEIGHT);
     (e.topics || []).forEach(tk => { topicCount[tk] = (topicCount[tk] || 0) + 1; });
   });
