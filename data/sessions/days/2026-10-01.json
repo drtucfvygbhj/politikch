@@ -1,0 +1,7941 @@
+{
+ "_meta": {
+  "license": "LicenseRef-opendata.swiss-terms_by",
+  "licenseUrl": "https://opendata.swiss/en/terms-of-use",
+  "attribution": "Parliamentary Services of the Federal Assembly (parlament.ch)",
+  "commercialReuse": "yes, with credit",
+  "source": "Federal Assembly OData web service (ws.parlament.ch)",
+  "fetchedAt": "2026-10-05T12:41:08+00:00",
+  "probe": {
+   "transcripts": "/Date(1791209587858)/",
+   "lastVote": 38945,
+   "meetings": [
+    [
+     "5288",
+     "/Date(1790859928699)/"
+    ],
+    [
+     "5289",
+     "/Date(1790878402806)/"
+    ],
+    [
+     "5290",
+     "/Date(1790884004482)/"
+    ],
+    [
+     "5291",
+     "/Date(1790883641306)/"
+    ]
+   ]
+  }
+ },
+ "date": "2026-10-01",
+ "session": {
+  "id": 5215,
+  "season": "autumn",
+  "year": 2026
+ },
+ "councils": {
+  "N": {
+   "agenda": [
+    {
+     "subject": 83017,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "26.053",
+       "businessId": 20260053,
+       "title": {
+        "de": "Verpflichtungskredite für internationale Sportanlässe 2027-2029 sowie Verlängerung der Verpflichtungen für Sportanlagen von nationaler Bedeutung 2022-2027 (Nasak 5)",
+        "fr": "Crédits d'engagement pour les manifestations sportives internationales 2027-2029 et prolongation de la contraction des engagements pour des installations sportives d'importance nationale 2022-2027 (Cisin 5)"
+       },
+       "note": "Erstrat - Premier Conseil"
+      }
+     ]
+    },
+    {
+     "subject": 83019,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "26.054",
+       "businessId": 20260054,
+       "title": {
+        "de": "Bundesbeschluss über die Unterstützung der Kandidatur, Vorbereitung und Durchführung der Olympischen und Paralympischen Winterspiele 2038",
+        "fr": "Arrêté fédéral concernant le soutien apporté à la candidature, à la préparation et à la réalisation des Jeux olympiques et paralympiques d'hiver 2038"
+       },
+       "note": "Erstrat - Premier Conseil"
+      }
+     ]
+    },
+    {
+     "subject": 83020,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "23.432",
+       "businessId": 20230432,
+       "title": {
+        "de": "Parlamentarische Initiative Minder Thomas. Keine Abgangsentschädigungen ans Topkader der Bundesverwaltung und bundesnaher Unternehmen",
+        "fr": "Initiative parlementaire Minder Thomas. Interdire le versement d'indemnités de départ aux cadres dirigeants des entreprises de la Confédération et des entreprises liées à la Confédération"
+       },
+       "note": "Zweitrat - Deuxième Conseil"
+      }
+     ]
+    },
+    {
+     "subject": 83021,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "26.3189",
+       "businessId": 20263189,
+       "title": {
+        "de": "Motion Amoos Emmanuel. Systemrelevante Zahlungsanbieter der Aufsicht durch die Finma unterstellen",
+        "fr": "Motion Amoos Emmanuel. Soumettre les prestataires de paiement d'importance systémique à la surveillance de la Finma"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83022,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "24.4585",
+       "businessId": 20244585,
+       "title": {
+        "de": "Motion Pahud Yvan. Defizitäre Bundesfinanzen. Die Lohnmassnahmen für das Bundespersonal ab 10 000 Franken Monatslohn aussetzen und so die hohen Löhne begrenzen und die niedrigen Löhne aufwerten",
+        "fr": "Motion Pahud Yvan. Finances fédérales déficitaires. Limitons les hauts salaires et revalorisons les bas salaires en suspendant les mesures salariales pour le personnel fédéral dès 10 000 francs de salaire mensuel"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83023,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3055",
+       "businessId": 20253055,
+       "title": {
+        "de": "Motion Golay Roger. Wettbewerb mit Grenzgängerinnen und Grenzgängern in der Bundesverwaltung und in bundesnahen Betrieben. Gehen wir das Thema endlich an!",
+        "fr": "Motion Golay Roger. Concurrence des frontaliers au sein de l'administration fédérale et des régies publiques. Saisissons-nous enfin de la question !"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83026,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3189",
+       "businessId": 20253189,
+       "title": {
+        "de": "Motion Amaudruz Céline. Steuerliche Abzugsfähigkeit von Rückstellungen für Ferienguthaben. Vereinheitlichung der Buchführungs- und Steuerpraxis",
+        "fr": "Motion Amaudruz Céline. Admissibilité de la provision pour vacances. Alignement des pratiques comptables et fiscales"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83024,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3279",
+       "businessId": 20253279,
+       "title": {
+        "de": "Motion Grüne Fraktion. Hausdurchsuchungskompetenz für die Finma",
+        "fr": "Motion groupe des Verts. Doter la Finma de la compétence d'ordonner des perquisitions"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83028,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3280",
+       "businessId": 20253280,
+       "title": {
+        "de": "Motion Grüne Fraktion. Finma-Direktaufsicht über global systemrelevante Banken",
+        "fr": "Motion groupe des Verts. Placer les G-SIB sous la surveillance directe de la Finma"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83025,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3308",
+       "businessId": 20253308,
+       "title": {
+        "de": "Motion Pahud Yvan. Moratorium für den Verkauf von Gebäuden des Bundesamtes für Zoll und Grenzsicherheit",
+        "fr": "Motion Pahud Yvan. Moratoire sur la vente des bâtiments de l'Office fédéral de la douane et de la sécurité des frontières"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83036,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3314",
+       "businessId": 20253314,
+       "title": {
+        "de": "Motion Grüne Fraktion. Mit einer angemessenen Einlagensicherung das Vertrauen in die Banken stärken",
+        "fr": "Motion groupe des Verts. Améliorer la garantie des dépôts pour renforcer la confiance dans les banques"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83037,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3408",
+       "businessId": 20253408,
+       "title": {
+        "de": "Motion Addor Jean-Luc. Eine Wehranleihe für die Modernisierung unserer Armee",
+        "fr": "Motion Addor Jean-Luc. Un emprunt de défense nationale pour moderniser notre armée"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83029,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3412",
+       "businessId": 20253412,
+       "title": {
+        "de": "Motion Zybach Ursula. Schluss mit dem Entlastungspaket 2027",
+        "fr": "Motion Zybach Ursula. Mettre fin au programme d'allègement budgétaire 2027"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83035,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3414",
+       "businessId": 20253414,
+       "title": {
+        "de": "Motion Gysin Greta. Personalbörse für Bundesverwaltung einführen",
+        "fr": "Motion Gysin Greta. Lancer une bourse d'emploi dans l'administration fédérale",
+        "it": "Mozione Gysin Greta. Introdurre una borsa dei posti di lavoro nell'amministrazione federale"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83030,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3467",
+       "businessId": 20253467,
+       "title": {
+        "de": "Motion Quadri Lorenzo. Errichtung eines Schweizer Staatsfonds zur Unterstützung der Infrastruktur und der Volkswirtschaft",
+        "fr": "Motion Quadri Lorenzo. Création d'un fonds souverain suisse pour soutenir les infrastructures et l'économie nationale",
+        "it": "Mozione Quadri Lorenzo. Istituire un fondo sovrano svizzero a sostegno delle infrastrutture e dell'economia nazionale"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83032,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3482",
+       "businessId": 20253482,
+       "title": {
+        "de": "Motion Burgherr Thomas. Homeoffice in der Bundesverwaltung überdenken",
+        "fr": "Motion Burgherr Thomas. Repenser le travail à domicile dans l'administration fédérale"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83033,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3502",
+       "businessId": 20253502,
+       "title": {
+        "de": "Motion Bühler Manfred. Gleichbehandlung im interkantonalen Finanzausgleich beim Kantonswechsel von Moutier",
+        "fr": "Motion Bühler Manfred. Egalité de traitement dans la péréquation intercantonale lors du transfert de Moutier"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83039,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3609",
+       "businessId": 20253609,
+       "title": {
+        "de": "Motion Candan Hasan. Verfassungswidrige Diskriminierungen bei Fahrzeugversicherungen umgehend verbieten",
+        "fr": "Motion Candan Hasan. Interdiction immédiate des discriminations contraires à la Constitution dans les assurances pour véhicules"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83041,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3694",
+       "businessId": 20253694,
+       "title": {
+        "de": "Motion Quadri Lorenzo. Gewährleistung von Transparenz und Sicherung der Zollkompetenz im Rahmen des BAZG-Vollzugsaufgabengesetzes und des Digitalisierungs- und Transformationsprogramms Dazit",
+        "fr": "Motion Quadri Lorenzo. Garantir la transparence et préserver les compétences douanières dans le cadre de la LE-OFDF et du programme Dazit",
+        "it": "Mozione Quadri Lorenzo. Garanzia di trasparenza e tutela della competenza doganale nel contesto della riforma BAZG-VG e del programma Dazit"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83042,
+     "meeting": 5288,
+     "items": [
+      {
+       "business": "25.3695",
+       "businessId": 20253695,
+       "title": {
+        "de": "Motion Hess Erich. Reduktion des Bundespersonalbestandes mittels natürlicher Fluktuation",
+        "fr": "Motion Hess Erich. Réduire les effectifs de l'administration fédérale au moyen de la fluctuation naturelle"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83045,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "26.043",
+       "businessId": 20260043,
+       "title": {
+        "de": "Im Jahr 2025 abgeschlossene völkerrechtliche Verträge. Bericht",
+        "fr": "Traités internationaux conclus en 2025. Rapport"
+       },
+       "note": "Erstrat - Premier Conseil"
+      }
+     ]
+    },
+    {
+     "subject": 83046,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "26.4055",
+       "businessId": 20264055,
+       "title": {
+        "de": "Postulat APK-N. Bericht zur Bilanz der Umsetzung der Motion Marty (09.3719)",
+        "fr": "Postulat CPE-N. Rapport sur la mise en oeuvre de la motion Marty (09.3719)"
+       },
+       "note": null
+      },
+      {
+       "business": "09.3719",
+       "businessId": 20093719,
+       "title": {
+        "de": "Motion Marty Dick. Die Uno untergräbt das Fundament unserer Rechtsordnung",
+        "fr": "Motion Marty Dick. Les fondements de notre ordre juridique court-circuités par l'ONU",
+        "it": "Mozione Marty Dick. I fondamenti del nostro ordine giuridico scavalcati dall'ONU"
+       },
+       "note": "Frist - Délai"
+      }
+     ]
+    },
+    {
+     "subject": 83048,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "25.459",
+       "businessId": 20250459,
+       "title": {
+        "de": "Parlamentarische Initiative Strupler Manuel. Gleiche Rechte und Pflichten für alle - kein Doppelbürgerrecht für Eingebürgerte",
+        "fr": "Initiative parlementaire Strupler Manuel. Mêmes droits et devoirs pour tous - pas de double nationalité pour les personnes naturalisées"
+       },
+       "note": "Vorprüfung - Examen préalable"
+      }
+     ]
+    },
+    {
+     "subject": 83049,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "25.460",
+       "businessId": 20250460,
+       "title": {
+        "de": "Parlamentarische Initiative Funiciello Tamara. Feministische Verfassungsrevision. Recht auf Schutz vor patriarchaler Gewalt",
+        "fr": "Initiative parlementaire Funiciello Tamara. Révision féministe de la Constitution. Droit à une protection contre la violence patriarcale"
+       },
+       "note": "Vorprüfung - Examen préalable"
+      }
+     ]
+    },
+    {
+     "subject": 83063,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "25.462",
+       "businessId": 20250462,
+       "title": {
+        "de": "Parlamentarische Initiative SPK-S. Rolle, Aufgabe und Funktionsweise der Verwaltungsdelegation",
+        "fr": "Initiative parlementaire CIP-E. Rôle, tâches et fonctionnement de la Délégation administrative"
+       },
+       "note": "Vorprüfung - Examen préalable"
+      }
+     ]
+    },
+    {
+     "subject": 83052,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "25.468",
+       "businessId": 20250468,
+       "title": {
+        "de": "Parlamentarische Initiative Grüne Fraktion. Die Bevölkerung will es und so denkt die Schweiz!",
+        "fr": "Initiative parlementaire groupe des Verts. C'est ce que veut la population et ce que pense la Suisse !"
+       },
+       "note": "Vorprüfung - Examen préalable"
+      }
+     ]
+    },
+    {
+     "subject": 83057,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "25.474",
+       "businessId": 20250474,
+       "title": {
+        "de": "Parlamentarische Initiative Molina Fabian. Der Bundesrat muss gegenüber dem Parlament die Wahrheit sagen!",
+        "fr": "Initiative parlementaire Molina Fabian. Le Conseil fédéral doit dire la vérité au Parlement !"
+       },
+       "note": "Vorprüfung - Examen préalable"
+      }
+     ]
+    },
+    {
+     "subject": 83062,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "25.4640",
+       "businessId": 20254640,
+       "title": {
+        "de": "Motion Moser Tiana Angelina. Weniger Bürokratie bei Mehrfachtätern ohne ordentlichen Wohnsitz- oder Aufenthaltsstatus. Effiziente Strafverfolgung ermöglichen",
+        "fr": "Motion Moser Tiana Angelina. Moins de bureaucratie dans le cas des auteurs d'infractions multirécidivistes sans statut de résidence ou de séjour régulier. Permettre des poursuites pénales efficaces"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83066,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "25.4651",
+       "businessId": 20254651,
+       "title": {
+        "de": "Motion Binder-Keller Marianne. Sicherstellung der Einheit der schweizerischen Rechtsordnung und Ausschluss paralleler Rechtssysteme",
+        "fr": "Motion Binder-Keller Marianne. Préserver l'unité de l'ordre juridique suisse et exclure les systèmes juridiques parallèles"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83068,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "25.4674",
+       "businessId": 20254674,
+       "title": {
+        "de": "Motion Germann Hannes. Für eine echte Asylstrategie im Interesse der Schweizer Bevölkerung",
+        "fr": "Motion Germann Hannes. Pour une stratégie d'asile qui soit réellement dans l'intérêt de la population suisse"
+       },
+       "note": null
+      },
+      {
+       "business": "26.4062",
+       "businessId": 20264062,
+       "title": {
+        "de": "Postulat SPK-N. Mehr Sicherheit, mehr Integration. Revision des Asyl- und Ausländergesetzes",
+        "fr": "Postulat CIP-N. Plus de sécurité, plus d'intégration. Révision de la loi sur l'asile et de la loi fédérale sur les étrangers et l'intégration"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83074,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "25.4718",
+       "businessId": 20254718,
+       "title": {
+        "de": "Motion Moser Tiana Angelina. Verstärkung an der Front der Strafverfolgung gegen Geldwäsche, Cybercrime und organisierte sowie grenzüberschreitende Kriminalität",
+        "fr": "Motion Moser Tiana Angelina. Blanchiment d'argent, cybercriminalité et criminalité organisée et transfrontalière. Renforcer la poursuite pénale"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83077,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "25.4774",
+       "businessId": 20254774,
+       "title": {
+        "de": "Motion Juillard Charles. Gewalttätiger Extremismus bei Demonstrationen. Veranstalter sollen die Kosten übernehmen",
+        "fr": "Motion Juillard Charles. Extrémisme violent lors de manifestations. Prise en charge des frais par les organisateurs"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83082,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "26.3005",
+       "businessId": 20263005,
+       "title": {
+        "de": "Motion SPK-S. Die Verfassung braucht einen Digitalisierungsartikel",
+        "fr": "Motion CIP-E. Numérique. Création d'un article constitutionnel"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83091,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "26.4058",
+       "businessId": 20264058,
+       "title": {
+        "de": "Motion RK-N. Verfahren betreffend Kinder unverheirateter Eltern. Zugang für zivile Justizbehörden zu Steuerdaten",
+        "fr": "Motion CAJ-N. Accès des autorités judiciaires civiles aux données fiscales dans les procédures relatives aux enfants de parents non mariés"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83090,
+     "meeting": 5290,
+     "items": [
+      {
+       "business": "26.3532",
+       "businessId": 20263532,
+       "title": {
+        "de": "Postulat WBK-N. Modernisierung der Kopiervergütung",
+        "fr": "Postulat CSEC-N. Moderniser le système de rémunération des copies"
+       },
+       "note": null
+      }
+     ]
+    }
+   ],
+   "meetings": [
+    {
+     "id": 5288,
+     "begin": "08:00"
+    },
+    {
+     "id": 5290,
+     "begin": "15:00"
+    }
+   ],
+   "speeches": [
+    {
+     "subject": 83017,
+     "start": "08:00",
+     "end": "08:01",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83017,
+     "start": "08:01",
+     "end": "08:05",
+     "name": "Brenzikofer Florence",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "BL"
+    },
+    {
+     "subject": 83017,
+     "start": "08:05",
+     "end": "08:09",
+     "name": "Balmer Bettina",
+     "role": "Mit-F",
+     "group": "FDP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83017,
+     "start": "08:09",
+     "end": "08:10",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83017,
+     "start": "08:10",
+     "end": "08:13",
+     "name": "Christ Katja",
+     "role": "1VP-F",
+     "group": "GLP",
+     "canton": "BS"
+    },
+    {
+     "subject": 83017,
+     "start": "08:13",
+     "end": "08:16",
+     "name": "Heimgartner Stefanie",
+     "role": "Mit-F",
+     "group": "SVP",
+     "canton": "AG"
+    },
+    {
+     "subject": 83017,
+     "start": "08:16",
+     "end": "08:21",
+     "name": "Meier Andreas",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "AG"
+    },
+    {
+     "subject": 83017,
+     "start": "08:21",
+     "end": "08:24",
+     "name": "de Montmollin Simone",
+     "role": "Mit-F",
+     "group": "FDP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83017,
+     "start": "08:24",
+     "end": "08:28",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83017,
+     "start": "08:28",
+     "end": "08:30",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83017,
+     "start": "08:30",
+     "end": "08:31",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83017,
+     "start": "08:31",
+     "end": "08:31",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83017,
+     "start": "08:31",
+     "end": "08:32",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83019,
+     "start": "08:32",
+     "end": "08:33",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83019,
+     "start": "08:33",
+     "end": "08:40",
+     "name": "Revaz Estelle",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83019,
+     "start": "08:40",
+     "end": "08:50",
+     "name": "Blunschy Dominik",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SZ"
+    },
+    {
+     "subject": 83019,
+     "start": "08:50",
+     "end": "08:51",
+     "name": "Gysi Barbara",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83019,
+     "start": "08:51",
+     "end": "08:51",
+     "name": "Blunschy Dominik",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SZ"
+    },
+    {
+     "subject": 83019,
+     "start": "08:51",
+     "end": "08:52",
+     "name": "Badran Jacqueline",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "08:52",
+     "end": "08:52",
+     "name": "Blunschy Dominik",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SZ"
+    },
+    {
+     "subject": 83019,
+     "start": "08:52",
+     "end": "08:53",
+     "name": "Roth David",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83019,
+     "start": "08:53",
+     "end": "08:53",
+     "name": "Blunschy Dominik",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SZ"
+    },
+    {
+     "subject": 83019,
+     "start": "08:53",
+     "end": "08:54",
+     "name": "Büchel Roland Rino",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83019,
+     "start": "08:54",
+     "end": "08:54",
+     "name": "Blunschy Dominik",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SZ"
+    },
+    {
+     "subject": 83019,
+     "start": "08:55",
+     "end": "08:56",
+     "name": "Rüegsegger Hans Jörg",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83019,
+     "start": "08:56",
+     "end": "08:59",
+     "name": "Gafner Andreas",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83019,
+     "start": "08:59",
+     "end": "09:04",
+     "name": "Prelicz-Huber Katharina",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:05",
+     "end": "09:05",
+     "name": "Ritter Markus",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SG"
+    },
+    {
+     "subject": 83019,
+     "start": "09:05",
+     "end": "09:05",
+     "name": "Prelicz-Huber Katharina",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:06",
+     "end": "09:06",
+     "name": "Wandfluh Ernst",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83019,
+     "start": "09:06",
+     "end": "09:06",
+     "name": "Prelicz-Huber Katharina",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:06",
+     "end": "09:07",
+     "name": "Huber Alois",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "AG"
+    },
+    {
+     "subject": 83019,
+     "start": "09:07",
+     "end": "09:08",
+     "name": "Prelicz-Huber Katharina",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:08",
+     "end": "09:08",
+     "name": "Sormanni Daniel",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83019,
+     "start": "09:08",
+     "end": "09:09",
+     "name": "Prelicz-Huber Katharina",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:09",
+     "end": "09:09",
+     "name": "Candan Hasan",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83019,
+     "start": "09:09",
+     "end": "09:10",
+     "name": "Prelicz-Huber Katharina",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:10",
+     "end": "09:10",
+     "name": "Gafner Andreas",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83019,
+     "start": "09:10",
+     "end": "09:11",
+     "name": "Prelicz-Huber Katharina",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:11",
+     "end": "09:15",
+     "name": "Hug Roman",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "GR"
+    },
+    {
+     "subject": 83019,
+     "start": "09:15",
+     "end": "09:16",
+     "name": "Schilliger Peter",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83019,
+     "start": "09:16",
+     "end": "09:16",
+     "name": "Hug Roman",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "GR"
+    },
+    {
+     "subject": 83019,
+     "start": "09:17",
+     "end": "09:17",
+     "name": "Roth David",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83019,
+     "start": "09:17",
+     "end": "09:17",
+     "name": "Hug Roman",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "GR"
+    },
+    {
+     "subject": 83019,
+     "start": "09:17",
+     "end": "09:23",
+     "name": "Marti Min Li",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:23",
+     "end": "09:27",
+     "name": "Alijaj Islam",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:27",
+     "end": "09:33",
+     "name": "Christ Katja",
+     "role": "1VP-F",
+     "group": "GLP",
+     "canton": "BS"
+    },
+    {
+     "subject": 83019,
+     "start": "09:33",
+     "end": "09:33",
+     "name": "Marti Min Li",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:33",
+     "end": "09:34",
+     "name": "Christ Katja",
+     "role": "1VP-F",
+     "group": "GLP",
+     "canton": "BS"
+    },
+    {
+     "subject": 83019,
+     "start": "09:34",
+     "end": "09:37",
+     "name": "Weber Céline",
+     "role": "Mit-F",
+     "group": "GLP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83019,
+     "start": "09:37",
+     "end": "09:42",
+     "name": "Rüegsegger Hans Jörg",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83019,
+     "start": "09:42",
+     "end": "09:46",
+     "name": "Meier Andreas",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "AG"
+    },
+    {
+     "subject": 83019,
+     "start": "09:46",
+     "end": "09:47",
+     "name": "Badran Jacqueline",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "09:47",
+     "end": "09:47",
+     "name": "Meier Andreas",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "AG"
+    },
+    {
+     "subject": 83019,
+     "start": "09:47",
+     "end": "09:48",
+     "name": "Pult Jon",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "GR"
+    },
+    {
+     "subject": 83019,
+     "start": "09:48",
+     "end": "09:48",
+     "name": "Meier Andreas",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "AG"
+    },
+    {
+     "subject": 83019,
+     "start": "09:48",
+     "end": "09:50",
+     "name": "Roth Pasquier Marie-France",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "FR"
+    },
+    {
+     "subject": 83019,
+     "start": "09:50",
+     "end": "10:00",
+     "name": "Brenzikofer Florence",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "BL"
+    },
+    {
+     "subject": 83019,
+     "start": "10:01",
+     "end": "10:06",
+     "name": "de Montmollin Simone",
+     "role": "Mit-F",
+     "group": "FDP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83019,
+     "start": "10:06",
+     "end": "10:10",
+     "name": "Balmer Bettina",
+     "role": "Mit-F",
+     "group": "FDP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83019,
+     "start": "10:10",
+     "end": "10:18",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:19",
+     "end": "10:19",
+     "name": "Lohr Christian",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "TG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:19",
+     "end": "10:20",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:20",
+     "end": "10:21",
+     "name": "Brenzikofer Florence",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "BL"
+    },
+    {
+     "subject": 83019,
+     "start": "10:21",
+     "end": "10:22",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:22",
+     "end": "10:22",
+     "name": "Roduit Benjamin",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "VS"
+    },
+    {
+     "subject": 83019,
+     "start": "10:22",
+     "end": "10:23",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:23",
+     "end": "10:23",
+     "name": "Gantenbein Laura",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "SO"
+    },
+    {
+     "subject": 83019,
+     "start": "10:23",
+     "end": "10:24",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:24",
+     "end": "10:25",
+     "name": "Pult Jon",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "GR"
+    },
+    {
+     "subject": 83019,
+     "start": "10:25",
+     "end": "10:25",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:25",
+     "end": "10:26",
+     "name": "Gysi Barbara",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:26",
+     "end": "10:26",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:26",
+     "end": "10:27",
+     "name": "Ritter Markus",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:27",
+     "end": "10:28",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:28",
+     "end": "10:28",
+     "name": "Roth David",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83019,
+     "start": "10:28",
+     "end": "10:29",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:29",
+     "end": "10:30",
+     "name": "Stettler-Riem Katja",
+     "role": "Mit-F",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83019,
+     "start": "10:30",
+     "end": "10:31",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:31",
+     "end": "10:31",
+     "name": "Wasserfallen Christian",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83019,
+     "start": "10:31",
+     "end": "10:32",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:32",
+     "end": "10:33",
+     "name": "Freymond Sylvain",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83019,
+     "start": "10:33",
+     "end": "10:33",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:33",
+     "end": "10:34",
+     "name": "Porchet Léonore",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "VD"
+    },
+    {
+     "subject": 83019,
+     "start": "10:34",
+     "end": "10:34",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:34",
+     "end": "10:35",
+     "name": "Nicolet Jacques",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83019,
+     "start": "10:35",
+     "end": "10:35",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:35",
+     "end": "10:36",
+     "name": "Michaud Gigon Sophie",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "VD"
+    },
+    {
+     "subject": 83019,
+     "start": "10:36",
+     "end": "10:37",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:37",
+     "end": "10:37",
+     "name": "Pahud Yvan",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83019,
+     "start": "10:37",
+     "end": "10:37",
+     "name": "Pfister Martin",
+     "role": "BR-M",
+     "group": null,
+     "canton": "ZG"
+    },
+    {
+     "subject": 83019,
+     "start": "10:37",
+     "end": "10:39",
+     "name": "Blunschy Dominik",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SZ"
+    },
+    {
+     "subject": 83019,
+     "start": "10:39",
+     "end": "10:40",
+     "name": "Roth David",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83019,
+     "start": "10:40",
+     "end": "10:40",
+     "name": "Blunschy Dominik",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SZ"
+    },
+    {
+     "subject": 83019,
+     "start": "10:40",
+     "end": "10:43",
+     "name": "Revaz Estelle",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83019,
+     "start": "10:43",
+     "end": "10:45",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83019,
+     "start": "10:48",
+     "end": "10:49",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83020,
+     "start": "10:53",
+     "end": "10:56",
+     "name": "Pfister Gerhard",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83020,
+     "start": "10:56",
+     "end": "10:59",
+     "name": "Tschopp Jean",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83020,
+     "start": "11:00",
+     "end": "11:02",
+     "name": "Weber Céline",
+     "role": "Mit-F",
+     "group": "GLP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83020,
+     "start": "11:02",
+     "end": "11:05",
+     "name": "Masshardt Nadine",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83020,
+     "start": "11:05",
+     "end": "11:08",
+     "name": "Gysin Greta",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "TI"
+    },
+    {
+     "subject": 83020,
+     "start": "11:08",
+     "end": "11:12",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83020,
+     "start": "11:12",
+     "end": "11:14",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83021,
+     "start": "11:15",
+     "end": "11:20",
+     "name": "Amoos Emmanuel",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "VS"
+    },
+    {
+     "subject": 83021,
+     "start": "11:20",
+     "end": "11:20",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83021,
+     "start": "11:20",
+     "end": "11:24",
+     "name": "Pamini Paolo",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TI"
+    },
+    {
+     "subject": 83021,
+     "start": "11:24",
+     "end": "11:26",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83021,
+     "start": "11:26",
+     "end": "11:27",
+     "name": "Pamini Paolo",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TI"
+    },
+    {
+     "subject": 83021,
+     "start": "11:27",
+     "end": "11:28",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83021,
+     "start": "11:28",
+     "end": "11:28",
+     "name": "Amoos Emmanuel",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "VS"
+    },
+    {
+     "subject": 83021,
+     "start": "11:28",
+     "end": "11:29",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83022,
+     "start": "11:29",
+     "end": "11:32",
+     "name": "Pahud Yvan",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83022,
+     "start": "11:32",
+     "end": "11:32",
+     "name": "Gysi Barbara",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83022,
+     "start": "11:32",
+     "end": "11:33",
+     "name": "Pahud Yvan",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83022,
+     "start": "11:33",
+     "end": "11:33",
+     "name": "Rumy Farah",
+     "role": "2VP-F",
+     "group": "SP",
+     "canton": "SO"
+    },
+    {
+     "subject": 83023,
+     "start": "11:33",
+     "end": "11:37",
+     "name": "Golay Roger",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83023,
+     "start": "11:37",
+     "end": "11:39",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83026,
+     "start": "11:39",
+     "end": "11:43",
+     "name": "Amaudruz Céline",
+     "role": "Mit-F",
+     "group": "SVP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83026,
+     "start": "11:43",
+     "end": "11:45",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83024,
+     "start": "11:45",
+     "end": "11:49",
+     "name": "Andrey Gerhard",
+     "role": "Mit-M",
+     "group": "GPS",
+     "canton": "FR"
+    },
+    {
+     "subject": 83024,
+     "start": "11:49",
+     "end": "11:51",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83028,
+     "start": "11:51",
+     "end": "11:55",
+     "name": "Andrey Gerhard",
+     "role": "Mit-M",
+     "group": "GPS",
+     "canton": "FR"
+    },
+    {
+     "subject": 83028,
+     "start": "11:55",
+     "end": "11:58",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83028,
+     "start": "11:58",
+     "end": "11:59",
+     "name": "Andrey Gerhard",
+     "role": "Mit-M",
+     "group": "GPS",
+     "canton": "FR"
+    },
+    {
+     "subject": 83028,
+     "start": "11:59",
+     "end": "11:59",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83025,
+     "start": "11:59",
+     "end": "12:00",
+     "name": "Rumy Farah",
+     "role": "2VP-F",
+     "group": "SP",
+     "canton": "SO"
+    },
+    {
+     "subject": 83036,
+     "start": "12:00",
+     "end": "12:04",
+     "name": "Ryser Franziska",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "SG"
+    },
+    {
+     "subject": 83036,
+     "start": "12:04",
+     "end": "12:06",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83037,
+     "start": "12:07",
+     "end": "12:11",
+     "name": "Addor Jean-Luc",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VS"
+    },
+    {
+     "subject": 83037,
+     "start": "12:12",
+     "end": "12:14",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83037,
+     "start": "12:14",
+     "end": "12:15",
+     "name": "Addor Jean-Luc",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VS"
+    },
+    {
+     "subject": 83037,
+     "start": "12:15",
+     "end": "12:16",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83029,
+     "start": "12:16",
+     "end": "12:21",
+     "name": "Zybach Ursula",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83029,
+     "start": "12:21",
+     "end": "12:21",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83035,
+     "start": "12:21",
+     "end": "12:24",
+     "name": "Gysin Greta",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "TI"
+    },
+    {
+     "subject": 83035,
+     "start": "12:24",
+     "end": "12:26",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83030,
+     "start": "12:26",
+     "end": "12:27",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83032,
+     "start": "12:27",
+     "end": "12:27",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83033,
+     "start": "12:27",
+     "end": "12:27",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83039,
+     "start": "12:28",
+     "end": "12:33",
+     "name": "Candan Hasan",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83039,
+     "start": "12:33",
+     "end": "12:33",
+     "name": "Egger Mike",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83039,
+     "start": "12:33",
+     "end": "12:33",
+     "name": "Candan Hasan",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83039,
+     "start": "12:34",
+     "end": "12:34",
+     "name": "Fehr Düsel Nina",
+     "role": "Mit-F",
+     "group": "SVP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83039,
+     "start": "12:34",
+     "end": "12:34",
+     "name": "Candan Hasan",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83039,
+     "start": "12:34",
+     "end": "12:36",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83041,
+     "start": "12:36",
+     "end": "12:39",
+     "name": "Quadri Lorenzo",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TI"
+    },
+    {
+     "subject": 83041,
+     "start": "12:39",
+     "end": "12:41",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83042,
+     "start": "12:41",
+     "end": "12:44",
+     "name": "Hess Erich",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83042,
+     "start": "12:44",
+     "end": "12:44",
+     "name": "Gysi Barbara",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83042,
+     "start": "12:44",
+     "end": "12:44",
+     "name": "Hess Erich",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83042,
+     "start": "12:44",
+     "end": "12:45",
+     "name": "Wyss Sarah",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BS"
+    },
+    {
+     "subject": 83042,
+     "start": "12:45",
+     "end": "12:46",
+     "name": "Hess Erich",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83042,
+     "start": "12:46",
+     "end": "12:48",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83042,
+     "start": "12:48",
+     "end": "12:49",
+     "name": "Badran Jacqueline",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83042,
+     "start": "12:49",
+     "end": "12:49",
+     "name": "Keller-Sutter Karin",
+     "role": "BR-F",
+     "group": null,
+     "canton": "SG"
+    },
+    {
+     "subject": 83045,
+     "start": "15:00",
+     "end": "15:04",
+     "name": "Molina Fabian",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83045,
+     "start": "15:04",
+     "end": "15:06",
+     "name": "Wehrli Laurent",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83045,
+     "start": "15:06",
+     "end": "15:08",
+     "name": "Cassis Ignazio",
+     "role": "VPBR-M",
+     "group": null,
+     "canton": "TI"
+    },
+    {
+     "subject": 83045,
+     "start": "15:08",
+     "end": "15:08",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83046,
+     "start": "15:09",
+     "end": "15:11",
+     "name": "Gugger Niklaus-Samuel",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83046,
+     "start": "15:11",
+     "end": "15:13",
+     "name": "Wehrli Laurent",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83046,
+     "start": "15:13",
+     "end": "15:17",
+     "name": "Cassis Ignazio",
+     "role": "VPBR-M",
+     "group": null,
+     "canton": "TI"
+    },
+    {
+     "subject": 83046,
+     "start": "15:17",
+     "end": "15:18",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83048,
+     "start": "15:18",
+     "end": "15:20",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83048,
+     "start": "15:20",
+     "end": "15:25",
+     "name": "Strupler Manuel",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TG"
+    },
+    {
+     "subject": 83048,
+     "start": "15:25",
+     "end": "15:25",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83048,
+     "start": "15:25",
+     "end": "15:29",
+     "name": "Rutz Gregor",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83048,
+     "start": "15:29",
+     "end": "15:34",
+     "name": "Schilliger Peter",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83048,
+     "start": "15:34",
+     "end": "15:37",
+     "name": "Fonio Giorgio",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "TI"
+    },
+    {
+     "subject": 83049,
+     "start": "15:38",
+     "end": "15:43",
+     "name": "Funiciello Tamara",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83049,
+     "start": "15:43",
+     "end": "15:47",
+     "name": "Jaccoud Jessica",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83049,
+     "start": "15:47",
+     "end": "15:52",
+     "name": "Bally Maya",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "AG"
+    },
+    {
+     "subject": 83049,
+     "start": "15:52",
+     "end": "15:53",
+     "name": "Portmann Hans-Peter",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83049,
+     "start": "15:53",
+     "end": "15:53",
+     "name": "Bally Maya",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "AG"
+    },
+    {
+     "subject": 83049,
+     "start": "15:53",
+     "end": "15:53",
+     "name": "Locher Miriam",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BL"
+    },
+    {
+     "subject": 83049,
+     "start": "15:53",
+     "end": "15:53",
+     "name": "Bally Maya",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "AG"
+    },
+    {
+     "subject": 83049,
+     "start": "15:54",
+     "end": "15:58",
+     "name": "Bühler Manfred",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83049,
+     "start": "15:58",
+     "end": "15:58",
+     "name": "Funiciello Tamara",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83049,
+     "start": "15:58",
+     "end": "15:59",
+     "name": "Bühler Manfred",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83049,
+     "start": "15:59",
+     "end": "15:59",
+     "name": "Schmaltz Anna-Béatrice",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83049,
+     "start": "15:59",
+     "end": "16:00",
+     "name": "Bühler Manfred",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83049,
+     "start": "16:00",
+     "end": "16:00",
+     "name": "Porchet Léonore",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "VD"
+    },
+    {
+     "subject": 83049,
+     "start": "16:00",
+     "end": "16:00",
+     "name": "Bühler Manfred",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83063,
+     "start": "16:00",
+     "end": "16:01",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83052,
+     "start": "16:01",
+     "end": "16:01",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83052,
+     "start": "16:01",
+     "end": "16:06",
+     "name": "Weichelt Manuela",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83052,
+     "start": "16:06",
+     "end": "16:11",
+     "name": "Porchet Léonore",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "VD"
+    },
+    {
+     "subject": 83052,
+     "start": "16:11",
+     "end": "16:11",
+     "name": "Balmer Bettina",
+     "role": "Mit-F",
+     "group": "FDP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83052,
+     "start": "16:11",
+     "end": "16:12",
+     "name": "Porchet Léonore",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "VD"
+    },
+    {
+     "subject": 83052,
+     "start": "16:12",
+     "end": "16:17",
+     "name": "Aellen Cyril",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83052,
+     "start": "16:17",
+     "end": "16:17",
+     "name": "Piller Carrard Valérie",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83052,
+     "start": "16:17",
+     "end": "16:18",
+     "name": "Aellen Cyril",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83052,
+     "start": "16:18",
+     "end": "16:19",
+     "name": "Michaud Gigon Sophie",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "VD"
+    },
+    {
+     "subject": 83052,
+     "start": "16:19",
+     "end": "16:19",
+     "name": "Aellen Cyril",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83052,
+     "start": "16:19",
+     "end": "16:20",
+     "name": "Crottaz Brigitte",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83052,
+     "start": "16:20",
+     "end": "16:21",
+     "name": "Aellen Cyril",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83052,
+     "start": "16:21",
+     "end": "16:21",
+     "name": "Porchet Léonore",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "VD"
+    },
+    {
+     "subject": 83052,
+     "start": "16:21",
+     "end": "16:22",
+     "name": "Aellen Cyril",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83052,
+     "start": "16:22",
+     "end": "16:22",
+     "name": "Roduit Benjamin",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "VS"
+    },
+    {
+     "subject": 83052,
+     "start": "16:22",
+     "end": "16:23",
+     "name": "Aellen Cyril",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83052,
+     "start": "16:23",
+     "end": "16:23",
+     "name": "Weichelt Manuela",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83052,
+     "start": "16:23",
+     "end": "16:23",
+     "name": "Aellen Cyril",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83057,
+     "start": "16:23",
+     "end": "16:24",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83057,
+     "start": "16:24",
+     "end": "16:28",
+     "name": "Molina Fabian",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83057,
+     "start": "16:28",
+     "end": "16:33",
+     "name": "Tschopp Jean",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83057,
+     "start": "16:34",
+     "end": "16:36",
+     "name": "Addor Jean-Luc",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VS"
+    },
+    {
+     "subject": 83057,
+     "start": "16:36",
+     "end": "16:39",
+     "name": "Jost Marc",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "BE"
+    },
+    {
+     "subject": 83057,
+     "start": "16:39",
+     "end": "16:40",
+     "name": "Molina Fabian",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83057,
+     "start": "16:40",
+     "end": "16:41",
+     "name": "Jost Marc",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "BE"
+    },
+    {
+     "subject": 83062,
+     "start": "16:46",
+     "end": "16:47",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83062,
+     "start": "16:47",
+     "end": "16:52",
+     "name": "Gobet Nadine",
+     "role": "Mit-F",
+     "group": "FDP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83062,
+     "start": "16:52",
+     "end": "16:55",
+     "name": "Fehr Düsel Nina",
+     "role": "Mit-F",
+     "group": "SVP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83062,
+     "start": "16:55",
+     "end": "17:00",
+     "name": "Schmezer Ueli",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83062,
+     "start": "17:00",
+     "end": "17:01",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83066,
+     "start": "17:01",
+     "end": "17:02",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83066,
+     "start": "17:02",
+     "end": "17:06",
+     "name": "Gysin Greta",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "TI"
+    },
+    {
+     "subject": 83066,
+     "start": "17:06",
+     "end": "17:08",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83066,
+     "start": "17:08",
+     "end": "17:08",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83068,
+     "start": "17:08",
+     "end": "17:09",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83068,
+     "start": "17:09",
+     "end": "17:14",
+     "name": "Pfister Gerhard",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83068,
+     "start": "17:14",
+     "end": "17:18",
+     "name": "Weber Céline",
+     "role": "Mit-F",
+     "group": "GLP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83068,
+     "start": "17:18",
+     "end": "17:23",
+     "name": "Schmid Pascal",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TG"
+    },
+    {
+     "subject": 83068,
+     "start": "17:23",
+     "end": "17:29",
+     "name": "Tschopp Jean",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83068,
+     "start": "17:29",
+     "end": "17:34",
+     "name": "Wasserfallen Christian",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83068,
+     "start": "17:34",
+     "end": "17:44",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83068,
+     "start": "17:44",
+     "end": "17:44",
+     "name": "Schilliger Peter",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83068,
+     "start": "17:44",
+     "end": "17:46",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83068,
+     "start": "17:46",
+     "end": "17:47",
+     "name": "Egger Mike",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83068,
+     "start": "17:47",
+     "end": "17:48",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83068,
+     "start": "17:48",
+     "end": "17:48",
+     "name": "Büchel Roland Rino",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83068,
+     "start": "17:48",
+     "end": "17:49",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83074,
+     "start": "17:49",
+     "end": "17:50",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83074,
+     "start": "17:50",
+     "end": "17:54",
+     "name": "Schneider Meret",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83074,
+     "start": "17:54",
+     "end": "17:59",
+     "name": "Maitre Vincent",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "GE"
+    },
+    {
+     "subject": 83074,
+     "start": "17:59",
+     "end": "18:03",
+     "name": "Golay Roger",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83074,
+     "start": "18:03",
+     "end": "18:07",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83077,
+     "start": "18:07",
+     "end": "18:07",
+     "name": "Rumy Farah",
+     "role": "2VP-F",
+     "group": "SP",
+     "canton": "SO"
+    },
+    {
+     "subject": 83077,
+     "start": "18:07",
+     "end": "18:13",
+     "name": "Addor Jean-Luc",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VS"
+    },
+    {
+     "subject": 83077,
+     "start": "18:13",
+     "end": "18:14",
+     "name": "Kamerzin Sidney",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "VS"
+    },
+    {
+     "subject": 83077,
+     "start": "18:14",
+     "end": "18:15",
+     "name": "Addor Jean-Luc",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VS"
+    },
+    {
+     "subject": 83077,
+     "start": "18:15",
+     "end": "18:16",
+     "name": "Schmaltz Anna-Béatrice",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83077,
+     "start": "18:16",
+     "end": "18:17",
+     "name": "Addor Jean-Luc",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VS"
+    },
+    {
+     "subject": 83077,
+     "start": "18:17",
+     "end": "18:17",
+     "name": "Bläsi Thomas",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83077,
+     "start": "18:17",
+     "end": "18:18",
+     "name": "Addor Jean-Luc",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "VS"
+    },
+    {
+     "subject": 83077,
+     "start": "18:18",
+     "end": "18:21",
+     "name": "Jauslin Matthias Samuel",
+     "role": "Mit-M",
+     "group": "GLP",
+     "canton": "AG"
+    },
+    {
+     "subject": 83077,
+     "start": "18:21",
+     "end": "18:24",
+     "name": "Nause Reto",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "BE"
+    },
+    {
+     "subject": 83077,
+     "start": "18:24",
+     "end": "18:25",
+     "name": "Schmaltz Anna-Béatrice",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83077,
+     "start": "18:25",
+     "end": "18:25",
+     "name": "Nause Reto",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "BE"
+    },
+    {
+     "subject": 83077,
+     "start": "18:25",
+     "end": "18:28",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83077,
+     "start": "18:28",
+     "end": "18:29",
+     "name": "Kamerzin Sidney",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "VS"
+    },
+    {
+     "subject": 83077,
+     "start": "18:29",
+     "end": "18:30",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83082,
+     "start": "18:30",
+     "end": "18:31",
+     "name": "Rumy Farah",
+     "role": "2VP-F",
+     "group": "SP",
+     "canton": "SO"
+    },
+    {
+     "subject": 83082,
+     "start": "18:31",
+     "end": "18:34",
+     "name": "Jost Marc",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "BE"
+    },
+    {
+     "subject": 83082,
+     "start": "18:34",
+     "end": "18:38",
+     "name": "Klopfenstein Broggini Delphine",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "GE"
+    },
+    {
+     "subject": 83082,
+     "start": "18:38",
+     "end": "18:43",
+     "name": "Fischer Benjamin",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83082,
+     "start": "18:43",
+     "end": "18:46",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83091,
+     "start": "18:58",
+     "end": "18:58",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83090,
+     "start": "18:58",
+     "end": "18:59",
+     "name": "Page Pierre-André",
+     "role": "P-M",
+     "group": "SVP",
+     "canton": "FR"
+    }
+   ],
+   "votes": [
+    {
+     "id": 38917,
+     "time": "08:30",
+     "business": "26.053",
+     "businessId": 20260053,
+     "bill": 1,
+     "billTitle": {
+      "de": "Bundesbeschluss über die Verpflichtungskredite zur Unterstützung internationaler Sportanlässe der Jahre 2027–2029",
+      "fr": "Arrêté fédéral concernant les crédits d’engagement destinés à soutenir les manifestations sportives internationales pendant les années 2027 à 2029",
+      "it": "Decreto federale concernente i crediti d’impegno a sostegno delle manifestazioni sportive internazionali per gli anni 2027–2029"
+     },
+     "subject": "Art. 1 - vote sur le frein aux dépenses",
+     "meaning": {
+      "yes": "Adopter l'art. 1 selon la règle sur le frein aux dépenses",
+      "no": "Rejeter l'art. 1"
+     },
+     "tally": {
+      "yes": 188,
+      "no": 1,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 26,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 63,
+       "no": 1,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 39,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38918,
+     "time": "08:31",
+     "business": "26.053",
+     "businessId": 20260053,
+     "bill": 1,
+     "billTitle": {
+      "de": "Bundesbeschluss über die Verpflichtungskredite zur Unterstützung internationaler Sportanlässe der Jahre 2027–2029",
+      "fr": "Arrêté fédéral concernant les crédits d’engagement destinés à soutenir les manifestations sportives internationales pendant les années 2027 à 2029",
+      "it": "Decreto federale concernente i crediti d’impegno a sostegno delle manifestazioni sportive internazionali per gli anni 2027–2029"
+     },
+     "subject": "Vote sur l'ensemble",
+     "meaning": {
+      "yes": "Adopter le projet",
+      "no": "Rejeter le projet"
+     },
+     "tally": {
+      "yes": 187,
+      "no": 1,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 26,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 62,
+       "no": 1,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 39,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38919,
+     "time": "08:32",
+     "business": "26.053",
+     "businessId": 20260053,
+     "bill": 2,
+     "billTitle": {
+      "de": "Bundesbeschluss über die Verlängerung der Verpflichtungsfrist für Finanzhilfen an Sportanlagen von nationaler Bedeutung 2022–2027 (NASAK 5)",
+      "fr": "Arrêté fédéral prolongeant le délai de contraction des engagements relatifs à l’octroi d’aides financières pour des installations sportives d’importance nationale 2022 à 2027 (CISIN 5)",
+      "it": "Decreto federale concernente la proroga del termine per l’assunzione di impegni per aiuti finanziari a impianti sportivi di importanza nazionale 2022–2027 (CISIN 5)"
+     },
+     "subject": "Vote sur l'ensemble",
+     "meaning": {
+      "yes": "Adopter le projet",
+      "no": "Rejeter le projet"
+     },
+     "tally": {
+      "yes": 187,
+      "no": 1,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 26,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 63,
+       "no": 1,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 38,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38920,
+     "time": "10:45",
+     "business": "26.054",
+     "businessId": 20260054,
+     "bill": 1,
+     "billTitle": {
+      "de": "Bundesbeschluss über die Unterstützung der Kandidatur, Vorbereitung und Durchführung der Olympischen und Paralympischen Winterspiele 2038",
+      "fr": "Arrêté fédéral concernant le soutien apporté à la candidature, à la préparation et à la réalisation des Jeux olympiques et paralympiques d’hiver 2038",
+      "it": "Decreto federale concernente il sostegno della candidatura, della preparazione e dello svolgimento dei Giochi olimpici e paralimpici invernali 2038"
+     },
+     "subject": "Art. 2, let. e",
+     "meaning": {
+      "yes": "Proposition de la majorité",
+      "no": "Proposition de la minorité Rüegsegger (selon CF)"
+     },
+     "tally": {
+      "yes": 128,
+      "no": 65,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 27,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 1,
+       "no": 65,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 40,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38921,
+     "time": "10:46",
+     "business": "26.054",
+     "businessId": 20260054,
+     "bill": 1,
+     "billTitle": {
+      "de": "Bundesbeschluss über die Unterstützung der Kandidatur, Vorbereitung und Durchführung der Olympischen und Paralympischen Winterspiele 2038",
+      "fr": "Arrêté fédéral concernant le soutien apporté à la candidature, à la préparation et à la réalisation des Jeux olympiques et paralympiques d’hiver 2038",
+      "it": "Decreto federale concernente il sostegno della candidatura, della preparazione e dello svolgimento dei Giochi olimpici e paralimpici invernali 2038"
+     },
+     "subject": "Art. 2, let. g",
+     "meaning": {
+      "yes": "Proposition de la majorité",
+      "no": "Proposition de la minorité I Gafner"
+     },
+     "tally": {
+      "yes": 128,
+      "no": 65,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 27,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 1,
+       "no": 65,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 40,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38922,
+     "time": "10:47",
+     "business": "26.054",
+     "businessId": 20260054,
+     "bill": 1,
+     "billTitle": {
+      "de": "Bundesbeschluss über die Unterstützung der Kandidatur, Vorbereitung und Durchführung der Olympischen und Paralympischen Winterspiele 2038",
+      "fr": "Arrêté fédéral concernant le soutien apporté à la candidature, à la préparation et à la réalisation des Jeux olympiques et paralympiques d’hiver 2038",
+      "it": "Decreto federale concernente il sostegno della candidatura, della preparazione e dello svolgimento dei Giochi olimpici e paralimpici invernali 2038"
+     },
+     "subject": "Art. 2, let. g",
+     "meaning": {
+      "yes": "Proposition de la majorité",
+      "no": "Proposition de la minorité II Rüegsegger (selon CF)"
+     },
+     "tally": {
+      "yes": 128,
+      "no": 65,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 27,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 1,
+       "no": 65,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 40,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38923,
+     "time": "10:48",
+     "business": "26.054",
+     "businessId": 20260054,
+     "bill": 1,
+     "billTitle": {
+      "de": "Bundesbeschluss über die Unterstützung der Kandidatur, Vorbereitung und Durchführung der Olympischen und Paralympischen Winterspiele 2038",
+      "fr": "Arrêté fédéral concernant le soutien apporté à la candidature, à la préparation et à la réalisation des Jeux olympiques et paralympiques d’hiver 2038",
+      "it": "Decreto federale concernente il sostegno della candidatura, della preparazione e dello svolgimento dei Giochi olimpici e paralimpici invernali 2038"
+     },
+     "subject": "Art. 2, let. hbis",
+     "meaning": {
+      "yes": "Proposition de la majorité",
+      "no": "Proposition de la minorité Prelicz-Huber"
+     },
+     "tally": {
+      "yes": 101,
+      "no": 90,
+      "abstain": 2
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 22,
+       "no": 4,
+       "abstain": 1
+      },
+      "SVP": {
+       "yes": 66,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 13,
+       "no": 15,
+       "abstain": 1
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 22,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 40,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 9,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38924,
+     "time": "10:50",
+     "business": "26.054",
+     "businessId": 20260054,
+     "bill": 1,
+     "billTitle": {
+      "de": "Bundesbeschluss über die Unterstützung der Kandidatur, Vorbereitung und Durchführung der Olympischen und Paralympischen Winterspiele 2038",
+      "fr": "Arrêté fédéral concernant le soutien apporté à la candidature, à la préparation et à la réalisation des Jeux olympiques et paralympiques d’hiver 2038",
+      "it": "Decreto federale concernente il sostegno della candidatura, della preparazione e dello svolgimento dei Giochi olimpici e paralimpici invernali 2038"
+     },
+     "subject": "Art. 5",
+     "meaning": {
+      "yes": "Proposition de la minorité Hug",
+      "no": "Proposition Roth David"
+     },
+     "tally": {
+      "yes": 109,
+      "no": 51,
+      "abstain": 32
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 20,
+       "no": 2,
+       "abstain": 5
+      },
+      "SVP": {
+       "yes": 63,
+       "no": 0,
+       "abstain": 3
+      },
+      "MITTE": {
+       "yes": 10,
+       "no": 3,
+       "abstain": 16
+      },
+      "GPS": {
+       "yes": 9,
+       "no": 12,
+       "abstain": 1
+      },
+      "SP": {
+       "yes": 0,
+       "no": 33,
+       "abstain": 7
+      },
+      "GLP": {
+       "yes": 7,
+       "no": 1,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38925,
+     "time": "10:50",
+     "business": "26.054",
+     "businessId": 20260054,
+     "bill": 1,
+     "billTitle": {
+      "de": "Bundesbeschluss über die Unterstützung der Kandidatur, Vorbereitung und Durchführung der Olympischen und Paralympischen Winterspiele 2038",
+      "fr": "Arrêté fédéral concernant le soutien apporté à la candidature, à la préparation et à la réalisation des Jeux olympiques et paralympiques d’hiver 2038",
+      "it": "Decreto federale concernente il sostegno della candidatura, della preparazione e dello svolgimento dei Giochi olimpici e paralimpici invernali 2038"
+     },
+     "subject": "Art. 5",
+     "meaning": {
+      "yes": "Proposition de la majorité (selon CF)",
+      "no": "Proposition de la minorité Hug"
+     },
+     "tally": {
+      "yes": 106,
+      "no": 78,
+      "abstain": 8
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 27,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 21,
+       "no": 43,
+       "abstain": 2
+      },
+      "MITTE": {
+       "yes": 26,
+       "no": 0,
+       "abstain": 2
+      },
+      "GPS": {
+       "yes": 7,
+       "no": 15,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 16,
+       "no": 20,
+       "abstain": 4
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38926,
+     "time": "10:51",
+     "business": "26.054",
+     "businessId": 20260054,
+     "bill": 1,
+     "billTitle": {
+      "de": "Bundesbeschluss über die Unterstützung der Kandidatur, Vorbereitung und Durchführung der Olympischen und Paralympischen Winterspiele 2038",
+      "fr": "Arrêté fédéral concernant le soutien apporté à la candidature, à la préparation et à la réalisation des Jeux olympiques et paralympiques d’hiver 2038",
+      "it": "Decreto federale concernente il sostegno della candidatura, della preparazione e dello svolgimento dei Giochi olimpici e paralimpici invernali 2038"
+     },
+     "subject": "Vote sur l'ensemble",
+     "meaning": {
+      "yes": "Adopter le projet",
+      "no": "Rejeter le projet"
+     },
+     "tally": {
+      "yes": 137,
+      "no": 40,
+      "abstain": 14
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 27,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 40,
+       "no": 19,
+       "abstain": 5
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 8,
+       "no": 9,
+       "abstain": 5
+      },
+      "SP": {
+       "yes": 24,
+       "no": 12,
+       "abstain": 4
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38927,
+     "time": "11:14",
+     "business": "23.432",
+     "businessId": 20230432,
+     "bill": 1,
+     "billTitle": {
+      "de": "Bundespersonalgesetz (BPG)",
+      "fr": "Loi sur le personnel de la Confédération (LPers)",
+      "it": "Legge sul personale federale (LPers)"
+     },
+     "subject": "Vote sur l'ensemble",
+     "meaning": {
+      "yes": "Adopter le projet",
+      "no": "Rejeter le projet"
+     },
+     "tally": {
+      "yes": 155,
+      "no": 0,
+      "abstain": 27
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 24,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 2,
+       "no": 0,
+       "abstain": 19
+      },
+      "MITTE": {
+       "yes": 26,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 30,
+       "no": 0,
+       "abstain": 8
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38928,
+     "time": "12:50",
+     "business": "26.3189",
+     "businessId": 20263189,
+     "bill": null,
+     "billTitle": {
+      "de": "Systemrelevante Zahlungsanbieter der Aufsicht durch die Finma unterstellen",
+      "fr": "Soumettre les prestataires de paiement d'importance systémique à la surveillance de la Finma",
+      "it": "Assoggettare i fornitori di servizi di pagamento di rilevanza sistemica alla vigilanza della Finma"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 126,
+      "no": 65,
+      "abstain": 1
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 24,
+       "no": 2,
+       "abstain": 1
+      },
+      "SVP": {
+       "yes": 1,
+       "no": 63,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38929,
+     "time": "12:51",
+     "business": "25.3055",
+     "businessId": 20253055,
+     "bill": null,
+     "billTitle": {
+      "de": "Wettbewerb mit Grenzgängerinnen und Grenzgängern in der Bundesverwaltung und in bundesnahen Betrieben. Gehen wir das Thema endlich an!",
+      "fr": "Concurrence des frontaliers au sein de l'administration fédérale et des régies publiques. Saisissons-nous enfin de la question !",
+      "it": "Concorrenza dei frontalieri nell'Amministrazione federale e nel settore pubblico. Affrontiamo finalmente la questione"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 64,
+      "no": 128,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 0,
+       "no": 27,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 0,
+       "no": 29,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 22,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 41,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 9,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38930,
+     "time": "12:52",
+     "business": "25.3189",
+     "businessId": 20253189,
+     "bill": null,
+     "billTitle": {
+      "de": "Steuerliche Abzugsfähigkeit von Rückstellungen für Ferienguthaben. Vereinheitlichung der Buchführungs- und der Steuerpraxis",
+      "fr": "Admissibilité de la provision pour vacances. Alignement des pratiques comptables et fiscales",
+      "it": "Ammissibilità dell'accantonamento per vacanze non godute. Allineamento della prassi contabile e della prassi fiscale"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 67,
+      "no": 124,
+      "abstain": 1
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 1,
+       "no": 26,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 65,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 1,
+       "no": 27,
+       "abstain": 1
+      },
+      "SP": {
+       "yes": 0,
+       "no": 41,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 9,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 21,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38931,
+     "time": "12:52",
+     "business": "25.3279",
+     "businessId": 20253279,
+     "bill": null,
+     "billTitle": {
+      "de": "Hausdurchsuchungskompetenz für die Finma",
+      "fr": "Doter la Finma de la compétence d'ordonner des perquisitions",
+      "it": "Conferire alla FINMA la competenza di ordinare perquisizioni domiciliari"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 71,
+      "no": 122,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 0,
+       "no": 27,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 0,
+       "no": 65,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 1,
+       "no": 28,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 7,
+       "no": 2,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38932,
+     "time": "12:53",
+     "business": "25.3280",
+     "businessId": 20253280,
+     "bill": null,
+     "billTitle": {
+      "de": "Finma-Direktaufsicht über global systemrelevante Banken",
+      "fr": "Placer les G-SIB sous la surveillance directe de la Finma",
+      "it": "Vigilanza diretta della FINMA sulle banche di rilevanza sistemica globale"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 63,
+      "no": 130,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 0,
+       "no": 27,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 0,
+       "no": 65,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 0,
+       "no": 29,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 9,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38933,
+     "time": "12:53",
+     "business": "25.3314",
+     "businessId": 20253314,
+     "bill": null,
+     "billTitle": {
+      "de": "Mit einer angemessenen Einlagensicherung das Vertrauen in die Banken stärken",
+      "fr": "Améliorer la garantie des dépôts pour renforcer la confiance dans les banques",
+      "it": "Rafforzare la fiducia nelle banche grazie a un'adeguata garanzia dei depositi"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 63,
+      "no": 127,
+      "abstain": 1
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 0,
+       "no": 27,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 0,
+       "no": 63,
+       "abstain": 1
+      },
+      "MITTE": {
+       "yes": 0,
+       "no": 29,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 8,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38934,
+     "time": "12:54",
+     "business": "25.3408",
+     "businessId": 20253408,
+     "bill": null,
+     "billTitle": {
+      "de": "Eine Wehranleihe für die Modernisierung unserer Armee",
+      "fr": "Un emprunt de défense nationale pour moderniser notre armée",
+      "it": "Un prestito per la difesa nazionale per ammodernare il nostro esercito"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 14,
+      "no": 174,
+      "abstain": 5
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 0,
+       "no": 27,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 11,
+       "no": 53,
+       "abstain": 1
+      },
+      "MITTE": {
+       "yes": 3,
+       "no": 22,
+       "abstain": 4
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 22,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 41,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 9,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38936,
+     "time": "12:55",
+     "business": "25.3414",
+     "businessId": 20253414,
+     "bill": null,
+     "billTitle": {
+      "de": "Personalbörse für Bundesverwaltung einführen",
+      "fr": "Lancer une bourse d'emploi dans l'administration fédérale",
+      "it": "Introdurre una borsa dei posti di lavoro nell'amministrazione federale"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 66,
+      "no": 127,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 0,
+       "no": 27,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 1,
+       "no": 64,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 2,
+       "no": 27,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 9,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38937,
+     "time": "12:55",
+     "business": "25.3482",
+     "businessId": 20253482,
+     "bill": null,
+     "billTitle": {
+      "de": "Homeoffice in der Bundesverwaltung überdenken",
+      "fr": "Repenser le travail à domicile dans l’administration fédérale",
+      "it": "Ripensare il telelavoro nell’Amministrazione federale"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 88,
+      "no": 98,
+      "abstain": 6
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 24,
+       "no": 0,
+       "abstain": 3
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 1
+      },
+      "MITTE": {
+       "yes": 0,
+       "no": 27,
+       "abstain": 2
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 22,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 40,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 9,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38939,
+     "time": "12:56",
+     "business": "25.3609",
+     "businessId": 20253609,
+     "bill": null,
+     "billTitle": {
+      "de": "Verfassungswidrige Diskriminierungen bei Fahrzeugversicherungen umgehend verbieten",
+      "fr": "Interdiction immédiate des discriminations contraires à la Constitution dans les assurances pour véhicules",
+      "it": "Vietare il prima possibile le discriminazioni incostituzionali nel settore delle assicurazioni per i veicoli a motore"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 63,
+      "no": 129,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 0,
+       "no": 27,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 0,
+       "no": 65,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 0,
+       "no": 29,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 22,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 8,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38940,
+     "time": "12:57",
+     "business": "25.3694",
+     "businessId": 20253694,
+     "bill": null,
+     "billTitle": {
+      "de": "Gewährleistung von Transparenz und Sicherung der Zollkompetenz im Rahmen des BAZG-Vollzugsaufgabengesetzes und des Digitalisierungs- und Transformationsprogramms Dazit",
+      "fr": "Garantir la transparence et préserver les compétences douanières dans le cadre de la LE-OFDF et du programme Dazit",
+      "it": "Garanzia di trasparenza e tutela della competenza doganale nel contesto della riforma BAZG-VG e del programma Dazit"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 105,
+      "no": 85,
+      "abstain": 2
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 0,
+       "no": 27,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 1
+      },
+      "MITTE": {
+       "yes": 0,
+       "no": 29,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 1,
+       "no": 20,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 40,
+       "no": 0,
+       "abstain": 1
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 9,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38941,
+     "time": "12:57",
+     "business": "25.3695",
+     "businessId": 20253695,
+     "bill": null,
+     "billTitle": {
+      "de": "Reduktion des Bundespersonalbestandes mittels natürlicher Fluktuation",
+      "fr": "Réduire les effectifs de l'administration fédérale au moyen de la fluctuation naturelle",
+      "it": "Ridurre il personale della Confederazione attraverso la fluttuazione naturale"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Adopter la motion",
+      "no": "Rejeter la motion"
+     },
+     "tally": {
+      "yes": 87,
+      "no": 99,
+      "abstain": 3
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 26,
+       "no": 0,
+       "abstain": 1
+      },
+      "SVP": {
+       "yes": 61,
+       "no": 2,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 0,
+       "no": 27,
+       "abstain": 2
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 20,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 41,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 9,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38942,
+     "time": "16:42",
+     "business": "25.459",
+     "businessId": 20250459,
+     "bill": null,
+     "billTitle": {
+      "de": "Gleiche Rechte und Pflichten für alle – kein Doppelbürgerrecht für Eingebürgerte",
+      "fr": "Mêmes droits et devoirs pour tous – pas de double nationalité pour les personnes naturalisées",
+      "it": "Uguali diritti e doveri per tutti – nessuna doppia cittadinanza in caso di naturalizzazione"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Proposition de la majorité (ne pas donner suite)",
+      "no": "Proposition de la minorité Rutz Gregor (donner suite)"
+     },
+     "tally": {
+      "yes": 125,
+      "no": 60,
+      "abstain": 2
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 26,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 1,
+       "no": 60,
+       "abstain": 2
+      },
+      "MITTE": {
+       "yes": 27,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 21,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38943,
+     "time": "16:43",
+     "business": "25.460",
+     "businessId": 20250460,
+     "bill": null,
+     "billTitle": {
+      "de": "Feministische Verfassungsrevision - Recht auf Schutz vor patriarchaler Gewalt",
+      "fr": "Révision féministe de la Constitution. Droit à une protection contre la violence patriarcale",
+      "it": "Revisione costituzionale in chiave femminista: diritto alla protezione dalla violenza patriarcale"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Proposition de la majorité (ne pas donner suite)",
+      "no": "Proposition de la minorité Jaccoud (donner suite)"
+     },
+     "tally": {
+      "yes": 124,
+      "no": 62,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 26,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 62,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 27,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 21,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 41,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38944,
+     "time": "16:45",
+     "business": "25.468",
+     "businessId": 20250468,
+     "bill": null,
+     "billTitle": {
+      "de": "Die Bevölkerung will es und so denkt die Schweiz!",
+      "fr": "C'est ce que veut la population et ce que pense la Suisse !",
+      "it": "La popolazione lo richiede ed è così che pensa la Svizzera!"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Proposition de la majorité (ne pas donner suite)",
+      "no": "Proposition de la minorité Porchet (donner suite)"
+     },
+     "tally": {
+      "yes": 127,
+      "no": 63,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 26,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 63,
+       "no": 1,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 28,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 10,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 21,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 41,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38945,
+     "time": "16:46",
+     "business": "25.474",
+     "businessId": 20250474,
+     "bill": null,
+     "billTitle": {
+      "de": "Der Bundesrat muss gegenüber dem Parlament die Wahrheit sagen!",
+      "fr": "Le Conseil fédéral doit dire la vérité au Parlement !",
+      "it": "Il Consiglio federale deve dire la verità al Parlamento!"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Proposition de la majorité (ne pas donner suite)",
+      "no": "Proposition de la minorité Tschopp (donner suite)"
+     },
+     "tally": {
+      "yes": 128,
+      "no": 62,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 26,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 28,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 10,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 21,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 41,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38899,
+     "time": "18:48",
+     "business": "25.4640",
+     "businessId": 20254640,
+     "bill": null,
+     "billTitle": {
+      "de": "Weniger Bürokratie bei Mehrfachtätern ohne ordentlichen Wohnsitz- oder Aufenthaltsstatus. Effiziente Strafverfolgung ermöglichen",
+      "fr": "Moins de bureaucratie dans le cas des auteurs d'infractions multirécidivistes sans statut de résidence ou de séjour régulier. Permettre des poursuites pénales efficaces",
+      "it": "Plurirecidivi senza titolo di domicilio o dimora. Meno burocrazia per rendere più efficiente il perseguimento penale"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Proposition de la majorité et du Conseil fédéral (adopter la motion)",
+      "no": "Proposition de la minorité Schmezer (rejeter la motion)"
+     },
+     "tally": {
+      "yes": 128,
+      "no": 60,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 25,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 10,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 20,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 40,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38901,
+     "time": "18:49",
+     "business": "25.4674",
+     "businessId": 20254674,
+     "bill": null,
+     "billTitle": {
+      "de": "Für eine echte Asylstrategie im Interesse der Schweizer Bevölkerung",
+      "fr": "Pour une stratégie d’asile qui soit réellement dans l’intérêt de la population suisse",
+      "it": "Per una vera strategia in materia d’asilo nell’interesse della popolazione svizzera"
+     },
+     "subject": "Point 1",
+     "meaning": {
+      "yes": "Proposition de la majorité (adotper le point 1 de la motion)",
+      "no": "Proposition de la minorité Tschopp et du Conseil fédéral (rejeter la motion)"
+     },
+     "tally": {
+      "yes": 115,
+      "no": 74,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 25,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 26,
+       "no": 3,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 10,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 21,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 40,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38904,
+     "time": "18:50",
+     "business": "25.4674",
+     "businessId": 20254674,
+     "bill": null,
+     "billTitle": {
+      "de": "Für eine echte Asylstrategie im Interesse der Schweizer Bevölkerung",
+      "fr": "Pour une stratégie d’asile qui soit réellement dans l’intérêt de la population suisse",
+      "it": "Per una vera strategia in materia d’asilo nell’interesse della popolazione svizzera"
+     },
+     "subject": "Point 2",
+     "meaning": {
+      "yes": "Proposition de la majorité (adopter le point 2 de la motion)",
+      "no": "Proposition de la minorité Tschopp et du Conseil fédéral (rejeter la motion)"
+     },
+     "tally": {
+      "yes": 115,
+      "no": 73,
+      "abstain": 1
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 25,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 26,
+       "no": 3,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 0,
+       "no": 9,
+       "abstain": 1
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 21,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 40,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38905,
+     "time": "18:51",
+     "business": "25.4674",
+     "businessId": 20254674,
+     "bill": null,
+     "billTitle": {
+      "de": "Für eine echte Asylstrategie im Interesse der Schweizer Bevölkerung",
+      "fr": "Pour une stratégie d’asile qui soit réellement dans l’intérêt de la population suisse",
+      "it": "Per una vera strategia in materia d’asilo nell’interesse della popolazione svizzera"
+     },
+     "subject": "Point 3",
+     "meaning": {
+      "yes": "Proposition de la majorité (adopter le point 3 de la motion)",
+      "no": "Proposition de la minorité Tschopp et du Conseil fédéral (rejeter la motion)"
+     },
+     "tally": {
+      "yes": 126,
+      "no": 61,
+      "abstain": 1
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 25,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 28,
+       "no": 0,
+       "abstain": 1
+      },
+      "GLP": {
+       "yes": 9,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 21,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 40,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38906,
+     "time": "18:52",
+     "business": "25.4674",
+     "businessId": 20254674,
+     "bill": null,
+     "billTitle": {
+      "de": "Für eine echte Asylstrategie im Interesse der Schweizer Bevölkerung",
+      "fr": "Pour une stratégie d’asile qui soit réellement dans l’intérêt de la population suisse",
+      "it": "Per una vera strategia in materia d’asilo nell’interesse della popolazione svizzera"
+     },
+     "subject": "Point 4",
+     "meaning": {
+      "yes": "Proposition de la majorité (adopter le point 4 de la motion)",
+      "no": "Proposition de la minorité Tschopp et du Conseil fédéral (rejeter la motion)"
+     },
+     "tally": {
+      "yes": 128,
+      "no": 60,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 25,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 10,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 21,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 39,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38907,
+     "time": "18:53",
+     "business": "25.4674",
+     "businessId": 20254674,
+     "bill": null,
+     "billTitle": {
+      "de": "Für eine echte Asylstrategie im Interesse der Schweizer Bevölkerung",
+      "fr": "Pour une stratégie d’asile qui soit réellement dans l’intérêt de la population suisse",
+      "it": "Per una vera strategia in materia d’asilo nell’interesse della popolazione svizzera"
+     },
+     "subject": "Point 5",
+     "meaning": {
+      "yes": "Proposition de la majorité et du Conseil fédéral (rejeter le point 5 de la motion)",
+      "no": "Proposition de la minorité Schmid Pascal (adopter le point 5 de la motion)"
+     },
+     "tally": {
+      "yes": 121,
+      "no": 64,
+      "abstain": 3
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 25,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 0,
+       "no": 64,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 28,
+       "no": 0,
+       "abstain": 1
+      },
+      "GLP": {
+       "yes": 8,
+       "no": 0,
+       "abstain": 2
+      },
+      "GPS": {
+       "yes": 21,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 39,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38908,
+     "time": "18:54",
+     "business": "25.4674",
+     "businessId": 20254674,
+     "bill": null,
+     "billTitle": {
+      "de": "Für eine echte Asylstrategie im Interesse der Schweizer Bevölkerung",
+      "fr": "Pour une stratégie d’asile qui soit réellement dans l’intérêt de la population suisse",
+      "it": "Per una vera strategia in materia d’asilo nell’interesse della popolazione svizzera"
+     },
+     "subject": "Point 6",
+     "meaning": {
+      "yes": "Proposition de la majorité (adopter le point 6 de la motion)",
+      "no": "Proposition de la minorité Tschopp et du Conseil fédéral (rejeter la motion)"
+     },
+     "tally": {
+      "yes": 128,
+      "no": 62,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 25,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 64,
+       "no": 0,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 10,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 0,
+       "no": 21,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 0,
+       "no": 41,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38902,
+     "time": "18:54",
+     "business": "26.4062",
+     "businessId": 20264062,
+     "bill": null,
+     "billTitle": {
+      "de": "Mehr Sicherheit, mehr Integration. Revision des Asyl- und Ausländergesetzes",
+      "fr": "Plus de sécurité, plus d'intégration. Révision de la loi sur l'asile et de la loi fédérale sur les étrangers et l'intégration",
+      "it": "Più sicurezza, più integrazione. Revisione della legge sull'asilo e della legge federale sugli stranieri e la loro integrazione"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "",
+      "no": ""
+     },
+     "tally": {
+      "yes": 101,
+      "no": 89,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 0,
+       "no": 25,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 0,
+       "no": 64,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 10,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 21,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38909,
+     "time": "18:55",
+     "business": "25.4718",
+     "businessId": 20254718,
+     "bill": null,
+     "billTitle": {
+      "de": "Verstärkung an der Front der Strafverfolgung gegen Geldwäsche, Cybercrime und organisierte sowie grenzüberschreitende Kriminalität",
+      "fr": "Blanchiment d’argent, cybercriminalité et criminalité organisée et transfrontalière. Renforcer la poursuite pénale",
+      "it": "Riciclaggio di denaro, cibercriminalità e criminalità organizzata e transfrontaliera: rafforzare il perseguimento penale"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Proposition de la majorité (adopter la motion)",
+      "no": "Proposition de la minorité Golay Roger et du Conseil fédéral (rejeter la motion)"
+     },
+     "tally": {
+      "yes": 127,
+      "no": 62,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 25,
+       "no": 0,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 1,
+       "no": 62,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 10,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 21,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38903,
+     "time": "18:56",
+     "business": "25.4774",
+     "businessId": 20254774,
+     "bill": null,
+     "billTitle": {
+      "de": "Gewalttätiger Extremismus bei Demonstrationen. Veranstalter sollen die Kosten übernehmen",
+      "fr": "Extrémisme violent lors de manifestations. Prise en charge des frais par les organisateurs",
+      "it": "Estremismo violento durante manifestazioni. Addossare i costi agli organizzatori"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Proposition de la majorité et du Conseil fédéral (rejeter la motion)",
+      "no": "Proposition de la minorité Nause (adopter la motion)"
+     },
+     "tally": {
+      "yes": 73,
+      "no": 114,
+      "abstain": 2
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 0,
+       "no": 25,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 2,
+       "no": 61,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 2,
+       "no": 27,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 7,
+       "no": 1,
+       "abstain": 2
+      },
+      "GPS": {
+       "yes": 21,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    },
+    {
+     "id": 38910,
+     "time": "18:58",
+     "business": "26.3005",
+     "businessId": 20263005,
+     "bill": null,
+     "billTitle": {
+      "de": "Die Verfassung braucht einen Digitalisierungsartikel",
+      "fr": "Numérique. Création d'un article constitutionnel",
+      "it": "La Costituzione necessita di un articolo sulla digitalizzazione"
+     },
+     "subject": null,
+     "meaning": {
+      "yes": "Proposition de la majorité et du Conseil fédéral (adopter la motion)",
+      "no": "Proposition de la minorité Fischer Benjamin (rejeter la motion)"
+     },
+     "tally": {
+      "yes": 125,
+      "no": 65,
+      "abstain": 0
+     },
+     "byParty": {
+      "FDP": {
+       "yes": 24,
+       "no": 1,
+       "abstain": 0
+      },
+      "SVP": {
+       "yes": 0,
+       "no": 64,
+       "abstain": 0
+      },
+      "MITTE": {
+       "yes": 29,
+       "no": 0,
+       "abstain": 0
+      },
+      "GLP": {
+       "yes": 10,
+       "no": 0,
+       "abstain": 0
+      },
+      "GPS": {
+       "yes": 21,
+       "no": 0,
+       "abstain": 0
+      },
+      "SP": {
+       "yes": 41,
+       "no": 0,
+       "abstain": 0
+      }
+     }
+    }
+   ]
+  },
+  "S": {
+   "agenda": [
+    {
+     "subject": 83018,
+     "meeting": 5289,
+     "items": [
+      {
+       "business": "26.023",
+       "businessId": 20260023,
+       "title": {
+        "de": "Paket \"Stabilisierung und Weiterentwicklung der Beziehungen Schweiz-EU (Bilaterale III)\"",
+        "fr": "Paquet \"Stabilisation et développement des relations Suisse-UE (Bilatérales III)\""
+       },
+       "note": "Fortsetzung - Suite"
+      }
+     ]
+    },
+    {
+     "subject": 83027,
+     "meeting": 5289,
+     "items": [
+      {
+       "business": "26.038",
+       "businessId": 20260038,
+       "title": {
+        "de": "Seeschifffahrtsgesetz. Änderung",
+        "fr": "Loi fédérale sur la navigation maritime sous pavillon suisse. Modification"
+       },
+       "note": "Erstrat - Premier Conseil"
+      }
+     ]
+    },
+    {
+     "subject": 83031,
+     "meeting": 5289,
+     "items": [
+      {
+       "business": "26.3605",
+       "businessId": 20263605,
+       "title": {
+        "de": "Interpellation Gapany Johanna. Sicherheit rund um den G-7-Gipfel 2026. Muss die Schweiz die Kosten für einen einseitigen Entscheid Frankreichs tragen?",
+        "fr": "Interpellation Gapany Johanna. Sécurité autour du G7 2026. La Suisse doit-elle assumer les coûts d'une décision prise unilatéralement par la France ?"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83040,
+     "meeting": 5289,
+     "items": [
+      {
+       "business": "09.3719",
+       "businessId": 20093719,
+       "title": {
+        "de": "Motion Marty Dick. Die Uno untergräbt das Fundament unserer Rechtsordnung",
+        "fr": "Motion Marty Dick. Les fondements de notre ordre juridique court-circuités par l'ONU",
+        "it": "Mozione Marty Dick. I fondamenti del nostro ordine giuridico scavalcati dall'ONU"
+       },
+       "note": "Frist - Délai"
+      }
+     ]
+    },
+    {
+     "subject": 83034,
+     "meeting": 5289,
+     "items": [
+      {
+       "business": "26.3741",
+       "businessId": 20263741,
+       "title": {
+        "de": "Motion Würth Benedikt. Wirkung der Stellenmeldepflicht mit Arbeitslosen-/Inländervorrang deutlich verstärken",
+        "fr": "Motion Würth Benedikt. Pour un renforcement significatif de l'efficacité de l'obligation d'annoncer les postes vacants en accordant la priorité aux chômeurs du marché suisse"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83070,
+     "meeting": 5289,
+     "items": [
+      {
+       "business": "26.3585",
+       "businessId": 20263585,
+       "title": {
+        "de": "Interpellation Dittli Josef. Administrative Hürden abbauen und Erfolgskontrollen im ESG-Bereich (Postulat 23.4062)",
+        "fr": "Interpellation Dittli Josef. Supprimer les obstacles administratifs à l'application des directives ESG et mettre en place des contrôles d'efficacité (postulat 23.4062)"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83044,
+     "meeting": 5289,
+     "items": [
+      {
+       "business": "26.3746",
+       "businessId": 20263746,
+       "title": {
+        "de": "Interpellation Chassot Isabelle. Schweizer Wissenschaftsverlage in Gefahr",
+        "fr": "Interpellation Chassot Isabelle. Menace sur l'édition scientifique suisse"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83043,
+     "meeting": 5289,
+     "items": [
+      {
+       "business": "26.3901",
+       "businessId": 20263901,
+       "title": {
+        "de": "Interpellation Graf Maya. Agroscope zwischen Sparpolitik und nachhaltiger Transformation der Land- und Ernährungswirtschaft. Wie sollen die Ziele bis 2050 erreicht werden?",
+        "fr": "Interpellation Graf Maya. Entre mesures d'économie et transformation du système agro-alimentaire. Comment atteindre les objectifs d'Agroscope pour 2050 ?"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83075,
+     "meeting": 5289,
+     "items": [
+      {
+       "business": "26.3887",
+       "businessId": 20263887,
+       "title": {
+        "de": "Interpellation Fässler Daniel. Hohe Zuwanderung in Branchen mit stark wachsender Arbeitslosigkeit",
+        "fr": "Interpellation Fässler Daniel. Immigration importante dans des secteurs où le chômage augmente fortement"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83047,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.9019",
+       "businessId": 20269019,
+       "title": {
+        "de": "Ausserordentliche Session. Asyl",
+        "fr": "Session extraordinaire. Asile"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83055,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3630",
+       "businessId": 20263630,
+       "title": {
+        "de": "Motion Chiesa Marco. Ablehnung der einseitigen Regeländerung seitens EU betreffend Entschädigung von arbeitslosen EU/EFTA-Grenzgängern",
+        "fr": "Motion Chiesa Marco. Rejet de la modification unilatérale, opérée par l'UE, des règles régissant l'indemnisation des frontaliers de l'UE/AELE qui sont au chômage",
+        "it": "Mozione Chiesa Marco. Respingere la modifica unilaterale da parte dell'UE delle norme relative all'indennizzo dei lavoratori frontalieri disoccupati dell'UE/AELS"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83059,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3571",
+       "businessId": 20263571,
+       "title": {
+        "de": "Motion Friedli Esther. Von Dänemark lernen. Bei längerfristigen Freiheitsstrafen muss die obligatorische Landesverweisung tatsächlich obligatorisch sein",
+        "fr": "Motion Friedli Esther. S'inspirer du Danemark. En cas de peines privatives de liberté de longue durée, l'expulsion obligatoire doit être réellement obligatoire"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83060,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3626",
+       "businessId": 20263626,
+       "title": {
+        "de": "Motion Salzmann Werner. Bei Terrorismus und Schwerverbrechen werden Doppelbürger ausgebürgert",
+        "fr": "Motion Salzmann Werner. Dénaturaliser les doubles nationaux qui ont commis des actes de terrorisme ou des crimes graves"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83051,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3655",
+       "businessId": 20263655,
+       "title": {
+        "de": "Motion Schwander Pirmin. Keine neuen Asylunterkünfte ohne Zustimmung der betroffenen Bevölkerung. Vetorecht für Standortgemeinden",
+        "fr": "Motion Schwander Pirmin. Pas de nouveaux centres d'hébergement pour requérants d'asile sans l'accord de la population locale. Droit de veto pour les communes"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83065,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3664",
+       "businessId": 20263664,
+       "title": {
+        "de": "Motion Friedli Esther. Korrektur der Praxisänderung in Bezug auf Asylgesuche von Afghaninnen",
+        "fr": "Motion Friedli Esther. Demandes d'asile de femmes afghanes. Corriger le changement de pratique"
+       },
+       "note": "Ordnungsantrag - Motion d'ordre"
+      }
+     ]
+    },
+    {
+     "subject": 83053,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3561",
+       "businessId": 20263561,
+       "title": {
+        "de": "Motion Müller Damian. Schutzstatus S. Keine automatische Umwandlung in eine Aufenthaltsbewilligung B",
+        "fr": "Motion Müller Damian. Statut de protection S. Pas de conversion automatique en autorisation de séjour B"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83054,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3544",
+       "businessId": 20263544,
+       "title": {
+        "de": "Motion Schwander Pirmin. Automatisches Upgrade des Schutzstatus S nach fünf Jahren verhindern. Keine Aufenthaltsbewilligungen und keine Gleichstellung bei der Sozialhilfe mit der Schweizer Bevölkerung",
+        "fr": "Motion Schwander Pirmin. Empêcher la transformation automatique des statuts S en permis de séjour au bout de cinq ans. Pas d'égalité avec la population suisse en matière d'aide sociale"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83061,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "25.094",
+       "businessId": 20250094,
+       "title": {
+        "de": "Bundesgesetz über subsidiäre Finanzhilfen zur Rettung systemkritischer Unternehmen der Elektrizitätswirtschaft. Änderung und Bundesbeschluss über einen Verpflichtungskredit",
+        "fr": "Loi fédérale sur des aides financières subsidiaires destinées au sauvetage des entreprises du secteur de l'électricité d'importance systémique. Modification et arrêté fédéral portant approbation d'un crédit d'engagement"
+       },
+       "note": "Zweitrat - Deuxième Conseil"
+      }
+     ]
+    },
+    {
+     "subject": 83064,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "25.3746",
+       "businessId": 20253746,
+       "title": {
+        "de": "Motion Graf Maya. Abgabe auf sämtliche PFAS an der Quelle",
+        "fr": "Motion Graf Maya. Taxe à la source sur tous les PFAS"
+       },
+       "note": null
+      },
+      {
+       "business": "25.3868",
+       "businessId": 20253868,
+       "title": {
+        "de": "Motion Crevoisier Crelier Mathilde. Beschränkung der Zulassung von PFAS auf wesentliche Verwendungszwecke",
+        "fr": "Motion Crevoisier Crelier Mathilde. Restreindre l'autorisation des PFAS aux usages essentiels"
+       },
+       "note": null
+      },
+      {
+       "business": "25.3865",
+       "businessId": 20253865,
+       "title": {
+        "de": "Motion Moser Tiana Angelina. PFAS schrittweise reduzieren. Sektorielle Absenkpfade und Massnahmen definieren",
+        "fr": "Motion Moser Tiana Angelina. Réduire progressivement les PFAS. Définir des trajectoires de réduction et des mesures sectorielles"
+       },
+       "note": null
+      },
+      {
+       "business": "25.3835",
+       "businessId": 20253835,
+       "title": {
+        "de": "Motion Silberschmidt Andri. Förderung sicherer und nachhaltiger Chemikalien",
+        "fr": "Motion Silberschmidt Andri. Encourager des produits chimiques sûrs et durables"
+       },
+       "note": null
+      },
+      {
+       "business": "25.3855",
+       "businessId": 20253855,
+       "title": {
+        "de": "Motion Mühlemann Benjamin. Förderung sicherer und nachhaltiger Chemikalien",
+        "fr": "Motion Mühlemann Benjamin. Encourager des produits chimiques sûrs et durables"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83067,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3529",
+       "businessId": 20263529,
+       "title": {
+        "de": "Postulat GPK-S. Gesamtkonzept zum Schutz der Biodiversität in der Schweiz für den Zeitraum 2030-2050",
+        "fr": "Postulat CdG-E. Conception générale relative à la protection de la biodiversité en Suisse pour la période 2030-2050"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83073,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "24.3406",
+       "businessId": 20243406,
+       "title": {
+        "de": "Motion Quadri Lorenzo. Auch in der Schweiz sollen personalisierbare Autokennzeichen (\"vanity plates\") zugelassen werden",
+        "fr": "Motion Quadri Lorenzo. Introduire les plaques d'immatriculation personnalisées en Suisse",
+        "it": "Mozione Quadri Lorenzo. Introdurre anche in Svizzera le targhe personalizzabili (\"vanity plates\")"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83069,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "24.4393",
+       "businessId": 20244393,
+       "title": {
+        "de": "Motion Götte Michael. Es braucht griffige Massnahmen gegen die missbräuchliche Verwendung von schweizerischen Domains!",
+        "fr": "Motion Götte Michael. Prendre des mesures efficaces pour empêcher l'utilisation abusive des noms de domaine suisses"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83071,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "25.3898",
+       "businessId": 20253898,
+       "title": {
+        "de": "Motion Pfister Gerhard. Bürokratieabbau und Entlastung der Strassenverkehrsämter, Konsumenten und der Wirtschaft mit Erhöhung der Verkehrssicherheit und des Umweltschutzes",
+        "fr": "Motion Pfister Gerhard. Réduire la bureaucratie et alléger la charge des services des automobiles, des consommateurs et des acteurs économiques, tout en améliorant la sécurité routière et la protection de l'environnement"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83072,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "25.4111",
+       "businessId": 20254111,
+       "title": {
+        "de": "Motion Chiesa Marco. Schutz der Arbeitsplätze in der Schweiz. Keine Verlagerung durch Bundesbetriebe",
+        "fr": "Motion Chiesa Marco. Protection des emplois en Suisse. Interdire aux entreprises appartenant à la Confédération de délocaliser des postes à l'étranger",
+        "it": "Mozione Chiesa Marco. Tutela dei posti di lavoro in Svizzera. No alla delocalizzazione da parte delle aziende di proprietà della Confederazione"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83076,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3638",
+       "businessId": 20263638,
+       "title": {
+        "de": "Postulat Maret Marianne. Aktueller Stand der grenzüberschreitenden Bahnprojekte",
+        "fr": "Postulat Maret Marianne. Etat des lieux des projets ferroviaires transfrontaliers"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83078,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3747",
+       "businessId": 20263747,
+       "title": {
+        "de": "Postulat Regazzi Fabio. Auswirkungen der europäischen Automobilkrise auf die Schweizer Autobranche",
+        "fr": "Postulat Regazzi Fabio. Répercussions de la crise automobile européenne sur le secteur automobile suisse",
+        "it": "Postulato Regazzi Fabio. Le ripercussioni della crisi del settore automobilistico europeo sull'industria automobilistica svizzera"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83080,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3752",
+       "businessId": 20263752,
+       "title": {
+        "de": "Postulat Stark Jakob. Rahmenbedingungen für die langfristige Sicherung der Stromproduktionskapazitäten im teilliberalisierten Strommarkt",
+        "fr": "Postulat Stark Jakob. Conditions nécessaires pour pérenniser les capacités de production d'électricité dans un marché partiellement libéralisé"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83081,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3556",
+       "businessId": 20263556,
+       "title": {
+        "de": "Interpellation Dittli Josef. Umsetzung der Motion 19.4562 zum Low Flight Network. Verzögerungen und fehlende Finanzierung",
+        "fr": "Interpellation Dittli Josef. Mise en oeuvre de la motion 19.4562 relative au réseau de vol à basse altitude. Retards et absence de financement"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83079,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.3543",
+       "businessId": 20263543,
+       "title": {
+        "de": "Interpellation Broulis Pascal. Ausbau des Low Flight Network. Wie weiter bei einer für unsere Sicherheit entscheidenden nationalen kritischen Infrastruktur?",
+        "fr": "Interpellation Broulis Pascal. Développement du réseau Low Flight Network. Quid d'une infrastructure critique nationale essentielle pour notre sécurité ?"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83084,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "23.2005",
+       "businessId": 20232005,
+       "title": {
+        "de": "Petition Jugendsession 2022. Schutz der Journalistinnen und Journalisten vor Selbstzensur und strategischen Bedrohungen durch Dritte",
+        "fr": "Pétition Session des jeunes 2022. Protection des journalistes contre l'autocensure et les menaces stratégiques de la part de tiers"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83085,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "23.2040",
+       "businessId": 20232040,
+       "title": {
+        "de": "Petition Bassola Sandro, Zürich. Anzeigepflichten bei Sexualdelikten und Kindsmisshandlungen in Religionsgemeinschaften und Sekten",
+        "fr": "Pétition Bassola Sandro, Zurich. Obligation de dénoncer les délits sexuels et les mauvais traitements infligés aux enfants dans les communautés religieuses et les sectes"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83086,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "24.2046",
+       "businessId": 20242046,
+       "title": {
+        "de": "Petition Jugendsession 2024. An den Boden mit den Flugzeugen für eine nachhaltige Zukunft",
+        "fr": "Pétition Session des jeunes 2024. Pour un avenir durable, laissons les avions au sol"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83087,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "25.2025",
+       "businessId": 20252025,
+       "title": {
+        "de": "Petition Cécile Lack, Bern. Für besseren Schutz minderjähriger Zeugen",
+        "fr": "Pétition Cécile Lack, Berne. Pour une meilleure protection des témoins mineurs"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83088,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "25.2026",
+       "businessId": 20252026,
+       "title": {
+        "de": "Petition VSS-UNES-USU. Gegen die Verdoppelung der Studiengebühren",
+        "fr": "Pétition VSS-UNES-USU. Contre le doublement des taxes d'études"
+       },
+       "note": null
+      }
+     ]
+    },
+    {
+     "subject": 83089,
+     "meeting": 5291,
+     "items": [
+      {
+       "business": "26.2023",
+       "businessId": 20262023,
+       "title": {
+        "de": "Petition Markus Bieri, Thomas Cottier, Barbara Fatzer, Toni Koller. 180 Jahre Bundesstaat - eine Erfolgsgeschichte",
+        "fr": "Pétition Markus Bieri, Thomas Cottier, Barbara Fatzer, Toni Koller. L'Etat fédéral a 180 ans - un destin exceptionnel"
+       },
+       "note": null
+      }
+     ]
+    }
+   ],
+   "meetings": [
+    {
+     "id": 5289,
+     "begin": "08:15"
+    },
+    {
+     "id": 5291,
+     "begin": "15:00"
+    }
+   ],
+   "speeches": [
+    {
+     "subject": 83018,
+     "start": "08:17",
+     "end": "08:18",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "08:18",
+     "end": "08:29",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "08:29",
+     "end": "08:37",
+     "name": "Würth Benedikt",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SG"
+    },
+    {
+     "subject": 83018,
+     "start": "08:37",
+     "end": "08:40",
+     "name": "Herzog Eva",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BS"
+    },
+    {
+     "subject": 83018,
+     "start": "08:40",
+     "end": "08:49",
+     "name": "Wasserfallen Flavia",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83018,
+     "start": "08:49",
+     "end": "08:53",
+     "name": "Chassot Isabelle",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "FR"
+    },
+    {
+     "subject": 83018,
+     "start": "08:53",
+     "end": "09:00",
+     "name": "Crevoisier Crelier Mathilde",
+     "role": "2VP-F",
+     "group": "SP",
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "09:00",
+     "end": "09:02",
+     "name": "Stark Jakob",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TG"
+    },
+    {
+     "subject": 83018,
+     "start": "09:02",
+     "end": "09:04",
+     "name": "Gmür-Schönenberger Andrea",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "LU"
+    },
+    {
+     "subject": 83018,
+     "start": "09:04",
+     "end": "09:13",
+     "name": "Parmelin Guy",
+     "role": "BPR-M",
+     "group": null,
+     "canton": "VD"
+    },
+    {
+     "subject": 83018,
+     "start": "09:13",
+     "end": "09:14",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "09:14",
+     "end": "09:15",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "09:16",
+     "end": "09:17",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "09:17",
+     "end": "09:22",
+     "name": "Burkart Thierry",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "AG"
+    },
+    {
+     "subject": 83018,
+     "start": "09:22",
+     "end": "09:23",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "09:23",
+     "end": "09:33",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "09:33",
+     "end": "09:44",
+     "name": "Germann Hannes",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "SH"
+    },
+    {
+     "subject": 83018,
+     "start": "09:45",
+     "end": "09:47",
+     "name": "Regazzi Fabio",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "TI"
+    },
+    {
+     "subject": 83018,
+     "start": "09:47",
+     "end": "09:51",
+     "name": "Gössi Petra",
+     "role": "Mit-F",
+     "group": "FDP",
+     "canton": "SZ"
+    },
+    {
+     "subject": 83018,
+     "start": "09:51",
+     "end": "09:54",
+     "name": "Würth Benedikt",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SG"
+    },
+    {
+     "subject": 83018,
+     "start": "09:54",
+     "end": "09:55",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83018,
+     "start": "09:55",
+     "end": "10:05",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "10:05",
+     "end": "10:06",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:06",
+     "end": "10:07",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:07",
+     "end": "10:07",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:08",
+     "end": "10:08",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "10:08",
+     "end": "10:09",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:09",
+     "end": "10:12",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:12",
+     "end": "10:14",
+     "name": "Würth Benedikt",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:14",
+     "end": "10:16",
+     "name": "Crevoisier Crelier Mathilde",
+     "role": "2VP-F",
+     "group": "SP",
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "10:16",
+     "end": "10:17",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "10:18",
+     "end": "10:18",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:18",
+     "end": "10:19",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:19",
+     "end": "10:19",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:19",
+     "end": "10:20",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:21",
+     "end": "10:21",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "10:21",
+     "end": "10:22",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:22",
+     "end": "10:24",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:24",
+     "end": "10:26",
+     "name": "Crevoisier Crelier Mathilde",
+     "role": "2VP-F",
+     "group": "SP",
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "10:26",
+     "end": "10:28",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "10:28",
+     "end": "10:29",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:29",
+     "end": "10:31",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:31",
+     "end": "10:32",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "10:32",
+     "end": "10:32",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:32",
+     "end": "10:33",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:33",
+     "end": "10:37",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:37",
+     "end": "10:43",
+     "name": "Stark Jakob",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:43",
+     "end": "10:46",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "10:46",
+     "end": "10:47",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:47",
+     "end": "10:50",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:50",
+     "end": "10:54",
+     "name": "Stark Jakob",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TG"
+    },
+    {
+     "subject": 83018,
+     "start": "10:54",
+     "end": "10:58",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "10:58",
+     "end": "10:59",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "10:59",
+     "end": "11:04",
+     "name": "Michel Matthias",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "ZG"
+    },
+    {
+     "subject": 83018,
+     "start": "11:04",
+     "end": "11:08",
+     "name": "Stark Jakob",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TG"
+    },
+    {
+     "subject": 83018,
+     "start": "11:08",
+     "end": "11:12",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "11:12",
+     "end": "11:13",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "11:13",
+     "end": "11:14",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "11:14",
+     "end": "11:23",
+     "name": "Wasserfallen Flavia",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83018,
+     "start": "11:23",
+     "end": "11:33",
+     "name": "Friedli Esther",
+     "role": "Mit-F",
+     "group": "SVP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83018,
+     "start": "11:34",
+     "end": "11:35",
+     "name": "Häberli-Koller Brigitte",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "TG"
+    },
+    {
+     "subject": 83018,
+     "start": "11:36",
+     "end": "11:43",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "11:43",
+     "end": "11:44",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "11:44",
+     "end": "11:45",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "11:45",
+     "end": "11:48",
+     "name": "Wasserfallen Flavia",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83018,
+     "start": "11:48",
+     "end": "11:49",
+     "name": "Stark Jakob",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TG"
+    },
+    {
+     "subject": 83018,
+     "start": "11:49",
+     "end": "11:50",
+     "name": "Wasserfallen Flavia",
+     "role": "Mit-F",
+     "group": "SP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83018,
+     "start": "11:50",
+     "end": "11:50",
+     "name": "Sommaruga Carlo",
+     "role": "Mit-M",
+     "group": "SP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83018,
+     "start": "11:50",
+     "end": "11:53",
+     "name": "Baume-Schneider Elisabeth",
+     "role": "BR-F",
+     "group": null,
+     "canton": "JU"
+    },
+    {
+     "subject": 83018,
+     "start": "11:53",
+     "end": "11:54",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83018,
+     "start": "11:54",
+     "end": "11:57",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83027,
+     "start": "11:57",
+     "end": "12:01",
+     "name": "Maret Marianne",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "VS"
+    },
+    {
+     "subject": 83027,
+     "start": "12:01",
+     "end": "12:06",
+     "name": "Cassis Ignazio",
+     "role": "VPBR-M",
+     "group": null,
+     "canton": "TI"
+    },
+    {
+     "subject": 83027,
+     "start": "12:06",
+     "end": "12:07",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83031,
+     "start": "12:07",
+     "end": "12:07",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83031,
+     "start": "12:07",
+     "end": "12:10",
+     "name": "Gapany Johanna",
+     "role": "Mit-F",
+     "group": "FDP",
+     "canton": "FR"
+    },
+    {
+     "subject": 83031,
+     "start": "12:10",
+     "end": "12:14",
+     "name": "Cassis Ignazio",
+     "role": "VPBR-M",
+     "group": null,
+     "canton": "TI"
+    },
+    {
+     "subject": 83031,
+     "start": "12:14",
+     "end": "12:15",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83040,
+     "start": "12:15",
+     "end": "12:15",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83040,
+     "start": "12:15",
+     "end": "12:17",
+     "name": "Rieder Beat",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "VS"
+    },
+    {
+     "subject": 83040,
+     "start": "12:17",
+     "end": "12:20",
+     "name": "Cassis Ignazio",
+     "role": "VPBR-M",
+     "group": null,
+     "canton": "TI"
+    },
+    {
+     "subject": 83040,
+     "start": "12:20",
+     "end": "12:21",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83034,
+     "start": "12:21",
+     "end": "12:21",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83034,
+     "start": "12:21",
+     "end": "12:26",
+     "name": "Würth Benedikt",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SG"
+    },
+    {
+     "subject": 83034,
+     "start": "12:26",
+     "end": "12:29",
+     "name": "Fässler Daniel",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "AI"
+    },
+    {
+     "subject": 83034,
+     "start": "12:29",
+     "end": "12:31",
+     "name": "Poggia Mauro",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83034,
+     "start": "12:32",
+     "end": "12:36",
+     "name": "Parmelin Guy",
+     "role": "BPR-M",
+     "group": null,
+     "canton": "VD"
+    },
+    {
+     "subject": 83070,
+     "start": "12:37",
+     "end": "12:37",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83044,
+     "start": "12:37",
+     "end": "12:37",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83044,
+     "start": "12:37",
+     "end": "12:43",
+     "name": "Chassot Isabelle",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "FR"
+    },
+    {
+     "subject": 83044,
+     "start": "12:43",
+     "end": "12:46",
+     "name": "Parmelin Guy",
+     "role": "BPR-M",
+     "group": null,
+     "canton": "VD"
+    },
+    {
+     "subject": 83044,
+     "start": "12:46",
+     "end": "12:47",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83043,
+     "start": "12:47",
+     "end": "12:47",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83043,
+     "start": "12:47",
+     "end": "12:54",
+     "name": "Graf Maya",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "BL"
+    },
+    {
+     "subject": 83043,
+     "start": "12:54",
+     "end": "13:01",
+     "name": "Parmelin Guy",
+     "role": "BPR-M",
+     "group": null,
+     "canton": "VD"
+    },
+    {
+     "subject": 83043,
+     "start": "13:01",
+     "end": "13:01",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83075,
+     "start": "13:01",
+     "end": "13:03",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83047,
+     "start": "15:00",
+     "end": "15:02",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83047,
+     "start": "15:02",
+     "end": "15:06",
+     "name": "Zopfi Mathias",
+     "role": "Mit-M",
+     "group": "GPS",
+     "canton": "GL"
+    },
+    {
+     "subject": 83047,
+     "start": "15:06",
+     "end": "15:07",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83047,
+     "start": "15:07",
+     "end": "15:08",
+     "name": "Friedli Esther",
+     "role": "Mit-F",
+     "group": "SVP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83047,
+     "start": "15:08",
+     "end": "15:09",
+     "name": "Gmür-Schönenberger Andrea",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "LU"
+    },
+    {
+     "subject": 83047,
+     "start": "15:10",
+     "end": "15:10",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83047,
+     "start": "15:10",
+     "end": "15:18",
+     "name": "Chiesa Marco",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TI"
+    },
+    {
+     "subject": 83047,
+     "start": "15:18",
+     "end": "15:23",
+     "name": "Friedli Esther",
+     "role": "Mit-F",
+     "group": "SVP",
+     "canton": "SG"
+    },
+    {
+     "subject": 83047,
+     "start": "15:23",
+     "end": "15:28",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83047,
+     "start": "15:28",
+     "end": "15:34",
+     "name": "Schwander Pirmin",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "SZ"
+    },
+    {
+     "subject": 83047,
+     "start": "15:34",
+     "end": "15:34",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83047,
+     "start": "15:34",
+     "end": "15:40",
+     "name": "Poggia Mauro",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83047,
+     "start": "15:40",
+     "end": "15:43",
+     "name": "Juillard Charles",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "JU"
+    },
+    {
+     "subject": 83047,
+     "start": "15:43",
+     "end": "15:50",
+     "name": "Parmelin Guy",
+     "role": "BPR-M",
+     "group": null,
+     "canton": "VD"
+    },
+    {
+     "subject": 83047,
+     "start": "15:51",
+     "end": "16:03",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83059,
+     "start": "16:04",
+     "end": "16:04",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83060,
+     "start": "16:04",
+     "end": "16:05",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83051,
+     "start": "16:05",
+     "end": "16:05",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83065,
+     "start": "16:06",
+     "end": "16:06",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83053,
+     "start": "16:06",
+     "end": "16:07",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83053,
+     "start": "16:07",
+     "end": "16:10",
+     "name": "Müller Damian",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "LU"
+    },
+    {
+     "subject": 83053,
+     "start": "16:10",
+     "end": "16:15",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83054,
+     "start": "16:16",
+     "end": "16:16",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83054,
+     "start": "16:16",
+     "end": "16:21",
+     "name": "Schwander Pirmin",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "SZ"
+    },
+    {
+     "subject": 83054,
+     "start": "16:21",
+     "end": "16:24",
+     "name": "Jans Beat",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BS"
+    },
+    {
+     "subject": 83054,
+     "start": "16:24",
+     "end": "16:26",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83061,
+     "start": "16:26",
+     "end": "16:26",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83061,
+     "start": "16:26",
+     "end": "16:34",
+     "name": "Burkart Thierry",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "AG"
+    },
+    {
+     "subject": 83061,
+     "start": "16:34",
+     "end": "16:39",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83061,
+     "start": "16:39",
+     "end": "16:39",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83064,
+     "start": "16:39",
+     "end": "16:40",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83064,
+     "start": "16:40",
+     "end": "16:44",
+     "name": "Würth Benedikt",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "SG"
+    },
+    {
+     "subject": 83064,
+     "start": "16:44",
+     "end": "16:54",
+     "name": "Graf Maya",
+     "role": "Mit-F",
+     "group": "GPS",
+     "canton": "BL"
+    },
+    {
+     "subject": 83064,
+     "start": "16:54",
+     "end": "17:01",
+     "name": "Crevoisier Crelier Mathilde",
+     "role": "2VP-F",
+     "group": "SP",
+     "canton": "JU"
+    },
+    {
+     "subject": 83064,
+     "start": "17:01",
+     "end": "17:03",
+     "name": "Moser Tiana Angelina",
+     "role": "Mit-F",
+     "group": "GLP",
+     "canton": "ZH"
+    },
+    {
+     "subject": 83064,
+     "start": "17:03",
+     "end": "17:09",
+     "name": "Mühlemann Benjamin",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "GL"
+    },
+    {
+     "subject": 83064,
+     "start": "17:09",
+     "end": "17:16",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83064,
+     "start": "17:19",
+     "end": "17:19",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83067,
+     "start": "17:19",
+     "end": "17:20",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83067,
+     "start": "17:20",
+     "end": "17:24",
+     "name": "Z'graggen Heidi",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "UR"
+    },
+    {
+     "subject": 83067,
+     "start": "17:24",
+     "end": "17:27",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83073,
+     "start": "17:28",
+     "end": "17:28",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83073,
+     "start": "17:28",
+     "end": "17:33",
+     "name": "Zopfi Mathias",
+     "role": "Mit-M",
+     "group": "GPS",
+     "canton": "GL"
+    },
+    {
+     "subject": 83073,
+     "start": "17:33",
+     "end": "17:34",
+     "name": "Germann Hannes",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "SH"
+    },
+    {
+     "subject": 83073,
+     "start": "17:34",
+     "end": "17:36",
+     "name": "Schmid Martin",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "GR"
+    },
+    {
+     "subject": 83073,
+     "start": "17:36",
+     "end": "17:36",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83073,
+     "start": "17:36",
+     "end": "17:37",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83073,
+     "start": "17:36",
+     "end": "17:37",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83069,
+     "start": "17:37",
+     "end": "17:37",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83069,
+     "start": "17:37",
+     "end": "17:38",
+     "name": "Stark Jakob",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TG"
+    },
+    {
+     "subject": 83069,
+     "start": "17:38",
+     "end": "17:39",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83069,
+     "start": "17:39",
+     "end": "17:39",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83071,
+     "start": "17:39",
+     "end": "17:40",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83071,
+     "start": "17:40",
+     "end": "17:42",
+     "name": "Gmür-Schönenberger Andrea",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "LU"
+    },
+    {
+     "subject": 83071,
+     "start": "17:42",
+     "end": "17:43",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83071,
+     "start": "17:43",
+     "end": "17:43",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83072,
+     "start": "17:43",
+     "end": "17:43",
+     "name": "Salzmann Werner",
+     "role": "1VP-M",
+     "group": "SVP",
+     "canton": "BE"
+    },
+    {
+     "subject": 83072,
+     "start": "17:43",
+     "end": "17:48",
+     "name": "Gmür-Schönenberger Andrea",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "LU"
+    },
+    {
+     "subject": 83072,
+     "start": "17:48",
+     "end": "17:53",
+     "name": "Chiesa Marco",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TI"
+    },
+    {
+     "subject": 83072,
+     "start": "17:53",
+     "end": "17:54",
+     "name": "Häberli-Koller Brigitte",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "TG"
+    },
+    {
+     "subject": 83072,
+     "start": "17:54",
+     "end": "17:57",
+     "name": "Poggia Mauro",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "GE"
+    },
+    {
+     "subject": 83072,
+     "start": "17:57",
+     "end": "18:01",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83076,
+     "start": "18:02",
+     "end": "18:03",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83076,
+     "start": "18:03",
+     "end": "18:04",
+     "name": "Maret Marianne",
+     "role": "Mit-F",
+     "group": "MITTE",
+     "canton": "VS"
+    },
+    {
+     "subject": 83076,
+     "start": "18:04",
+     "end": "18:05",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83076,
+     "start": "18:05",
+     "end": "18:05",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83078,
+     "start": "18:05",
+     "end": "18:05",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83078,
+     "start": "18:05",
+     "end": "18:11",
+     "name": "Regazzi Fabio",
+     "role": "Mit-M",
+     "group": "MITTE",
+     "canton": "TI"
+    },
+    {
+     "subject": 83078,
+     "start": "18:11",
+     "end": "18:13",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83078,
+     "start": "18:13",
+     "end": "18:13",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83080,
+     "start": "18:13",
+     "end": "18:13",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83080,
+     "start": "18:13",
+     "end": "18:15",
+     "name": "Stark Jakob",
+     "role": "Mit-M",
+     "group": "SVP",
+     "canton": "TG"
+    },
+    {
+     "subject": 83080,
+     "start": "18:15",
+     "end": "18:16",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83080,
+     "start": "18:16",
+     "end": "18:16",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83081,
+     "start": "18:16",
+     "end": "18:17",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83081,
+     "start": "18:17",
+     "end": "18:20",
+     "name": "Dittli Josef",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "UR"
+    },
+    {
+     "subject": 83081,
+     "start": "18:20",
+     "end": "18:22",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83081,
+     "start": "18:22",
+     "end": "18:22",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83079,
+     "start": "18:22",
+     "end": "18:23",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83079,
+     "start": "18:23",
+     "end": "18:23",
+     "name": "Broulis Pascal",
+     "role": "Mit-M",
+     "group": "FDP",
+     "canton": "VD"
+    },
+    {
+     "subject": 83079,
+     "start": "18:24",
+     "end": "18:24",
+     "name": "Rösti Albert",
+     "role": "BR-M",
+     "group": null,
+     "canton": "BE"
+    },
+    {
+     "subject": 83079,
+     "start": "18:24",
+     "end": "18:24",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83084,
+     "start": "18:24",
+     "end": "18:25",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83085,
+     "start": "18:25",
+     "end": "18:25",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83086,
+     "start": "18:25",
+     "end": "18:26",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83087,
+     "start": "18:26",
+     "end": "18:26",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83088,
+     "start": "18:26",
+     "end": "18:26",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    },
+    {
+     "subject": 83089,
+     "start": "18:26",
+     "end": "18:27",
+     "name": "Engler Stefan",
+     "role": "P-M",
+     "group": "MITTE",
+     "canton": "GR"
+    }
+   ]
+  }
+ },
+ "decisions": [
+  {
+   "council": "N",
+   "business": "25.3694",
+   "businessId": 20253694,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3482",
+   "businessId": 20253482,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3189",
+   "businessId": 20253189,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3414",
+   "businessId": 20253414,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3314",
+   "businessId": 20253314,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3280",
+   "businessId": 20253280,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3695",
+   "businessId": 20253695,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3308",
+   "businessId": 20253308,
+   "bill": 0,
+   "text": {
+    "de": "Zurückgezogen",
+    "fr": "Retrait",
+    "it": "Ritirato"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3408",
+   "businessId": 20253408,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3055",
+   "businessId": 20253055,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3609",
+   "businessId": 20253609,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.3279",
+   "businessId": 20253279,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "26.053",
+   "businessId": 20260053,
+   "bill": 1,
+   "text": {
+    "de": "Beschluss gemäss Entwurf",
+    "fr": "Décision conforme au projet",
+    "it": "Decisione secondo il disegno (progetto)"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.474",
+   "businessId": 20250474,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "N",
+   "business": "26.4058",
+   "businessId": 20264058,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.468",
+   "businessId": 20250468,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "N",
+   "business": "26.053",
+   "businessId": 20260053,
+   "bill": 2,
+   "text": {
+    "de": "Beschluss gemäss Entwurf",
+    "fr": "Décision conforme au projet",
+    "it": "Decisione secondo il disegno (progetto)"
+   }
+  },
+  {
+   "council": "N",
+   "business": "26.4062",
+   "businessId": 20264062,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "26.3532",
+   "businessId": 20263532,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "26.4055",
+   "businessId": 20264055,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.459",
+   "businessId": 20250459,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "N",
+   "business": "26.054",
+   "businessId": 20260054,
+   "bill": 1,
+   "text": {
+    "de": "Beschluss abweichend vom Entwurf",
+    "fr": "Décision modifiant le projet",
+    "it": "Decisione in deroga al disegno (progetto)"
+   }
+  },
+  {
+   "council": "N",
+   "business": "26.3189",
+   "businessId": 20263189,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.4640",
+   "businessId": 20254640,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.460",
+   "businessId": 20250460,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.4774",
+   "businessId": 20254774,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.4651",
+   "businessId": 20254651,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.4718",
+   "businessId": 20254718,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "26.3005",
+   "businessId": 20263005,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "N",
+   "business": "26.043",
+   "businessId": 20260043,
+   "bill": 0,
+   "text": {
+    "de": "Kenntnisnahme",
+    "fr": "Pris acte",
+    "it": "Presa d’atto"
+   }
+  },
+  {
+   "council": "N",
+   "business": "25.462",
+   "businessId": 20250462,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "N",
+   "business": "23.432",
+   "businessId": 20230432,
+   "bill": 1,
+   "text": {
+    "de": "Zustimmung",
+    "fr": "Adhésion",
+    "it": "Adesione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3626",
+   "businessId": 20263626,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.2023",
+   "businessId": 20262023,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3752",
+   "businessId": 20263752,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3561",
+   "businessId": 20263561,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3544",
+   "businessId": 20263544,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3655",
+   "businessId": 20263655,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3664",
+   "businessId": 20263664,
+   "bill": 0,
+   "text": {
+    "de": "Zuweisung an die zuständige Kommission zur Vorberatung",
+    "fr": "Transmis à la commission compétente pour examen préalable",
+    "it": "Trasmissione per esame alla commissione competente"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3741",
+   "businessId": 20263741,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3630",
+   "businessId": 20263630,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3571",
+   "businessId": 20263571,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3747",
+   "businessId": 20263747,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3638",
+   "businessId": 20263638,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.023",
+   "businessId": 20260023,
+   "bill": 9,
+   "text": {
+    "de": "Beschluss gemäss Entwurf",
+    "fr": "Décision conforme au projet",
+    "it": "Decisione secondo il disegno (progetto)"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.3529",
+   "businessId": 20263529,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.038",
+   "businessId": 20260038,
+   "bill": 1,
+   "text": {
+    "de": "Beschluss gemäss Entwurf",
+    "fr": "Décision conforme au projet",
+    "it": "Decisione secondo il disegno (progetto)"
+   }
+  },
+  {
+   "council": "S",
+   "business": "23.2040",
+   "businessId": 20232040,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "S",
+   "business": "25.2026",
+   "businessId": 20252026,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "S",
+   "business": "25.2025",
+   "businessId": 20252025,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "S",
+   "business": "24.2046",
+   "businessId": 20242046,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.023",
+   "businessId": 20260023,
+   "bill": 4,
+   "text": {
+    "de": "Beschluss gemäss Entwurf",
+    "fr": "Décision conforme au projet",
+    "it": "Decisione secondo il disegno (progetto)"
+   }
+  },
+  {
+   "council": "S",
+   "business": "24.3406",
+   "businessId": 20243406,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "25.3865",
+   "businessId": 20253865,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "25.3868",
+   "businessId": 20253868,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "25.3898",
+   "businessId": 20253898,
+   "bill": 0,
+   "text": {
+    "de": "Annahme",
+    "fr": "Adoption",
+    "it": "Adozione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "25.3746",
+   "businessId": 20253746,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "23.2005",
+   "businessId": 20232005,
+   "bill": 0,
+   "text": {
+    "de": "Keine Folge gegeben",
+    "fr": "Refusé de donner suite",
+    "it": "Non è dato seguito"
+   }
+  },
+  {
+   "council": "S",
+   "business": "25.4111",
+   "businessId": 20254111,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "25.3835",
+   "businessId": 20253835,
+   "bill": 0,
+   "text": {
+    "de": "Ablehnung",
+    "fr": "Rejet",
+    "it": "Reiezione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "25.094",
+   "businessId": 20250094,
+   "bill": 1,
+   "text": {
+    "de": "Nichteintreten",
+    "fr": "Ne pas entrer en matière",
+    "it": "Non entrata in materia"
+   }
+  },
+  {
+   "council": "S",
+   "business": "24.4393",
+   "businessId": 20244393,
+   "bill": 0,
+   "text": {
+    "de": "Zustimmung",
+    "fr": "Adhésion",
+    "it": "Adesione"
+   }
+  },
+  {
+   "council": "S",
+   "business": "26.023",
+   "businessId": 20260023,
+   "bill": 3,
+   "text": {
+    "de": "Beschluss abweichend vom Entwurf",
+    "fr": "Décision modifiant le projet",
+    "it": "Decisione in deroga al disegno (progetto)"
+   }
+  },
+  {
+   "council": "S",
+   "business": "25.094",
+   "businessId": 20250094,
+   "bill": 2,
+   "text": {
+    "de": "Nichteintreten",
+    "fr": "Ne pas entrer en matière",
+    "it": "Non entrata in materia"
+   }
+  }
+ ]
+}

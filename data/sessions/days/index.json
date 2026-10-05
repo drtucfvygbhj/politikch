@@ -1,0 +1,35 @@
+{
+ "_meta": {
+  "license": "LicenseRef-opendata.swiss-terms_by",
+  "licenseUrl": "https://opendata.swiss/en/terms-of-use",
+  "attribution": "Parliamentary Services of the Federal Assembly (parlament.ch)",
+  "commercialReuse": "yes, with credit",
+  "source": "Federal Assembly OData web service (ws.parlament.ch)"
+ },
+ "days": [
+  {
+   "date": "2026-10-01",
+   "session": {
+    "id": 5215,
+    "season": "autumn",
+    "year": 2026
+   },
+   "fetchedAt": "2026-10-05T12:41:08+00:00",
+   "counts": {
+    "N": {
+     "items": 37,
+     "debated": 37,
+     "speeches": 259,
+     "votes": 38
+    },
+    "S": {
+     "items": 39,
+     "debated": 38,
+     "speeches": 185,
+     "votes": 0
+    }
+   },
+   "decisions": 64
+  }
+ ]
+}
