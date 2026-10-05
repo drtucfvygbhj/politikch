@@ -1884,7 +1884,9 @@ function renderInitiativePage(id) {
   badge.innerHTML = `<span>${t('type.' + init.type)}</span>${termHelp(init.type)}`;
   // Title text only; the "unofficial translation" badge sits on its own line
   // beneath the title and above the date/status line.
-  document.getElementById('initiative-title').textContent = initTitlePlain(init);
+  const titleEl = document.getElementById('initiative-title');
+  titleEl.textContent = initTitlePlain(init);
+  titleEl.lang = initTitleLang(init);
   document.getElementById('initiative-badge-line').innerHTML = initIsUnofficial(init) ? unofficialBadge() : '';
   document.getElementById('initiative-date').textContent = localized(init.date);
 
@@ -2727,6 +2729,14 @@ function initTitleHTML(init, interactive) {
 }
 function initTitlePlain(init) {
   return (init.title && init.title[state.lang]) || initEnTitle(init) || localized(init.title);
+}
+// The language of the title initTitlePlain shows (it can differ from the page's:
+// e.g. a German official name on the Romansh page), for the headline's lang
+// attribute — so phones hyphenate it correctly and screen readers pronounce it.
+function initTitleLang(init) {
+  const tt = init.title || {};
+  if (tt[state.lang] || initEnTitle(init)) return state.lang;
+  return tt.en ? 'en' : (Object.keys(tt)[0] || state.lang);
 }
 
 /* ---- Sessions list page (#/sessions) ---- */

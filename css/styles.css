@@ -729,6 +729,13 @@ section { padding: 100px 48px; }
 .canton-title {
   font-family: 'Playfair Display', serif; font-size: clamp(38px, 6vw, 58px);
   font-weight: 700; letter-spacing: -2px; line-height: 1; margin-bottom: 12px;
+  overflow-wrap: break-word; /* last resort: a word wider than the column breaks instead of being cut off */
+}
+/* Phones: long words in headlines ("Neutralitätsinitiative", "l'approvisionnement")
+   don't fit the column at this size. Hyphenate them, in the language of the title
+   shown (its lang attribute, set by the page), long words only. */
+@media (max-width: 640px) {
+  .canton-title { -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 12 5 5; }
 }
 .canton-capital { font-size: 15px; color: rgba(255, 255, 255, 0.5); margin-bottom: 32px; }
 .canton-stats { display: flex; gap: 40px; flex-wrap: wrap; }
@@ -1005,6 +1012,13 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
 }
 .session-card-votes-muted { color: var(--mid); background: var(--cream-dark); }
 .session-card-arrow { flex: 0 0 auto; color: var(--red); font-size: 18px; transition: transform 0.2s; }
+/* Phones: drop the decorative season icon so the session name has room
+   ("Sessione primaverile 2026" no longer runs into the arrow); German
+   compounds ("Frühjahrssession") hyphenate like the headlines. */
+@media (max-width: 640px) {
+  .session-card-emblem { display: none; }
+  .session-card-name { -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 12 5 5; overflow-wrap: break-word; }
+}
 .session-card:hover .session-card-arrow { transform: translateX(4px); }
 
 /* Session hero emblem (large, faint, behind the title) */
