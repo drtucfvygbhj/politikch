@@ -11,5 +11,1171 @@
   "start": "2026-09-14",
   "end": "2026-10-02",
   "legislativePeriod": 52,
-  "votes": []
+  "votes": [
+    {
+      "id": 38947,
+      "business": "19.300",
+      "businessNumber": 20190300,
+      "title": {
+        "de": "Bundesgesetz über die Unverjährbarkeit von Mord (Änderung des Strafgesetzbuches und des Militärstrafgesetzes)",
+        "fr": "Loi fédérale sur l’imprescriptibilité de l’assassinat (Modification du code pénal et du code pénal militaire)",
+        "it": "Legge federale sull’imprescrittibilità dell’assassinio (Modifica del Codice penale e del Codice penale militare)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "criminalLaw"
+      ],
+      "btype": "cantonalInitiative",
+      "summary": {
+        "de": "Medienmitteilung der Kommission für Rechtsfragen des Ständerates vom 08.10.2024 Die Kommission für Rechtsfragen des Ständerates hat mit 5 zu 4 Stimmen beschlossen, ihrem Rat einen Entwurf zur Verankerung der Unverjährbarkeit von Mord im Strafgesetzbuch zu unterbreiten. Diese Vorlage geht auf eine Standesinitiative des Kantons St. Gallen ( 19.300 ) zurück, zu der im ersten Halbjahr 2024 eine Vernehmlassung durchgeführt wurde. Die Kommission hat den Ergebnisbericht zur Kenntnis genommen und sich den Argumenten, die für eine Unverjährbarkeit dieses Verbrechens sprechen, insgesamt angeschlossen.…",
+        "fr": "Communiqué de presse de la Commission des affaires juridiques du Conseil des Etats du 08.10.2024 Par 5 voix contre 4, la commission des affaires juridiques du Conseil des Etats a décidé de soumettre à son conseil un projet visant à inscrire l’imprescriptibilité de l’assassinat dans le code pénal. Ce projet fait suite à une initiative déposée par le canton de Saint-Gall ( 19.300 ), sur laquelle une consultation a été menée au cours du premier semestre 2024. La commission a pris acte du rapport relatif aux résultats de cette consultation et s’est ralliée, dans l’ensemble, aux arguments qui…",
+        "it": "Comunicato stampa della Commissione degli affari giuridici del Consiglio degli Stati del 08.10.2024 Con 5 voti contro 4 la Commissione degli affari giuridici del Consiglio degli Stati ha deciso di sottoporre alla propria Camera un progetto che prevede di rendere imprescrittibile l’assassinio. Scaturito da un’iniziativa presentata dal Cantone di San Gallo ( 19.300 ), il progetto di modifica del Codice penale è stato posto in consultazione nel primo semestre di quest’anno. Preso atto dell’ esito della consultazione , la Commissione ha fatto proprie le motivazioni che depongono a favore…"
+      },
+      "tally": {
+        "yes": 130,
+        "no": 59,
+        "abstain": 6
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 1,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 36,
+          "abstain": 4
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38948,
+      "business": "23.432",
+      "businessNumber": 20230432,
+      "title": {
+        "de": "Bundespersonalgesetz (BPG)",
+        "fr": "Loi sur le personnel de la Confédération (LPers)",
+        "it": "Legge sul personale federale (LPers)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "statePolicy",
+        "finance",
+        "labour",
+        "civilLaw"
+      ],
+      "btype": "parliamentaryInitiative",
+      "summary": {
+        "de": "Medienmitteilung der Staatspolitischen Kommission des Ständerates vom 18.02.2026 Abgangsentschädigungen für Kaderpersonen in der Bundesverwaltung gaben in den vergangenen Jahren wiederholt zu Diskussionen Anlass. Die Staatspolitische Kommission (SPK) des Ständerates will nun mit einer Anpassung des Bundespersonalrechts solche Abgangsentschädigungen untersagen. In Umsetzung einer parlamentarischen Initiative des ehemaligen Ständerates Thomas Minder, welche von Ständerat Jakob Stark aufgenommen worden ist ( 23.432 ), wurden Änderungen des Bundespersonalrechts ausgearbeitet. Danach soll die…",
+        "fr": "Communiqué de presse de la Commission des institutions politiques du Conseil des Etats du 18.02.2026 Les indemnités de départ versées aux cadres de l’administration fédérale ont donné lieu à discussion à plusieurs reprises ces dernières années. La Commission des institutions politiques du Conseil des États (CIP-E) souhaite maintenant interdire le versement de telles indemnités en adaptant le droit du personnel de la Confédération. La CIP-E a élaboré des modifications du droit du personnel de la Confédération afin de mettre en œuvre l’initiative parlementaire 23.432 , déposée par l’ancien…",
+        "it": "Comunicato stampa della Commissione delle istituzioni politiche del Consiglio degli Stati del 18.02.2026 Negli anni scorsi le indennità di partenza riconosciute ai quadri superiori dell’Amministrazione federale hanno spesso suscitato discussioni. La Commissione delle istituzioni politiche del Consiglio degli Stati intende ora modificare la legislazione sul personale federale così da vietare tali indennità. In adempimento dell’iniziativa parlamentare presentata dall’ex consigliere agli Stati Thomas Minder e ripresa dal consigliere agli Stati Jakob Stark ( 23.432 ), sono state elaborate…"
+      },
+      "tally": {
+        "yes": 165,
+        "no": 0,
+        "abstain": 31
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 4,
+          "no": 0,
+          "abstain": 18
+        },
+        "SP": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 13
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38949,
+      "business": "23.439",
+      "businessNumber": 20230439,
+      "title": {
+        "de": "Regierungs- und Verwaltungsorganisationsgesetz (RVOG)",
+        "fr": "Loi sur l’organisation du gouvernement et de l’administration (LOGA)",
+        "it": "Legge sull’organizzazione del Governo e dell’Amministrazione (LOGA)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "statePolicy",
+        "parliament"
+      ],
+      "btype": "parliamentaryInitiative",
+      "summary": {
+        "de": "Medienmitteilung der Staatspolitischen Kommission des Ständerates vom 16.01.2026 Die Kommission hat den im Rahmen der Initiative Caroni 23.439 ausgearbeiteten Gesetzesentwurf einstimmig gutgeheissen. Laut diesem soll der Bundesrat neu verpflichtet sein, beim Erlass einer Verordnung nach Artikel 184 Absatz 3 oder Artikel 185 Absatz 3 der Bundesverfassung in einem Bericht darzulegen, dass die rechtlichen Voraussetzungen dafür erfüllt sind. Diese Begründungspflicht gilt auch für Verordnungen, die der Bundesrat gestützt auf eine gesetzliche Ermächtigung zur Bewältigung einer Krise erlässt. In…",
+        "fr": "Communiqué de presse de la commission des institutions politiques du Conseil des Etats du 16.01.2026 La commission a approuvé à l’unanimité un projet de loi élaboré dans le cadre de l’initiative Caroni 23.439 . Le projet introduit l’obligation pour le Conseil fédéral de justifier, dans un rapport, que les conditions juridiques sont remplies lorsqu’il édicte une ordonnance en vertu de l’art. 184, al. 3 ou de l’art. 185, al. 3, de la Constitution. L’obligation de motivation portera également sur les ordonnances que le Conseil fédéral adopte en s’appuyant sur une compétence conférée par une base…",
+        "it": "Comunicato stampa della commissione delle istituzioni politiche del Consiglio degli Stati del 16.01.2026 La Commissione ha approvato all’unanimità un progetto di legge elaborato nel quadro dell’iniziativa Caroni 23.439 . Quest’ultimo introduce l’obbligo per il Consiglio federale di dimostrare, in un rapporto, che le condizioni giuridiche sono soddisfatte quando emana un’ordinanza in virtù degli articoli 184 capoverso 3 o 185 capoverso 3 della Costituzione. L’obbligo di motivazione si applicherà anche alle ordinanze che il Consiglio federale emana fondandosi su una competenza conferitagli da…"
+      },
+      "tally": {
+        "yes": 195,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38950,
+      "business": "24.089",
+      "businessNumber": 20240089,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire «Oui à l’interdiction d’importer du foie gras (initiative foie gras)»",
+        "it": "Decreto federale concernente l’iniziativa popolare federale «Sì al divieto di importazione di foie gras (Iniziativa foie gras)»"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet (Recommandation de rejeter l'initiative)",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "economy",
+        "environment"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 20.11.2024 Bundesrat empfiehlt Ablehnung der «Stopfleber-Initiative» Der Bundesrat hat an seiner Sitzung vom 20. November 2024 die Botschaft zur Volksinitiative «Ja zum Importverbot für Stopfleber» verabschiedet. Er empfiehlt dem Parlament, die Initiative ohne direkten Gegenentwurf oder indirekten Gegenvorschlag abzulehnen. Er will dem Anliegen der Initiantinnen und Initianten jedoch Rechnung tragen: Produkte aus der Stopfmast sollen künftig deklariert werden müssen, um Transparenz für die Konsumierenden zu schaffen. Dies will der Bundesrat in einer…",
+        "fr": "Communiqué de presse du Conseil fédéral du 20.11.2024 Le Conseil fédéral recommande de rejeter l’initiative foie gras Lors de sa séance du 20 novembre 2024, le Conseil fédéral a adopté le message concernant l’initiative populaire « Oui à l’interdiction d’importer du foie gras (initiative foie gras) ». Il recommande au Parlement de la rejeter sans lui opposer de contre-projet direct ou indirect. Souhaitant toutefois tenir compte de la demande formulée par les auteurs de l’initiative, il prévoit que les produits issus du gavage soient soumis à déclaration obligatoire, afin d’assurer la…",
+        "it": "Comunicato stampa del Consiglio federale del 20.11.2024 Il Consiglio federale raccomanda di respingere l’iniziativa foie gras Nella seduta del 20 novembre 2024, il Consiglio federale ha adottato il messaggio concernente l’iniziativa popolare federale «Sì al divieto di importazione di foie gras», raccomandando al Parlamento di respingere l’iniziativa senza formulare un controprogetto diretto o indiretto. Intende tuttavia tenere conto delle richieste dei promotori dell’iniziativa: in futuro, i prodotti ottenuti con l’alimentazione forzata saranno soggetti a un obbligo di dichiarazione, in modo…"
+      },
+      "tally": {
+        "yes": 119,
+        "no": 51,
+        "abstain": 26
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 59,
+          "no": 2,
+          "abstain": 5
+        },
+        "MITTE": {
+          "yes": 25,
+          "no": 2,
+          "abstain": 3
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 5,
+          "abstain": 5
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 8,
+          "no": 20,
+          "abstain": 13
+        }
+      },
+      "passed": true,
+      "initiativeDecree": {
+        "recommend": "reject",
+        "source": "parlament.ch"
+      }
+    },
+    {
+      "id": 38951,
+      "business": "25.057",
+      "businessNumber": 20250057,
+      "title": {
+        "de": "Bundesgesetz betreffend die elektrischen Schwach- und Starkstromanlagen (Elektrizitätsgesetz, EleG) (Beschleunigung beim Aus- und Umbau der Stromnetze)",
+        "fr": "Loi fédérale concernant les installations électriques à faible et à fort courant (Loi sur les installations électriques, LIE) (Accélération de l’extension et de la transformation des réseaux électriques)",
+        "it": "Legge federale concernente gli impianti elettrici a corrente forte e a corrente debole (Legge sugli impianti elettrici, LIE) (Accelerazione nell’ampliamento e nella trasformazione delle reti elettriche)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "lawGeneral",
+        "transport",
+        "energy",
+        "spatialPlanning"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 21.05.2025 Bundesrat überweist Botschaft zur Beschleunigung des Ausbaus der Stromnetze Der Bundesrat hat an seiner Sitzung vom 21. Mai 2025 die Botschaft zu einer Revision des Elektrizitätsgesetzes verabschiedet. Die Revision soll die Bewilligungsverfahren für den Aus- und Umbau der Stromnetze weiter beschleunigen. Mehr als 60 Prozent der Höchstspannungsleitungen in der Schweiz sind heute zwischen 50 und 80 Jahre alt. Die technische Lebensdauer dieser Leitungen (Übertragungsnetz) beträgt rund 80 Jahre. Ein Grossteil dieses Übertragungsnetzes muss deshalb…",
+        "fr": "Communiqué de presse du Conseil fédéral du 21.05.2025 Le Conseil fédéral transmet le message concernant l’accélération du développement des réseaux électriques Lors de sa séance du 21 mai 2025, le Conseil fédéral a adopté le message concernant une révision de la loi sur les installations électriques. Cette révision doit permettre d’accélérer davantage les procédures d’autorisation pour l’extension et la transformation des réseaux électriques. Actuellement, plus de 60 % des lignes à très haute tension en Suisse ont entre 50 et 80 ans. La durée de vie technique de ces lignes (réseau de…",
+        "it": "Comunicato stampa del Consiglio federale del 21.05.2025 Il Consiglio federale trasmette al Parlamento il messaggio per accelerare l’ampliamento delle reti elettriche Nella sua seduta del 21 maggio 2025, il Consiglio federale ha approvato il messaggio concernente la revisione della legge federale sugli impianti elettrici. La revisione permetterà di accelerare ulteriormente le procedure di autorizzazione per l’ampliamento e la trasformazione delle reti elettriche. Attualmente, in Svizzera, più del 60 per cento delle linee ad altissima tensione hanno tra i 50 e gli 80 anni. Il ciclo di vita…"
+      },
+      "tally": {
+        "yes": 194,
+        "no": 1,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 40,
+          "no": 1,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38952,
+      "business": "25.058",
+      "businessNumber": 20250058,
+      "title": {
+        "de": "Bundesgesetz über eine leistungsabhängige Schwerverkehrsabgabe (Schwerverkehrsabgabegesetz, SVAG)",
+        "fr": "Loi fédérale concernant une redevance sur le trafic des poids lourds liée aux prestations (Loi relative à une redevance sur le trafic des poids lourds, LRPL)",
+        "it": "Legge federale concernente una tassa sul traffico pesante commisurata alle prestazioni (Legge sul traffico pesante, LTTP)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "transport",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 28.05.2025 Bundesrat verabschiedet Botschaft zur Weiterentwicklung der LSVA Die Leistungsabhängige Schwerverkehrsabgabe (LSVA) soll ab 2029 auch für elektrisch angetriebene Lastwagen erhoben werden. So will der Bundesrat sicherstellen, dass der Schwerverkehr weiterhin seine Kosten trägt und die Verlagerung des Güterverkehrs auf die Schiene auch künftig unterstützt wird. Mit einem bis 2035 befristeten Rabattsystem will der Bundesrat erreichen, dass die Transportunternehmen weiter in Elektro-Lastwagen investieren und hierfür Planungssicherheit erhalten. Die…",
+        "fr": "Communiqué de presse du Conseil fédéral du 28.05.2025 Le Conseil fédéral adopte le message sur le perfectionnement de la RPLP La redevance sur le trafic des poids lourds liée aux prestations (RPLP) sera également perçue sur les camions à propulsion électrique à partir de 2029. Le Conseil fédéral entend ainsi garantir que le trafic lourd continue à supporter ses coûts et que l’encouragement du transfert du fret sur le rail se poursuive. Grâce à un système de rabais limité à 2035, le Conseil fédéral veut faire en sorte que les entreprises de transport continuent d’investir dans des camions…",
+        "it": "Comunicato stampa del Consiglio federale del 28.05.2025 Il Consiglio federale adotta il messaggio sull'ulteriore sviluppo della TTPCP Dal 2029 il Consiglio federale intende assoggettare alla tassa sul traffico pesante commisurata alle prestazioni (TTPCP) anche gli autocarri a propulsione elettrica. In questo modo vuole garantire che il traffico pesante si faccia carico dei costi che causa e che il suo trasferimento alla rotaia sia sostenuto anche in futuro. Inoltre, con un sistema di sconti che sarà applicato fino al 2035 intende assicurare che le imprese di trasporto continuino a investire…"
+      },
+      "tally": {
+        "yes": 133,
+        "no": 24,
+        "abstain": 39
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 2,
+          "abstain": 39
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38953,
+      "business": "25.059",
+      "businessNumber": 20250059,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelz-Initiative)»",
+        "fr": "Arrêté fédéral relatif à l’initiative populaire «Oui à l’interdiction d’importer des produits en fourrure provenant d’animaux ayant subi de mauvais traitements (initiative fourrure)»",
+        "it": "Decreto federale concernente l’iniziativa popolare federale «Sì al divieto di importare prodotti di pellicceria ottenuti infliggendo sofferenze agli animali (Iniziativa pellicce)»"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet (recommandation de rejeter l'initiative)",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "economy",
+        "environment"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 28.05.2025 Import- und Handelsverbot für tierquälerisch erzeugte Pelze: Bundesrat verabschiedet Botschaft Der Bundesrat hat an seiner Sitzung vom 28. Mai 2025 die Botschaft zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte» verabschiedet. Er empfiehlt die Volksinitiative zur Ablehnung und legt einen indirekten Gegenvorschlag vor. Mit diesem will er die Ein- und Durchfuhr von mit tierquälerischen Methoden erzeugten Pelzen und Pelzprodukten sowie den Handel damit verbieten. Dieses Verbot soll im Tierschutzgesetz verankert…",
+        "fr": "Communiqué de presse du Conseil fédéral du 28.05.2025 Interdiction d’importer et de commercialiser des fourrures provenant d’animaux ayant subi de mauvais traitements : le Conseil fédéral adopte le message Lors de sa séance du 28 mai 2025, le Conseil fédéral a adopté le message concernant l’initiative populaire « Oui à l’interdiction d’importer des produits en fourrure provenant d’animaux ayant subi de mauvais traitements (initiative fourrure) ». Il recommande le rejet de l’initiative populaire au profit d’un contre-projet indirect destiné à interdire l’importation, le transit et le commerce…",
+        "it": "Comunicato stampa del Consiglio federale del 28.05.2025 Divieto di importazione e di commercio di pellicce ottenute infliggendo sofferenze agli animali: il Consiglio federale adotta il messaggio Nella sua seduta del 28 maggio 2025, il Consiglio federale ha adottato il messaggio concernente l’iniziativa popolare «Sì al divieto di importare prodotti di pellicceria ottenuti infliggendo sofferenze agli animali». Raccomanda di respingere l’iniziativa popolare e propone un controprogetto indiretto con il quale intende vietare l’importazione, il transito e il commercio di pellicce e prodotti di…"
+      },
+      "tally": {
+        "yes": 156,
+        "no": 33,
+        "abstain": 7
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 1,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 57,
+          "no": 4,
+          "abstain": 5
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 1,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 8,
+          "no": 1,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 36,
+          "no": 4,
+          "abstain": 1
+        }
+      },
+      "passed": true,
+      "initiativeDecree": {
+        "recommend": "reject",
+        "source": "parlament.ch"
+      }
+    },
+    {
+      "id": 38954,
+      "business": "25.059",
+      "businessNumber": 20250059,
+      "title": {
+        "de": "Tierschutzgesetz (TSchG)",
+        "fr": "Loi fédérale sur la protection des animaux (LPA)",
+        "it": "Legge federale sulla protezione degli animali (LPAn)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 2,
+      "topics": [
+        "economy",
+        "environment"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 28.05.2025 Import- und Handelsverbot für tierquälerisch erzeugte Pelze: Bundesrat verabschiedet Botschaft Der Bundesrat hat an seiner Sitzung vom 28. Mai 2025 die Botschaft zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte» verabschiedet. Er empfiehlt die Volksinitiative zur Ablehnung und legt einen indirekten Gegenvorschlag vor. Mit diesem will er die Ein- und Durchfuhr von mit tierquälerischen Methoden erzeugten Pelzen und Pelzprodukten sowie den Handel damit verbieten. Dieses Verbot soll im Tierschutzgesetz verankert…",
+        "fr": "Communiqué de presse du Conseil fédéral du 28.05.2025 Interdiction d’importer et de commercialiser des fourrures provenant d’animaux ayant subi de mauvais traitements : le Conseil fédéral adopte le message Lors de sa séance du 28 mai 2025, le Conseil fédéral a adopté le message concernant l’initiative populaire « Oui à l’interdiction d’importer des produits en fourrure provenant d’animaux ayant subi de mauvais traitements (initiative fourrure) ». Il recommande le rejet de l’initiative populaire au profit d’un contre-projet indirect destiné à interdire l’importation, le transit et le commerce…",
+        "it": "Comunicato stampa del Consiglio federale del 28.05.2025 Divieto di importazione e di commercio di pellicce ottenute infliggendo sofferenze agli animali: il Consiglio federale adotta il messaggio Nella sua seduta del 28 maggio 2025, il Consiglio federale ha adottato il messaggio concernente l’iniziativa popolare «Sì al divieto di importare prodotti di pellicceria ottenuti infliggendo sofferenze agli animali». Raccomanda di respingere l’iniziativa popolare e propone un controprogetto indiretto con il quale intende vietare l’importazione, il transito e il commercio di pellicce e prodotti di…"
+      },
+      "tally": {
+        "yes": 139,
+        "no": 52,
+        "abstain": 5
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 0,
+          "abstain": 1
+        },
+        "SVP": {
+          "yes": 10,
+          "no": 52,
+          "abstain": 4
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38955,
+      "business": "25.081",
+      "businessNumber": 20250081,
+      "title": {
+        "de": "Bundesbeschluss über die Volksinitiative «Für ein modernes Bürgerrecht (Demokratie-Initiative)»",
+        "fr": "Arrêté fédéral concernant l’initiative populaire «Pour un droit de la nationalité moderne (initiative pour la démocratie)»",
+        "it": "Decreto federale concernente l’iniziativa popolare «Per un diritto di cittadinanza moderno (Iniziativa per la democrazia)»"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet (recommandation de rejeter l'initiative)",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "statePolicy",
+        "migration"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 05.11.2025 Der Bundesrat empfiehlt die «Demokratie-Initiative» zur Ablehnung Der Bundesrat empfiehlt die Volksinitiative «Für ein modernes Bürgerrecht (Demokratie-Initiative)» ohne direkten Gegenentwurf oder indirekten Gegenvorschlag zur Ablehnung. Diese greift seiner Ansicht nach erheblich in die kantonalen Kompetenzen ein. In seiner Sitzung vom 5. November 2025 hat er auch Postulatsberichte über Einbürgerungen bei der zweiten Ausländergeneration sowie über die Protokollierung von Einbürgerungsgesprächen gutgeheissen. Die Ergebnisse sollen in die…",
+        "fr": "Communiqué de presse du Conseil fédéral du 05.11.2025 Le Conseil fédéral recommande de rejeter l’initiative pour la démocratie Le Conseil fédéral recommande de rejeter l’initiative populaire « Pour un droit de la nationalité moderne (initiative pour la démocratie) » sans lui opposer de contre-projet direct ou indirect. Il estime que l’initiative constitue une atteinte considérable aux compétences des cantons. Lors de sa séance du 5 novembre 2025, il a également approuvé les rapports donnant suite à des postulats portant sur la naturalisation des étrangers de la deuxième génération et sur la…",
+        "it": "Comunicato stampa del Consiglio federale del 05.11.2025 Il Consiglio federale raccomanda di respingere l’Iniziativa per la democrazia Il Consiglio federale raccomanda di respingere l'iniziativa popolare «Per un diritto di cittadinanza moderno (Iniziativa per la democrazia)» senza presentare un controprogetto diretto o indiretto. A suo avviso, l’iniziativa costituisce una grave ingerenza nelle competenze cantonali. Nella seduta del 5 novembre 2025 ha inoltre approvato i rapporti in adempimento di due postulati, uno relativo alle naturalizzazioni della seconda generazione di stranieri e l’altro…"
+      },
+      "tally": {
+        "yes": 133,
+        "no": 63,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 41,
+          "abstain": 0
+        }
+      },
+      "passed": true,
+      "initiativeDecree": {
+        "recommend": "reject",
+        "source": "parlament.ch"
+      }
+    },
+    {
+      "id": 38956,
+      "business": "25.088",
+      "businessNumber": 20250088,
+      "title": {
+        "de": "Bundesgesetz über das Bundesgericht (Bundesgerichtsgesetz, BGG)",
+        "fr": "Loi sur le Tribunal fédéral (LTF)",
+        "it": "Legge sul Tribunale federale (LTF)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "judiciary"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 05.12.2025 Bundesgerichtsgesetz: Bundesrat verabschiedet Botschaft Der Bundesrat will die fachlich sinnvollen und politisch mehrheitsfähigen Aspekte aus der gescheiterten Revision zur Änderung des Bundesgerichtsgesetzes (BGG) aus dem Jahr 2018 umsetzen. Dies mit dem Ziel, die Rechtslage zu verbessern und damit die Rechtssicherheit zu stärken. An seiner Sitzung vom 5. Dezember 2025 hat er die Ergebnisse der Vernehmlassung zur Kenntnis genommen und die Botschaft zuhanden des Parlamentes verabschiedet. Der Bundesrat möchte punktuelle Mängel des heutigen…",
+        "fr": "Communiqué de presse du Conseil fédéral du 05.12.2025 Le Conseil fédéral adopte le message relatif à la modification de la loi sur le Tribunal fédéral Le Conseil fédéral veut mettre en œuvre certains aspects pertinents et susceptibles de recueillir une majorité sur le plan politique du projet de révision de la loi sur le Tribunal fédéral (LTF) qui avait échoué en 2018. Son objectif est d’améliorer le droit et ainsi de renforcer la sécurité juridique. Lors de sa séance du 5 décembre 2025, il a pris acte des résultats de la procédure de consultation et adopté le message à l’intention du…",
+        "it": "Comunicato stampa del Consiglio federale del 05.12.2025 Legge sul Tribunale federale: il Consiglio federale adotta il messaggio Il Consiglio federale vuole attuare gli aspetti tecnicamente validi e in grado di ottenere il necessario consenso politico del fallito progetto di revisione della legge sul Tribunale federale (LTF) del 2018 per migliorare la situazione giuridica consolidando così la certezza del diritto. Nella seduta del 5 dicembre 2025 ha preso conoscenza dei risultati della consultazione e ha adottato il messaggio all’attenzione del Parlamento. Il Consiglio federale intende…"
+      },
+      "tally": {
+        "yes": 191,
+        "no": 0,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 64,
+          "no": 0,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 38,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38971,
+      "business": "25.059",
+      "businessNumber": 20250059,
+      "title": {
+        "de": "«Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelzinitiative)». Volksinitiative und indirekter Gegenvorschlag (Änderung des Tierschutzgesetzes)",
+        "fr": "«Oui à l'interdiction d'importer des produits en fourrure provenant d’animaux ayant subi de mauvais traitements (initiative fourrure)». Initiative populaire et contre-projet indirect (modification de la loi fédérale sur la protection des animaux)",
+        "it": "«Sì al divieto di importare prodotti di pellicceria ottenuti infliggendo sofferenze agli animali (Iniziativa pellicce)». Iniziativa popolare e controprogetto indiretto (Modifica della legge federale sulla protezione degli animali)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "topics": [
+        "economy",
+        "environment"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 28.05.2025 Import- und Handelsverbot für tierquälerisch erzeugte Pelze: Bundesrat verabschiedet Botschaft Der Bundesrat hat an seiner Sitzung vom 28. Mai 2025 die Botschaft zur Volksinitiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte» verabschiedet. Er empfiehlt die Volksinitiative zur Ablehnung und legt einen indirekten Gegenvorschlag vor. Mit diesem will er die Ein- und Durchfuhr von mit tierquälerischen Methoden erzeugten Pelzen und Pelzprodukten sowie den Handel damit verbieten. Dieses Verbot soll im Tierschutzgesetz verankert…",
+        "fr": "Communiqué de presse du Conseil fédéral du 28.05.2025 Interdiction d’importer et de commercialiser des fourrures provenant d’animaux ayant subi de mauvais traitements : le Conseil fédéral adopte le message Lors de sa séance du 28 mai 2025, le Conseil fédéral a adopté le message concernant l’initiative populaire « Oui à l’interdiction d’importer des produits en fourrure provenant d’animaux ayant subi de mauvais traitements (initiative fourrure) ». Il recommande le rejet de l’initiative populaire au profit d’un contre-projet indirect destiné à interdire l’importation, le transit et le commerce…",
+        "it": "Comunicato stampa del Consiglio federale del 28.05.2025 Divieto di importazione e di commercio di pellicce ottenute infliggendo sofferenze agli animali: il Consiglio federale adotta il messaggio Nella sua seduta del 28 maggio 2025, il Consiglio federale ha adottato il messaggio concernente l’iniziativa popolare «Sì al divieto di importare prodotti di pellicceria ottenuti infliggendo sofferenze agli animali». Raccomanda di respingere l’iniziativa popolare e propone un controprogetto indiretto con il quale intende vietare l’importazione, il transito e il commercio di pellicce e prodotti di…"
+      },
+      "tally": {
+        "yes": 120,
+        "no": 70,
+        "abstain": 6
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 26,
+          "no": 1,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 57,
+          "no": 4,
+          "abstain": 5
+        },
+        "MITTE": {
+          "yes": 29,
+          "no": 1,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 8,
+          "no": 1,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 41,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38957,
+      "business": "25.089",
+      "businessNumber": 20250089,
+      "title": {
+        "de": "Bundesgesetz betreffend die Aufsicht über Versicherungsunternehmen (Versicherungsaufsichtsgesetz, VAG)",
+        "fr": "Loi fédérale sur la surveillance des entreprises d’assurance (Loi sur la surveillance des assurances, LSA)",
+        "it": "Legge federale sulla sorveglianza delle imprese di assicurazione (Legge sulla sorveglianza degli assicuratori, LSA)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "economy"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 05.12.2025 Bundesrat verabschiedet Botschaft zur Änderung des Versicherungsaufsichtsgesetzes Der Bundesrat hat an seiner Sitzung vom 5. Dezember 2025 die Botschaft zur Änderung des Versicherungsaufsichtsgesetzes verabschiedet. Mit der Vorlage will der Bundesrat den Standort Schweiz für Rückversicherungen stärken. Wie sich in der Praxis gezeigt hat, führt das neue Versicherungsaufsichtsgesetz (VAG), das am 1. Januar 2024 mit dem Ziel der Verbesserung des Kundenschutzes in Kraft getreten ist, in unbeabsichtigter Weise zu einer Beeinträchtigung der…",
+        "fr": "Communiqué de presse du Conseil fédéral du 05.12.2025 Le Conseil fédéral adopte le message concernant une modification de la loi sur la surveillance des assurances Lors de sa séance du 5 décembre 2025, le Conseil fédéral a adopté le message concernant une modification de la loi sur la surveillance des assurances. Il entend renforcer l’attractivité de la place économique suisse pour les entreprises de réassurance en mettant en œuvre ce projet de révision partielle. La loi sur la surveillance des assurances (LSA) avait fait l’objet d’une révision, entrée en vigueur le 1 er janvier 2024, afin de…",
+        "it": "Comunicato stampa del Consiglio federale del 05.12.2025 Il Consiglio federale licenzia il messaggio concernente la modifica della legge sulla sorveglianza degli assicuratori Nella seduta del 5 dicembre 2025 il Consiglio federale ha adottato il messaggio concernente la modifica della legge sulla sorveglianza degli assicuratori. Con questo progetto l’Esecutivo intende rafforzare la piazza svizzera per le riassicurazioni. Come constatato nella prassi, la nuova legge sulla sorveglianza degli assicuratori (LSA), entrata in vigore il 1° gennaio 2024 allo scopo di migliorare la protezione dei…"
+      },
+      "tally": {
+        "yes": 196,
+        "no": 0,
+        "abstain": 0
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 66,
+          "no": 0,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38958,
+      "business": "25.404",
+      "businessNumber": 20250404,
+      "title": {
+        "de": "Tierschutzgesetz (TSchG)",
+        "fr": "Loi fédérale sur la protection des animaux (LPA)",
+        "it": "Legge federale sulla protezione degli animali (LPAn)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "economy",
+        "environment"
+      ],
+      "btype": "parliamentaryInitiative",
+      "summary": {
+        "de": "Medienmitteilung der Kommission für Wissenschaft, Bildung und Kultur des Nationalrates vom 03.11.2025 Die Kommission für Wissenschaft, Bildung und Kultur des Nationalrates (WBK-N) eröffnet die Vernehmlassung zu einem indirekten Gegenvorschlag zur Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)». Mit diesem sollen die Stopfleberimporte in die Schweiz beschränkt werden. Die Volksinitiative 24.089 «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)» fordert, den Import von Stopflebern und Stopfleberprodukten zu verbieten. Die Kommission für Wissenschaft…",
+        "fr": "Communiqué de presse de la Commission de la science, de l'éducation et de la culture du Conseil national du 03.11.2025 La Commission de la science, de l’éducation et de la culture du Conseil national (CSEC-N) met en consultation un contre-projet indirect à l’initiative populaire « Oui à l’interdiction d’importer du foie gras». Elle vise ainsi une réduction des importations de foie gras en Suisse. L’initiative populaire 24.089 « Oui à l’interdiction d’importer du foie gras (initiative foie gras) » vise à interdire l’importation de foie gras et de produits à base de foie gras. La Commission de…",
+        "it": "Comunicato stampa della Commissione della scienza, dell’educazione e della cultura del Consiglio nazionale del 03.11.2025 La Commissione della scienza, dell’educazione e della cultura del Consiglio nazionale (CSEC N) pone in consultazione un controprogetto indiretto all’iniziativa popolare «Sì al divieto di importazione di foie gras» con il quale si prefigge di ridurre le importazioni di foie gras in Svizzera. L’iniziativa popolare 24.089 «Sì al divieto di importazione di foie gras (Iniziativa foie gras)» chiede di vietare l’importazione di foie gras e prodotti derivati dal foie gras. Il 21…"
+      },
+      "tally": {
+        "yes": 113,
+        "no": 76,
+        "abstain": 7
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 0,
+          "no": 25,
+          "abstain": 2
+        },
+        "SVP": {
+          "yes": 12,
+          "no": 51,
+          "abstain": 3
+        },
+        "MITTE": {
+          "yes": 28,
+          "no": 0,
+          "abstain": 2
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38959,
+      "business": "25.465",
+      "businessNumber": 20250465,
+      "title": {
+        "de": "Bundesgesetz über die Krankenversicherung (KVG) (Ausnahmen von der Pflicht einer dreijährigen Tätigkeit: Verlängerung der Geltungsdauer)",
+        "fr": "Loi fédérale sur l’assurance-maladie (LAMal) (Exceptions à l’obligation d’avoir exercé pendant trois ans: prolongation de la réglementation)",
+        "it": "Legge federale sull’assicurazione malattie (LAMal) (Eccezioni all’obbligo di esercitare l’attività per tre anni: proroga della validità)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "health"
+      ],
+      "btype": "parliamentaryInitiative",
+      "summary": {
+        "de": "Medienmitteilung der Kommission für soziale Sicherheit und Gesundheit des Nationalrates vom 13.02.2026 Die Kommission hat den Erlassentwurf in Umsetzung der pa. Iv. SGK-N «Befristete Verlängerung der Ausnahmen von der dreijährigen Tätigkeitspflicht gemäss Artikel 37 Absatz 1 KVG» ( 25.465 ) mit 17 zu 7 Stimmen angenommen. Angesichts der in bestimmten Regionen und Fachgebieten weiterhin angespannten Versorgungslage erachtet die Kommission eine Verlängerung der Ausnahmeregelung weiterhin für gerechtfertigt. Die Kommission hat sich mit 12 zu 12 Stimmen und Stichentscheid der Präsidentin (Sauter…",
+        "fr": "Communiqué de presse de la Commission de la sécurité sociale et de la santé publique du Conseil national du 13.02.2026 Par 17 voix contre 7, la commission a adopté le projet d’acte visant à mettre en œuvre l’ iv. pa. CSSS-N « Prolongation limitée dans le temps des exceptions à l’obligation d’avoir exercé pendant trois ans dans un établissement suisse reconnu prévue à l’art. 37, al. 1, LAMal » ( 25.465 ) . Compte tenu de la situation toujours tendue dans certaines régions et certains domaines spécialisés en raison de la pénurie de médecins, la commission estime qu’une prolongation de la règle…",
+        "it": "Comunicato stampa della Commissione sicurezza sociale e della sanità del Consiglio nazionale del 13.02.2026 La Commissione ha accolto con 17 voti contro 7 il progetto di atto legislativo in attuazione dell’ Iv. Pa. CSSS-N «Proroga limitata nel tempo per le eccezioni all’obbligo di aver lavorato per tre anni in un centro svizzero di perfezionamento riconosciuto come previsto dall’articolo 37 capoverso 1 LAMal» ( 25.465 ). Tenuto conto della situazione in materia di approvvigionamento tuttora difficile in determinate regioni e in determinati ambiti specialistici, la Commissione ritiene…"
+      },
+      "tally": {
+        "yes": 103,
+        "no": 92,
+        "abstain": 1
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 0,
+          "no": 27,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 0,
+          "no": 65,
+          "abstain": 1
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38960,
+      "business": "25.482",
+      "businessNumber": 20250482,
+      "title": {
+        "de": "Bundesgesetz über die Stromversorgung (Stromversorgungsgesetz, StromVG)",
+        "fr": "Loi sur l’approvisionnement en électricité (LApEl)",
+        "it": "Legge sull’approvvigionamento elettrico (LAEl)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "economy",
+        "energy"
+      ],
+      "btype": "parliamentaryInitiative",
+      "summary": {
+        "de": "Medienmitteilung der Kommission für Umwelt, Raumplanung und Energie des Nationalrates vom 24.02.2026 Mit 17 zu 8 Stimmen hat die Kommission einen Erlassentwurf zur Änderung eines Artikels des Stromversorgungsgesetzes im Rahmen der parlamentarischen Initiative 25.482 verabschiedet mit dem Ziel, den Verteilnetzbetreibern zu ermöglichen, Verluste aus der Strombeschaffung den Grundversorgungstarifen anzurechnen. Nach geltendem Recht sind diese verpflichtet, Strom möglichst vorausschauend einzukaufen. Unerwartete Stromüberschüsse (z. B. infolge einer erhöhten Produktion durch Photovoltaikanlagen)…",
+        "fr": "Communiqué de presse de la Commission de l'environnement, de l'aménagement du territoire et de l'énergie du Conseil national du 24.02.2026 Par 17 voix contre 8, la commission a adopté le projet de modification d’un article de la loi sur l’approvisionnement en électricité dans le cadre de la mise en œuvre de l’initiative parlementaire 25.482 , qui doit permettre aux gestionnaires de réseau d’imputer les pertes des achats d’électricité aux tarifs d’approvisionnement de base. Selon le droit en vigueur, les gestionnaires de réseau sont tenus d’acheter l’électricité en anticipant le plus possible…",
+        "it": "Comunicato stampa della Commissione dell’ambiente, della pianificazione del territorio e dell’energia Consiglio nazionale del 24.02.2026 Con 17 voti contro 8 la Commissione ha adottato un progetto di atto legislativo che modifica un articolo della legge sull’approvvigionamento elettrico nel quadro dell’iniziativa parlamentare 25.482 con l’obiettivo di permettere ai gestori delle reti di distribuzione di computare le perdite derivanti dall’acquisto di energia elettrica nelle tariffe del servizio universale. La legge vigente obbliga i gestori delle reti di distribuzione a essere il più…"
+      },
+      "tally": {
+        "yes": 136,
+        "no": 58,
+        "abstain": 2
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 6,
+          "no": 58,
+          "abstain": 2
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 22,
+          "no": 0,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38961,
+      "business": "26.022",
+      "businessNumber": 20260022,
+      "title": {
+        "de": "Bundesgesetz über die Unterstützung der Opfer der Brandkatastrophe von Crans-Montana vom 1. Januar 2026",
+        "fr": "Loi fédérale sur le soutien aux victimes de l'incendie de Crans-Montana du 1er janvier 2026",
+        "it": "Legge federale sul sostegno alle vittime dell’incendio di Crans-Montana del 1° gennaio 2026"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 3,
+      "topics": [
+        "economy",
+        "finance",
+        "environment",
+        "socialSecurity"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 25.02.2026 Brandkatastrophe von Crans-Montana: Solidaritätsbeitrag sowie Unterstützung für aussergerichtliche Vergleichslösung und Kantone Die schwerverletzten Opfer sowie die Angehörigen der Verstorbenen der Brandkatastrophe von Crans-Montana sollen vom Bund einen einmaligen Solidaritätsbeitrag von 50 000 Franken erhalten. Weiter will der Bund einen runden Tisch einberufen, der die Betroffenen bei der Erarbeitung von aussergerichtlichen Lösungen unterstützt. Der Bundesrat hat an seiner Sitzung vom 25. Februar 2026 die Botschaft für ein entsprechendes…",
+        "fr": "Communiqué de presse du Conseil fédéral du 25.02.2026 Incendie de Crans-Montana : contribution de solidarité, soutien financier pour les transactions extrajudiciaires et en faveur des cantons La Confédération octroiera une contribution de solidarité unique de 50 000 francs à tous les blessés et aux proches des personnes décédées à la suite de l’incendie de Crans-Montana. Elle organisera également une table ronde qui aidera les acteurs concernés à élaborer des transactions extrajudiciaires. Le Conseil fédéral a pris ces décisions lors de sa séance du 25 février 2026 à l’occasion de laquelle il…",
+        "it": "Comunicato stampa del Consiglio federale del 25.02.206 Crans-Montana: contributo di solidarietà, e supporto per soluzioni stragiudiziali e sostegno ai Cantoni La Confederazione intende versare un contributo unico di solidarietà di 50 000 franchi ai feriti gravi e alle famiglie delle persone decedute in seguito al rogo di Crans-Montana. Vuole inoltre istituire una tavola rotonda per aiutare tutte le parti coinvolte a trovare soluzioni stragiudiziali. Nella seduta del 25 febbraio 2026 il Consiglio federale ha adottato il pertinente messaggio, corredato di disegno di legge federale urgente e…"
+      },
+      "tally": {
+        "yes": 105,
+        "no": 87,
+        "abstain": 4
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 2,
+          "no": 22,
+          "abstain": 3
+        },
+        "SVP": {
+          "yes": 1,
+          "no": 65,
+          "abstain": 0
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 21,
+          "no": 0,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 41,
+          "no": 0,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38962,
+      "business": "26.026",
+      "businessNumber": 20260026,
+      "title": {
+        "de": "Bundesgesetz über die Mehrwertsteuer (Mehrwertsteuergesetz, MWSTG) (Sondersatz für Beherbergungsleistungen)",
+        "fr": "Loi fédérale régissant la taxe sur la valeur ajoutée (Loi sur la TVA, LTVA) (Taux spécial pour les prestations du secteur de l’hébergement)",
+        "it": "Legge federale concernente l’imposta sul valore aggiunto (Legge sull’IVA, LIVA) (Aliquota speciale per le prestazioni nel settore alberghiero)"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "economy",
+        "taxation"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 15.04.2026 Bundesrat verabschiedet Botschaft zum Mehrwertsteuer-Sondersatz für Beherbergungen Der Bundesrat hat an seiner Sitzung vom 15. April die Botschaft zum Mehrwertsteuer-Sondersatz für Beherbergungsleistungen verabschiedet. Damit setzt er eine Motion des Parlaments um, die eine Fortführung des Mehrwertsteuer-Sondersatzes von 3,8 Prozent fordert. Der Bundesrat verzichtet darauf, dem Parlament einen Antrag auf Zustimmung zu stellen. Seit 1996 gibt die Verfassung dem Parlament die Kompetenz, für die Besteuerung der Beherbergungsleistungen einen Satz…",
+        "fr": "Communiqué de presse du Conseil fédéral du 15.04.2026 Le Conseil fédéral adopte le message relatif au taux spécial de TVA pour les prestations du secteur de l’hébergement Lors de sa séance du 15 avril, le Conseil fédéral a adopté le message relatif à la modification de la loi sur la TVA. Il met ainsi en œuvre une motion qui lui a été transmise par le Parlement et qui vise à reconduire le taux spécial de TVA de 3,8 % applicable aux prestations du secteur de l’hébergement. Le Conseil fédéral renonce cependant à proposer au Parlement d’adopter le projet. Depuis 1996, la Constitution habilite le…",
+        "it": "Comunicato stampa del Consiglio federale del 15.04.2026 Il Consiglio federale adotta il messaggio concernente l’aliquota speciale IVA per le prestazioni nel settore alberghiero Nella seduta del 15 aprile, il Consiglio federale ha licenziato il messaggio concernente l’aliquota speciale IVA per le prestazioni nel settore alberghiero, attuando così una mozione che gli è stata trasmessa dal Parlamento e che chiede di continuare ad applicare un’aliquota speciale del 3,8 per cento. L’Esecutivo rinuncia a chiedere al Parlamento di approvare questo progetto. Nel 1996, la Costituzione federale ha…"
+      },
+      "tally": {
+        "yes": 102,
+        "no": 84,
+        "abstain": 8
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 15,
+          "no": 9,
+          "abstain": 3
+        },
+        "SVP": {
+          "yes": 56,
+          "no": 5,
+          "abstain": 3
+        },
+        "MITTE": {
+          "yes": 30,
+          "no": 0,
+          "abstain": 0
+        },
+        "GLP": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 1
+        },
+        "GPS": {
+          "yes": 1,
+          "no": 20,
+          "abstain": 1
+        },
+        "SP": {
+          "yes": 0,
+          "no": 41,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": 38963,
+      "business": "26.033",
+      "businessNumber": 20260033,
+      "title": {
+        "de": "Bundesbeschluss über die Genehmigung des Freihandelsabkommens zwischen den EFTA Staaten und Mercosur",
+        "fr": "Arrêté fédéral portant approbation de l’accord de libre-échange entre les États de l’AELE et le Mercosur",
+        "it": "Decreto federale che approva l’Accordo di libero scambio tra gli Stati dell’AELS e il Mercosur"
+      },
+      "voteEnd": "2026-10-02",
+      "meaning": {
+        "yes": "Adopter le projet",
+        "no": "Rejeter le projet"
+      },
+      "bill": 1,
+      "topics": [
+        "international",
+        "economy"
+      ],
+      "btype": "federalCouncil",
+      "summary": {
+        "de": "Medienmitteilung des Bundesrates vom 25.02.2026 Bundesrat verabschiedet Botschaft zum Freihandelsabkommen zwischen den EFTA‑Staaten und Mercosur Der Bundesrat hat am 25. Februar 2026 die Botschaft zum Freihandelsabkommen zwischen den EFTA-Staaten und Mercosur verabschiedet. Das Abkommen verschafft Schweizer Unternehmen den Zugang zu einem Markt mit 270 Mio. Einwohnerinnen und Einwohnern und stärkt so die Wettbewerbsfähigkeit der Schweizer Wirtschaft. Der erfolgreiche Abschluss des Freihandelsabkommens (FHA) zwischen den vier EFTA-Staaten Schweiz, Island, Liechtenstein, Norwegen und Mercosur…",
+        "fr": "Communiqué de presse du Conseil fédéral du 25.02.2026 Le Conseil fédéral adopte le message concernant l’accord de libre-échange entre les États de l’AELE et le Mercosur Le 25 février 2026, le Conseil fédéral a adopté le message concernant l’accord de libre-échange conclu entre les États de l’AELE et le Mercosur. L’accord permet aux entreprises suisses d’accéder à un marché regroupant 270 millions d’habitants et renforce ainsi la compétitivité de notre économie. La conclusion de l’accord de libre-échange (ALE) entre les quatre États de l’AELE (Suisse, Islande, Liechtenstein, Norvège) et le…",
+        "it": "Comunicato stampa del Consiglio federale del 25.02.2026 Il Consiglio federale adotta il messaggio sull’Accordo di libero scambio tra gli Stati dell’AELS e il Mercosur Il 25 febbraio 2026 il Consiglio federale ha adottato il messaggio sull’Accordo di libero scambio tra gli Stati dell’AELS e il Mercosur. L’Accordo offre alle imprese svizzere un accesso privilegiato a un mercato di 270 milioni di persone, rafforzando la competitività dell’economia elvetica. La conclusione dell’Accordo di libero scambio (ALS) tra i quattro Stati dell’AELS (Svizzera, Islanda, Liechtenstein e Norvegia) e il…"
+      },
+      "tally": {
+        "yes": 116,
+        "no": 71,
+        "abstain": 9
+      },
+      "byParty": {
+        "FDP": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 0
+        },
+        "SVP": {
+          "yes": 52,
+          "no": 8,
+          "abstain": 6
+        },
+        "MITTE": {
+          "yes": 27,
+          "no": 0,
+          "abstain": 3
+        },
+        "GLP": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0
+        },
+        "GPS": {
+          "yes": 0,
+          "no": 22,
+          "abstain": 0
+        },
+        "SP": {
+          "yes": 0,
+          "no": 41,
+          "abstain": 0
+        }
+      },
+      "passed": true
+    }
+  ]
 }

@@ -5,7 +5,7 @@
     "attribution": "Swiss Federal Audit Office (EFK), political financing register",
     "commercialReuse": "yes",
     "source": "Federal Audit Office (EFK) — https://politikfinanzierung.efk.admin.ch",
-    "fetchedAt": "2026-09-28T10:29:47Z",
+    "fetchedAt": "2026-10-05T11:10:57Z",
     "note": "Figures are self-reported by parties and campaign committees under Swiss law (BPR/VPofi) and republished here as-is; the EFK does not guarantee their accuracy, and neither do we."
   },
   "parties": {
@@ -1157,6 +1157,26 @@
     }
   },
   "initiatives": {
+    "vote-20261129-6930": {
+      "pro": {
+        "totalRevenue": 750000.0,
+        "actorCount": 1,
+        "largeDonors": [
+          {
+            "name": "Economiesuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 250000.0,
+            "date": "2026-09-01"
+          }
+        ]
+      },
+      "contra": {
+        "totalRevenue": 0,
+        "actorCount": 0,
+        "largeDonors": []
+      }
+    },
     "vote-20260927-6880": {
       "pro": {
         "totalRevenue": 5758245.95,

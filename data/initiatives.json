@@ -5,7 +5,7 @@
     "attribution": "Federal Statistical Office and Federal Chancellery (VoteInfo, LINDAS); party recommendations and English short titles: Swissvotes (Année Politique Suisse, University of Bern), CC BY 4.0",
     "commercialReuse": "ask the source: VoteInfo results are published under 'ask for permission' terms for commercial use (Federal Statistical Office)",
     "source": "Decided federal votes: VoteInfo (Federal Chancellery / Federal Statistical Office), opendata.swiss dataset 'echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen'. Upcoming scheduled votes and pending/signature-gathering initiatives: Federal Chancellery linked-data cubes (politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party recommendations (Parolen) and Parliament's handling of each ballot (business number, recommendation, National Council final vote): Swissvotes (Année Politique Suisse, Uni Bern), CC BY 4.0, modified (the link to the Federal Assembly's final vote is added by scripts/fetch_sessions.py). Official authority texts are not subject to copyright (Art. 5 URG).",
-    "fetchedAt": "2026-09-28T10:21:30Z",
+    "fetchedAt": "2026-10-05T11:02:35Z",
     "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive."
   },
   "initiatives": [
@@ -209,6 +209,32 @@
         "fr": "Lancée le 3 juin 2025",
         "it": "Lanciata il 3 giugno 2025",
         "rm": "Lantschada ils 3 da zercladur 2025"
+      },
+      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
+    },
+    {
+      "id": "initiative-570",
+      "type": "initiative",
+      "title": {
+        "en": "Federal popular initiative «Starke Gesellschaft und Wirtschaft dank Elternzeit (Familienzeit-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Starke Gesellschaft und Wirtschaft dank Elternzeit (Familienzeit-Initiative)'\r\n",
+        "fr": "Initiative populaire fédérale 'Une société et une économie fortes grâce au congé parental (initiative pour un congé familial)'\r\n",
+        "it": "Iniziativa popolare federale 'Società ed economia forti grazie al congedo parentale (Iniziativa per un congedo familiare)'\r\n"
+      },
+      "desc": {
+        "en": "Popular initiative that has qualified and is now pending (signatures being verified), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (in Auszählung), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (décompte des signatures), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (conteggio delle firme), prima della votazione popolare.",
+        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (las suttascripziuns vegnan dumbradas), avant la votaziun dal pievel."
+      },
+      "status": "pending",
+      "date": {
+        "en": "Launched 1 April 2025",
+        "de": "Lanciert am 1. April 2025",
+        "fr": "Lancée le 1 avril 2025",
+        "it": "Lanciata il 1 aprile 2025",
+        "rm": "Lantschada ils 1 d'avrigl 2025"
       },
       "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
     },
@@ -430,11 +456,11 @@
         "it": "Iniziativa popolare federale 'Per un diritto di cittadinanza moderno (Iniziativa per la democrazia)'"
       },
       "desc": {
-        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare.",
-        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pendenta tar il parlament), avant la votaziun dal pievel."
+        "en": "Popular initiative that has qualified and is now pending (ready to be put to a vote), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (abstimmungsreif), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (prête pour la votation), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pronta per la votazione), prima della votazione popolare.",
+        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pronta per la votaziun), avant la votaziun dal pievel."
       },
       "status": "pending",
       "date": {
@@ -534,11 +560,11 @@
         "it": "Iniziativa popolare federale 'Sì al divieto di importare prodotti di pellicceria ottenuti infliggendo sofferenze agli animali (Iniziativa pellicce)'"
       },
       "desc": {
-        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare.",
-        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pendenta tar il parlament), avant la votaziun dal pievel."
+        "en": "Popular initiative that has qualified and is now pending (ready to be put to a vote), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (abstimmungsreif), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (prête pour la votation), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pronta per la votazione), prima della votazione popolare.",
+        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pronta per la votaziun), avant la votaziun dal pievel."
       },
       "status": "pending",
       "date": {
@@ -560,11 +586,11 @@
         "it": "Iniziativa popolare federale 'Sì al divieto di importazione di foie gras (Iniziativa foie gras)'"
       },
       "desc": {
-        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare.",
-        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pendenta tar il parlament), avant la votaziun dal pievel."
+        "en": "Popular initiative that has qualified and is now pending (ready to be put to a vote), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (abstimmungsreif), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (prête pour la votation), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pronta per la votazione), prima della votazione popolare.",
+        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pronta per la votaziun), avant la votaziun dal pievel."
       },
       "status": "pending",
       "date": {
@@ -575,60 +601,6 @@
         "rm": "Lantschada ils 28 da zercladur 2022"
       },
       "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen"
-    },
-    {
-      "id": "initiative-571",
-      "type": "initiative",
-      "title": {
-        "en": "Federal popular initiative «Für eine volksorientierte Politik (No Lobbying)»",
-        "de": "Eidgenössische Volksinitiative 'Für eine volksorientierte Politik (No Lobbying)'",
-        "fr": "Initiative populaire fédérale 'Pour une politique au service du peuple (non au lobbying)'",
-        "it": "Iniziativa popolare federale 'Per una politica al servizio del Popolo (No al lobbismo)'"
-      },
-      "desc": {
-        "en": "Popular initiative in the signature-gathering stage. It has until 25 September 2026 to collect 100,000 valid signatures and force a nationwide vote.",
-        "de": "Volksinitiative im Sammelstadium. Bis 25. September 2026 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
-        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 25 septembre 2026 pour réunir 100 000 signatures valables et provoquer une votation.",
-        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 25 settembre 2026 per raccogliere 100 000 firme valide e arrivare alla votazione.",
-        "rm": "Iniziativa dal pievel en la fasa da rimnar suttascripziuns. Ella ha temp fin ils 25 da settember 2026 per rimnar 100 000 suttascripziuns valaivlas e chaschunar ina votaziun dal pievel."
-      },
-      "status": "collecting",
-      "date": {
-        "en": "Signature gathering since 25 March 2025",
-        "de": "Unterschriftensammlung seit 25. März 2025",
-        "fr": "Récolte des signatures depuis 25 mars 2025",
-        "it": "Raccolta firme dal 25 marzo 2025",
-        "rm": "Rimnada da signaturas dapi ils 25 da mars 2025"
-      },
-      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
-      "deadline": "2026-09-25"
-    },
-    {
-      "id": "initiative-570",
-      "type": "initiative",
-      "title": {
-        "en": "Federal popular initiative «Starke Gesellschaft und Wirtschaft dank Elternzeit (Familienzeit-Initiative)»",
-        "de": "Eidgenössische Volksinitiative 'Starke Gesellschaft und Wirtschaft dank Elternzeit (Familienzeit-Initiative)'\r\n",
-        "fr": "Initiative populaire fédérale 'Une société et une économie fortes grâce au congé parental (initiative pour un congé familial)'\r\n",
-        "it": "Iniziativa popolare federale 'Società ed economia forti grazie al congedo parentale (Iniziativa per un congedo familiare)'\r\n"
-      },
-      "desc": {
-        "en": "Popular initiative in the signature-gathering stage. It has until 1 October 2026 to collect 100,000 valid signatures and force a nationwide vote.",
-        "de": "Volksinitiative im Sammelstadium. Bis 1. Oktober 2026 müssen 100 000 gültige Unterschriften zusammenkommen, damit es zur Abstimmung kommt.",
-        "fr": "Initiative populaire au stade de la récolte des signatures. Elle a jusqu'au 1 octobre 2026 pour réunir 100 000 signatures valables et provoquer une votation.",
-        "it": "Iniziativa popolare nella fase di raccolta firme. Ha tempo fino al 1 ottobre 2026 per raccogliere 100 000 firme valide e arrivare alla votazione.",
-        "rm": "Iniziativa dal pievel en la fasa da rimnar suttascripziuns. Ella ha temp fin ils 1 d'october 2026 per rimnar 100 000 suttascripziuns valaivlas e chaschunar ina votaziun dal pievel."
-      },
-      "status": "collecting",
-      "date": {
-        "en": "Signature gathering since 1 April 2025",
-        "de": "Unterschriftensammlung seit 1. April 2025",
-        "fr": "Récolte des signatures depuis 1 avril 2025",
-        "it": "Raccolta firme dal 1 aprile 2025",
-        "rm": "Rimnada da signaturas dapi ils 1 d'avrigl 2025"
-      },
-      "url": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
-      "deadline": "2026-10-01"
     },
     {
       "id": "initiative-572",

@@ -6,7 +6,7 @@
     "commercialReuse": "yes, with credit",
     "source": "Federal Assembly OData web service (ws.parlament.ch)",
     "channel": "https://www.youtube.com/@ParlCH",
-    "fetchedAt": "2026-09-28T10:30:00+00:00"
+    "fetchedAt": "2026-10-05T11:11:09+00:00"
   },
   "sessions": [
     {
@@ -17,8 +17,27 @@
       "start": "2026-09-14",
       "end": "2026-10-02",
       "legislativePeriod": 52,
-      "voteCount": 0,
-      "topics": []
+      "voteCount": 18,
+      "topics": [
+        "civilLaw",
+        "criminalLaw",
+        "economy",
+        "energy",
+        "environment",
+        "finance",
+        "health",
+        "international",
+        "judiciary",
+        "labour",
+        "lawGeneral",
+        "migration",
+        "parliament",
+        "socialSecurity",
+        "spatialPlanning",
+        "statePolicy",
+        "taxation",
+        "transport"
+      ]
     },
     {
       "id": 5214,
