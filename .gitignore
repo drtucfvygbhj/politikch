@@ -34,3 +34,7 @@ analytics-worker/.dev.vars
 
 # Local admin tool: settings backups (machine-specific)
 admin/.backup/
+
+# Session ticker data lives on the ticker-data branch only (GUARDRAILS.md OPS-10);
+# local replays (scripts/fetch_session_ticker.py --date …) stay out of main.
+data/sessions/days/

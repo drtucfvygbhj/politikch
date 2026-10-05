@@ -1,0 +1,138 @@
+name: Session ticker
+
+# While the Federal Assembly sits, fetches the day's programme, speakers,
+# National Council votes and decisions from parlament.ch every 20 minutes
+# (scripts/fetch_session_ticker.py) and publishes them to the `ticker-data`
+# branch — never to main, so main's history stays readable and nobody has to
+# pull bot commits mid-session. When something new was published, this job
+# starts deploy.yml, which checks the ticker files again and copies them into
+# the site (GUARDRAILS.md OPS-10). Runs that find nothing new deploy nothing.
+#
+# Gentle on the source (SRC-14): runs on weekdays at :07, :27 and :47 (off the
+# top of the hour, when GitHub's scheduler is busiest), stops at once when the
+# Federal Assembly isn't sitting, and the fetcher spaces and caps its requests.
+# Switch it off without a code change: set the repository variable
+# TICKER_OFF to true (Settings → Secrets and variables → Actions → Variables).
+on:
+  schedule:
+    - cron: '7,27,47 5-21 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Fetch one particular day (YYYY-MM-DD) instead of today"
+        required: false
+        default: ""
+      allow_data_changes:
+        description: "Publish even though the data guard flagged the refresh (check it against parlament.ch first)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+  actions: write        # only to start deploy.yml after a publish
+
+concurrency:
+  group: session-ticker
+  cancel-in-progress: false
+
+jobs:
+  ticker:
+    if: vars.TICKER_OFF != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # The write token is never left in .git/config; only the publish step
+      # gets it, explicitly.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      # One small request: is the Federal Assembly sitting on this day? If not,
+      # every other step is skipped.
+      - name: Is Parliament sitting?
+        id: sitting
+        env:
+          TICKER_DATE: ${{ inputs.date }}
+        run: python3 scripts/fetch_session_ticker.py --check-session ${TICKER_DATE:+--date "$TICKER_DATE"}
+
+      # Do parlament.ch's terms still allow what we do? A changed licence code
+      # or robots.txt stops the ticker before anything is fetched (SRC-10).
+      - name: Check the source's terms
+        if: steps.sitting.outputs.sitting == 'true'
+        run: python3 scripts/monitor_sources.py --host ws.parlament.ch
+
+      # What the ticker-data branch published so far: the fetcher builds on it
+      # (tallies are fetched once per vote) and the data guard compares with it.
+      - name: Load published ticker data
+        if: steps.sitting.outputs.sitting == 'true'
+        run: |
+          mkdir -p data/sessions/days "$RUNNER_TEMP/prev"
+          if git ls-remote --exit-code --heads origin ticker-data >/dev/null; then
+            git fetch --depth=1 origin ticker-data
+            git archive FETCH_HEAD data/sessions/days | tar -x -C "$RUNNER_TEMP/prev" --strip-components=3
+            cp "$RUNNER_TEMP"/prev/*.json data/sessions/days/ 2>/dev/null || true
+          fi
+
+      - name: Fetch the session ticker
+        if: steps.sitting.outputs.sitting == 'true'
+        env:
+          TICKER_DATE: ${{ inputs.date }}
+        run: python3 scripts/fetch_session_ticker.py ${TICKER_DATE:+--date "$TICKER_DATE"}
+
+      # The legal limits on ticker data (no speech text, no individual votes,
+      # no computed outcome, download time present) are checked on every file.
+      - name: Validate ticker data
+        if: steps.sitting.outputs.sitting == 'true'
+        run: python3 scripts/validate.py --ticker data/sessions/days
+
+      - name: Guard against suspicious changes
+        if: steps.sitting.outputs.sitting == 'true'
+        env:
+          ALLOW_DATA_CHANGES: ${{ inputs.allow_data_changes }}
+        run: python3 scripts/data_guard.py --ticker "$RUNNER_TEMP/prev"
+
+      # Only data/sessions/days/*.json, only to the ticker-data branch.
+      - name: Publish to the ticker-data branch
+        if: steps.sitting.outputs.sitting == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pub="$RUNNER_TEMP/pub"
+          remote="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads origin ticker-data >/dev/null; then
+            git clone --quiet --depth 1 --branch ticker-data "$remote" "$pub"
+          else
+            git init --quiet "$pub" && git -C "$pub" checkout --quiet --orphan ticker-data
+          fi
+          mkdir -p "$pub/data/sessions/days"
+          cp data/sessions/days/*.json "$pub/data/sessions/days/"
+          cd "$pub"
+          git add data/sessions/days
+          if git diff --cached --quiet; then
+            echo "Nothing new to publish"
+            exit 0
+          fi
+          git -c user.name="politikch-bot" -c user.email="actions@users.noreply.github.com" \
+            commit --quiet -m "Session ticker update"
+          git push --quiet "$remote" HEAD:ticker-data
+          # A push made with this token starts no workflow by itself; a
+          # workflow_dispatch does (GitHub's one exception).
+          gh workflow run deploy.yml --ref main --repo "$GITHUB_REPOSITORY"
+
+      - name: Open/refresh "session ticker stopped" issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Session ticker stopped — nothing was published"
+          body="The session ticker stopped before publishing (source terms changed, suspicious data or a failed check). See the run log: $RUN_URL"
+          num=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          if [ -n "$num" ]; then gh issue comment "$num" --body "$body" || true
+          else gh issue create --title "$title" --body "$body" || true; fi

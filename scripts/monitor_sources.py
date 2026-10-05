@@ -17,6 +17,9 @@ also written to $MONITOR_WARNINGS_FILE, from which the workflow opens an issue.
   python3 scripts/monitor_sources.py            # check (exit 1 on drift)
   python3 scripts/monitor_sources.py --update   # accept the current robots.txt files
                                                 # after reviewing them (flagged change)
+  python3 scripts/monitor_sources.py --host ws.parlament.ch
+                                                # only that host's licence and robots.txt
+                                                # (the session ticker, before each run)
 """
 import hashlib
 import json
@@ -41,6 +44,7 @@ MAX_BYTES = 2 * 1024 * 1024
 CERT_WARN_DAYS = 21
 
 drift, warnings = [], []
+ONLY_HOST = None            # --host: check one source only (no certificates)
 
 
 def get(url):
@@ -53,7 +57,7 @@ def get(url):
 
 
 def sources():
-    return {h: m for h, m in CFG["sources"].items() if not h.startswith("_")}
+    return {h: m for h, m in CFG["sources"].items() if not h.startswith("_") and (ONLY_HOST is None or h == ONLY_HOST)}
 
 
 def check_licences():
@@ -106,6 +110,8 @@ def check_robots(update):
         print(f"robots.txt snapshot updated ({len(current)} hosts)")
         return
     known = json.loads(SNAPSHOT.read_text("utf-8"))["hosts"] if SNAPSHOT.exists() else {}
+    if ONLY_HOST and ONLY_HOST not in current and ONLY_HOST not in sources():
+        drift.append(f"{ONLY_HOST}: not a fetched source in the registry")
     for host, now in current.items():
         was = known.get(host)
         if was is None:
@@ -129,12 +135,18 @@ def check_certs():
 
 
 def main(argv):
+    global ONLY_HOST
     update = "--update" in argv
+    if "--host" in argv:
+        i = argv.index("--host")
+        ONLY_HOST = argv[i + 1] if i + 1 < len(argv) else ""
+        update = False                 # a single-host run never accepts a robots.txt change
     check_robots(update)
     if update:
         return 0
     check_licences()
-    check_certs()
+    if ONLY_HOST is None:
+        check_certs()
     for w in warnings:
         print(f"  ! {w}")
         print(f"::warning::{w}")

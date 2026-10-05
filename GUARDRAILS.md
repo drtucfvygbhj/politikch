@@ -56,9 +56,12 @@ access), and each source's own licence.
 | SRC-09 | **Link, don't re-host, media.** Video, images and PDFs from third parties are linked, not embedded or copied (no YouTube embeds, no hosting brochure PDFs). | BLOCK (no `<iframe>`, no third-party media in `data/`) |
 | SRC-10 | **Terms drift.** Weekly: re-read each opendata.swiss dataset's licence code via the CKAN API, and each source's robots.txt. If anything changed, the data job stops publishing that source and opens an issue. | MONITOR |
 | SRC-11 | **Rights-holder takedown.** A documented path to remove a source's data within 48 h if a rights-holder objects (kill switch per source in the fetchers). | REVIEW (exists?) |
+| SRC-12 | **Download time shown** *(adopted by owner 2026-10-05)*. The Parliamentary Services' terms for their web service require the date and time of download to be shown with the data. Everything shown from `ws.parlament.ch`, including share images and the session ticker, shows the date **and time** (Swiss time) its file was downloaded, and every such file records it in `_meta.fetchedAt`. | BLOCK (`validate.py`: `fetchedAt` with date, time and zone in every parlament.ch file; `check.py`: the `{fetched}` placeholder in every credit string listed in `parlFetched`) |
+| SRC-13 | **No speech text** *(adopted by owner 2026-10-05)*. The session ticker shows who spoke (name, role, parliamentary group, canton, time, item), never what they said: transcript text is never requested, stored or shown. Showing speech text was dropped as not needed; lifting this rule needs the owner's decision **and** a lawyer's written answer on reusing the provisional Official Bulletin (URG Art. 5(1)(c) vs. Art. 25/28; corrections within 3 days under the ParlVV). | BLOCK (`check.py`: every `odata()` call in the ticker fetcher has a fixed `$select` without `Text`; `validate.py`: field allowlist, length caps) |
+| SRC-14 | **Gentle on the source** *(adopted 2026-10-05)*. The ticker contacts `ws.parlament.ch` only; at most every 15 minutes (today: every 20); only on days the Federal Assembly sits; a request budget and spacing per run; a change probe before a full fetch; the source's terms checked before each fetch; the repository variable `TICKER_OFF` switches it off (SRC-11). | BLOCK (`check.py`: schedule, `MAX_REQUESTS`, `SPACING`, hosts, off switch, step order) |
 
 **Source registry (to be machine-readable in `scripts/sources.json`):**
-parlament.ch OData (`terms_by`, verified 2026-09-24) · Swissvotes dataset + brochure PDFs (CC BY 4.0; brochure text via Art. 5) · BFS election results (CC BY 4.0) · BFS municipality register (`terms_open`) · LINDAS / Federal Chancellery (no licence on the cubes; LINDAS publishes open government data for unrestricted reuse; content is official facts — credit the Chancellery) · EFK financing register (`terms_open`, verified 2026-09-24) · VoteInfo real-time feed (**`terms_ask`**) · swisstopo swissBOUNDARIES3D via labs.karavia.ch (attribution) · DeepL API Free (output ours, credit DeepL).
+parlament.ch OData (`terms_by`, verified 2026-10-05; plus the Parliamentary Services' own conditions: credit "Parliamentary Services of the Federal Assembly, Bern", no impression of an official publication, content not altered, date and time of download always shown — SRC-12) · Swissvotes dataset + brochure PDFs (CC BY 4.0; brochure text via Art. 5) · BFS election results (CC BY 4.0) · BFS municipality register (`terms_open`) · LINDAS / Federal Chancellery (no licence on the cubes; LINDAS publishes open government data for unrestricted reuse; content is official facts — credit the Chancellery) · EFK financing register (`terms_open`, verified 2026-09-24) · VoteInfo real-time feed (**`terms_ask`**) · swisstopo swissBOUNDARIES3D via labs.karavia.ch (attribution) · DeepL API Free (output ours, credit DeepL).
 
 ---
 
@@ -85,6 +88,7 @@ on the visitor's device); GDPR/ePrivacy for EU visitors (reach UNVERIFIED — Q7
 | PRIV-10 | **No personal data in the repo.** No real email addresses (other than the site's own aliases), phone numbers, postal addresses, IPs, or names of private individuals outside `data/financing.json`. | BLOCK (regex scan incl. git history on new commits) |
 | PRIV-11 | **Profiling stays on-device.** Party alignment/"leaning" calculations run only in the browser. Moving any of it server-side or into accounts triggers the Stage 2 legal module (explicit consent, DPIA). | FLAG |
 | PRIV-12 | **Breach readiness.** A written decision tree for a breach (FDPIC notification "as soon as possible", Art. 24) exists before any server stores visitor data. | REVIEW |
+| PRIV-13 | **Members in the session ticker** *(adopted 2026-10-05)*. National Council votes appear only as tallies by parliamentary group; no member's individual vote, no person numbers, no photos, no data from elsewhere (PRIV-09). Speakers: name, role, group, canton and time only. Decision records that are not a standard decision (e.g. judicial elections naming private persons and where they live) are left out. Council of States votes are not in the ticker (owner decision 2026-10-05). | BLOCK (`check.py`: fields requested; `validate.py`: field allowlist, no Council of States votes, no election texts) |
 
 ---
 
@@ -111,6 +115,9 @@ promise to be non-partisan.
 | POL-11 | **Corrections path.** The contact/corrections route stays reachable in every language; a known factual error is fixed or placeholder-ed, never left up. | REVIEW |
 | POL-12 | **Claims about ourselves.** No "non-commercial", "official", "certified", "complete", "real-time" claims unless true. Changes to `PAID_PRODUCT_LIVE` or anything advertising a paid product require the Impressum with real name + postal address (UWG Art. 3(1)(s)) and ToS in the same change. | BLOCK (phrase scan) + FLAG |
 | POL-13 | **AI/MT labelling.** Machine translation is always badged and credits DeepL; no LLM-generated text published as fact. Any future AI-written content is labelled and human-reviewed before publishing (EU AI Act Art. 50 for EU readers). For PolitikCH+ articles, ED-09 and ED-10 apply. | BLOCK (badge present where `mt.json` used) + REVIEW |
+| POL-14 | **The ticker is never called live** *(adopted 2026-10-05)*. The official data runs about 1–2 hours behind the chamber. The ticker's text never says "live", "real-time", "Echtzeit", "en direct", "in diretta" or similar, and wherever ticker data appears (the ticker page and the front-page strip) it shows the delay note and the download time; the page also shows the credit "Parliamentary Services of the Federal Assembly, Bern" and "not an official publication" (POL-10). The existing "Live" row and dot on the front page are unchanged (owner decision). | BLOCK (`check.py`: banned words in `ticker.*` keys; required keys in `js/ticker.js` and the strip in `js/news.js`) |
+| POL-15 | **No outcome worked out from a tally** *(adopted 2026-10-05)*. "More yes than no" is not always "adopted" (the spending brake needs 101 votes, BV Art. 159(3); a tie is decided by the president). The ticker shows the tallies and the official meaning of Yes and No; whether something was adopted comes only from the councils' official decision records. | BLOCK (`validate.py`: no outcome field in ticker votes; `check.py`: `js/ticker.js` doesn't use `passed`, `voteResult`, `status.adopted`/`rejected`) |
+| POL-16 | **Everything, in the official order** *(adopted 2026-10-05)*. The ticker shows every agenda item, speaker, vote and decision of the day as the source lists them: no selection, highlights or re-sorting (a selection could take sides). | BLOCK (`check.py`: no `.sort(`, `.slice(`, `.filter(` in `js/ticker.js`) + REVIEW (there is no headless smoke test yet to count rendered rows, see OPS-02) |
 
 **Scope of §4.** These rules govern the **reference layer**: every page on the
 site today. The reference layer stays neutral. PolitikCH+ articles (§15) may
@@ -150,6 +157,7 @@ every other rule in this file still applies.
 | OPS-09 | **Free DeepL plan = public texts only.** DeepL's terms let it keep everything sent on the free Developer plan permanently (T&C 3.3.2). Only already-public official texts may go there. Anything non-public or personal (user input, account data, drafts) needs a paid plan with a data processing agreement first. | BLOCK (`translate.py` may only read `data/overviews`, `data/sessions`) + REVIEW |
 | OPS-07 | **Cost can't run away.** DeepL stays on a `:fx` key with no payment method; Cloudflare Worker stays on the free plan; any change that could create a bill (paid key, `DEEPL_ALLOW_PAID`, a paid plan in `wrangler.jsonc`) = FLAG. | FLAG |
 | OPS-08 | **Rollback is one step.** Each deploy is a single commit; the maintenance switch and a revert are documented in `MAINTENANCE.md`. | REVIEW |
+| OPS-10 | **Session ticker job** *(adopted 2026-10-05)*. `session-ticker.yml` writes only `data/sessions/days/*.json`, only to the `ticker-data` branch (never `main`, where that folder is git-ignored). In order: is Parliament sitting → source terms (SRC-10) → fetch → `validate.py --ticker` → `data_guard.py --ticker` (a day file or vote that disappears, or a published tally that changes, stops the job and opens an issue) → push → start the deploy. `deploy.yml` validates the ticker files again before publishing them. Rollback: revert the branch, or set `TICKER_OFF`. | BLOCK (`check.py`: step order, push target, deploy validation, nothing under `data/sessions/days/` on main) |
 
 ---
 
@@ -314,6 +322,12 @@ Added 2026-09-27 for PolitikCH+ (§15) and the operator's identity:
   what purpose clause keeps the Verein lawful (ZGB Art. 60)? Blocks: S1-F-01
   (free site) and the PolitikCH+ launch.
 
+Noted 2026-10-05 for the session ticker: **no new lawyer question.** Showing
+speech text from the provisional Official Bulletin was considered and dropped
+by the owner as not needed, so the open point (URG Art. 5(1)(c) vs. the
+quotation and reporting exceptions, Art. 25/28) is not raised. SRC-13 keeps it
+that way; lifting SRC-13 means asking a lawyer first.
+
 ---
 
 ## 11. The pre-change review (what Claude produces before editing anything)
@@ -360,6 +374,10 @@ The owner approves; then the edit, `check.sh`, local preview, change-log entry.
 | `EDITORIAL.md`, `LAUNCH_PLAN.md` | §15 (ED-*), reviewed |
 | `about.*`, `subscribe.*` i18n keys describing PolitikCH+ | ED-01, ED-09, ED-10, POL-12 |
 | any future PolitikCH+ code or article data (renderer, backend, translation of articles) | ED-02/04/05/08/10/13, SEC-01, PRIV-11, OPS-09 |
+| `scripts/fetch_session_ticker.py` | SRC-01/05/06/12/13/14, PRIV-13, POL-15, SEC-09 |
+| `.github/workflows/session-ticker.yml` | SEC-07, SRC-10/14, OPS-10 |
+| `js/ticker.js` (and the ticker strip in `js/news.js`) | POL-03 (flag), POL-10/14/15/16, SRC-12, SEC-01, OPS-03 |
+| ticker data (`data/sessions/days/`, `ticker-data` branch only) | SRC-12/13, PRIV-13, POL-15, OPS-10 |
 | `GUARDRAILS.md`, `check.sh` | PROC-05 |
 | anything else | default FLAG |
 
@@ -448,6 +466,20 @@ until it has a row here.
 
 Runs while the site is in maintenance mode too. Compliant, but it contacts sources and spends DeepL's one-time allowance for a site that is off.
 
+### 13.1b Session ticker — `.github/workflows/session-ticker.yml` (weekdays :07/:27/:47, 05–21 UTC; added 2026-10-05)
+
+| Step | Contacts | Terms | Access rules | Personal data | Status |
+|---|---|---|---|---|---|
+| Is Parliament sitting? (`fetch_session_ticker.py --check-session`) | ws.parlament.ch, 1–2 requests | `terms_by` + the Parliamentary Services' conditions | — | none | ✅ every other step is skipped when it isn't |
+| Source terms (`monitor_sources.py --host ws.parlament.ch`) | ws.parlament.ch robots.txt, ckan.opendata.swiss (one dataset, crawl delay kept) | — | — | none | ✅ stops on any change (SRC-10) |
+| Fetch (`fetch_session_ticker.py`) | ws.parlament.ch: a 3-request change probe, then about 20 requests for a full refresh plus one per new National Council vote; budget 120, 0.35 s apart | as above | no robots.txt; honest UA; fixed `$select` on every request | names, roles, groups and cantons of speakers (official function); group tallies only (PRIV-13); no speech text (SRC-13) | ✅ |
+| `validate.py --ticker`, `data_guard.py --ticker` | nothing (local) | — | — | — | ✅ |
+| Push to `ticker-data`; start `deploy.yml` | GitHub | — | token only in this step; `actions: write` only to start the deploy | — | ✅ only when something changed (OPS-10) |
+| Open/refresh "Session ticker stopped" issue | GitHub | — | — | run link only | ✅ on failure |
+
+Off switch: repository variable `TICKER_OFF` = `true`. On days without a sitting
+a run costs one or two small requests and deploys nothing.
+
 ### 13.2 Deploy — `.github/workflows/deploy.yml` (push to `main`, after the data job succeeds, manual)
 
 | What | Status |
@@ -456,6 +488,7 @@ Runs while the site is in maintenance mode too. Compliant, but it contacts sourc
 | Maintenance mode publishes only the notice page, `robots: Disallow: /`, keeps security.txt | ✅ (active now) |
 | After the data job: deploys only if that job succeeded (which includes `validate.py`) | ✅ |
 | After a human push: the `check` job must pass (with sign-offs) before the `deploy` job starts | ✅ OPS-01 (since 2026-09-24) |
+| Session ticker: started by `session-ticker.yml` after it published; copies only `data/sessions/days/*.json` from the `ticker-data` branch, after `validate.py --ticker` (OPS-10) | ✅ (since 2026-10-05) |
 
 ### 13.3 Other GitHub automation
 
@@ -487,6 +520,7 @@ Runs while the site is in maintenance mode too. Compliant, but it contacts sourc
 | Votes the visitor casts are saved on the device (`politikch-votes`) — only after they click | ✅ disclosed |
 | Poll sync (`politikch-votes-pushed`, network calls) — **off** (`POLL_API` empty); the key is never written while off | ✅ · turning on = PRIV-07 (the key must then be added to the storage text) |
 | 404 page redirects to the home page keeping the `#` route | ✅ |
+| During a session, the ticker page and the front-page strip reload the ticker files from our own site every 5 minutes while the tab is visible (same origin; nothing stored, nothing sent) | ✅ (since 2026-10-05) |
 
 ### 13.6 Local admin site — `admin/` (never published)
 
@@ -555,13 +589,15 @@ Stage 1 findings E-01/E-02/G-01 cover them — re-check, don't assume.
 | `python3 scripts/check.py --base <ref> --strict` | Pre-push hook, CI, deploy: unsigned flags fail too |
 | `python3 scripts/data_guard.py` | Data job, before committing a refresh |
 | `python3 scripts/monitor_sources.py [--update]` | Data job, first step; `--update` accepts reviewed robots.txt changes |
+| `python3 scripts/fetch_session_ticker.py --date YYYY-MM-DD` | Replay one sitting day locally (written to the git-ignored `data/sessions/days/`) |
+| `python3 scripts/validate.py --ticker DIR` / `python3 scripts/data_guard.py --ticker PREV_DIR` | Session ticker job and deploy |
 | `git config core.hooksPath .githooks` | Once per clone, to enable the pre-push hook |
 
 **Coverage**
 
 | Automated — BLOCK | Automated — FLAG (needs sign-off) | Still REVIEW / not yet automated |
 |---|---|---|
-| Data validity and invariants, i18n parity (VALIDATE, OPS-03) · SEC-01 (ratchet) · SEC-02 · SEC-03 · SEC-04 · SEC-05 · SEC-06 · SEC-07 · SEC-08 (exact pins) · SEC-09 · SEC-10 · SEC-11 · SRC-01 (static + VoteInfo host guard at run time) · SRC-02 (paid product vs `terms_ask`) · SRC-03 · SRC-05 · SRC-06 · SRC-09 · SRC-10 (weekly) · ED-09 (AI claims, via the POL-12 phrase scan) · ED-13 (no article paths in the repo) · PRIV-01 (static) · PRIV-02 · PRIV-03 · PRIV-05 · PRIV-06 · PRIV-08 · PRIV-10 · POL-01 · POL-12 · POL-13 · HOST-01 · HOST-04 (warnings → GitHub issue) · LIC-01 · LIC-03 · LIC-05 · LIC-06 · LIC-08 (via PRIV-08) · LIC-09 · OPS-01 · OPS-04 (data guard) | Every file in the trigger table (incl. LIC-07 licence files) · UNKNOWN files (default rule) · POL-05 banned words · POL-09 quiet period · PRIV-04 privacy text · PRIV-07 poll · SEC-03 CSP edits · OPS-04 hand-edited generated data · OPS-07 billable DeepL | OPS-02 route smoke test, OPS-05 accessibility, OPS-06 mobile/performance (need a headless browser in CI — a new dependency, owner to decide) · POL-02/03/04/06/07/10 editorial judgement · SEC-08 hash pinning · LIC-02/04 (dependency and copied-text licences) · SRC-07/08/11 · PRIV-09/11/12 · PROC-01/03 (CLAUDE.md instructs; not machine-enforced) |
+| Data validity and invariants, i18n parity (VALIDATE, OPS-03) · SEC-01 (ratchet) · SEC-02 · SEC-03 · SEC-04 · SEC-05 · SEC-06 · SEC-07 · SEC-08 (exact pins) · SEC-09 · SEC-10 · SEC-11 · SRC-01 (static + VoteInfo host guard at run time) · SRC-02 (paid product vs `terms_ask`) · SRC-03 · SRC-05 · SRC-06 · SRC-09 · SRC-10 (weekly) · ED-09 (AI claims, via the POL-12 phrase scan) · ED-13 (no article paths in the repo) · PRIV-01 (static) · PRIV-02 · PRIV-03 · PRIV-05 · PRIV-06 · PRIV-08 · PRIV-10 · POL-01 · POL-12 · POL-13 · HOST-01 · HOST-04 (warnings → GitHub issue) · LIC-01 · LIC-03 · LIC-05 · LIC-06 · LIC-08 (via PRIV-08) · LIC-09 · OPS-01 · OPS-04 (data guard) · SRC-12 · SRC-13 · SRC-14 · PRIV-13 · POL-14 · POL-15 · POL-16 (static) · OPS-10 | Every file in the trigger table (incl. LIC-07 licence files) · UNKNOWN files (default rule) · POL-05 banned words · POL-09 quiet period · PRIV-04 privacy text · PRIV-07 poll · SEC-03 CSP edits · OPS-04 hand-edited generated data · OPS-07 billable DeepL | OPS-02 route smoke test, OPS-05 accessibility, OPS-06 mobile/performance (need a headless browser in CI — a new dependency, owner to decide) · POL-02/03/04/06/07/10 editorial judgement · SEC-08 hash pinning · LIC-02/04 (dependency and copied-text licences) · SRC-07/08/11 · PRIV-09/11/12 · PROC-01/03 (CLAUDE.md instructs; not machine-enforced) |
 
 ---
 

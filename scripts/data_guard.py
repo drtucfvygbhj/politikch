@@ -16,6 +16,12 @@ Legitimate changes (e.g. an official correction of a result) are published by
 re-running the workflow by hand with "allow_data_changes" ticked, after checking
 the change against the official source.
 
+With --ticker PREV_DIR it checks the session ticker instead (GUARDRAILS.md
+OPS-10): data/sessions/days/ (fresh) against PREV_DIR (what the ticker-data
+branch published). Provisional data may grow and change, but a day file or a
+National Council vote that disappears, or a published tally that changes, stops
+the ticker job until someone has compared it with parlament.ch.
+
 Exit 0 = safe to publish; 1 = refused (reasons printed).
 """
 import json
@@ -144,12 +150,48 @@ def check_overviews():
                 problems.append(f"{rel}: official argument language(s) removed: {sorted(gone)}")
 
 
+def check_ticker(prev_dir):
+    fresh = ROOT / "data" / "sessions" / "days"
+    prev = Path(prev_dir)
+    for old_path in sorted(prev.glob("????-??-??.json")):
+        rel = f"ticker {old_path.name}"
+        new_path = fresh / old_path.name
+        if not new_path.exists():
+            problems.append(f"{rel}: published day file would be deleted")
+            continue
+        old = load(old_path.read_text("utf-8"), rel, "published")
+        new = load(new_path.read_text("utf-8"), rel, "new")
+        if not old or not new:
+            continue
+        old_votes = (((old.get("councils") or {}).get("N") or {}).get("votes")) or []
+        new_votes = {v.get("id"): v for v in (((new.get("councils") or {}).get("N") or {}).get("votes")) or []}
+        for v in old_votes:
+            n = new_votes.get(v.get("id"))
+            if n is None:
+                problems.append(f"{rel}: National Council vote {v.get('id')} disappeared")
+            elif n.get("tally") != v.get("tally") or n.get("byParty") != v.get("byParty"):
+                problems.append(f"{rel}: the published tally of vote {v.get('id')} changed")
+        for c, body in (old.get("councils") or {}).items():
+            a = len(body.get("speeches") or [])
+            b = len((((new.get("councils") or {}).get(c)) or {}).get("speeches") or [])
+            if a >= 10 and b < a * (1 - SHRINK_LIMIT):
+                problems.append(f"{rel}: council {c} speakers dropped from {a} to {b}")
+
+
 def main():
+    if "--ticker" in sys.argv[1:]:
+        i = sys.argv.index("--ticker")
+        check_ticker(sys.argv[i + 1] if i + 1 < len(sys.argv) else "")
+        return report("Session ticker")
     check_sizes_and_presence()
     check_votes()
     check_counts()
     check_settled_sessions()
     check_overviews()
+    return report("Fetch live data")
+
+
+def report(workflow):
     allowed = os.environ.get("ALLOW_DATA_CHANGES", "").lower() == "true"
     if not problems:
         print("Data guard: refresh looks normal ✓")
@@ -162,7 +204,7 @@ def main():
         print(f"::{'warning' if allowed else 'error'}::{p}")
     if not allowed:
         print("\nCheck these against the official source. If they are genuine, re-run the "
-              "'Fetch live data' workflow by hand with 'allow_data_changes' ticked.")
+              f"'{workflow}' workflow by hand with 'allow_data_changes' ticked.")
     return 0 if allowed else 1
 
 

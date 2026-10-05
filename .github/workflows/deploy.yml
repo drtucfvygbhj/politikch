@@ -101,6 +101,18 @@ jobs:
             cp index.html 404.html robots.txt .nojekyll _site/
             cp -r css js fonts _site/
             rsync -a --exclude='*.md' --exclude='brochures/' data/ _site/data/
+            # Session ticker (GUARDRAILS.md OPS-10): only data/sessions/days/*.json
+            # from the ticker-data branch, checked again with the ticker rules
+            # (no speech text, no individual votes, no computed outcome, download
+            # time present) before it is published. No branch = no ticker.
+            if git ls-remote --exit-code --heads origin ticker-data >/dev/null; then
+              tk="$RUNNER_TEMP/ticker" && mkdir -p "$tk"
+              git fetch --depth=1 origin ticker-data
+              git archive FETCH_HEAD data/sessions/days | tar -x -C "$tk" --strip-components=3
+              python3 scripts/validate.py --ticker "$tk"
+              mkdir -p _site/data/sessions/days
+              find "$tk" -maxdepth 1 -type f -name '*.json' -exec cp {} _site/data/sessions/days/ \;
+            fi
             # The owner's own photos (WebP only), published with the admin's
             # "Publish images" button. check.py blocks any image without a
             # licence record in images/LICENSES.json (LIC-01); the record itself

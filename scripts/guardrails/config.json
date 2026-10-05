@@ -10,7 +10,7 @@
     "swissvotes.ch": {"role": "fetch", "owner": "Année Politique Suisse, University of Bern", "use": "party recommendations, EN short titles, brochure PDFs", "licence": "CC BY 4.0 (dataset); brochure text URG Art. 5", "commercial": "yes with credit", "crawlDelay": 10, "robots": "Crawl-delay: 10; Disallow: /auth/", "verified": "2026-09-24"},
     "politikfinanzierung.efk.admin.ch": {"role": "fetch", "owner": "Swiss Federal Audit Office (EFK)", "use": "party and campaign financing", "licence": "terms_open", "commercial": "yes", "ckan": "politikfinanzierung", "terms": ["terms_open"], "robots": "none (404)", "verified": "2026-09-24"},
     "www.agvchapp.bfs.admin.ch": {"role": "fetch", "owner": "Federal Statistical Office", "use": "municipality register (counts)", "licence": "terms_open", "commercial": "yes", "ckan": "historisiertes-gemeindeverzeichnis-der-schweiz", "terms": ["terms_open"], "crawlDelay": 10, "robots": "Disallow: /api*; Crawl-delay: 10", "apiDocs": "https://www.agvchapp.bfs.admin.ch/documents/rest_api_de.pdf", "verified": "2026-09-24"},
-    "ws.parlament.ch": {"role": "fetch", "owner": "Parliamentary Services", "use": "sessions, final votes, business summaries", "licence": "terms_by", "commercial": "yes with credit", "ckan": "webservices-httpws-old-parlament-ch", "terms": ["terms_by"], "robots": "none (404)", "verified": "2026-09-24"},
+    "ws.parlament.ch": {"role": "fetch", "owner": "Parliamentary Services", "use": "sessions, final votes, business summaries; session ticker (agenda, speakers without speech text, National Council votes as group tallies, council decisions; every 20 min on sitting days, SRC-14)", "licence": "terms_by", "commercial": "yes with credit", "ckan": "webservices-httpws-old-parlament-ch", "terms": ["terms_by"], "robots": "none (404)", "verified": "2026-10-05", "termsExtra": "Parliamentary Services' own conditions: credit 'Parliamentary Services of the Federal Assembly, Bern'; no impression of an official publication; content not altered; date and time of download always shown (SRC-12)"},
     "api-free.deepl.com": {"role": "fetch", "owner": "DeepL SE", "use": "machine translation (free Developer plan)", "licence": "DeepL T&C: output assigned to us; credit DeepL; free plan may keep inputs (public texts only, OPS-09)", "commercial": "yes", "verified": "2026-09-24"},
     "api.deepl.com": {"role": "fetch", "owner": "DeepL SE", "use": "machine translation (paid plan, only with DEEPL_ALLOW_PAID)", "licence": "DeepL T&C", "commercial": "yes", "verified": "2026-09-24"},
     "labs.karavia.ch": {"role": "fetch", "owner": "mirror of swisstopo swissBOUNDARIES3D (2020)", "use": "municipality map geometry (one-off, manual script)", "licence": "swisstopo terms_by (credit)", "commercial": "yes with credit", "verified": "2026-09-24"},
@@ -99,6 +99,28 @@
     "paths": ["data/articles/", "articles/", "plus/"]
   },
 
+  "parlFetched": {
+    "_about": "SRC-12. i18n keys that credit data from ws.parlament.ch: each must carry the download time ({fetched}, or {from} and {to} for a range) in every language. ticker.* keys are checked once js/ticker.js exists.",
+    "keys": ["session.source", "session.listSource", "news.fv.src", "news.parl.src", "news.parl.srcInit", "share.src.votes", "session.srcRange", "ticker.fetched"],
+    "rangeKeys": ["session.srcRange"]
+  },
+  "ticker": {
+    "_about": "Session ticker (adopted 2026-10-05). SRC-13: fields never requested (speech text, person identifiers). SRC-14: request budget, spacing, schedule. POL-14: words the ticker's text may not use, and the notes the page (requiredKeys) and the front-page strip (stripKeys) must show. POL-15: tokens js/ticker.js may not use (no outcome worked out from a tally).",
+    "forbiddenFields": ["Text", "PersonNumber", "PersonIdCode", "IdPerson", "FirstName", "LastName", "DateOfBirth", "Photo", "DecisionText"],
+    "maxRequests": 150,
+    "minSpacing": 0.35,
+    "minIntervalMinutes": 15,
+    "requiredKeys": ["ticker.delay", "ticker.fetched", "ticker.credit", "ticker.notOfficial"],
+    "stripKeys": ["ticker.delayShort", "ticker.fetched"],
+    "noOutcome": ["passed", "status.adopted", "status.rejected", "voteResult", "orientVote"],
+    "notLive": {
+      "all": ["live", "livestream", "liveticker", "live ticker", "real-time", "real time", "realtime"],
+      "de": ["Echtzeit", "direkt"],
+      "fr": ["en direct", "direct", "temps réel"],
+      "it": ["in diretta", "diretta", "tempo reale"],
+      "rm": ["en direct", "direct"]
+    }
+  },
   "quietPeriodDays": 10,
 
   "published": ["index.html", "404.html", "robots.txt", "maintenance.html", "css/", "js/", "fonts/", "data/", "images/", ".well-known/"],
@@ -120,6 +142,7 @@
       [".github/dependabot.yml", ["SEC-08"]],
       ["scripts/requirements*.txt", ["SEC-08", "LIC-02"]],
       ["scripts/fetch_*.py", ["SRC-01"]],
+      ["js/ticker.js", ["POL-03"]],
       ["scripts/translate.py", ["SRC-01", "OPS-07", "OPS-09"]],
       ["scripts/build_municipality_maps.py", ["SRC-01"]],
       ["analytics-worker/**", ["PRIV-04", "PRIV-05"]],

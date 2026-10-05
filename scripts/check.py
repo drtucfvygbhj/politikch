@@ -529,6 +529,138 @@ def check_claims():
                 block("POL-12", f"{f}: says '{phrase}'")
 
 
+# =========================================================================
+# Session ticker and parlament.ch download times (adopted 2026-10-05)
+# =========================================================================
+def i18n_langs():
+    try:
+        return json.loads(read("data/i18n.json"))
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def check_parl_fetched():
+    # SRC-12: parlament.ch's terms require the date and time of download next to
+    # the data. Every credit line for its data carries the {fetched} placeholder.
+    i18n = i18n_langs()
+    ticker = (ROOT / "js" / "ticker.js").exists()
+    for key in CFG["parlFetched"]["keys"]:
+        if key.startswith("ticker.") and not ticker:
+            continue
+        need = ("{from}", "{to}") if key in CFG["parlFetched"].get("rangeKeys", []) else ("{fetched}",)
+        for lang, strings in i18n.items():
+            v = strings.get(key)
+            if v is None:
+                block("SRC-12", f"i18n {lang}.{key} is missing")
+            elif not all(n in v for n in need):
+                block("SRC-12", f"i18n {lang}.{key} no longer shows the download time ({' '.join(need)})")
+
+
+def ticker_selects():
+    """(entity, select string or None) for every odata() call in the ticker fetcher."""
+    import ast
+    out = []
+    tree = ast.parse(read("scripts/fetch_session_ticker.py"))
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Call) and getattr(node.func, "id", None) == "odata":
+            entity = node.args[0].value if node.args and isinstance(node.args[0], ast.Constant) else None
+            sel = next((k.value for k in node.keywords if k.arg == "select"), None)
+            out.append((entity, sel.value if isinstance(sel, ast.Constant) else None))
+    return out
+
+
+def cron_gaps(y):
+    gaps = []
+    for m in re.finditer(r"cron:\s*'([^']+)'", y):
+        minute = m.group(1).split()[0]
+        if not re.fullmatch(r"\d{1,2}(,\d{1,2})*", minute):
+            gaps.append(0)                       # */n, ranges or * — not a fixed list
+            continue
+        mins = sorted(int(x) for x in minute.split(","))
+        gaps.append(min(((mins[(i + 1) % len(mins)] - mins[i]) % 60) or 60 for i in range(len(mins))))
+    return gaps
+
+
+def check_ticker():
+    fetcher = read("scripts/fetch_session_ticker.py")
+    wf = read(".github/workflows/session-ticker.yml")
+    deploy = read(".github/workflows/deploy.yml")
+    if not fetcher and not wf:
+        return
+    # SRC-13: no speech text — transcripts only with a fixed field list, never Text.
+    # PRIV-13: no person identifiers or individual decisions requested.
+    for entity, sel in ticker_selects():
+        if sel is None:
+            block("SRC-13", f"fetch_session_ticker.py: odata('{entity}') without a fixed $select field list")
+            continue
+        fields = {f.strip() for f in sel.split(",")}
+        if "Text" in fields:
+            block("SRC-13", f"fetch_session_ticker.py: requests the Text field of {entity} (speech text)")
+        bad = fields & set(CFG["ticker"]["forbiddenFields"])
+        if bad:
+            block("PRIV-13", f"fetch_session_ticker.py: requests {sorted(bad)} from {entity}")
+        if entity == "Voting" and fields - {"Decision", "ParlGroupCode"}:
+            block("PRIV-13", "fetch_session_ticker.py: Voting may only be read as Decision + ParlGroupCode (group tallies)")
+    if "def odata(entity, *, select, filt" not in fetcher:
+        block("SRC-13", "fetch_session_ticker.py: odata() must require a select field list")
+    # SRC-14: gentle on the source.
+    for name, limit, ok in (("MAX_REQUESTS", CFG["ticker"]["maxRequests"], lambda v, l: v <= l),
+                            ("SPACING", CFG["ticker"]["minSpacing"], lambda v, l: v >= l)):
+        m = re.search(rf"(?m)^{name}\s*=\s*([\d.]+)", fetcher)
+        if not m or not ok(float(m.group(1)), limit):
+            block("SRC-14", f"fetch_session_ticker.py: {name} must be set and within {limit}")
+    if "TICKER_OFF" not in fetcher or "vars.TICKER_OFF" not in wf:
+        block("SRC-14", "the session ticker lost its off switch (TICKER_OFF)")
+    hosts = set(HOST_RE.findall(fetcher)) - {"politikch.ch"}
+    if hosts - {"ws.parlament.ch"}:
+        block("SRC-14", f"fetch_session_ticker.py contacts {sorted(hosts - {'ws.parlament.ch'})} — parlament.ch only")
+    gaps = cron_gaps(wf)
+    if not gaps or min(gaps) < CFG["ticker"]["minIntervalMinutes"]:
+        block("SRC-14", f"session-ticker.yml runs more often than every {CFG['ticker']['minIntervalMinutes']} minutes")
+    order = ["--check-session", "monitor_sources.py --host ws.parlament.ch", "fetch_session_ticker.py ${",
+             "validate.py --ticker", "data_guard.py --ticker", "HEAD:ticker-data"]
+    pos = [wf.find(x) for x in order]
+    if -1 in pos or pos != sorted(pos):
+        block("OPS-10", "session-ticker.yml must check the session, the source's terms, fetch, validate, guard, "
+                        "then push — in that order")
+    # OPS-10: ticker data goes to its own branch only, and is checked again on deploy.
+    if re.search(r"HEAD:(refs/heads/)?main\b|push[^\n]*\bmain\b", wf):
+        block("OPS-10", "session-ticker.yml may only push to the ticker-data branch")
+    if "persist-credentials: false" not in wf:
+        block("SEC-07", "session-ticker.yml: checkout keeps the write token")
+    if "validate.py --ticker" not in deploy:
+        block("OPS-10", "deploy.yml publishes ticker data without validating it")
+    if any(f.startswith("data/sessions/days/") for f in git("ls-files").splitlines()):
+        block("OPS-10", "ticker data is committed on main — it belongs on the ticker-data branch only")
+    # The display (once it exists).
+    tjs = read("js/ticker.js")
+    if not tjs:
+        return
+    news = read("js/news.js")
+    for key in CFG["ticker"]["requiredKeys"]:
+        if f"'{key}'" not in tjs:
+            block("POL-14", f"js/ticker.js no longer shows '{key}'")
+    for key in CFG["ticker"]["stripKeys"]:
+        if f"'{key}'" not in news:
+            block("POL-14", f"the front-page ticker strip (news.js) no longer shows '{key}'")
+    for w in CFG["ticker"]["noOutcome"]:
+        if w in tjs:
+            block("POL-15", f"js/ticker.js uses '{w}' — the ticker shows no outcome it worked out itself")
+    for w in (".sort(", ".slice(", ".filter("):
+        if w in tjs:
+            block("POL-16", f"js/ticker.js uses {w} — the ticker shows every item, in the official order")
+    # POL-14: never called live.
+    i18n = i18n_langs()
+    for lang, strings in i18n.items():
+        words = CFG["ticker"]["notLive"].get(lang, []) + CFG["ticker"]["notLive"]["all"]
+        for k, v in strings.items():
+            if not k.startswith("ticker."):
+                continue
+            for w in words:
+                if re.search(r"(?i)(?<![\wÀ-ÿ])" + re.escape(w) + r"(?![\wÀ-ÿ])", v):
+                    block("POL-14", f"i18n {lang}.{k} says '{w}' — the ticker runs 1–2 hours behind, never call it live")
+
+
 def check_paywalled_paths(files):
     # ED-13: the repo is public, so PolitikCH+ article text in it would bypass the paywall.
     for f in files:
@@ -763,6 +895,8 @@ def main(argv):
     check_licensing()
     check_both_sides()
     check_claims()
+    check_parl_fetched()
+    check_ticker()
     check_paywalled_paths(files)
     check_hosting_and_media(files)
 
