@@ -18,6 +18,8 @@ What it does
     fetched texts can't be edited here (SRC-08, OPS-04).
   * Edit positioning: click two blocks of the front page to swap them; the
     order is kept in js/site-settings.js.
+  * Glossary: write the explanations of the glossary terms (data/glossary.json)
+    in English, German, French and Italian; published with "Publish text".
   * Undo / redo for every change made here except adding or deleting a photo.
   * Status and checks: maintenance mode (read-only, SEC-10), data freshness,
     next ballot, sitting session, translations to do, changed files, and a
@@ -106,7 +108,11 @@ IMAGES_HEADER = ("/* Politikch photos — written by the local admin tool (admin
 # Texts the admin may edit: the interface text and our own editorial files.
 # Official or fetched texts (titles, arguments, results, session data) are not
 # here: they must stay verbatim (SRC-08) and the data job would overwrite them.
-TEXT_FILES = ["data/i18n.json", "data/parties.json", "data/cantons.json", "data/donor-descriptions.json", "data/legal.json"]
+TEXT_FILES = ["data/i18n.json", "data/parties.json", "data/cantons.json", "data/donor-descriptions.json", "data/legal.json",
+              "data/glossary.json"]
+GLOSSARY = ROOT / "data" / "glossary.json"
+GLOSS_LANGS = ["en", "de", "fr", "it"]
+GLOSS_MAX_WORDS = 80
 PUBLISH = {
     "settings": {"paths": ["js/site-settings.js"], "title": "Admin: make design settings live"},
     "images": {"paths": ["js/site-images.js", "images"], "title": "Admin: publish images"},
@@ -631,6 +637,47 @@ def save_text(body):
     _write_json(rel, raw, data, pairs)
 
 
+# ---------------------------------------------------------------- glossary
+def read_glossary():
+    d = load_json(GLOSSARY, {"terms": []}) or {"terms": []}
+    i18n = load_json(ROOT / "data" / "i18n.json", {}) or {}
+    out = []
+    for e in d.get("terms", []):
+        item = {k: e.get(k) for k in ("id", "category", "headword", "definition", "definitionKey", "source")}
+        if e.get("definitionKey"):
+            k = "gloss." + e["definitionKey"]
+            item["keyText"] = {l: (i18n.get(l) or {}).get(k, "") for l in GLOSS_LANGS}
+        out.append(item)
+    return out
+
+
+def save_glossary(body):
+    """Write one entry's explanation (plain text, any of EN/DE/FR/IT; empty = not written yet)."""
+    tid = body.get("id")
+    values = body.get("definition") or {}
+    raw = GLOSSARY.read_text("utf-8")
+    data = json.loads(raw)
+    entry = next((e for e in data.get("terms", []) if e.get("id") == tid), None)
+    if not entry or not isinstance(values, dict):
+        raise BadRequest("unknown term")
+    if entry.get("definitionKey"):
+        raise BadRequest("This explanation is interface text (gloss." + entry["definitionKey"] + "): edit it with Edit text on the Design tab.")
+    new = dict(entry.get("definition") or {})
+    for l, v in values.items():
+        if l not in GLOSS_LANGS:
+            raise BadRequest("unknown language")
+        v = " ".join(str(v or "").split())
+        if re.search(r"[<>]|javascript:", v, re.I):
+            raise BadRequest(f"{l.upper()}: plain text only (no < or >)")
+        if len(v.split()) > GLOSS_MAX_WORDS:
+            raise BadRequest(f"{l.upper()}: at most {GLOSS_MAX_WORDS} words")
+        new[l] = v
+    if new == entry.get("definition"):
+        raise BadRequest("Nothing changed.")
+    entry["definition"] = new
+    GLOSSARY.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", "utf-8")
+
+
 # ---------------------------------------------------------------- status
 def words(s):
     return {w for w in re.findall(r"[a-zäöüéèàç]{5,}", (s or "").lower())}
@@ -953,7 +1000,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self.send(200, (IMAGES / m.group(1)).read_bytes(), "image/webp")
         if path == "/api/state":
             pub = {k: {"pending": pending_files(k)} for k in PUBLISH}
-            return self.send(200, {"settings": read_settings(), "images": read_images(), "status": status(), "publish": pub, "history": history_state()})
+            return self.send(200, {"settings": read_settings(), "images": read_images(), "status": status(), "publish": pub, "history": history_state(),
+                                   "glossary": read_glossary()})
         return self.send(404, {"error": "not found"})
 
     def do_POST(self):
@@ -975,7 +1023,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self.send(200, {"ok": True, "settings": read_settings(), "history": history_state()})
             if path in ("/api/history/undo", "/api/history/redo"):
                 label = history_step(path.rsplit("/", 1)[1])
-                return self.send(200, {"ok": True, "label": label, "settings": read_settings(), "images": read_images(), "history": history_state()})
+                return self.send(200, {"ok": True, "label": label, "settings": read_settings(), "images": read_images(), "history": history_state(),
+                                       "glossary": read_glossary()})
             if path == "/api/text/find":
                 return self.send(200, {"candidates": text_candidates(body)})
             if path == "/api/text/save":
@@ -999,6 +1048,9 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self.send(200, publish(body))
             if path == "/api/check":
                 return self.send(200, run_checks())
+            if path == "/api/glossary/save":
+                journaled("Glossary: " + str(body.get("id", ""))[:60], lambda: save_glossary(body))
+                return self.send(200, {"ok": True, "glossary": read_glossary(), "history": history_state()})
             return self.send(404, {"error": "not found"})
         except BadRequest as e:
             return self.send(400, {"error": str(e)})

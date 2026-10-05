@@ -127,7 +127,7 @@
 
   "generatedData": ["data/initiatives.json", "data/financing.json", "data/canton-data.json", "data/sessions-index.json", "data/sessions/", "data/overviews/", "data/mt.json", "TRANSLATIONS_TODO.md"],
 
-  "editorialFiles": ["data/i18n.json", "data/parties.json", "data/donor-descriptions.json", "data/legal.json", "data/initiatives-translations.json", "data/sessions-translations.json", "data/cantons.json", "data/council.json", "index.html", "maintenance.html"],
+  "editorialFiles": ["data/i18n.json", "data/parties.json", "data/donor-descriptions.json", "data/legal.json", "data/initiatives-translations.json", "data/sessions-translations.json", "data/cantons.json", "data/council.json", "data/glossary.json", "index.html", "maintenance.html"],
 
   "triggers": {
     "_about": "Changed file (glob) -> rules that must be signed off ('Approved-Rule: <ID> — reason' in a commit message). Files matching no pattern here or in 'reviewOnly' are flagged UNKNOWN (default rule).",
@@ -163,6 +163,6 @@
       ["images/*", ["LIC-01", "POL-10", "PRIV-09"]],
       ["admin/server.py", ["PROC-02"]]
     ],
-    "reviewOnly": ["js/app.js", "js/map-data.js", "css/*", "index.html", "404.html", "maintenance.html", "robots.txt", "data/*.json", "data/sessions/*", "data/overviews/**", "data/municipalities/*", "data/brochures/README.md", "*.md", "scripts/validate.py", "scripts/check_translations.py", "guides", ".gitignore", ".claude/launch.json", "Start Politikch.command", "CLAUDE.md", "TRANSLATIONS_TODO.md", "js/news.js", "js/design.js", "js/site-settings.js", "js/site-images.js", "admin/index.html", "admin/admin.js", "admin/admin.css", "Start Admin.command"]
+    "reviewOnly": ["js/app.js", "js/map-data.js", "css/*", "index.html", "404.html", "maintenance.html", "robots.txt", "data/*.json", "data/sessions/*", "data/overviews/**", "data/municipalities/*", "data/brochures/README.md", "*.md", "scripts/validate.py", "scripts/check_translations.py", "guides", ".gitignore", ".claude/launch.json", "Start Politikch.command", "CLAUDE.md", "TRANSLATIONS_TODO.md", "js/news.js", "js/design.js", "js/site-settings.js", "js/site-images.js", "admin/index.html", "admin/admin.js", "admin/admin.css", "Start Admin.command", "js/glossary.js", "js/select-tools.js", "js/report.js"]
   }
 }

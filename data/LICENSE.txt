@@ -48,6 +48,12 @@ cantons.json, council.json
   Credit:      Politikch (politikch.ch), CC BY 4.0. Figures: Federal Statistical Office (BFS); Federal Council: admin.ch
   Commercial:  yes, with credit
 
+glossary.json
+  What:        Glossary of Swiss institutions and procedures: terms, forms, sources and explanations (editorial)
+  Licence:     CC-BY-4.0  (https://creativecommons.org/licenses/by/4.0/)
+  Credit:      Politikch (politikch.ch), CC BY 4.0. Sources linked per term (Fedlex)
+  Commercial:  yes, with credit
+
 mt.json
   What:        Machine translations (English, Italian) of official texts
   Licence:     CC-BY-4.0  (https://creativecommons.org/licenses/by/4.0/)

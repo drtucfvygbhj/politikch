@@ -149,8 +149,8 @@
   async function historyStep(dir) {
     try {
       const j = await api('/api/history/' + dir, {});
-      S = j.settings; IMG = j.images || IMG; H = j.history || H;
-      fillDesign(S); renderLinks(); renderDecrees(); renderImages(); reloadPreview(); await refreshStatus();
+      S = j.settings; IMG = j.images || IMG; H = j.history || H; GLOSS = j.glossary || GLOSS;
+      fillDesign(S); renderLinks(); renderDecrees(); renderImages(); renderGlossaryAdmin(); reloadPreview(); await refreshStatus();
       flash((dir === 'undo' ? 'Undone: ' : 'Redone: ') + j.label);
     } catch (err) { flash(err.message, true); }
   }
@@ -584,7 +584,7 @@
   const PUB_TEXT = {
     settings: { kicker: 'Make changes live', title: 'Publish the design settings', what: 'Only js/site-settings.js is committed and pushed — design version, fonts, sizes, live rules, rotation and vote links.' },
     images: { kicker: 'Publish images', title: 'Publish the photos', what: 'Only images/ and js/site-images.js are committed and pushed — the photos, their licence record, alt text and which vote each one goes with.' },
-    text: { kicker: 'Publish text', title: 'Publish the text edits', what: 'Only the text files edited here are committed and pushed: data/i18n.json, data/parties.json, data/cantons.json, data/donor-descriptions.json, data/legal.json.' },
+    text: { kicker: 'Publish text', title: 'Publish the text edits', what: 'Only the text files edited here are committed and pushed: data/i18n.json, data/parties.json, data/cantons.json, data/donor-descriptions.json, data/legal.json, data/glossary.json.' },
   };
   function renderPubState() {
     $$('.pub-state').forEach(el => {
@@ -644,6 +644,42 @@
     finally { b.disabled = false; b.textContent = 'Publish now'; }
   });
 
+  /* ---------- glossary ---------- */
+  let GLOSS = [];
+  const GL_LANGS = ['en', 'de', 'fr', 'it'];
+  function renderGlossaryAdmin() {
+    const q = $('#gl-filter').value.trim().toLowerCase();
+    const onlyEmpty = $('#gl-empty').checked;
+    const items = GLOSS.filter(e => {
+      const filled = e.definitionKey || GL_LANGS.some(l => (e.definition || {})[l]);
+      if (onlyEmpty && filled) return false;
+      return !q || GL_LANGS.some(l => ((e.headword || {})[l] || '').toLowerCase().includes(q)) || e.id.toLowerCase().includes(q);
+    });
+    const done = GLOSS.filter(e => e.definitionKey || (e.definition || {}).en).length;
+    $('#gl-admin').replaceChildren(el('p', { class: 'meta', text: `${done} of ${GLOSS.length} terms have an English explanation. Showing ${items.length}.` }),
+      ...items.map(e => {
+        const src = e.source ? el('a', { href: e.source.url.split('{lang}').join('en'), target: '_blank', rel: 'noopener noreferrer', text: (e.source.label || {}).en || 'source' }) : el('span', { class: 'meta', text: 'no source yet' });
+        const head = el('div', { class: 'gl-head' }, [el('b', { text: (e.headword || {}).en || e.id }),
+          el('span', { class: 'meta', text: ` · ${e.category} · DE ${(e.headword || {}).de || ''} · FR ${(e.headword || {}).fr || ''} · IT ${(e.headword || {}).it || ''} · ` }), src]);
+        if (e.definitionKey) {
+          return el('div', { class: 'gl-entry' }, [head, el('p', { class: 'meta', text: 'Interface text gloss.' + e.definitionKey + ' (edit with Edit text): ' + (e.keyText || {}).en })]);
+        }
+        const fields = GL_LANGS.map(l => el('label', { class: 'gl-field' }, [el('span', { class: 'k', text: l.toUpperCase() }),
+          el('textarea', { rows: 3, 'data-lang': l, maxlength: 700, placeholder: l === 'en' ? 'Your explanation (at most 80 words)' : 'Translation (checked by you)' }, [])]));
+        fields.forEach((f, i) => { f.querySelector('textarea').value = (e.definition || {})[GL_LANGS[i]] || ''; });
+        const save = el('button', { type: 'button', class: 'primary', text: 'Save', onclick: async () => {
+          const definition = {};
+          card.querySelectorAll('textarea').forEach(t => { definition[t.dataset.lang] = t.value; });
+          try { const j = await api('/api/glossary/save', { id: e.id, definition }); GLOSS = j.glossary; H = j.history || H; renderHistory(); flash('Saved: ' + ((e.headword || {}).en || e.id)); await refreshStatus(); }
+          catch (err) { flash(err.message, true); }
+        } });
+        const card = el('div', { class: 'gl-entry' }, [head, el('div', { class: 'gl-fields' }, fields), el('div', { class: 'actions' }, [save])]);
+        return card;
+      }));
+  }
+  $('#gl-filter').addEventListener('input', renderGlossaryAdmin);
+  $('#gl-empty').addEventListener('change', renderGlossaryAdmin);
+
   /* ---------- checks ---------- */
   $('#run-checks').addEventListener('click', async (e) => {
     const b = e.currentTarget; b.disabled = true; b.textContent = 'Running…';
@@ -665,6 +701,7 @@
     try {
       const j = await api('/api/state');
       S = j.settings; ST = j.status; IMG = j.images || IMG; PUB = j.publish || {}; H = j.history || H;
+      GLOSS = j.glossary || []; renderGlossaryAdmin();
       buildDesignForm(); fillDesign(S); renderOverview(); renderImages(); renderLinks(); renderDecrees(); renderPubState(); renderHistory();
     } catch (err) { flash('Could not load: ' + err.message, true); }
   })();

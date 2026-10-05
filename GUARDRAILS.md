@@ -378,6 +378,8 @@ The owner approves; then the edit, `check.sh`, local preview, change-log entry.
 | `.github/workflows/session-ticker.yml` | SEC-07, SRC-10/14, OPS-10 |
 | `js/ticker.js` (and the ticker strip in `js/news.js`) | POL-03 (flag), POL-10/14/15/16, SRC-12, SEC-01, OPS-03 |
 | ticker data (`data/sessions/days/`, `ticker-data` branch only) | SRC-12/13, PRIV-13, POL-15, OPS-10 |
+| `js/glossary.js`, `js/select-tools.js`, `js/report.js` | SEC-01, PRIV-01/02/05 (nothing about a highlight is sent, stored or counted; Report only opens a `mailto:` draft in the visitor's own email app), OPS-03/05/06 |
+| `data/glossary.json` | POL-02/03/04/05/10/13, SEC-02, LIC-05; explanations are written by the editor |
 | `GUARDRAILS.md`, `check.sh` | PROC-05 |
 | anything else | default FLAG |
 
@@ -520,6 +522,7 @@ a run costs one or two small requests and deploys nothing.
 | Votes the visitor casts are saved on the device (`politikch-votes`) — only after they click | ✅ disclosed |
 | Poll sync (`politikch-votes-pushed`, network calls) — **off** (`POLL_API` empty); the key is never written while off | ✅ · turning on = PRIV-07 (the key must then be added to the storage text) |
 | 404 page redirects to the home page keeping the `#` route | ✅ |
+| Highlighting text shows a toolbar (Define, Report); the glossary file loads from our own site; nothing about the highlight is sent, stored or counted. Report, like the contact form, only opens a draft in the visitor's own email app | ✅ (since 2026-10-05) |
 | During a session, the ticker page and the front-page strip reload the ticker files from our own site every 5 minutes while the tab is visible (same origin; nothing stored, nothing sent) | ✅ (since 2026-10-05) |
 
 ### 13.6 Local admin site — `admin/` (never published)
@@ -555,13 +558,18 @@ per-start token and a same-origin request.
   while an edit mode is on, writes nothing, and is never part of the published site
   (`admin/` is outside the deploy allowlist).
 
+*Added 2026-10-05:*
+
+- **Glossary.** The owner writes the explanations in `data/glossary.json` (plain
+  text, ≤ 80 words, EN/DE/FR/IT); published with "Publish text".
+
 It has three separate publish buttons, each pressed by the owner:
 
 | Button | Commits | Tab |
 |---|---|---|
 | Make changes live | `js/site-settings.js` only | Design / Vote links |
 | Publish images | `images/` + `js/site-images.js` only | Images |
-| Publish text | `data/i18n.json`, `data/parties.json`, `data/cantons.json`, `data/donor-descriptions.json`, `data/legal.json` only | Design (Edit text) |
+| Publish text | `data/i18n.json`, `data/parties.json`, `data/cantons.json`, `data/donor-descriptions.json`, `data/legal.json`, `data/glossary.json` only | Design (Edit text), Glossary |
 
 Each one builds the commit in a temporary, clean git worktree on `origin/main` (so
 other uncommitted work is neither published nor judged), runs `check.py` there,
@@ -597,7 +605,7 @@ Stage 1 findings E-01/E-02/G-01 cover them — re-check, don't assume.
 
 | Automated — BLOCK | Automated — FLAG (needs sign-off) | Still REVIEW / not yet automated |
 |---|---|---|
-| Data validity and invariants, i18n parity (VALIDATE, OPS-03) · SEC-01 (ratchet) · SEC-02 · SEC-03 · SEC-04 · SEC-05 · SEC-06 · SEC-07 · SEC-08 (exact pins) · SEC-09 · SEC-10 · SEC-11 · SRC-01 (static + VoteInfo host guard at run time) · SRC-02 (paid product vs `terms_ask`) · SRC-03 · SRC-05 · SRC-06 · SRC-09 · SRC-10 (weekly) · ED-09 (AI claims, via the POL-12 phrase scan) · ED-13 (no article paths in the repo) · PRIV-01 (static) · PRIV-02 · PRIV-03 · PRIV-05 · PRIV-06 · PRIV-08 · PRIV-10 · POL-01 · POL-12 · POL-13 · HOST-01 · HOST-04 (warnings → GitHub issue) · LIC-01 · LIC-03 · LIC-05 · LIC-06 · LIC-08 (via PRIV-08) · LIC-09 · OPS-01 · OPS-04 (data guard) · SRC-12 · SRC-13 · SRC-14 · PRIV-13 · POL-14 · POL-15 · POL-16 (static) · OPS-10 | Every file in the trigger table (incl. LIC-07 licence files) · UNKNOWN files (default rule) · POL-05 banned words · POL-09 quiet period · PRIV-04 privacy text · PRIV-07 poll · SEC-03 CSP edits · OPS-04 hand-edited generated data · OPS-07 billable DeepL | OPS-02 route smoke test, OPS-05 accessibility, OPS-06 mobile/performance (need a headless browser in CI — a new dependency, owner to decide) · POL-02/03/04/06/07/10 editorial judgement · SEC-08 hash pinning · LIC-02/04 (dependency and copied-text licences) · SRC-07/08/11 · PRIV-09/11/12 · PROC-01/03 (CLAUDE.md instructs; not machine-enforced) |
+| Data validity and invariants, i18n parity (VALIDATE, OPS-03) · SEC-01 (ratchet) · SEC-02 · SEC-03 · SEC-04 · SEC-05 · SEC-06 · SEC-07 · SEC-08 (exact pins) · SEC-09 · SEC-10 · SEC-11 · SRC-01 (static + VoteInfo host guard at run time) · SRC-02 (paid product vs `terms_ask`) · SRC-03 · SRC-05 · SRC-06 · SRC-09 · SRC-10 (weekly) · ED-09 (AI claims, via the POL-12 phrase scan) · ED-13 (no article paths in the repo) · PRIV-01 (static) · PRIV-02 · PRIV-03 · PRIV-05 · PRIV-06 · PRIV-08 · PRIV-10 · POL-01 · POL-12 · POL-13 · HOST-01 · HOST-04 (warnings → GitHub issue) · LIC-01 · LIC-03 · LIC-05 · LIC-06 · LIC-08 (via PRIV-08) · LIC-09 · OPS-01 · OPS-04 (data guard) · SRC-12 · SRC-13 · SRC-14 · PRIV-13 · POL-14 · POL-15 · POL-16 (static) · OPS-10 · glossary data (`validate.py`) | Every file in the trigger table (incl. LIC-07 licence files) · UNKNOWN files (default rule) · POL-05 banned words · POL-09 quiet period · PRIV-04 privacy text · PRIV-07 poll · SEC-03 CSP edits · OPS-04 hand-edited generated data · OPS-07 billable DeepL | OPS-02 route smoke test, OPS-05 accessibility, OPS-06 mobile/performance (need a headless browser in CI — a new dependency, owner to decide) · POL-02/03/04/06/07/10 editorial judgement · SEC-08 hash pinning · LIC-02/04 (dependency and copied-text licences) · SRC-07/08/11 · PRIV-09/11/12 · PROC-01/03 (CLAUDE.md instructs; not machine-enforced) |
 
 ---
 

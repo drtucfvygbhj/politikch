@@ -5,6 +5,9 @@ import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260925a';
 import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260925a';
 import { configureNews, newsActive, mountNewsChrome, renderNewsChrome, renderNewsHome, relayoutNews, renderSpotlightPage, renderAssemblyPage, renderNewsProfile, rmNotice, parlFigHTML, wireNewsGraphics } from './news.js?v=20260925a';
 import { configureTicker, renderTickerPage, loadTickerIndex, tickerToday } from './ticker.js?v=20260925a';
+import { configureReport, openReport } from './report.js?v=20260925a';
+import { configureGlossary, renderGlossaryPage, closeDefinition } from './glossary.js?v=20260925a';
+import { initSelectTools } from './select-tools.js?v=20260925a';
 
 /* ============================================================
    State
@@ -895,6 +898,7 @@ function setLang(lang) {
   if (route.view === 'financing') renderFinancingPage(route.id);
   if (route.view === 'privacy') renderPrivacyPage();
   if (route.view === 'about') renderAboutPage();
+  if (route.view === 'glossary') renderGlossaryPage();
   if (route.view === 'subscribe') renderSubscribePage();
   if (route.view === 'profile') renderProfilePage();
   if (newsActive()) { renderNewsChrome(); renderNewsHome(); if (route.view === 'cantons') renderSpotlightPage(route.id); if (route.view === 'assembly') renderAssemblyPage(route.id); rmNotice(prev); }
@@ -3614,6 +3618,9 @@ function renderPrivacyPage() {
         // Described only while the statistics are actually switched on (js/config.js).
         ...(ANALYTICS_API ? [{ h: 'privacy.h.analytics', p: ['privacy.p.analytics', 'privacy.p.analytics2'], html: '<div class="stats-switch" id="stats-switch"></div>' }] : []),
         { h: 'privacy.h.email', p: 'privacy.p.email' },
+        // Highlighting and looking up a term stay in the browser; Report opens the
+        // visitor's own email app, like the contact form.
+        { h: 'privacy.h.report', p: 'privacy.p.define' },
         { h: 'privacy.h.poll', p: ['privacy.p.poll', 'privacy.p.poll2'] },
         { h: 'privacy.h.commitments', p: ['privacy.p.commitments', 'privacy.p.commitments2'] },
         ...(PAID_PRODUCT_LIVE ? [{ h: 'privacy.h.subscription', badge: true, p: ['privacy.p.subscription', 'privacy.p.subscription2'] }] : []),
@@ -4102,6 +4109,7 @@ function showView(name) {
   document.getElementById('subscribe-page').classList.toggle('active', name === 'subscribe');
   document.getElementById('profile-page').classList.toggle('active', name === 'profile');
   document.getElementById('ticker-page').classList.toggle('active', name === 'ticker');
+  document.getElementById('glossary-page').classList.toggle('active', name === 'glossary');
 }
 
 /* Back buttons return to the page the visitor actually came from.
@@ -4160,6 +4168,7 @@ function handleRoute() {
   const known = stampHistoryEntry();
   redirecting = false;
   hideGlossTip();   // a tooltip never outlives the page it belongs to
+  closeDefinition();
   const { view, id } = parseHash();
   if (view === 'canton' && id) {
     renderCantonPage(id);
@@ -4200,6 +4209,9 @@ function handleRoute() {
   } else if (view === 'about') {
     renderAboutPage();
     showView('about');
+  } else if (view === 'glossary') {
+    renderGlossaryPage();
+    showView('glossary');
   } else if (view === 'subscribe' && !PAID_PRODUCT_LIVE) {
     replaceRoute('#/');
   } else if (view === 'subscribe') {
@@ -4308,6 +4320,12 @@ function bindEvents() {
     if (btn) { e.preventDefault(); openContactForm(btn.dataset.contactOrigin || 'General enquiry', btn); }
   });
 
+  // Any [.report-link] button opens the problem-report form.
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.report-link');
+    if (btn) { e.preventDefault(); openReport({ trigger: btn }); }
+  });
+
   // Paid-product links show only once the product is live (js/config.js).
   document.querySelectorAll('[data-paid-product]').forEach(el => { el.hidden = !PAID_PRODUCT_LIVE; });
 
@@ -4328,6 +4346,8 @@ async function init() {
   configureShare({ t, lang: () => state.lang });
   configureTicker({ t, state, formatFetched, formatLongDate, sessionName, devToday });
   configureVotes({ t, escapeAttr });
+  configureReport({ t, state, escapeAttr, recipient: contactRecipientPromise });
+  configureGlossary({ t, state, escapeAttr, openReport });
   // Keep vote-derived UI live when a vote changes: the profile's stats, and the
   // home votes list's "you voted" badges.
   document.addEventListener('politikch:votechange', (e) => {
@@ -4422,6 +4442,7 @@ async function init() {
   shareChart(document.getElementById('spectrum-chart'), () => spectrumSpec(t('spec.title'), '', {}));
   renderInitiatives();
   bindEvents();
+  initSelectTools({ t, escapeAttr });
   handleRoute();
 }
 

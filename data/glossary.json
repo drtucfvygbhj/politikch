@@ -1,0 +1,4606 @@
+{
+  "_meta": {
+    "description": "Glossary of Swiss institutions and procedures, used by the Define pop-up and #/glossary. Headwords, forms and sources compiled by Politikch; explanations are written by the editor (empty = not written yet). definitionKey = the explanation lives in data/i18n.json (gloss.*).",
+    "scope": "Institutions and procedures only: no parties, people or ideology words (GUARDRAILS POL-04/06).",
+    "updated": "2026-10-05",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Politikch (politikch.ch), CC BY 4.0. Sources linked per term (Fedlex)",
+    "commercialReuse": "yes, with credit"
+  },
+  "terms": [
+    {
+      "id": "confederation",
+      "category": "institutions",
+      "headword": {
+        "en": "Swiss Confederation",
+        "de": "Eidgenossenschaft",
+        "fr": "Confédération",
+        "it": "Confederazione"
+      },
+      "forms": {
+        "en": [
+          "Confederation"
+        ],
+        "de": [
+          "Schweizerische Eidgenossenschaft",
+          "Bund"
+        ],
+        "fr": [
+          "Confédération suisse"
+        ],
+        "it": [
+          "Confederazione Svizzera"
+        ]
+      },
+      "related": [
+        "canton",
+        "federalism"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_1",
+        "label": {
+          "en": "Federal Constitution, Art. 1",
+          "de": "Bundesverfassung, Art. 1",
+          "fr": "Constitution fédérale, art. 1",
+          "it": "Costituzione federale, art. 1"
+        }
+      }
+    },
+    {
+      "id": "federalConstitution",
+      "category": "institutions",
+      "headword": {
+        "en": "Federal Constitution",
+        "de": "Bundesverfassung",
+        "fr": "Constitution fédérale",
+        "it": "Costituzione federale"
+      },
+      "forms": {
+        "en": [
+          "Swiss Constitution",
+          "constitution"
+        ],
+        "de": [
+          "BV",
+          "Verfassung"
+        ],
+        "fr": [
+          "Cst.",
+          "constitution"
+        ],
+        "it": [
+          "Cost.",
+          "costituzione"
+        ]
+      },
+      "related": [
+        "constitutionalAmendment",
+        "mandatoryReferendum"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_192",
+        "label": {
+          "en": "Federal Constitution, Art. 192",
+          "de": "Bundesverfassung, Art. 192",
+          "fr": "Constitution fédérale, art. 192",
+          "it": "Costituzione federale, art. 192"
+        }
+      }
+    },
+    {
+      "id": "federalAssembly",
+      "category": "institutions",
+      "headword": {
+        "en": "Federal Assembly",
+        "de": "Bundesversammlung",
+        "fr": "Assemblée fédérale",
+        "it": "Assemblea federale"
+      },
+      "forms": {
+        "en": [
+          "Swiss parliament"
+        ],
+        "de": [
+          "Parlament"
+        ],
+        "fr": [
+          "Parlement"
+        ],
+        "it": [
+          "Parlamento"
+        ]
+      },
+      "related": [
+        "nationalCouncil",
+        "councilOfStates",
+        "unitedFederalAssembly"
+      ],
+      "definitionKey": "federalAssembly",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_148",
+        "label": {
+          "en": "Federal Constitution, Art. 148",
+          "de": "Bundesverfassung, Art. 148",
+          "fr": "Constitution fédérale, art. 148",
+          "it": "Costituzione federale, art. 148"
+        }
+      }
+    },
+    {
+      "id": "nationalCouncil",
+      "category": "institutions",
+      "headword": {
+        "en": "National Council",
+        "de": "Nationalrat",
+        "fr": "Conseil national",
+        "it": "Consiglio nazionale"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "councilOfStates",
+        "federalAssembly",
+        "proportionalRepresentation"
+      ],
+      "definitionKey": "nationalCouncil",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_149",
+        "label": {
+          "en": "Federal Constitution, Art. 149",
+          "de": "Bundesverfassung, Art. 149",
+          "fr": "Constitution fédérale, art. 149",
+          "it": "Costituzione federale, art. 149"
+        }
+      }
+    },
+    {
+      "id": "councilOfStates",
+      "category": "institutions",
+      "headword": {
+        "en": "Council of States",
+        "de": "Ständerat",
+        "fr": "Conseil des États",
+        "it": "Consiglio degli Stati"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [
+          "Conseil des Etats"
+        ],
+        "it": []
+      },
+      "related": [
+        "nationalCouncil",
+        "federalAssembly",
+        "canton"
+      ],
+      "definitionKey": "councilOfStates",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_150",
+        "label": {
+          "en": "Federal Constitution, Art. 150",
+          "de": "Bundesverfassung, Art. 150",
+          "fr": "Constitution fédérale, art. 150",
+          "it": "Costituzione federale, art. 150"
+        }
+      }
+    },
+    {
+      "id": "unitedFederalAssembly",
+      "category": "institutions",
+      "headword": {
+        "en": "United Federal Assembly",
+        "de": "Vereinigte Bundesversammlung",
+        "fr": "Assemblée fédérale (Chambres réunies)",
+        "it": "Assemblea federale plenaria"
+      },
+      "forms": {
+        "en": [
+          "joint session of both councils"
+        ],
+        "de": [],
+        "fr": [
+          "Chambres réunies"
+        ],
+        "it": [
+          "Camere riunite"
+        ]
+      },
+      "related": [
+        "federalAssembly",
+        "federalCouncilElection"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_157",
+        "label": {
+          "en": "Federal Constitution, Art. 157",
+          "de": "Bundesverfassung, Art. 157",
+          "fr": "Constitution fédérale, art. 157",
+          "it": "Costituzione federale, art. 157"
+        }
+      }
+    },
+    {
+      "id": "federalCouncil",
+      "category": "institutions",
+      "headword": {
+        "en": "Federal Council",
+        "de": "Bundesrat",
+        "fr": "Conseil fédéral",
+        "it": "Consiglio federale"
+      },
+      "forms": {
+        "en": [
+          "Swiss government"
+        ],
+        "de": [
+          "Landesregierung"
+        ],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "federalCouncillor",
+        "president",
+        "collegiality",
+        "concordance"
+      ],
+      "definitionKey": "federalCouncil",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_174",
+        "label": {
+          "en": "Federal Constitution, Art. 174",
+          "de": "Bundesverfassung, Art. 174",
+          "fr": "Constitution fédérale, art. 174",
+          "it": "Costituzione federale, art. 174"
+        }
+      }
+    },
+    {
+      "id": "federalCouncillor",
+      "category": "institutions",
+      "headword": {
+        "en": "Federal Councillor",
+        "de": "Bundesrätin",
+        "fr": "conseiller fédéral",
+        "it": "consigliere federale"
+      },
+      "forms": {
+        "en": [
+          "Federal Councillors",
+          "member of the Federal Council"
+        ],
+        "de": [
+          "Bundesräte",
+          "Bundesrätinnen",
+          "Mitglied des Bundesrates"
+        ],
+        "fr": [
+          "conseillère fédérale",
+          "conseillers fédéraux",
+          "conseillères fédérales"
+        ],
+        "it": [
+          "consigliera federale",
+          "consiglieri federali",
+          "consigliere federali"
+        ]
+      },
+      "related": [
+        "federalCouncil",
+        "federalCouncilElection",
+        "federalDepartment"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_175",
+        "label": {
+          "en": "Federal Constitution, Art. 175",
+          "de": "Bundesverfassung, Art. 175",
+          "fr": "Constitution fédérale, art. 175",
+          "it": "Costituzione federale, art. 175"
+        }
+      }
+    },
+    {
+      "id": "president",
+      "category": "institutions",
+      "headword": {
+        "en": "President of the Confederation",
+        "de": "Bundespräsident",
+        "fr": "président de la Confédération",
+        "it": "presidente della Confederazione"
+      },
+      "forms": {
+        "en": [
+          "Swiss President"
+        ],
+        "de": [
+          "Bundespräsidentin",
+          "Bundespräsidium"
+        ],
+        "fr": [
+          "présidente de la Confédération"
+        ],
+        "it": []
+      },
+      "related": [
+        "federalCouncil",
+        "vicePresident"
+      ],
+      "definitionKey": "president",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_176",
+        "label": {
+          "en": "Federal Constitution, Art. 176",
+          "de": "Bundesverfassung, Art. 176",
+          "fr": "Constitution fédérale, art. 176",
+          "it": "Costituzione federale, art. 176"
+        }
+      }
+    },
+    {
+      "id": "vicePresident",
+      "category": "institutions",
+      "headword": {
+        "en": "Vice-President of the Federal Council",
+        "de": "Vizepräsident des Bundesrates",
+        "fr": "vice-président du Conseil fédéral",
+        "it": "vicepresidente del Consiglio federale"
+      },
+      "forms": {
+        "en": [
+          "Vice President of the Federal Council"
+        ],
+        "de": [
+          "Vizepräsidentin des Bundesrates"
+        ],
+        "fr": [
+          "vice-présidente du Conseil fédéral"
+        ],
+        "it": []
+      },
+      "related": [
+        "president",
+        "federalCouncil"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_176",
+        "label": {
+          "en": "Federal Constitution, Art. 176",
+          "de": "Bundesverfassung, Art. 176",
+          "fr": "Constitution fédérale, art. 176",
+          "it": "Costituzione federale, art. 176"
+        }
+      }
+    },
+    {
+      "id": "federalDepartment",
+      "category": "institutions",
+      "headword": {
+        "en": "federal department",
+        "de": "Departement",
+        "fr": "département",
+        "it": "dipartimento"
+      },
+      "forms": {
+        "en": [
+          "department"
+        ],
+        "de": [
+          "Eidgenössisches Departement"
+        ],
+        "fr": [
+          "département fédéral"
+        ],
+        "it": [
+          "dipartimento federale"
+        ]
+      },
+      "related": [
+        "federalCouncillor",
+        "federalAdministration"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_178",
+        "label": {
+          "en": "Federal Constitution, Art. 178",
+          "de": "Bundesverfassung, Art. 178",
+          "fr": "Constitution fédérale, art. 178",
+          "it": "Costituzione federale, art. 178"
+        }
+      }
+    },
+    {
+      "id": "federalAdministration",
+      "category": "institutions",
+      "headword": {
+        "en": "Federal Administration",
+        "de": "Bundesverwaltung",
+        "fr": "administration fédérale",
+        "it": "Amministrazione federale"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "federalDepartment",
+        "federalCouncil"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_178",
+        "label": {
+          "en": "Federal Constitution, Art. 178",
+          "de": "Bundesverfassung, Art. 178",
+          "fr": "Constitution fédérale, art. 178",
+          "it": "Costituzione federale, art. 178"
+        }
+      }
+    },
+    {
+      "id": "federalChancellery",
+      "category": "institutions",
+      "headword": {
+        "en": "Federal Chancellery",
+        "de": "Bundeskanzlei",
+        "fr": "Chancellerie fédérale",
+        "it": "Cancelleria federale"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "federalChancellor",
+        "federalCouncil"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_179",
+        "label": {
+          "en": "Federal Constitution, Art. 179",
+          "de": "Bundesverfassung, Art. 179",
+          "fr": "Constitution fédérale, art. 179",
+          "it": "Costituzione federale, art. 179"
+        }
+      }
+    },
+    {
+      "id": "federalChancellor",
+      "category": "institutions",
+      "headword": {
+        "en": "Federal Chancellor",
+        "de": "Bundeskanzler",
+        "fr": "chancelier de la Confédération",
+        "it": "cancelliere della Confederazione"
+      },
+      "forms": {
+        "en": [],
+        "de": [
+          "Bundeskanzlerin"
+        ],
+        "fr": [
+          "chancelière de la Confédération"
+        ],
+        "it": [
+          "cancelliera della Confederazione"
+        ]
+      },
+      "related": [
+        "federalChancellery"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_179",
+        "label": {
+          "en": "Federal Constitution, Art. 179",
+          "de": "Bundesverfassung, Art. 179",
+          "fr": "Constitution fédérale, art. 179",
+          "it": "Costituzione federale, art. 179"
+        }
+      }
+    },
+    {
+      "id": "federalSupremeCourt",
+      "category": "institutions",
+      "headword": {
+        "en": "Federal Supreme Court",
+        "de": "Bundesgericht",
+        "fr": "Tribunal fédéral",
+        "it": "Tribunale federale"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "federalAssembly"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_188",
+        "label": {
+          "en": "Federal Constitution, Art. 188",
+          "de": "Bundesverfassung, Art. 188",
+          "fr": "Constitution fédérale, art. 188",
+          "it": "Costituzione federale, art. 188"
+        }
+      }
+    },
+    {
+      "id": "politicalParty",
+      "category": "institutions",
+      "headword": {
+        "en": "political party",
+        "de": "politische Partei",
+        "fr": "parti politique",
+        "it": "partito politico"
+      },
+      "forms": {
+        "en": [
+          "party"
+        ],
+        "de": [
+          "Partei"
+        ],
+        "fr": [
+          "parti"
+        ],
+        "it": [
+          "partito"
+        ]
+      },
+      "related": [
+        "parliamentaryGroup",
+        "parole"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_137",
+        "label": {
+          "en": "Federal Constitution, Art. 137",
+          "de": "Bundesverfassung, Art. 137",
+          "fr": "Constitution fédérale, art. 137",
+          "it": "Costituzione federale, art. 137"
+        }
+      }
+    },
+    {
+      "id": "parliamentaryServices",
+      "category": "institutions",
+      "headword": {
+        "en": "Parliamentary Services",
+        "de": "Parlamentsdienste",
+        "fr": "Services du Parlement",
+        "it": "Servizi del Parlamento"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "federalAssembly"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_64",
+        "label": {
+          "en": "Parliament Act, Art. 64",
+          "de": "Parlamentsgesetz, Art. 64",
+          "fr": "Loi sur le Parlement, art. 64",
+          "it": "Legge sul Parlamento, art. 64"
+        }
+      }
+    },
+    {
+      "id": "collegiality",
+      "category": "institutions",
+      "headword": {
+        "en": "principle of collegiality",
+        "de": "Kollegialprinzip",
+        "fr": "principe de collégialité",
+        "it": "principio di collegialità"
+      },
+      "forms": {
+        "en": [
+          "collegiality"
+        ],
+        "de": [
+          "Kollegialitätsprinzip"
+        ],
+        "fr": [
+          "collégialité"
+        ],
+        "it": [
+          "collegialità"
+        ]
+      },
+      "related": [
+        "federalCouncil",
+        "concordance"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_177",
+        "label": {
+          "en": "Federal Constitution, Art. 177",
+          "de": "Bundesverfassung, Art. 177",
+          "fr": "Constitution fédérale, art. 177",
+          "it": "Costituzione federale, art. 177"
+        }
+      }
+    },
+    {
+      "id": "concordance",
+      "category": "institutions",
+      "headword": {
+        "en": "concordance",
+        "de": "Konkordanz",
+        "fr": "concordance",
+        "it": "concordanza"
+      },
+      "forms": {
+        "en": [
+          "concordance democracy"
+        ],
+        "de": [
+          "Konkordanzdemokratie"
+        ],
+        "fr": [
+          "démocratie de concordance"
+        ],
+        "it": [
+          "democrazia della concordanza"
+        ]
+      },
+      "related": [
+        "magicFormula",
+        "federalCouncil",
+        "collegiality"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "magicFormula",
+      "category": "institutions",
+      "headword": {
+        "en": "magic formula",
+        "de": "Zauberformel",
+        "fr": "formule magique",
+        "it": "formula magica"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "concordance",
+        "federalCouncilElection"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "directDemocracy",
+      "category": "institutions",
+      "headword": {
+        "en": "direct democracy",
+        "de": "direkte Demokratie",
+        "fr": "démocratie directe",
+        "it": "democrazia diretta"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "initiative",
+        "referendum",
+        "popularVote"
+      ],
+      "definitionKey": "directDemocracy",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_136",
+        "label": {
+          "en": "Federal Constitution, Art. 136",
+          "de": "Bundesverfassung, Art. 136",
+          "fr": "Constitution fédérale, art. 136",
+          "it": "Costituzione federale, art. 136"
+        }
+      }
+    },
+    {
+      "id": "canton",
+      "category": "federalism",
+      "headword": {
+        "en": "canton",
+        "de": "Kanton",
+        "fr": "canton",
+        "it": "Cantone"
+      },
+      "forms": {
+        "en": [
+          "cantons"
+        ],
+        "de": [],
+        "fr": [],
+        "it": [
+          "cantone"
+        ]
+      },
+      "related": [
+        "halfCanton",
+        "federalism",
+        "cantonalMajority"
+      ],
+      "definitionKey": "canton",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_3",
+        "label": {
+          "en": "Federal Constitution, Art. 3",
+          "de": "Bundesverfassung, Art. 3",
+          "fr": "Constitution fédérale, art. 3",
+          "it": "Costituzione federale, art. 3"
+        }
+      }
+    },
+    {
+      "id": "halfCanton",
+      "category": "federalism",
+      "headword": {
+        "en": "half-canton",
+        "de": "Halbkanton",
+        "fr": "demi-canton",
+        "it": "semicantone"
+      },
+      "forms": {
+        "en": [
+          "half canton"
+        ],
+        "de": [],
+        "fr": [],
+        "it": [
+          "mezzo cantone"
+        ]
+      },
+      "related": [
+        "canton",
+        "cantonalMajority"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_142",
+        "label": {
+          "en": "Federal Constitution, Art. 142",
+          "de": "Bundesverfassung, Art. 142",
+          "fr": "Constitution fédérale, art. 142",
+          "it": "Costituzione federale, art. 142"
+        }
+      }
+    },
+    {
+      "id": "municipality",
+      "category": "federalism",
+      "headword": {
+        "en": "municipality",
+        "de": "Gemeinde",
+        "fr": "commune",
+        "it": "comune"
+      },
+      "forms": {
+        "en": [
+          "commune"
+        ],
+        "de": [
+          "politische Gemeinde"
+        ],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "canton",
+        "federalism"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_50",
+        "label": {
+          "en": "Federal Constitution, Art. 50",
+          "de": "Bundesverfassung, Art. 50",
+          "fr": "Constitution fédérale, art. 50",
+          "it": "Costituzione federale, art. 50"
+        }
+      }
+    },
+    {
+      "id": "federalism",
+      "category": "federalism",
+      "headword": {
+        "en": "federalism",
+        "de": "Föderalismus",
+        "fr": "fédéralisme",
+        "it": "federalismo"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "canton",
+        "subsidiarity",
+        "fiscalEqualisation"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_3",
+        "label": {
+          "en": "Federal Constitution, Art. 3",
+          "de": "Bundesverfassung, Art. 3",
+          "fr": "Constitution fédérale, art. 3",
+          "it": "Costituzione federale, art. 3"
+        }
+      }
+    },
+    {
+      "id": "subsidiarity",
+      "category": "federalism",
+      "headword": {
+        "en": "subsidiarity",
+        "de": "Subsidiarität",
+        "fr": "subsidiarité",
+        "it": "sussidiarietà"
+      },
+      "forms": {
+        "en": [
+          "principle of subsidiarity"
+        ],
+        "de": [
+          "Subsidiaritätsprinzip"
+        ],
+        "fr": [
+          "principe de subsidiarité"
+        ],
+        "it": [
+          "principio di sussidiarietà"
+        ]
+      },
+      "related": [
+        "federalism"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_5_a",
+        "label": {
+          "en": "Federal Constitution, Art. 5a",
+          "de": "Bundesverfassung, Art. 5a",
+          "fr": "Constitution fédérale, art. 5a",
+          "it": "Costituzione federale, art. 5a"
+        }
+      }
+    },
+    {
+      "id": "cantonalConstitution",
+      "category": "federalism",
+      "headword": {
+        "en": "cantonal constitution",
+        "de": "Kantonsverfassung",
+        "fr": "constitution cantonale",
+        "it": "costituzione cantonale"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "canton",
+        "federalConstitution"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_51",
+        "label": {
+          "en": "Federal Constitution, Art. 51",
+          "de": "Bundesverfassung, Art. 51",
+          "fr": "Constitution fédérale, art. 51",
+          "it": "Costituzione federale, art. 51"
+        }
+      }
+    },
+    {
+      "id": "cantonalParliament",
+      "category": "federalism",
+      "headword": {
+        "en": "cantonal parliament",
+        "de": "Kantonsparlament",
+        "fr": "parlement cantonal",
+        "it": "parlamento cantonale"
+      },
+      "forms": {
+        "en": [],
+        "de": [
+          "Kantonsrat",
+          "Grosser Rat",
+          "Landrat"
+        ],
+        "fr": [
+          "Grand Conseil"
+        ],
+        "it": [
+          "Gran Consiglio"
+        ]
+      },
+      "related": [
+        "canton",
+        "cantonalGovernment"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "cantonalGovernment",
+      "category": "federalism",
+      "headword": {
+        "en": "cantonal government",
+        "de": "Kantonsregierung",
+        "fr": "gouvernement cantonal",
+        "it": "governo cantonale"
+      },
+      "forms": {
+        "en": [],
+        "de": [
+          "Regierungsrat"
+        ],
+        "fr": [
+          "Conseil d’État",
+          "Conseil d'Etat"
+        ],
+        "it": [
+          "Consiglio di Stato"
+        ]
+      },
+      "related": [
+        "canton",
+        "cantonalParliament"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "landsgemeinde",
+      "category": "federalism",
+      "headword": {
+        "en": "Landsgemeinde",
+        "de": "Landsgemeinde",
+        "fr": "Landsgemeinde",
+        "it": "Landsgemeinde"
+      },
+      "forms": {
+        "en": [
+          "cantonal assembly"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "canton",
+        "directDemocracy"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "swissAbroad",
+      "category": "federalism",
+      "headword": {
+        "en": "Swiss abroad",
+        "de": "Auslandschweizer",
+        "fr": "Suisses de l’étranger",
+        "it": "Svizzeri all’estero"
+      },
+      "forms": {
+        "en": [],
+        "de": [
+          "Auslandschweizerinnen",
+          "Auslandschweizerinnen und Auslandschweizer"
+        ],
+        "fr": [
+          "Suisses de l'étranger"
+        ],
+        "it": [
+          "Svizzeri all'estero"
+        ]
+      },
+      "related": [
+        "rightToVote",
+        "postalVoting"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_40",
+        "label": {
+          "en": "Federal Constitution, Art. 40",
+          "de": "Bundesverfassung, Art. 40",
+          "fr": "Constitution fédérale, art. 40",
+          "it": "Costituzione federale, art. 40"
+        }
+      }
+    },
+    {
+      "id": "session",
+      "category": "parliament",
+      "headword": {
+        "en": "session",
+        "de": "Session",
+        "fr": "session",
+        "it": "sessione"
+      },
+      "forms": {
+        "en": [
+          "ordinary session"
+        ],
+        "de": [
+          "ordentliche Session"
+        ],
+        "fr": [
+          "session ordinaire"
+        ],
+        "it": [
+          "sessione ordinaria"
+        ]
+      },
+      "related": [
+        "specialSession",
+        "extraordinarySession",
+        "finalVote"
+      ],
+      "definitionKey": "session",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_2",
+        "label": {
+          "en": "Parliament Act, Art. 2",
+          "de": "Parlamentsgesetz, Art. 2",
+          "fr": "Loi sur le Parlement, art. 2",
+          "it": "Legge sul Parlamento, art. 2"
+        }
+      }
+    },
+    {
+      "id": "specialSession",
+      "category": "parliament",
+      "headword": {
+        "en": "special session",
+        "de": "Sondersession",
+        "fr": "session spéciale",
+        "it": "sessione speciale"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "session"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_2",
+        "label": {
+          "en": "Parliament Act, Art. 2",
+          "de": "Parlamentsgesetz, Art. 2",
+          "fr": "Loi sur le Parlement, art. 2",
+          "it": "Legge sul Parlamento, art. 2"
+        }
+      }
+    },
+    {
+      "id": "extraordinarySession",
+      "category": "parliament",
+      "headword": {
+        "en": "extraordinary session",
+        "de": "ausserordentliche Session",
+        "fr": "session extraordinaire",
+        "it": "sessione straordinaria"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "session"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_151",
+        "label": {
+          "en": "Federal Constitution, Art. 151",
+          "de": "Bundesverfassung, Art. 151",
+          "fr": "Constitution fédérale, art. 151",
+          "it": "Costituzione federale, art. 151"
+        }
+      }
+    },
+    {
+      "id": "legislativePeriod",
+      "category": "parliament",
+      "headword": {
+        "en": "legislative period",
+        "de": "Legislaturperiode",
+        "fr": "législature",
+        "it": "legislatura"
+      },
+      "forms": {
+        "en": [
+          "term of office"
+        ],
+        "de": [
+          "Legislatur",
+          "Amtsdauer"
+        ],
+        "fr": [
+          "durée de mandat"
+        ],
+        "it": [
+          "durata del mandato"
+        ]
+      },
+      "related": [
+        "federalElections",
+        "session"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_145",
+        "label": {
+          "en": "Federal Constitution, Art. 145",
+          "de": "Bundesverfassung, Art. 145",
+          "fr": "Constitution fédérale, art. 145",
+          "it": "Costituzione federale, art. 145"
+        }
+      }
+    },
+    {
+      "id": "finalVote",
+      "category": "parliament",
+      "headword": {
+        "en": "final vote",
+        "de": "Schlussabstimmung",
+        "fr": "vote final",
+        "it": "votazione finale"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [
+          "vote sur l’ensemble"
+        ],
+        "it": []
+      },
+      "related": [
+        "resolvingDifferences",
+        "optionalReferendum"
+      ],
+      "definitionKey": "finalVote",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_81",
+        "label": {
+          "en": "Parliament Act, Art. 81",
+          "de": "Parlamentsgesetz, Art. 81",
+          "fr": "Loi sur le Parlement, art. 81",
+          "it": "Legge sul Parlamento, art. 81"
+        }
+      }
+    },
+    {
+      "id": "firstCouncil",
+      "category": "parliament",
+      "headword": {
+        "en": "first council",
+        "de": "Erstrat",
+        "fr": "conseil prioritaire",
+        "it": "Camera prioritaria"
+      },
+      "forms": {
+        "en": [
+          "second council"
+        ],
+        "de": [
+          "Zweitrat"
+        ],
+        "fr": [
+          "second conseil"
+        ],
+        "it": [
+          "seconda Camera"
+        ]
+      },
+      "related": [
+        "resolvingDifferences"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_84",
+        "label": {
+          "en": "Parliament Act, Art. 84",
+          "de": "Parlamentsgesetz, Art. 84",
+          "fr": "Loi sur le Parlement, art. 84",
+          "it": "Legge sul Parlamento, art. 84"
+        }
+      }
+    },
+    {
+      "id": "resolvingDifferences",
+      "category": "parliament",
+      "headword": {
+        "en": "procedure to resolve differences",
+        "de": "Differenzbereinigung",
+        "fr": "élimination des divergences",
+        "it": "appianamento delle divergenze"
+      },
+      "forms": {
+        "en": [
+          "resolving differences"
+        ],
+        "de": [
+          "Differenzbereinigungsverfahren"
+        ],
+        "fr": [
+          "procédure d’élimination des divergences"
+        ],
+        "it": [
+          "procedura di appianamento delle divergenze"
+        ]
+      },
+      "related": [
+        "conciliationConference",
+        "firstCouncil",
+        "finalVote"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_89",
+        "label": {
+          "en": "Parliament Act, Art. 89",
+          "de": "Parlamentsgesetz, Art. 89",
+          "fr": "Loi sur le Parlement, art. 89",
+          "it": "Legge sul Parlamento, art. 89"
+        }
+      }
+    },
+    {
+      "id": "conciliationConference",
+      "category": "parliament",
+      "headword": {
+        "en": "conciliation conference",
+        "de": "Einigungskonferenz",
+        "fr": "conférence de conciliation",
+        "it": "conferenza di conciliazione"
+      },
+      "forms": {
+        "en": [
+          "conciliation committee"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "resolvingDifferences"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_91",
+        "label": {
+          "en": "Parliament Act, Art. 91",
+          "de": "Parlamentsgesetz, Art. 91",
+          "fr": "Loi sur le Parlement, art. 91",
+          "it": "Legge sul Parlamento, art. 91"
+        }
+      }
+    },
+    {
+      "id": "castingVote",
+      "category": "parliament",
+      "headword": {
+        "en": "casting vote",
+        "de": "Stichentscheid",
+        "fr": "voix prépondérante",
+        "it": "voto preponderante"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": [
+          "voto decisivo"
+        ]
+      },
+      "related": [
+        "councilPresident"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_80",
+        "label": {
+          "en": "Parliament Act, Art. 80",
+          "de": "Parlamentsgesetz, Art. 80",
+          "fr": "Loi sur le Parlement, art. 80",
+          "it": "Legge sul Parlamento, art. 80"
+        }
+      }
+    },
+    {
+      "id": "councilPresident",
+      "category": "parliament",
+      "headword": {
+        "en": "President of the National Council",
+        "de": "Nationalratspräsident",
+        "fr": "président du Conseil national",
+        "it": "presidente del Consiglio nazionale"
+      },
+      "forms": {
+        "en": [
+          "President of the Council of States",
+          "council president"
+        ],
+        "de": [
+          "Nationalratspräsidentin",
+          "Ständeratspräsident",
+          "Ständeratspräsidentin",
+          "Ratspräsident",
+          "Ratspräsidentin"
+        ],
+        "fr": [
+          "présidente du Conseil national",
+          "président du Conseil des États",
+          "présidente du Conseil des États"
+        ],
+        "it": [
+          "presidente del Consiglio degli Stati"
+        ]
+      },
+      "related": [
+        "castingVote",
+        "nationalCouncil",
+        "councilOfStates"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "parliamentaryGroup",
+      "category": "parliament",
+      "headword": {
+        "en": "parliamentary group",
+        "de": "Fraktion",
+        "fr": "groupe parlementaire",
+        "it": "gruppo parlamentare"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "politicalParty",
+        "committee"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_61",
+        "label": {
+          "en": "Parliament Act, Art. 61",
+          "de": "Parlamentsgesetz, Art. 61",
+          "fr": "Loi sur le Parlement, art. 61",
+          "it": "Legge sul Parlamento, art. 61"
+        }
+      }
+    },
+    {
+      "id": "committee",
+      "category": "parliament",
+      "headword": {
+        "en": "parliamentary committee",
+        "de": "Kommission",
+        "fr": "commission",
+        "it": "commissione"
+      },
+      "forms": {
+        "en": [
+          "committee"
+        ],
+        "de": [
+          "parlamentarische Kommission"
+        ],
+        "fr": [
+          "commission parlementaire"
+        ],
+        "it": [
+          "commissione parlamentare"
+        ]
+      },
+      "related": [
+        "parliamentaryGroup",
+        "controlCommittee"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_42",
+        "label": {
+          "en": "Parliament Act, Art. 42",
+          "de": "Parlamentsgesetz, Art. 42",
+          "fr": "Loi sur le Parlement, art. 42",
+          "it": "Legge sul Parlamento, art. 42"
+        }
+      }
+    },
+    {
+      "id": "controlCommittee",
+      "category": "parliament",
+      "headword": {
+        "en": "Control Committee",
+        "de": "Geschäftsprüfungskommission",
+        "fr": "Commission de gestion",
+        "it": "Commissione della gestione"
+      },
+      "forms": {
+        "en": [
+          "Control Committees"
+        ],
+        "de": [
+          "GPK"
+        ],
+        "fr": [
+          "CdG"
+        ],
+        "it": [
+          "CdG"
+        ]
+      },
+      "related": [
+        "committee",
+        "federalCouncil"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_52",
+        "label": {
+          "en": "Parliament Act, Art. 52",
+          "de": "Parlamentsgesetz, Art. 52",
+          "fr": "Loi sur le Parlement, art. 52",
+          "it": "Legge sul Parlamento, art. 52"
+        }
+      }
+    },
+    {
+      "id": "registerOfInterests",
+      "category": "parliament",
+      "headword": {
+        "en": "register of interests",
+        "de": "Register der Interessenbindungen",
+        "fr": "registre des intérêts",
+        "it": "registro degli interessi"
+      },
+      "forms": {
+        "en": [
+          "declared interests"
+        ],
+        "de": [
+          "Interessenbindungen"
+        ],
+        "fr": [
+          "liens d’intérêts"
+        ],
+        "it": [
+          "relazioni d’interesse"
+        ]
+      },
+      "related": [
+        "nationalCouncil",
+        "councilOfStates"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_11",
+        "label": {
+          "en": "Parliament Act, Art. 11",
+          "de": "Parlamentsgesetz, Art. 11",
+          "fr": "Loi sur le Parlement, art. 11",
+          "it": "Legge sul Parlamento, art. 11"
+        }
+      }
+    },
+    {
+      "id": "motion",
+      "category": "parliament",
+      "headword": {
+        "en": "motion",
+        "de": "Motion",
+        "fr": "motion",
+        "it": "mozione"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "postulate",
+        "interpellation",
+        "parliamentaryInitiative"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_120",
+        "label": {
+          "en": "Parliament Act, Art. 120",
+          "de": "Parlamentsgesetz, Art. 120",
+          "fr": "Loi sur le Parlement, art. 120",
+          "it": "Legge sul Parlamento, art. 120"
+        }
+      }
+    },
+    {
+      "id": "postulate",
+      "category": "parliament",
+      "headword": {
+        "en": "postulate",
+        "de": "Postulat",
+        "fr": "postulat",
+        "it": "postulato"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "motion",
+        "interpellation"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_123",
+        "label": {
+          "en": "Parliament Act, Art. 123",
+          "de": "Parlamentsgesetz, Art. 123",
+          "fr": "Loi sur le Parlement, art. 123",
+          "it": "Legge sul Parlamento, art. 123"
+        }
+      }
+    },
+    {
+      "id": "interpellation",
+      "category": "parliament",
+      "headword": {
+        "en": "interpellation",
+        "de": "Interpellation",
+        "fr": "interpellation",
+        "it": "interpellanza"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "question",
+        "motion"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_125",
+        "label": {
+          "en": "Parliament Act, Art. 125",
+          "de": "Parlamentsgesetz, Art. 125",
+          "fr": "Loi sur le Parlement, art. 125",
+          "it": "Legge sul Parlamento, art. 125"
+        }
+      }
+    },
+    {
+      "id": "question",
+      "category": "parliament",
+      "headword": {
+        "en": "question",
+        "de": "Anfrage",
+        "fr": "question",
+        "it": "interrogazione"
+      },
+      "forms": {
+        "en": [
+          "Question Time"
+        ],
+        "de": [
+          "Fragestunde"
+        ],
+        "fr": [
+          "heure des questions"
+        ],
+        "it": [
+          "ora delle domande"
+        ]
+      },
+      "related": [
+        "interpellation"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_125",
+        "label": {
+          "en": "Parliament Act, Art. 125",
+          "de": "Parlamentsgesetz, Art. 125",
+          "fr": "Loi sur le Parlement, art. 125",
+          "it": "Legge sul Parlamento, art. 125"
+        }
+      }
+    },
+    {
+      "id": "parliamentaryInitiative",
+      "category": "parliament",
+      "headword": {
+        "en": "parliamentary initiative",
+        "de": "parlamentarische Initiative",
+        "fr": "initiative parlementaire",
+        "it": "iniziativa parlamentare"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "cantonalInitiative",
+        "motion",
+        "initiative"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_107",
+        "label": {
+          "en": "Parliament Act, Art. 107",
+          "de": "Parlamentsgesetz, Art. 107",
+          "fr": "Loi sur le Parlement, art. 107",
+          "it": "Legge sul Parlamento, art. 107"
+        }
+      }
+    },
+    {
+      "id": "cantonalInitiative",
+      "category": "parliament",
+      "headword": {
+        "en": "cantonal initiative",
+        "de": "Standesinitiative",
+        "fr": "initiative cantonale",
+        "it": "iniziativa cantonale"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [
+          "initiative d’un canton"
+        ],
+        "it": [
+          "iniziativa di un Cantone"
+        ]
+      },
+      "related": [
+        "parliamentaryInitiative",
+        "canton"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_160",
+        "label": {
+          "en": "Federal Constitution, Art. 160",
+          "de": "Bundesverfassung, Art. 160",
+          "fr": "Constitution fédérale, art. 160",
+          "it": "Costituzione federale, art. 160"
+        }
+      }
+    },
+    {
+      "id": "dispatch",
+      "category": "parliament",
+      "headword": {
+        "en": "dispatch",
+        "de": "Botschaft",
+        "fr": "message",
+        "it": "messaggio"
+      },
+      "forms": {
+        "en": [
+          "Federal Council dispatch"
+        ],
+        "de": [
+          "Botschaft des Bundesrates"
+        ],
+        "fr": [
+          "message du Conseil fédéral"
+        ],
+        "it": [
+          "messaggio del Consiglio federale"
+        ]
+      },
+      "related": [
+        "consultation",
+        "federalAct"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_141",
+        "label": {
+          "en": "Parliament Act, Art. 141",
+          "de": "Parlamentsgesetz, Art. 141",
+          "fr": "Loi sur le Parlement, art. 141",
+          "it": "Legge sul Parlamento, art. 141"
+        }
+      }
+    },
+    {
+      "id": "consultation",
+      "category": "parliament",
+      "headword": {
+        "en": "consultation procedure",
+        "de": "Vernehmlassung",
+        "fr": "procédure de consultation",
+        "it": "procedura di consultazione"
+      },
+      "forms": {
+        "en": [
+          "consultation"
+        ],
+        "de": [
+          "Vernehmlassungsverfahren"
+        ],
+        "fr": [
+          "consultation"
+        ],
+        "it": [
+          "consultazione"
+        ]
+      },
+      "related": [
+        "dispatch",
+        "federalAct"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_147",
+        "label": {
+          "en": "Federal Constitution, Art. 147",
+          "de": "Bundesverfassung, Art. 147",
+          "fr": "Constitution fédérale, art. 147",
+          "it": "Costituzione federale, art. 147"
+        }
+      }
+    },
+    {
+      "id": "businessNumber",
+      "category": "parliament",
+      "headword": {
+        "en": "business number",
+        "de": "Geschäftsnummer",
+        "fr": "numéro d’objet",
+        "it": "numero dell’oggetto"
+      },
+      "forms": {
+        "en": [
+          "parliamentary item"
+        ],
+        "de": [
+          "Geschäft",
+          "Ratsgeschäft"
+        ],
+        "fr": [
+          "objet"
+        ],
+        "it": [
+          "oggetto"
+        ]
+      },
+      "related": [
+        "curiaVista"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "curiaVista",
+      "category": "parliament",
+      "headword": {
+        "en": "Curia Vista",
+        "de": "Curia Vista",
+        "fr": "Curia Vista",
+        "it": "Curia Vista"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "businessNumber",
+        "officialBulletin"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "officialBulletin",
+      "category": "parliament",
+      "headword": {
+        "en": "Official Bulletin",
+        "de": "Amtliches Bulletin",
+        "fr": "Bulletin officiel",
+        "it": "Bollettino ufficiale"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "curiaVista",
+        "session"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "rollCallVote",
+      "category": "parliament",
+      "headword": {
+        "en": "roll-call vote",
+        "de": "Namensabstimmung",
+        "fr": "vote nominatif",
+        "it": "votazione per appello nominale"
+      },
+      "forms": {
+        "en": [
+          "recorded vote"
+        ],
+        "de": [
+          "namentliche Abstimmung"
+        ],
+        "fr": [
+          "vote par appel nominal"
+        ],
+        "it": []
+      },
+      "related": [
+        "finalVote"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/2003/510/{lang}#art_78",
+        "label": {
+          "en": "Parliament Act, Art. 78",
+          "de": "Parlamentsgesetz, Art. 78",
+          "fr": "Loi sur le Parlement, art. 78",
+          "it": "Legge sul Parlamento, art. 78"
+        }
+      }
+    },
+    {
+      "id": "federalAct",
+      "category": "parliament",
+      "headword": {
+        "en": "federal act",
+        "de": "Bundesgesetz",
+        "fr": "loi fédérale",
+        "it": "legge federale"
+      },
+      "forms": {
+        "en": [
+          "federal law"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "optionalReferendum",
+        "ordinance",
+        "federalDecree"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_164",
+        "label": {
+          "en": "Federal Constitution, Art. 164",
+          "de": "Bundesverfassung, Art. 164",
+          "fr": "Constitution fédérale, art. 164",
+          "it": "Costituzione federale, art. 164"
+        }
+      }
+    },
+    {
+      "id": "federalDecree",
+      "category": "parliament",
+      "headword": {
+        "en": "federal decree",
+        "de": "Bundesbeschluss",
+        "fr": "arrêté fédéral",
+        "it": "decreto federale"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "federalAct",
+        "mandatoryReferendum"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_163",
+        "label": {
+          "en": "Federal Constitution, Art. 163",
+          "de": "Bundesverfassung, Art. 163",
+          "fr": "Constitution fédérale, art. 163",
+          "it": "Costituzione federale, art. 163"
+        }
+      }
+    },
+    {
+      "id": "urgentFederalAct",
+      "category": "parliament",
+      "headword": {
+        "en": "urgent federal act",
+        "de": "dringlich erklärtes Bundesgesetz",
+        "fr": "loi fédérale déclarée urgente",
+        "it": "legge federale dichiarata urgente"
+      },
+      "forms": {
+        "en": [
+          "emergency legislation"
+        ],
+        "de": [
+          "Dringlichkeitsrecht"
+        ],
+        "fr": [
+          "droit d’urgence"
+        ],
+        "it": [
+          "diritto d’urgenza"
+        ]
+      },
+      "related": [
+        "federalAct",
+        "optionalReferendum",
+        "mandatoryReferendum"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_165",
+        "label": {
+          "en": "Federal Constitution, Art. 165",
+          "de": "Bundesverfassung, Art. 165",
+          "fr": "Constitution fédérale, art. 165",
+          "it": "Costituzione federale, art. 165"
+        }
+      }
+    },
+    {
+      "id": "ordinance",
+      "category": "parliament",
+      "headword": {
+        "en": "ordinance",
+        "de": "Verordnung",
+        "fr": "ordonnance",
+        "it": "ordinanza"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "federalAct",
+        "federalCouncil"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_182",
+        "label": {
+          "en": "Federal Constitution, Art. 182",
+          "de": "Bundesverfassung, Art. 182",
+          "fr": "Constitution fédérale, art. 182",
+          "it": "Costituzione federale, art. 182"
+        }
+      }
+    },
+    {
+      "id": "federalGazette",
+      "category": "parliament",
+      "headword": {
+        "en": "Federal Gazette",
+        "de": "Bundesblatt",
+        "fr": "Feuille fédérale",
+        "it": "Foglio federale"
+      },
+      "forms": {
+        "en": [],
+        "de": [
+          "BBl"
+        ],
+        "fr": [
+          "FF"
+        ],
+        "it": [
+          "FF"
+        ]
+      },
+      "related": [
+        "classifiedCompilation"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "classifiedCompilation",
+      "category": "parliament",
+      "headword": {
+        "en": "Classified Compilation of Federal Legislation",
+        "de": "Systematische Rechtssammlung",
+        "fr": "Recueil systématique du droit fédéral",
+        "it": "Raccolta sistematica del diritto federale"
+      },
+      "forms": {
+        "en": [
+          "SR number"
+        ],
+        "de": [
+          "SR"
+        ],
+        "fr": [
+          "RS"
+        ],
+        "it": [
+          "RS"
+        ]
+      },
+      "related": [
+        "federalGazette"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "popularVote",
+      "category": "votes",
+      "headword": {
+        "en": "popular vote",
+        "de": "Volksabstimmung",
+        "fr": "votation populaire",
+        "it": "votazione popolare"
+      },
+      "forms": {
+        "en": [
+          "federal vote",
+          "ballot"
+        ],
+        "de": [
+          "eidgenössische Abstimmung"
+        ],
+        "fr": [
+          "votation fédérale",
+          "votation"
+        ],
+        "it": [
+          "votazione federale"
+        ]
+      },
+      "related": [
+        "votingDay",
+        "popularMajority",
+        "doubleMajority"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_136",
+        "label": {
+          "en": "Federal Constitution, Art. 136",
+          "de": "Bundesverfassung, Art. 136",
+          "fr": "Constitution fédérale, art. 136",
+          "it": "Costituzione federale, art. 136"
+        }
+      }
+    },
+    {
+      "id": "votingDay",
+      "category": "votes",
+      "headword": {
+        "en": "voting day",
+        "de": "Abstimmungstag",
+        "fr": "jour de votation",
+        "it": "giorno della votazione"
+      },
+      "forms": {
+        "en": [
+          "polling day"
+        ],
+        "de": [
+          "Abstimmungssonntag",
+          "Urnengang"
+        ],
+        "fr": [
+          "dimanche de votation"
+        ],
+        "it": [
+          "domenica di votazione"
+        ]
+      },
+      "related": [
+        "popularVote",
+        "postalVoting"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "initiative",
+      "category": "votes",
+      "headword": {
+        "en": "popular initiative",
+        "de": "Volksinitiative",
+        "fr": "initiative populaire",
+        "it": "iniziativa popolare"
+      },
+      "forms": {
+        "en": [
+          "federal popular initiative"
+        ],
+        "de": [
+          "eidgenössische Volksinitiative"
+        ],
+        "fr": [
+          "initiative populaire fédérale"
+        ],
+        "it": [
+          "iniziativa popolare federale"
+        ]
+      },
+      "alsoMatches": {
+        "en": [
+          "initiative"
+        ],
+        "de": [
+          "Initiative"
+        ],
+        "fr": [
+          "initiative"
+        ],
+        "it": [
+          "iniziativa"
+        ]
+      },
+      "related": [
+        "signatureCollection",
+        "counterProposal",
+        "doubleMajority"
+      ],
+      "definitionKey": "initiative",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_139",
+        "label": {
+          "en": "Federal Constitution, Art. 139",
+          "de": "Bundesverfassung, Art. 139",
+          "fr": "Constitution fédérale, art. 139",
+          "it": "Costituzione federale, art. 139"
+        }
+      }
+    },
+    {
+      "id": "generalProposal",
+      "category": "votes",
+      "headword": {
+        "en": "initiative in the form of a general proposal",
+        "de": "allgemeine Anregung",
+        "fr": "proposition conçue en termes généraux",
+        "it": "proposta generica"
+      },
+      "forms": {
+        "en": [
+          "general proposal"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "initiative",
+        "specificDraft"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_139",
+        "label": {
+          "en": "Federal Constitution, Art. 139",
+          "de": "Bundesverfassung, Art. 139",
+          "fr": "Constitution fédérale, art. 139",
+          "it": "Costituzione federale, art. 139"
+        }
+      }
+    },
+    {
+      "id": "specificDraft",
+      "category": "votes",
+      "headword": {
+        "en": "initiative in the form of a specific draft",
+        "de": "ausgearbeiteter Entwurf",
+        "fr": "projet rédigé",
+        "it": "progetto elaborato"
+      },
+      "forms": {
+        "en": [
+          "specific draft"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "initiative",
+        "generalProposal"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_139",
+        "label": {
+          "en": "Federal Constitution, Art. 139",
+          "de": "Bundesverfassung, Art. 139",
+          "fr": "Constitution fédérale, art. 139",
+          "it": "Costituzione federale, art. 139"
+        }
+      }
+    },
+    {
+      "id": "unityOfSubjectMatter",
+      "category": "votes",
+      "headword": {
+        "en": "unity of subject matter",
+        "de": "Einheit der Materie",
+        "fr": "unité de la matière",
+        "it": "unità della materia"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "initiative",
+        "unityOfForm"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_139",
+        "label": {
+          "en": "Federal Constitution, Art. 139",
+          "de": "Bundesverfassung, Art. 139",
+          "fr": "Constitution fédérale, art. 139",
+          "it": "Costituzione federale, art. 139"
+        }
+      }
+    },
+    {
+      "id": "unityOfForm",
+      "category": "votes",
+      "headword": {
+        "en": "unity of form",
+        "de": "Einheit der Form",
+        "fr": "unité de la forme",
+        "it": "unità della forma"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "unityOfSubjectMatter"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_139",
+        "label": {
+          "en": "Federal Constitution, Art. 139",
+          "de": "Bundesverfassung, Art. 139",
+          "fr": "Constitution fédérale, art. 139",
+          "it": "Costituzione federale, art. 139"
+        }
+      }
+    },
+    {
+      "id": "totalRevisionInitiative",
+      "category": "votes",
+      "headword": {
+        "en": "initiative for a total revision of the Constitution",
+        "de": "Totalrevision",
+        "fr": "révision totale",
+        "it": "revisione totale"
+      },
+      "forms": {
+        "en": [
+          "total revision"
+        ],
+        "de": [
+          "Volksinitiative auf Totalrevision"
+        ],
+        "fr": [
+          "initiative populaire tendant à la révision totale"
+        ],
+        "it": [
+          "iniziativa popolare per la revisione totale"
+        ]
+      },
+      "related": [
+        "constitutionalAmendment",
+        "initiative"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_138",
+        "label": {
+          "en": "Federal Constitution, Art. 138",
+          "de": "Bundesverfassung, Art. 138",
+          "fr": "Constitution fédérale, art. 138",
+          "it": "Costituzione federale, art. 138"
+        }
+      }
+    },
+    {
+      "id": "constitutionalAmendment",
+      "category": "votes",
+      "headword": {
+        "en": "constitutional amendment",
+        "de": "Verfassungsänderung",
+        "fr": "révision constitutionnelle",
+        "it": "revisione costituzionale"
+      },
+      "forms": {
+        "en": [
+          "partial revision"
+        ],
+        "de": [
+          "Teilrevision"
+        ],
+        "fr": [
+          "révision partielle"
+        ],
+        "it": [
+          "revisione parziale"
+        ]
+      },
+      "related": [
+        "mandatoryReferendum",
+        "doubleMajority"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_194",
+        "label": {
+          "en": "Federal Constitution, Art. 194",
+          "de": "Bundesverfassung, Art. 194",
+          "fr": "Constitution fédérale, art. 194",
+          "it": "Costituzione federale, art. 194"
+        }
+      }
+    },
+    {
+      "id": "referendum",
+      "category": "votes",
+      "headword": {
+        "en": "referendum",
+        "de": "Referendum",
+        "fr": "référendum",
+        "it": "referendum"
+      },
+      "forms": {
+        "en": [
+          "referendums",
+          "referenda"
+        ],
+        "de": [
+          "Referenden"
+        ],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "mandatoryReferendum",
+        "optionalReferendum",
+        "cantonalReferendum"
+      ],
+      "definitionKey": "referendum",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_141",
+        "label": {
+          "en": "Federal Constitution, Art. 141",
+          "de": "Bundesverfassung, Art. 141",
+          "fr": "Constitution fédérale, art. 141",
+          "it": "Costituzione federale, art. 141"
+        }
+      }
+    },
+    {
+      "id": "mandatoryReferendum",
+      "category": "votes",
+      "headword": {
+        "en": "mandatory referendum",
+        "de": "obligatorisches Referendum",
+        "fr": "référendum obligatoire",
+        "it": "referendum obbligatorio"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "doubleMajority",
+        "constitutionalAmendment"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_140",
+        "label": {
+          "en": "Federal Constitution, Art. 140",
+          "de": "Bundesverfassung, Art. 140",
+          "fr": "Constitution fédérale, art. 140",
+          "it": "Costituzione federale, art. 140"
+        }
+      }
+    },
+    {
+      "id": "optionalReferendum",
+      "category": "votes",
+      "headword": {
+        "en": "optional referendum",
+        "de": "fakultatives Referendum",
+        "fr": "référendum facultatif",
+        "it": "referendum facoltativo"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "popularMajority",
+        "referendumPeriod",
+        "cantonalReferendum"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_141",
+        "label": {
+          "en": "Federal Constitution, Art. 141",
+          "de": "Bundesverfassung, Art. 141",
+          "fr": "Constitution fédérale, art. 141",
+          "it": "Costituzione federale, art. 141"
+        }
+      }
+    },
+    {
+      "id": "cantonalReferendum",
+      "category": "votes",
+      "headword": {
+        "en": "cantonal referendum",
+        "de": "Kantonsreferendum",
+        "fr": "référendum des cantons",
+        "it": "referendum dei Cantoni"
+      },
+      "forms": {
+        "en": [
+          "referendum by the cantons"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "optionalReferendum",
+        "canton"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_141",
+        "label": {
+          "en": "Federal Constitution, Art. 141",
+          "de": "Bundesverfassung, Art. 141",
+          "fr": "Constitution fédérale, art. 141",
+          "it": "Costituzione federale, art. 141"
+        }
+      }
+    },
+    {
+      "id": "referendumPeriod",
+      "category": "votes",
+      "headword": {
+        "en": "referendum period",
+        "de": "Referendumsfrist",
+        "fr": "délai référendaire",
+        "it": "termine di referendum"
+      },
+      "forms": {
+        "en": [
+          "referendum deadline"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "optionalReferendum",
+        "signatureCollection"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_141",
+        "label": {
+          "en": "Federal Constitution, Art. 141",
+          "de": "Bundesverfassung, Art. 141",
+          "fr": "Constitution fédérale, art. 141",
+          "it": "Costituzione federale, art. 141"
+        }
+      }
+    },
+    {
+      "id": "referendumCommittee",
+      "category": "votes",
+      "headword": {
+        "en": "referendum committee",
+        "de": "Referendumskomitee",
+        "fr": "comité référendaire",
+        "it": "comitato referendario"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "optionalReferendum",
+        "initiativeCommittee"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "initiativeCommittee",
+      "category": "votes",
+      "headword": {
+        "en": "initiative committee",
+        "de": "Initiativkomitee",
+        "fr": "comité d’initiative",
+        "it": "comitato d’iniziativa"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [
+          "comité d'initiative"
+        ],
+        "it": [
+          "comitato promotore"
+        ]
+      },
+      "related": [
+        "initiative",
+        "withdrawal",
+        "preliminaryExamination"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_68",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 68",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 68",
+          "fr": "Loi fédérale sur les droits politiques, art. 68",
+          "it": "Legge federale sui diritti politici, art. 68"
+        }
+      }
+    },
+    {
+      "id": "preliminaryExamination",
+      "category": "votes",
+      "headword": {
+        "en": "preliminary examination",
+        "de": "Vorprüfung",
+        "fr": "examen préliminaire",
+        "it": "esame preliminare"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "initiative",
+        "signatureCollection"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_69",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 69",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 69",
+          "fr": "Loi fédérale sur les droits politiques, art. 69",
+          "it": "Legge federale sui diritti politici, art. 69"
+        }
+      }
+    },
+    {
+      "id": "signatureCollection",
+      "category": "votes",
+      "headword": {
+        "en": "collecting signatures",
+        "de": "Unterschriftensammlung",
+        "fr": "récolte de signatures",
+        "it": "raccolta delle firme"
+      },
+      "forms": {
+        "en": [
+          "signature collection",
+          "gathering signatures"
+        ],
+        "de": [
+          "Unterschriften sammeln"
+        ],
+        "fr": [
+          "collecte de signatures"
+        ],
+        "it": [
+          "raccolta firme"
+        ]
+      },
+      "related": [
+        "collectionPeriod",
+        "initiative",
+        "optionalReferendum"
+      ],
+      "definitionKey": "collecting",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_139",
+        "label": {
+          "en": "Federal Constitution, Art. 139",
+          "de": "Bundesverfassung, Art. 139",
+          "fr": "Constitution fédérale, art. 139",
+          "it": "Costituzione federale, art. 139"
+        }
+      }
+    },
+    {
+      "id": "collectionPeriod",
+      "category": "votes",
+      "headword": {
+        "en": "collection period",
+        "de": "Sammelfrist",
+        "fr": "délai de récolte",
+        "it": "termine di raccolta"
+      },
+      "forms": {
+        "en": [
+          "signature deadline"
+        ],
+        "de": [],
+        "fr": [
+          "délai de récolte des signatures"
+        ],
+        "it": [
+          "termine per la raccolta delle firme"
+        ]
+      },
+      "related": [
+        "signatureCollection",
+        "referendumPeriod"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_139",
+        "label": {
+          "en": "Federal Constitution, Art. 139",
+          "de": "Bundesverfassung, Art. 139",
+          "fr": "Constitution fédérale, art. 139",
+          "it": "Costituzione federale, art. 139"
+        }
+      }
+    },
+    {
+      "id": "submission",
+      "category": "votes",
+      "headword": {
+        "en": "submission of an initiative",
+        "de": "Einreichung",
+        "fr": "dépôt",
+        "it": "deposito"
+      },
+      "forms": {
+        "en": [
+          "submission"
+        ],
+        "de": [],
+        "fr": [
+          "dépôt de l’initiative"
+        ],
+        "it": [
+          "deposito dell’iniziativa"
+        ]
+      },
+      "related": [
+        "signatureCollection",
+        "initiative"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_71",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 71",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 71",
+          "fr": "Loi fédérale sur les droits politiques, art. 71",
+          "it": "Legge federale sui diritti politici, art. 71"
+        }
+      }
+    },
+    {
+      "id": "withdrawal",
+      "category": "votes",
+      "headword": {
+        "en": "withdrawal of an initiative",
+        "de": "Rückzug",
+        "fr": "retrait",
+        "it": "ritiro"
+      },
+      "forms": {
+        "en": [
+          "conditional withdrawal"
+        ],
+        "de": [
+          "bedingter Rückzug"
+        ],
+        "fr": [
+          "retrait conditionnel"
+        ],
+        "it": [
+          "ritiro condizionato"
+        ]
+      },
+      "related": [
+        "initiativeCommittee",
+        "indirectCounterProposal"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_73",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 73",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 73",
+          "fr": "Loi fédérale sur les droits politiques, art. 73",
+          "it": "Legge federale sui diritti politici, art. 73"
+        }
+      }
+    },
+    {
+      "id": "counterProposal",
+      "category": "votes",
+      "headword": {
+        "en": "counter-proposal",
+        "de": "Gegenvorschlag",
+        "fr": "contre-projet",
+        "it": "controprogetto"
+      },
+      "forms": {
+        "en": [
+          "counterproposal"
+        ],
+        "de": [
+          "Gegenentwurf"
+        ],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "directCounterProposal",
+        "indirectCounterProposal",
+        "decidingQuestion"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_139",
+        "label": {
+          "en": "Federal Constitution, Art. 139",
+          "de": "Bundesverfassung, Art. 139",
+          "fr": "Constitution fédérale, art. 139",
+          "it": "Costituzione federale, art. 139"
+        }
+      }
+    },
+    {
+      "id": "directCounterProposal",
+      "category": "votes",
+      "headword": {
+        "en": "direct counter-proposal",
+        "de": "direkter Gegenentwurf",
+        "fr": "contre-projet direct",
+        "it": "controprogetto diretto"
+      },
+      "forms": {
+        "en": [],
+        "de": [
+          "direkter Gegenvorschlag"
+        ],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "counterProposal",
+        "decidingQuestion"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_139_b",
+        "label": {
+          "en": "Federal Constitution, Art. 139b",
+          "de": "Bundesverfassung, Art. 139b",
+          "fr": "Constitution fédérale, art. 139b",
+          "it": "Costituzione federale, art. 139b"
+        }
+      }
+    },
+    {
+      "id": "indirectCounterProposal",
+      "category": "votes",
+      "headword": {
+        "en": "indirect counter-proposal",
+        "de": "indirekter Gegenvorschlag",
+        "fr": "contre-projet indirect",
+        "it": "controprogetto indiretto"
+      },
+      "forms": {
+        "en": [],
+        "de": [
+          "indirekter Gegenentwurf"
+        ],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "counterProposal",
+        "withdrawal"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "decidingQuestion",
+      "category": "votes",
+      "headword": {
+        "en": "deciding question",
+        "de": "Stichfrage",
+        "fr": "question subsidiaire",
+        "it": "domanda risolutiva"
+      },
+      "forms": {
+        "en": [
+          "tie-break question"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "directCounterProposal",
+        "doubleMajority"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_139_b",
+        "label": {
+          "en": "Federal Constitution, Art. 139b",
+          "de": "Bundesverfassung, Art. 139b",
+          "fr": "Constitution fédérale, art. 139b",
+          "it": "Costituzione federale, art. 139b"
+        }
+      }
+    },
+    {
+      "id": "doubleMajority",
+      "category": "votes",
+      "headword": {
+        "en": "double majority",
+        "de": "Volks- und Ständemehr",
+        "fr": "double majorité",
+        "it": "doppia maggioranza"
+      },
+      "forms": {
+        "en": [
+          "majority of the people and the cantons"
+        ],
+        "de": [
+          "doppeltes Mehr"
+        ],
+        "fr": [
+          "majorité du peuple et des cantons"
+        ],
+        "it": [
+          "maggioranza del Popolo e dei Cantoni"
+        ]
+      },
+      "related": [
+        "popularMajority",
+        "cantonalMajority",
+        "mandatoryReferendum"
+      ],
+      "definitionKey": "doubleMajority",
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_142",
+        "label": {
+          "en": "Federal Constitution, Art. 142",
+          "de": "Bundesverfassung, Art. 142",
+          "fr": "Constitution fédérale, art. 142",
+          "it": "Costituzione federale, art. 142"
+        }
+      }
+    },
+    {
+      "id": "popularMajority",
+      "category": "votes",
+      "headword": {
+        "en": "popular majority",
+        "de": "Volksmehr",
+        "fr": "majorité du peuple",
+        "it": "maggioranza del Popolo"
+      },
+      "forms": {
+        "en": [
+          "majority of the people"
+        ],
+        "de": [],
+        "fr": [],
+        "it": [
+          "maggioranza popolare"
+        ]
+      },
+      "related": [
+        "doubleMajority",
+        "optionalReferendum"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_142",
+        "label": {
+          "en": "Federal Constitution, Art. 142",
+          "de": "Bundesverfassung, Art. 142",
+          "fr": "Constitution fédérale, art. 142",
+          "it": "Costituzione federale, art. 142"
+        }
+      }
+    },
+    {
+      "id": "cantonalMajority",
+      "category": "votes",
+      "headword": {
+        "en": "cantonal majority",
+        "de": "Ständemehr",
+        "fr": "majorité des cantons",
+        "it": "maggioranza dei Cantoni"
+      },
+      "forms": {
+        "en": [
+          "majority of the cantons"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "doubleMajority",
+        "halfCanton"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_142",
+        "label": {
+          "en": "Federal Constitution, Art. 142",
+          "de": "Bundesverfassung, Art. 142",
+          "fr": "Constitution fédérale, art. 142",
+          "it": "Costituzione federale, art. 142"
+        }
+      }
+    },
+    {
+      "id": "explanatoryBrochure",
+      "category": "votes",
+      "headword": {
+        "en": "Federal Council explanations",
+        "de": "Abstimmungserläuterungen",
+        "fr": "explications du Conseil fédéral",
+        "it": "spiegazioni del Consiglio federale"
+      },
+      "forms": {
+        "en": [
+          "voting explanations",
+          "explanatory brochure"
+        ],
+        "de": [
+          "Erläuterungen des Bundesrates",
+          "Abstimmungsbüchlein",
+          "Bundesbüchlein"
+        ],
+        "fr": [
+          "brochure explicative"
+        ],
+        "it": [
+          "opuscolo informativo"
+        ]
+      },
+      "related": [
+        "votingRecommendation",
+        "popularVote"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_11",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 11",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 11",
+          "fr": "Loi fédérale sur les droits politiques, art. 11",
+          "it": "Legge federale sui diritti politici, art. 11"
+        }
+      }
+    },
+    {
+      "id": "votingRecommendation",
+      "category": "votes",
+      "headword": {
+        "en": "voting recommendation of the Federal Council and Parliament",
+        "de": "Abstimmungsempfehlung",
+        "fr": "recommandation de vote",
+        "it": "raccomandazione di voto"
+      },
+      "forms": {
+        "en": [
+          "recommendation of the Federal Council and Parliament"
+        ],
+        "de": [
+          "Empfehlung von Bundesrat und Parlament"
+        ],
+        "fr": [
+          "recommandation du Conseil fédéral et du Parlement"
+        ],
+        "it": [
+          "raccomandazione del Consiglio federale e del Parlamento"
+        ]
+      },
+      "related": [
+        "explanatoryBrochure",
+        "parole"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_11",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 11",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 11",
+          "fr": "Loi fédérale sur les droits politiques, art. 11",
+          "it": "Legge federale sui diritti politici, art. 11"
+        }
+      }
+    },
+    {
+      "id": "parole",
+      "category": "votes",
+      "headword": {
+        "en": "party voting recommendation",
+        "de": "Parole",
+        "fr": "mot d’ordre",
+        "it": "parola d’ordine"
+      },
+      "forms": {
+        "en": [
+          "voting recommendation"
+        ],
+        "de": [
+          "Abstimmungsparole"
+        ],
+        "fr": [
+          "mot d'ordre",
+          "consigne de vote"
+        ],
+        "it": [
+          "parola d'ordine",
+          "indicazione di voto"
+        ]
+      },
+      "related": [
+        "stimmfreigabe",
+        "politicalParty"
+      ],
+      "definitionKey": "parole",
+      "source": null
+    },
+    {
+      "id": "stimmfreigabe",
+      "category": "votes",
+      "headword": {
+        "en": "no recommendation",
+        "de": "Stimmfreigabe",
+        "fr": "liberté de vote",
+        "it": "libertà di voto"
+      },
+      "forms": {
+        "en": [
+          "free vote"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "parole"
+      ],
+      "definitionKey": "stimmfreigabe",
+      "source": null
+    },
+    {
+      "id": "rightToVote",
+      "category": "votes",
+      "headword": {
+        "en": "right to vote",
+        "de": "Stimmrecht",
+        "fr": "droit de vote",
+        "it": "diritto di voto"
+      },
+      "forms": {
+        "en": [
+          "political rights",
+          "voting rights"
+        ],
+        "de": [
+          "politische Rechte"
+        ],
+        "fr": [
+          "droits politiques"
+        ],
+        "it": [
+          "diritti politici"
+        ]
+      },
+      "related": [
+        "electorate",
+        "swissAbroad"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_136",
+        "label": {
+          "en": "Federal Constitution, Art. 136",
+          "de": "Bundesverfassung, Art. 136",
+          "fr": "Constitution fédérale, art. 136",
+          "it": "Costituzione federale, art. 136"
+        }
+      }
+    },
+    {
+      "id": "electorate",
+      "category": "votes",
+      "headword": {
+        "en": "electorate",
+        "de": "Stimmberechtigte",
+        "fr": "électeurs",
+        "it": "aventi diritto di voto"
+      },
+      "forms": {
+        "en": [
+          "eligible voters",
+          "voters"
+        ],
+        "de": [
+          "Stimmvolk",
+          "Stimmbürgerinnen und Stimmbürger"
+        ],
+        "fr": [
+          "corps électoral",
+          "citoyens actifs"
+        ],
+        "it": [
+          "elettorato",
+          "elettori"
+        ]
+      },
+      "related": [
+        "rightToVote",
+        "turnout"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_136",
+        "label": {
+          "en": "Federal Constitution, Art. 136",
+          "de": "Bundesverfassung, Art. 136",
+          "fr": "Constitution fédérale, art. 136",
+          "it": "Costituzione federale, art. 136"
+        }
+      }
+    },
+    {
+      "id": "turnout",
+      "category": "votes",
+      "headword": {
+        "en": "turnout",
+        "de": "Stimmbeteiligung",
+        "fr": "participation",
+        "it": "partecipazione al voto"
+      },
+      "forms": {
+        "en": [
+          "voter turnout"
+        ],
+        "de": [
+          "Wahlbeteiligung"
+        ],
+        "fr": [
+          "taux de participation"
+        ],
+        "it": [
+          "affluenza"
+        ]
+      },
+      "related": [
+        "electorate",
+        "popularVote"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_13",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 13",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 13",
+          "fr": "Loi fédérale sur les droits politiques, art. 13",
+          "it": "Legge federale sui diritti politici, art. 13"
+        }
+      }
+    },
+    {
+      "id": "postalVoting",
+      "category": "votes",
+      "headword": {
+        "en": "postal voting",
+        "de": "briefliche Stimmabgabe",
+        "fr": "vote par correspondance",
+        "it": "voto per corrispondenza"
+      },
+      "forms": {
+        "en": [
+          "postal vote"
+        ],
+        "de": [
+          "briefliche Stimme"
+        ],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "votingDay",
+        "eVoting",
+        "votingCard"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_8",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 8",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 8",
+          "fr": "Loi fédérale sur les droits politiques, art. 8",
+          "it": "Legge federale sui diritti politici, art. 8"
+        }
+      }
+    },
+    {
+      "id": "eVoting",
+      "category": "votes",
+      "headword": {
+        "en": "electronic voting",
+        "de": "elektronische Stimmabgabe",
+        "fr": "vote électronique",
+        "it": "voto elettronico"
+      },
+      "forms": {
+        "en": [
+          "e-voting"
+        ],
+        "de": [
+          "E-Voting"
+        ],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "postalVoting"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_8_a",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 8a",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 8a",
+          "fr": "Loi fédérale sur les droits politiques, art. 8a",
+          "it": "Legge federale sui diritti politici, art. 8a"
+        }
+      }
+    },
+    {
+      "id": "votingCard",
+      "category": "votes",
+      "headword": {
+        "en": "voting card",
+        "de": "Stimmrechtsausweis",
+        "fr": "carte de vote",
+        "it": "carta di legittimazione"
+      },
+      "forms": {
+        "en": [
+          "polling card"
+        ],
+        "de": [],
+        "fr": [
+          "carte de légitimation"
+        ],
+        "it": []
+      },
+      "related": [
+        "postalVoting",
+        "votingDay"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "federalElections",
+      "category": "elections",
+      "headword": {
+        "en": "federal elections",
+        "de": "eidgenössische Wahlen",
+        "fr": "élections fédérales",
+        "it": "elezioni federali"
+      },
+      "forms": {
+        "en": [
+          "general election"
+        ],
+        "de": [
+          "Parlamentswahlen",
+          "Nationalratswahlen"
+        ],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "proportionalRepresentation",
+        "legislativePeriod",
+        "nationalCouncil"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_149",
+        "label": {
+          "en": "Federal Constitution, Art. 149",
+          "de": "Bundesverfassung, Art. 149",
+          "fr": "Constitution fédérale, art. 149",
+          "it": "Costituzione federale, art. 149"
+        }
+      }
+    },
+    {
+      "id": "proportionalRepresentation",
+      "category": "elections",
+      "headword": {
+        "en": "proportional representation",
+        "de": "Proporzwahl",
+        "fr": "scrutin proportionnel",
+        "it": "sistema proporzionale"
+      },
+      "forms": {
+        "en": [
+          "proportional system"
+        ],
+        "de": [
+          "Proporz",
+          "Verhältniswahl"
+        ],
+        "fr": [
+          "système proportionnel",
+          "élection à la proportionnelle"
+        ],
+        "it": [
+          "elezione con il sistema proporzionale"
+        ]
+      },
+      "related": [
+        "majoritySystem",
+        "electoralList",
+        "seatAllocation"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_149",
+        "label": {
+          "en": "Federal Constitution, Art. 149",
+          "de": "Bundesverfassung, Art. 149",
+          "fr": "Constitution fédérale, art. 149",
+          "it": "Costituzione federale, art. 149"
+        }
+      }
+    },
+    {
+      "id": "majoritySystem",
+      "category": "elections",
+      "headword": {
+        "en": "majority system",
+        "de": "Majorzwahl",
+        "fr": "scrutin majoritaire",
+        "it": "sistema maggioritario"
+      },
+      "forms": {
+        "en": [
+          "majoritarian system",
+          "first-past-the-post"
+        ],
+        "de": [
+          "Majorz",
+          "Mehrheitswahl"
+        ],
+        "fr": [
+          "système majoritaire"
+        ],
+        "it": [
+          "elezione con il sistema maggioritario"
+        ]
+      },
+      "related": [
+        "proportionalRepresentation",
+        "absoluteMajority",
+        "secondRound"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "electoralDistrict",
+      "category": "elections",
+      "headword": {
+        "en": "electoral district",
+        "de": "Wahlkreis",
+        "fr": "circonscription électorale",
+        "it": "circondario elettorale"
+      },
+      "forms": {
+        "en": [
+          "constituency"
+        ],
+        "de": [],
+        "fr": [
+          "arrondissement électoral"
+        ],
+        "it": [
+          "circoscrizione elettorale"
+        ]
+      },
+      "related": [
+        "federalElections",
+        "canton"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_149",
+        "label": {
+          "en": "Federal Constitution, Art. 149",
+          "de": "Bundesverfassung, Art. 149",
+          "fr": "Constitution fédérale, art. 149",
+          "it": "Costituzione federale, art. 149"
+        }
+      }
+    },
+    {
+      "id": "electoralList",
+      "category": "elections",
+      "headword": {
+        "en": "electoral list",
+        "de": "Wahlliste",
+        "fr": "liste électorale",
+        "it": "lista elettorale"
+      },
+      "forms": {
+        "en": [
+          "party list",
+          "candidate list"
+        ],
+        "de": [
+          "Liste",
+          "Kandidatenliste"
+        ],
+        "fr": [
+          "liste",
+          "liste de candidats"
+        ],
+        "it": [
+          "lista",
+          "lista dei candidati"
+        ]
+      },
+      "related": [
+        "listAlliance",
+        "panachage",
+        "cumulativeVoting"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_22",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 22",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 22",
+          "fr": "Loi fédérale sur les droits politiques, art. 22",
+          "it": "Legge federale sui diritti politici, art. 22"
+        }
+      }
+    },
+    {
+      "id": "panachage",
+      "category": "elections",
+      "headword": {
+        "en": "panachage",
+        "de": "panaschieren",
+        "fr": "panacher",
+        "it": "panachage"
+      },
+      "forms": {
+        "en": [
+          "splitting a vote across lists"
+        ],
+        "de": [
+          "Panaschieren"
+        ],
+        "fr": [
+          "panachage"
+        ],
+        "it": [
+          "panacciare"
+        ]
+      },
+      "related": [
+        "cumulativeVoting",
+        "electoralList"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_35",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 35",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 35",
+          "fr": "Loi fédérale sur les droits politiques, art. 35",
+          "it": "Legge federale sui diritti politici, art. 35"
+        }
+      }
+    },
+    {
+      "id": "cumulativeVoting",
+      "category": "elections",
+      "headword": {
+        "en": "cumulating",
+        "de": "kumulieren",
+        "fr": "cumuler",
+        "it": "cumulo"
+      },
+      "forms": {
+        "en": [
+          "cumulative voting"
+        ],
+        "de": [
+          "Kumulieren"
+        ],
+        "fr": [
+          "cumul"
+        ],
+        "it": [
+          "cumulare"
+        ]
+      },
+      "related": [
+        "panachage",
+        "electoralList"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_35",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 35",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 35",
+          "fr": "Loi fédérale sur les droits politiques, art. 35",
+          "it": "Legge federale sui diritti politici, art. 35"
+        }
+      }
+    },
+    {
+      "id": "listAlliance",
+      "category": "elections",
+      "headword": {
+        "en": "list alliance",
+        "de": "Listenverbindung",
+        "fr": "apparentement",
+        "it": "congiunzione delle liste"
+      },
+      "forms": {
+        "en": [
+          "list combination"
+        ],
+        "de": [
+          "Unterlistenverbindung"
+        ],
+        "fr": [
+          "sous-apparentement"
+        ],
+        "it": [
+          "sottocongiunzione"
+        ]
+      },
+      "related": [
+        "electoralList",
+        "seatAllocation"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_31",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 31",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 31",
+          "fr": "Loi fédérale sur les droits politiques, art. 31",
+          "it": "Legge federale sui diritti politici, art. 31"
+        }
+      }
+    },
+    {
+      "id": "seatAllocation",
+      "category": "elections",
+      "headword": {
+        "en": "seat allocation",
+        "de": "Sitzverteilung",
+        "fr": "répartition des sièges",
+        "it": "ripartizione dei seggi"
+      },
+      "forms": {
+        "en": [
+          "Hagenbach-Bischoff method"
+        ],
+        "de": [
+          "Hagenbach-Bischoff",
+          "Verfahren Hagenbach-Bischoff"
+        ],
+        "fr": [
+          "méthode Hagenbach-Bischoff"
+        ],
+        "it": [
+          "metodo Hagenbach-Bischoff"
+        ]
+      },
+      "related": [
+        "proportionalRepresentation",
+        "listAlliance"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_40",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 40",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 40",
+          "fr": "Loi fédérale sur les droits politiques, art. 40",
+          "it": "Legge federale sui diritti politici, art. 40"
+        }
+      }
+    },
+    {
+      "id": "tacitElection",
+      "category": "elections",
+      "headword": {
+        "en": "tacit election",
+        "de": "stille Wahl",
+        "fr": "élection tacite",
+        "it": "elezione tacita"
+      },
+      "forms": {
+        "en": [
+          "election without a ballot"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "federalElections"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_45",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 45",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 45",
+          "fr": "Loi fédérale sur les droits politiques, art. 45",
+          "it": "Legge federale sui diritti politici, art. 45"
+        }
+      }
+    },
+    {
+      "id": "absoluteMajority",
+      "category": "elections",
+      "headword": {
+        "en": "absolute majority",
+        "de": "absolutes Mehr",
+        "fr": "majorité absolue",
+        "it": "maggioranza assoluta"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "majoritySystem",
+        "secondRound"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "secondRound",
+      "category": "elections",
+      "headword": {
+        "en": "second round",
+        "de": "zweiter Wahlgang",
+        "fr": "second tour",
+        "it": "secondo turno"
+      },
+      "forms": {
+        "en": [
+          "second ballot"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "absoluteMajority",
+        "majoritySystem"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": null
+    },
+    {
+      "id": "federalCouncilElection",
+      "category": "elections",
+      "headword": {
+        "en": "election of the Federal Council",
+        "de": "Bundesratswahl",
+        "fr": "élection du Conseil fédéral",
+        "it": "elezione del Consiglio federale"
+      },
+      "forms": {
+        "en": [
+          "Federal Council election"
+        ],
+        "de": [
+          "Gesamterneuerungswahl des Bundesrates"
+        ],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "unitedFederalAssembly",
+        "magicFormula",
+        "federalCouncillor"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_175",
+        "label": {
+          "en": "Federal Constitution, Art. 175",
+          "de": "Bundesverfassung, Art. 175",
+          "fr": "Constitution fédérale, art. 175",
+          "it": "Costituzione federale, art. 175"
+        }
+      }
+    },
+    {
+      "id": "budget",
+      "category": "finance",
+      "headword": {
+        "en": "federal budget",
+        "de": "Voranschlag",
+        "fr": "budget",
+        "it": "preventivo"
+      },
+      "forms": {
+        "en": [
+          "budget"
+        ],
+        "de": [
+          "Budget",
+          "Bundesbudget"
+        ],
+        "fr": [
+          "budget de la Confédération"
+        ],
+        "it": [
+          "preventivo della Confederazione"
+        ]
+      },
+      "related": [
+        "stateAccounts",
+        "debtBrake"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_167",
+        "label": {
+          "en": "Federal Constitution, Art. 167",
+          "de": "Bundesverfassung, Art. 167",
+          "fr": "Constitution fédérale, art. 167",
+          "it": "Costituzione federale, art. 167"
+        }
+      }
+    },
+    {
+      "id": "stateAccounts",
+      "category": "finance",
+      "headword": {
+        "en": "federal accounts",
+        "de": "Staatsrechnung",
+        "fr": "compte d’État",
+        "it": "consuntivo"
+      },
+      "forms": {
+        "en": [
+          "state accounts"
+        ],
+        "de": [],
+        "fr": [
+          "compte de la Confédération"
+        ],
+        "it": [
+          "consuntivo della Confederazione"
+        ]
+      },
+      "related": [
+        "budget"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_167",
+        "label": {
+          "en": "Federal Constitution, Art. 167",
+          "de": "Bundesverfassung, Art. 167",
+          "fr": "Constitution fédérale, art. 167",
+          "it": "Costituzione federale, art. 167"
+        }
+      }
+    },
+    {
+      "id": "debtBrake",
+      "category": "finance",
+      "headword": {
+        "en": "debt brake",
+        "de": "Schuldenbremse",
+        "fr": "frein à l’endettement",
+        "it": "freno all’indebitamento"
+      },
+      "forms": {
+        "en": [],
+        "de": [],
+        "fr": [
+          "frein à l'endettement"
+        ],
+        "it": [
+          "freno all'indebitamento"
+        ]
+      },
+      "related": [
+        "budget",
+        "spendingBrake"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_126",
+        "label": {
+          "en": "Federal Constitution, Art. 126",
+          "de": "Bundesverfassung, Art. 126",
+          "fr": "Constitution fédérale, art. 126",
+          "it": "Costituzione federale, art. 126"
+        }
+      }
+    },
+    {
+      "id": "spendingBrake",
+      "category": "finance",
+      "headword": {
+        "en": "spending brake",
+        "de": "Ausgabenbremse",
+        "fr": "frein aux dépenses",
+        "it": "freno alle spese"
+      },
+      "forms": {
+        "en": [
+          "expenditure brake"
+        ],
+        "de": [],
+        "fr": [],
+        "it": []
+      },
+      "related": [
+        "debtBrake",
+        "budget"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_159",
+        "label": {
+          "en": "Federal Constitution, Art. 159",
+          "de": "Bundesverfassung, Art. 159",
+          "fr": "Constitution fédérale, art. 159",
+          "it": "Costituzione federale, art. 159"
+        }
+      }
+    },
+    {
+      "id": "fiscalEqualisation",
+      "category": "finance",
+      "headword": {
+        "en": "fiscal equalisation",
+        "de": "Finanzausgleich",
+        "fr": "péréquation financière",
+        "it": "perequazione finanziaria"
+      },
+      "forms": {
+        "en": [
+          "equalisation of financial resources"
+        ],
+        "de": [
+          "NFA"
+        ],
+        "fr": [
+          "RPT"
+        ],
+        "it": [
+          "NPC"
+        ]
+      },
+      "related": [
+        "federalism",
+        "canton"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1999/404/{lang}#art_135",
+        "label": {
+          "en": "Federal Constitution, Art. 135",
+          "de": "Bundesverfassung, Art. 135",
+          "fr": "Constitution fédérale, art. 135",
+          "it": "Costituzione federale, art. 135"
+        }
+      }
+    },
+    {
+      "id": "politicalFinanceTransparency",
+      "category": "finance",
+      "headword": {
+        "en": "transparency in political financing",
+        "de": "Transparenz der Politikfinanzierung",
+        "fr": "transparence du financement de la vie politique",
+        "it": "trasparenza del finanziamento della politica"
+      },
+      "forms": {
+        "en": [
+          "political financing"
+        ],
+        "de": [
+          "Politikfinanzierung"
+        ],
+        "fr": [
+          "financement de la vie politique"
+        ],
+        "it": [
+          "finanziamento della politica"
+        ]
+      },
+      "related": [
+        "politicalParty",
+        "popularVote"
+      ],
+      "definition": {
+        "en": "",
+        "de": "",
+        "fr": "",
+        "it": ""
+      },
+      "source": {
+        "url": "https://www.fedlex.admin.ch/eli/cc/1978/688_688_688/{lang}#art_76_b",
+        "label": {
+          "en": "Federal Act on Political Rights, Art. 76b",
+          "de": "Bundesgesetz über die politischen Rechte, Art. 76b",
+          "fr": "Loi fédérale sur les droits politiques, art. 76b",
+          "it": "Legge federale sui diritti politici, art. 76b"
+        }
+      }
+    }
+  ]
+}

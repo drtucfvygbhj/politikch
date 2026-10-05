@@ -27,6 +27,7 @@
       <button type="button" data-tab="design">Design</button>
       <button type="button" data-tab="images">Images</button>
       <button type="button" data-tab="links">Vote links</button>
+      <button type="button" data-tab="glossary">Glossary</button>
       <button type="button" data-tab="checks">Checks</button>
     </nav>
     <div class="histbar">
@@ -164,6 +165,17 @@
     </section>
 
     <!-- CHECKS -->
+    <!-- GLOSSARY -->
+    <section class="panel" id="tab-glossary">
+      <div class="mod"><div class="k">Glossary explanations</div>
+        <p class="meta">The terms the Define pop-up and the Glossary page (#/glossary) know. Write each explanation yourself, in plain text, at most 80 words, citing only what the source says (POL-02, POL-04). An empty explanation shows as "explanation to follow". The older explanations marked "interface text" are edited with Edit text on the Design tab. Changes go live with Publish text.</p>
+        <div class="actions"><input type="search" id="gl-filter" placeholder="Find a term"> <label><input type="checkbox" id="gl-empty"> Only terms without an explanation</label></div>
+        <div id="gl-admin"></div>
+        <div class="golive"><button type="button" class="live" data-publish="text">Publish text</button>
+          <p class="pub-state" data-kind="text"></p></div>
+      </div>
+    </section>
+
     <section class="panel" id="tab-checks">
       <div class="mod"><div class="k">Guardrail checks</div>
         <p class="meta">Runs <code>scripts/check.py</code> and <code>scripts/validate.py</code> on the working copy — the same checks the pre-push hook and CI run. A BLOCK must be fixed; each FLAG needs an <code>Approved-Rule:</code> line from you in the commit message.</p>

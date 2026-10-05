@@ -128,3 +128,10 @@ button.live:hover { background: var(--accent-fill); color: #fff; }
 .editor textarea[disabled] { opacity: 0.6; }
 .editor .cands label { display: block; font-size: 13px; padding: 4px 0; border-top: 1px solid var(--rule); cursor: pointer; }
 .metalist { margin: 4px 0 0; padding-left: 18px; }
+
+/* Glossary tab */
+.gl-entry { border-top: 1px solid var(--rule); padding: 12px 0; }
+.gl-head { font-size: 14px; }
+.gl-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; margin: 8px 0; }
+.gl-field textarea { display: block; width: 100%; font: inherit; font-size: 14px; padding: 7px 9px; background: var(--panel); border: 1px solid var(--rule); resize: vertical; }
+@media (max-width: 760px) { .gl-fields { grid-template-columns: 1fr; } }

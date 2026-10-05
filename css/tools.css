@@ -1,0 +1,95 @@
+/* ============================================================
+   Highlight toolbar, "Define" pop-up, glossary page and the report form
+   (js/select-tools.js, js/glossary.js, js/report.js).
+   Shared by both designs; colours fall back to the 1.1 palette.
+   ============================================================ */
+
+/* ---- toolbar: only while text is highlighted ---- */
+.sel-tools {
+  position: fixed; z-index: 1200; display: flex; align-items: stretch;
+  background: #161616; color: #fff; border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22), 0 1px 3px rgba(0, 0, 0, 0.2);
+  font-family: var(--n-sans, 'DM Sans', system-ui, sans-serif);
+  -webkit-user-select: none; user-select: none; touch-action: manipulation;
+}
+.sel-tools[hidden] { display: none; }
+.sel-tools button {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 14px;
+  background: none; border: 0; color: inherit; font: 600 13.5px/1 inherit; font-family: inherit;
+  cursor: pointer; white-space: nowrap;
+}
+.sel-tools button + button { border-left: 1px solid rgba(255, 255, 255, 0.22); }
+.sel-tools button:hover { background: rgba(255, 255, 255, 0.1); }
+.sel-tools button:focus-visible { outline: 2px solid #fff; outline-offset: -3px; }
+.sel-tools svg { width: 17px; height: 17px; flex: none; }
+@media (pointer: coarse) {
+  .sel-tools button { min-height: 44px; padding: 0 18px; font-size: 15px; }
+  .sel-tools svg { width: 19px; height: 19px; }
+}
+
+/* ---- "Define" pop-up ---- */
+.def-pop {
+  position: fixed; z-index: 1250; width: min(380px, calc(100vw - 24px)); max-height: min(70vh, 520px); overflow: auto;
+  background: #fff; color: #161616; border-top: 3px solid var(--n-accent, #7A1C2A);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22), 0 2px 6px rgba(0, 0, 0, 0.12);
+  padding: 16px 20px 14px; font-family: var(--n-sans, 'DM Sans', system-ui, sans-serif); font-size: 15px; line-height: 1.55;
+}
+.def-close {
+  position: absolute; top: 6px; right: 8px; width: 36px; height: 36px; border: 0; background: none;
+  font-size: 24px; line-height: 1; color: #5f5e5a; cursor: pointer;
+}
+.def-close:hover { color: #161616; }
+.def-kicker { margin: 0 0 4px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--n-accent, #7A1C2A); }
+.def-term { margin: 0 36px 6px 0; font-family: var(--n-serif, 'Playfair Display', Georgia, serif); font-size: 22px; line-height: 1.2; }
+.def-term-none { font-size: 18px; }
+.def-also { margin: 0 0 10px; font-size: 13px; color: #5f5e5a; }
+.def-text { margin: 0 0 12px; }
+.def-pending { color: #5f5e5a; font-style: italic; }
+.def-rel { margin: 0 0 10px; font-size: 13px; color: #5f5e5a; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.def-chip {
+  border: 1px solid #dcdad3; background: #f6f4f0; color: #161616; font: inherit; font-size: 13px;
+  padding: 4px 10px; min-height: 28px; cursor: pointer;
+}
+.def-chip:hover { border-color: var(--n-accent, #7A1C2A); }
+.def-which { list-style: none; margin: 8px 0 4px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.def-which .def-chip { width: 100%; text-align: left; font-size: 15px; padding: 10px 12px; }
+.def-src { margin: 0 0 10px; font-size: 13px; color: #5f5e5a; }
+.def-src a, .def-foot a { color: var(--n-accent, #7A1C2A); }
+.def-foot { margin: 10px 0 0; padding-top: 10px; border-top: 1px solid #dcdad3; font-size: 12.5px; color: #5f5e5a; display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: space-between; }
+.def-all { font-weight: 600; margin-left: auto; }
+.def-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+.def-btn { min-height: 40px; padding: 0 14px; border: 1px solid #c9c6bd; background: #fff; color: #161616; font: 600 14px/1 inherit; font-family: inherit; cursor: pointer; }
+.def-btn-main { background: var(--n-accent, #7A1C2A); border-color: var(--n-accent, #7A1C2A); color: #fff; }
+.def-btn:focus-visible, .def-chip:focus-visible, .def-close:focus-visible { outline: 2px solid var(--n-accent, #7A1C2A); outline-offset: 2px; }
+
+/* Phones: a sheet along the bottom of the screen. */
+@media (max-width: 640px) {
+  .def-pop {
+    left: 0 !important; right: 0; bottom: 0; top: auto !important; width: 100%; max-height: 72vh;
+    padding: 18px 18px calc(16px + env(safe-area-inset-bottom));
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.22);
+  }
+}
+
+/* ---- glossary page ---- */
+.gl-search-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.gl-search { width: 100%; max-width: 420px; margin: 0 0 8px; }
+.gl-cat { margin-top: 18px; }
+.gl-dl { margin: 0; }
+.gl-item { padding: 10px 0; border-bottom: 1px solid #e6e4dd; }
+.gl-item dt { font-weight: 700; }
+.gl-item dd { margin: 2px 0 0; }
+.gl-src { font-size: 13px; color: var(--n-accent, #7A1C2A); }
+
+/* ---- report form (reuses the contact dialog) ---- */
+.report-types { border: 0; margin: 0; padding: 0; }
+.report-types legend { padding: 0; }
+.report-type { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; margin: 6px 0; cursor: pointer; }
+.report-type input { margin-top: 3px; }
+.report-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.report-status { min-height: 1.2em; font-size: 13px; margin: 10px 0 0; }
+.report-done { font-size: 15px; margin: 10px 0 0; }
+.report-dialog .contact-note a { text-decoration: underline; }
+.n-freport { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+.def-term::first-letter, .gl-item dt::first-letter { text-transform: uppercase; }
+.gl-cat .info-h { margin-top: 6px; }

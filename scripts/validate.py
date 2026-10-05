@@ -486,6 +486,103 @@ def check_mt_args(data):
                 errors.append(f"mt.json: args.{iid}.{tl} must have both pros and cons (POL-01)")
 
 
+# Glossary (data/glossary.json): institutions and procedures, explained by the
+# editor. Every entry is matched by its forms, so a form may belong to one entry
+# only; links go only to registry hosts (SEC-02); explanations are plain text,
+# at most 80 words, and a written explanation names its source (POL-04).
+GLOSS_LANGS = ["en", "de", "fr", "it"]
+GLOSS_CATEGORIES = {"institutions", "parliament", "votes", "elections", "federalism", "finance"}
+GLOSS_MAX_WORDS = 80
+GLOSS_MARKUP = re.compile(r"[<>]|javascript\s*:", re.I)
+
+
+def _gloss_norm(s):
+    import unicodedata
+    return " ".join(unicodedata.normalize("NFC", s).replace("\u2019", "'").casefold().split())
+
+
+def check_glossary(data, i18n):
+    if data is None:
+        return
+    cfg = json.loads((ROOT / "scripts" / "guardrails" / "config.json").read_text("utf-8"))
+    hosts = {h for h, m in cfg["sources"].items() if not h.startswith("_") and m.get("role") in ("link", "fetch")}
+    terms = data.get("terms")
+    if not isinstance(terms, list) or not terms:
+        errors.append("glossary.json: no terms")
+        return
+    ids = [e.get("id") for e in terms]
+    known = set(ids)
+    if len(known) != len(ids):
+        errors.append("glossary.json: duplicate ids")
+    en = (i18n or {}).get("en", {})
+    owner = {l: {} for l in GLOSS_LANGS}
+    for e in terms:
+        tid = e.get("id")
+        w = f"glossary.json {tid}"
+        if not isinstance(tid, str) or not re.fullmatch(r"[a-z][A-Za-z0-9]*", tid):
+            errors.append(f"{w}: bad id")
+            continue
+        if e.get("category") not in GLOSS_CATEGORIES:
+            errors.append(f"{w}: unknown category {e.get('category')!r}")
+        texts = []
+        hw = e.get("headword") or {}
+        for l in GLOSS_LANGS:
+            if not isinstance(hw.get(l), str) or not hw[l].strip():
+                errors.append(f"{w}: headword missing in {l}")
+        texts += [v for v in hw.values() if isinstance(v, str)]
+        for kind in ("forms", "alsoMatches"):
+            for l, lst in (e.get(kind) or {}).items():
+                if l not in GLOSS_LANGS or not isinstance(lst, list) or not all(isinstance(x, str) and x.strip() for x in lst):
+                    errors.append(f"{w}: {kind}.{l} must be a list of words")
+                    continue
+                texts += lst
+        for l in GLOSS_LANGS:
+            for f in [hw.get(l) or ""] + list((e.get("forms") or {}).get(l) or []):
+                n = _gloss_norm(f)
+                if n in owner[l] and owner[l][n] != tid:
+                    errors.append(f"{w}: '{f}' ({l}) is already a form of {owner[l][n]} — a form belongs to one entry")
+                owner[l][n] = tid
+        key, defn = e.get("definitionKey"), e.get("definition")
+        if key and defn:
+            errors.append(f"{w}: has both definitionKey and definition")
+        if key and ("gloss." + key) not in en:
+            errors.append(f"{w}: definitionKey points to missing i18n key gloss.{key}")
+        if not key:
+            if not isinstance(defn, dict) or set(defn) != set(GLOSS_LANGS) or not all(isinstance(v, str) for v in defn.values()):
+                errors.append(f"{w}: definition must have en, de, fr and it (empty = not written yet)")
+            else:
+                for l, v in defn.items():
+                    if len(v.split()) > GLOSS_MAX_WORDS:
+                        errors.append(f"{w}: definition ({l}) is longer than {GLOSS_MAX_WORDS} words")
+                texts += list(defn.values())
+                if any(v.strip() for v in defn.values()) and not e.get("source"):
+                    errors.append(f"{w}: a written explanation needs a source (POL-04)")
+        for r in e.get("related") or []:
+            if r not in known or r == tid:
+                errors.append(f"{w}: related term {r!r} doesn't exist")
+        src = e.get("source")
+        if src is not None:
+            url = str((src or {}).get("url") or "")
+            m = re.fullmatch(r"https://([A-Za-z0-9.-]+)/[^\s\"<>]*", url)
+            if not m or m.group(1) not in hosts:
+                errors.append(f"{w}: source must be an https link to a host in the source registry ({url[:60]})")
+            lab = (src or {}).get("label") or {}
+            if not all(isinstance(lab.get(l), str) and lab[l] for l in GLOSS_LANGS):
+                errors.append(f"{w}: source label missing a language")
+            texts += [v for v in lab.values() if isinstance(v, str)]
+        if any(GLOSS_MARKUP.search(x) for x in texts):
+            errors.append(f"{w}: markup or a script link in its text")
+    for l in GLOSS_LANGS:
+        for e in terms:
+            for f in (e.get("alsoMatches") or {}).get(l, []):
+                n = _gloss_norm(f)
+                if owner[l].get(n, e.get("id")) != e.get("id"):
+                    errors.append(f"glossary.json {e.get('id')}: alsoMatches '{f}' ({l}) is a form of {owner[l][n]}")
+    for k in en:
+        if k.startswith("gloss.") and not any(e.get("definitionKey") == k[6:] for e in terms):
+            errors.append(f"glossary.json: i18n key {k} has no glossary entry (definitionKey)")
+
+
 def main():
     if "--ticker" in sys.argv[1:]:
         i = sys.argv.index("--ticker")
@@ -504,6 +601,7 @@ def main():
     check_cantons(load("cantons.json"))
     check_initiatives(initiatives_data)
     check_i18n(load("i18n.json"))
+    check_glossary(load("glossary.json"), load("i18n.json"))
     check_all_languages()
     check_argument_text()
 
