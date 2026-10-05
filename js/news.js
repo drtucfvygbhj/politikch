@@ -530,7 +530,7 @@ export function parlFigHTML(i, raw) {
   const res = C.voteResult(raw);
   const note = f.initiative || f.decree ? C.voteFrameNote(raw) : t('news.parl.noteAct');
   const share = shareId(() => ({ kind: 'voteHemicycle', kicker: t('news.parl.k'), title: C.initTitlePlain(i), subtitle: t(initiative ? 'news.parl.hInit' : 'news.parl.hAct') + (f.initiative && raw.passed ? ' · ' + res.text : ''),
-    route: 'initiative/' + i.id, source: shareSrc('votes'), tallies: { yes: tly.yes || 0, no: tly.no || 0, abstain: tly.abstain || 0 },
+    route: 'initiative/' + i.id, source: tf('share.src.votes', { fetched: C.formatFetched(C.voteFetchedAt(raw)) }), tallies: { yes: tly.yes || 0, no: tly.no || 0, abstain: tly.abstain || 0 },
     labels: f.initiative ? { yes: yesL, no: noL } : null,
     groups: groups.map(g => ({ label: party(g) ? pShort(g) : g, color: pColor(g), yes: by[g].yes || 0, no: by[g].no || 0, abstain: by[g].abstain || 0 })) }));
   return '<div class="n-fig" data-hl data-nshare="' + escapeAttr(share) + '">' + `<div class="n-k">${escapeAttr(t('news.parl.k'))}</div>` +
@@ -542,7 +542,7 @@ export function parlFigHTML(i, raw) {
     (f.initiative && raw.passed ? `<p class="n-rec">${escapeAttr(res.text)}</p>` : '') +
     legend([['v-yes', YES, yesL], ['v-no', NO, noL], ['v-abstain', '#fff;box-shadow:inset 0 0 0 1px #8a877e', t('news.tally.abst')], ['v-absent', ABSENT, t('news.absent')]]) +
     `<p class="n-note">${escapeAttr(note)}</p></div></div>` +
-    `<p class="n-src">${escapeAttr(tf(f.initiative ? 'news.parl.srcInit' : 'news.parl.src', { date: longDate(v.voteEnd) }))}</p></div>`;
+    `<p class="n-src">${escapeAttr(tf(f.initiative ? 'news.parl.srcInit' : 'news.parl.src', { date: longDate(v.voteEnd), fetched: C.formatFetched(C.voteFetchedAt(raw)) }))}</p></div>`;
 }
 
 function stories(nb, files) {
@@ -619,13 +619,16 @@ function leftBlocks(files, last) {
         `<div class="n-bar"><span style="flex:${escapeAttr(y)};background:${escapeAttr(YES)}" data-ntip="${escapeAttr(y + ' ' + yl)}"></span><span style="flex:${escapeAttr(n)};background:${escapeAttr(NO)}" data-ntip="${escapeAttr(n + ' ' + nl)}"></span></div>` +
         `<p class="n-meta">${escapeAttr(t('parl.nc') + ' · ' + (f.initiative ? y + ' ' + yl + ', ' + n + ' ' + nl : y + '–' + n) + ' · ' + result + ' · ' + shortDate(v.voteEnd))}</p></li>`;
     }).join('');
+    // When this session's votes were downloaded (parlament.ch terms, SRC-12).
+    const fetched = C.formatFetched(files[last.id]._meta && files[last.id]._meta.fetchedAt);
     const fvShare = shareId(() => ({ kind: 'bars', kicker: t('nav.parliament'), title: t('news.fv.k'), subtitle: tf('news.fv.meta', { session: C.sessionName(last), n: votes.length }),
-      route: 'session/' + last.id, source: shareSrc('votes'), legend: yesNoLegend(),
+      route: 'session/' + last.id, source: tf('share.src.votes', { fetched }), legend: yesNoLegend(),
       rows: votes.slice(0, 5).map(raw => { const f = C.voteFrame(raw), v = C.orientVote(raw), y = v.tally?.yes || 0, n = v.tally?.no || 0;
         return yesNoRow(sessionVotePlain(raw) + (f.initiative ? ' (' + f.yes + ' / ' + f.no + ')' : ''), y, n, y + '–' + n); }) }));
     out.push(pos('finalvotes', `<section class="n-blk n-mod" data-nshare="${escapeAttr(fvShare)}"><div class="n-k">${escapeAttr(t('news.fv.k'))}</div>` +
       `<p class="n-meta">${escapeAttr(tf('news.fv.meta', { session: C.sessionName(last), n: votes.length }))}</p><ul class="n-list">` + rows + '</ul>' +
-      `<a class="n-more" href="#/session/${escapeAttr(last.id)}">${escapeAttr(tf('news.fv.all', { n: votes.length }))}</a></section>`));
+      `<a class="n-more" href="#/session/${escapeAttr(last.id)}">${escapeAttr(tf('news.fv.all', { n: votes.length }))}</a>` +
+      `<p class="n-src">${escapeAttr(tf('news.fv.src', { fetched }))}</p></section>`));
   }
 
   const coll = collecting();

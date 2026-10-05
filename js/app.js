@@ -227,7 +227,7 @@ function voteHemiSpec(raw) {
     return { label: parties[k].abbr || k, color: parties[k].color || '#999', yes: g.yes || 0, no: g.no || 0, abstain: g.abstain || 0 };
   });
   return { kind: 'voteHemicycle', kicker: t('parl.nc') + ' · ' + t('session.votesTitle'), title: plainVoteTitle(vote), route: currentRoute(), groups, tallies: { yes: y, no: n, abstain: ab },
-    labels: f.initiative ? { yes: f.yes, no: f.no } : null, subtitle: f.initiative || f.decree ? voteFrameNote(raw) : undefined, source: t('share.src.votes') };
+    labels: f.initiative ? { yes: f.yes, no: f.no } : null, subtitle: f.initiative || f.decree ? voteFrameNote(raw) : undefined, source: t('share.src.votes').replace('{fetched}', formatFetched(voteFetchedAt(raw))) };
 }
 // Attach a share button to a chart card, resolving its spec lazily.
 function shareChart(host, getSpec) {
@@ -254,6 +254,18 @@ function formatLongDate(d, utc) {
   const day = utc ? d.getUTCDate() : d.getDate();
   const year = utc ? d.getUTCFullYear() : d.getFullYear();
   return `${day} ${/^[aeiou]/.test(m) ? "d'" : 'da '}${m} ${year}`;
+}
+// When data was downloaded, as date and time in Swiss time ("5 October 2026,
+// 13:11"). parlament.ch's terms of use require the date and time of download
+// next to everything shown from its web service (GUARDRAILS.md SRC-12).
+function formatFetched(iso) {
+  const d = iso ? new Date(iso) : null;
+  if (!d || isNaN(d)) return t('src.fetchedUnknown');
+  const parts = {};
+  new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Zurich', year: 'numeric', month: 'numeric', day: 'numeric',
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(d).forEach(p => { parts[p.type] = p.value; });
+  const day = new Date(Number(parts.year), Number(parts.month) - 1, Number(parts.day));
+  return `${formatLongDate(day)}, ${parts.hour}:${parts.minute}`;
 }
 function formatInt(n) {
   return new Intl.NumberFormat(NUM_LOCALES[state.lang] || 'en-CH', { maximumFractionDigits: 0 }).format(n || 0);
@@ -2614,12 +2626,29 @@ function voteTransTitle(v) {
   if (!e) return null;
   return (typeof e === 'string') ? (state.lang === 'en' ? e : null) : (e[state.lang] || null);
 }
+// Each vote remembers when its session file was downloaded, so wherever a vote
+// is shown (page, figure, share image) the download time can go with it (SRC-12).
+const voteFetched = new WeakMap();
 function ensureSessionFile(id) {
   if (sessionFileCache[id]) return sessionFileCache[id];
   sessionFileCache[id] = fetch(`data/sessions/${id}.json?v=20260925a`)
     .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      const at = d && d._meta && d._meta.fetchedAt;
+      ((d && d.votes) || []).forEach(v => voteFetched.set(v, at));
+      return d;
+    })
     .catch(() => null);
   return sessionFileCache[id];
+}
+function voteFetchedAt(v) { return voteFetched.get(v) || null; }
+// "Source: … parlament.ch, retrieved between X and Y" for a list drawn from several files.
+function sourceForFiles(files) {
+  const times = files.map(f => f && f._meta && f._meta.fetchedAt).filter(Boolean).sort();
+  if (!times.length) return t('session.listSource').replace('{fetched}', formatFetched(null));
+  const from = formatFetched(times[0]), to = formatFetched(times[times.length - 1]);
+  return from === to ? t('session.listSource').replace('{fetched}', from)
+    : t('session.srcRange').replace('{from}', from).replace('{to}', to);
 }
 
 function sessionName(s) { return `${t('session.' + s.season)} ${s.year}`; }
@@ -2791,6 +2820,10 @@ function renderSessionsPage() {
       block.appendChild(row);
       grid.appendChild(block);
     });
+    const src = document.createElement('p');
+    src.className = 'detail-source';
+    src.textContent = t('session.listSource').replace('{fetched}', formatFetched(data._meta && data._meta.fetchedAt));
+    grid.appendChild(src);
   });
 }
 
@@ -3297,7 +3330,6 @@ function renderSessionPage(id) {
     const s = ((index && index.sessions) || []).find(x => String(x.id) === String(id));
     if (!s) { replaceRoute('#/sessions'); return; }
     const meta = (index && index._meta) || {};
-    const fetched = meta.fetchedAt ? meta.fetchedAt.slice(0, 10) : '';
 
     document.getElementById('session-emblem').innerHTML = icon(SEASON_ICON[s.season] || 'star');
     document.getElementById('session-title').textContent = sessionName(s);
@@ -3320,10 +3352,15 @@ function renderSessionPage(id) {
       <p class="session-votes-desc">${t('session.votesDesc')}</p>
       <p class="session-chamber-note">${t('session.chamberNote')}</p>
       <div id="session-votes-region"></div>
-      <p class="detail-source" style="margin-top:28px">${t('session.source').replace('{date}', fetched)}</p>`;
+      <p class="detail-source" style="margin-top:28px" id="session-source"></p>`;
 
+    // Download time of what is shown: the session list until the session's own
+    // file is loaded, then that file's (SRC-12).
+    const sourceEl = document.getElementById('session-source');
+    sourceEl.textContent = t('session.source').replace('{fetched}', formatFetched(meta.fetchedAt));
     const region = document.getElementById('session-votes-region');
     Promise.all([ensureSessionFile(s.id), ensureSessionTranslations()]).then(([file]) => {
+      if (file && file._meta) sourceEl.textContent = t('session.source').replace('{fetched}', formatFetched(file._meta.fetchedAt));
       const votes = (file && file.votes) || [];
       if (!votes.length) {
         region.innerHTML = `<div class="empty-state"><div class="empty-state-icon" aria-hidden="true">${icon('ballot')}</div><p>${t('session.noVotes')}</p></div>`;
@@ -3358,6 +3395,14 @@ function renderVotesPage() {
       return;
     }
     mountVotesExplorer(region, votes);
+    let src = document.getElementById('votes-page-source');
+    if (!src) {
+      src = document.createElement('p');
+      src.id = 'votes-page-source';
+      src.className = 'detail-source';
+      region.after(src);
+    }
+    src.textContent = sourceForFiles(files.map(x => x.f));
   });
 }
 
@@ -3828,7 +3873,8 @@ function fillProfileEnrich() {
         <div class="enrich-item">
           <a class="enrich-title" href="#/session/${sessions[0].id}">${escapeAttr(plainVoteTitle(v))}</a>
           ` + sessionWidgetHTML(v) + `
-        </div>`).join('');
+        </div>`).join('') +
+        `<p class="detail-source">${escapeAttr(sourceForFiles([file]))}</p>`;
       wireVoteWidgets(host);
       wireOverviews(host);
     });
@@ -4316,7 +4362,7 @@ async function init() {
       ensureSessionsIndex, ensureSessionFile, ensureSessionTranslations,
       voteTransTitle, mtVoteTitle, unofficialBadge, mtBadge, initTitleHTML, initTitlePlain,
       computeMyLeaning, fillProfileEnrich, wireVoteWidgets, profileMin: PROFILE_MIN_SESSION_VOTES,
-      voteFrame, orientVote, voteResult, voteFrameNote, parliamentLink,
+      voteFrame, orientVote, voteResult, voteFrameNote, parliamentLink, formatFetched, voteFetchedAt,
     });
     mountNewsChrome();
     // The votes list (tabs, search, cards) moves to its own page in 1.1.

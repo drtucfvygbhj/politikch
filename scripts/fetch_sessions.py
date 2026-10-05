@@ -476,7 +476,11 @@ def main():
             try:
                 votes = build_session(s)
                 path.write_text(json.dumps({
-                    "_meta": licence_meta(f"sessions/{s['id']}.json"),
+                    # When these votes were downloaded: parlament.ch's terms require
+                    # the date and time next to the data (GUARDRAILS.md SRC-12). A
+                    # settled session keeps the time it was actually fetched.
+                    "_meta": {**licence_meta(f"sessions/{s['id']}.json"),
+                              "fetchedAt": datetime.now(tz=timezone.utc).isoformat(timespec="seconds")},
                     "id": s["id"], "season": s["season"], "year": s["year"],
                     "start": s["start"], "end": s.get("end"),
                     "legislativePeriod": s.get("legislativePeriod"),
