@@ -398,8 +398,10 @@ def build_day(d, session, previous, full):
 def counts(doc):
     out = {}
     for c, v in (doc.get("councils") or {}).items():
+        spoken = {s["subject"] for s in v.get("speeches") or [] if s.get("subject")}
         out[c] = {"items": sum(len(a.get("items") or []) for a in v.get("agenda") or []),
-                  "debated": len({s["subject"] for s in v.get("speeches") or [] if s.get("subject")}),
+                  # business items on the programme that have at least one speaker
+                  "debated": sum(len(a.get("items") or []) for a in v.get("agenda") or [] if a.get("subject") in spoken),
                   "speeches": len(v.get("speeches") or []),
                   "votes": len(v.get("votes") or [])}
     return out

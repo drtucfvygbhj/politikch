@@ -110,6 +110,14 @@ html[data-design="1.1"] .n-search .search-results { border-radius: 0; right: 0; 
 .n-src a, .n-rule-note a { color: var(--n-accent); }
 .n-body { font-size: 15px; color: #333; min-height: 6.2em; margin: 0; }
 .n-more { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--n-accent); text-decoration: none; }
+/* Session ticker strip under "Parliament now" (news.js tickerStripHTML) */
+.n-tk { margin-top: 12px; border: 1px solid var(--n-rule-c); padding: 10px 12px; }
+.n-tk-h { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; margin: 0 0 4px; }
+.n-tk-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--n-live); flex: none; }
+.n-tk-r { font-size: 12px; margin: 2px 0 0; }
+.n-tk-r span { color: var(--n-mid); }
+.n-tk-src { font-size: 11px; color: var(--n-mid); margin: 6px 0 0; }
+.n-tk .n-more { margin-top: 6px; }
 .n-more:hover, .n-src a:hover, .n-rule-note a:hover { text-decoration: underline; }
 
 .n-list { list-style: none; margin: 0; padding: 0; }

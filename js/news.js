@@ -31,7 +31,8 @@ function tf(k, vars) {
 }
 const lang = () => C.state.lang;
 const D = () => C.state.data;
-function todayDate() { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+// (On a local preview only, ?today=YYYY-MM-DD stands in for today — app.js devToday.)
+function todayDate() { const d = (C.devToday && C.devToday()) || new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
 function isoToday() { const d = todayDate(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; }
 function dayDiff(iso) { return Math.round((new Date(iso + 'T00:00:00') - todayDate()) / 864e5); }
 function longDate(iso) { return C.formatLongDate(new Date(iso + 'T00:00:00')); }
@@ -575,6 +576,41 @@ function storiesInDefaultOrder(nb) {
 }
 
 /* ---- left column: what is happening now ---- */
+// The session ticker strip under "Parliament now" (only while a session runs and
+// the ticker has a day of this session on file). Never called live (POL-14): it
+// always carries the download time and the delay note.
+function tickerStripHTML(cur, idx) {
+  let day = null;
+  ((idx && idx.days) || []).forEach(d => { if (d.session && String(d.session.id) === String(cur.id) && d.date <= isoToday()) day = d; });
+  if (!day) return '';
+  const c = day.counts || {};
+  const row = (label, parts) => `<p class="n-tk-r"><span>${escapeAttr(label)}</span> · ${escapeAttr(parts.join(' · '))}</p>`;
+  const n = (base, k) => tf(base + (k === 1 ? '.one' : '.many'), { n: k });
+  let rows = '';
+  if (c.N) rows += row(t('parl.nc'), [n('ticker.votes', c.N.votes || 0), n('ticker.debated', c.N.debated || 0)]);
+  if (c.S) rows += row(t('parl.cs'), [n('ticker.debated', c.S.debated || 0)]);
+  if (c.V) rows += row(t('session.ufa'), [n('ticker.debated', c.V.debated || 0)]);
+  return `<div class="n-tk" id="n-tk"><p class="n-tk-h"><span class="n-tk-dot" aria-hidden="true"></span>${escapeAttr(t('ticker.title') + ' · ' + shortDate(day.date))}</p>` + rows +
+    `<p class="n-tk-src">${escapeAttr(tf('ticker.fetched', { fetched: C.formatFetched(day.fetchedAt) }) + ' · ' + t('ticker.delayShort'))}</p>` +
+    `<a class="n-more" href="#/ticker/${escapeAttr(day.date)}">${escapeAttr(t('ticker.open'))} →</a></div>`;
+}
+let tickerIdx = null, tickerTimer = null;
+function watchTickerStrip() {
+  if (tickerTimer) return;
+  // Every 5 minutes while the front page is on screen: redraw the strip if the
+  // ticker has new data (our own site only; nothing stored, nothing sent).
+  tickerTimer = setInterval(() => {
+    const el = document.getElementById('n-tk');
+    const cur = currentSession(sessionsCache);
+    if (!el || !cur || document.visibilityState !== 'visible' || el.offsetParent === null) return;
+    C.loadTickerIndex(true).then(idx => {
+      const html = tickerStripHTML(cur, idx);
+      const now = document.getElementById('n-tk');
+      if (html && now && now.outerHTML !== html) now.outerHTML = html;
+    });
+  }, 5 * 60 * 1000);
+}
+
 function leftBlocks(files, last) {
   const out = [];
   const cur = currentSession(sessionsCache);
@@ -586,7 +622,8 @@ function leftBlocks(files, last) {
     out.push(pos('now', `<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.now.k'))}</div>` +
       `<h3 class="n-mh"><a href="#/session/${escapeAttr(cur.id)}">${escapeAttr(C.sessionName(cur))}</a>` + liveDot(true) + '</h3>' +
       `<div class="n-bar"><span style="flex:${escapeAttr(done)};background:var(--n-ink)"></span><span style="flex:${escapeAttr(total - done)};background:var(--n-rule-c)"></span></div>` +
-      `<p class="n-meta">${escapeAttr(shortDate(cur.start) + ' – ' + shortDate(cur.end) + ' · ' + tf('news.now.week', { w: week, total: weeks, date: shortDate(cur.end) }))}</p></section>`));
+      `<p class="n-meta">${escapeAttr(shortDate(cur.start) + ' – ' + shortDate(cur.end) + ' · ' + tf('news.now.week', { w: week, total: weeks, date: shortDate(cur.end) }))}</p>` +
+      tickerStripHTML(cur, tickerIdx) + '</section>'));
   }
 
   const dec = decided().slice(0, 5);
@@ -865,6 +902,9 @@ export async function renderNewsHome() {
   if (nb) nb.items.forEach(i => { const l = C.parliamentLink(i); if (l) want.add(l.session); });
   const files = {};
   await Promise.all([...want].map(id => C.ensureSessionFile(id).then(f => { files[id] = f; })));
+  // The session ticker's index, only while a session runs (for the strip under "Parliament now").
+  tickerIdx = currentSession(sessionsCache) ? await C.loadTickerIndex() : null;
+  if (tickerIdx) watchTickerStrip();
   if (token !== homeToken) return;          // a newer render (e.g. language change) took over
 
   const left = leftBlocks(files, last), centre = stories(nb, files), right = rightBlocks();

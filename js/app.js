@@ -4,6 +4,7 @@ import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, 
 import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260925a';
 import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260925a';
 import { configureNews, newsActive, mountNewsChrome, renderNewsChrome, renderNewsHome, relayoutNews, renderSpotlightPage, renderAssemblyPage, renderNewsProfile, rmNotice, parlFigHTML, wireNewsGraphics } from './news.js?v=20260925a';
+import { configureTicker, renderTickerPage, loadTickerIndex, tickerToday } from './ticker.js?v=20260925a';
 
 /* ============================================================
    State
@@ -266,6 +267,17 @@ function formatFetched(iso) {
     hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(d).forEach(p => { parts[p.type] = p.value; });
   const day = new Date(Number(parts.year), Number(parts.month) - 1, Number(parts.day));
   return `${formatLongDate(day)}, ${parts.hour}:${parts.minute}`;
+}
+// Local preview only: ?today=YYYY-MM-DD makes the session block and the session
+// ticker behave as on that day, so they can be checked outside a session. The
+// published site ignores it (owner-approved 2026-10-05).
+const DEV_HOSTS = ['localhost', '127.0.0.1', '[::1]'];
+function devToday() {
+  if (!DEV_HOSTS.includes(location.hostname)) return null;
+  let v = '';
+  try { v = new URLSearchParams(location.search).get('today') || ''; } catch (e) { return null; }
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v);
+  return m ? new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3])) : null;
 }
 function formatInt(n) {
   return new Intl.NumberFormat(NUM_LOCALES[state.lang] || 'en-CH', { maximumFractionDigits: 0 }).format(n || 0);
@@ -877,6 +889,7 @@ function setLang(lang) {
   if (route.view === 'sessions') renderSessionsPage();
   if (route.view === 'session') renderSessionPage(route.id);
   if (route.view === 'votes') renderVotesPage();
+  if (route.view === 'ticker') renderTickerPage(route.id);
   if (route.view === 'page') renderInfoPage(route.id);
   if (route.view === 'donor') renderDonorPage(decodeURIComponent(route.id));
   if (route.view === 'financing') renderFinancingPage(route.id);
@@ -4088,6 +4101,7 @@ function showView(name) {
   document.getElementById('about-page').classList.toggle('active', name === 'about');
   document.getElementById('subscribe-page').classList.toggle('active', name === 'subscribe');
   document.getElementById('profile-page').classList.toggle('active', name === 'profile');
+  document.getElementById('ticker-page').classList.toggle('active', name === 'ticker');
 }
 
 /* Back buttons return to the page the visitor actually came from.
@@ -4165,6 +4179,9 @@ function handleRoute() {
   } else if (view === 'votes') {
     renderVotesPage();
     showView('votes');
+  } else if (view === 'ticker') {
+    renderTickerPage(id);
+    showView('ticker');
   } else if (view === 'page' && (id === 'privacy' || id === 'about')) {
     // Old addresses of pages that now have their own routes — one version only.
     replaceRoute(`#/${id}`);
@@ -4309,6 +4326,7 @@ function bindEvents() {
    ============================================================ */
 async function init() {
   configureShare({ t, lang: () => state.lang });
+  configureTicker({ t, state, formatFetched, formatLongDate, sessionName, devToday });
   configureVotes({ t, escapeAttr });
   // Keep vote-derived UI live when a vote changes: the profile's stats, and the
   // home votes list's "you voted" badges.
@@ -4363,6 +4381,7 @@ async function init() {
       voteTransTitle, mtVoteTitle, unofficialBadge, mtBadge, initTitleHTML, initTitlePlain,
       computeMyLeaning, fillProfileEnrich, wireVoteWidgets, profileMin: PROFILE_MIN_SESSION_VOTES,
       voteFrame, orientVote, voteResult, voteFrameNote, parliamentLink, formatFetched, voteFetchedAt,
+      loadTickerIndex, tickerToday, devToday,
     });
     mountNewsChrome();
     // The votes list (tabs, search, cards) moves to its own page in 1.1.
