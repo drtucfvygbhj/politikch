@@ -6,7 +6,7 @@
     "commercialReuse": "yes, with credit (to Politikch and DeepL)",
     "engine": "DeepL",
     "target": "EN-GB (titles, summaries, arguments); IT (arguments)",
-    "generatedAt": "2026-10-05",
+    "generatedAt": "2026-10-12",
     "note": "Unofficial machine translations of official DE/FR/IT texts, by DeepL. titles/summaries: {id: English}; args: {id: {en|it: {pros, cons}}}. Shown with a machine-translation badge and a link to the official source."
   },
   "titles": {
@@ -24,6 +24,846 @@
       "t": "Federal Act on Hunting and the Protection of Wild Mammals and Birds (Hunting Act, JSG)",
       "src": "de",
       "h": "ba3f078f8c4b"
+    },
+    "29773": {
+      "t": "Federal Resolution on the approval and implementation of the exchanges of notes between Switzerland and the EU concerning the adoption of Regulations (EU) 2021/1150 and 2021/1152 laying down the conditions for access to other EU information systems for the purposes of the European Travel Information and Authorisation System (ETIAS) (further developments of the Schengen acquis)",
+      "src": "de",
+      "h": "26562971f7dc"
+    },
+    "29781": {
+      "t": "Federal Act on Foreign Nationals and Integration (Foreign Nationals and Integration Act, AIG)",
+      "src": "de",
+      "h": "b624487c591d"
+    },
+    "29782": {
+      "t": "Federal Resolution on the Approval of a Double Taxation Agreement between Switzerland and Ethiopia",
+      "src": "de",
+      "h": "e30fc0b2b9aa"
+    },
+    "29774": {
+      "t": "Federal Resolution on Switzerland’s accession to six international research infrastructure networks with ERIC legal status (BBMRI ERIC, ECRIN ERIC, EPOS ERIC, ICOS ERIC, CESSDA ERIC, DARIAH ERIC)",
+      "src": "de",
+      "h": "fecdfd4ccb09"
+    },
+    "29775": {
+      "t": "Federal Act on the Promotion of Research and Innovation (FIFG)",
+      "src": "de",
+      "h": "08da314d4e77"
+    },
+    "29776": {
+      "t": "Federal Decree on the Approval and Implementation of the Agreement on the Co-ordination of Social Security between Switzerland and the United Kingdom",
+      "src": "de",
+      "h": "922cbbe5d586"
+    },
+    "29777": {
+      "t": "Federal Resolution on the Approval of a Protocol Amending the Double Taxation Agreement between Switzerland and Armenia",
+      "src": "de",
+      "h": "2e01be35e666"
+    },
+    "29778": {
+      "t": "Federal Resolution on the Special Taxation of Large Corporate Groups (Implementation of the OECD/G20 Project on the Taxation of the Digital Economy)",
+      "src": "de",
+      "h": "c18f387a10de"
+    },
+    "29783": {
+      "t": "Federal Decree on the approval and implementation of the exchanges of notes between Switzerland and the EU concerning the adoption of Regulations (EU) 2021/1133 and (EU) 2021/1134 on the reform of the Visa Information System and the associated conditions for access to other EU information systems for VIS purposes (further developments of the Schengen acquis)",
+      "src": "de",
+      "h": "d64f21b89e0e"
+    },
+    "29784": {
+      "t": "Federal Act on Foreign Nationals and Integration (Foreign Nationals and Integration Act, AIG) (Access to the CIR and access to data from three EU information systems)",
+      "src": "de",
+      "h": "102b932f712f"
+    },
+    "29785": {
+      "t": "Federal Act on the Promotion of Training in the Field of Nursing",
+      "src": "de",
+      "h": "85fb4ffe78cd"
+    },
+    "29786": {
+      "t": "Federal Act on Foreign Nationals and Integration (Foreign Nationals and Integration Act, AIG) (Financial support for cantons with departure centres at the border)",
+      "src": "de",
+      "h": "e72105e2e252"
+    },
+    "29787": {
+      "t": "Federal Act on the Legal Basis for Federal Council Ordinances to Combat the Covid-19 Pandemic (Covid-19 Act)",
+      "src": "de",
+      "h": "40754e9111dd"
+    },
+    "29790": {
+      "t": "Federal Act on Foreign Nationals and Integration (Foreign Nationals and Integration Act, AIG) (Covid-19 testing prior to removal)",
+      "src": "de",
+      "h": "d29259193dcd"
+    },
+    "29791": {
+      "t": "Ordinance of the Federal Assembly on Judgeships at the Federal Supreme Court",
+      "src": "de",
+      "h": "5a6207bfb837"
+    },
+    "30267": {
+      "t": "Federal Act on Income Replacement (Income Replacement Act, EOG)",
+      "src": "de",
+      "h": "190cb0decc4c"
+    },
+    "30268": {
+      "t": "Swiss Code of Civil Procedure (Improving practical applicability and enforcement of the law)",
+      "src": "de",
+      "h": "58f64477d873"
+    },
+    "30269": {
+      "t": "Federal Act on Occupational Old-Age, Survivors’ and Disability Pensions (BVG) (BVG Reform 21)",
+      "src": "de",
+      "h": "35435bd9c2f5"
+    },
+    "30272": {
+      "t": "Federal Resolution on the popular initiative ‘For a Healthy Climate (Glacier Initiative)’",
+      "src": "de",
+      "h": "aa74175c6536"
+    },
+    "30273": {
+      "t": "Road Traffic Act (SVG)",
+      "src": "de",
+      "h": "e45a7ed846cb"
+    },
+    "30274": {
+      "t": "Federal Act on the Use of Electronic Means to Perform Public Authority Tasks (EMBAG)",
+      "src": "de",
+      "h": "69d017f5e181"
+    },
+    "30275": {
+      "t": "Federal Resolution on the popular initiative ‘For a better life in old age (Initiative for a 13th AHV pension)’",
+      "src": "de",
+      "h": "50f0929b9225"
+    },
+    "30277": {
+      "t": "Federal Act on Financial Market Infrastructures and Market Conduct in Securities and Derivatives Trading (Financial Market Infrastructure Act, FinfraG) (Recognition of foreign trading venues for trading in equity securities of companies with their registered office in Switzerland)",
+      "src": "de",
+      "h": "dc3ed76ee7d1"
+    },
+    "30278": {
+      "t": "Federal Act on the Promotion of Innovation, Cooperation and Knowledge Development in Tourism",
+      "src": "de",
+      "h": "cc41586c84ba"
+    },
+    "30279": {
+      "t": "Federal Resolution on the Approval of the Treaty between Switzerland and Kosovo on Mutual Legal Assistance in Criminal Matters",
+      "src": "de",
+      "h": "7dc8b6411c91"
+    },
+    "30280": {
+      "t": "Federal Resolution on the Approval of the Agreement between Switzerland and Albania on Social Security",
+      "src": "de",
+      "h": "6650d4716a16"
+    },
+    "30281": {
+      "t": "Federal Act on a Performance-Based Heavy Goods Vehicle Charge (Heavy Goods Vehicle Charge Act, SVAG)",
+      "src": "de",
+      "h": "e1d397fb622d"
+    },
+    "30282": {
+      "t": "Federal Act on Health Insurance (KVG) (Exemptions from the requirement to have worked for three years)",
+      "src": "de",
+      "h": "4af0673f04e2"
+    },
+    "30283": {
+      "t": "Federal Resolution on the Approval of the Agreement between the Department of Economic Affairs, Education and Research of the Swiss Confederation and the Federal Ministry for Economic Affairs and Climate Action of the Federal Republic of Germany on Cooperation and Co-ordination between the Competition Authorities",
+      "src": "de",
+      "h": "c029bfffc700"
+    },
+    "30924": {
+      "t": "Federal Act on the Revision of the Law on Sexual Offences (Draft by the RK-S of 17 February 2022)",
+      "src": "de",
+      "h": "6ea5f4a39675"
+    },
+    "30925": {
+      "t": "Federal Act on Agriculture (Agriculture Act, LwG)",
+      "src": "de",
+      "h": "f63ad20fbc8d"
+    },
+    "30926": {
+      "t": "Animal Diseases Act (TSG)",
+      "src": "de",
+      "h": "3f018dd0d3dd"
+    },
+    "30927": {
+      "t": "Federal Act on Value Added Tax (Value Added Tax Act, VAT Act)",
+      "src": "de",
+      "h": "014f231d8589"
+    },
+    "30928": {
+      "t": "Federal Act on Digitalisation in the Notarial Profession (DNG)",
+      "src": "de",
+      "h": "fcaf6898812d"
+    },
+    "30929": {
+      "t": "Federal Resolution on the popular initiative ‘For a secure and sustainable pension system (Pension Initiative)’",
+      "src": "de",
+      "h": "1adfac403333"
+    },
+    "30931": {
+      "t": "Federal Act on the Transfer of Heavy Goods Transport Across the Alps from Road to Rail (Freight Transport Transfer Act, GVVG)",
+      "src": "de",
+      "h": "f112f1d9ea5b"
+    },
+    "30932": {
+      "t": "Federal Act on the Taxation of Tobacco (Tobacco Tax Act, TStG)",
+      "src": "de",
+      "h": "f2e4f97464c4"
+    },
+    "30933": {
+      "t": "Federal Resolution on the Approval of a Protocol Amending the Double Taxation Agreement between Switzerland and Tajikistan",
+      "src": "de",
+      "h": "aa90868a440a"
+    },
+    "30934": {
+      "t": "Federal Act on Accompanying Measures for Posted Workers and on the Monitoring of Minimum Wages Provided for in Standard Employment Contracts (Posted Workers Act, EntsG)",
+      "src": "de",
+      "h": "61d3ce21e6de"
+    },
+    "30935": {
+      "t": "Federal Act on the Acceleration of Authorisation Procedures for Wind Turbines (Amendment to the Energy Act and the Federal Supreme Court Act)",
+      "src": "de",
+      "h": "5eeb69aba18d"
+    },
+    "30936": {
+      "t": "Federal Act on Occupational Old-Age, Survivors’ and Disability Pension Provision (BVG)",
+      "src": "de",
+      "h": "056ec143cb71"
+    },
+    "31396": {
+      "t": "The Swiss Code of Obligations (Tenancy Law: Subletting)",
+      "src": "de",
+      "h": "1dfe53298384"
+    },
+    "31397": {
+      "t": "The Swiss Code of Obligations (Tenancy Law: Formal Requirements)",
+      "src": "de",
+      "h": "3519f7478730"
+    },
+    "31398": {
+      "t": "Federal Act on Medicinal Products and Medical Devices (Medicines Act, HMG)",
+      "src": "de",
+      "h": "204fa1a99d13"
+    },
+    "31399": {
+      "t": "Federal Act on Spatial Planning (Spatial Planning Act, RPG)",
+      "src": "de",
+      "h": "9334bae5c463"
+    },
+    "31400": {
+      "t": "Law of Obligations (Tenancy Law: Termination for the landlord’s own use)",
+      "src": "de",
+      "h": "a45aba378f5b"
+    },
+    "31402": {
+      "t": "Federal Act on Financial Market Infrastructures and Market Conduct in Securities and Derivatives Trading (Financial Market Infrastructure Act, FinfraG)",
+      "src": "de",
+      "h": "66d89fa2035b"
+    },
+    "31403": {
+      "t": "Federal Act on Income Replacement (Income Replacement Act, EOG) (Maternity allowance for female Members of Parliament)",
+      "src": "de",
+      "h": "cd2ff32afcc6"
+    },
+    "31404": {
+      "t": "Federal Act on a Secure Electricity Supply from Renewable Energy Sources (Amendment to the Energy Act and the Electricity Supply Act)",
+      "src": "de",
+      "h": "bb4e5965c7bb"
+    },
+    "31405": {
+      "t": "Federal Resolution on the popular initiative ‘A maximum of 10 per cent of income for health insurance premiums (Premium Relief Initiative)’",
+      "src": "de",
+      "h": "3ad758678b8a"
+    },
+    "31406": {
+      "t": "Federal Act on Health Insurance (KVG) (Premium Reduction)",
+      "src": "de",
+      "h": "633cb2285621"
+    },
+    "31407": {
+      "t": "Federal Resolution on the popular initiative ‘For lower premiums – a cap on healthcare costs (Cost Cap Initiative)’",
+      "src": "de",
+      "h": "efa619fb7a74"
+    },
+    "31408": {
+      "t": "Federal Act on Health Insurance (KVG) (Measures to contain costs – Setting cost targets)",
+      "src": "de",
+      "h": "9381621c53e9"
+    },
+    "31409": {
+      "t": "Federal Act on the Prohibition of Face Covering (BVVG)",
+      "src": "de",
+      "h": "ac2605357634"
+    },
+    "31410": {
+      "t": "Federal Act on Information Security within the Federal Government (Information Security Act, ISG)",
+      "src": "de",
+      "h": "211b9c70aacf"
+    },
+    "31411": {
+      "t": "Federal Resolution on the popular initiative ‘For Freedom and Physical Integrity’",
+      "src": "de",
+      "h": "edc4d99a7688"
+    },
+    "31412": {
+      "t": "Federal Act on the Relief of Regulatory Costs for Businesses (Business Relief Act, UEG)",
+      "src": "de",
+      "h": "45b0fe0d19d2"
+    },
+    "31413": {
+      "t": "Federal Act on the Transplantation of Organs, Tissues and Cells (Transplantation Act)",
+      "src": "de",
+      "h": "77d7ce2bd67f"
+    },
+    "31414": {
+      "t": "Railway Act (EBG) (Implementation of the technical pillar of the 4th EU Railway Package)",
+      "src": "de",
+      "h": "a1ca6f063982"
+    },
+    "31415": {
+      "t": "Federal Act on Compulsory Unemployment Insurance and Insolvency Compensation (Unemployment Insurance Act, AVIG) (Short-time working allowance for vocational trainers)",
+      "src": "de",
+      "h": "9995f0438d10"
+    },
+    "31416": {
+      "t": "Federal Act on Regional Policy",
+      "src": "de",
+      "h": "cc5f289e0a1c"
+    },
+    "31417": {
+      "t": "Federal Resolution on the 2023 expansion phase for national roads",
+      "src": "de",
+      "h": "67c472475e03"
+    },
+    "31418": {
+      "t": "Rules of Procedure of the National Council (GRN) (Standing Sub-Committee on European Affairs of the National Council’s Foreign Affairs Committee)",
+      "src": "de",
+      "h": "8cc5a9e2c3fd"
+    },
+    "31758": {
+      "t": "Federal Act on Health Insurance (KVG) (Uniform financing of services in the outpatient and inpatient sectors)",
+      "src": "de",
+      "h": "87fbce9bc8e2"
+    },
+    "31759": {
+      "t": "Federal Act on Private International Law (IPRG)",
+      "src": "de",
+      "h": "fd1a476f4db3"
+    },
+    "31760": {
+      "t": "Federal Act on the Federal Assembly (Parliament Act, ParlG) (Planning Report)",
+      "src": "de",
+      "h": "7be1c6174225"
+    },
+    "31761": {
+      "t": "Federal Resolution on the popular initiative ‘Against the overdevelopment of our countryside (Landscape Initiative)’",
+      "src": "de",
+      "h": "9a4a133fbe21"
+    },
+    "31762": {
+      "t": "Federal Act on the Introduction of a Simplified Procedure for the Destruction of Small Consignments under Intellectual Property Law",
+      "src": "de",
+      "h": "9b79c5c5e676"
+    },
+    "31763": {
+      "t": "Federal Resolution on the popular initiative ‘For the Future of Our Nature and Landscape (Biodiversity Initiative)’",
+      "src": "de",
+      "h": "b3b2fb9bf270"
+    },
+    "31764": {
+      "t": "Federal Resolution on the Approval of the Agreement between Switzerland and Indonesia on the Promotion and Protection of Investments",
+      "src": "de",
+      "h": "5bd84feb74fc"
+    },
+    "31766": {
+      "t": "Federal Decree on the ratification of the 2012 Strasbourg Convention on the Limitation of Liability in Inland Navigation and on its implementation (amendment to the Federal Act on Maritime Shipping under the Swiss Flag)",
+      "src": "de",
+      "h": "403cd14c3612"
+    },
+    "31767": {
+      "t": "Federal Resolution on the Approval of the Amendment to the Convention on the Collection, Delivery and Reception of Waste in Rhine and Inland Waterway Shipping",
+      "src": "de",
+      "h": "144fd6ba4572"
+    },
+    "31768": {
+      "t": "Federal Resolution on the Approval of a Protocol Amending the Double Taxation Agreement between Switzerland and the United Arab Emirates",
+      "src": "de",
+      "h": "27a7720dd85e"
+    },
+    "31769": {
+      "t": "Federal Resolution on the Approval and Implementation of the Hague Convention on Choice of Court Agreements",
+      "src": "de",
+      "h": "30367ad2b2db"
+    },
+    "32288": {
+      "t": "Federal Act on Environmental Protection (Environmental Protection Act, USG)",
+      "src": "de",
+      "h": "53fa32606da6"
+    },
+    "32289": {
+      "t": "Federal Act on Second Homes (Second Homes Act, ZWG)",
+      "src": "de",
+      "h": "abf853c2c312"
+    },
+    "32290": {
+      "t": "Federal Act on the Federal Assembly (Parliament Act, ParlG) (budget deliberations and the parliamentary co-reporting procedure)",
+      "src": "de",
+      "h": "9ed8adacf019"
+    },
+    "32291": {
+      "t": "Federal Act on the Reduction of CO₂ Emissions (CO₂ Act)",
+      "src": "de",
+      "h": "68e36cd4fc46"
+    },
+    "32292": {
+      "t": "Federal Act on Patents for Inventions (Patent Act, PatG)",
+      "src": "de",
+      "h": "d04b94ffe226"
+    },
+    "32293": {
+      "t": "Federal Act on Hydraulic Engineering",
+      "src": "de",
+      "h": "b3cc6176ddc4"
+    },
+    "32294": {
+      "t": "Federal Act on Family Allowances and Financial Assistance to Family Organisations (Family Allowances Act, FamZG)",
+      "src": "de",
+      "h": "d6fe5da1c0ed"
+    },
+    "32295": {
+      "t": "Federal Resolution on the approval of the exchange of notes between Switzerland and the EU concerning the adoption of Regulation (EU) 2022/922 on the establishment and application of an evaluation and monitoring mechanism to review the application of the Schengen acquis and repealing Regulation (EU) No 1053/2013 (further development of the Schengen acquis)",
+      "src": "de",
+      "h": "33f4a0c05b85"
+    },
+    "32297": {
+      "t": "Federal Resolution on the amendment of the 2025 and 2035 expansion phases for the railway infrastructure",
+      "src": "de",
+      "h": "d28b1ddc6793"
+    },
+    "32298": {
+      "t": "Federal Resolution on the Approval of the Treaty between Switzerland and Panama on Mutual Legal Assistance in Criminal Matters",
+      "src": "de",
+      "h": "97c6d4a38eae"
+    },
+    "32299": {
+      "t": "Federal Resolution on the approval of the exchange of notes between Switzerland and the EU concerning the adoption of Regulation (EU) 2021/1148 establishing an instrument for financial assistance in the field of border management and visa policy, and on the approval of the supplementary agreement on Switzerland’s participation in this instrument (further development of the Schengen acquis)",
+      "src": "de",
+      "h": "f0dae6fb11db"
+    },
+    "32300": {
+      "t": "Federal Act on the Electronic Patient Record (EPDG)",
+      "src": "de",
+      "h": "a18cbd365123"
+    },
+    "32301": {
+      "t": "Ordinance of the Federal Assembly on Judgeships at the Federal Criminal Court",
+      "src": "de",
+      "h": "f7e3aa01ee1d"
+    },
+    "32302": {
+      "t": "Ordinance of the Federal Assembly on Judgeships at the Federal Administrative Court",
+      "src": "de",
+      "h": "482093be1410"
+    },
+    "32978": {
+      "t": "Swiss Civil Code (Benefits from employers’ welfare funds)",
+      "src": "de",
+      "h": "18374aaf894c"
+    },
+    "32979": {
+      "t": "Ordinance of the Federal Assembly on the Parliament Act and on the Administration of Parliament (Ordinance on the Administration of Parliament, ParlVV)",
+      "src": "de",
+      "h": "4c3ecbf5dd99"
+    },
+    "32980": {
+      "t": "Federal Act on Foreign Nationals and Integration (Foreign Nationals and Integration Act) (In cases of domestic violence, ensure that the hardship provisions under Article 50 of the Foreign Nationals and Integration Act are applied)",
+      "src": "de",
+      "h": "d88ccceaa89d"
+    },
+    "32981": {
+      "t": "Swiss Criminal Code (Package of Measures on the Enforcement of Sanctions)",
+      "src": "de",
+      "h": "eecc3f8fabca"
+    },
+    "32982": {
+      "t": "Federal Act on Juvenile Criminal Law (Juvenile Criminal Act, JStG) (Package of Measures on the Enforcement of Sanctions)",
+      "src": "de",
+      "h": "da75127a0b96"
+    },
+    "32983": {
+      "t": "Federal Act on the Development Finance Corporation SIFEM (SIFEM Act)",
+      "src": "de",
+      "h": "566b6f8aa7e6"
+    },
+    "32984": {
+      "t": "Federal Act on the Licensing of Road Haulage Operators (STUG)",
+      "src": "de",
+      "h": "4526e2898919"
+    },
+    "32985": {
+      "t": "Federal Act on Health Insurance (KVG) (Data exchange, risk equalisation)",
+      "src": "de",
+      "h": "c76411dfc7fb"
+    },
+    "32696": {
+      "t": "Federal Act on Juvenile Criminal Law (Juvenile Criminal Act, JStG) (Package of Measures on the Enforcement of Sanctions)",
+      "src": "de",
+      "h": "da75127a0b96"
+    },
+    "32986": {
+      "t": "Swiss Civil Code (Measures against child marriage)",
+      "src": "de",
+      "h": "a4c7acfca281"
+    },
+    "32987": {
+      "t": "Federal Act on Income Replacement (Income Replacement Act, EOG) (Digitisation within the Income Replacement Scheme)",
+      "src": "de",
+      "h": "0eefff9b68ce"
+    },
+    "32989": {
+      "t": "Federal Resolution on the Approval of the Agreement between Switzerland and Liechtenstein on the Exchange of Data Concerning Players Barred from Gambling Activities",
+      "src": "de",
+      "h": "7b36d20b1918"
+    },
+    "32990": {
+      "t": "Federal Resolution on the Approval of a Protocol Amending the Double Taxation Agreement between Switzerland and Slovenia",
+      "src": "de",
+      "h": "83d5c0e709b7"
+    },
+    "32991": {
+      "t": "Federal Resolution on the Approval and Implementation of a Supplementary Agreement to the Double Taxation Agreement between Switzerland and France",
+      "src": "de",
+      "h": "78cb6a7716c7"
+    },
+    "32992": {
+      "t": "Federal Act on Compulsory Unemployment Insurance and Insolvency Compensation (Unemployment Insurance Act, AVIG) (Unemployment Insurance Funds’ Compensation Scheme)",
+      "src": "de",
+      "h": "1f0f28bd8f66"
+    },
+    "32993": {
+      "t": "Federal Act on the Taxation of Telework in an International Context",
+      "src": "de",
+      "h": "d45c1b7af8bb"
+    },
+    "33452": {
+      "t": "Federal Act on the Protection of Nature and the Built Environment (NHG)",
+      "src": "de",
+      "h": "511ef4476142"
+    },
+    "33453": {
+      "t": "Federal Act on Forests (Forest Act, WaG)",
+      "src": "de",
+      "h": "269266eac017"
+    },
+    "33454": {
+      "t": "Federal Act on Environmental Protection (Environmental Protection Act, USG)",
+      "src": "de",
+      "h": "53fa32606da6"
+    },
+    "33455": {
+      "t": "Federal Act on the Swiss Federal Railways (SBBG)",
+      "src": "de",
+      "h": "d46a7935e61b"
+    },
+    "33456": {
+      "t": "Federal Act on the Review of Compulsory Social Welfare Measures and Placements in Care Prior to 1981 (AFZFG) (Treatment of cantonal and municipal solidarity contributions under the AFZFG)",
+      "src": "de",
+      "h": "ae6c8cdbeefc"
+    },
+    "33458": {
+      "t": "Federal Act on Financial Assistance for Non-Family Childcare (KBFHG)",
+      "src": "de",
+      "h": "2b230c23fc52"
+    },
+    "33459": {
+      "t": "Federal Act on Measures to Reduce the Financial and Administrative Burden from 2025 onwards",
+      "src": "de",
+      "h": "cfc7664d7154"
+    },
+    "33460": {
+      "t": "Federal Resolution on the popular initiative ‘For a responsible economy within planetary boundaries (Environmental Responsibility Initiative)’",
+      "src": "de",
+      "h": "b5b8edb01ef3"
+    },
+    "33461": {
+      "t": "Federal Act on National Languages and Communication between Language Communities (Languages Act, SpG)",
+      "src": "de",
+      "h": "600847b54ef7"
+    },
+    "33462": {
+      "t": "Federal Act on the Promotion of Research and Innovation (FIFG) (Sectoral Plan and Planning Approval Procedure)",
+      "src": "de",
+      "h": "957b2571ec07"
+    },
+    "33463": {
+      "t": "Federal Act on the Conclusion of International Agreements on the Recognition of Professional Qualifications",
+      "src": "de",
+      "h": "51f20904759c"
+    },
+    "33464": {
+      "t": "Federal Decree on the Approval of the Agreement between Switzerland and the United Kingdom on the Recognition of Professional Qualifications and on its Implementation (Lawyers Act)",
+      "src": "de",
+      "h": "25c4c90e1de2"
+    },
+    "33465": {
+      "t": "Federal Act on Vocational Training",
+      "src": "de",
+      "h": "009cfe37b7b3"
+    },
+    "33466": {
+      "t": "Federal Act on the Swiss Federal Institutes of Technology (ETH Act)",
+      "src": "de",
+      "h": "740616b1f633"
+    },
+    "33467": {
+      "t": "Federal Act on the Funding of Higher Education Institutions and Coordination within the Swiss Higher Education Sector (Higher Education Funding and Coordination Act, HFKG)",
+      "src": "de",
+      "h": "923a44b6f4fe"
+    },
+    "33468": {
+      "t": "Federal Act on the Promotion of Research and Innovation (FIFG)",
+      "src": "de",
+      "h": "08da314d4e77"
+    },
+    "33469": {
+      "t": "Federal Resolution on the Approval of the Free Trade Agreement between the EFTA States and the Republic of Moldova",
+      "src": "de",
+      "h": "ef64801630e6"
+    },
+    "33883": {
+      "t": "Federal Act on the Change in the System for Taxing Home Ownership",
+      "src": "de",
+      "h": "4f38eda88372"
+    },
+    "33884": {
+      "t": "The Law of Obligations (Construction Defects)",
+      "src": "de",
+      "h": "787c76b71c80"
+    },
+    "33885": {
+      "t": "Federal Decree on Cantonal Property Taxes on Second Homes",
+      "src": "de",
+      "h": "caf3dc74cd7b"
+    },
+    "33886": {
+      "t": "Federal Act on Platforms for Electronic Communication in the Justice System (BEKJ)",
+      "src": "de",
+      "h": "d29252364685"
+    },
+    "33887": {
+      "t": "Federal Act on Electronic Identification and Other Forms of Electronic Evidence (E-ID Act, BGEID)",
+      "src": "de",
+      "h": "b6ab3ecfd448"
+    },
+    "33888": {
+      "t": "Electricity Supply Act (Electricity Reserve). Amendment",
+      "src": "de",
+      "h": "e9aa0cca6a4d"
+    },
+    "33889": {
+      "t": "Federal Decree on the Use of Electronic Means of Communication in Cross-Border Civil Proceedings",
+      "src": "de",
+      "h": "2cd471d86669"
+    },
+    "33890": {
+      "t": "Federal Resolution on the Approval of a Protocol Amending the Double Taxation Agreement between Switzerland and Serbia",
+      "src": "de",
+      "h": "c394f657f51a"
+    },
+    "33891": {
+      "t": "Federal Act on the Improvement of Flood Protection along the Rhine from the mouth of the Ill to Lake Constance (Alpine Rhine Act)",
+      "src": "de",
+      "h": "48610be627c0"
+    },
+    "33892": {
+      "t": "Federal Resolution on the Approval of the Treaty between the Swiss Confederation and the Republic of Austria on the Improvement of Flood Protection on the Rhine from the mouth of the Ill to Lake Constance",
+      "src": "de",
+      "h": "793ff64a8a58"
+    },
+    "33893": {
+      "t": "Federal Act on Civil Protection and Civil Defence (Civil Protection and Civil Defence Act, BZG)",
+      "src": "de",
+      "h": "e111a23207a3"
+    },
+    "33894": {
+      "t": "Federal Act on the Prohibition of Hamas and Related Organisations",
+      "src": "de",
+      "h": "696e0dc3311b"
+    },
+    "34198": {
+      "t": "Federal Act on Health Insurance (KVG) (Cost-containment measures – Package 2)",
+      "src": "de",
+      "h": "6fa1af98afea"
+    },
+    "34199": {
+      "t": "Federal Act on Debt Enforcement and Bankruptcy (SchKG) (Non-disclosure of debt enforcement entries)",
+      "src": "de",
+      "h": "15a711078715"
+    },
+    "34200": {
+      "t": "Federal Act on the Federal Assembly (Parliament Act, ParlG) (Submission of motions and parliamentary initiatives)",
+      "src": "de",
+      "h": "f6e633bbaa87"
+    },
+    "34201": {
+      "t": "Rules of Procedure of the National Council (GRN) (Submission of motions and parliamentary initiatives)",
+      "src": "de",
+      "h": "486ea89433be"
+    },
+    "34202": {
+      "t": "Postal Services Act (PG)",
+      "src": "de",
+      "h": "cc7db8b5a63e"
+    },
+    "34203": {
+      "t": "Energy Act. Amendment (Acceleration Decree)",
+      "src": "de",
+      "h": "625808d28faf"
+    },
+    "34204": {
+      "t": "Federal Act on Trade in Goods Used for Torture (Act on Goods Used for Torture, FGG)",
+      "src": "de",
+      "h": "ce164eec232f"
+    },
+    "34205": {
+      "t": "Federal Act on the Processing of Air Passenger Data for the Purpose of Combating Terrorism and Other Serious Criminal Offences (Air Passenger Data Act, FPG)",
+      "src": "de",
+      "h": "6bc337dc1bb6"
+    },
+    "34206": {
+      "t": "Federal Act on Supervision and Transparency in the Wholesale Energy Markets (BATE)",
+      "src": "de",
+      "h": "5a847e45b583"
+    },
+    "34207": {
+      "t": "Federal Act on the Transport of Goods by Rail, Water and Cableways (Goods Transport Act, GüTG)",
+      "src": "de",
+      "h": "bd4e4f0166eb"
+    },
+    "34208": {
+      "t": "Federal Act on the International Transfer of Cultural Property (Act on the Transfer of Cultural Property, KGTG)",
+      "src": "de",
+      "h": "25fce21cfdd4"
+    },
+    "34209": {
+      "t": "Asylum Act (AsylG) (Security and Operations in Federal Centres)",
+      "src": "de",
+      "h": "912637222a96"
+    },
+    "34210": {
+      "t": "Federal Act on Civil Protection and Civil Defence (Civil Protection and Civil Defence Act, BZG) Draft A: Deployment of persons liable for civilian service in the civil defence service",
+      "src": "de",
+      "h": "a181407cf3a1"
+    },
+    "34211": {
+      "t": "Federal Act on Civil Protection and Civil Defence (Civil Protection and Civil Defence Act, BZG) Draft B: Provisions concerning the Coordinated Medical Service, the Coordinated Transport Service and the cantonal emergency assembly points, as well as general provisions on civil defence",
+      "src": "de",
+      "h": "b8a54c4ea51e"
+    },
+    "34212": {
+      "t": "Federal Act on the Supervision of Social Health Insurance (Health Insurance Supervision Act, KVAG) (Participation of the cantons in the premium approval procedure; compensation for excess premium income)",
+      "src": "de",
+      "h": "c2e8be37539d"
+    },
+    "34213": {
+      "t": "Federal Resolution on the Approval of a Double Taxation Agreement between Switzerland and Angola",
+      "src": "de",
+      "h": "28e72ab871cb"
+    },
+    "34214": {
+      "t": "Federal Resolution on the Approval of a Protocol Amending the Double Taxation Agreement between Switzerland and Germany",
+      "src": "de",
+      "h": "1a0c05646b99"
+    },
+    "34215": {
+      "t": "Federal Resolution on the Approval of a Double Taxation Agreement between Switzerland and Jordan",
+      "src": "de",
+      "h": "52176c46fa59"
+    },
+    "34216": {
+      "t": "Federal Act on Disability Insurance (IVG) (Intensive early intervention for autism spectrum disorders)",
+      "src": "de",
+      "h": "c5754de4bfe3"
+    },
+    "34217": {
+      "t": "Federal Resolution on the Approval of the Agreement between Switzerland and the United Kingdom on Mutual Recognition in the Field of Financial Services",
+      "src": "de",
+      "h": "bbf719b42e58"
+    },
+    "34218": {
+      "t": "Federal Resolution on the Approval of the Trade and Economic Partnership Agreement between the EFTA States and India",
+      "src": "de",
+      "h": "9b7a38db4a4b"
+    },
+    "34219": {
+      "t": "Federal Resolution on the approval and implementation of the exchange of notes between Switzerland and the EU concerning the transposition of Directive (EU) 2023/977 on the exchange of information between law enforcement authorities of the Member States and repealing Council Framework Decision 2006/960/JHA (further development of the Schengen acquis)",
+      "src": "de",
+      "h": "dcd6feed3da9"
+    },
+    "34220": {
+      "t": "Federal Act on Old-Age and Survivors’ Insurance (AHVG) (Implementation of the 13th Old-Age Pension)",
+      "src": "de",
+      "h": "2c1621bd5830"
+    },
+    "34221": {
+      "t": "Federal Resolution on the Approval of the Agreement between Switzerland, Germany and Italy on Solidarity Measures to Ensure a Secure Supply of Gas",
+      "src": "de",
+      "h": "65b253522875"
+    },
+    "34222": {
+      "t": "Federal Resolution on the Approval of a Territorial Change between the Cantons of Bern and Jura (Transfer of the Bernese municipality of Moutier to the Canton of Jura)",
+      "src": "de",
+      "h": "cf88b5038b44"
+    },
+    "34223": {
+      "t": "Rules of Procedure of the National Council (GRN) (Reinstating voting without a roll call)",
+      "src": "de",
+      "h": "f4ff863c482b"
+    },
+    "34669": {
+      "t": "Federal Act on Improving Criminal Law Protection against Stalking (Amendment to the Criminal Code, the Military Criminal Code and the Military Criminal Procedure Code)",
+      "src": "de",
+      "h": "761d339ab5d9"
+    },
+    "34670": {
+      "t": "Federal Act on the General Provisions Governing the Collection of Duties and the Control of Cross-Border Movement of Goods and Persons by the Federal Office for Customs and Border Security (Federal Office for Customs and Border Security Enforcement Act, BAZG-VG)",
+      "src": "de",
+      "h": "489488a9ef57"
+    },
+    "34671": {
+      "t": "Federal Act on Customs Liability and the Assessment of Customs Duties (Customs Duties Act, ZoG)",
+      "src": "de",
+      "h": "09b78970822a"
+    },
+    "34672": {
+      "t": "Federal Resolution on the Approval and Implementation of the Bilateral Agreements between Switzerland and the EU on Association with Schengen and Dublin",
+      "src": "de",
+      "h": "bea0ec541217"
+    },
+    "34673": {
+      "t": "Federal Act on Tobacco Products and Electronic Cigarettes (Tobacco Products Act, TabPG)",
+      "src": "de",
+      "h": "d0bf59a0fd4d"
+    },
+    "34674": {
+      "t": "Swiss Civil Code (Protection of possession in the event of unlawful interference with immovable property)",
+      "src": "de",
+      "h": "6a561a5707aa"
+    },
+    "34676": {
+      "t": "Federal Resolution on the popular initiative ‘For individual taxation regardless of marital status’",
+      "src": "de",
+      "h": "c81ead246534"
+    },
+    "34677": {
+      "t": "Federal Act on Individual Taxation",
+      "src": "de",
+      "h": "3a4af8a9c365"
+    },
+    "34678": {
+      "t": "Federal Act on the Swiss National Library (National Library Act, NBibG)",
+      "src": "de",
+      "h": "e0c72ed89941"
     }
   },
   "args": {
@@ -634,6 +1474,846 @@
       "t": "Federal Council press release of 19 May 2021 Health insurance: stricter regulation of insurance intermediaries’ activities Insurance intermediaries’ activities in the health insurance sector are to be subject to stricter regulation. At its meeting on 19 May 2021, the Federal Council adopted the dispatch on the regulation of insurance intermediation. The bill is intended to grant the Federal Council the power to declare certain provisions of the agreement on intermediation between insurers to be generally binding. Cold calling will thus be prohibited, and the remuneration of…",
       "src": "de",
       "h": "2ef4b9b85474"
+    },
+    "29770": {
+      "t": "Press release from the Council of States’ Committee on the Environment, Spatial Planning and Energy dated 24 June 2022 The Council of States’ Environment Committee has adopted a draft for the partial revision of the Hunting Act. It focuses on the proactive management of wolf populations to prevent damage or danger to people. The drafting of the bill (21.502) stems from an initiative by the Council of States’ Committee on the Environment, Spatial Planning and Energy. Following the rejection of the partial revision of the Hunting Act at the ballot box in 2020, parliamentary motions led to…",
+      "src": "de",
+      "h": "8c32db7a9586"
+    },
+    "29773": {
+      "t": "Federal Council press release of 18 May 2022: Additional security in the Schengen Area: Messages on the adaptation of the ETIAS and VIS systems Controls at the external borders of the Schengen Area are to be further improved and cooperation between national security and migration authorities is to be further strengthened. At its meeting on 18 May 2022, the Federal Council referred two messages to Parliament. The first concerns the implementation of a further development of the Visa Information System (VIS) to better address the new challenges in visa, border and security policy…",
+      "src": "de",
+      "h": "28d662d76d75"
+    },
+    "29781": {
+      "t": "Federal Council press release of 18 May 2022: Additional security in the Schengen Area: Messages on the adaptation of the ETIAS and VIS systems Controls at the external borders of the Schengen Area are to be further improved and cooperation between national security and migration authorities is to be further strengthened. At its meeting on 18 May 2022, the Federal Council referred two messages to Parliament. The first concerns the implementation of a further development of the Visa Information System (VIS) to better address the new challenges in visa, border and security policy…",
+      "src": "de",
+      "h": "28d662d76d75"
+    },
+    "29782": {
+      "t": "Federal Council press release of 18 March 2022 Federal Council adopts dispatch on the DTA with Ethiopia At its meeting on 18 March 2022, the Federal Council adopted the dispatch seeking approval of a double taxation agreement (DTA) with Ethiopia. This DTA will enable Switzerland to extend its network of double taxation agreements to East Africa for the first time. The agreement ensures legal certainty and provides a contractual framework that will have a positive impact on the development of bilateral economic relations. The DTA reflects the findings of the OECD project “Base Erosion…",
+      "src": "de",
+      "h": "12c614bfd39d"
+    },
+    "29774": {
+      "t": "Federal Council press release of 13 April 2022: Federal Council seeks Switzerland’s accession to six European research infrastructures On 13 April 2022, the Federal Council submitted to Parliament the dispatch on Switzerland’s accession to six European research infrastructure networks. These accessions are intended to enable Swiss researchers to participate actively and on an equal footing. Switzerland participates as an observer in eight research infrastructure networks with the legal form defined by the EU as a ‘European Research Infrastructure Consortium’ (ERIC). In total…",
+      "src": "de",
+      "h": "34bd270be70c"
+    },
+    "29775": {
+      "t": "Federal Council press release of 13 April 2022: Federal Council seeks Switzerland’s accession to six European research infrastructures On 13 April 2022, the Federal Council submitted to Parliament the dispatch on Switzerland’s accession to six European research infrastructure networks. These accessions are intended to enable Swiss researchers to participate actively and on an equal footing. Switzerland participates as an observer in eight research infrastructure networks with the legal form defined by the EU as a ‘European Research Infrastructure Consortium’ (ERIC). In total…",
+      "src": "de",
+      "h": "34bd270be70c"
+    },
+    "29776": {
+      "t": "Federal Council press release of 27 April2022 Message on the Social Security Agreement with the United Kingdom At its meeting on 27 April 2022, the Federal Council referred the message seeking Parliament’s approval of the Agreement on Social Security between Switzerland and the United Kingdom to Parliament. The agreement coordinates the social security systems of the two contracting states following Brexit, which resulted in the Free Movement of Persons Agreement between Switzerland and the EU ceasing to apply to the United Kingdom. The Social Security Agreement has been in force since 1…",
+      "src": "de",
+      "h": "3d441bd04bd4"
+    },
+    "29777": {
+      "t": "Federal Council press release dated 4 May2022 Federal Council adopts dispatch on the amendment to the double taxation agreement with Armenia At its meeting on 4 May 2022, the Federal Council adopted the dispatch on the protocol amending the double taxation agreement (DTA) with Armenia. The Protocol implements the minimum standards set out in the BEPS project with regard to double taxation agreements. In addition to implementing the BEPS minimum standards, the Protocol with Armenia includes an anti-abuse clause. It also revises or updates several provisions (e.g. concerning permanent establishments…",
+      "src": "de",
+      "h": "dac0988a0447"
+    },
+    "29778": {
+      "t": "The Federal Council intends to introduce the new tax rules set out in the OECD/G20 project on the taxation of large corporate groups, so that the additional tax revenue is generated in Switzerland rather than abroad. This bill is intended to safeguard Switzerland’s competitiveness and to create the conditions necessary to ensure that jobs and tax revenue remain in Switzerland. On 22 June 2022, the Federal Council submitted its message on the bill to Parliament for approval. The Federal Assembly adopted the bill on 16 December 2022. As their…",
+      "src": "de",
+      "h": "20e2144a573c"
+    },
+    "29783": {
+      "t": "Federal Council press release of 18 May 2022: Additional security in the Schengen Area: Messages on the adaptation of the ETIAS and VIS systems Controls at the external borders of the Schengen Area are to be further improved and cooperation between national security and migration authorities is to be further strengthened. At its meeting on 18 May 2022, the Federal Council referred two messages to Parliament. The first concerns the implementation of a further development of the Visa Information System (VIS) to better address the new challenges in visa, border and security policy…",
+      "src": "de",
+      "h": "28d662d76d75"
+    },
+    "29784": {
+      "t": "Federal Council press release of 18 May 2022: Additional security in the Schengen Area: Messages on the adaptation of the ETIAS and VIS systems Controls at the external borders of the Schengen Area are to be further improved and cooperation between national security and migration authorities is to be further strengthened. At its meeting on 18 May 2022, the Federal Council referred two messages to Parliament. The first concerns the implementation of a further development of the Visa Information System (VIS) to better address the new challenges in visa, border and security policy…",
+      "src": "de",
+      "h": "28d662d76d75"
+    },
+    "29785": {
+      "t": "Federal Council press release of 25 May 2022 Federal Council aims to implement the training initiative in the care sector as quickly as possible The Federal Council intends to tackle the shortage of care staff through a training initiative. Training to become a registered nurse is to be funded by the Confederation and the cantons to the tune of up to one billion Swiss francs over eight years. Registered nurses are also to be able to bill social insurance schemes directly for certain services. These measures are intended to swiftly implement a key part of the Care Initiative. They had already been included in the indirect…",
+      "src": "de",
+      "h": "ed6d6cf9194d"
+    },
+    "29786": {
+      "t": "Federal Council press release dated 18 May2022 The Confederation will in future be able to provide financial support to cantons operating departure centres at the border Persons required to leave Switzerland who do not hold a residence permit are to be detained by the Confederation and the cantons on a short-term basis so that they can be handed over to the authorities of a neighbouring state on the basis of a readmission agreement. Furthermore, in the event of an exceptionally high number of illegal border crossings, the Confederation is to be able to contribute financially towards the costs incurred primarily by the border cantons operating departure centres. This was announced by the…",
+      "src": "de",
+      "h": "1fe81ef1ce74"
+    },
+    "29787": {
+      "t": "As a further wave of coronavirus infections cannot be ruled out and the current Covid-19 Act is due to expire on 31 December 2022, the National Council and the Council of States have extended certain provisions of this Act, which are designed to protect public health, until the end of June 2024. A particular point of contention in the chambers was the question of how long the costs of COVID-19 tests would continue to be covered, and by whom. Ultimately, it was decided that the current testing scheme would end at the end of 2022 and that, from 2023, only medically necessary tests would be paid for, namely by the…",
+      "src": "de",
+      "h": "01df6dbde763"
+    },
+    "29790": {
+      "t": "Federal Council press release dated 3 June2022 Federal Council intends to extend the rules on Covid-19 testing for repatriations Since 2 October 2021, anyone who is required to leave Switzerland may be obliged to undergo a Covid-19 test if a removal order cannot otherwise be enforced. This is because many countries continue to require a negative Covid-19 test for the readmission of deported persons. To ensure that the cantons can continue to fulfil their enforcement duties, the Federal Council, at its meeting on 3 June 2022, adopted a dispatch proposing the extension of this regulation until the end of June 2024…",
+      "src": "de",
+      "h": "7546c1ec915b"
+    },
+    "29791": {
+      "t": "Press release from the National Council’s Legal Affairs Committee dated 24 June 2022: In the final vote, the Committee voted 15 to 6 in favour of creating two additional permanent judges’ posts at the Federal Supreme Court (Initiative 22.427 of the RK-N). The minority proposes that the Council should not enter into deliberations on the bill and should refer it back to the Committee with a mandate to draw up a draft bill to abolish the system of part-time judges at the Federal Supreme Court. As the efficiency of this system is regularly called into question, the…",
+      "src": "de",
+      "h": "acb6abdaaccd"
+    },
+    "30267": {
+      "t": "Press release from the National Council’s Committee on Social Security and Health dated 19 August 2022. The Committee took note of the results of the consultation on its preliminary draft, which it had drawn up on the basis of parliamentary initiative IV (Kessler) Weibel. Maternity leave for bereaved fathers (15.434). With 17 votes in favour and 4 abstentions, it adopted its draft for submission to the Council. The amendment to the law aims to introduce 14 weeks’ leave, compensated under the income replacement scheme, in the event that the mother dies shortly after the birth of the child. A minority…",
+      "src": "de",
+      "h": "7135eb588910"
+    },
+    "30268": {
+      "t": "Federal Council press release of 26 February 2020: Code of Civil Procedure: Access to the courts to be made easier The Swiss Code of Civil Procedure has, on the whole, proved its worth in practice. However, by making targeted amendments, the Federal Council aims to make access to the courts easier, particularly for private individuals and businesses, and thereby further improve the enforcement of the law. To this end, it intends to amend the law on legal costs. At its meeting on 26 February 2020, the Federal Council took note of the results of the consultation and adopted the dispatch to Parliament. As the…",
+      "src": "de",
+      "h": "93463fd7f265"
+    },
+    "30269": {
+      "t": "On 25 November 2020, the Federal Council adopted its dispatch on the amendment to the Federal Act on Occupational Old-Age, Survivors’ and Disability Pension Provision. In it, the Federal Council explains that occupational pension provision (2nd pillar) faces two challenges: rising life expectancy and low investment returns. In this context, a reduction in the minimum conversion rate in the mandatory occupational pension scheme is unavoidable. This bill is intended to secure the financing of the occupational pension scheme. At the same time, it aims to maintain the level of benefits for people on lower incomes…",
+      "src": "de",
+      "h": "ac58ae23150c"
+    },
+    "30272": {
+      "t": "Federal Council press release dated 11 August 2021 Federal Council adopts dispatch on direct counter-proposal to the Glacier Initiative On 11 August 2021, the Federal Council adopted the dispatch on a direct counter-proposal to the Glacier Initiative. This pursues the same objective as the initiative: net-zero greenhouse gas emissions by 2050. However, the counter-proposal does not include a blanket ban on fossil fuels. The Federal Council also wants Swiss climate policy to take into account not only social equity but also the specific situation of mountainous and peripheral regions, as well as…",
+      "src": "de",
+      "h": "1e4d5ad3a81e"
+    },
+    "30273": {
+      "t": "Federal Council press release of 17 November 2021 Federal Council adopts dispatch on amendments to the Road Traffic Act At its meeting on 17 November 2021, the Federal Council adopted the dispatch on amendments to the Road Traffic Act (SVG) for submission to Parliament. The package of amendments focuses on reducing greenhouse gas emissions, improving road safety and enabling automated driving. At its meeting on 17 November 2021, the Federal Council adopted the dispatch on amendments to the Road Traffic Act. The most important…",
+      "src": "de",
+      "h": "04e8862144d4"
+    },
+    "30274": {
+      "t": "Federal Council press release dated 4 March2022 Federal Council adopts dispatch on the Federal Act on the Use of Electronic Means to Fulfil Public Authority Tasks On 4 March 2022, the Federal Council adopted the dispatch on the Federal Act on the Use of Electronic Means to Fulfil Public Authority Tasks (EMBAG). The aim is to establish the legal basis for an effective digital transformation within the Federal Administration, as well as for cooperation between authorities of different levels of government and third parties in the field of e-government. With the draft legislation…",
+      "src": "de",
+      "h": "2ed943222aef"
+    },
+    "30275": {
+      "t": "On 28 May 2021, the Swiss Trade Union Federation (SGB) submitted the popular initiative ‘For a better life in old age (Initiative for a 13th AHV pension)’, backed by 101,793 valid signatures. The initiative calls for an annual supplement amounting to one-twelfth of the annual pension for people receiving an old-age pension. The supplement is not intended to reduce supplementary benefits, nor should entitlement to them be lost. The initiative would have positive implications for recipients of AHV old-age pensions: if the initiative were to be adopted, …",
+      "src": "de",
+      "h": "b9f1e58a1418"
+    },
+    "30277": {
+      "t": "Federal Council press release dated 22 June 2022 Federal Council adopts dispatch on the incorporation of the stock exchange protection measure into ordinary law At its meeting on 22 June 2022, the Federal Council adopted the dispatch on the incorporation of the measure to protect the Swiss stock exchange infrastructure into the Financial Market Infrastructure Act (FinfraG). This step is necessary because, otherwise, the protective measure would lapse and the European Union (EU) has not yet recognised Swiss stock exchange regulation as equivalent. The EU had suspended recognition of stock exchange equivalence…",
+      "src": "de",
+      "h": "4e6c1a481219"
+    },
+    "30278": {
+      "t": "Federal Council press release of 22 June 2022 Federal Council seeks to provide greater support for innovation in tourism The Federal Council intends to provide greater support for innovative projects in tourism and to temporarily increase the federal government’s contribution to Innotour projects. On 22 June 2022, it took note of the results of the consultation on an amendment to the Federal Act on the Promotion of Innovation, Cooperation and Knowledge Development in Tourism (Innotour) and adopted a dispatch to Parliament. Implementing this measure will require additional funding of 20 million Swiss francs. The…",
+      "src": "de",
+      "h": "408ec4f2da91"
+    },
+    "30279": {
+      "t": "Federal Council press release of 25 August 2022: Mutual Legal Assistance Treaty with the Republic of Kosovo: Federal Council adopts dispatch Switzerland and the Republic of Kosovo intend to cooperate more closely in the fight against international crime. At its meeting on 24 August 2022, the Federal Council adopted the dispatch on a bilateral treaty on mutual legal assistance in criminal matters with the South-Eastern European state. In the interests of enhanced security, Switzerland is thus further expanding its global network of treaties in the field of mutual legal assistance in criminal matters. Switzerland and the…",
+      "src": "de",
+      "h": "241dbcdd262b"
+    },
+    "30280": {
+      "t": "Federal Council press release of 24 August 2022: Message on the Social Security Agreement with Albania At its meeting on 24 August 2022, the Federal Council submitted to Parliament the message seeking approval of the Agreement on Social Security between Switzerland and Albania. The agreement coordinates the old-age, survivors’ and disability provision schemes of the contracting states and regulates the payment of pensions abroad. It also supports Switzerland’s economic relations with Albania. In substance, the agreement is in line with the other agreements concluded by Switzerland…",
+      "src": "de",
+      "h": "6b4259e34f6f"
+    },
+    "30281": {
+      "t": "Federal Council press release of 31 August 2022 Federal Council approves the modernisation of the collection system for the performance-based heavy goods vehicle charge At its meeting on 31 August 2022, the Federal Council adopted the dispatch on the amendment to the Heavy Goods Vehicle Tax Act and on the commitment credit for the financing of a new system for collecting the performance-based heavy goods vehicle tax. The bill provides, on the one hand, for the technical renewal and modernisation of the collection system and, on the other hand, lays the groundwork for the authorisation of service providers to…",
+      "src": "de",
+      "h": "3e05ca5a4f2d"
+    },
+    "30282": {
+      "t": "Report of the National Council’s Committee on Social Security and Health of 29 November 2022: Main features of the bill. The Committee proposes to add a new paragraph 1bis to Article 37 of the Health Insurance Act (KVG). This is intended to give the cantons the option, in cases of proven under-provision, to nevertheless authorise healthcare providers who do not fulfil the three-year service requirement under Article 37(1) of the Health Insurance Act (KVG) to bill the compulsory health insurance scheme. A canton may therefore, if it identifies a shortage of provision within its territory, grant exceptions on a case-by-case basis and in direct…",
+      "src": "de",
+      "h": "a8f180df9f4b"
+    },
+    "30283": {
+      "t": "Federal Council press release of 12 January 2023: 2022 Foreign Trade Report: War in Ukraine highlights Switzerland’s resilience On 11 January 2023, the Federal Council adopted the 2022 Foreign Trade Policy Report. The report focuses on the impact of the war in Ukraine on the global economy and on Switzerland. The Swiss economy has once again demonstrated the resilience of its production and supply chains in the wake of the Covid-19 crisis. Given the important role played by Russia and Ukraine as suppliers of food and energy, it was particularly…",
+      "src": "de",
+      "h": "dd671aaf70c0"
+    },
+    "30924": {
+      "t": "Drafts 1 and 2 of the Federal Council’s press release of 25 April 2018: Appropriate penalty ranges: Federal Council seeks to revise the Criminal Code The Federal Council wishes to ensure that criminal offences are punished appropriately and is therefore adjusting the penalty ranges for various offences in the Criminal Code. The focus is on violent and sexual offences, which are often committed against women and children. Such offences are to be punished more severely in future. At the same time, the Federal Council is also better harmonising the relationship between the ranges of penalties. At its meeting on 25 April 2018, it…",
+      "src": "de",
+      "h": "0ed70fd2a318"
+    },
+    "30925": {
+      "t": "Federal Council press release of 13 February 2020: Agriculture is preparing for the challenges of tomorrow On 12 February 2020, the Federal Council adopted the dispatch on the further development of agricultural policy from 2022 onwards (AP22+). This positions the agricultural sector in such a way as to take account of the public’s concerns. It thus provides Swiss agriculture with the appropriate framework to better highlight the added value of its products. The efficiency of farms will be enhanced, whilst environmental impact and the consumption of non-renewable resources…",
+      "src": "de",
+      "h": "d1bc8b6af0d5"
+    },
+    "30926": {
+      "t": "Federal Council press release of 13 February 2020: Agriculture is preparing for the challenges of tomorrow On 12 February 2020, the Federal Council adopted the dispatch on the further development of agricultural policy from 2022 onwards (AP22+). This positions the agricultural sector in such a way as to take account of the public’s concerns. It thus provides Swiss agriculture with the appropriate framework to better highlight the added value of its products. The efficiency of farms will be enhanced, whilst environmental impact and the consumption of non-renewable resources…",
+      "src": "de",
+      "h": "d1bc8b6af0d5"
+    },
+    "30927": {
+      "t": "Federal Council press release of 24 September 2021 Federal Council adopts dispatch on amendments to the Value Added Tax Act At its meeting on 24 September 2021, the Federal Council adopted the dispatch on amendments to the Value Added Tax Act. Among other things, it proposes that mail-order platforms be subject to value added tax (VAT), that subsidies from public authorities always be treated as subsidies for VAT purposes, and that VAT returns for SMEs be required only on an annual basis. From now on, online mail-order platforms will be regarded as… for the supplies they have facilitated…",
+      "src": "de",
+      "h": "b6a7b51a55dd"
+    },
+    "30928": {
+      "t": "Federal Council press release of 17 December 2021: Electronic originals of public documents to be permitted in future. In future, it will be possible to draw up the original of a public document in electronic form. A central electronic register of public documents is also to be established to ensure their secure and long-term storage. At its meeting on 17 December 2021, the Federal Council took note of the results of the consultation on the draft legislation on digital notarisation and adopted the dispatch on the Federal Act on Digitalisation in the Notarial Profession (DNG). Under current…",
+      "src": "de",
+      "h": "5f91ad28fd65"
+    },
+    "30929": {
+      "t": "On 16 July 2021, the Young Liberals of Switzerland submitted the popular initiative ‘For a secure and sustainable pension system (Pension Initiative)’, backed by 107,049 valid signatures. As a first step, the initiative calls for the retirement age for both men and women to be raised to 66. Following this first step, the initiative calls for the retirement age to be linked to the average life expectancy of the Swiss resident population aged 65. This adjustment is to take place annually in increments of no more than two months and give those affected five…",
+      "src": "de",
+      "h": "67bb76b65c20"
+    },
+    "30931": {
+      "t": "Federal Council press release dated 30 September 2022 Federal Council intends to continue the “Rolling Highway” scheme until 2026 The “Rolling Highway” (Rola) helps to shift freight transport through the Alps onto rail. This protects the climate and the environment and relieves pressure on the Swiss road network. At its meeting on 30 September 2022, the Federal Council approved the dispatch on the continuation of the Rola until the end of 2026. The Rola involves transporting lorries by rail through Switzerland, with the drivers travelling in an accompanying vehicle. The current funding arrangement expires at the end of…",
+      "src": "de",
+      "h": "69e58dfe4520"
+    },
+    "30932": {
+      "t": "Federal Council press release dated 26 October2022 Federal Council adopts dispatch on the taxation of e-cigarettes At its meeting on 26 October 2022, the Federal Council adopted the dispatch on the amendment to the Federal Act on the Taxation of Tobacco. The amendment provides for the taxation of liquids consumed in electronic cigarettes, known as e-cigarettes. The tax is intended to take account of the lower potential for harm posed by e-cigarettes and will therefore be lower than that on traditional tobacco cigarettes. In 2021, Parliament adopted the motion…",
+      "src": "de",
+      "h": "2218acb37679"
+    },
+    "30933": {
+      "t": "Federal Council press release dated 16 November2022 Federal Council adopts dispatch on the amendment to the double taxation agreement with Tajikistan At its meeting on 16 November 2022, the Federal Council adopted the dispatch on the protocol amending the double taxation agreement (DTA) with Tajikistan. The Protocol implements the minimum standards set out in the BEPS project with regard to double taxation agreements. The Protocol of Amendment contains an anti-abuse clause which focuses on the principal purpose of an arrangement or transaction, thereby ensuring that the DTA is not misused…",
+      "src": "de",
+      "h": "0aacb75542fb"
+    },
+    "30934": {
+      "t": "Federal Council press release dated 2 December 2022 Federal Council adopts dispatch on the amendment to the Posting of Workers Act On 2 December 2022, the Federal Council adopted the dispatch and the draft bill on the partial revision of the Posting of Workers Act. The aim is to establish the legal basis under data protection law for the platform for electronic communication between the bodies responsible for enforcing the accompanying measures. To promote the efficient and effective enforcement of the accompanying measures and the Posting of Workers Act, the Confederation is providing the competent bodies with a platform…",
+      "src": "de",
+      "h": "b70459fc394d"
+    },
+    "30935": {
+      "t": "Press release from the National Council’s Committee on the Environment, Spatial Planning and Energy, dated 24 January 2023 The National Council’s Energy Committee wishes to speed up the planning permission procedures for the construction of wind turbines in order to rapidly achieve an additional annual production of 1 TWh of renewable electricity. To this end, building permits for wind energy projects at an advanced stage of development are to be issued by the canton, and the associated legal procedures are to be streamlined. At its meeting on 23 January 2023, the Committee on the Environment, Spatial Planning and Energy of the…",
+      "src": "de",
+      "h": "c278214e0257"
+    },
+    "30936": {
+      "t": "Federal Council press release dated 1 February 2023: The substitute pension fund is to retain the right to invest vested benefits without interest The BVG substitute pension fund is to retain the right to invest vested benefits with the Federal Treasury without interest for a further four years. At its meeting on 1 February 2023, the Federal Council adopted a corresponding dispatch to Parliament. Back in September 2020, Parliament granted the Substitute Institution the right, for a period of three years, to invest up to 10 billion Swiss francs interest-free with the… should the coverage ratio fall below 105 per cent.",
+      "src": "de",
+      "h": "d0101a3e5b21"
+    },
+    "31396": {
+      "t": "In order to prevent abuses in subletting and sub-leasing in future, provisions are to be incorporated into tenancy law which align and supplement the requirements for subletting and tenancies under a sub-lease. It is now to be stipulated that the written consent of the landlord or lessor is required for a subletting or sublease to be valid. If these conditions are not met, the landlord or lessor…",
+      "src": "de",
+      "h": "8ccb0b707133"
+    },
+    "31397": {
+      "t": "Press release from the National Council’s Legal Affairs Committee dated 24 June 2022 The Committee has adopted three separate bills to implement the parliamentary initiatives Egloff 15.455 (“Preventing abusive subletting”) (by 13 votes to 9), Vogler 16.458 (“No unnecessary forms for staggered rent increases”) and Feller 16.459 (“Tenancy law. Declaring mechanically reproduced signatures to be admissible”) (by 14 votes to 0, with 8 abstentions), as well as 18.475 Merlini (Markwalder) (“Speeding up the procedure for terminating a tenancy due to…",
+      "src": "de",
+      "h": "1389bb816d85"
+    },
+    "31398": {
+      "t": "Press release from the National Council’s Committee on Social Security and Health dated 19 August 2022. The Committee unanimously adopted its draft amendment to the Therapeutic Products Act, thereby implementing the Giezendanner parliamentary initiative. Ensuring the blood supply and the voluntary nature of blood donation (16.504). Following feedback received during the consultation process, the Committee had previously amended the draft in two respects. In particular, in the interests of patients with very rare blood group characteristics, blood and blood products may, in exceptional cases, also be imported…",
+      "src": "de",
+      "h": "637f27dd0277"
+    },
+    "31399": {
+      "t": "Federal Council press release of 31 October 2018 Federal Council adopts second stage of the partial revision of the Spatial Planning Act The Federal Council intends to introduce new regulations governing building outside building zones. The fundamental principle of separating building areas from non-building areas will be maintained. However, the cantons are to be given greater discretion in future. To ensure that this discretion can be utilised, a balance must be struck for mixed-use developments based on a planning and compensation approach, for example by removing buildings that are no longer required. At its meeting, the Federal Council…",
+      "src": "de",
+      "h": "ed15ba63ea56"
+    },
+    "31400": {
+      "t": "On 29 September 2023, the Chambers passed three bills amending the Swiss Code of Obligations. One of these amendments concerns termination for personal use. The current requirements, which stipulate that a claim for personal use must be made on the grounds of temporal and material urgency, are to be relaxed, making it easier for a new owner to give notice of termination on the grounds of personal use and to enforce it. As an optional referendum has been called, the bill will be put to a public vote on 24 November 2024…",
+      "src": "de",
+      "h": "b18246c39bcb"
+    },
+    "31402": {
+      "t": "Press release from the National Council’s Committee on Economic Affairs and Taxation, 15 November 2022. The Committee has taken note of the results of the consultation on its preliminary draft amendment to the FinfraG, which it had drawn up on the basis of the parliamentary initiative “Financial Market Infrastructure Act. Penalties in the event of false or incomplete information in public takeover bids’ (18.489). The bill aims to introduce a new criminal provision concerning the breach of the duty to publish a true and complete offer prospectus or a true and…",
+      "src": "de",
+      "h": "10eb018b2668"
+    },
+    "31403": {
+      "t": "Press release from the Council of States’ Commission on Public Affairs dated 31 March2023 The Committee on Constitutional Affairs of the Council of States has approved the amendment to the Income Replacement Act concerning maternity allowance for female parliamentarians by 8 votes to 2, with 2 abstentions, for consideration by the Council. The proposed amendment to the Income Replacement Act is intended to promote the compatibility of a parliamentary mandate with motherhood. Under current law, entitlement to maternity allowance ends on the day a woman returns to work, regardless of…",
+      "src": "de",
+      "h": "f16fa96e299f"
+    },
+    "31404": {
+      "t": "As part of the implementation and further development of the Energy Strategy 2050, the Federal Council adopted a dispatch in the summer of 2021. Its main objective is to strengthen the long-term security of electricity supply using domestic, renewable energy. To ensure consistency in legislation, the amendments to the Energy Act and the Electricity Supply Act were consolidated into a single omnibus bill. Parliament debated the bill intensively from October 2021 to September 2023. Russia’s invasion of Ukraine in February 2022 and the resulting threat of energy shortages in winter…",
+      "src": "de",
+      "h": "12d0105aec9f"
+    },
+    "31405": {
+      "t": "A majority in both chambers recognised that the financial burden on the public arising from health insurance premiums is high and that action is needed. However, the popular initiative, which calls for significantly greater premium subsidies, was described as the wrong approach, as it would be too costly and would not address the problem of healthcare costs. Estimates suggest that, if the initiative were to be adopted, it would cost an additional 4.5 billion Swiss francs in premium reductions, of which the Confederation would have to bear 3 billion. Both chambers recommended that the initiative be rejected. Like the Federal Council, the…",
+      "src": "de",
+      "h": "0143b7629549"
+    },
+    "31406": {
+      "t": "A majority in both chambers recognised that the financial burden on the public arising from health insurance premiums is high and that action is needed. However, the popular initiative, which calls for significantly greater premium subsidies, was described as the wrong approach, as it would be too costly and would not address the problem of healthcare costs. Estimates suggest that, if the initiative were to be adopted, it would cost an additional 4.5 billion Swiss francs in premium reductions, of which the Confederation would have to bear 3 billion. Both chambers recommended that the initiative be rejected. Like the Federal Council, the…",
+      "src": "de",
+      "h": "0143b7629549"
+    },
+    "31407": {
+      "t": "There was a consensus in both chambers that something must be done to tackle rising healthcare costs and the increasing burden on the population caused by health insurance premiums. However, the popular initiative, which calls for a cap on costs and seeks to link cost increases in the healthcare sector to wage and economic growth, was rejected. A majority in both chambers felt that factors such as an ageing population, advances in medical technology and the dependence of wages on economic cycles were not taken into account. Furthermore, there is a risk…",
+      "src": "de",
+      "h": "fe3d02afe2ad"
+    },
+    "31408": {
+      "t": "There was a consensus in both chambers that something must be done to tackle rising healthcare costs and the increasing burden on the population caused by health insurance premiums. However, the popular initiative, which calls for a cap on costs and seeks to link cost increases in the healthcare sector to wage and economic growth, was rejected. A majority in both chambers felt that factors such as an ageing population, advances in medical technology and the dependence of wages on economic cycles were not taken into account. Furthermore, there is a risk…",
+      "src": "de",
+      "h": "fe3d02afe2ad"
+    },
+    "31409": {
+      "t": "Federal Council press release of 12 October 2022: Ban on face coverings to be enshrined in new legislation The Federal Council intends to implement the constitutional article on the ban on face coverings in a new federal act. At its meeting on 12 October 2022, it adopted the dispatch on the Federal Act on the Prohibition of Face Covering (BVVG). Anyone who conceals their face in a place accessible to the public is to be punished with a fine of up to 1,000 Swiss francs. During the consultation process, the Federal Council’s proposal to implement the provision adopted in the referendum of 7 March 2021…",
+      "src": "de",
+      "h": "c100cfb30df0"
+    },
+    "31410": {
+      "t": "Federal Council press release of 2 December 2022 Federal Council submits draft legislation on the obligation to report cyber attacks on critical infrastructure The Federal Council intends to introduce an obligation to report cyber attacks on critical infrastructure. To this end, at its meeting on 2 December 2022, it approved the message on the amendment to the Federal Act on Information Security within the Federal Administration and forwarded it to Parliament. The bill establishes the legal framework for the mandatory reporting of cyber attacks by operators of critical infrastructure and defines the responsibilities…",
+      "src": "de",
+      "h": "2f18d71c1c7b"
+    },
+    "31411": {
+      "t": "Federal Council press release of 9 December 2022 Federal Council rejects the ‘For Freedom and Physical Integrity’ initiative The Federal Council is proposing that Parliament reject the ‘For Freedom and Physical Integrity’ initiative without a counter-proposal. It took this decision at its meeting on 9 December 2022. The initiators seek, through a constitutional amendment, to rule out compulsory vaccination and, in the context of measures to combat communicable diseases, to prevent the population from being categorised according to vaccination status. However, the text of the initiative goes far beyond the issue of ‘vaccination’. It…",
+      "src": "de",
+      "h": "17d6762e28b0"
+    },
+    "31412": {
+      "t": "Federal Council press release dated 9 December 2022: Federal Council aims to ease the administrative burden on businesses The Federal Council aims to reduce the regulatory burden on businesses. At the same time, it aims to promote and further expand the digitalisation of public services. On 9 December 2022, it adopted the dispatch on a Regulatory Relief Act. The Federal Council also adopted a dispatch on the introduction of a regulatory brake, although it opposes this measure. In doing so, it is fulfilling a mandate from Parliament. Efficient and proportionate regulation is a key element in ensuring an attractive…",
+      "src": "de",
+      "h": "2375ad990ea2"
+    },
+    "31413": {
+      "t": "Federal Council press release of 15 February 2023 Organ transplantation: Federal Council aims to improve safety The Federal Council aims to further improve patient safety in transplant medicine through a nationwide vigilance system and to optimise its implementation. In addition, the legal framework for cross-donation between living donors is to be enshrined in the Transplantation Act. At its meeting on 15 February 2023, the Federal Council adopted the dispatch on the amendment to the Transplantation Act for submission to Parliament. The quality and safety of transplants are already…",
+      "src": "de",
+      "h": "907138588461"
+    },
+    "31414": {
+      "t": "Federal Council press release of 22 February 2023: Authorisation of rolling stock for international rail transport to be simplified The Federal Council wishes to further strengthen cross-border rail transport. Among other measures, this will be achieved through standardised European authorisation procedures for new rolling stock. Following a positive response during the consultation process, the Federal Council decided at its meeting on 22 February 2023 to lay the necessary groundwork by amending the Railways Act. Switzerland has a strong interest in ensuring that cross-border rail transport…",
+      "src": "de",
+      "h": "a4dcdd90a4e3"
+    },
+    "31415": {
+      "t": "Federal Council press release of 15 February 2023: More support for vocational trainers On 15 February 2022, the Federal Council adopted the draft amendment to the Unemployment Insurance Act (AVIG). A new provision is to be incorporated into the AVIG, enabling vocational trainers who receive short-time working allowance (KAE) to continue training and supervising apprentices within their companies. Through short-time working allowance, the unemployment insurance scheme offers employers an alternative to redundancies during difficult economic times. This means…",
+      "src": "de",
+      "h": "831fc70f5af1"
+    },
+    "31416": {
+      "t": "Federal Council press release of 22 February 2023: Federal Council aims to co-finance small-scale infrastructure projects under the New Regional Policy. As part of the New Regional Policy (NRP), selected small-scale infrastructure projects are now to be supported with non-repayable A-Fund grants. Such projects can provide a valuable boost to economic development in rural and mountain regions. On 22 February 2023, the Federal Council took note of the outcome of the consultation process and referred the draft Federal Act, together with the accompanying message, to Parliament.…",
+      "src": "de",
+      "h": "4ef7743e6d09"
+    },
+    "31417": {
+      "t": "National roads make a significant contribution to Switzerland’s transport infrastructure. In the Federal Council’s view, they must be kept in good condition. To this end, investment must continue to be made in their operation, maintenance and expansion. At its meeting on 22 February 2023, the Federal Council adopted a dispatch to Parliament comprising four federal decrees, including the Federal Decree on the 2023 expansion phase for national roads (Draft 2) and the Federal Decree on the related commitment appropriation amounting to…",
+      "src": "de",
+      "h": "bc80f3eef437"
+    },
+    "31418": {
+      "t": "Press release from the National Council’s Foreign Affairs Committee dated 26 June 2023 The National Council’s Foreign Affairs Committee (APK-N) adopted a draft amendment to the Rules of Procedure of the National Council at its meeting on 19 June 2023 as part of the implementation of its parliamentary initiative 23.446. With the proposed amendment, it aims to strengthen its capacity to participate in the adoption of EU law by establishing a standing sub-committee on European affairs. At its meeting on 19 June, the APK-N considered a motion from its sub-committee…",
+      "src": "de",
+      "h": "34fbd05eaa6a"
+    },
+    "31758": {
+      "t": "At present, the funding of KVG benefits varies depending on the type of benefit. Outpatient benefits are funded entirely by health insurers, i.e. through premiums. Inpatient services (i.e. services requiring at least one overnight stay in hospital) are paid for by the cantons to the tune of at least 55 per cent and by insurers to the tune of no more than 45 per cent. The cost-sharing arrangement for long-term care (inpatient and outpatient) is, in turn, determined by the cantons, with insurers and insured persons contributing amounts set by the Federal Council. In…",
+      "src": "de",
+      "h": "4be4743da690"
+    },
+    "31759": {
+      "t": "Federal Council press release of 13 March 2020: Adapting Swiss international succession law to legal developments abroad The Federal Council intends to modernise Swiss international succession law and adapt it to legal developments abroad. At its meeting on 13 March 2020, it took note of the results of the consultation on a corresponding revision of the Federal Act on Private International Law (IPRG) and adopted the dispatch to Parliament. The draft reduces the risk of conflicts of jurisdiction with foreign authorities…",
+      "src": "de",
+      "h": "599b6b7bd9b4"
+    },
+    "31760": {
+      "t": "Press release from the National Council’s Foreign Affairs Committee dated 20 April 2023 The National Council’s Foreign Affairs Committee (APK-N) adopted a draft amendment to the Parliament Act for the attention of the National Council at its regular meeting on 18 April 2023, as part of the implementation of parliamentary initiative 20.496 tabled by National Councillor Eric Nussbaumer. With the proposed amendment, it aims to strengthen Parliament’s scope for participation in European affairs. As part of the implementation of the parliamentary initiative tabled by National Councillor Eric Nussbaumer (SP/BL) on 17 December 2020…",
+      "src": "de",
+      "h": "b58d29f0dcca"
+    },
+    "31761": {
+      "t": "Federal Council press release dated 1 September 2021 Federal Council adopts dispatch on the Landscape Initiative At its meeting on 1 September 2021, the Federal Council adopted the dispatch on the popular initiative ‘Against the overdevelopment of our landscape (Landscape Initiative)’. In it, it proposes that Parliament, the people and the cantons reject the proposal. However, the Federal Council supports an indirect counter-proposal to the Landscape Initiative, which the Council of States’ Committee on the Environment, Spatial Planning and Energy (UREK-S) has put out for consultation. As early as 12 May…",
+      "src": "de",
+      "h": "4c4551d4748c"
+    },
+    "31762": {
+      "t": "Federal Council press release of 26 April 2023 Greater efficiency in the fight against counterfeiting Whether it is a counterfeit luxury watch or a branded handbag: a new procedure is set to make it easier to destroy counterfeit products that enter Switzerland in small consignments. On 26 April 2023, the Federal Council took note of the outcome of the consultation process and adopted the dispatch and the draft Federal Act on the introduction of a simplified procedure for the destruction of small consignments under intellectual property law. In over 90 per cent of the counterfeit goods seized at the border…",
+      "src": "de",
+      "h": "fee77ec47cd5"
+    },
+    "31763": {
+      "t": "On 4 March 2022, the Federal Council adopted the dispatch on the popular initiative ‘For the future of our nature and landscape (Biodiversity Initiative)’ and on the indirect counter-proposal (revision of the Nature and Cultural Heritage Protection Act). Like the initiators, the Federal Council also wishes to better protect biodiversity. However, the Federal Council considers the initiative to go too far, as its implementation would unduly restrict the scope for action of the Confederation and the cantons. The Federal Council therefore submitted an indirect counter-proposal to Parliament. This was adopted by the National Council…",
+      "src": "de",
+      "h": "2c28a3ccfeee"
+    },
+    "31764": {
+      "t": "Federal Council press release dated 5 April2023 Federal Council adopts dispatch on the investment protection agreement with Indonesia On 5 April 2023, the Federal Council adopted the dispatch on the new bilateral investment protection agreement between Switzerland and Indonesia for the attention of the Federal Assembly. The agreement closes the treaty gap that has existed since the previous agreement ceased to be in force in 2016. The agreement grants Swiss investments in Indonesia – as well as, conversely, Indonesian investments in Switzerland – protection against political risks. Specifically…",
+      "src": "de",
+      "h": "d52d397e90b0"
+    },
+    "31766": {
+      "t": "Federal Council press release of 5 April 2023: Greater environmental protection in European inland waterway transport The Federal Council is committed to uniform rules and greater environmental protection in European inland waterway transport. At its meeting on 5 April 2023, it therefore adopted the dispatch seeking approval of the 2012 Strasbourg Convention on the Limitation of Liability in Inland Navigation (CLNI 2012) and amending the Federal Act on Maritime Shipping under the Swiss Flag (Maritime Shipping Act), as well as for the ratification of the amendment to the Convention on the Collection…",
+      "src": "de",
+      "h": "3385c8ad499d"
+    },
+    "31767": {
+      "t": "Federal Council press release of 5 April 2023: Greater environmental protection in European inland waterway transport The Federal Council is committed to uniform rules and greater environmental protection in European inland waterway transport. At its meeting on 5 April 2023, it therefore adopted the dispatch seeking approval of the 2012 Strasbourg Convention on the Limitation of Liability in Inland Navigation (CLNI 2012) and amending the Federal Act on Maritime Shipping under the Swiss Flag (Maritime Shipping Act), as well as for the ratification of the amendment to the Convention on the Collection…",
+      "src": "de",
+      "h": "3385c8ad499d"
+    },
+    "31768": {
+      "t": "Federal Council press release of 17 May 2023: Federal Council adopts dispatch on the amendment to the double taxationwith the United Arab Emirates At its meeting on 17 May 2023, the Federal Council adopted the dispatch on the protocol amending the double taxation agreement (DTA) with the United Arab Emirates. The Protocol implements the minimum standards from the BEPS project in relation to double taxation agreements. The Protocol of Amendment contains an anti-abuse clause which focuses on the principal purpose of an arrangement or transaction, thereby ensuring that…",
+      "src": "de",
+      "h": "e16c8d15177b"
+    },
+    "31769": {
+      "t": "Federal Council press release of 24 May 2023 Federal Council proposes to Parliament that Switzerland accede to the Hague Convention on Jurisdiction Switzerland is to accede to the Hague Convention on Jurisdiction. At its meeting on 24 May 2023, the Federal Council took note of the results of the consultation on the relevant federal resolution and adopted the accompanying message. Accession to the Convention will create legal certainty and strengthen Switzerland as a business location. The Hague Convention on Jurisdiction regulates the jurisdiction of courts in international…",
+      "src": "de",
+      "h": "b87aabcd6b3d"
+    },
+    "32288": {
+      "t": "Press release from the National Council’s Committee on the Environment, Spatial Planning and Energy dated 2 November 2022. By 17 votes to 4, with 2 abstentions, the National Council’s Committee on the Environment, Spatial Planning and Energy has adopted the draft bill on parliamentary initiative 20.433. The draft aims to foster close and strong cooperation with the business sector. The aim is to reduce regulatory hurdles and administrative barriers, whilst strengthening sectoral agreements and voluntary measures taken by companies. In particular, the aim is to promote the efficient use of resources…",
+      "src": "de",
+      "h": "145a5435e546"
+    },
+    "32289": {
+      "t": "Press release from the National Council’s Committee on the Environment, Spatial Planning and Energy dated 26 April 2023. By 14 votes to 9, with 2 abstentions, the Committee adopted a draft bill relating to parliamentary initiative 20.456. The draft aims to introduce targeted flexibility into the Second Homes Act: owners of residential properties built under the previous legislation will be granted greater leeway. They will be able to extend their homes by up to 30 per cent whilst creating additional flats, without any restrictions on use. The same shall apply in the case…",
+      "src": "de",
+      "h": "0c045f1c5598"
+    },
+    "32290": {
+      "t": "Press release from the National Council’s Finance Committee dated 30 June 2023 At its meeting on 29 June 2023, the National Council’s Finance Committee (FK-N) adopted its draft bill and explanatory report on the implementation of parliamentary initiatives 21.503 and 22.483 (see annexes). The proposed amendments concern the provisions governing the budget debate and the parliamentary co-reporting procedure. The Federal Council and the relevant parliamentary committees will now have the opportunity to submit their comments. The debate in the National Council is scheduled for the autumn session of 2023…",
+      "src": "de",
+      "h": "c6e6f6822a2b"
+    },
+    "32291": {
+      "t": "Federal Council press release of 16 September 2022 Climate policy: Federal Council adopts dispatch on the revised CO₂ Act The Federal Council aims to halve greenhouse gas emissions by 2030 and achieve the 2030 climate target. To this end, on 16 September 2022 it adopted the dispatch on the revised CO₂ Act for the period from 2025 to 2030. The bill addresses the concerns raised during the last revision and does not contain any new or higher levies. Instead, it focuses on targeted incentives to steer investment towards climate-friendly solutions. The main priorities are…",
+      "src": "de",
+      "h": "874526fed092"
+    },
+    "32292": {
+      "t": "Federal Council press release of 16 November 2022 The Federal Council aims to strengthen the Swiss patent system The Patents Act is to be brought into line with international standards and made more attractive, particularly for SMEs and individual inventors. They should be able to choose the patent examination procedure that best suits their needs and circumstances. At its meeting on 16 November 2022, the Federal Council adopted the dispatch on the partial revision of the Patents Act for submission to Parliament. Technical inventions can be protected by a patent for up to 20 years, provided they are new…",
+      "src": "de",
+      "h": "130ed233a915"
+    },
+    "32293": {
+      "t": "Federal Council press release of 10 March 2023 Federal Council adopts the dispatch on the partial revision of the Water Engineering Act Flood protection is regulated by the Federal Act on Water Engineering (WBG). The Federal Council intends to revise the WBG and adapt it to new challenges. These include climate change and the growing population of Switzerland. The integrated risk management approach to dealing with natural hazards, which has proven its worth in practice, is to be enshrined in the WBG. With this Act, the Federal Council aims to protect Switzerland as a living and economic space, as well as to safeguard security and, consequently, prosperity…",
+      "src": "de",
+      "h": "c87465ef7f41"
+    },
+    "32294": {
+      "t": "Federal Council press release of 24 May 2023 Fairness in the financing of family allowances Family allowances are to be financed in equal parts by all employers and self-employed persons. The Federal Council is implementing a motion to this effect and is requiring the cantons to introduce full cost-sharing between the family allowance funds (FAK). At its meeting on 24 May 2023, it adopted the dispatch on an amendment to the Family Allowances Act. Fifteen cantons are affected. Family allowances offset the costs incurred in supporting a…",
+      "src": "de",
+      "h": "e0ff8d69e6be"
+    },
+    "32295": {
+      "t": "Federal Council press release of 21 June 2023: Further development of the Schengen evaluation: Federal Council adopts dispatch on the adoption of the EU Regulation. The review of the Schengen acquis is to become more efficient and effective thanks to a revised evaluation procedure. The aim is to ensure uniform application of the law across all Schengen states. At its meeting on 21 June 2023, the Federal Council took note of the results of the consultation on the adoption of Regulation (EU) 2022/922 on the Schengen evaluation and approved the dispatch authorising the exchange of notes between…",
+      "src": "de",
+      "h": "e46bb3656fab"
+    },
+    "32297": {
+      "t": "Federal Council press release of 16 August 2023 Federal Council approves expanded railway development The Federal Council intends to further strengthen the railways in future. To this end, at its meeting on 16 August 2023, it adopted the new long-term strategy ‘Perspective BAHN 2050’ and the dispatch on the status of railway expansion measures. This involves adjustments and extensions to projects that have already been approved. The Federal Council is requesting an additional 2.6 billion Swiss francs from the Rail Infrastructure Fund from Parliament to fund the expansion of key development projects and to cover additional costs. Federal Council…",
+      "src": "de",
+      "h": "5e5a79910dea"
+    },
+    "32298": {
+      "t": "Federal Council press release of 23 August 2023 Federal Council adopts dispatch on mutual legal assistance treaty with Panama Switzerland and Panama intend to cooperate more closely in the fight against international crime. At its meeting on 23 August 2023, the Federal Council adopted the dispatch on a bilateral treaty on mutual legal assistance in criminal matters with Panama. In the interests of enhanced security, Switzerland is thus further expanding its global network of treaties in the field of mutual legal assistance in criminal matters. At its meeting on 23 August 2023, the Federal Council adopted the dispatch on…",
+      "src": "de",
+      "h": "29ec9b17a596"
+    },
+    "32299": {
+      "t": "Federal Council press release of 23 August 2023: Improving the efficiency of border controls and the protection of the Schengen external borders. Switzerland is to play a part in strengthening the protection of the Schengen external border. At its meeting on 23 August 2023, the Federal Council submitted the relevant message to Parliament. The creation of a new fund will improve the efficiency of border controls and, consequently, the protection of the Schengen external borders. The fund will, in particular, support those Schengen states which, due to their geographical location, incur high costs for the protection of…",
+      "src": "de",
+      "h": "c5cf771689fa"
+    },
+    "32300": {
+      "t": "Federal Council press release of 6 September 2023 Electronic Patient Record: Federal Council submits message on transitional funding to Parliament The Federal Council intends to further develop the Electronic Patient Record (EPR) and drive forward its roll-out. This requires a comprehensive revision of the legislation. To ensure the financing of the EPD until the revised legislation comes into force, the Federal Council decided at its meeting on 6 September 2023 to approve transitional funding and has submitted the corresponding message to Parliament. This bill is expected to be…",
+      "src": "de",
+      "h": "6766fb63d69b"
+    },
+    "32301": {
+      "t": "Press release from the Federal Council dated 22 November 2023 The Federal Council supports a temporary increase in the number of judges at the Federal Administrative Court (FAC) and the creation of an additional post for part-time judges at the Federal Criminal Court (FCC). This increase is intended to bridge a temporary bottleneck and to ensure better representation of the national languages. This is evident from its statements on two parliamentary initiatives from the Council of States’ Legal Affairs Committee (RK-S), which it adopted at its meeting on 22 November 2023…",
+      "src": "de",
+      "h": "2133cc7c11ae"
+    },
+    "32302": {
+      "t": "Press release from the Federal Council dated 22 November 2023 The Federal Council supports a temporary increase in the number of judges at the Federal Administrative Court (FAC) and the creation of an additional post for part-time judges at the Federal Criminal Court (FCC). This increase is intended to bridge a temporary bottleneck and to ensure better representation of the national languages. This is evident from its statements on two parliamentary initiatives from the Council of States’ Legal Affairs Committee (RK-S), which it adopted at its meeting on 22 November 2023…",
+      "src": "de",
+      "h": "2133cc7c11ae"
+    },
+    "32978": {
+      "t": "Press release from the National Council’s Committee on Social Security and Health dated 1 September 2023. The Committee has taken note of the results of the consultation on the preliminary draft, which it had drawn up in response to Parliamentary Initiative (Pa. Iv.) Schneeberger. In the current climate, preventive services are an important function of welfare funds providing discretionary benefits (19.456). It unanimously recommends that the Council adopt the draft. This provides for amending the Civil Code in such a way as to strengthen the social function of welfare funds by expanding the range of benefits…",
+      "src": "de",
+      "h": "da7eec1b9aed"
+    },
+    "32979": {
+      "t": "Report by the Office of the National Council dated 17 November 2023 Overview On 18 December 2020, parliamentary initiative 20.505 by Gabriela Suter, ‘Ensuring the accessibility of live streams of parliamentary debates’, was tabled. The parliamentary initiative calls for the legal framework to be established to ensure the accessibility of live streams of parliamentary debates in the National Council and the Council of States. The live stream should be provided with subtitles so that deaf and hard-of-hearing people can also follow the proceedings. In addition, consideration should be given to the extent to which selected debates could also…",
+      "src": "de",
+      "h": "79bbe90bb99b"
+    },
+    "32980": {
+      "t": "Press release from the National Council’s Committee on Public Affairs dated 13 October 2023: When third-country nationals become victims of domestic violence, they often face the risk of losing their right of residence should their marriage or family unit break down. By extending and clarifying the hardship provision in the Foreign Nationals and Integration Act (AIG), the National Council’s Committee on Constitutional Affairs (SPK) aims to provide better protection for victims of violence. The hardship provision in the AIG is to be amended so that, in cases of domestic violence, it is no longer only the residence rights of…",
+      "src": "de",
+      "h": "8129bf1aceac"
+    },
+    "32981": {
+      "t": "Federal Council press release of 2 November 2022: Targeted measures to improve security in the enforcement of sentences and measures The Federal Council intends to improve security in the enforcement of sentences and measures through targeted measures. At its meeting on 2 November 2022, it took note of the results of the consultation process and adopted the dispatch. In particular, unaccompanied prison leave is to be no longer permitted for offenders serving custodial sentences in secure prisons. In the case of young people who have committed murder, immediately following the…",
+      "src": "de",
+      "h": "9eee35f3ddb7"
+    },
+    "32982": {
+      "t": "Federal Council press release of 2 November 2022: Targeted measures to improve security in the enforcement of sentences and measures The Federal Council intends to improve security in the enforcement of sentences and measures through targeted measures. At its meeting on 2 November 2022, it took note of the results of the consultation process and adopted the dispatch. In particular, unaccompanied prison leave is to be no longer permitted for offenders serving custodial sentences in secure prisons. In the case of young people who have committed murder, immediately following the…",
+      "src": "de",
+      "h": "9eee35f3ddb7"
+    },
+    "32983": {
+      "t": "Federal Council press release of 16 December 2022 Federal Council establishes new legal framework for SIFEM The Federal Council has established a new legal framework for SIFEM. SIFEM is the Confederation’s development finance institution. On 16 December 2022, the Federal Council took note of the outcome of the consultation process and referred the draft Federal Act, together with the accompanying message, to Parliament. SIFEM (Swiss Investment Fund for Emerging Markets) is the federal government’s development finance company. It commenced operations in 2011…",
+      "src": "de",
+      "h": "51a5a35b3ea0"
+    },
+    "32984": {
+      "t": "Federal Council press release of 17 May 2023 Fair competition in cross-border road transport The Federal Council aims to ensure fair competition between companies in the international road haulage sector. A licensing requirement is to be introduced for companies that use delivery vans for cross-border commercial goods transport. Based on the generally positive feedback received during the consultation process, the Federal Council adopted the relevant proposals for legislative amendments at its meeting on 17 May 2023 for submission to Parliament. The…",
+      "src": "de",
+      "h": "83a505ca4905"
+    },
+    "32985": {
+      "t": "Federal Council press release of 9 June 2023 Health insurance: Inclusion of insured persons resident abroad in the risk equalisation scheme The Federal Council wishes to strengthen solidarity within the health insurance system. It intends to include insured persons residing abroad in the risk equalisation scheme. An additional electronic data exchange between cantons and insurers is intended to simplify tasks such as monitoring compulsory insurance. At its meeting on 9 June 2023, the Federal Council adopted the corresponding dispatch on the amendment to the Federal Act on Health Insurance…",
+      "src": "de",
+      "h": "7e0b8a5b3357"
+    },
+    "32696": {
+      "t": "Federal Council press release of 2 November 2022: Targeted measures to improve security in the enforcement of sentences and measures The Federal Council intends to improve security in the enforcement of sentences and measures through targeted measures. At its meeting on 2 November 2022, it took note of the results of the consultation process and adopted the dispatch. In particular, unaccompanied prison leave is to be no longer permitted for offenders serving custodial sentences in secure prisons. In the case of young people who have committed murder, immediately following the…",
+      "src": "de",
+      "h": "9eee35f3ddb7"
+    },
+    "32986": {
+      "t": "Federal Council press release of 23 August 2023: Federal Council seeks to strengthen the rights of minors who are married Minors who are married are to be better protected. The provisions in the Swiss Civil Code (ZGB) are to be amended to enable the courts to declare a marriage involving a minor invalid after a longer period of time. Furthermore, the Federal Council intends to strengthen the protection of those affected through specific provisions in private international law. At its meeting on 23 August 2023, it reviewed the results of the consultation on the…",
+      "src": "de",
+      "h": "4df531bbef73"
+    },
+    "32987": {
+      "t": "Federal Council press release of 15 September 2023: EO for those performing national service is to be digitised. Those performing national service in the armed forces, civil service and civil defence, as well as in the ‘Youth and Sport’ programme will be able to submit their applications for earnings replacement benefits (EO daily allowances) digitally from 2026. Replacing the current paper-based process will, in particular, ease the burden on service personnel, their employers and the EO administering bodies. At its meeting on 15 September 2023, the Federal Council adopted the dispatch on the necessary legislative amendments. The service organisations…",
+      "src": "de",
+      "h": "13c09b6f5637"
+    },
+    "32989": {
+      "t": "Federal Council press release of 25 October 2023 Federal Council approves dispatch on the agreement with Liechtenstein concerning bans on gambling Switzerland and Liechtenstein wish to strengthen the protection of gamblers against excessive gambling. At its meeting on 25 October 2023, the Federal Council approved the dispatch on the agreement between the two countries concerning the exchange of data relating to gambling bans in the gambling sector. The geographical proximity of Switzerland and Liechtenstein means that individuals who are banned in one of the two countries can still access casinos in the other…",
+      "src": "de",
+      "h": "736e1c7b423f"
+    },
+    "32990": {
+      "t": "Federal Council press release of 22 November 2023 Federal Council adopts dispatch on the amendment to the double taxation agreement with Slovenia At its meeting on 22 November 2023, the Federal Council adopted the dispatch on the Protocol amending the Double Taxation Agreement (DTA) with Slovenia. The Protocol implements the OECD’s minimum standards from the BEPS (Base Erosion and Profit Shifting) project in relation to double taxation agreements. The Protocol of Amendment contains an anti-abuse clause that focuses on the principal purpose of a tax arrangement or transaction…",
+      "src": "de",
+      "h": "54b1db9a0814"
+    },
+    "32991": {
+      "t": "Federal Council press release of 22 November2023 Federal Council adopts dispatch on the supplementary agreement to the double taxation agreement with France At its meeting on 22 November 2023, the Federal Council adopted the dispatch on the approval and implementation of a supplementary agreement to the double taxation agreement (DTA) with France. The supplementary agreement regulates, in particular, the taxation of cross-border teleworking for up to 40 per cent of working hours per year, thereby taking account of developments in the field of teleworking. The agreement, signed on 27 June 2023…",
+      "src": "de",
+      "h": "7941f99d6a4c"
+    },
+    "32992": {
+      "t": "Federal Council press release of 29 November 2023: Unemployment insurance funds to become more efficient and transparent On 29 November 2023, the Federal Council adopted the partial revision of the Unemployment Insurance Act (AVIG). This provides legal clarity as well as greater efficiency and transparency regarding the compensation system for the administrative costs of unemployment insurance funds (UIFs). In addition to formal amendments, the partial revision also includes substantive changes, in particular an expansion of opportunities to take part in work placements and the framework for data exchange. With the abolition…",
+      "src": "de",
+      "h": "94c3b987caf0"
+    },
+    "32993": {
+      "t": "Federal Council press release dated 1 March2024 Federal Council establishes national framework for the taxation of cross-border workers’ teleworking At its meeting on 1 March 2024, the Federal Council adopted the dispatch on the taxation of teleworking in an international context. This is intended to establish the legal basis for taxing cross-border commuters even when they are teleworking abroad. There are already two specific cases involving France and Italy. Since the COVID-19 pandemic, teleworking in Switzerland has…",
+      "src": "de",
+      "h": "a53f1abeb652"
+    },
+    "33452": {
+      "t": "Press release from the National Council’s Committee on the Environment, Spatial Planning and Energy dated 23 January 2024 The National Council’s Committee on the Environment, Spatial Planning and Energy of the National Council has adopted its bill to amend the Federal Act on the Protection of Nature and Cultural Heritage (NHG), having taken note of the results of the consultation. The bill aims to exempt small and medium-sized housing projects from the right of environmental organisations to lodge appeals. By 14 votes to 8, with one abstention, the National Council’s Committee on the Environment, Spatial Planning and Energy (UREK-N)…",
+      "src": "de",
+      "h": "64d5ad1e1788"
+    },
+    "33453": {
+      "t": "Press release from the Council of States’ Committee on the Environment, Spatial Planning and Energy dated 22 March 2024 The Committee has taken note of the results of the consultation on parliamentary initiative 21.463 ‘Recommended prices also for timber from Swiss forests’. The proposal aims to allow suppliers and buyers of raw timber to agree on and publish recommended prices. The vast majority of consultation respondents welcome the proposed amendment to the Forest Act. The Committee unanimously approved the draft without amendments and forwarded it to the…",
+      "src": "de",
+      "h": "44974cdb3cb5"
+    },
+    "33454": {
+      "t": "Federal Council press release of 16 December 2022: Contaminated sites, noise protection and environmental criminal law: Federal Council adopts dispatch on amendments to the Environmental Protection Act On 16 December 2022, the Federal Council submitted the dispatch on amendments to the Environmental Protection Act (EPA) to Parliament. Its aim is to drive forward the remediation of contaminated sites. Further legislative amendments relate to better coordination between noise protection and urban development, as well as the tightening of environmental criminal law in relation to organised crime. With regard to contaminated sites, the Federal Council intends to create incentives so that…",
+      "src": "de",
+      "h": "664059e680cc"
+    },
+    "33455": {
+      "t": "Federal Council press release dated 15 September 2023 Federal Council adopts dispatch on amendments to the Federal Act on Swiss Federal Railways At its meeting on 15 September 2023, the Federal Council adopted the dispatch on two amendments to the Federal Act on Swiss Federal Railways (SBBG) and one amendment to the Heavy Goods Vehicle Tax Act (SVAG). These amendments are intended to strengthen the SBB’s financial position and investment capacity, as well as to clarify the Confederation’s financing instruments. They also help to ensure the liquidity of the…",
+      "src": "de",
+      "h": "47f73de56ea2"
+    },
+    "33456": {
+      "t": "Press release from the National Council’s Legal Affairs Committee dated 12 April2024 The Committee has unanimously adopted a draft decree for the attention of its Council, the aim of which is to ensure that recipients of any cantonal or municipal solidarity contributions do not suffer any financial disadvantages ( 23.472 ). Such contributions will be treated as equivalent to the federal solidarity contribution for the purposes of tax, debt enforcement, social insurance and social assistance law (draft decree and accompanying report). Press release from…",
+      "src": "de",
+      "h": "98e5174bf16e"
+    },
+    "33458": {
+      "t": "Press release from the National Council’s Committee on Science, Education and Culture dated 12 January 2024. Committee initiative 23.478 calls for an extension of federal funding for supplementary childcare until 2026. These financial contributions are due to expire on 31 December 2024. The Committee approved the initiative by 16 votes to 8, with 1 abstention. It believes that the federal grant will continue to ensure funding whilst the Council of States’ Committee deliberates on Bill 21.403 ‘Transition of start-up funding to a modern solution’…",
+      "src": "de",
+      "h": "b28bccae7847"
+    },
+    "33459": {
+      "t": "Federal Council press release dated 1 March 2024 Federal Council adopts a dispatch on the Federal Act on Measures to Reduce the Financial and Administrative Burden from 2025 onwards At its meeting on 1 March 2024, the Federal Council adopted the dispatch on an amendment to the Unemployment Insurance Act (AVIG) and the Government and Administrative Organisation Act (RVOG). The amendment to the AVIG will reduce the burden on the federal budget by a total of 1.25 billion in the coming years. The federal budget is in a state of structural imbalance: expenditure is growing faster than…",
+      "src": "de",
+      "h": "a7a469fb399c"
+    },
+    "33460": {
+      "t": "The popular initiative ‘For a responsible economy within planetary boundaries (Environmental Responsibility Initiative)’ seeks to enshrine in the Constitution the principle that Switzerland’s economic activities may only consume resources and release pollutants to the extent necessary to preserve the natural foundations of life. The Federal Council opposed the proposal, as the costs to the economy and society were deemed too high, and did not put forward a counter-proposal. Both chambers of the Federal Assembly followed the Federal Council’s recommendation and their…",
+      "src": "de",
+      "h": "b9c70fcca34b"
+    },
+    "33461": {
+      "t": "Federal Council press release dated 1 March2024 The Federal Council adopts the 2025–2028 Cultural Policy Message At its meeting on 1 March 2024, the Federal Council adopted the message to Parliament on the promotion of culture for the years 2025–2028. The Confederation’s cultural policy is based on six areas of action. Funding totalling 987 million Swiss francs has been earmarked for its implementation. The Message on the Promotion of Culture (Culture Message) sets out the strategic direction of the Confederation’s cultural policy for the funding period 2025–2028. It presents the objectives that…",
+      "src": "de",
+      "h": "1a51a0dae62e"
+    },
+    "33462": {
+      "t": "Federal Council press release of 14 February 2024 Amendment to the Federal Act on the Promotion of Research and Innovation: Federal Council submits message to Parliament CERN, based in Geneva, is the world’s largest centre for fundamental physics research. Switzerland is one of its founding member states. The Federal Council now intends to draw up a federal sectoral plan to enable Switzerland to provide better support for CERN’s projects. With the amendment to the Federal Act on the Promotion of Research and Innovation, adopted by the Federal Council on 14 February 2024…",
+      "src": "de",
+      "h": "c00cb6bcbd4d"
+    },
+    "33463": {
+      "t": "Federal Council press release of 14 February 2024 Recognition of professional qualifications between Switzerland and the United Kingdom: Message submitted to Parliament At its meeting on 14 February 2024, the Federal Council submitted the message on the agreement between Switzerland and the United Kingdom on the recognition of professional qualifications to Parliament. The agreement facilitates access to regulated professions in both countries and brings benefits for Swiss professionals and companies wishing to continue offering their services in the United Kingdom…",
+      "src": "de",
+      "h": "616dceda5307"
+    },
+    "33464": {
+      "t": "Federal Council press release of 14 February 2024 Recognition of professional qualifications between Switzerland and the United Kingdom: Message submitted to Parliament At its meeting on 14 February 2024, the Federal Council submitted the message on the agreement between Switzerland and the United Kingdom on the recognition of professional qualifications to Parliament. The agreement facilitates access to regulated professions in both countries and brings benefits for Swiss professionals and companies wishing to continue offering their services in the United Kingdom…",
+      "src": "de",
+      "h": "616dceda5307"
+    },
+    "33465": {
+      "t": "Federal Council press release dated 8 March 2024 Federal Council sets out education, research and innovation policy for 2025–2028 On 8 March 2024, the Federal Council submitted the dispatch on the promotion of education, research and innovation for the period 2025–2028 to the Federal Assembly. It plans to invest a maximum of 29.2 billion Swiss francs. The aim is for Switzerland to remain an international leader in education, research and innovation. The long-term and holistic promotion of education, research and innovation (ERI) by the Confederation and the cantons is one of the…",
+      "src": "de",
+      "h": "0094c1df1913"
+    },
+    "33466": {
+      "t": "Federal Council press release dated 8 March 2024 Federal Council sets out education, research and innovation policy for 2025–2028 On 8 March 2024, the Federal Council submitted the dispatch on the promotion of education, research and innovation for the period 2025–2028 to the Federal Assembly. It plans to invest a maximum of 29.2 billion Swiss francs. The aim is for Switzerland to remain an international leader in education, research and innovation. The long-term and holistic promotion of education, research and innovation (ERI) by the Confederation and the cantons is one of the…",
+      "src": "de",
+      "h": "0094c1df1913"
+    },
+    "33467": {
+      "t": "Federal Council press release dated 8 March 2024 Federal Council sets out education, research and innovation policy for 2025–2028 On 8 March 2024, the Federal Council submitted the dispatch on the promotion of education, research and innovation for the period 2025–2028 to the Federal Assembly. It plans to invest a maximum of 29.2 billion Swiss francs. The aim is for Switzerland to remain an international leader in education, research and innovation. The long-term and holistic promotion of education, research and innovation (ERI) by the Confederation and the cantons is one of the…",
+      "src": "de",
+      "h": "0094c1df1913"
+    },
+    "33468": {
+      "t": "Federal Council press release dated 8 March 2024 Federal Council sets out education, research and innovation policy for 2025–2028 On 8 March 2024, the Federal Council submitted the dispatch on the promotion of education, research and innovation for the period 2025–2028 to the Federal Assembly. It plans to invest a maximum of 29.2 billion Swiss francs. The aim is for Switzerland to remain an international leader in education, research and innovation. The long-term and holistic promotion of education, research and innovation (ERI) by the Confederation and the cantons is one of the…",
+      "src": "de",
+      "h": "0094c1df1913"
+    },
+    "33469": {
+      "t": "Federal Council press release of 21 February 2024 Free Trade Agreement with Moldova: Federal Council seeks approval On 21 February 2024, the Federal Council adopted the dispatch on the free trade agreement between the EFTA states and Moldova. The message will be submitted to the Federal Assembly for approval. Moldova is the first partner country with which EFTA has agreed a comprehensive chapter on e-commerce as well as its new model chapter on trade and sustainable development. The agreement is far-reaching and modern. It is in line with recent agreements with third countries…",
+      "src": "de",
+      "h": "3e5d2a6a3ffc"
+    },
+    "33883": {
+      "t": "For many years, Parliament has been endeavouring to bring about a change in the system for taxing the imputed rental value: it wishes to abolish this tax whilst, at the same time, drastically restricting the current tax deductions. However, this endeavour has repeatedly failed to date. On 2 February 2017, the Council of States’ Economic Affairs and Taxation Committee launched a new attempt to lay the foundations for a change in the system of taxing the imputed rental value through Committee Initiative 17.400: ‘System Change in the Taxation of Home Ownership’. In the course of the…",
+      "src": "de",
+      "h": "e5fd1fc2579c"
+    },
+    "33884": {
+      "t": "Federal Council press release of 19 October 2022 Federal Council seeks to improve the situation for building owners in the event of construction defects The Federal Council aims to improve the situation for building owners, and in particular for homeowners and flat owners. It proposes extending the time limit for reporting defects. Furthermore, in certain cases, the right to rectification should no longer be permitted to be excluded by contract. At its meeting on 19 October 2022, the Federal Council took note of the results of the consultation on a corresponding amendment to the Swiss Code of Obligations (CO)…",
+      "src": "de",
+      "h": "de425bc7bbab"
+    },
+    "33885": {
+      "t": "For many years, Parliament has been seeking to bring about a change in the system for taxing the imputed rental value: it wishes to abolish this tax whilst, at the same time, drastically restricting the current tax deductions. However, this endeavour has repeatedly failed to date. On 2 February 2017, the Council of States’ Economic Affairs and Taxation Committee launched a new attempt to lay the foundations for a change in the system of taxing the imputed rental value through Committee Initiative 17.400: ‘System Change in the Taxation of Home Ownership’. In the course of the…",
+      "src": "de",
+      "h": "e5fd1fc2579c"
+    },
+    "33886": {
+      "t": "Federal Council press release of 15 February 2023 Communication platform for electronic legal proceedings: Federal Council adopts dispatch In future, legal proceedings are to be conducted via a digital communication platform. At its meeting on 15 February 2023, the Federal Council adopted the dispatch on the new Federal Act on Platforms for Electronic Communication in the Justice System (BEKJ). The digital communication platform is to be developed and financed jointly by the Confederation and the cantons. The cantons will also be permitted to use their own independent platforms. With the…",
+      "src": "de",
+      "h": "9dac99f88f29"
+    },
+    "33887": {
+      "t": "On 20 December 2024, the Chambers passed the Federal Act on Electronic Identification and Other Forms of Electronic Proof (E-ID Act, BGEID). The new free and voluntary electronic identity (E-ID) is intended to enable users to identify themselves digitally in a secure, fast and straightforward manner in future. The E-ID is to be issued by the Confederation and ensure the highest possible level of protection for personal data. It is also envisaged that holders will have the greatest possible control over their data. The system created for the purposes of the E-ID…",
+      "src": "de",
+      "h": "94443ec17517"
+    },
+    "33888": {
+      "t": "Federal Council press release dated 1 March 2024 Federal Council seeks to enshrine electricity reserves in law The Federal Council intends to enshrine various existing measures designed to prevent energy shortages in law and to provide targeted support for winter electricity generation. At its meeting on 1 March 2024, it adopted a dispatch to Parliament on corresponding amendments to the Electricity Supply Act, the Energy Act and the CO₂ Act. Due to the impact of the war in Ukraine on gas supplies in Europe, as well as technical problems at many French nuclear power stations, there were…",
+      "src": "de",
+      "h": "91336896c3ec"
+    },
+    "33889": {
+      "t": "Federal Council press release of 15 March 2024 Cross-border civil proceedings: Simplified use of electronic communication In future, anyone participating in foreign civil proceedings from Switzerland should be able to be questioned or heard by telephone or video conference without requiring official authorisation. At its meeting on 15 March 2024, the Federal Council took note of the results of the consultation on the planned amendment to the legal framework and adopted the dispatch to Parliament. Under current law, prior authorisation is required from the…",
+      "src": "de",
+      "h": "52ea2286d2b4"
+    },
+    "33890": {
+      "t": "Federal Council press release dated 1 May 2024 Federal Council adopts dispatch on the amendment to the double taxation agreement with Serbia At its meeting on 1 May 2024, the Federal Council adopted the dispatch on the Protocol of Amendment to the Double Taxation Agreement (DTA) between Switzerland and Serbia-Montenegro, which had been signed with Serbia. The Protocol implements the minimum standards from the Base Erosion and Profit Shifting (BEPS) project in relation to double taxation agreements. In particular, the Protocol of Amendment contains an anti-abuse clause that focuses on the principal purpose of a tax arrangement…",
+      "src": "de",
+      "h": "738116a7b737"
+    },
+    "33891": {
+      "t": "Federal Council press release dated 8 May2024 Federal Council adopts dispatch on improving flood protection along the Alpine Rhine Owing to the risk of flooding in the lower Rhine valley, Switzerland and Austria have decided to expand flood protection along the shared stretch of the Rhine on the basis of a new international treaty. At its meeting on 8 May 2024, the Federal Council adopted the corresponding dispatch to Parliament. With this dispatch, the Federal Council is submitting three items to Parliament. These are intended to improve flood protection along the 26-kilometre stretch…",
+      "src": "de",
+      "h": "03e4915d69d1"
+    },
+    "33892": {
+      "t": "Federal Council press release dated 8 May2024 Federal Council adopts dispatch on improving flood protection along the Alpine Rhine Owing to the risk of flooding in the lower Rhine valley, Switzerland and Austria have decided to expand flood protection along the shared stretch of the Rhine on the basis of a new international treaty. At its meeting on 8 May 2024, the Federal Council adopted the corresponding dispatch to Parliament. With this dispatch, the Federal Council is submitting three items to Parliament. These are intended to improve flood protection along the 26-kilometre stretch…",
+      "src": "de",
+      "h": "03e4915d69d1"
+    },
+    "33893": {
+      "t": "Federal Council press release of 26 June 2024: Management of sirens: The Confederation and the cantons clarify responsibilities With a view to ensuring a sustainable security infrastructure, the Federal Council intends to work with the cantons to carry out a thorough review of responsibilities and funding models for the management of sirens. To this end, the transitional period for the transfer of responsibility to the Confederation will be extended. At its meeting on 26 June 2024, the Federal Council approved the dispatch on the partial revision of the Civil Protection and Civil Defence Act. In Switzerland, there are currently…",
+      "src": "de",
+      "h": "4a493ea2ddcd"
+    },
+    "33894": {
+      "t": "Federal Council press release dated 4 September 2024: The Federal Council adopts the dispatch on the ban on Hamas. At its meeting on 4 September 2024, the Federal Council adopted the dispatch on the ban on Hamas and forwarded it to Parliament. The Act prohibits Hamas, front organisations and successor groups, as well as organisations and groups acting on behalf of or in the name of Hamas. These are classified as terrorist organisations. Anyone who contravenes the ban will be punished with a custodial sentence or a fine. The ‘Federal Act on the Prohibition of Hamas and…’",
+      "src": "de",
+      "h": "a005919d559e"
+    },
+    "34198": {
+      "t": "Federal Council press release dated 7 September 2022 Federal Council adopts further measures to tackle rising healthcare costs The Federal Council aims to curb the burden of insurance premiums on people in Switzerland. Following an initial package of measures, at its meeting on 7 September 2022 it adopted a second package of cost-containment measures for submission to Parliament. The measures will improve medical care and curb cost growth in the healthcare sector. Insurance premiums reflect costs. If healthcare costs continue to rise, there will also be a…",
+      "src": "de",
+      "h": "74cc0e07d38d"
+    },
+    "34199": {
+      "t": "Press release from the National Council’s Legal Affairs Committee dated 14 January 2022. The Committee is responding to various rulings by the Federal Supreme Court and has concluded that the provision concerning the non-disclosure of debt enforcement entries (Art. 8a of the Debt Enforcement and Bankruptcy Act), which stems from the Abate parliamentary initiative (09.530), must be clarified. The Committee’s aim is thus to express the will of the legislature unambiguously and has therefore unanimously decided to table two committee initiatives. The initiative (22.400) aims to…",
+      "src": "de",
+      "h": "cf2a54144602"
+    },
+    "34200": {
+      "t": "Press release from the National Council’s Committee on Political Affairs dated 4 July 2024: A parliamentary motion, multiple sponsors. According to a proposal by the National Council’s Committee on Political Affairs, members of the National Council should be permitted to jointly submit motions, postulates and parliamentary initiatives. At its meeting on 27 June 2024, the Committee adopted a corresponding bill (22.406) to amend the Parliament Act and the Rules of Procedure of the National Council. The new provision is intended to clarify that certain parliamentary motions or…",
+      "src": "de",
+      "h": "63883347d0a6"
+    },
+    "34201": {
+      "t": "Press release from the National Council’s Committee on Political Affairs dated 4 July 2024: A parliamentary motion, multiple sponsors. According to a proposal by the National Council’s Committee on Political Affairs, members of the National Council should be permitted to jointly table motions, postulates and parliamentary initiatives. At its meeting on 27 June 2024, the Committee adopted a corresponding bill (22.406) to amend the Parliament Act and the Rules of Procedure of the National Council. The new provision is intended to clarify that certain parliamentary motions or…",
+      "src": "de",
+      "h": "63883347d0a6"
+    },
+    "34202": {
+      "t": "Press release from the National Council’s Committee on Transport and Telecommunications dated 2 July 2024. As part of the deliberations on the parliamentary initiative ‘For an independent press: the amounts for indirect funding must be adjusted’ (22.423) and the postulate report ‘Strategy for a forward-looking media funding framework’ (21.3781), the KVF-N held a wide-ranging discussion on the structure of current and future media funding. In the final vote, the Committee approved the draft legislation and report on the implementation of the parliamentary… by 17 votes to 8.",
+      "src": "de",
+      "h": "e192b086e9b2"
+    },
+    "34203": {
+      "t": "Federal Council press release of 22 June 2023 Federal Council aims to speed up the construction of solar, wind and hydroelectric power stations The Federal Council intends to streamline the procedures for the planning and construction of large-scale renewable energy power stations in order to rapidly drive forward the expansion of production. At its meeting on 21 June 2023, it adopted an amendment to the Energy Act for submission to Parliament. The so-called ‘acceleration decree’ provides, amongst other things, for the streamlining of authorisation and appeal procedures for large-scale installations and for the planning process for the expansion of…",
+      "src": "de",
+      "h": "d9346f6f6a02"
+    },
+    "34204": {
+      "t": "Federal Council press release of 29 September 2023: Federal Council adopts dispatch on the Torture Goods Act. Cross-border trade in goods that can be used to carry out the death penalty or for torture is to be subject to stricter controls in future. On 29 September 2023, the Federal Council adopted the message to Parliament on the new Federal Act on the Trade in Goods Used for Torture (Torture Goods Act). The Torture Goods Act is intended to implement the Council of Europe recommendation of 31 March 2021 on the control of goods used for torture or for the execution of the death penalty…",
+      "src": "de",
+      "h": "1bf7dce2466f"
+    },
+    "34205": {
+      "t": "Federal Council press release of 15 May 2024: The Federal Council adopts the dispatch on the Air Passenger Data Act. At its meeting on 15 May 2024, the Federal Council adopted the dispatch on the Air Passenger Data Act and forwarded it to Parliament. This legislative framework will enable Switzerland to establish a national PNR (Passenger Name Records) system. The new Act will help to combat terrorism and other serious crime and to protect Switzerland as a business location. At the same time, the Federal Council approved a draft…",
+      "src": "de",
+      "h": "113c53fbd8ae"
+    },
+    "34206": {
+      "t": "Federal Council press release of 29 November 2023 Energy: Federal Council seeks to strengthen transparency and supervision in the wholesale energy market At its meeting on 29 November 2023, the Federal Council adopted the dispatch on the Federal Act on Supervision and Transparency in the Wholesale Energy Markets. The new Act requires market participants to provide the Federal Electricity Commission (ElCom) with details of their transactions and trading orders. It also includes a ban on insider dealing and market manipulation. It is intended to create greater transparency and strengthen supervision…",
+      "src": "de",
+      "h": "6e432f35cbb7"
+    },
+    "34207": {
+      "t": "Federal Council press release of 10 January 2024: Better framework conditions for future-proof freight transport The Federal Council intends to strengthen rail freight transport across the country and inland waterway freight transport. During a transitional period, single-wagon load transport is also to receive financial support. The aim is to make the entire freight transport system more efficient and to ensure security of supply in all regions. At its meeting on 10 January 2024, the Federal Council adopted the dispatch on the Freight Transport Act for submission to Parliament. The Federal Council intends to…",
+      "src": "de",
+      "h": "e37325c655c5"
+    },
+    "34208": {
+      "t": "Federal Council press release dated 1 March2024 The Federal Council adopts the 2025–2028 Cultural Policy Message At its meeting on 1 March 2024, the Federal Council adopted the message to Parliament on the promotion of culture for the years 2025–2028. The Confederation’s cultural policy is based on six areas of action. Funding totalling 987 million Swiss francs has been earmarked for its implementation. The Message on the Promotion of Culture (Culture Message) sets out the strategic direction of the Confederation’s cultural policy for the funding period 2025–2028. It presents the objectives that…",
+      "src": "de",
+      "h": "1a51a0dae62e"
+    },
+    "34209": {
+      "t": "Federal Council press release of 24 April 2024: Greater security in federal asylum centres: Federal Council adopts a dispatch The Federal Council wishes to improve the safety of staff and asylum-seekers in federal asylum centres. Based on recommendations by former Federal Judge Niklaus Oberholzer, it adopted a dispatch on amending the Asylum Act at its meeting on 24 April 2024. In spring 2021, the media and non-governmental organisations had raised allegations that security staff were using excessive force at federal asylum centres (BAZ). In…",
+      "src": "de",
+      "h": "2e27a859b2f6"
+    },
+    "34210": {
+      "t": "Federal Council press release dated 8 May 2024 Federal Council to boost Civil Defence staffing levels The Federal Council intends to boost Civil Defence staffing levels and, to this end, adopted the dispatch on the partial revision of the Civil Defence and Civil Protection Act (BZG) for submission to Parliament. The measures include extending compulsory civil defence service to certain persons liable for military service and former members of the armed forces. In addition, those liable for civilian service may be required to fulfil part of their civilian service obligation within a canton’s civil defence organisation with a…",
+      "src": "de",
+      "h": "8f80015ecc01"
+    },
+    "34211": {
+      "t": "Federal Council press release dated 8 May 2024 Federal Council to boost Civil Defence staffing levels The Federal Council intends to boost Civil Defence staffing levels and, to this end, adopted the dispatch on the partial revision of the Civil Defence and Civil Protection Act (BZG) for submission to Parliament. The measures include extending compulsory civil defence service to certain persons liable for military service and former members of the armed forces. In addition, those liable for civilian service may be required to fulfil part of their civilian service obligation within a canton’s civil defence organisation with a…",
+      "src": "de",
+      "h": "8f80015ecc01"
+    },
+    "34212": {
+      "t": "Federal Council press release dated 7 June 2024: Approval of insurance premiums: Cantons to be granted greater powers At its meeting on 7 June 2024, the Federal Council adopted the dispatch on an amendment to the Health Insurance Supervision Act (KVAG). This amendment grants the cantons greater powers in the procedure for approving health insurance premiums. Before the Federal Office of Public Health (FOPH) approves the premiums, the cantons may submit comments to the insurers and the FOPH regarding the cost estimate drawn up for their territory. This is because they are best placed to…",
+      "src": "de",
+      "h": "71a62a655e3b"
+    },
+    "34213": {
+      "t": "Federal Council press release dated 14 June2024 Federal Council adopts dispatch on the double taxation agreement with Angola At its meeting on 14 June 2024, the Federal Council adopted the dispatch seeking approval of a double taxation agreement (DTA) with Angola. The agreement provides legal certainty for the further development of bilateral economic relations and tax cooperation between the two countries. This DTA enables Switzerland to expand its network of double taxation agreements in southern Africa. The agreement ensures legal certainty and…",
+      "src": "de",
+      "h": "c58ab6e9d6ee"
+    },
+    "34214": {
+      "t": "Federal Council press release dated 14 June2024 Federal Council adopts dispatch on the amendment to the double taxation agreement with Germany At its meeting on 14 June 2024, the Federal Council adopted the dispatch on the protocol amending the double taxation agreement (DTA) with Germany. The Protocol adapts the DTA to various changes in the needs of the contracting states and implements the minimum standards from the Base Erosion and Profit Shifting (BEPS) project in relation to DTAs. With regard to Swiss practice, the Protocol does not envisage any significant changes to…",
+      "src": "de",
+      "h": "e0bccf6e6f9f"
+    },
+    "34215": {
+      "t": "Federal Council press release dated 21 August2024 The Federal Council adopts a dispatch on the double taxation agreement with Jordan At its meeting on 21 August 2024, the Federal Council adopted the dispatch seeking approval of a double taxation agreement (DTA) with Jordan. The agreement provides legal certainty and favourable conditions for the further development of bilateral economic relations and tax cooperation between the two countries. This DTA enables Switzerland to expand its network of double taxation agreements in the Middle East. The agreement…",
+      "src": "de",
+      "h": "b2fa820f4d5a"
+    },
+    "34216": {
+      "t": "Federal Council press release of 21 August 2024 Autism spectrum disorders in children: ensuring joint funding of early intervention by the Disability Insurance scheme and the cantons The Federal Council wishes to improve the coverage of costs for intensive early intervention for children with severe autism spectrum disorders. A pilot phase was conducted to examine how the coverage of these costs could be regulated and financed. To ensure financial support from the Disability Insurance scheme, an amendment to the Federal Act on Disability Insurance is required. At its meeting on 21 August 2024…",
+      "src": "de",
+      "h": "f69ac9ec7309"
+    },
+    "34217": {
+      "t": "Federal Council press release dated 4 September 2024 Federal Council adopts dispatch on the agreement with the United Kingdom on mutual recognition in the field of financial services At its meeting on 4 September 2024, the Federal Council adopted the dispatch seeking approval for an agreement between Switzerland and the United Kingdom (UK) on mutual recognition in the field of financial services. The agreement strengthens competitiveness and promotes close cooperation between the two major international financial centres. With the…",
+      "src": "de",
+      "h": "907a69a98740"
+    },
+    "34218": {
+      "t": "Federal Council press release dated 5 September 2024 Free Trade Agreement with India: Federal Council submits message to Parliament On 4 September 2024, the Federal Council adopted the message on the Free Trade Agreement between the EFTA states and India. The agreement strengthens the competitiveness of Swiss exports in the world’s most populous country. The successful conclusion of a comprehensive free trade agreement (FTA) between the member states of the European Free Trade Association (EFTA) – Iceland, Liechtenstein, Norway and Switzerland – and India marks a significant milestone in…",
+      "src": "de",
+      "h": "a23c57c8ddc6"
+    },
+    "34219": {
+      "t": "Federal Council press release of 4 September 2024: More efficient data exchange between law enforcement authorities in the Schengen area The exchange of information between Schengen states is to become more efficient and effective. As a Schengen-associated state, Switzerland is playing its part in this. Consequently, following the consultation process, the Federal Council adopted the dispatch at its meeting on 4 September 2024. The aim is to combat cross-border crime and terrorism more effectively. The efficient exchange of information within the Schengen area is an important…",
+      "src": "de",
+      "h": "154bd01dc9a5"
+    },
+    "34220": {
+      "t": "Federal Council press release of 16 October 2024: 13th AHV pension: Federal Council adopts the dispatch on implementation and financing. The 13th AHV old-age pension is to be paid out once a year in December from 2026 onwards. It is to be financed by a 0.7 percentage point increase in VAT. This would ensure that the AHV Equalisation Fund remains in balance until 2030. At its meeting on 16 October 2024, the Federal Council adopted the dispatch on the implementation and financing of the initiative for a 13th AHV pension for submission to Parliament. The popular initiative ‘For a better life…’",
+      "src": "de",
+      "h": "618108784500"
+    },
+    "34221": {
+      "t": "Federal Council press release dated 28 August2024 Federal Council adopts dispatch on the Gas Solidarity Agreement At its meeting on 28 August 2024, the Federal Council adopted the dispatch to Parliament seeking approval of Switzerland’s Gas Solidarity Agreement with Germany and Italy. The proposal was unanimously welcomed during the consultation process. The Federal Council is forwarding three draft federal decrees to Parliament. One federal decree provides for the approval of the agreement, whilst the other two federal decrees concern the associated commitment appropriations. The…",
+      "src": "de",
+      "h": "e82fb0d1fd08"
+    },
+    "34222": {
+      "t": "Federal Council press release of 27 November 2024: Final step towards resolving the Jura issue. For the municipality of Moutier to transfer from the canton of Bern to the canton of Jura, the Federal Assembly must approve the transfer. At its meeting on 27 November 2024, the Federal Council adopted the relevant dispatch for the attention of Parliament. If the Federal Assembly approves the change of canton, Switzerland’s most significant and long-standing intercantonal conflict will be brought to an end. The establishment of the canton of Jura in 1979 did not fully resolve the Jura question. Separatist…",
+      "src": "de",
+      "h": "8a53a2e8968b"
+    },
+    "34223": {
+      "t": "Report of the Bureau of the National Council dated 14 February 2025 1.1 Main features of the proposal In order to ensure that the Council can continue to function even in the event of a prolonged failure of the electronic voting system, the Bureau of the National Council proposes to reintroduce voting without a roll call, namely by standing up or signalling, to be permitted once again. In doing so, the number of votes cast must be determined and the result of the vote published. Furthermore, in order to ensure the transparency of votes in the National Council in individual cases, thirty Members of the National Council are to be selected by means of…",
+      "src": "de",
+      "h": "0354096bae1b"
+    },
+    "34669": {
+      "t": "Press release from the National Council’s Legal Affairs Committee dated 23 February 2024 The Committee’s intention to to include stalking as a criminal offence in the Swiss Criminal Code and the Military Criminal Code met with broad support during the consultation process, a fact which the Committee had already noted at its meeting on 16 and 17 November 2023 (19.433). It has now examined in depth various aspects raised by participants during the consultation process but, with one exception, has decided to retain the version set out in the preliminary draft. It has thus…",
+      "src": "de",
+      "h": "aa21ba835564"
+    },
+    "34670": {
+      "t": "Federal Council press release dated 30 August2022 Federal Council adopts dispatch on the total revision of the Customs Act At its meeting on 24 August 2022, the Federal Council adopted the dispatch on the total revision of the Customs Act and the creation of a new framework law. The aim of amending the legal framework is to harmonise the execution of the tasks of the Federal Office for Customs and Border Security (FOCBS) and to increase the efficiency of border processes through comprehensive digitalisation. The last total revision of the existing Customs Act took place on 18 March 2005. Since then…",
+      "src": "de",
+      "h": "12e3511c45ad"
+    },
+    "34671": {
+      "t": "Federal Council press release dated 30 August2022 Federal Council adopts dispatch on the total revision of the Customs Act At its meeting on 24 August 2022, the Federal Council adopted the dispatch on the total revision of the Customs Act and the creation of a new framework law. The aim of amending the legal framework is to harmonise the execution of the tasks of the Federal Office for Customs and Border Security (FOCBS) and to increase the efficiency of border processes through comprehensive digitalisation. The last total revision of the existing Customs Act took place on 18 March 2005. Since then…",
+      "src": "de",
+      "h": "12e3511c45ad"
+    },
+    "34672": {
+      "t": "Federal Council press release dated 30 August2022 Federal Council adopts dispatch on the total revision of the Customs Act At its meeting on 24 August 2022, the Federal Council adopted the dispatch on the total revision of the Customs Act and the creation of a new framework law. The aim of amending the legal framework is to harmonise the execution of the tasks of the Federal Office for Customs and Border Security (FOCBS) and to increase the efficiency of border processes through comprehensive digitalisation. The last total revision of the existing Customs Act took place on 18 March 2005. Since then…",
+      "src": "de",
+      "h": "12e3511c45ad"
+    },
+    "34673": {
+      "t": "Federal Council press release of 24 May 2023: Ban on advertising of tobacco products and e-cigarettes that targets minors The Federal Council wishes to protect young people from tobacco use. Following the adoption of the popular initiative ‘Children and Young People Free from Tobacco Advertising’, it decided at its meeting on 24 May 2023 to ban the advertising of tobacco products and e-cigarettes in places and in media to which young people have access. This applies in particular to print media and, under certain conditions, to online advertising and festivals. The corresponding message…",
+      "src": "de",
+      "h": "66dc41ba88f7"
+    },
+    "34674": {
+      "t": "Federal Council press release of 15 December 2023 Federal Council seeks to strengthen the position of property owners in cases of squatting The Federal Council aims to improve the position of property owners in cases of squatting. At its meeting on 15 December 2023, it adopted the relevant dispatch. In particular, the right to self-defence is to be strengthened. The law is to specify the point from which the time limit begins, within which the owner may evict the squatters using proportionate force and regain possession of the property…",
+      "src": "de",
+      "h": "9096386f0e87"
+    },
+    "34676": {
+      "t": "Result of the referendum: The proposal was approved in the referendum held on 8 March 2026, with 54.26 per cent voting in favour. Federal Council press release of 21 February 2024 Federal Council adopts dispatch on individual taxation At its meeting on 21 February 2024, the Federal Council adopted the dispatch on the popular initiative ‘For individual taxation regardless of marital status (Tax Justice Initiative)’ and on the indirect counter-proposal (Federal Act on Individual Taxation). The switch from joint taxation of married couples to individual taxation would enable…",
+      "src": "de",
+      "h": "bb54e25d1c0b"
+    },
+    "34677": {
+      "t": "Result of the referendum: The proposal was approved in the referendum held on 8 March 2026, with 54.26 per cent voting in favour. Federal Council press release of 21 February 2024 Federal Council adopts dispatch on individual taxation At its meeting on 21 February 2024, the Federal Council adopted the dispatch on the popular initiative ‘For individual taxation regardless of marital status (Tax Justice Initiative)’ and on the indirect counter-proposal (Federal Act on Individual Taxation). The switch from joint taxation of married couples to individual taxation would enable…",
+      "src": "de",
+      "h": "bb54e25d1c0b"
     }
   }
 }
