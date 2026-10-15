@@ -381,7 +381,8 @@ function renderFooter(model) {
     `<div class="n-fabout"><a class="n-fname" href="#/"><span class="n-cross" aria-hidden="true"></span>Politikch</a><p>${escapeAttr(t('footer.disclaimer'))}</p></div>` +
     cols + '</div>' +
     `<div class="n-fcantons"><h5>${escapeAttr(cantons.title)}</h5><ul>` + cantons.items.map(it => '<li>' + linkHTML(it) + '</li>').join('') + '</ul></div>' +
-    `<div class="n-fbase"><span>${escapeAttr(t('news.copy'))}</span>` +
+    `<div class="n-fbase"><span>${escapeAttr(t('news.copy'))}` +
+    (D().version ? ` · ${escapeAttr(t('footer.version').replace('{v}', D().version))}` : '') + '</span>' +
     `<button type="button" class="n-freport report-link">${escapeAttr(t('footer.report'))}</button>` +
     '<span class="n-langs">' + langButtons() + '</span></div></div>';
 }

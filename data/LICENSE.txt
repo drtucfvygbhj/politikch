@@ -3,7 +3,8 @@ Politikch data — licences and how to credit
 
 You may reuse the data files in this folder, including commercially, on the
 terms below. The website itself — its code, design, interface and page text
-(i18n.json and legal.json in this folder) — and the names and logos
+(i18n.json and legal.json in this folder) and its version number
+(version.json) — and the names and logos
 "Politikch", "PolitikCH" and "PCH" are NOT licensed: see LICENSE at
 https://github.com/drtucfvygbhj/politikch and https://politikch.ch/#/page/reuse
 
@@ -96,5 +97,5 @@ overviews/*/*.json
   Credit:      Federal Council voting explanations, Federal Chancellery (brochure PDFs via Swissvotes)
   Commercial:  official text, not protected by copyright (URG Art. 5); one side is written by the initiative or referendum committee, the other by the Federal Council and Parliament
 
-i18n.json, legal.json
-  Website text — not licensed (all rights reserved).
+i18n.json, legal.json, version.json
+  Website text and version — not licensed (all rights reserved).

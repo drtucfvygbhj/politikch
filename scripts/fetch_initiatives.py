@@ -153,13 +153,9 @@ PHASES = {
     },
 }
 
-# Localized Chancellery "pending popular initiatives" page (one per language).
-PENDING_PAGE = {
-    "en": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
-    "de": "https://www.bk.admin.ch/de/haengige-volksinitiativen",
-    "fr": "https://www.bk.admin.ch/fr/initiatives-en-suspens",
-    "it": "https://www.bk.admin.ch/it/iniziative-in-sospeso",
-}
+# The Chancellery's page for one initiative, keyed by the same ID LINDAS uses.
+# Stored in German; the client swaps in the French or Italian page by language.
+INITIATIVE_PAGE = "https://www.bk.admin.ch/de/details-volksinitiativen?initiative={}"
 
 
 # swissvotes.ch and ckan.opendata.swiss ask for 10 s between requests in their
@@ -496,6 +492,9 @@ SELECT ?id ?beginn ?phaseCode ?de ?fr ?it WHERE {{
     for b in rows:
         g = lambda k: b.get(k, {}).get("value")
         iid = g("id")
+        # The ID goes into a URL and a record ID: digits only (SEC-09).
+        if not iid or not iid.isdigit():
+            continue
         if iid in seen:  # a cube observation can repeat across dimensions
             continue
         seen.add(iid)
@@ -548,7 +547,7 @@ SELECT ?id ?beginn ?phaseCode ?de ?fr ?it WHERE {{
             "date": {lang: f"{(SINCE_PREFIX if status == 'collecting' else LAUNCHED_PREFIX)[lang]}"
                            f" {fmt_date(beginn, lang, '')}" for lang in DATE_LANGS},
             "outcome": None,
-            "url": PENDING_PAGE["de"],
+            "url": INITIATIVE_PAGE.format(iid),
             "_sort": beginn.replace("-", ""),
             "_titleTokens": norm_tokens(de),
         }

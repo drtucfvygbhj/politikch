@@ -82,7 +82,7 @@ LICENCES = [
 ]
 
 # Published files that are part of the website, not data: not licensed (LICENSE).
-WEBSITE_FILES = ["i18n.json", "legal.json"]
+WEBSITE_FILES = ["i18n.json", "legal.json", "version.json"]
 FIELDS = ("license", "licenseUrl", "attribution", "commercialReuse")
 
 
@@ -127,7 +127,8 @@ NOTICE_HEAD = """Politikch data — licences and how to credit
 
 You may reuse the data files in this folder, including commercially, on the
 terms below. The website itself — its code, design, interface and page text
-(i18n.json and legal.json in this folder) — and the names and logos
+(i18n.json and legal.json in this folder) and its version number
+(version.json) — and the names and logos
 "Politikch", "PolitikCH" and "PCH" are NOT licensed: see LICENSE at
 https://github.com/drtucfvygbhj/politikch and https://politikch.ch/#/page/reuse
 
@@ -154,7 +155,7 @@ def notice_text():
                   f"  Licence:     {e['license']}  ({e['licenseUrl']})",
                   f"  Credit:      {e['attribution']}",
                   f"  Commercial:  {e['commercialReuse']}", ""]
-    lines += [", ".join(WEBSITE_FILES), "  Website text — not licensed (all rights reserved).", ""]
+    lines += [", ".join(WEBSITE_FILES), "  Website text and version — not licensed (all rights reserved).", ""]
     return "\n".join(lines)
 
 

@@ -122,6 +122,12 @@ async function loadData() {
     const mt = await fetch('data/mt.json?v=20260925a').then(r => r.ok ? r.json() : null);
     state.data.mt = mt || {};
   } catch (e) { state.data.mt = {}; }
+  // Site version for the footer (data/version.json, written by scripts/version.py).
+  // Revalidated on every load: the file changes with each release.
+  try {
+    const ver = await fetch('data/version.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null);
+    state.data.version = (ver && typeof ver.version === 'string') ? ver.version : '';
+  } catch (e) { state.data.version = ''; }
 }
 
 /* ============================================================
@@ -1903,9 +1909,21 @@ function renderInitiatives() {
 /* ============================================================
    Initiative page
    ============================================================ */
+// The Chancellery's page for one initiative exists in DE, FR and IT. The data
+// stores the German page; French and Italian readers get their own.
+const BK_INITIATIVE_PAGE = {
+  fr: 'https://www.bk.admin.ch/fr/details-initiatives-populaires?initiative=',
+  it: 'https://www.bk.admin.ch/it/dettagli-iniziative-popolari?initiative=',
+};
+function officialInitiativeUrl(init) {
+  const m = /^https:\/\/www\.bk\.admin\.ch\/de\/details-volksinitiativen\?initiative=(\d+)$/.exec(init.url || '');
+  return m && BK_INITIATIVE_PAGE[state.lang] ? BK_INITIATIVE_PAGE[state.lang] + m[1] : init.url;
+}
+
 function renderInitiativePage(id) {
   const init = state.data.initiatives.find(i => i.id === id);
   if (!init) { replaceRoute('#/'); return; }
+  const officialUrl = officialInitiativeUrl(init);
 
   const badge = document.getElementById('initiative-type-badge');
   badge.className = 'party-abbr';
@@ -1925,7 +1943,7 @@ function renderInitiativePage(id) {
     <div class="init-sign">
       <h4 class="canton-section-title" style="font-size:16px;margin-top:0">${t('init.sign')}</h4>
       <p>${t('init.signDesc')}</p>
-      <a class="resource-link" href="${init.url}" target="_blank" rel="noopener noreferrer">${t('init.signLink')} <span class="arrow">↗</span></a>
+      <a class="resource-link" href="${escapeAttr(officialUrl)}" target="_blank" rel="noopener noreferrer">${t('init.signLink')} <span class="arrow">↗</span></a>
     </div>` : '';
 
   const fillFin = (fkey) => t(fkey).replace('{name}', initTitlePlain(init));
@@ -1945,7 +1963,7 @@ function renderInitiativePage(id) {
           ${init.author ? `<div class="detail-fact"><strong>${t('modal.author')}</strong><span>${escapeAttr(init.author)}</span></div>` : ''}
         </div>
         <p class="detail-source">${t('modal.source')}</p>
-        <a class="resource-link resource-link-compact" href="${init.url}" target="_blank" rel="noopener noreferrer">${t('modal.official')} <span class="arrow">↗</span></a>
+        <a class="resource-link resource-link-compact" href="${escapeAttr(officialUrl)}" target="_blank" rel="noopener noreferrer">${t('modal.official')} <span class="arrow">↗</span></a>
         ${signBlock}
       </div>
       <div class="detail-top-right">
@@ -3923,7 +3941,9 @@ function ensureOverview(kind, id) {
     .then(r => r.ok ? r.json() : null).catch(() => null);
   return _overviewCache[key];
 }
-function overviewSectionHTML(kind, id, officialUrl) {
+function overviewSectionHTML(kind, id, url) {
+  // The French or Italian Chancellery page for FR/IT readers (other links pass through).
+  const officialUrl = url ? officialInitiativeUrl({ url }) : url;
   return `<div class="ai-overview" data-ok="${escapeAttr(kind)}" data-oi="${escapeAttr(id)}"${officialUrl ? ` data-official="${escapeAttr(officialUrl)}"` : ''}></div>`;
 }
 // Pick the argument block for the active language, falling back to the brochure's

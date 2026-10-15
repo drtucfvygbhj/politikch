@@ -1,0 +1,22 @@
+{
+  "_about": "Site version, shown in the footer. Change it only with scripts/version.py; the scheme is in VERSIONING.md. Not the design name (1.0 / 1.1).",
+  "version": "1.1014",
+  "history": [
+    {
+      "version": "1.1",
+      "date": "2026-10-15",
+      "types": [],
+      "note": "Starting point"
+    },
+    {
+      "version": "1.1014",
+      "date": "2026-10-15",
+      "types": [
+        "text",
+        "data",
+        "gui"
+      ],
+      "note": "Government disclaimer, direct initiative links, version in footer"
+    }
+  ]
+}

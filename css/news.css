@@ -510,7 +510,12 @@ html[data-design="1.1"] .votes-open-btn { border-radius: 2px !important; }
 .n-rmnote-x:hover, .n-rmnote-x:focus-visible { color: var(--n-accent); }
 
 /* ---- centre column on phones: campaign money only ---- */
-@media (max-width: 600px) { .n-no-phone { display: none; } }
+@media (max-width: 600px) {
+  .n-no-phone { display: none; }
+  /* Footer base line: the copyright/version text gets its own row on phones. */
+  .n-fbase { flex-wrap: wrap; gap: 8px 16px; }
+  .n-fbase > span:first-child { flex: 1 1 100%; }
+}
 
 /* ---- columns: a shorter column stops at its end (top set in news.js) ---- */
 .n-stick { position: sticky; }
