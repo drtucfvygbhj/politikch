@@ -16,7 +16,7 @@ relies on review.
 > marked **LAWYER** stay open until a Swiss lawyer answers them.
 
 Sources: the Stage 1 audit (`audit/reports/stage-1-2026-09-21/`), `COMPLIANCE.md`,
-`NOTICE.md`, the code as of `3ce4228`. Legal references were last verified by the
+`NOTICE.md`, the code as of `4caa2cc` (formerly `3ce4228`). Legal references were last verified by the
 Stage 1 audit on 2026-09-21; rule SRC-10 keeps them from going stale.
 
 ---
@@ -218,7 +218,7 @@ the **website**.
 **How it is implemented**
 
 1. ✅ `LICENSE`: all rights reserved for the website, and it points to the
-   data licence. It records that versions up to `733e141` were MIT and keep that
+   data licence. It records that versions up to `cd85097` (formerly `733e141`) were MIT and keep that
    licence. `data/LICENSE.txt` (published) is generated from `scripts/licences.py`.
 2. ✅ Every published data file carries `_meta.license`, `licenseUrl`,
    `attribution` and `commercialReuse`, taken from `scripts/licences.py`, the
