@@ -793,6 +793,20 @@ def approvals(base):
     return {m.group(1) for m in re.finditer(r"(?mi)^Approved-Rule:\s*([A-Z]+-\d+|UNKNOWN)\b", msgs)}
 
 
+def check_commit_emails(base):
+    """PRIV-10: every new commit is authored and committed with a GitHub noreply
+    address. The message never prints the address itself — CI logs are public."""
+    out = git("log", f"{base}..HEAD", "--format=%h%x00%ae%x00%ce", check=False)
+    for line in out.splitlines():
+        sha, *emails = line.split("\x00")
+        for role, e in zip(("author", "committer"), emails):
+            local, _, dom = e.strip().lower().partition("@")
+            web_ui = (local, dom) == ("noreply", "github.com")   # commits made on github.com
+            if not web_ui and dom != "users.noreply.github.com":
+                block("PRIV-10", f"commit {sha}: the {role} email is not a GitHub noreply address — "
+                                 "set git config user.email to your noreply address and re-commit")
+
+
 def bot_only(base):
     authors = set(git("log", f"{base}..HEAD", "--format=%an", check=False).splitlines())
     return bool(authors) and authors == {BOT_NAME}
@@ -905,6 +919,7 @@ def main(argv):
     if base:
         dirty = bool(git("status", "--porcelain").strip())
         changed = check_changes(base, dirty, data_job=args.data_job)
+        check_commit_emails(base)
         approved = approvals(base)
     else:
         notes.append("no base commit found — change-based checks skipped")

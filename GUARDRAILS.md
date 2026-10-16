@@ -16,7 +16,7 @@ relies on review.
 > marked **LAWYER** stay open until a Swiss lawyer answers them.
 
 Sources: the Stage 1 audit (`audit/reports/stage-1-2026-09-21/`), `COMPLIANCE.md`,
-`NOTICE.md`, the code as of `4caa2cc` (formerly `3ce4228`). Legal references were last verified by the
+`NOTICE.md`, the code as of `4caa2cc`. Legal references were last verified by the
 Stage 1 audit on 2026-09-21; rule SRC-10 keeps them from going stale.
 
 ---
@@ -85,7 +85,7 @@ on the visitor's device); GDPR/ePrivacy for EU visitors (reach UNVERIFIED — Q7
 | PRIV-07 | **Poll.** Turning on `POLL_API` is a new processing of political opinions: needs the backend's IP/rate-limit design reviewed (no IP stored against a vote), the Privacy page section, and the "unofficial straw poll" label. | FLAG + LAWYER (Q9) |
 | PRIV-08 | **Private donors are never identified.** A donation by a natural person reveals a political opinion (sensitive data), so individuals appear only as "Private individual" with amount and date — no name, no place, no page, no search entry, no grouping across records. Enforced three times: the fetcher never stores the name/place, `validate.py` fails if one appears, and `app.js` strips them on load. Only organisations are named. *(Owner decision 2026-09-24.)* | BLOCK |
 | PRIV-09 | **Members of parliament.** Per-member votes are public official acts and may be shown; never combine them with non-official personal data (private life, social media, photos not from the official source). | REVIEW |
-| PRIV-10 | **No personal data in the repo.** No real email addresses (other than the site's own aliases), phone numbers, postal addresses, IPs, or names of private individuals outside `data/financing.json`. | BLOCK (regex scan incl. git history on new commits) |
+| PRIV-10 | **No personal data in the repo.** No real email addresses (other than the site's own aliases), phone numbers, postal addresses, IPs, or names of private individuals outside `data/financing.json`. | BLOCK (regex scan incl. git history on new commits; the author and committer email of every new commit must be a GitHub noreply address — the failure message never prints the address) |
 | PRIV-11 | **Profiling stays on-device.** Party alignment/"leaning" calculations run only in the browser. Moving any of it server-side or into accounts triggers the Stage 2 legal module (explicit consent, DPIA). | FLAG |
 | PRIV-12 | **Breach readiness.** A written decision tree for a breach (FDPIC notification "as soon as possible", Art. 24) exists before any server stores visitor data. | REVIEW |
 | PRIV-13 | **Members in the session ticker** *(adopted 2026-10-05)*. National Council votes appear only as tallies by parliamentary group; no member's individual vote, no person numbers, no photos, no data from elsewhere (PRIV-09). Speakers: name, role, group, canton and time only. Decision records that are not a standard decision (e.g. judicial elections naming private persons and where they live) are left out. Council of States votes are not in the ticker (owner decision 2026-10-05). | BLOCK (`check.py`: fields requested; `validate.py`: field allowlist, no Council of States votes, no election texts) |

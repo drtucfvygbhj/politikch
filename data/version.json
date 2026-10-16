@@ -1,6 +1,6 @@
 {
   "_about": "Site version, shown in the footer. Change it only with scripts/version.py; the scheme is in VERSIONING.md. Not the design name (1.0 / 1.1).",
-  "version": "1.1014",
+  "version": "1.1024",
   "history": [
     {
       "version": "1.1",
@@ -17,6 +17,14 @@
         "gui"
       ],
       "note": "Government disclaimer, direct initiative links, version in footer"
+    },
+    {
+      "version": "1.1024",
+      "date": "2026-10-16",
+      "types": [
+        "rules"
+      ],
+      "note": "Commit-email guard (PRIV-10); old commit pointer removed"
     }
   ]
 }
