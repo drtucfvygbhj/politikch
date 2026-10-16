@@ -9,6 +9,10 @@
    Privacy model: a visitor is counted with a one-way hash of a random daily
    salt + IP + user agent. The salt is deleted when its day ends, so nobody
    can be recognised across days, and the IP itself is never written anywhere.
+   Location is the country only, plus the canton for Swiss visitors (no city);
+   nothing read on the device is accepted (no screen size, touch support or
+   browser language — GUARDRAILS Q13). The `city`, `screen` and `blang`
+   columns stay in the schema but are no longer written.
    ============================================================ */
 import DASHBOARD_SOURCE from './dashboard.html';
 
@@ -137,7 +141,7 @@ async function dailySalt(env, day) {
   return row.salt;
 }
 
-function parseUA(ua, touch) {
+function parseUA(ua) {
   let browser = 'Other', os = 'Other', device = 'Desktop';
   if (/Edg(e|A|iOS)?\//.test(ua)) browser = 'Edge';
   else if (/OPR\/|Opera/.test(ua)) browser = 'Opera';
@@ -152,21 +156,12 @@ function parseUA(ua, touch) {
   else if (/Android/.test(ua)) os = 'Android';
   else if (/Windows/.test(ua)) os = 'Windows';
   else if (/CrOS/.test(ua)) os = 'ChromeOS';
-  else if (/Macintosh|Mac OS X/.test(ua)) os = touch ? 'iPadOS' : 'macOS';   // iPads report as Macs
+  else if (/Macintosh|Mac OS X/.test(ua)) os = 'macOS';   // includes iPads, which report as Macs
   else if (/Linux/.test(ua)) os = 'Linux';
 
   if (os === 'iPadOS' || /Tablet/.test(ua) || (os === 'Android' && !/Mobile/.test(ua))) device = 'Tablet';
   else if (os === 'iOS' || /Mobi/.test(ua)) device = 'Mobile';
   return { browser, os, device };
-}
-
-function screenBucket(w) {
-  if (!w) return 'Unknown';
-  if (w < 576) return 'Phone (<576px)';
-  if (w < 768) return 'Large phone (576–767px)';
-  if (w < 1024) return 'Tablet (768–1023px)';
-  if (w < 1440) return 'Laptop (1024–1439px)';
-  return 'Desktop (1440px+)';
 }
 
 const str = (v, max, re) => {
@@ -184,9 +179,6 @@ function cleanEvent(e) {
   if (!route) return null;
   const out = { kind, route, entry: 0, name: null, prop: null, ref: null, utm_source: null, utm_medium: null, utm_campaign: null, duration: null };
   out.lang = str(e.l, 2, /^(en|de|fr|it|rm)$/);
-  out.blang = str(e.bl, 2, /^[a-z]{2}$/);
-  out.w = Number.isFinite(e.w) ? Math.max(0, Math.min(10000, Math.round(e.w))) : 0;
-  out.touch = e.t === 1;
   if (kind === 'event') {
     out.name = str(e.n, 20);
     if (!out.name || !EVENT_NAMES.has(out.name)) return null;
@@ -277,17 +269,16 @@ async function store(list, req, env, ua) {
   if (flooding(visitor, now)) return;
   const cf = req.cf || {};
   const country = cf.country || null;
-  const region = cf.region || null;
-  const city = cf.city || null;
+  const region = country === 'CH' ? (cf.region || null) : null;   // the canton; nothing finer
   const stmt = env.DB.prepare(`INSERT INTO events
     (ts, day, hour, kind, route, entry, name, prop, ref, utm_source, utm_medium, utm_campaign,
      country, region, city, device, browser, os, screen, lang, blang, visitor, duration)
     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`);
   await env.DB.batch(list.map(e => {
-    const u = parseUA(ua, e.touch);
+    const u = parseUA(ua);
     return stmt.bind(now, day, hour, e.kind, e.route, e.entry, e.name, e.prop, e.ref,
-      e.utm_source, e.utm_medium, e.utm_campaign, country, region, city,
-      u.device, u.browser, u.os, screenBucket(e.w), e.lang, e.blang, visitor, e.duration);
+      e.utm_source, e.utm_medium, e.utm_campaign, country, region, null,
+      u.device, u.browser, u.os, null, e.lang, null, visitor, e.duration);
   }));
 }
 
@@ -348,13 +339,10 @@ const ATTRS = [
   ['landing_lang', "substr(prop, 6)", true, "prop LIKE 'lang=%'"],
   ['country', 'country'],
   ['region', "country || ' · ' || region", false, 'region IS NOT NULL'],
-  ['city', "country || ' · ' || city", false, 'city IS NOT NULL'],
   ['device', 'device'],
   ['browser', 'browser'],
   ['os', 'os'],
-  ['screen', 'screen'],
   ['lang', 'lang'],
-  ['blang', 'blang'],
 ];
 for (const [dim, expr, entryOnly, extraWhere] of ATTRS) {
   DIM_SQL.push(`SELECT '${dim}' AS dim, ${expr} AS key, COUNT(DISTINCT visitor) AS visitors, COUNT(*) AS hits, 0 AS extra

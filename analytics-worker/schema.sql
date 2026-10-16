@@ -19,14 +19,14 @@ CREATE TABLE IF NOT EXISTS events (
   utm_medium   TEXT,
   utm_campaign TEXT,
   country      TEXT,
-  region       TEXT,
-  city         TEXT,
+  region       TEXT,                      -- Swiss visitors only: the canton
+  city         TEXT,                      -- no longer written (Q13)
   device       TEXT,
   browser      TEXT,
   os           TEXT,
-  screen       TEXT,
+  screen       TEXT,                      -- no longer written (Q13)
   lang         TEXT,                      -- site language
-  blang        TEXT,                      -- browser language
+  blang        TEXT,                      -- no longer written (Q13)
   visitor      TEXT    NOT NULL,
   duration     INTEGER                    -- ms visible (kind = 'engagement')
 );

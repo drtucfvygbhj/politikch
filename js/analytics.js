@@ -4,7 +4,10 @@
    Sends page views and a few named actions to the site's own statistics
    service (analytics-worker/, a Cloudflare Worker). No cookies, nothing
    stored on the device, no IP address kept server-side — see the Privacy page
-   and analytics-worker/README.md.
+   and analytics-worker/README.md. Nothing is read from the device either (no
+   screen size, touch support or browser language — GUARDRAILS Q13): a page
+   view carries only the route, the site language and, on entry, the referring
+   host and campaign tags from the address.
 
    Off when ANALYTICS_API (js/config.js) is empty, on localhost, for automated
    browsers, when the browser sends a Global Privacy Control or Do Not Track
@@ -105,12 +108,7 @@ export function trackPageview(route, lang) {
   current = route;
   visibleMs = 0;
   visibleSince = document.visibilityState === 'visible' ? performance.now() : 0;
-  const pv = {
-    k: 'pv', r: route, l: lang,
-    w: (window.screen && screen.width) || 0,
-    t: navigator.maxTouchPoints > 1 ? 1 : 0,
-    bl: (navigator.language || '').slice(0, 2).toLowerCase(),
-  };
+  const pv = { k: 'pv', r: route, l: lang };
   if (first) {
     first = false;
     pv.entry = 1;

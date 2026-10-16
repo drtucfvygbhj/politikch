@@ -518,11 +518,11 @@ a run costs one or two small requests and deploys nothing.
 |---|---|
 | Beacons only on the live https site; never on localhost or automated browsers; never with GPC/DNT or after opt-out | ✅ |
 | Only allowlisted event names; route/referrer/lang validated by pattern; body ≤ 4 KB; flood guard; CORS limited to the site's origins | ✅ |
-| Stored fields = exactly those in the Privacy page (page, time, referring site, country/region/city, device, browser, OS, screen, language, named actions); **no IP, no search text, no vote choice** | ✅ |
+| Stored fields = exactly those in the Privacy page (page, time, referring site, country, canton for Swiss visitors only, device, browser and OS from the user-agent header, site language, named actions); **no IP, no city, no search text, no vote choice**; nothing read on the device (no screen size, touch support or browser language) | ✅ |
 | Visitor hash = daily salt + IP + UA; salt deleted after its day (hourly cron); raw rows deleted after 7 days; only daily totals kept | ✅ |
 | Dashboard behind a password, with lockout after failed attempts; strict CSP; `no-store` | ✅ |
 | Database in the EU — set when the database was created (`--jurisdiction eu`), **not visible in the repo** | ⚠ owner to confirm in the Cloudflare dashboard |
-| EU visitors: does ePrivacy require consent for reading screen size/UA? | ⚠ Q13 |
+| EU visitors: ePrivacy consent for reading data on the device | ✅ designed away 2026-10-16: the beacon reads nothing on the device (Q13) |
 
 ### 13.5 In the visitor's browser, without them clicking anything
 

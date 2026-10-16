@@ -132,7 +132,6 @@
     <div class="grid">
       <div class="card" id="c-country"></div>
       <div class="card" id="c-region"></div>
-      <div class="card" id="c-city"></div>
     </div>
 
     <p class="section-title">Technology &amp; language</p>
@@ -140,9 +139,7 @@
       <div class="card" id="c-device"></div>
       <div class="card" id="c-browser"></div>
       <div class="card" id="c-os"></div>
-      <div class="card" id="c-screen"></div>
       <div class="card" id="c-lang"></div>
-      <div class="card" id="c-blang"></div>
     </div>
 
     <p class="section-title">Actions</p>
@@ -202,14 +199,11 @@
     utm_campaign: ['Campaigns', 'utm_campaign on arrival'],
     landing_lang: ['Language links', 'Arrivals via ?lang= (e.g. the language domains)'],
     country: ['Countries', ''],
-    region: ['Regions', 'Cantons for Switzerland'],
-    city: ['Cities', 'Approximate, from the network'],
+    region: ['Swiss cantons', 'Visitors from Switzerland only'],
     device: ['Devices', ''],
     browser: ['Browsers', ''],
     os: ['Operating systems', ''],
-    screen: ['Screen sizes', 'Screen width'],
     lang: ['Site language', 'Language the page was shown in'],
-    blang: ['Browser language', 'Visitor’s preferred language'],
   };
   function routeLabel(r) {
     if (r === '/' || r === '') return 'Home';
@@ -222,11 +216,11 @@
   }
   function keyLabel(dim, k) {
     if (dim === 'country') return (countryNames && countryNames.of(k)) || k;
-    if (dim === 'region' || dim === 'city') {
+    if (dim === 'region') {
       const [c, rest] = k.split(' · ');
       return `${rest} (${c})`;
     }
-    if (dim === 'lang' || dim === 'blang' || dim === 'landing_lang') {
+    if (dim === 'lang' || dim === 'landing_lang') {
       if (k === 'rm') return 'Romansh';
       return (langNames && langNames.of(k)) || k;
     }
@@ -466,7 +460,7 @@
       renderTable($('c-' + dim), ...DIM_TITLES[dim], rows, [{ key: 'hits', label: 'Visits' }], { nameHead: 'Page' });
     }
     renderHours($('c-hour'));
-    for (const dim of ['source', 'utm_source', 'utm_medium', 'utm_campaign', 'landing_lang', 'country', 'region', 'city', 'device', 'browser', 'os', 'screen', 'lang', 'blang']) {
+    for (const dim of ['source', 'utm_source', 'utm_medium', 'utm_campaign', 'landing_lang', 'country', 'region', 'device', 'browser', 'os', 'lang']) {
       const rows = (d[dim] || []).map(r => ({
         ...r, label: keyLabel(dim, r.key),
         href: dim === 'source' && r.key.includes('.') ? 'https://' + r.key : null,
