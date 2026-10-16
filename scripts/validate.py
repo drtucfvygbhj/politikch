@@ -439,10 +439,16 @@ def check_all_languages():
         missing = [l for l in LANGS if not (obj.get(l) or "").strip()]
         if missing:
             errors.append(f"{where} is missing {missing}")
+    # POL-07 / Q4, Q14: every description of a named party or organisation
+    # carries a source link (its own page or an official source).
+    def need_source(url, where):
+        if not (isinstance(url, str) and url.startswith("https://")):
+            errors.append(f"{where}.source must be an https link to the page the description is based on (POL-07)")
     parties = (load("parties.json") or {}).get("parties", {})
     for k, pa in parties.items():
         need(pa.get("name"), f"parties.json: {k}.name")
         need(pa.get("desc"), f"parties.json: {k}.desc")
+        need_source(pa.get("source"), f"parties.json: {k}")
         for i, pos in enumerate(pa.get("positions") or []):
             need(pos.get("stance"), f"parties.json: {k}.positions[{i}].stance")
     for code, c in ((load("cantons.json") or {}).get("cantons", {})).items():
@@ -450,6 +456,7 @@ def check_all_languages():
             need(c.get(f), f"cantons.json: {code}.{f}")
     for slug, dd in ((load("donor-descriptions.json") or {}).get("donors", {})).items():
         need(dd.get("desc"), f"donor-descriptions.json: {slug}.desc")
+        need_source(dd.get("source"), f"donor-descriptions.json: {slug}")
     for it in ((load("initiatives.json") or {}).get("initiatives", [])):
         for f in ("desc", "date"):
             need(it.get(f), f"initiatives.json: {it.get('id')}.{f}")

@@ -409,7 +409,7 @@ by the owner, with the reason recorded:
 3. ~~EFK register reuse terms unrecorded~~ — **resolved 2026-09-24**: `terms_open`.
 4. **VoteInfo feed is `terms_ask`** — fine while free; blocks `PAID_PRODUCT_LIVE`
    until permission or a source switch (SRC-02).
-5. **Donor descriptions have no per-entry source field** (POL-07).
+5. ~~Donor descriptions have no per-entry source field~~ — **fixed 2026-10-16**: every donor and party description has a `source` link, and `validate.py` blocks one without it (POL-07). Claims the source page doesn't confirm are listed for the owner, not rewritten.
 6. **HTML insertions (SEC-01):** 421 existing unescaped insertions (386 in
    `app.js`, 23 in `myvotes.js`, 12 in `share.js`) are recorded in
    `scripts/guardrails/sinks-baseline.json`. New ones are blocked. The

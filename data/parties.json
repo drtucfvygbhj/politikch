@@ -109,7 +109,8 @@
           "dir": "right"
         }
       ],
-      "website": "https://www.svp.ch"
+      "website": "https://www.svp.ch",
+      "source": "https://www.svp.ch"
     },
     "SP": {
       "name": {
@@ -208,7 +209,8 @@
           "dir": "left"
         }
       ],
-      "website": "https://www.sp-ps.ch"
+      "website": "https://www.sp-ps.ch",
+      "source": "https://www.sp-ps.ch"
     },
     "MITTE": {
       "name": {
@@ -307,7 +309,8 @@
           "dir": "centre"
         }
       ],
-      "website": "https://www.die-mitte.ch"
+      "website": "https://www.die-mitte.ch",
+      "source": "https://www.die-mitte.ch"
     },
     "FDP": {
       "name": {
@@ -406,7 +409,8 @@
           "dir": "right"
         }
       ],
-      "website": "https://www.fdp.ch"
+      "website": "https://www.fdp.ch",
+      "source": "https://www.fdp.ch"
     },
     "GPS": {
       "name": {
@@ -505,7 +509,8 @@
           "dir": "left"
         }
       ],
-      "website": "https://www.gruene.ch"
+      "website": "https://www.gruene.ch",
+      "source": "https://www.gruene.ch"
     },
     "GLP": {
       "name": {
@@ -604,7 +609,8 @@
           "dir": "centre"
         }
       ],
-      "website": "https://www.grunliberale.ch"
+      "website": "https://www.grunliberale.ch",
+      "source": "https://www.grunliberale.ch"
     },
     "EVP": {
       "name": {
@@ -691,7 +697,8 @@
           "dir": "centre"
         }
       ],
-      "website": "https://www.evppev.ch"
+      "website": "https://www.evppev.ch",
+      "source": "https://www.evppev.ch"
     },
     "EDU": {
       "name": {
@@ -766,7 +773,8 @@
           "dir": "right"
         }
       ],
-      "website": "https://www.edu-schweiz.ch"
+      "website": "https://www.edu-schweiz.ch",
+      "source": "https://www.edu-schweiz.ch"
     },
     "LEGA": {
       "name": {
@@ -841,7 +849,8 @@
           "dir": "right"
         }
       ],
-      "website": "https://legaticinesi.ch"
+      "website": "https://legaticinesi.ch",
+      "source": "https://legaticinesi.ch"
     },
     "MCG": {
       "name": {
@@ -916,7 +925,8 @@
           "dir": "right"
         }
       ],
-      "website": "https://mcge.ch"
+      "website": "https://mcge.ch",
+      "source": "https://mcge.ch"
     }
   }
 }
