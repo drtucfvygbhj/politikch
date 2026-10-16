@@ -108,6 +108,17 @@ Words like "hypocritical", "misleading" or "dishonest" are judgements. You may
 use them when the facts in the article support them, and they trigger the right
 of reply (§5). Insults add nothing and are not used.
 
+### 4.4 Quoting party and campaign material (ED-15)
+
+The quotation right (URG Art. 25) covers short quotes that explain or support
+the point being made, with the author and source named.
+
+- Text from posters, press releases, websites or speeches: in quotation marks,
+  only as long as the point needs, with who said it and a link.
+- Posters, adverts, images and videos: never reproduced in full. Describe what
+  they show and link to the original.
+- Quote accurately and in context; mark any cut with "[…]".
+
 ---
 
 ## 5. Right of reply (ED-06)
@@ -149,6 +160,10 @@ same text in German or French.
 - Not on a vote in which you have a personal interest.
 - Wording: "**Our recommendation: No.**", followed by the reason in one or two
   sentences. No imperatives aimed at the reader.
+- **No paid promotion of an Analysis (ED-14).** Politikch never pays to promote
+  an Analysis, with or without a recommendation. Explainers, the reference site
+  and the subscription in general may be promoted. So Politikch never spends
+  money on a campaign for or against a proposal.
 
 ---
 
@@ -271,6 +286,8 @@ translation of the English.
 - [ ] At least one argument for Yes and one for No (or each side of the question) (ED-05)
 - [ ] Serious accusation? → right of reply sent, deadline passed, response included (ED-06)
 - [ ] Recommendation? → reasoning covers both sides; no personal interest (ED-07)
+- [ ] Analysis? → no paid promotion planned for it (ED-14)
+- [ ] Quotes from party or campaign material short, sourced and linked; no poster or image reproduced in full (ED-15)
 - [ ] Not within 10 days of the ballot it concerns (ED-08)
 - [ ] Every sentence written by you; AI used only as §8 allows (ED-09)
 - [ ] German and French checked, sections 4–6 sentence by sentence; Italian only if allowed (ED-10)

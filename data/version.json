@@ -1,6 +1,6 @@
 {
   "_about": "Site version, shown in the footer. Change it only with scripts/version.py; the scheme is in VERSIONING.md. Not the design name (1.0 / 1.1).",
-  "version": "1.1053",
+  "version": "1.1063",
   "history": [
     {
       "version": "1.1",
@@ -65,6 +65,14 @@
         "data"
       ],
       "note": "Every donor and party description has a source link, required by the validator (POL-07, Q4/Q14)"
+    },
+    {
+      "version": "1.1063",
+      "date": "2026-10-16",
+      "types": [
+        "rules"
+      ],
+      "note": "Legal questions closed in GUARDRAILS §10; ED-14/15; processors and record of processing; pre-commercialisation checklist"
     }
   ]
 }

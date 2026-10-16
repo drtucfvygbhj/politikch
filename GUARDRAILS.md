@@ -13,7 +13,9 @@ relies on review.
 > about into checks. A check can prove a change *didn't touch* a risky area, or
 > that it *kept* a known-good pattern; it cannot prove a new piece of content is
 > lawful. That is why every rule has an enforcement level, and why the items
-> marked **LAWYER** stay open until a Swiss lawyer answers them.
+> marked **LAWYER** stay open until each one is closed: designed away,
+> researched or decided by the owner (owner decision 2026-10-16: no lawyer
+> consultation; see §10).
 
 Sources: the Stage 1 audit (`audit/reports/stage-1-2026-09-21/`), `COMPLIANCE.md`,
 `NOTICE.md`, the code as of `4caa2cc`. Legal references were last verified by the
@@ -29,7 +31,7 @@ Stage 1 audit on 2026-09-21; rule SRC-10 keeps them from going stale.
 | **FLAG** | Machine detects that a sensitive area was touched | Check fails until the change log records an explicit owner sign-off naming the rule ID |
 | **REVIEW** | Needs judgement | Covered by the written pre-change review (§11); owner approves before any file is edited |
 | **MONITOR** | Can break without any change in the repo (a source changes its terms, a certificate expires) | Scheduled job; opens an issue and, where it matters, stops the data job |
-| **LAWYER** | Open legal question | Blocks the named feature/launch until answered in writing; listed in §10 |
+| **LAWYER** | Open legal question | Blocks the named feature/launch until closed in §10: designed away, researched or decided by the owner, in writing |
 
 **Default rule:** a change that touches a file or pattern no rule recognises is
 treated as **FLAG**, not as safe. "Unknown" never means "allowed".
@@ -278,7 +280,37 @@ the **website**.
 
 ---
 
-## 10. Open legal questions (LAWYER) — block the named feature, not the site
+## 10. Legal questions (LAWYER) — block the named feature, not the site
+
+**Status 2026-10-16.** The owner decided to close these without a lawyer. Each
+is closed one of three ways: **designed away** (the project changed so the
+question no longer arises), **researched** (the law answers it clearly enough;
+research, not legal advice) or **decided** (the owner chose between options).
+What is still to do before commercialisation is in `LAUNCH_PLAN.md`, "Before
+commercialisation".
+
+| Q | Closed | How |
+|---|---|---|
+| Q1 | Researched + designed | Art. 5 URG frees official texts for any use, commercial or not, so the paid site changes nothing. The committee's arguments are published by the Federal Council in its official explanations (BPR Art. 11(2)); the site shows them verbatim with the brochure's note that the committee alone is responsible, and links the brochure. If a committee objects, its text is replaced by a link. |
+| Q2 | Designed away | The Swiss cross is removed from the logo, masthead, footer and share images; canton pages show the code, not the coat of arms; the masthead says "not an official government site". |
+| Q3 | Decided | Superseded by Q19 (the Verein is the operator). Before anything is sold: a street business address in the Verein's name, since a PO box alone likely doesn't meet UWG Art. 3(1)(s). |
+| Q4, Q14 | Designed away | Every donor and party description has a source link (POL-07, `validate.py`) and states only what that source supports; the owner reviews the claims a source doesn't confirm; corrections via the Report form. |
+| Q5 | Designed away | Record of processing and DPIA note in `COMPLIANCE.md`. The free site processes no sensitive data on a server (profiling stays on the device, PRIV-11). Redone for PolitikCH+ (`LAUNCH_PLAN.md` D7). |
+| Q6 | Designed away | No political opinion is stored on a server (PRIV-01, PRIV-11). Subscriptions only from age 18 (before commercialisation). |
+| Q7 | Researched + designed | The free site doesn't offer services to, or monitor, people in the EU (GDPR Art. 3(2)); the statistics read nothing on the device (Q13). Paid sales start with Swiss billing addresses only. |
+| Q8 | Decided | Swiss billing addresses only at launch, so no EU VAT (a non-EU seller of digital services owes it from the first sale). Swiss VAT only above CHF 100,000 turnover. |
+| Q9 | Designed away | `POLL_API` stays off. If it is ever turned on: no results during the POL-09 quiet period, always labelled unofficial (POL-08). No Swiss law bans publishing polls before a vote; the industry's own rule is 10 days. |
+| Q10 | Researched | Processor list with agreement, data location and transfer basis in `COMPLIANCE.md`; the owner confirms each provider's terms (HOST-02). |
+| Q11 | Decided | Private donors' names are to be removed from the public git history (history rewrite + GitHub purge: pending, a separate change with its own review). The charts already show private individuals as one sum (PRIV-08). |
+| Q12 | Researched | See below (2026-09-24). |
+| Q13 | Designed away | The statistics read nothing on the device (no screen size, touch support or browser language) and store the country, plus the canton for Swiss visitors only; no city. |
+| Q15 | **Open: owner decides before Stage E** | StGB Art. 322(1) applies to every media company regardless: it must tell anyone who asks, in writing, its seat and who is responsible. Whether an online subscription publication must also name a responsible editor in a public imprint (Art. 322(2)) is unsettled; the penalty is a fine. |
+| Q16 | Designed away | ED-14: no paid promotion of an Analysis. With ED-01, Politikch spends nothing on a campaign, so the BPR campaign disclosure duty (Art. 76c, over CHF 50,000) can't arise. |
+| Q17 | Designed away | ED-15: short text quotes with source; no full reproduction of posters, adverts or images (URG Art. 25). |
+| Q18 | Decided | Politikch declares that it follows the Swiss Press Council's code (before commercialisation). |
+| Q19 | Decided | See below (2026-10-16). |
+
+The questions as they were asked:
 
 Q1–Q10 are in `audit/AUDIT_PLAN.md` §10 (Art. 5 URG and committee arguments on
 a commercial site · emblems/official appearance · Impressum for a sole
@@ -660,6 +692,8 @@ rule in §2–§9 unchanged. For PolitikCH+ articles:
 | ED-11 | **Byline and identity.** Byline: "PolitikCH+ editorial". The About page states truthfully how many people write (e.g. "currently one editor") and never implies a larger team (UWG Art. 3(1)(b)). The operator is identified as the law requires (Q15, Q19). | REVIEW |
 | ED-12 | **Corrections.** A confirmed error is corrected within 48 hours, with a dated note on the article and an entry in a public corrections log. Translations are corrected with the original. | REVIEW |
 | ED-13 | **Paywall and reader privacy.** Article text never goes into the public repo or the static site: only the logged-in backend serves it. No reading history per subscriber beyond what billing needs; analytics never link an article to a subscriber (PRIV-11). | BLOCK (`paywalledPaths` in the config) + FLAG |
+| ED-14 | **No paid promotion of an Analysis** *(owner 2026-10-16, Q16)*. Politikch never pays to promote an Analysis, the only article type that may recommend a vote (ED-07). Paid promotion of Explainers, the reference site or the subscription in general is allowed. With ED-01 (no money from campaigns), Politikch spends nothing on any campaign for or against a proposal. | REVIEW |
+| ED-15 | **Quoting party and campaign material** *(owner 2026-10-16, Q17)*. Text: short quotes in quotation marks, only as long as the point needs, with the author and source named and linked (URG Art. 25). Posters, adverts, images and videos are never reproduced in full: describe them and link to them. | REVIEW |
 
 **Definitions.** *Serious accusation*: a statement that someone acted wrongly or
 dishonestly, or that is otherwise likely to harm their reputation seriously.

@@ -108,3 +108,49 @@ dataset above. Either fully settles it; until then the Art. 5 basis holds.
   `data/brochures/README.md`. Skipping it just falls back to DE/FR.
 - Re-confirm a dataset's `terms_*` code hasn't changed when BFS/LINDAS republish
   it (tiers can change); all current ones are open except VoteInfo (above).
+
+---
+
+# Personal data: processors, record of processing, DPIA
+
+Added 2026-10-16 to close `GUARDRAILS.md` §10 Q5 and Q10. Research, not legal
+advice. Lines marked **confirm** are for the owner to check in each provider's
+own terms or dashboard once; record the date here when done.
+
+## Processors (revFADP Art. 9 and 16, HOST-02)
+
+| Provider | What it does for us | Personal data it sees | Agreement | Data location / transfer basis | Status |
+|---|---|---|---|---|---|
+| GitHub, Inc. (USA) | Hosts the site (GitHub Pages) and the repository | IP address, page requested, time, browser type, to deliver pages | GitHub Data Protection Agreement (part of its terms) | USA: Swiss–U.S. Data Privacy Framework if GitHub is certified, otherwise the agreement's standard contractual clauses | **confirm** certification on dataprivacyframework.gov |
+| Cloudflare, Inc. (USA) | Runs the visit statistics (Worker + D1 database) | IP address briefly, to deliver the request; stores only the fields on the Privacy page (no IP, no city) | Data processing addendum in Cloudflare's terms | Database in the EU (`--jurisdiction eu`); company certified under the Swiss–U.S. Data Privacy Framework | **confirm** EU location in the dashboard (§13.4) |
+| Hostpoint AG (Switzerland) | Domains, DNS, email for contact@ | Senders' email addresses and messages | Hostpoint's terms and data processing terms | Switzerland | **confirm** the data processing terms apply to the plan in use |
+| DeepL SE (Germany) | Translates public official texts at build time | None: only public official texts are sent (OPS-09) | Not a processor of personal data | EU (adequate, DSV Annex 1) | ✅ |
+
+The Report form sends nothing to a server: it opens a draft in the visitor's
+own email app, addressed to contact@ (see Hostpoint).
+
+## Record of processing (revFADP Art. 12)
+
+Kept voluntarily: with fewer than 250 staff and no high-risk processing, a
+record isn't required (DSV Art. 24), but it costs nothing and keeps the
+Privacy page honest.
+
+| Purpose | Whose data | Which data | Recipients | Kept for | Abroad |
+|---|---|---|---|---|---|
+| Delivering the site | Visitors | Technical request data (IP, page, time, browser) | GitHub | GitHub's own log retention | USA (see above) |
+| Visit statistics | Visitors who haven't opted out (no GPC/DNT) | Page, time, referring host, country (canton for Swiss visitors), device/browser/OS from the user-agent header, site language, named actions, a daily one-way visitor code | Cloudflare | Detailed rows 7 days, then anonymous daily totals only | Company USA, database EU |
+| Answering email and reports | People who write to contact@ | Email address, message, anything they include | Hostpoint | Until the matter is closed (owner to set a fixed period) | No |
+| Political financing figures | Private donors | **None stored**: the fetcher drops names and places (PRIV-08) | — | — | — |
+
+Controller: the operator named on the Privacy page (the Verein once founded,
+`LAUNCH_PLAN.md` B7). Security: HTTPS only, no accounts, statistics dashboard
+behind a password with lockout, no IP stored (§13.4).
+
+## DPIA (revFADP Art. 22)
+
+**Not required for the free site.** No sensitive data is processed on a server:
+votes, profile and party alignment stay in the visitor's browser (PRIV-01,
+PRIV-11), private donors are never stored (PRIV-08), and the statistics can't
+recognise anyone from one day to the next. **Redo this assessment** before
+`POLL_API`, accounts or subscriptions are turned on: a subscriber list of a
+political publication may hint at political views (`LAUNCH_PLAN.md` D7).
