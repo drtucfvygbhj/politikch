@@ -39,7 +39,7 @@ privacy policy must name the controller (revFADP Art. 19).
 ## Stage A — the free site, today
 
 From the Stage 1 audit (`audit/reports/stage-1-2026-09-21/findings.json`) and
-`GUARDRAILS.md` §12. **Who**: O = owner, C = Claude (with a pre-change review), L = lawyer.
+`GUARDRAILS.md` §12. **Who**: O = owner, C = Claude (with a pre-change review), L = lawyer (none planned since 2026-10-16: L items fall to O, see Stage B).
 
 | # | Item | Ref | Who | Blocks |
 |---|---|---|---|---|
@@ -63,21 +63,30 @@ From the Stage 1 audit (`audit/reports/stage-1-2026-09-21/findings.json`) and
 
 ## Stage B — legal foundation (during the free phase)
 
+> **Owner decision 2026-10-16: no lawyer consultation.** The Verein relies only
+> on what the Civil Code states outright, and Q19 is decided (`GUARDRAILS.md`
+> §10). The other **Q** items stay open. Each one is designed away, or decided
+> one by one, before the feature it blocks. The founding papers (statutes,
+> minutes, templates) are kept privately, outside this repo.
+
 | # | Step | Who | Notes |
 |---|---|---|---|
-| B1 | Find a second founding member, ideally also the second reader for articles | O | A Verein needs at least two founders in practice |
-| B2 | **One lawyer consultation**, answers in writing. First: Q19, Q15, Q3, Q13, Q2, Q11. Before Stage E: Q1, Q4, Q14, Q16, Q17, Q18, Q5–Q10 | O + L | Several cantonal bar associations offer low-cost first consultations |
-| B3 | Found the Verein: statutes with a purpose clause per Q19c (e.g. independent information and analysis on Swiss democracy, funded by subscriptions and donations), founding meeting, board | O | No capital needed. Only the Verein's assets are liable (ZGB Art. 75a) |
-| B4 | Domicile (c/o) address as the Verein's seat | O | Keeps a home address off the site |
-| B5 | Bank account in the Verein's name | O | |
-| B6 | Commercial register: register if Q19b says so (then board names are public in Zefix) | O | |
+| B1 | Find a second founding member: a voting member, not on the board | O | Two members is the minimum in practice. Members are not public while the Verein is unregistered |
+| B2 | ~~One lawyer consultation~~ — replaced by the owner decision above | O | Q19 decided 2026-10-16 |
+| B3 | Found the Verein: statutes (English binding, a French version ready for any registration), founding meeting, one-person board, purpose clause per Q19 | O | No capital needed. Only the Verein's assets are liable (ZGB Art. 75a) |
+| B4 | PO box in the Verein's name as its postal address | O | Keeps every member's name and home address off the site; a c/o address would print a name |
+| B5 | Bank account in the Verein's name, opened before the first income | O | Nothing passes through a personal account. Costs paid earlier are recorded as loans to the Verein |
+| B6 | Commercial register: stay unregistered while small; adopt the French statutes before any registration | O | Registration puts the board's name in Zefix permanently |
 | B7 | Privacy policy and legal notice name the Verein as controller and operator | C (PRIV-04, POL-12 sign-off) | **Closes S1-F-01 → the site may go public** |
 | B8 | Media liability insurance: get a quote. Needed before the first PolitikCH+ article; consider it now for the reference site's editorial texts (Q4, Q14) | O | |
 | B9 | Optional: trademark for the name (IPI), per `GUARDRAILS.md` §7.1 | O | |
 | B10 | Decide whether to declare the Press Council code (Q18) | O | |
+| B11 | Written licence from the owner to the Verein for the name, code, domains and articles: free, non-exclusive, revocable | O (+C draft) | Keeps ownership clear; a later company needs nothing transferred from the Verein |
+| B12 | Register the Verein with the Vaud tax office once its first financial year is closed; file a return every year from then on | O | |
 
-**Exit:** the Verein exists with a bank account and an address; the privacy
-policy and legal notice name it; Q19 and Q15 are answered.
+**Exit:** the Verein exists with a PO box address; the privacy policy and legal
+notice name it; Q19 is decided. Q15 concerns PolitikCH+ and is closed before
+Stage E.
 
 ## Stage C — growing the free audience
 
@@ -139,7 +148,7 @@ accepted.
 
 - [ ] Stage C audience target met
 - [ ] Verein exists; operator and controller named (B7)
-- [ ] Q3, Q15, Q16, Q19 answered in writing; Q1, Q4, Q8, Q14 answered
+- [ ] Q19 decided (owner, 2026-10-16); Q3, Q15, Q16, Q1, Q4, Q8 and Q14 closed: answered, designed away or decided one by one (Stage B)
 - [ ] Hosting off GitHub Pages (HOST-01)
 - [ ] No `terms_ask` source feeding the site without permission (SRC-02)
 - [ ] Terms of service, Impressum and editorial policy page ready in every language

@@ -321,6 +321,17 @@ Added 2026-09-27 for PolitikCH+ (§15) and the operator's identity:
   the commercial register (ZGB Art. 61(2))? (c) May a Verein pay its editor, and
   what purpose clause keeps the Verein lawful (ZGB Art. 60)? Blocks: S1-F-01
   (free site) and the PolitikCH+ launch.
+  *Decided by the owner 2026-10-16, without a lawyer (owner's choice):*
+  (a) The Verein is named as operator and controller and, once the site is
+  commercial, in the imprint, with a PO box in its name; no person is named on
+  the site. (b) The Verein stays unregistered while small; before any
+  registration it adopts French statutes, and the board's name then becomes
+  public in Zefix. (c) Pay for work only under a written contract fixed in
+  advance and approved by the general meeting without the person concerned
+  voting (ZGB Art. 68), never as a share of the surplus. Purpose clause:
+  independent information and analysis on Swiss democracy; economic activity
+  such as subscriptions only insofar as it serves that purpose; no profit to
+  members. S1-F-01 closes with `LAUNCH_PLAN.md` B7 once the Verein is founded.
 
 Noted 2026-10-05 for the session ticker: **no new lawyer question.** Showing
 speech text from the provisional Official Bulletin was considered and dropped
@@ -433,7 +444,8 @@ by the owner, with the reason recorded:
     `PAID_PRODUCT_LIVE` is false); the visible About text scopes "never tells
     readers how to vote" to the reference pages. Still open and **LEGAL-HIGH**:
     S1-F-01, the privacy policy doesn't name the controller. The planned fix is
-    the Verein (Q19, `LAUNCH_PLAN.md` Stage B).
+    the Verein (Q19, `LAUNCH_PLAN.md` Stage B). *2026-10-16:* Q19 decided by the
+    owner; S1-F-01 closes with B7 once the Verein is founded.
 
 ---
 
