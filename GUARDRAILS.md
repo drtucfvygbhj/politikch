@@ -18,7 +18,7 @@ relies on review.
 > consultation; see §10).
 
 Sources: the Stage 1 audit (`audit/reports/stage-1-2026-09-21/`), `COMPLIANCE.md`,
-`NOTICE.md`, the code as of `4caa2cc`. Legal references were last verified by the
+`NOTICE.md`, the code as of `7564809` ("Website OFF", 23 September 2026). Legal references were last verified by the
 Stage 1 audit on 2026-09-21; rule SRC-10 keeps them from going stale.
 
 ---
@@ -220,7 +220,7 @@ the **website**.
 **How it is implemented**
 
 1. ✅ `LICENSE`: all rights reserved for the website, and it points to the
-   data licence. It records that versions up to `cd85097` (formerly `733e141`) were MIT and keep that
+   data licence. It records that versions up to `a060dbf` (24 September 2026) were MIT and keep that
    licence. `data/LICENSE.txt` (published) is generated from `scripts/licences.py`.
 2. ✅ Every published data file carries `_meta.license`, `licenseUrl`,
    `attribution` and `commercialReuse`, taken from `scripts/licences.py`, the
@@ -301,7 +301,7 @@ commercialisation".
 | Q8 | Decided | Swiss billing addresses only at launch, so no EU VAT (a non-EU seller of digital services owes it from the first sale). Swiss VAT only above CHF 100,000 turnover. |
 | Q9 | Designed away | `POLL_API` stays off. If it is ever turned on: no results during the POL-09 quiet period, always labelled unofficial (POL-08). No Swiss law bans publishing polls before a vote; the industry's own rule is 10 days. |
 | Q10 | Researched | Processor list with agreement, data location and transfer basis in `COMPLIANCE.md`; the owner confirms each provider's terms (HOST-02). |
-| Q11 | Decided | Private donors' names are to be removed from the public git history (history rewrite + GitHub purge: pending, a separate change with its own review). The charts already show private individuals as one sum (PRIV-08). |
+| Q11 | Decided | Private donors' names were removed from the git history on 2026-10-16 (history rewrite; every commit after the first changed its hash). The GitHub purge of the old commits and of PR #2 is pending with GitHub Support. The charts already show private individuals as one sum (PRIV-08). |
 | Q12 | Researched | See below (2026-09-24). |
 | Q13 | Designed away | The statistics read nothing on the device (no screen size, touch support or browser language) and store the country, plus the canton for Swiss visitors only; no city. |
 | Q15 | **Open: owner decides before Stage E** | StGB Art. 322(1) applies to every media company regardless: it must tell anyone who asks, in writing, its seat and who is responsible. Whether an online subscription publication must also name a responsible editor in a public imprint (Art. 322(2)) is unsettled; the penalty is a fine. |

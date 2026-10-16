@@ -102,7 +102,7 @@ Keyboard-navigable throughout (map, seats, spectrum, cards, modal), visible focu
 
 **Open data, protected website.**
 
-- **The website** (code, design, interface and page text, and the names and logos "Politikch", "PolitikCH" and "PCH") is **all rights reserved**. See `LICENSE`. Versions up to commit `cd85097` (formerly `733e141`) were published under MIT, and copies of those keep that licence.
+- **The website** (code, design, interface and page text, and the names and logos "Politikch", "PolitikCH" and "PCH") is **all rights reserved**. See `LICENSE`. Versions up to commit `a060dbf` ("Open a GitHub issue for weekly source-check warnings", 24 September 2026) were published under MIT, and copies of those keep that licence.
 - **The data** in `data/` may be reused, including commercially:
   - Politikch's own data (party descriptions and spectrum, donor descriptions, unofficial and machine translations, canton and Federal Council compilations) is **CC BY 4.0**.
   - Official data passed on (VoteInfo, LINDAS, Swissvotes, BFS, parlament.ch, EFK, swisstopo) keeps **its source's terms**.

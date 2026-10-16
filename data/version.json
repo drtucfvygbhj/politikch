@@ -1,6 +1,6 @@
 {
   "_about": "Site version, shown in the footer. Change it only with scripts/version.py; the scheme is in VERSIONING.md. Not the design name (1.0 / 1.1).",
-  "version": "1.1063",
+  "version": "1.1073",
   "history": [
     {
       "version": "1.1",
@@ -73,6 +73,14 @@
         "rules"
       ],
       "note": "Legal questions closed in GUARDRAILS §10; ED-14/15; processors and record of processing; pre-commercialisation checklist"
+    },
+    {
+      "version": "1.1073",
+      "date": "2026-10-16",
+      "types": [
+        "rules"
+      ],
+      "note": "Private donors' names removed from the git history (Q11); cited hashes updated"
     }
   ]
 }

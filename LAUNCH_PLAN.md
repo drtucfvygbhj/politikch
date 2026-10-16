@@ -60,7 +60,7 @@ From the Stage 1 audit (`audit/reports/stage-1-2026-09-21/findings.json`) and
 | A13 | Municipality boundaries: current swissBOUNDARIES3D release | S1-F-07 | C | — |
 | A14 | Decide: headless-browser checks in CI (OPS-02/05/06) need a new dependency | §14 | O | — |
 | A15 | ~~Swiss cross in the logo~~ — removed 2026-10-16 | S1-F-06, Q2 | C | — |
-| A16 | Donor names in old git history: history rewrite + GitHub purge (own review) | Q11 | C + O | — |
+| A16 | Donor names in old git history: rewritten 2026-10-16; GitHub purge of the old commits and PR #2 pending | Q11 | C + O | — |
 | A17 | ~~Analytics and EU visitors~~ — nothing read on the device, no city, 2026-10-16; worker redeploy + clean-up of old fields | Q13 | O | — |
 
 ## Stage B — legal foundation (during the free phase)
