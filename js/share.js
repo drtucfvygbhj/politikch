@@ -93,28 +93,6 @@ function roundRect(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
-// The Politikch mark: a red rounded square carrying a white Swiss cross,
-// matching the site's CSS logo proportions (arm 0.5, thickness 0.125).
-function drawLogo(ctx, x, y, size) {
-  if (T.v11) {                           // 1.1: the square mark of the masthead (.n-cross)
-    ctx.fillStyle = T.accent;
-    ctx.fillRect(x, y, size, size);
-    ctx.fillStyle = '#fff';
-    const cx = x + size / 2, cy = y + size / 2, arm = size * 0.59, thick = size * 0.18;
-    ctx.fillRect(cx - arm / 2, cy - thick / 2, arm, thick);
-    ctx.fillRect(cx - thick / 2, cy - arm / 2, thick, arm);
-    return;
-  }
-  roundRect(ctx, x, y, size, size, size * 0.16);
-  ctx.fillStyle = T.accent;
-  ctx.fill();
-  ctx.fillStyle = '#fff';
-  const arm = size * 0.5, thick = size * 0.14;
-  const cx = x + size / 2, cy = y + size / 2;
-  ctx.fillRect(cx - arm / 2, cy - thick / 2, arm, thick);
-  ctx.fillRect(cx - thick / 2, cy - arm / 2, thick, arm);
-}
-
 function truncate(ctx, text, maxWidth) {
   if (ctx.measureText(text).width <= maxWidth) return text;
   let s = text;
@@ -170,20 +148,18 @@ function newCard(height) {
 
 function drawHeader(ctx) {
   const y = 44;
-  if (T.v11) {                           // 1.1: mark + nameplate, like the masthead
-    drawLogo(ctx, PAD, y + 4, 34);
+  if (T.v11) {                           // 1.1: the nameplate, like the masthead
     ctx.fillStyle = T.ink;
     ctx.font = `400 40px ${T.serif}`;
     ctx.textBaseline = 'middle';
-    ctx.fillText('Politikch', PAD + 34 + 14, y + 22);
+    ctx.fillText('Politikch', PAD, y + 22);
     ctx.textBaseline = 'alphabetic';
     return y + 44 + 24;
   }
-  drawLogo(ctx, PAD, y, 44);
   ctx.fillStyle = T.ink;
   ctx.font = `700 34px ${T.serif}`;
   ctx.textBaseline = 'middle';
-  ctx.fillText('Politikch', PAD + 44 + 16, y + 24);
+  ctx.fillText('Politikch', PAD, y + 24);
   ctx.textBaseline = 'alphabetic';
   return y + 44 + 24; // baseline y for content start
 }
@@ -259,15 +235,14 @@ function drawFooter(ctx, h, spec) {
   ctx.moveTo(PAD, y);
   ctx.lineTo(CARD_W - PAD, y);
   ctx.stroke();
-  // Left: small mark + the language's own domain (red), then the graph's hash
-  // route (muted) so the image points back to the exact page.
-  drawLogo(ctx, PAD, y + 16, 26);
+  // Left: the language's own domain (red), then the graph's hash route (muted)
+  // so the image points back to the exact page.
   const domain = LANG_DOMAIN[lang] || LANG_DOMAIN.en;
   ctx.textBaseline = 'middle';
   ctx.textAlign = 'left';
   ctx.fillStyle = T.accent;
   ctx.font = `700 24px ${T.sans}`;
-  const dx = PAD + 26 + 12;
+  const dx = PAD;
   ctx.fillText(domain, dx, y + 30);
   const route = spec.route;
   if (route) {

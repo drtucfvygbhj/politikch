@@ -35,14 +35,10 @@ html[data-design="1.1"] body { background: #fff; font-family: var(--n-sans); fon
 .n-lang.on { color: var(--n-accent); font-weight: 700; }
 .n-mast { border-top: 3px solid var(--n-ink); border-bottom: 1px solid var(--n-ink); text-align: center; padding: var(--n-mastPad, 18px) 0 calc(var(--n-mastPad, 18px) * 0.67); }
 .n-name { font-family: var(--n-serif); font-size: min(var(--n-titleSize, 58px), 12vw); line-height: 1; letter-spacing: -0.5px; display: inline-flex; align-items: center; gap: 0.24em; text-decoration: none; color: var(--n-ink); }
-.n-name .n-cross { width: 0.58em; height: 0.58em; }
 /* Title height / width from the admin: stretched with a transform; the extra
    height is added as margin here, the extra width by fitTitle() in news.js. */
 .n-name-text { display: inline-block; transform: scale(var(--n-titleSX, 1), var(--n-titleSY, 1)); transform-origin: left center;
   margin-block: calc((var(--n-titleSY, 1) - 1) * 0.5em); }
-.n-cross { width: 34px; height: 34px; background: var(--n-accent); position: relative; display: inline-block; flex: none; }
-.n-cross::before, .n-cross::after { content: ''; position: absolute; background: #fff; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-.n-cross::before { width: 59%; height: 18%; } .n-cross::after { width: 18%; height: 59%; }
 .n-tag { font-size: 13px; color: var(--n-mid); margin-top: 8px; }
 
 /* search box (moved in from the 1.0 bar) */
@@ -152,7 +148,7 @@ html[data-design="1.1"] .n-search .search-results { border-radius: 0; right: 0; 
 .n-photo img, .n-ph { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #eeece6; }
 .n-photo.lead img, .n-photo.lead .n-ph { aspect-ratio: 3 / 2; }
 .n-ph { display: flex; align-items: center; justify-content: center; }
-.n-ph .n-cross { width: 44px; height: 44px; opacity: 0.18; }
+.n-ph-mark { font-family: var(--n-serif); font-size: 28px; color: var(--n-ink); opacity: 0.16; }
 .n-photo figcaption { font-size: 11px; color: var(--n-muted); margin-top: 5px; }
 .n-fig { border-top: 1px solid var(--n-rule-c); padding: 14px 0 18px; }
 .n-ft { font-family: var(--n-serif); font-size: 18px; font-weight: 600; margin: 0 0 10px; }
@@ -229,7 +225,6 @@ html:not([data-design="1.1"]) #n-tip { display: none; }
 #news-footer { border-top: 3px solid var(--n-ink); margin-top: 30px; padding: 26px 0 30px; font-size: 13px; background: #fff; color: var(--n-ink); }
 .n-fgrid { display: grid; grid-template-columns: 1.6fr repeat(5, 1fr); gap: 28px; }
 .n-fname { font-family: var(--n-serif); font-size: 26px; display: flex; align-items: center; gap: 10px; margin-bottom: 10px; text-decoration: none; }
-.n-fname .n-cross { width: 22px; height: 22px; }
 .n-fabout p { color: var(--n-mid); font-size: 12px; line-height: 1.6; }
 #news-footer h5 { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--n-accent); margin: 0 0 8px; }
 #news-footer ul { list-style: none; margin: 0; padding: 0; }

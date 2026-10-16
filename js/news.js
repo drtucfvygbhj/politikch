@@ -378,7 +378,7 @@ function renderFooter(model) {
     cat.items.map(it => '<li>' + linkHTML(it) + '</li>').join('') + '</ul></div>').join('');
   const cantons = model[3];
   host.innerHTML = '<div class="n-wrap"><div class="n-fgrid">' +
-    `<div class="n-fabout"><a class="n-fname" href="#/"><span class="n-cross" aria-hidden="true"></span>Politikch</a><p>${escapeAttr(t('footer.disclaimer'))}</p></div>` +
+    `<div class="n-fabout"><a class="n-fname" href="#/">Politikch</a><p>${escapeAttr(t('footer.disclaimer'))}</p></div>` +
     cols + '</div>' +
     `<div class="n-fcantons"><h5>${escapeAttr(cantons.title)}</h5><ul>` + cantons.items.map(it => '<li>' + linkHTML(it) + '</li>').join('') + '</ul></div>' +
     `<div class="n-fbase"><span>${escapeAttr(t('news.copy'))}` +
@@ -471,7 +471,7 @@ function storyImage(i, n) {
   if (!lib[id] && ids.length) id = ids[n % ids.length];     // default: the library in turn
   const e = lib[id];
   if (!e) {
-    return `<figure class="n-photo${escapeAttr(n === 0 ? ' lead' : '')}"><a href="#/initiative/${escapeAttr(i.id)}" class="n-ph" aria-hidden="true" tabindex="-1"><span class="n-cross"></span></a></figure>`;
+    return `<figure class="n-photo${escapeAttr(n === 0 ? ' lead' : '')}"><a href="#/initiative/${escapeAttr(i.id)}" class="n-ph" aria-hidden="true" tabindex="-1"><span class="n-ph-mark">Politikch</span></a></figure>`;
   }
   const alt = (e.alt && (e.alt[lang()] || e.alt.en)) || '';
   return `<figure class="n-photo${escapeAttr(n === 0 ? ' lead' : '')}"><a href="#/initiative/${escapeAttr(i.id)}" tabindex="-1">` +
