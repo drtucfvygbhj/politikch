@@ -4075,6 +4075,15 @@ function renderOverview(el) {
         ${col('ai-ov-against', t('overview.against'), t(ARG_AUTHOR[sides.cons]), block.cons)}
       </div>
       <p class="ai-ov-disclaimer">${t(block.mt ? 'overview.sourceMt' : 'overview.source')}${link}</p>`;
+    // A committee's side repeats the brochure's own note that the committee
+    // alone is responsible for its text (GUARDRAILS Q1).
+    el.querySelectorAll('.ai-ov-col').forEach((c, i) => {
+      if ((i ? sides.cons : sides.pros) === 'federalCouncil') return;
+      const note = document.createElement('p');
+      note.className = 'ai-ov-resp';
+      note.textContent = t('overview.committeeResponsible');
+      c.querySelector('.ai-ov-author').after(note);
+    });
   });
 }
 function wireOverviews(root) {

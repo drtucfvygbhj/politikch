@@ -1,6 +1,6 @@
 {
   "_about": "Site version, shown in the footer. Change it only with scripts/version.py; the scheme is in VERSIONING.md. Not the design name (1.0 / 1.1).",
-  "version": "1.1039",
+  "version": "1.104",
   "history": [
     {
       "version": "1.1",
@@ -41,6 +41,14 @@
         "fix"
       ],
       "note": "Donor charts add up to the total shown: private individuals as one sum, the part not itemised shown (Q11)"
+    },
+    {
+      "version": "1.104",
+      "date": "2026-10-16",
+      "types": [
+        "text"
+      ],
+      "note": "Committee arguments note that the committee alone is responsible (Q1)"
     }
   ]
 }

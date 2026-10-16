@@ -1615,6 +1615,7 @@ a.fin-name:hover, .fin-row:focus a.fin-name { color: var(--red); text-decoration
 .ai-ov-for .ai-ov-collabel { color: #3c7d54; }
 .ai-ov-against .ai-ov-collabel { color: var(--red); }
 .ai-ov-author { font-size: 11px; color: var(--mid); margin: 0 0 8px; font-style: italic; }
+.ai-ov-resp { font-size: 11px; color: var(--mid); margin: -4px 0 8px; }
 .ai-ov-list { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.65; color: var(--charcoal); }
 .ai-ov-list li { margin: 0 0 8px; }
 .ai-ov-disclaimer { font-size: 12px; color: var(--mid); line-height: 1.6; margin: 14px 0 0; }
