@@ -1361,6 +1361,8 @@ footer { background: var(--charcoal); color: rgba(255, 255, 255, 0.4); padding: 
 a.fin-name { text-decoration: none; }
 a.fin-name:hover, .fin-row:focus a.fin-name { color: var(--red); text-decoration: underline; }
 .fin-amt { font-variant-numeric: tabular-nums; color: var(--mid); white-space: nowrap; }
+.fin-row .fin-name.tip-target { font-style: italic; white-space: normal; }   /* summary rows: never cut off */
+.fin-row-summary .fin-dot { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12); }   /* the pale rest slice stays visible */
 .fin-none { color: var(--mid); font-style: italic; font-size: 13px; }
 .fin-block.is-dim .fin-slice:not(.hl) { opacity: 0.22; }
 .fin-block.is-dim .fin-row:not(.hl) { opacity: 0.35; }

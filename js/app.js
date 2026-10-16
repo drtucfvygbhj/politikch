@@ -166,17 +166,14 @@ function chamberSeats(which) {
 }
 // Pie share spec from aggregated donor slices ({slug,name,amount}). tailSum is
 // the merged "other donors" remainder, if any.
-function pieSpecFromDonors(agg, title, route, totalLabel) {
-  const slices = agg.slice(0, FIN_MAX_SLICES).map((d, i) => ({
-    label: d.name, value: d.amount, valueText: formatCHF(d.amount), color: finColor(i),
-  }));
-  const tail = agg.slice(FIN_MAX_SLICES).reduce((s, d) => s + d.amount, 0);
-  if (tail > 0) slices.push({ label: t('financing.moreDonors'), value: tail, valueText: formatCHF(tail), color: FIN_OTHER_COLOR });
-  const total = agg.reduce((s, d) => s + d.amount, 0);
+// Share spec for a donor pie: the same slices the page shows (see donorSlices).
+function pieSpecFromSlices(slices, title, route, totalLabel) {
+  const total = slices.reduce((s, x) => s + x.value, 0);
   const tl = totalLabel || t('financing.total');
   return {
     kind: 'pie', kicker: t('nav.financing'), title, route, subtitle: `${tl} · ${formatCHF(total)}`,
-    slices, totalText: formatCHF(total), totalLabel: tl,
+    slices: slices.map(s => ({ label: s.label, value: s.value, valueText: formatCHF(s.value), color: s.color })),
+    totalText: formatCHF(total), totalLabel: tl,
     source: t('share.src.financing'),
   };
 }
@@ -357,6 +354,8 @@ function donorDisplayName(rawName) {
 /* ---- Pie chart ---------------------------------------------------------- */
 const FIN_PALETTE = ['#3b6fb0', '#e07a3f', '#4c9a6b', '#c94f6d', '#8e6bbf', '#d4a63c', '#5aa7c4', '#b5654a', '#6b8e3a', '#c76fa8', '#4f9d9d', '#9c8459'];
 const FIN_OTHER_COLOR = '#c2bcae';
+const FIN_PRIVATE_COLOR = '#8f877a';   // private individuals, as one sum
+const FIN_REST_COLOR = '#e4dfd5';      // what the register doesn't itemise
 function finColor(i) { return FIN_PALETTE[i % FIN_PALETTE.length]; }
 
 // slices: [{key,label,value,color,href?}] with value>0. Returns a pie SVG; each
@@ -403,14 +402,33 @@ function aggregateDonors(donors) {
   return [...map.values()].sort((a, b) => b.amount - a.amount);
 }
 
-// A pie + a highlight-linked donor list. opts: {heading, total, actors,
+// A pie + a highlight-linked donor list. opts: {heading, total, actors, restTip,
 // shareTitle, shareRoute, compact, moreHref}. Organisations link to their donor
 // page from both the slice and the row; private individuals have no page.
+// With a `total`, the pie always adds up to it (GUARDRAILS Q11): private
+// individuals appear as one sum, and whatever the register doesn't itemise
+// (contributions up to the disclosure limit, own funds) as "Not listed
+// individually" — never a CHF 500,000 heading over a pie of CHF 200,000.
 const FIN_MAX_SLICES = 8;
 const FIN_COMPACT_ROWS = 4;
 const FIN_VISIBLE_ROWS = 10;   // longer lists fold the rest behind "Show all"
+const FIN_OTHERS = '__others__', FIN_PRIVATE = '__private__', FIN_REST = '__rest__';
 
 const donorHref = (d) => d.type === 'organization' ? `donor/${encodeURIComponent(d.slug)}` : null;
+// The pie's slices: up to FIN_MAX_SLICES organisations, the other organisations
+// together, private individuals together, then the part not itemised.
+function donorSlices(agg, total, restTip) {
+  const orgs = agg.filter(isOrgDonor);
+  const slices = orgs.slice(0, FIN_MAX_SLICES).map((d, i) => ({ key: d.slug, label: d.name, value: d.amount, color: finColor(i), href: donorHref(d) }));
+  const sum = (list) => list.reduce((s, d) => s + d.amount, 0);
+  const tail = sum(orgs.slice(FIN_MAX_SLICES));
+  if (tail > 0) slices.push({ key: FIN_OTHERS, label: t('financing.moreDonors'), value: tail, color: FIN_OTHER_COLOR });
+  const priv = sum(agg.filter(d => !isOrgDonor(d)));
+  if (priv > 0) slices.push({ key: FIN_PRIVATE, label: t('fin.privateGroup'), value: priv, color: FIN_PRIVATE_COLOR, tip: t('fin.privateGroup.tip') });
+  const rest = total != null ? total - sum(agg) : 0;
+  if (rest >= 1) slices.push({ key: FIN_REST, label: t('fin.unlisted'), value: rest, color: FIN_REST_COLOR, tip: restTip || t('fin.unlisted.tip') });
+  return { orgs, slices };
+}
 function financingBlockHTML(donors, opts) {
   opts = opts || {};
   const head = opts.heading
@@ -423,23 +441,24 @@ function financingBlockHTML(donors, opts) {
   if (!agg.length) {
     return `<div class="fin-block">${head}<p class="fin-none">${t('financing.noDonors')}</p></div>`;
   }
-  const OTHERS = '__others__';
-  const slices = agg.slice(0, FIN_MAX_SLICES).map((d, i) => ({ key: d.slug, label: d.name, value: d.amount, color: finColor(i), href: donorHref(d) }));
-  const tailSum = agg.slice(FIN_MAX_SLICES).reduce((s, d) => s + d.amount, 0);
-  if (tailSum > 0) slices.push({ key: OTHERS, label: t('financing.moreDonors'), value: tailSum, color: FIN_OTHER_COLOR });
-  const shown = opts.compact ? agg.slice(0, FIN_COMPACT_ROWS) : agg;
+  const { orgs, slices } = donorSlices(agg, opts.total, opts.restTip);
+  const shown = opts.compact ? orgs.slice(0, FIN_COMPACT_ROWS) : orgs;
   const rowHTML = shown.map((d, i) => {
     const inPie = i < FIN_MAX_SLICES;
-    const key = inPie ? d.slug : OTHERS;
+    const key = inPie ? d.slug : FIN_OTHERS;
     const color = inPie ? finColor(i) : FIN_OTHER_COLOR;
-    const name = d.type === 'organization'
-      ? `<a href="#/donor/${encodeURIComponent(d.slug)}" class="fin-name">${escapeAttr(d.name)}</a>`
-      : `<span class="fin-name">${escapeAttr(d.name)}</span>`;
     const href = donorHref(d);
-    return `<div class="fin-row${href ? ' is-clickable' : ''}" data-donor="${escapeAttr(key)}"${href ? ` data-href="${escapeAttr(href)}"` : ''} tabindex="0">`
-      + `<span class="fin-dot" style="background:${color}"></span>${name}`
+    return `<div class="fin-row is-clickable" data-donor="${escapeAttr(key)}" data-href="${escapeAttr(href)}" tabindex="0">`
+      + `<span class="fin-dot" style="background:${color}"></span>`
+      + `<a href="#/${escapeAttr(href)}" class="fin-name">${escapeAttr(d.name)}</a>`
       + `<span class="fin-amt">${formatCHF(d.amount)}</span></div>`;
   });
+  // Private individuals and the part not itemised: always listed, also in compact cards.
+  const summaryHTML = slices.filter(s => s.key === FIN_PRIVATE || s.key === FIN_REST).map(s =>
+    `<div class="fin-row fin-row-summary" data-donor="${escapeAttr(s.key)}" tabindex="0">`
+    + `<span class="fin-dot" style="background:${escapeAttr(s.color)}"></span>`
+    + `<span class="fin-name tip-target" data-tip="${escapeAttr(s.tip)}">${escapeAttr(s.label)}</span>`
+    + `<span class="fin-amt">${formatCHF(s.value)}</span></div>`).join('');
   const rows = (rowHTML.length > FIN_VISIBLE_ROWS
     ? rowHTML.slice(0, FIN_VISIBLE_ROWS).join('')
       + `<details class="fin-more-rows"><summary class="fin-more-summary">`
@@ -447,11 +466,12 @@ function financingBlockHTML(donors, opts) {
       + `<span class="fin-more-hide">${t('fin.rows.showFewer')}</span></summary>`
       + rowHTML.slice(FIN_VISIBLE_ROWS).join('') + `</details>`
     : rowHTML.join(''))
-    + (shown.length < agg.length && opts.moreHref
-      ? `<a class="fin-more" href="#/${opts.moreHref}">${t('fin.votes.moreDonors').replace('{n}', agg.length - shown.length)}</a>`
+    + summaryHTML
+    + (shown.length < orgs.length && opts.moreHref
+      ? `<a class="fin-more" href="#/${opts.moreHref}">${escapeAttr(t('fin.votes.moreDonors').replace('{n}', orgs.length - shown.length))}</a>`
       : '');
   const shareAttr = opts.shareTitle
-    ? ` data-share="${escapeAttr(JSON.stringify(pieSpecFromDonors(agg, opts.shareTitle, opts.shareRoute)))}"`
+    ? ` data-share="${escapeAttr(JSON.stringify(pieSpecFromSlices(slices, opts.shareTitle, opts.shareRoute)))}"`
     : '';
   return `<div class="fin-block"${shareAttr}>${head}`
     + `<div class="fin-chartwrap">${renderPie(slices)}</div>`
@@ -668,8 +688,11 @@ const PARTY_SOURCES = [
 function partySourceBarsHTML(key, f, opts) {
   opts = opts || {};
   const color = (state.data.parties[key] || {}).color || '#888';
-  const rows = PARTY_SOURCES.map(([m, label, get]) => ({ m, label: t(label), v: get(f) || 0 }))
-    .sort((a, b) => b.v - a.v);
+  const rows = PARTY_SOURCES.map(([m, label, get]) => ({ m, label: t(label), v: get(f) || 0 }));
+  // The bars add up to the total revenue: what the party didn't break down gets its own row.
+  const gap = (f.totalRevenue || 0) - rows.reduce((s, r) => s + r.v, 0);
+  if (gap >= 1) rows.push({ m: 'notBrokenDown', label: t('fin.notBrokenDown'), v: gap });
+  rows.sort((a, b) => b.v - a.v);
   const max = Math.max(...rows.map(r => r.v), 1);
   const spec = opts.shareTitle ? {
     kind: 'bars', kicker: t('nav.financing'), title: opts.shareTitle, route: opts.shareRoute,
@@ -2608,8 +2631,10 @@ function renderPartyFinancing(key, p, fillFin) {
     ${f.monetaryDonations > 0 ? `<p class="finbars-named">${t('fin.named')
       .replace('{named}', formatCHF(PARTY_METRICS[0].get(f)))
       .replace('{monetary}', formatCHF(f.monetaryDonations))}</p>` : ''}
-    <h4 class="canton-section-title" style="font-size:16px;margin-top:24px">${t('financing.topDonors')}</h4>
-    ${financingBlockHTML(f.largeDonors, { shareTitle: `${t('financing.topDonors')} — ${p.abbr || localized(p.name)}`, shareRoute: `party/${key}` })}
+    <h4 class="canton-section-title" style="font-size:16px;margin-top:24px">${t('fin.donationsTitle')}</h4>
+    ${financingBlockHTML(f.largeDonors, {
+      heading: t('fin.donations'), total: (f.monetaryDonations || 0) + (f.nonMonetaryDonations || 0), restTip: t('fin.unlisted.tipParty'),
+      shareTitle: `${t('fin.donationsTitle')} — ${p.abbr || localized(p.name)}`, shareRoute: `party/${key}` })}
     ${renderFinancingSource()}
     <div style="margin-top:16px">
       <a class="resource-link" href="https://politikfinanzierung.efk.admin.ch" target="_blank" rel="noopener noreferrer">${t('party.financing.link')} <span class="arrow">↗</span></a>

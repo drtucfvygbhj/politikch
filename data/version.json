@@ -1,6 +1,6 @@
 {
   "_about": "Site version, shown in the footer. Change it only with scripts/version.py; the scheme is in VERSIONING.md. Not the design name (1.0 / 1.1).",
-  "version": "1.1034",
+  "version": "1.1039",
   "history": [
     {
       "version": "1.1",
@@ -33,6 +33,14 @@
         "rules"
       ],
       "note": "Statistics read nothing on the device and store no city (Q13); privacy policy updated"
+    },
+    {
+      "version": "1.1039",
+      "date": "2026-10-16",
+      "types": [
+        "fix"
+      ],
+      "note": "Donor charts add up to the total shown: private individuals as one sum, the part not itemised shown (Q11)"
     }
   ]
 }
