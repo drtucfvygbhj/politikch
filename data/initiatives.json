@@ -5,7 +5,7 @@
     "attribution": "Federal Statistical Office and Federal Chancellery (VoteInfo, LINDAS); party recommendations and English short titles: Swissvotes (Année Politique Suisse, University of Bern), CC BY 4.0",
     "commercialReuse": "ask the source: VoteInfo results are published under 'ask for permission' terms for commercial use (Federal Statistical Office)",
     "source": "Decided federal votes: VoteInfo (Federal Chancellery / Federal Statistical Office), opendata.swiss dataset 'echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen'. Upcoming scheduled votes and pending/signature-gathering initiatives: Federal Chancellery linked-data cubes (politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party recommendations (Parolen) and Parliament's handling of each ballot (business number, recommendation, National Council final vote): Swissvotes (Année Politique Suisse, Uni Bern), CC BY 4.0, modified (the link to the Federal Assembly's final vote is added by scripts/fetch_sessions.py). Official authority texts are not subject to copyright (Art. 5 URG).",
-    "fetchedAt": "2026-10-12T11:30:59Z",
+    "fetchedAt": "2026-10-19T09:28:40Z",
     "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive."
   },
   "initiatives": [
@@ -549,32 +549,6 @@
         "rm": "Lantschada ils 4 d'avrigl 2023"
       },
       "url": "https://www.bk.admin.ch/de/details-volksinitiativen?initiative=548"
-    },
-    {
-      "id": "initiative-530",
-      "type": "initiative",
-      "title": {
-        "en": "Federal popular initiative «Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelz-Initiative)»",
-        "de": "Eidgenössische Volksinitiative 'Ja zum Importverbot für tierquälerisch erzeugte Pelzprodukte (Pelz-Initiative)'",
-        "fr": "Initiative populaire fédérale 'Oui à l’interdiction d’importer des produits en fourrure provenant d’animaux ayant subi de mauvais traitements (initiative fourrure)'",
-        "it": "Iniziativa popolare federale 'Sì al divieto di importare prodotti di pellicceria ottenuti infliggendo sofferenze agli animali (Iniziativa pellicce)'"
-      },
-      "desc": {
-        "en": "Popular initiative that has qualified and is now pending (ready to be put to a vote), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (abstimmungsreif), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (prête pour la votation), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (pronta per la votazione), prima della votazione popolare.",
-        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pronta per la votaziun), avant la votaziun dal pievel."
-      },
-      "status": "pending",
-      "date": {
-        "en": "Launched 28 June 2022",
-        "de": "Lanciert am 28. Juni 2022",
-        "fr": "Lancée le 28 juin 2022",
-        "it": "Lanciata il 28 giugno 2022",
-        "rm": "Lantschada ils 28 da zercladur 2022"
-      },
-      "url": "https://www.bk.admin.ch/de/details-volksinitiativen?initiative=530"
     },
     {
       "id": "initiative-529",

@@ -6,7 +6,7 @@
     "commercialReuse": "yes, with credit (to Politikch and DeepL)",
     "engine": "DeepL",
     "target": "EN-GB (titles, summaries, arguments); IT (arguments)",
-    "generatedAt": "2026-10-12",
+    "generatedAt": "2026-10-19",
     "note": "Unofficial machine translations of official DE/FR/IT texts, by DeepL. titles/summaries: {id: English}; args: {id: {en|it: {pros, cons}}}. Shown with a machine-translation badge and a link to the official source."
   },
   "titles": {
@@ -864,6 +864,536 @@
       "t": "Federal Act on the Swiss National Library (National Library Act, NBibG)",
       "src": "de",
       "h": "e0c72ed89941"
+    },
+    "34679": {
+      "t": "Federal Act on Electricity Supply (Electricity Supply Act, StromVG) (Electricity Reserve)",
+      "src": "de",
+      "h": "5d638f081a49"
+    },
+    "34688": {
+      "t": "Federal Civil Service Act (BPG)",
+      "src": "de",
+      "h": "83b7f3c1888f"
+    },
+    "34680": {
+      "t": "Federal Act on Supplementary Benefits to Old-Age, Survivors’ and Disability Insurance (ELG)",
+      "src": "de",
+      "h": "0576f3860e5b"
+    },
+    "34681": {
+      "t": "Federal Act on Accident Insurance (UVG) (Financing of the Compensation Fund for Asbestos Victims)",
+      "src": "de",
+      "h": "cd6259d890da"
+    },
+    "34682": {
+      "t": "Federal Resolution on the popular initiative ‘For a committed Switzerland (Citizens’ Service Initiative)’",
+      "src": "de",
+      "h": "cc0eeec92432"
+    },
+    "34683": {
+      "t": "Federal Resolution on the popular initiative ‘For a social climate policy – financed in a tax-fair manner (Initiative for the Future)’",
+      "src": "de",
+      "h": "020be543d6c7"
+    },
+    "34684": {
+      "t": "Federal Resolution on the Approval of a Protocol Amending the Double Taxation Agreement between Switzerland and Hungary",
+      "src": "de",
+      "h": "cae04106a691"
+    },
+    "34685": {
+      "t": "Federal Act on Genetic Engineering in the Non-Human Sector (Genetic Engineering Act, GTG)",
+      "src": "de",
+      "h": "7b736436fe94"
+    },
+    "34686": {
+      "t": "Federal Act on the Economic Security of the Country (Economic Security Act, LVG)",
+      "src": "de",
+      "h": "26be2825f582"
+    },
+    "34687": {
+      "t": "Federal Act on the Solidarity Contribution for the Population of Blatten in Connection with the Landslide of 28 May 2025 (Federal Act on Emergency Aid for Blatten)",
+      "src": "de",
+      "h": "31142a19e927"
+    },
+    "34884": {
+      "t": "Federal Resolution on the Swiss Currency and the Supply of Cash (direct counter-proposal to the popular initiative ‘Yes to an independent, free Swiss currency with coins or banknotes [Cash is Freedom]’)",
+      "src": "de",
+      "h": "da960367e929"
+    },
+    "35029": {
+      "t": "Energy Act (EnG)",
+      "src": "de",
+      "h": "7469a1758668"
+    },
+    "35030": {
+      "t": "Federal Act on the Transparency of Legal Entities and the Identification of Beneficial Owners (TJPG)",
+      "src": "de",
+      "h": "e9c96f7812bf"
+    },
+    "35031": {
+      "t": "Federal Act on the Transparency of Legal Entities and the Identification of Beneficial Owners",
+      "src": "de",
+      "h": "dfa18fef5231"
+    },
+    "35033": {
+      "t": "UVG (Implementation of Motion 11.3811 Darbellay ‘Closing a legal loophole in accident insurance’). Amendment",
+      "src": "de",
+      "h": "c86caf3e3df2"
+    },
+    "35034": {
+      "t": "Federal Resolution on the Federal Popular Initiative ‘200 francs is enough! (SRG Initiative)’",
+      "src": "de",
+      "h": "73a3940d95a2"
+    },
+    "35035": {
+      "t": "Federal Resolution on the popular initiative ‘Yes to an independent, free Swiss currency in the form of coins or banknotes (cash is freedom)’",
+      "src": "de",
+      "h": "d536fdf35f1b"
+    },
+    "35036": {
+      "t": "Swiss Civil Code (Non-violent Parenting)",
+      "src": "de",
+      "h": "1d55ec7a0209"
+    },
+    "35037": {
+      "t": "Federal Resolution on the approval and implementation of the exchange of notes between Switzerland and the EU concerning the adoption of Regulation (EU) 2022/1190 amending Regulation (EU) 2018/1862 as regards the entry of information alerts on third-country nationals in the interests of the Union into the Schengen Information System (further development of the Schengen acquis)",
+      "src": "de",
+      "h": "11ac13416659"
+    },
+    "35038": {
+      "t": "Federal Resolution on the approval and implementation of the exchange of notes between Switzerland and the EU concerning the adoption of Regulation (EU) 2023/2667 amending several legal acts with a view to the digitalisation of the visa procedure (further development of the Schengen acquis)",
+      "src": "de",
+      "h": "dfea91a04851"
+    },
+    "35039": {
+      "t": "Federal Act on Agriculture (Agriculture Act, LwG)",
+      "src": "de",
+      "h": "f63ad20fbc8d"
+    },
+    "35040": {
+      "t": "Federal Act on the Declaration of General Applicability of Collective Labour Agreements (Access to the annual accounts of the bodies responsible for their joint implementation)",
+      "src": "de",
+      "h": "f2609ee21c8c"
+    },
+    "35041": {
+      "t": "Federal Resolution on the popular initiative ‘For a fair energy and climate policy: investing in prosperity, jobs and the environment (Climate Fund Initiative)’",
+      "src": "de",
+      "h": "7e9710f4e028"
+    },
+    "35042": {
+      "t": "Federal Act on the Delivery of Parcels at Weekends and on Public Holidays",
+      "src": "de",
+      "h": "8d3327d8c5b6"
+    },
+    "35043": {
+      "t": "Federal Act on the International Automatic Exchange of Information in Tax Matters (AIAG)",
+      "src": "de",
+      "h": "cddc388b6c82"
+    },
+    "35044": {
+      "t": "Federal Resolution on the approval of the addendum to the Multilateral Agreement between the competent authorities on the automatic exchange of information on financial accounts and the Multilateral Agreement between the competent authorities on the automatic exchange of information under the reporting framework for crypto-assets",
+      "src": "de",
+      "h": "11e0265ace1d"
+    },
+    "35045": {
+      "t": "Federal Resolution on the Approval of the Protocol of Amendment for the Modernisation of the Free Trade Agreement between the EFTA States and Chile",
+      "src": "de",
+      "h": "d02175a7f0f2"
+    },
+    "35046": {
+      "t": "Federal Resolution on the approval and implementation of the exchange of notes between Switzerland and the EU concerning the adoption of Regulation (EU) 2024/1717 amending Regulation (EU) 2016/399 establishing a Union Code on the rules governing the movement of persons across borders (further development of the Schengen acquis)",
+      "src": "de",
+      "h": "6be2bb878d2c"
+    },
+    "35047": {
+      "t": "Federal Act on Foreign Nationals and Integration (Foreign Nationals and Integration Act, AIG) (Access to the National Travel Information and Authorisation System)",
+      "src": "de",
+      "h": "d5d484db31a5"
+    },
+    "35048": {
+      "t": "Federal Act on Foreign Nationals and Integration (Foreign Nationals and Integration Act, AIG) (Editorial amendments relating to the Schengen Borders Code)",
+      "src": "de",
+      "h": "ae4f728e315c"
+    },
+    "35049": {
+      "t": "Federal Act on Civilian Alternative Service (Civilian Service Act, ZDG)",
+      "src": "de",
+      "h": "765f37099d30"
+    },
+    "35050": {
+      "t": "Federal Decree on the approval and implementation of the exchanges of notes between Switzerland and the EU concerning the adoption of Regulation (EU) 2024/1351 on asylum and migration management and Regulation (EU) 2024/1359 on the management of crisis situations and situations of force majeure in the field of migration and asylum (further developments to the Dublin/Eurodac acquis)",
+      "src": "de",
+      "h": "96b10f803463"
+    },
+    "35051": {
+      "t": "Federal Resolution on the approval of the exchange of notes between Switzerland and the EU concerning the adoption of Regulation (EU) 2024/1349 establishing the procedure for return at the border and amending Regulation (EU) 2021/1148 (Further development of the Schengen acquis)",
+      "src": "de",
+      "h": "a9dcef6e8f52"
+    },
+    "35052": {
+      "t": "Federal Resolution on the approval and implementation of the exchange of notes between Switzerland and the EU concerning the adoption of Regulation (EU) 2024/1358 on the establishment of Eurodac for the comparison of biometric data (further development of the Dublin/Eurodac acquis)",
+      "src": "de",
+      "h": "f86187ee0f7a"
+    },
+    "35053": {
+      "t": "Federal Decree on the approval and implementation of the exchange of notes between Switzerland and the EU concerning the transposition of Regulation (EU) 2024/1356 introducing checks on third-country nationals at external borders and amending Regulations (EC) No 767/2008, (EU) 2017/2226, (EU) 2018/1240 and (EU) 2019/817 (further development of the Schengen acquis)",
+      "src": "de",
+      "h": "0cf05acca3e9"
+    },
+    "35054": {
+      "t": "Federal Act on Compulsory Unemployment Insurance and Insolvency Compensation (Unemployment Insurance Act, AVIG) (Maximum benefit period in the event of short-time working)",
+      "src": "de",
+      "h": "56b21fd3d239"
+    },
+    "35453": {
+      "t": "Transitioning start-up funding to a modern solution",
+      "src": "de",
+      "h": "f83725f740f2"
+    },
+    "35454": {
+      "t": "Federal Act on Radio and Television (RTVA) (Share of licence fees for local radio and regional television broadcasters and general support measures)",
+      "src": "de",
+      "h": "a436194f231a"
+    },
+    "35455": {
+      "t": "Allocation of the radio and television licence fee",
+      "src": "de",
+      "h": "ee68d1ffb8fd"
+    },
+    "35456": {
+      "t": "Federal Act on Cartels and Other Restrictions on Competition (Cartel Act, KG)",
+      "src": "de",
+      "h": "089bf157552f"
+    },
+    "35457": {
+      "t": "Federal Act on the Scrutiny of Foreign Investments (Investment Scrutiny Act, IPG)",
+      "src": "de",
+      "h": "ec3d29d777bc"
+    },
+    "35458": {
+      "t": "Federal Act on the Use of the Earmarked Mineral Oil Tax and Other Funds Earmarked for Road and Air Transport (MinVG)",
+      "src": "de",
+      "h": "edaad6ffad94"
+    },
+    "35459": {
+      "t": "Federal Act on the Extension of Loss Set-off",
+      "src": "de",
+      "h": "807c0176454d"
+    },
+    "35460": {
+      "t": "Federal Act on Military Equipment (Military Equipment Act, KMG)",
+      "src": "de",
+      "h": "3329610b8b55"
+    },
+    "35461": {
+      "t": "Federal Resolution on the popular initiative ‘No to a 10-million-strong Switzerland! (Sustainability Initiative)’",
+      "src": "de",
+      "h": "b2f3a44ef803"
+    },
+    "35462": {
+      "t": "Federal Act on the Armed Forces and Military Administration (Military Act, MG)",
+      "src": "de",
+      "h": "d0c45a475539"
+    },
+    "35463": {
+      "t": "Ordinance of the Federal Assembly on the Administration of the Armed Forces (VBVA)",
+      "src": "de",
+      "h": "8d22875a59e0"
+    },
+    "35464": {
+      "t": "Ordinance of the Federal Assembly on the Organisation of the Armed Forces (Army Organisation, AO)",
+      "src": "de",
+      "h": "297b99add9b1"
+    },
+    "35465": {
+      "t": "Federal Act on Income Replacement (Income Replacement Act, EOG) (Alignment of EO benefits)",
+      "src": "de",
+      "h": "43b8108f3736"
+    },
+    "35466": {
+      "t": "Federal Act on Vocational Training (Vocational Training Act, BBG)",
+      "src": "de",
+      "h": "077b02ac161e"
+    },
+    "35467": {
+      "t": "Federal Resolution on the Approval of the Agreement between Switzerland and Argentina on Social Security",
+      "src": "de",
+      "h": "bc84b575c800"
+    },
+    "35468": {
+      "t": "Federal Act on the International Automatic Exchange of Information on Wage Data (AIALG)",
+      "src": "de",
+      "h": "0ab9d73f4722"
+    },
+    "35469": {
+      "t": "Federal Act on the Funding of Higher Education Institutions and Coordination within the Swiss Higher Education Sector (Higher Education Funding and Coordination Act, HFKG)",
+      "src": "de",
+      "h": "923a44b6f4fe"
+    },
+    "35470": {
+      "t": "Federal Act on Withholding Tax (Withholding Tax Act, VStG)",
+      "src": "de",
+      "h": "06cc1851592b"
+    },
+    "35942": {
+      "t": "Swiss Civil Code (Dual surnames upon marriage)",
+      "src": "de",
+      "h": "d492c3bf6ddf"
+    },
+    "35943": {
+      "t": "Federal Act on Radio and Television (RTVG)",
+      "src": "de",
+      "h": "934c43a03e9e"
+    },
+    "35944": {
+      "t": "Federal Act on the National System for Retrieving the Addresses of Natural Persons (Address Service Act, ADG)",
+      "src": "de",
+      "h": "c91d652260cb"
+    },
+    "35945": {
+      "t": "Federal Resolution on the popular initiative ‘Preservation of Swiss Neutrality (Neutrality Initiative)’",
+      "src": "de",
+      "h": "191cf4170a67"
+    },
+    "35946": {
+      "t": "Swiss Criminal Code (StGB)",
+      "src": "de",
+      "h": "e239c7edc627"
+    },
+    "35947": {
+      "t": "Federal Act on the 2027 Relief Package for the Federal Budget",
+      "src": "de",
+      "h": "ba2e9a1f81b1"
+    },
+    "35948": {
+      "t": "Federal Resolution on the Approval of the Free Trade Agreement between the EFTA States and Thailand",
+      "src": "de",
+      "h": "b0d326576aed"
+    },
+    "35949": {
+      "t": "Federal Resolution on the popular initiative ‘For food security – through the promotion of sustainable domestic production, more plant-based foods and clean drinking water (Food Initiative)’",
+      "src": "de",
+      "h": "4023024c334f"
+    },
+    "35950": {
+      "t": "Federal Resolution on the Approval of the Free Trade Agreement between the EFTA States and the Republic of Kosovo",
+      "src": "de",
+      "h": "1a4f3e0b67c6"
+    },
+    "35951": {
+      "t": "Federal Resolution on the Approval of the Multilateral Agreement between the Competent Authorities on the Exchange of Global Anti-Base Erosion Declarations",
+      "src": "de",
+      "h": "7f23522f268c"
+    },
+    "35952": {
+      "t": "Federal Act on Assistance for Victims of the Fire Disaster in Crans-Montana of 1 January 2026",
+      "src": "de",
+      "h": "279d8bdc6f9e"
+    },
+    "36536": {
+      "t": "Federal Act on Compulsory Unemployment Insurance and Insolvency Compensation (Unemployment Insurance Act, AVIG) (Unemployment insurance for employees in employer-like positions)",
+      "src": "de",
+      "h": "a961b0ff0978"
+    },
+    "36537": {
+      "t": "Federal Act on the Rehabilitation of Volunteers in the French Resistance and the Italian Resistance",
+      "src": "de",
+      "h": "5998c8382e8e"
+    },
+    "36538": {
+      "t": "Federal Act on Agriculture (Agriculture Act, LwG) (Simplified authorisation of plant protection products)",
+      "src": "de",
+      "h": "6beee9557f39"
+    },
+    "36539": {
+      "t": "Federal Act on Debt Enforcement and Bankruptcy (SchKG) (Debt enforcement information, electronic service of documents and online auctions)",
+      "src": "de",
+      "h": "de8b65f0cbff"
+    },
+    "36540": {
+      "t": "Federal Resolution  on the additional funding of the AHV through an increase in value-added tax",
+      "src": "de",
+      "h": "a1d09bd93beb"
+    },
+    "36541": {
+      "t": "Federal Resolution on the popular initiative ‘For a restriction on fireworks’",
+      "src": "de",
+      "h": "4b88165ab100"
+    },
+    "36542": {
+      "t": "Radiation Protection Act (StSG)",
+      "src": "de",
+      "h": "d120dc0f6721"
+    },
+    "36543": {
+      "t": "Federal Act on the Declaration of General Applicability of Collective Labour Agreements (Declaration of General Applicability of Minimum Wages that are Lower than Cantonal Minimum Wages)",
+      "src": "de",
+      "h": "2e3d33f8ea74"
+    },
+    "36544": {
+      "t": "Federal Resolution on the popular initiative ‘Yes to fair federal taxes for married couples too – put an end to discrimination against marriage at last!’",
+      "src": "de",
+      "h": "648aaeb5b7e3"
+    },
+    "36545": {
+      "t": "Federal Act on Debt Enforcement and Bankruptcy (Reorganisation Proceedings for Natural Persons)",
+      "src": "de",
+      "h": "edf83b807b2f"
+    },
+    "36546": {
+      "t": "Federal Act on Political Rights (BPR)",
+      "src": "de",
+      "h": "efe89e9b464e"
+    },
+    "36547": {
+      "t": "Nuclear Energy Act (KEG) (Indirect counter-proposal to the federal popular initiative ‘Electricity for everyone at all times [Stop the blackout]’)",
+      "src": "de",
+      "h": "5e13a708b55c"
+    },
+    "36548": {
+      "t": "Federal Resolution on the federal popular initiative ‘Electricity for everyone at all times (Stop the blackout)’",
+      "src": "de",
+      "h": "553c88e4882e"
+    },
+    "36549": {
+      "t": "Federal Act on the Swiss Financial Market Supervisory Authority (Financial Market Supervision Act, FINMAG)",
+      "src": "de",
+      "h": "353dedac9726"
+    },
+    "36550": {
+      "t": "Federal Resolution on the Approval of the Free Trade Agreement between the EFTA States and Ukraine",
+      "src": "de",
+      "h": "cc6b025b425e"
+    },
+    "36551": {
+      "t": "Federal Act on the Economic Security of the Country (Economic Security Act, LVG)",
+      "src": "de",
+      "h": "26be2825f582"
+    },
+    "36552": {
+      "t": "Federal Resolution on the Approval of a Protocol Amending the Double Taxation Agreement between Switzerland and Croatia",
+      "src": "de",
+      "h": "a64efb9afdc1"
+    },
+    "36553": {
+      "t": "Federal Resolution on the Approval of a Supplementary Agreement Amending the Double Taxation Agreement between Switzerland and Belgium",
+      "src": "de",
+      "h": "c7b0906bc85b"
+    },
+    "36554": {
+      "t": "Federal Resolution on the Approval of the Comprehensive Agreement on the Promotion and Protection of Investments between the Swiss Confederation and the Republic of Chile",
+      "src": "de",
+      "h": "026a948d8ce7"
+    },
+    "36555": {
+      "t": "Federal Act on Explosives (Explosives Act, SprstG)",
+      "src": "de",
+      "h": "c8a3f1650314"
+    },
+    "36556": {
+      "t": "Federal Act on Environmental Protection (Environmental Protection Act, USG)",
+      "src": "de",
+      "h": "53fa32606da6"
+    },
+    "36557": {
+      "t": "Federal Resolution on the Approval of the Economic Partnership Agreement between the EFTA States and Malaysia",
+      "src": "de",
+      "h": "5a50e2b8dc41"
+    },
+    "36558": {
+      "t": "Federal Resolution on the Approval of the Agreement between Switzerland and Ukraine on Cooperation in the Reconstruction Process in Ukraine",
+      "src": "de",
+      "h": "afdad10b0343"
+    },
+    "38947": {
+      "t": "Federal Act on the Non-Applicability of the Statute of Limitations to Murder (Amendment to the Criminal Code and the Military Criminal Code)",
+      "src": "de",
+      "h": "6fcef8fb3d8c"
+    },
+    "38948": {
+      "t": "Federal Civil Service Act (BPG)",
+      "src": "de",
+      "h": "83b7f3c1888f"
+    },
+    "38949": {
+      "t": "Government and Administrative Organisation Act (RVOG)",
+      "src": "de",
+      "h": "f4f0399dfb94"
+    },
+    "38950": {
+      "t": "Federal Resolution on the popular initiative ‘Yes to a ban on the import of foie gras (Foie Gras Initiative)’",
+      "src": "de",
+      "h": "6fd93f8954df"
+    },
+    "38951": {
+      "t": "Federal Act on Low- and High-Voltage Electrical Installations (Electricity Act, EleG) (Accelerating the expansion and modernisation of electricity networks)",
+      "src": "de",
+      "h": "a04a576f8efe"
+    },
+    "38952": {
+      "t": "Federal Act on a Performance-Based Heavy Goods Vehicle Charge (Heavy Goods Vehicle Charge Act, SVAG)",
+      "src": "de",
+      "h": "e1d397fb622d"
+    },
+    "38953": {
+      "t": "Federal Resolution on the popular initiative ‘Yes to a ban on the import of fur products obtained through cruelty to animals (Fur Initiative)’",
+      "src": "de",
+      "h": "1b2526866e94"
+    },
+    "38954": {
+      "t": "Animal Welfare Act (TSchG)",
+      "src": "de",
+      "h": "eae3edfc567e"
+    },
+    "38955": {
+      "t": "Federal Resolution on the popular initiative ‘For modern citizenship rights (Democracy Initiative)’",
+      "src": "de",
+      "h": "c21e3f8070df"
+    },
+    "38956": {
+      "t": "Federal Act on the Federal Supreme Court (Federal Supreme Court Act, BGG)",
+      "src": "de",
+      "h": "6f673c016a83"
+    },
+    "38971": {
+      "t": "‘Yes to a ban on the import of fur products obtained through cruelty to animals (Fur Initiative)’. Popular initiative and indirect counter-proposal (amendment to the Animal Welfare Act)",
+      "src": "de",
+      "h": "f7ef129369f0"
+    },
+    "38957": {
+      "t": "Federal Act on the Supervision of Insurance Undertakings (Insurance Supervision Act, VAG)",
+      "src": "de",
+      "h": "d9e0d0582529"
+    },
+    "38958": {
+      "t": "Animal Welfare Act (TSchG)",
+      "src": "de",
+      "h": "eae3edfc567e"
+    },
+    "38959": {
+      "t": "Federal Act on Health Insurance (KVG) (Exemptions from the three-year work requirement: extension of the period of validity)",
+      "src": "de",
+      "h": "4b7975857d70"
+    },
+    "38960": {
+      "t": "Federal Act on Electricity Supply (Electricity Supply Act, StromVG)",
+      "src": "de",
+      "h": "ad089a2acb54"
+    },
+    "38961": {
+      "t": "Federal Act on Support for the Victims of the Crans-Montana Fire Disaster of 1 January 2026",
+      "src": "de",
+      "h": "c61593ece68a"
+    },
+    "38962": {
+      "t": "Federal Act on Value Added Tax (Value Added Tax Act, VAT Act) (Special rate for accommodation services)",
+      "src": "de",
+      "h": "4044de0a08eb"
+    },
+    "38963": {
+      "t": "Federal Resolution on the Approval of the Free Trade Agreement between the EFTA States and Mercosur",
+      "src": "de",
+      "h": "43045b140c59"
     }
   },
   "args": {
@@ -1461,6 +1991,84 @@
         ],
         "src": "de",
         "h": "5ffb56f96f17"
+      }
+    },
+    "vote-20261129-6930": {
+      "en": {
+        "pros": [
+          "Armed neutrality requires Switzerland to be capable of defending itself militarily. This is only possible if, in addition to its armed forces, Switzerland has its own defence industry. The Swiss defence industry relies on the export of its goods: domestic demand in Switzerland is insufficient to sustain economically viable production. The amendment to the War Material Act allows Switzerland to remain integrated into international value chains and to maintain a competitive defence industry in the long term. In times of crisis, defence industries prioritise supplying their own country. Switzerland will therefore only be supplied if it also offers military equipment itself and remains integrated into international value chains. The amendment to the Act strengthens Switzerland’s security because it bolsters its negotiating position in the defence market. This is all the more important given that, as a neutral state, Switzerland does not belong to any defence alliance. The risk of armed conflicts has increased worldwide. European states, too, could become embroiled in such conflicts. Switzerland exports over 80 per cent of its military equipment to these countries. The amendment to the Military Equipment Act ensures that, insofar as the law on neutrality permits, partner states can be supplied with military equipment even in the event of a conflict and that they are permitted to pass on equipment purchased in Switzerland. This is the only way for Switzerland to maintain a competitive security and defence industry. This is necessary for the country’s security and for credible armed neutrality. The Federal Council and Parliament support the bill for the following reasons in particular: maintaining credibility, preserving the defence industry and strengthening security",
+          "Since Russia’s war of aggression against Ukraine, the Swiss defence industry has lost the trust of its European partner states. It is in Switzerland’s security interests to counteract this. The amendment to the law will facilitate the export of military equipment from Switzerland to partner states. At the same time, such states will now be exempt from the obligation to seek Switzerland’s permission should they wish to transfer military equipment acquired in future. This strengthens confidence in Switzerland and its defence industry. At the same time, Switzerland remains committed to its neutrality. For all these reasons, the Federal Council and Parliament recommend that the amendment to the Military Equipment Act be adopted. Yes"
+        ],
+        "cons": [
+          "Married couples lead different lifestyles these days: both may work full-time, one parent may reduce their working hours for the sake of the family, or one may be pursuing further education or caring for relatives. The state should not favour any particular lifestyle through tax incentives. The Fairness Initiative gives all married couples the freedom to shape their own lives – without suffering tax disadvantages. That is modern tax policy. Modern means respecting all lifestyles. The Fairness Initiative removes the ‘marriage penalty’ without creating new inequalities. It ensures that married couples are not disadvantaged in terms of federal direct tax compared with unmarried couples in a comparable financial situation. This benefits, in particular, families with children and married couples who take on childcare or caregiving responsibilities. Fairness means: the same financial circumstances, the same tax burden. Married couples will continue to file just one joint tax return. This abolishes the marriage penalty without requiring a comprehensive overhaul of the tax system and without generating millions of additional tax returns. Parliament will debate and decide on the exact details. This is a simple and pragmatic solution. Therefore: Yes to fair federal taxes for married couples. The Swiss people have decided that the tax disadvantage faced by married couples should be abolished. To this end, the Fairness Initiative enshrines a clear principle in the Federal Constitution: married couples are assessed jointly for federal direct tax and must not be disadvantaged compared with other taxpayers. Modernity, Justice, Simplicity",
+          "That is why the initiative committee recommends: Yes"
+        ],
+        "src": "de",
+        "h": "ee5df0cad8a4"
+      },
+      "it": {
+        "pros": [
+          "La neutralità armata richiede che la Svizzera sia in grado di difendersi militarmente. Ciò è possibile solo se la Svizzera dispone, oltre all’esercito, di una propria industria degli armamenti. L’industria svizzera degli armamenti dipende dall’esportazione dei propri prodotti: la domanda interna non è sufficiente a garantire una produzione economicamente sostenibile. La modifica della legge sul materiale bellico consente di rimanere integrati nelle catene del valore internazionali e di mantenere a lungo termine un’industria degli armamenti competitiva in Svizzera. In tempi di crisi, le industrie degli armamenti riforniscono innanzitutto il proprio Paese. La Svizzera viene quindi rifornita solo se offre a sua volta materiale bellico e rimane integrata nelle catene del valore internazionali. La modifica di legge rafforza la sicurezza della Svizzera, poiché rafforza la sua posizione negoziale sul mercato degli armamenti. Ciò è tanto più importante in quanto la Svizzera, in quanto Stato neutrale, non fa parte di alcuna alleanza di difesa. A livello mondiale è aumentato il rischio di conflitti armati. Anche gli Stati europei potrebbero essere coinvolti in tali conflitti. La Svizzera esporta oltre l’80 per cento del proprio materiale bellico in questi Stati. La modifica della legge sul materiale bellico garantisce che gli Stati partner, nella misura in cui il diritto di neutralità lo consenta, possano essere riforniti di materiale bellico anche in caso di conflitto e che possano cedere il materiale acquistato in Svizzera. Solo così la Svizzera potrà mantenere un’industria della sicurezza e degli armamenti competitiva. Ciò è necessario per la sicurezza del Paese e per una neutralità armata credibile. Il Consiglio federale e il Parlamento sostengono il progetto in particolare per i seguenti motivi: preservare la credibilità, mantenere l’industria degli armamenti, rafforzare la sicurezza",
+          "Dall’inizio della guerra di aggressione russa contro l’Ucraina, l’industria degli armamenti svizzera ha perso fiducia presso gli Stati partner europei. È nell’interesse della sicurezza della Svizzera contrastare questa tendenza. La modifica di legge agevolerà l’esportazione di materiale bellico dalla Svizzera verso gli Stati partner. Allo stesso tempo, tali Stati saranno ora esentati dall’obbligo di chiedere l’autorizzazione alla Svizzera qualora in futuro intendano cedere il materiale bellico acquisito. Ciò rafforza la fiducia nella Svizzera e nella sua industria degli armamenti. Al contempo, la Svizzera mantiene la propria neutralità. Per tutti questi motivi, il Consiglio federale e il Parlamento raccomandano di approvare la modifica della legge sul materiale bellico. Sì"
+        ],
+        "cons": [
+          "Oggi le coppie sposate vivono in modi diversi: entrambi lavorano a tempo pieno, uno dei due riduce l’orario di lavoro per dedicarsi alla famiglia, qualcuno segue un percorso di formazione continua o si prende cura di familiari. Lo Stato non deve favorire fiscalmente un determinato modello di vita. L’Iniziativa per l’equità lascia a tutte le coppie sposate la libertà di organizzare la propria vita in modo autonomo, senza svantaggi fiscali. Questa è una politica fiscale moderna. Moderna significa: rispettare tutti i modelli di vita. L’Iniziativa per l’equità elimina la penalizzazione del matrimonio senza creare nuove disuguaglianze. Garantisce che, ai fini dell’imposta federale diretta, le coppie sposate non siano svantaggiate rispetto alle coppie non sposate in una situazione economica comparabile. Ne beneficiano in particolare le famiglie con figli e le coppie sposate che si occupano di assistenza o cura. È giusto che, a parità di situazione economica, vi sia parità di carico fiscale. Le coppie sposate continueranno a compilare un’unica dichiarazione dei redditi congiunta. In questo modo la penalizzazione del matrimonio viene abolita senza una profonda riforma del sistema fiscale e senza milioni di dichiarazioni dei redditi aggiuntive. Sarà il Parlamento a discutere e decidere le modalità precise di attuazione. Si tratta di una soluzione semplice e pragmatica. Per questo: sì a un’imposizione federale equa per le coppie sposate. La popolazione svizzera ha deciso che lo svantaggio fiscale delle coppie sposate debba essere abolito. L’Iniziativa per l’equità sancisce a tal fine un chiaro principio nella Costituzione federale: le coppie sposate sono tassate congiuntamente per l’imposta federale diretta e non devono essere svantaggiate rispetto agli altri contribuenti. Modernità, giustizia, semplicità",
+          "Per questo motivo il comitato promotore raccomanda di votare “Sì”"
+        ],
+        "src": "de",
+        "h": "ee5df0cad8a4"
+      }
+    },
+    "vote-20261129-6920": {
+      "en": {
+        "pros": [
+          "Married couples lead different lifestyles these days: both may work full-time, one parent may reduce their working hours for the sake of the family, or one may be pursuing further education or caring for relatives. The state should not favour any particular way of life through tax incentives. The Fairness Initiative gives all married couples the freedom to shape their own lives – without suffering tax disadvantages. That is modern tax policy. Modern means respecting all ways of life. The Fairness Initiative removes the ‘marriage penalty’ without creating new inequalities. It ensures that married couples are not disadvantaged in terms of federal direct tax compared to unmarried couples in a comparable financial situation. This benefits, in particular, families with children and married couples who take on childcare or caregiving responsibilities. Fairness means: the same financial situation, the same tax burden. Married couples will continue to file just one joint tax return. This abolishes the marriage penalty without a comprehensive overhaul of the tax system and without millions of additional tax returns. Parliament will debate and decide on the exact details. This is a simple and pragmatic solution. Therefore: Yes to fair federal taxes for married couples. The Swiss people have decided that the tax disadvantage faced by married couples should be abolished. To this end, the Fairness Initiative enshrines a clear principle in the Federal Constitution: married couples are assessed jointly for federal direct tax and must not be disadvantaged compared with other taxpayers. Modernity, Justice, Simplicity",
+          "That is why the initiative committee recommends: Yes"
+        ],
+        "cons": [
+          "The initiative’s aim of abolishing the ‘marriage penalty’ has already been achieved: on 8 March 2026, voters backed the introduction of individual taxation. This means that, for tax purposes, not only will the ‘marriage penalty’ be abolished, but so too will the ‘marriage bonus’. This is a balanced approach. The initiative favours married couples. In many cases, unmarried couples would face a higher tax burden than married couples. Individual taxation, on the other hand, treats everyone equally, regardless of whether they are married or not. It reduces the tax burden not only for married couples but also for unmarried couples. The initiative only concerns direct federal tax. Individual taxation, on the other hand, governs taxation at federal, cantonal and municipal levels. If the initiative were to be accepted, conflicting systems could arise: joint taxation at federal level, and individual taxation at cantonal and municipal levels. This would be complex and extremely burdensome from an administrative point of view. Furthermore, the cantons would have to press ahead with implementing individual taxation without knowing whether it would actually be introduced. This creates uncertainty. Joint taxation provides fewer incentives than individual taxation to take up or expand gainful employment. Higher tax barriers under joint taxation deter married second-earners from increasing their hours of work. The popular initiative would favour married couples over unmarried people. It is also incompatible with the individual taxation system approved by the people and creates uncertainty within the tax system. The Federal Council and Parliament reject the proposal for the following reasons in particular: Individual taxation approved Unequal tax treatment Initiative creates uncertainty Weaker incentives to work",
+          "The tax barriers faced by second-income earners undermine the financial independence of both spouses. They have a negative impact on pension provision and financial security in the event of a divorce. All of this hinders gender equality. It remains to be seen whether the initiative will be implemented. It is unclear whether a bill – and, specifically, which one – would secure a majority in Parliament. Depending on how the initiative is implemented, there is a risk of significant revenue shortfalls of up to three billion Swiss francs per year in direct federal tax. For all these reasons, the Federal Council and Parliament recommend rejecting the popular initiative ‘Yes to fair federal taxes for married couples too – finally abolish discrimination against marriage!’. No"
+        ],
+        "src": "de",
+        "h": "c00bec5506d5"
+      },
+      "it": {
+        "pros": [
+          "Oggi le coppie sposate vivono in modi diversi: entrambi lavorano a tempo pieno, uno dei due riduce l’orario di lavoro per dedicarsi alla famiglia, qualcuno segue un percorso di formazione continua o si prende cura di familiari. Lo Stato non deve favorire fiscalmente un determinato modello di vita. L’Iniziativa per l’equità lascia a tutte le coppie sposate la libertà di organizzare la propria vita in modo autonomo, senza svantaggi fiscali. Questa è una politica fiscale moderna. Moderna significa: rispettare tutti i modelli di vita. L’Iniziativa per l’equità elimina la penalizzazione del matrimonio senza creare nuove disuguaglianze. Garantisce che, ai fini dell’imposta federale diretta, le coppie sposate non siano svantaggiate rispetto alle coppie non sposate in una situazione economica comparabile. Ne beneficiano in particolare le famiglie con figli e le coppie sposate che si occupano di assistenza o cura. È giusto che, a parità di situazione economica, vi sia parità di carico fiscale. Le coppie sposate continueranno a compilare un’unica dichiarazione d’imposta congiunta. In questo modo la penalizzazione del matrimonio viene abolita senza una profonda riorganizzazione del sistema fiscale e senza milioni di dichiarazioni d’imposta aggiuntive. Sarà il Parlamento a discutere e decidere le modalità precise di attuazione. Si tratta di una soluzione semplice e pragmatica. Per questo: sì a un’imposizione federale equa per le coppie sposate. La popolazione svizzera ha deciso che lo svantaggio fiscale delle coppie sposate debba essere abolito. L’Iniziativa per l’equità sancisce a tal fine un chiaro principio nella Costituzione federale: le coppie sposate vengono tassate congiuntamente ai fini dell’imposta federale diretta e non devono essere svantaggiate rispetto agli altri contribuenti. Modernità, giustizia, semplicità",
+          "Per questo motivo il comitato promotore raccomanda di votare “Sì”"
+        ],
+        "cons": [
+          "L’obiettivo dell’iniziativa, ovvero l’abolizione della penalizzazione del matrimonio, è già stato raggiunto: l’8 marzo 2026 l’elettorato si è espresso a favore dell’introduzione dell’imposizione individuale. In questo modo, dal punto di vista fiscale, non solo viene abolita la penalizzazione del matrimonio, ma anche il bonus matrimoniale. Si tratta di una soluzione equilibrata. L’iniziativa privilegia le coppie sposate. In molti casi, le coppie non sposate sarebbero soggette a un carico fiscale maggiore rispetto alle coppie sposate. L’imposizione individuale, invece, tratta tutte le persone allo stesso modo, indipendentemente dal fatto che siano sposate o meno. Essa alleggerisce il carico fiscale non solo delle coppie sposate, ma anche di quelle non sposate. L’iniziativa riguarda solo l’imposta federale diretta. L’imposizione individuale, invece, disciplina la tassazione a livello federale, cantonale e comunale. Se l’iniziativa venisse approvata, potrebbero crearsi sistemi contraddittori: imposizione congiunta a livello federale, imposizione individuale a livello cantonale e comunale. Ciò sarebbe complesso ed estremamente oneroso dal punto di vista amministrativo. Inoltre, i Cantoni dovrebbero portare avanti l’attuazione della tassazione individuale senza sapere se questa verrà effettivamente introdotta. Ciò crea incertezze. La tassazione congiunta offre meno incentivi rispetto alla tassazione individuale per intraprendere o ampliare un’attività lavorativa. Maggiori ostacoli fiscali nell’ambito della tassazione congiunta dissuadono i coniugi con un secondo reddito dall’aumentare il proprio volume di lavoro. L’iniziativa popolare privilegerebbe i coniugi rispetto alle persone non sposate. Inoltre, non è compatibile con la tassazione individuale approvata dal popolo e crea incertezze nel sistema fiscale. Il Consiglio federale e il Parlamento respingono il progetto in particolare per i seguenti motivi: Tassazione individuale approvata Disparità di trattamento fiscale L’iniziativa crea incertezze Minori incentivi al lavoro",
+          "Gli ostacoli fiscali per chi percepisce un secondo reddito indeboliscono l’indipendenza finanziaria di entrambi i coniugi. Essi incidono negativamente sulla previdenza per la vecchiaia e sulla tutela in caso di divorzio. Tutto ciò ostacola la parità tra donne e uomini. L’attuazione dell’iniziativa è ancora incerta. Non è chiaro se una legge – e, in particolare, quale – otterrebbe la maggioranza in Parlamento. A seconda di come verrà attuata l’iniziativa, si rischiano ingenti perdite di gettito nell’ambito dell’imposta federale diretta, che potrebbero arrivare fino a tre miliardi di franchi all’anno. Per tutti questi motivi, il Consiglio federale e il Parlamento raccomandano di respingere l’iniziativa popolare «Sì a un’imposizione federale equa anche per le coppie sposate – Aboliamo finalmente la discriminazione del matrimonio!». No"
+        ],
+        "src": "de",
+        "h": "c00bec5506d5"
+      }
+    },
+    "vote-20261129-6910": {
+      "en": {
+        "pros": [
+          "Many people find the unexpected loud bangs disturbing. The initiative tackles the source of this nuisance: loud fireworks set off by private individuals. As private fireworks are set off both before and after the festive period, the noise in many places lasts considerably longer than the actual celebrations. Atmospheric, quiet fireworks such as ‘volcanoes’ offer a sensible alternative. The sudden loud bangs cause stress and panic reactions in animals. Many try to flee in their fear. This repeatedly leads to accidents, injuries and deaths. Pet owners must therefore take extensive protective measures around 1 August and New Year’s Eve. Farm animals and wildlife cannot escape the noise. They are startled, and the latter lose vital energy reserves whilst fleeing. Being taken by surprise by unexpected loud bangs affects one’s well-being. In children and adults, this can trigger fear, stress or health problems. The private use of fireworks can lead to accidents, some resulting in serious injuries, as well as fires and damage to property. Fireworks Initiative Celebrations should bring people together and bring joy. More and more people are therefore calling for a modern way of celebrating that shows consideration for people, animals and the environment. Loud, uncoordinated fireworks are a major nuisance for many. The initiative offers a solution: It restricts the setting off of loud fireworks by private individuals. Publicly organised fireworks displays and low-noise alternatives such as ‘volcanoes’ will still be permitted. The private use of fireworks has got out of hand; domestic, farm and wild animals are left frightened and panicked; safety and health for young and old",
+          "The setting off of fireworks generates 1,300 tonnes of waste in Switzerland every year. Some of this is left lying in fields, meadows or public spaces. This has a negative impact on nature and animals. In addition, fine particulate matter and pollutants are released, contaminating soil, water and air. At present, different rules apply in many places regarding the use of fireworks. If the initiative is accepted, clear guidelines will be established across Switzerland. Restricting the private use of fireworks protects people, animals and the environment. Public fireworks displays, which evoke positive emotions in many people, will still be permitted even after the initiative is accepted. That is why the initiative committee recommends: Yes"
+        ],
+        "cons": [
+          "The cantons and municipalities are already able to restrict or ban the sale and use of fireworks. The initiative, however, would introduce the same rules across the whole of Switzerland, regardless of local circumstances. This would unduly restrict the scope for action available to cantons and municipalities. They would have less freedom to decide how to balance the protection of people, animals and the environment with the desire to hold events featuring fireworks. For many people, fireworks are an integral part of 1 August and New Year’s Eve. Setting off fireworks is a ritual that fosters a sense of community for many people and has a long tradition. Fireworks are a means of expressing joy. If the initiative is accepted, individuals would, in principle, no longer be allowed to set off noise-producing fireworks, not even on 1 August or New Year’s Eve. This would unduly restrict people’s freedom. Manufacturers, importers, retailers and professional pyrotechnicians would face severe restrictions. The fireworks industry would suffer significant losses in turnover, which could jeopardise its very existence. A ban could lead to an increase in the purchase of fireworks from abroad that do not comply with Switzerland’s strict regulations. This would require increased monitoring and could compromise safety. Fireworks Initiative: The Federal Council and Parliament are aware that noisy fireworks can have negative effects on people, animals and the environment. However, the initiative goes too far with its ban. The effects of fireworks are limited in time and space. Furthermore, cantons and municipalities are already able to restrict the sale and use of fireworks. The Federal Council and Parliament reject the initiative for the following reasons in particular: Existing rules are sufficient; preserving traditions; an industry under threat; circumvention of the ban",
+          "The disturbance caused by fireworks is limited to just a few days a year. The Federal Council and Parliament therefore consider the initiative to go too far: a ban on the sale and use of noisy fireworks enshrined in the Federal Constitution would be excessive. For all these reasons, the Federal Council and Parliament recommend rejecting the popular initiative ‘For a restriction on fireworks’. No"
+        ],
+        "src": "de",
+        "h": "776ab1e30f23"
+      },
+      "it": {
+        "pros": [
+          "I rumori improvvisi e assordanti sono percepiti da molti come fastidiosi. L’iniziativa interviene proprio alla fonte di questo disturbo: i fuochi d’artificio rumorosi utilizzati a scopo privato. Poiché i fuochi d’artificio privati vengono accesi già prima e dopo le festività, in molti luoghi il rumore persiste ben oltre la durata effettiva dei festeggiamenti. I fuochi d’artificio suggestivi e silenziosi, come i «vulcani», rappresentano una valida alternativa. I rumori improvvisi e fragorosi provocano stress e reazioni di panico negli animali. Molti, presi dal terrore, cercano di fuggire. Ciò causa ripetutamente incidenti, ferite e decessi. I proprietari di animali domestici devono quindi adottare misure di protezione impegnative nei giorni intorno al 1° agosto e a Capodanno. Gli animali da allevamento e quelli selvatici non possono sfuggire al rumore. Vengono spaventati e questi ultimi, fuggendo, consumano importanti riserve energetiche. Essere colti di sorpresa da rumori improvvisi compromette il benessere. Nei bambini e negli adulti possono insorgere paura, stress o problemi di salute. L’uso privato di fuochi d’artificio può causare incidenti con lesioni talvolta gravi, oppure incendi e danni materiali. Iniziativa sui fuochi d’artificio: le feste dovrebbero unire e portare gioia. Sempre più persone desiderano quindi una forma di festeggiamento al passo con i tempi, che tenga conto delle persone, degli animali e dell’ambiente. I fuochi d’artificio rumorosi e non coordinati rappresentano per molti un grande fastidio. L’iniziativa offre una soluzione: limita l’uso di fuochi d’artificio rumorosi da parte di privati. Gli spettacoli pirotecnici organizzati pubblicamente e le alternative a basso rumore, come i «vulcani», rimangono consentiti. L’uso privato dei fuochi d’artificio è sfuggito di mano: animali domestici, da allevamento e selvatici sono in preda alla paura e al panico. Sicurezza e salute per grandi e piccini",
+          "L’uso dei fuochi d’artificio produce ogni anno in Svizzera 1'300 tonnellate di rifiuti. Una parte di questi rifiuti viene abbandonata nei campi, nei prati o negli spazi pubblici, con conseguenze negative per la natura e gli animali. Inoltre, vengono rilasciate polveri sottili e sostanze inquinanti che contaminano il suolo, le acque e l’aria. Attualmente, in molte località vigono norme diverse in materia di fuochi d’artificio. Con l’approvazione dell’iniziativa si creeranno condizioni quadro chiare in tutta la Svizzera. La limitazione dell’uso privato dei fuochi d’artificio tutela le persone, gli animali e l’ambiente. Gli spettacoli pirotecnici pubblici, che suscitano emozioni positive in molte persone, rimarranno possibili anche dopo l’approvazione dell’iniziativa. Per questo motivo il comitato promotore raccomanda di votare «Sì»."
+        ],
+        "cons": [
+          "I cantoni e i comuni possono già oggi limitare o vietare la vendita e l’uso dei fuochi d’artificio. L’iniziativa prevede invece le stesse regole per tutta la Svizzera, indipendentemente dalle specificità locali. Ciò limiterebbe eccessivamente il margine di manovra dei cantoni e dei comuni. Avrebbero meno libertà di decidere come conciliare la tutela delle persone, degli animali e dell’ambiente con il desiderio di organizzare manifestazioni con fuochi d’artificio. Per molte persone i fuochi d’artificio sono parte integrante dei festeggiamenti del 1° agosto e di Capodanno. L’accensione dei fuochi d’artificio è un rituale che crea un senso di comunità in molte persone e vanta una lunga tradizione. I fuochi d’artificio rappresentano un mezzo per esprimere la gioia. Se l’iniziativa venisse approvata, ai privati non sarebbe più consentito, in linea di principio, accendere fuochi d’artificio che producono rumore, nemmeno il 1° agosto e a Capodanno. Ciò limiterebbe eccessivamente la libertà delle persone. Produttori, importatori, rivenditori e pirotecnici professionisti subirebbero forti restrizioni. Il settore dei fuochi d’artificio subirebbe notevoli perdite di fatturato, che potrebbero metterne a rischio l’esistenza stessa. Un divieto potrebbe portare a un aumento degli acquisti all’estero di fuochi d’artificio non conformi alle severe norme svizzere. Ciò richiederebbe controlli più frequenti e potrebbe compromettere la sicurezza. Iniziativa sui fuochi d’artificio Il Consiglio federale e il Parlamento sono consapevoli che i fuochi d’artificio rumorosi possono avere effetti negativi sulle persone, sugli animali e sull’ambiente. Tuttavia, con il suo divieto, l’iniziativa si spinge troppo oltre. Gli effetti dei fuochi d’artificio sono limitati nel tempo e nello spazio. Inoltre, i Cantoni e i Comuni possono già oggi limitare la vendita e l’uso dei fuochi d’artificio. Il Consiglio federale e il Parlamento respingono l’iniziativa in particolare per i seguenti motivi: le norme esistenti sono sufficienti; preservare le tradizioni; settore a rischio; elusione del divieto.",
+          "L'impatto dei fuochi d'artificio è limitato a pochi giorni all'anno. Per il Consiglio federale e il Parlamento, l’iniziativa va quindi troppo oltre: un divieto della vendita e dell’uso di fuochi d’artificio rumorosi nella Costituzione federale sarebbe eccessivo. Per tutti questi motivi, il Consiglio federale e il Parlamento raccomandano di respingere l’iniziativa popolare «Per una limitazione dei fuochi d’artificio». No"
+        ],
+        "src": "de",
+        "h": "776ab1e30f23"
       }
     }
   },
@@ -2314,6 +2922,541 @@
       "t": "Result of the referendum: The proposal was approved in the referendum held on 8 March 2026, with 54.26 per cent voting in favour. Federal Council press release of 21 February 2024 Federal Council adopts dispatch on individual taxation At its meeting on 21 February 2024, the Federal Council adopted the dispatch on the popular initiative ‘For individual taxation regardless of marital status (Tax Justice Initiative)’ and on the indirect counter-proposal (Federal Act on Individual Taxation). The switch from joint taxation of married couples to individual taxation would enable…",
       "src": "de",
       "h": "bb54e25d1c0b"
+    },
+    "34678": {
+      "t": "Federal Council press release dated 1 March2024 The Federal Council adopts the 2025–2028 Cultural Policy Message At its meeting on 1 March 2024, the Federal Council adopted the message to Parliament on the promotion of culture for the years 2025–2028. The Confederation’s cultural policy is based on six areas of action. Funding of CHF 987 million has been earmarked for its implementation. The Message on the Promotion of Culture (Culture Message) sets out the strategic direction of the Confederation’s cultural policy for the funding period 2025–2028. It presents the objectives that…",
+      "src": "de",
+      "h": "1a51a0dae62e"
+    },
+    "34679": {
+      "t": "Federal Council press release dated 1 March 2024 Federal Council seeks to enshrine electricity reserves in law The Federal Council intends to enshrine various existing measures designed to prevent energy shortages in law and to provide targeted support for winter electricity generation. At its meeting on 1 March 2024, it adopted a dispatch to Parliament on corresponding amendments to the Electricity Supply Act, the Energy Act and the CO₂ Act. Due to the impact of the war in Ukraine on gas supplies in Europe, as well as technical problems at many French nuclear power stations, there were…",
+      "src": "de",
+      "h": "91336896c3ec"
+    },
+    "34688": {
+      "t": "Federal Council press release of 28 August 2024 Federal Council adopts dispatch on the Federal Personnel Act At its meeting on 28 August 2024, the Federal Council adopted the dispatch on the amendment to the Federal Personnel Act (FPA). In addition to adjustments to occupational pension provision, the aim is to strengthen data protection and drive forward digitalisation in human resources management. The revision also introduces specific amendments to improve the efficiency of implementing federal personnel law. The Federal Council has submitted the dispatch on the revision of the Federal Personnel Act (FPA) to…",
+      "src": "de",
+      "h": "bc54977b1a4b"
+    },
+    "34680": {
+      "t": "Federal Council press release of 13 September 2024: Supplementary Benefits: Federal Council aims to promote supported living The Federal Council aims to promote the independence of older people and enable them to continue living in their own homes. To this end, in future, AHV and IV pensioners receiving supplementary benefits (EL) are to be entitled to certain services that enable them to live independently. For example, emergency call systems and meal delivery services are to be included in the EL scheme. The benefits are to be paid as lump-sum advances. At its meeting on 13 September 2024, the…",
+      "src": "de",
+      "h": "5f32dbb4941e"
+    },
+    "34681": {
+      "t": "Federal Council press release of 13 September 2024: Suva will in future be able to contribute financially to the compensation of asbestos victims. Suva will in future be permitted to provide financial support to the Compensation Fund for Asbestos Victims (EFA). At its meeting on 13 September 2024, the Federal Council adopted the dispatch on the amendment to the Accident Insurance Act (UVG). This will enable Suva to contribute financially towards the compensation of victims of asbestos-related illnesses who are not covered by insurance. The use of asbestos was banned in Switzerland in 1989. The…",
+      "src": "de",
+      "h": "67ebdca4bfdc"
+    },
+    "34682": {
+      "t": "On 26 October 2023, the popular initiative ‘For a Committed Switzerland (Citizen Service Initiative)’ was tabled. The initiative provides that every person with Swiss citizenship should perform ‘service for the common good and the environment’. This service would be carried out as military service or in the form of another, equivalent and legally recognised form of reserve service. At its meeting on 16 October 2024, the Federal Council adopted the dispatch on the popular initiative ‘For a Committed Switzerland’ (‘Citizen Service Initiative’) and recommended that the Federal Assembly…",
+      "src": "de",
+      "h": "aa25b47eb9b6"
+    },
+    "34683": {
+      "t": "The initiative ‘For a social climate policy – financed through fair taxation (Initiative for a Future)’, tabled in February 2024 by the Young Socialists (JUSO), calls for a 50 per cent tax on the estates and gifts of natural persons in excess of an allowance of 50 million Swiss francs. The revenue is to be used to tackle the climate crisis. In its message of 13 December 2024, the Federal Council proposed to the Swiss Parliament that this popular initiative be recommended to the people and the cantons for rejection. According to the…",
+      "src": "de",
+      "h": "b4316803d4d7"
+    },
+    "34684": {
+      "t": "Federal Council press release dated 20 November2024 The Federal Council adopts a dispatch on the amendment to the Double Taxation Agreement with Hungary At its meeting on 20 November 2024, the Federal Council adopted the dispatch on the Protocol amending the Double Taxation Agreement (DTA) with Hungary. The Protocol implements the minimum standards set out in the OECD’s Base Erosion and Profit Shifting (BEPS) project with regard to double taxation agreements. In particular, the Protocol of Amendment contains an anti-abuse clause. This is intended to prevent a person who is neither resident in…",
+      "src": "de",
+      "h": "42a243e9eeae"
+    },
+    "34685": {
+      "t": "Press release from the National Council’s Committee on Science, Education and Culture dated 14 November 2024 The National Council’s Committee on Science, Education and Culture of the National Council (WBK-N) is in favour of extending the moratorium on genetic engineering until the end of 2027 and will therefore submit a corresponding draft decree to its Council and the Federal Council. At its meeting, the National Council’s Committee on Science, Education and Culture (WBK-N) considered the parliamentary initiative on the extension of the existing moratorium on genetic engineering (24.443), which is currently in the…",
+      "src": "de",
+      "h": "5432d47616ad"
+    },
+    "34686": {
+      "t": "Federal Council press release of 19 February 2025: Legislative amendment to reclassify the post of Delegate for National Economic Supply The post of Delegate for National Economic Supply (WL) is to be upgraded from a part-time to a full-time position. This requires a revision of the organisational provisions in the National Supply Act. The Federal Council adopted the dispatch on this matter at its meeting on 19 February 2025 and is requesting that Parliament consider the matter under the fast-track procedure. The post of National Supply Delegate is to be filled as soon as possible…",
+      "src": "de",
+      "h": "3a6d55a4e2ed"
+    },
+    "34687": {
+      "t": "Federal Council press release dated 6 June 2025 A gesture of solidarity: Federal Council requests emergency aid for the municipality of Blatten The landslide that buried the village of Blatten in the Lötschental valley in the canton of Valais on 28 May 2025 ranks among the most devastating natural disasters to have struck Switzerland in recent decades. On 6 June 2025, the Federal Council adopted a dispatch to Parliament proposing the rapid allocation of 5 million Swiss francs to the municipality of Blatten as a sign of solidarity. Parliament will be able to decide on this dispatch during an extraordinary session in June. The cause of the…",
+      "src": "de",
+      "h": "5df84d2cf25b"
+    },
+    "34884": {
+      "t": "Results of the referendum: The popular initiative was rejected in the referendum held on 8 March 2026, with 54.39 per cent voting against, as well as 11 full cantonal votes and 6 half cantonal votes. The counter-proposal was accepted in the referendum held on 8 March 2026 with 73.40 per cent voting in favour and by all cantons. Federal Council press release of 26 June 2024: Federal Council adopts dispatch on direct counter-proposal to the popular initiative ‘Cash is Freedom’ At its meeting on 26 June 2024, the Federal Council adopted the dispatch for a direct counter-proposal to the popular initiative ‘Yes to an independent…",
+      "src": "de",
+      "h": "1ccb40d46951"
+    },
+    "35029": {
+      "t": "Federal Council press release of 22 June 2023 Federal Council aims to speed up the construction of solar, wind and hydroelectric power stations The Federal Council intends to streamline the procedures for the planning and construction of large-scale renewable energy power stations in order to rapidly drive forward the expansion of production. At its meeting on 21 June 2023, it adopted an amendment to the Energy Act for submission to Parliament. The so-called ‘acceleration decree’ provides, amongst other things, for the streamlining of authorisation and appeal procedures for large-scale installations and for the planning process for the expansion of…",
+      "src": "de",
+      "h": "d9346f6f6a02"
+    },
+    "35030": {
+      "t": "Federal Council press release dated 22 May2024 Federal Council adopts dispatch on strengthening the fight against money laundering At its meeting on 22 May 2024, the Federal Council submitted the dispatch on the further development of the fight against money laundering to Parliament. A federal register of beneficial owners, due diligence obligations for particularly high-risk activities within the legal professions, and further provisions are intended to strengthen the integrity and competitiveness of Switzerland as a financial and business centre. The measures are in line with…",
+      "src": "de",
+      "h": "246c5dd8f3cc"
+    },
+    "35031": {
+      "t": "Federal Council press release dated 22 May2024 Federal Council adopts dispatch on strengthening the fight against money laundering At its meeting on 22 May 2024, the Federal Council submitted the dispatch on the further development of the fight against money laundering to Parliament. A federal register of beneficial owners, due diligence obligations for particularly high-risk activities within the legal professions, and further provisions are intended to strengthen the integrity and competitiveness of Switzerland as a financial and business centre. The measures are in line with…",
+      "src": "de",
+      "h": "246c5dd8f3cc"
+    },
+    "35033": {
+      "t": "Federal Council press release of 27 September 2024: Better protection for people who have suffered an accident before reaching the insurance age and who experience relapses or long-term effects The Federal Council wishes to provide better protection for people who have suffered an accident before reaching the insurance age. At its meeting on 27 September 2024, it adopted the dispatch on the revision of the Accident Insurance Act (UVG) to implement Motion 11.3811 Darbellay ‘Closing a legal loophole in accident insurance’. This amendment ensures the payment of daily allowances under accident insurance in cases where the incapacity for work of a…",
+      "src": "de",
+      "h": "2237e0c83993"
+    },
+    "35034": {
+      "t": "Result of the referendum: The popular initiative was rejected in the referendum held on 8 March 2026, with 61.95 per cent voting against, as well as 20 full cantonal votes and 6 half cantonal votes. Federal Council press release of 19 June 2024: Federal Council rejects the SRG initiative and proposes instead a reduction in the licence fee to 300 francs. The SRG requires sufficient financial resources to be able to provide an equivalent range of journalistic content in all language regions. The Federal Council therefore rejects the federal popular initiative ‘200 francs is enough! (SRG initiative)’. The corresponding message has…",
+      "src": "de",
+      "h": "2f5124eb244b"
+    },
+    "35035": {
+      "t": "Results of the referendum: The popular initiative was rejected in the referendum held on 8 March 2026, with 54.39 per cent voting ‘No’, as well as 11 full cantonal votes and 6 half cantonal votes. The counter-proposal was accepted in the referendum held on 8 March 2026 with 73.40 per cent voting in favour and by all cantons. Federal Council press release of 26 June 2024: Federal Council adopts dispatch on direct counter-proposal to the popular initiative ‘Cash is Freedom’ At its meeting on 26 June 2024, the Federal Council adopted the dispatch on a direct counter-proposal to the popular initiative ‘Yes to an independent…",
+      "src": "de",
+      "h": "1ccb40d46951"
+    },
+    "35036": {
+      "t": "Federal Council press release of 13 September 2024: Better protection for children against violence in child-rearing The Federal Council intends to explicitly enshrine the principle of non-violent child-rearing in law. At its meeting on 13 September 2024, it took note of the results of the consultation on an amendment to the Civil Code (CC) and adopted the corresponding message for submission to Parliament. The proposed provision explicitly obliges parents to bring up their children without the use of violence. Furthermore, access to counselling services for parents and children is to be…",
+      "src": "de",
+      "h": "0f0d2b1da8ed"
+    },
+    "35037": {
+      "t": "Federal Council press release dated 13 November2024 Federal Council adopts dispatch on strengthening the SIS in the fight against terrorism and serious crime In future, Europol will be able to propose alerts on third-country nationals in the Schengen Information System (SIS) to a Schengen State; in cases where there is a suspicion of terrorism or serious crime. This development within the Schengen framework also requires legislative amendments in Switzerland. At its meeting on 13 November 2024, the Federal Council adopted the corresponding dispatch. On 6 July 2022, the…",
+      "src": "de",
+      "h": "ebf744605227"
+    },
+    "35038": {
+      "t": "Federal Council press release of 13 November 2024: Digitalisation of Schengen visa applications. In future, Schengen visa applications must be submitted digitally via a European platform. As a Schengen state, Switzerland is participating in this modernisation and is amending its national legislation accordingly. At its meeting on 13 November 2024, the Federal Council adopted the dispatch on the digitisation of Schengen visas. On 13 November 2023, the EU adopted a regulation on the submission of visa applications for short-term stays (90 days) in the Schengen Area…",
+      "src": "de",
+      "h": "b6804e7c40a8"
+    },
+    "35039": {
+      "t": "Federal Council press release of 6 December 2024: Federal Council presents a dispatch on strengthening the financial security of assisting spouses in agriculture in the event of divorce. Assisting spouses in agriculture are to be provided with greater financial security in the event of divorce. To this end, on 6 December 2024, the Federal Council adopted a dispatch on amending the Agriculture Act. Spouses and registered partners of farmers are to receive appropriate financial compensation for their work in the event of a divorce…",
+      "src": "de",
+      "h": "6dbcf59782e8"
+    },
+    "35040": {
+      "t": "Federal Council press release of 13 December 2024: Annual accounts of the joint commissions: Federal Council calls for transparency At its meeting on 13 December 2024, the Federal Council adopted the dispatch on the amendment to the Federal Act on the Declaration of General Applicability of Collective Labour Agreements (AVEG). This calls for greater transparency regarding the financial resources of the joint commissions. The Federal Council is thus submitting to Parliament its proposal for the implementation of Motion 21.3599 WAK-N ‘Transparency regarding the financial resources of joint…",
+      "src": "de",
+      "h": "7ea12fa0d256"
+    },
+    "35041": {
+      "t": "Result of the referendum: The popular initiative was rejected in the referendum held on 8 March 2026, with 70.70 per cent voting against, as well as 20 full cantonal votes and 6 half cantonal votes. Federal Council press release of 29 January 2025: The Federal Council rejects the Climate Fund Initiative. At its meeting on 29 January 2025, the Federal Council adopted the dispatch on the popular initiative ‘For a fair energy and climate policy: Investing in prosperity, jobs and the environment (Climate Fund Initiative)’. It rejects the initiative without a direct counter-proposal or an indirect counter-proposal. From the perspective of…",
+      "src": "de",
+      "h": "62bee3a4eeb9"
+    },
+    "35042": {
+      "t": "Federal Council press release of 12 February 2025 Weekend postal deliveries: time limits under federal law to begin on Monday For postal items that trigger a time limit and are delivered at the weekend, the time limit is to begin on the following working day. This will give recipients of documents such as notices of termination or court judgements more time. This principle already applies in civil procedure law; it is now to be extended to all federal law. At its meeting on 12 February 2025, the Federal Council took note of the results of the consultation…",
+      "src": "de",
+      "h": "c207d4cf3580"
+    },
+    "35043": {
+      "t": "Federal Council press release dated 19 February2025 Federal Council adopts dispatch on the extension of the international automatic exchange of information in tax matters At its meeting on 19 February 2025, the Federal Council submitted to Parliament the dispatch on the extension of the international automatic exchange of information in tax matters (AEOI). The extension concerns the new AEOI on crypto-assets and the amendment to the standard for the AEOI on financial accounts, and is due to come into force on 1 January 2026. In October 2022, the OECD adopted the update to the joint reporting and…",
+      "src": "de",
+      "h": "67d82e771dd3"
+    },
+    "35044": {
+      "t": "Federal Council press release dated 19 February2025 Federal Council adopts dispatch on the extension of the international automatic exchange of information in tax matters At its meeting on 19 February 2025, the Federal Council submitted to Parliament the dispatch on the extension of the international automatic exchange of information in tax matters (AEOI). The extension concerns the new AEOI on crypto-assets and the amendment to the standard for the AEOI on financial accounts, and is due to come into force on 1 January 2026. In October 2022, the OECD adopted the update to the joint reporting and…",
+      "src": "de",
+      "h": "67d82e771dd3"
+    },
+    "35045": {
+      "t": "Federal Council press release dated 26 February2025 Federal Council approves modernisation of the Free Trade Agreement with Chile On 26 February 2025, the Federal Council adopted the dispatch on the modernisation of the Free Trade Agreement between the EFTA states and Chile. The message will be submitted to the Federal Assembly for approval. Negotiations on the modernisation of the existing FTA were concluded in 2024. The modernised agreement is thus largely in line with the more recent FTAs concluded by EFTA with third countries. In future, almost all Swiss exports to…",
+      "src": "de",
+      "h": "aa69b74cadcb"
+    },
+    "35046": {
+      "t": "Federal Council press release dated 7 March 2025 Federal Council adopts dispatch on the amended Schengen Borders Code To ensure the uniform application of the rules at the Schengen external and internal borders, the EU has amended the Schengen Borders Code. As a Schengen State, Switzerland is participating in this harmonisation. To this end, it must amend its national legislation. Following a consultation process, the Federal Council adopted the dispatch on the relevant legislative amendments for submission to Parliament at its meeting on 7 March 2025. The new…",
+      "src": "de",
+      "h": "db3e9315184f"
+    },
+    "35047": {
+      "t": "Federal Council press release dated 7 March 2025: Federal Council adopts dispatch on the amended Schengen Borders Code To ensure the uniform application of the rules at the Schengen external and internal borders, the EU has amended the Schengen Borders Code. As a Schengen State, Switzerland is participating in this harmonisation. To this end, it must amend its national legislation. Following a consultation process, the Federal Council adopted the dispatch on the relevant legislative amendments for submission to Parliament at its meeting on 7 March 2025. The new…",
+      "src": "de",
+      "h": "db3e9315184f"
+    },
+    "35048": {
+      "t": "Federal Council press release dated 7 March 2025: Federal Council adopts dispatch on the amended Schengen Borders Code To ensure the uniform application of the rules at the Schengen external and internal borders, the EU has amended the Schengen Borders Code. As a Schengen State, Switzerland is participating in this harmonisation. To this end, it must amend its national legislation. Following a consultation process, the Federal Council adopted the dispatch on the relevant legislative amendments for submission to Parliament at its meeting on 7 March 2025. The new…",
+      "src": "de",
+      "h": "db3e9315184f"
+    },
+    "35049": {
+      "t": "Result of the referendum: The bill was approved in the referendum held on 14 June 2026, with 52.46 per cent voting in favour. Federal Council press release of 19 February 2025: Message on the amendment to the Civil Service Act: The Federal Council aims to reduce the high number of admissions On 19 February 2025, the Federal Council adopted the message on the amendment to the Civilian Service Act. It intends to reduce admissions to civilian service through six measures. This will also ensure compliance with the constitutional requirement that there is no freedom of choice between military service and civilian alternative service…",
+      "src": "de",
+      "h": "694c3379533a"
+    },
+    "35050": {
+      "t": "Federal Council press release of 21 March 2025 Federal Council adopts dispatch on the European Pact on Migration and Asylum The new European Pact on Migration and Asylum is intended to make the European migration and asylum system more efficient, more resilient to crises and based on greater solidarity. As an associated Schengen/Dublin state, Switzerland is obliged to participate in certain areas of the Pact. To do so, it must amend its national legislation. At its meeting on 21 March 2025, the Federal Council adopted the dispatch on the relevant legislative amendments for submission to Parliament. The EU…",
+      "src": "de",
+      "h": "c685f9a002a7"
+    },
+    "35051": {
+      "t": "Federal Council press release of 21 March 2025 Federal Council adopts dispatch on the European Pact on Migration and Asylum The new European Pact on Migration and Asylum is intended to make the European migration and asylum system more efficient, more resilient to crises and based on greater solidarity. As an associated Schengen/Dublin state, Switzerland is obliged to participate in certain areas. To this end, it must amend its national legislation. At its meeting on 21 March 2025, the Federal Council adopted the dispatch on the relevant legislative amendments for submission to Parliament. The EU…",
+      "src": "de",
+      "h": "c685f9a002a7"
+    },
+    "35052": {
+      "t": "Federal Council press release of 21 March 2025 Federal Council adopts dispatch on the European Pact on Migration and Asylum The new European Pact on Migration and Asylum is intended to make the European migration and asylum system more efficient, more resilient to crises and based on greater solidarity. As an associated Schengen/Dublin state, Switzerland is obliged to participate in certain areas. To this end, it must amend its national legislation. At its meeting on 21 March 2025, the Federal Council adopted the dispatch on the relevant legislative amendments for submission to Parliament. The EU…",
+      "src": "de",
+      "h": "c685f9a002a7"
+    },
+    "35053": {
+      "t": "Federal Council press release of 21 March 2025 Federal Council adopts dispatch on the European Pact on Migration and Asylum The new European Pact on Migration and Asylum is intended to make the European migration and asylum system more efficient, more resilient to crises and based on greater solidarity. As an associated Schengen/Dublin state, Switzerland is obliged to participate in certain areas of the Pact. To do so, it must amend its national legislation. At its meeting on 21 March 2025, the Federal Council adopted the dispatch on the relevant legislative amendments for submission to Parliament. The EU…",
+      "src": "de",
+      "h": "c685f9a002a7"
+    },
+    "35054": {
+      "t": "Press release from the Council of States’ Committee on Social Security and Health dated 27 June 2025 The Council of States’ Committee on Social Security and Health (SGK-S) has approved a proposal it drafted to extend the maximum duration of short-time working by six months. It also unanimously agreed to consider a proposal to harmonise income replacement benefits. Furthermore, it supports the proposal that long-term consequences of accidents suffered during youth should now be covered by accident insurance. The reimbursement of certain medicines purchased abroad by health insurance…",
+      "src": "de",
+      "h": "b6bb9285124e"
+    },
+    "35453": {
+      "t": "Press release from the National Council’s Committee on Science, Education and Culture dated 8 December 2022 The National Council’s Committee on Science, Education and Culture of the National Council (WBK-N) has concluded its deliberations on its bill to implement Parliamentary Initiative 21.403: ‘Transitioning start-up funding to a modern solution’. The aim of the bill is to promote the reconciliation of family life with work or education and to improve equal opportunities for pre-school children. On the one hand, the aim is to ease the financial burden on parents for institutional childcare…",
+      "src": "de",
+      "h": "b38563bb34f4"
+    },
+    "35454": {
+      "t": "Press release from the Council of States’ Committee on Transport and Telecommunications dated 21 January 2025. The Committee definitively adopted, by 11 votes to 2, its draft proposal to increase the share of licence fee revenue allocated to local-regional radio and television broadcasters to between 6 and 8 per cent of licence fee revenue, by 11 votes to 2. The draft also provides for general support measures for the media, financed through the licence fee. In this way, the Committee aims to create attractive framework conditions for a diverse and equitable media offering in all regions. The Committee on Transport and Telecommunications of the…",
+      "src": "de",
+      "h": "53aa6f2b0e87"
+    },
+    "35455": {
+      "t": "Press release from the Council of States’ Committee on Transport and Telecommunications dated 21 January 2025. The Committee definitively adopted, by 11 votes to 2, its draft proposal to increase the share of licence fee revenue allocated to local-regional radio and television broadcasters to between 6 and 8 per cent of licence fee revenue, by 11 votes to 2. The draft also provides for general support measures for the media, financed by the licence fee. In this way, the Committee aims to create attractive framework conditions for a diverse and equitable media landscape across all regions. The Committee on Transport and Telecommunications of the…",
+      "src": "de",
+      "h": "53aa6f2b0e87"
+    },
+    "35456": {
+      "t": "Federal Council press release of 24 May 2023: Competition Act: Federal Council adopts dispatch on partial revision On 24 May 2023, the Federal Council adopted the dispatch on the partial revision of the Competition Act. The proposed revision will improve the effectiveness of the Competition Act. To this end, merger control will be modernised, civil competition law strengthened and the appeal procedure improved. In addition, several parliamentary motions will be implemented. The Federal Department of Education, Research and Innovation (EER) conducted a consultation on a partial revision of the Competition Act (CA) until 11 March 2022. The…",
+      "src": "de",
+      "h": "d2b1d82ca248"
+    },
+    "35457": {
+      "t": "Federal Council press release of 15 December 2023 Investment Screening Act: Federal Council adopts dispatch On 15 December 2023, the Federal Council adopted the dispatch on an Investment Screening Act. In doing so, it is fulfilling a mandate from Parliament. The investment screening process will focus on state-controlled investors and on domestic companies operating in a particularly critical sector. The introduction of investment screening is intended to prevent the takeover of domestic companies by foreign investors where such takeovers would…",
+      "src": "de",
+      "h": "78c879ae6600"
+    },
+    "35458": {
+      "t": "Press release from the National Council’s Committee on Transport and Telecommunications dated 12 February 2025 The National Council’s Committee on Transport and Telecommunications (KVF-N) has definitively adopted its draft bill proposing to extend the joint guarantee scheme currently applied in regional passenger transport (RPV) to cover car transport by rail. In response to the parliamentary initiative ‘Joint and several guarantees for car transport’ (23.477), the Committee had drawn up a bill proposing to extend the mechanism currently applied in regional passenger transport (RPV)…",
+      "src": "de",
+      "h": "f76114d54dc2"
+    },
+    "35459": {
+      "t": "Federal Council press release dated 27 November2024 Federal Council adopts dispatch on the extension of loss carry-forward The Federal Council adopted the dispatch on the extension of loss carry-forward from seven to ten years at its meeting on 27 November 2024. In doing so, it is responding to a motion referred by Parliament, which was justified by the difficult economic situation facing many businesses as a result of the Covid pandemic. The Federal Council acknowledges the principle behind the motion but does not regard the measure as a priority and, in view of the financial situation, has decided against…",
+      "src": "de",
+      "h": "9da36bc74640"
+    },
+    "35460": {
+      "t": "Federal Council press release of 12 February 2025: Defence Material Act: Message on the introduction of a power of derogation for the Federal Council At its meeting on 12 February 2025, the Federal Council took note of the results of the consultation on the amendment to the Federal Act on War Material and adopted the corresponding message. The bill aims to grant the Federal Council the power, in exceptional circumstances and to safeguard Switzerland’s interests, to deviate from the authorisation criteria for foreign transactions. The power to grant exemptions…",
+      "src": "de",
+      "h": "70051aca39bb"
+    },
+    "35461": {
+      "t": "Result of the referendum: The popular initiative was rejected in the referendum held on 14 June 2026, with 54.79 per cent voting against, as well as 12 full cantonal votes and 2 half cantonal votes. Federal Council press release of 21 March 2025: Federal Council seeks to preserve prosperity and security. The Federal Council is proposing to Parliament that the popular initiative ‘No to a 10-million-strong Switzerland (Sustainability Initiative)’ to the electorate without a direct counter-proposal or an indirect alternative proposal, and to recommend that it be rejected. In its view, the initiative jeopardises prosperity, sustainable…",
+      "src": "de",
+      "h": "c4aa6fae182d"
+    },
+    "35462": {
+      "t": "Federal Council press release dated 7 March 2025 Federal Council makes recruit schools more flexible and improves the digitalisation of the armed forces At its meeting on 7 March 2025, the Federal Council approved the dispatch on various amendments to the Military Act, the Federal Assembly Ordinance on the Administration of the Armed Forces, the organisation of the armed forces and other legal frameworks. With this bill, it is making recruit training and refresher courses more flexible and better suited to the militia system, improving the protection of the armed forces against cyber threats and digitising communication between the…",
+      "src": "de",
+      "h": "56ec6b070b53"
+    },
+    "35463": {
+      "t": "Federal Council press release dated 7 March 2025 Federal Council makes recruit schools more flexible and improves the digitalisation of the armed forces At its meeting on 7 March 2025, the Federal Council approved the dispatch on various amendments to the Military Act, the Federal Assembly Ordinance on the Administration of the Armed Forces, the organisation of the armed forces and other legal frameworks. With this bill, it is making recruit training and refresher courses more flexible and better suited to the militia system, improving the protection of the armed forces against cyber threats and digitising communication between the…",
+      "src": "de",
+      "h": "56ec6b070b53"
+    },
+    "35464": {
+      "t": "Federal Council press release dated 7 March 2025 Federal Council makes recruit schools more flexible and improves the digitalisation of the armed forces At its meeting on 7 March 2025, the Federal Council approved the dispatch on various amendments to the Military Act, the Federal Assembly Ordinance on the Administration of the Armed Forces, the organisation of the armed forces and other legal frameworks. With this bill, it is making recruit training and refresher courses more flexible and better suited to the militia system, improving the protection of the armed forces against cyber threats and digitising the exchange of information between the…",
+      "src": "de",
+      "h": "56ec6b070b53"
+    },
+    "35465": {
+      "t": "Federal Council press release of 16 April 2025 The Federal Council adopts the dispatch on the harmonisation of income replacement benefits The Federal Council intends to standardise the benefits under the Income Replacement Scheme (EO) and bring them more into line with social developments. The EO was originally introduced to compensate for the loss of earnings suffered by those serving in the armed forces. The scope of benefits has been expanded in several stages. Today, the EO also compensates for loss of income relating to parenthood. In particular, it covers leave following the birth of a child or a…",
+      "src": "de",
+      "h": "d7768594e305"
+    },
+    "35466": {
+      "t": "Federal Council press release of 30 April 2025 Strengthening higher vocational education: Federal Council submits dispatch to Parliament The Federal Council wishes to enhance the appeal of higher technical colleges and higher vocational education as a whole. During the consultation process, a corresponding package of measures received overwhelming support. The Federal Council has now adopted the message to Parliament on 30 April 2025. In the message, the Federal Council proposes four measures to Parliament aimed at raising the profile of higher vocational education, enhancing its social standing and ensuring comparable…",
+      "src": "de",
+      "h": "1bb1abd1ed21"
+    },
+    "35467": {
+      "t": "Federal Council press release dated 14 May2025 Federal Council adopts dispatch on social security agreement with Argentina At its meeting on 14 May 2025, the Federal Council referred the dispatch seeking Parliament’s approval of the Agreement on Social Security between Switzerland and Argentina to Parliament. The agreement coordinates the old-age, survivors’ and disability provision schemes of the contracting states and, in particular, regulates the payment of pensions abroad. The agreement governs relations between Switzerland and Argentina in the field of social security. It is in line with…",
+      "src": "de",
+      "h": "a69f520de27a"
+    },
+    "35468": {
+      "t": "Federal Council press release dated 14 May2025 Federal Council adopts dispatch on the new Federal Act on the international automatic exchange of information concerning salary data At its meeting on 14 May 2025, the Federal Council adopted the dispatch on the international automatic exchange of information concerning salary data. The Federal Council is thus proposing to establish the legal basis for implementing the exchange of information that Switzerland has agreed to in treaties with France and Italy. In December 2020, Switzerland and Italy concluded new…",
+      "src": "de",
+      "h": "2ac93ad639b9"
+    },
+    "35469": {
+      "t": "Federal Council press release of 21 May 2025 Federal Council submits a dispatch on practice-integrated STEM degree programmes at universities of applied sciences On 21 May 2025, the Federal Council submitted a dispatch to the Federal Assembly on amending the Higher Education Funding and Co-ordination Act (HFKG). The proposed amendment to the HFKG enables universities of applied sciences to offer Bachelor’s degree programmes in the fields of mathematics, computer science, natural sciences and technology (MINT) in which practical experience in the workplace is integrated. This programme was tested in a pilot scheme…",
+      "src": "de",
+      "h": "8576b9119c1f"
+    },
+    "35470": {
+      "t": "Overview from the message: Since 1 January 2013, the Federal Act on Withholding Tax has contained temporary exemptions for interest on ‘too-big-to-fail’ instruments. These exemptions are currently in force until 31 December 2026. This bill now provides for a further temporary extension of the exemptions until 31 December 2031, so that the legislature can make a final assessment of this exemption in the context of the overall package of measures set out in the Federal Council’s report on banking stability.",
+      "src": "de",
+      "h": "37f8f14b1fd5"
+    },
+    "35942": {
+      "t": "Press release from the National Council’s Legal Affairs Committee dated 27 October 2023 The National Council’s Legal Affairs Committee has adopted a bill to implement Parliamentary Initiative 17.523 ‘Allowing dual surnames upon marriage’, a bill has been adopted which reintroduces dual surnames for spouses in a significantly more flexible manner than under the previous law and which will now also allow this for children. In light of the feedback received during the consultation process, the Committee decided at its meeting on 2 February 2023 to set up a sub-committee, which was tasked with examining how…",
+      "src": "de",
+      "h": "5e7b42b44b9c"
+    },
+    "35943": {
+      "t": "Press release from the National Council’s Committee on Transport and Telecommunications dated 1 July 2025. In response to the parliamentary initiative (Fluri) by Christian Wasserfallen. ‘Fair participation of the SRG in the audiovisual production market’ (22.415), the Committee had drawn up a bill designed to place greater obligations on the SRG when awarding contracts to Switzerland’s broadcaster-independent audiovisual industry. Having taken note of the results of the consultation, the Committee approved the draft by 12 votes to 2, with 4 abstentions, in the…",
+      "src": "de",
+      "h": "3381003e2474"
+    },
+    "35944": {
+      "t": "Federal Council press release of 10 May 2023 The Federal Council intends to introduce a national address service in 2025 The Federal Council wishes to simplify address management and, to this end, establish a national address service (NAD). At its meeting on 10 May 2023, it adopted the dispatch to Parliament on the new Federal Act on the National System for Querying the Addresses of Natural Persons. The National Address Service will enable certain administrative bodies and third parties with a statutory mandate to retrieve the address data of the resident population throughout Switzerland.…",
+      "src": "de",
+      "h": "2b9d33cec9a2"
+    },
+    "35945": {
+      "t": "Federal Council press release of 27 November 2024: Message on the Neutrality Initiative: Federal Council proposes rejection without a counter-proposal At its meeting on 27 November 2024, the Federal Council adopted the message on the popular initiative ‘Preserving Swiss Neutrality’ (Neutrality Initiative). It recommends that the Federal Assembly reject the initiative without a counter-proposal. The Federal Council is of the opinion that enshrining a rigid interpretation of neutrality in the Constitution is not in Switzerland’s interests and would restrict the scope for action in foreign policy…",
+      "src": "de",
+      "h": "9295e9d88a67"
+    },
+    "35946": {
+      "t": "Federal Council press release of 19 February 2025 Federal Council proposes changes to life imprisonment In future, it will be possible to review a prisoner’s eligibility for conditional release from a life sentence for the first time after 17 years. Furthermore, clear rules are to be established regarding the enforcement of sentences where a life sentence is combined with preventive detention. The Federal Council is proposing these amendments to the Swiss Criminal Code (StGB) on behalf of Parliament in its dispatch on the reform of life imprisonment, which it adopted at its meeting on 19 February 2025. In a…",
+      "src": "de",
+      "h": "b18ec0cfa60c"
+    },
+    "35947": {
+      "t": "Federal Council press release dated 19 September2025 Federal Council adopts dispatch on Relief Package 27 At its meeting on 19 September 2025, the Federal Council adopted the dispatch on Relief Package 27 for the federal budget. The relief package is necessary to restore the balance between the Confederation’s revenue and expenditure in the coming years. It comprises relief measures totalling 2.4 billion in 2027 and around 3 billion in 2028 and 2029. However, even with the relief package, expenditure will continue to rise sharply. The Council of States will begin in…",
+      "src": "de",
+      "h": "f9c2751bcbf1"
+    },
+    "35948": {
+      "t": "Federal Council press release of 25 June 2025 Free Trade Agreement with Thailand: Federal Council submits message to Parliament On 25 June 2025, the Federal Council adopted the message on the Free Trade Agreement between the EFTA states and Thailand. The agreement strengthens competitiveness and improves legal certainty for Swiss companies in the Thai market. The agreement is in line with the European Free Trade Association’s (EFTA) more recent free trade agreements (FTAs) concluded with third countries and has a comprehensive sectoral scope. This…",
+      "src": "de",
+      "h": "605d08e82404"
+    },
+    "35949": {
+      "t": "Federal Council press release of 13 August 2025: Federal Council recommends rejecting the ‘Food Initiative’ On 13 August 2025, the Federal Council adopted the dispatch on the popular initiative ‘For food security – through strengthening sustainable domestic production, more plant-based foods and clean drinking water (Food Initiative)’. It recommends that Parliament reject the initiative without a direct counter-proposal or an indirect alternative proposal. The initiative’s objectives could only be achieved through far-reaching state intervention. Legitimate concerns of the…",
+      "src": "de",
+      "h": "04478bffd31f"
+    },
+    "35950": {
+      "t": "Federal Council press release dated 3 September 2025 Federal Council initiates approval process for free trade agreement with Kosovo On 3 September 2025, the Federal Council adopted the dispatch on the free trade agreement between the EFTA states and Kosovo. The dispatch will be submitted to the Federal Assembly. The agreement between the member states of the European Free Trade Association (EFTA) and Kosovo is largely in line with EFTA’s more recent free trade agreements (FTAs) concluded with third countries. It has a comprehensive sectoral scope and contains provisions on trade in goods…",
+      "src": "de",
+      "h": "daa3e771ece8"
+    },
+    "35951": {
+      "t": "Federal Council press release dated 12 September2025 Federal Council adopts dispatch on the exchange of information under the OECD minimum tax rules At its meeting on 12 September 2025, the Federal Council adopted the dispatch seeking approval of the international legal framework for the exchange of information under the OECD minimum tax rules. In future, the multinational corporate groups concerned will be able to submit the information centrally to a single state. On this basis, the states participating in the exchange of information will be able to verify the tax calculations of multinational corporate groups in…",
+      "src": "de",
+      "h": "e7e10676cf4c"
+    },
+    "35952": {
+      "t": "Federal Council press release of 25 February 2026: Crans-Montana fire disaster: Solidarity payment and support for out-of-court settlements and the cantons The seriously injured victims and the relatives of those who died in the Crans-Montana fire disaster are to receive a one-off solidarity payment of 50,000 Swiss francs from the Confederation. Furthermore, the Confederation intends to convene a round-table discussion to support those affected in reaching out-of-court settlements. At its meeting on 25 February 2026, the Federal Council adopted the dispatch for a corresponding…",
+      "src": "de",
+      "h": "59fd88ed87ec"
+    },
+    "36536": {
+      "t": "Press release from the National Council’s Committee on Social Security and Health dated 23 February 2024. By 13 votes to 12, the Committee adopted its draft bill in response to Parliamentary Initiative Iv. Silberschmidt. Entrepreneurs who pay contributions to unemployment insurance should also be insured against unemployment (20.406) for the attention of the Council. It had previously taken note of the results of the consultation. In response to comments received from the cultural sector, the SGK-N decided, by 13 votes to 12, to amend the majority proposal by…",
+      "src": "de",
+      "h": "d0b30034ece8"
+    },
+    "36537": {
+      "t": "Press release from the National Council’s Legal Affairs Committee dated 31 October 2025 The Committee has completed its work on the rehabilitation of Swiss volunteers who took part in the fighting alongside the French Resistance or in supporting Italian partisan groups during the Second World War. The Committee concludes that, from a historical perspective, the actions of these volunteers were justified. It is therefore submitting a draft bill to the National Council, by 16 votes to 9, for the formal rehabilitation of these individuals.…",
+      "src": "de",
+      "h": "f3d7ee42f91c"
+    },
+    "36538": {
+      "t": "Press release from the National Council’s Committee on Economic Affairs and Taxation dated 19 August 2025 The Committee has adopted its draft response to parliamentary initiative Bregy 22.441 (‘Enabling modern plant protection in Switzerland’) for submission to the National Council. By amending the Agriculture Act, it aims to ensure that plant protection products (PPPs) which are already authorised in a neighbouring EU country, the Netherlands or Belgium, become available more quickly in Switzerland. The authorisation of a PPP in one of these countries is to form the basis for a simplified and…",
+      "src": "de",
+      "h": "920f6e232e1f"
+    },
+    "36539": {
+      "t": "Federal Council press release of 14 August 2024: Driving forward digitalisation in the debt enforcement system The Federal Council intends to further modernise the debt enforcement system. A range of measures is intended to drive forward digitalisation and better protect creditors against misuse of debt enforcement register extracts. At its meeting on 14 August 2024, the Federal Council took note of the results of the consultation on the planned amendment to the Federal Act on Debt Enforcement and Bankruptcy (SchKG) and adopted the dispatch to Parliament. The…",
+      "src": "de",
+      "h": "40f37b02a8b3"
+    },
+    "36540": {
+      "t": "Federal Council press release of 16 October 2024: 13th AHV pension: Federal Council adopts the dispatch on implementation and financing. The 13th AHV old-age pension is to be paid out once a year in December from 2026 onwards. It is to be financed by a 0.7 percentage point increase in VAT. This would ensure that the AHV Equalisation Fund remains in balance until 2030. At its meeting on 16 October 2024, the Federal Council adopted the dispatch on the implementation and financing of the initiative for a 13th AHV pension for submission to Parliament. The popular initiative ‘For a better life…’",
+      "src": "de",
+      "h": "618108784500"
+    },
+    "36541": {
+      "t": "Federal Council press release of 16 October 2024 The Federal Council rejects the ‘Fireworks Initiative’ On 16 October 2024, the Federal Council adopted the dispatch on the popular initiative ‘For a restriction on fireworks (Fireworks Initiative)’. It recommends that Parliament reject the initiative without a direct counter-proposal or an indirect counter-proposal, as cantons and municipalities already have the legal basis to restrict fireworks. The popular initiative ‘For a restriction on fireworks (Fireworks Initiative)’, submitted on 3 November 2023, calls for stricter…",
+      "src": "de",
+      "h": "69fdcf3b8fdc"
+    },
+    "36542": {
+      "t": "Federal Council press release of 27 November 2024: The ‘polluter pays’ principle is clarified in the Radiation Protection Act The ‘polluter pays’ principle in the Radiation Protection Act (StSG) needs to be clarified. This is primarily to regulate the costs of supplying the population with iodine tablets and of remediating contaminated sites. Operators of nuclear power stations are therefore to be legally obliged to bear the costs of distributing iodine tablets within a 50-kilometre radius of a nuclear power station. At its meeting on 27 November 2024, the Federal Council adopted the corresponding…",
+      "src": "de",
+      "h": "c56a95911d8c"
+    },
+    "36543": {
+      "t": "Federal Council press release of 13 December 2024: Federal Council submits a bill to regulate the relationship between different minimum wages. At its meeting on 13 December 2024, the Federal Council adopted the explanatory memorandum on the amendment to the Federal Act on the Declaration of General Applicability of Collective Labour Agreements (AVEG). This provides for the possibility of declaring minimum wages in collective labour agreements generally binding, even if they are below cantonal minimum wages. At present, a collective labour agreement (CLA) may only be declared generally binding if…",
+      "src": "de",
+      "h": "77632fc2c9a8"
+    },
+    "36544": {
+      "t": "Federal Council press release dated 7 March 2025 The Federal Council rejects the popular initiative ‘Yes to fair federal taxes for married couples too’ At its meeting on 7 March 2025, the Federal Council adopted the report on the popular initiative ‘Yes to fair federal taxes for married couples too – finally put an end to discrimination against marriage!’ It rejects the initiative put forward by the Centre Party without a direct counter-proposal or an indirect alternative proposal, as it conflicts with the bill on individual taxation which the Federal Council has drawn up on behalf of Parliament. The initiative aims to…",
+      "src": "de",
+      "h": "b07850566882"
+    },
+    "36545": {
+      "t": "Federal Council press release of 15 January 2025 Federal Council proposes debt restructuring procedures for individuals in debt Individuals in debt are to be given a second chance at a debt-free life. The two new financial rehabilitation procedures for individuals will have positive effects both on the health of those affected and on the national economy. Following predominantly positive feedback during the consultation process, the Federal Council adopted the relevant dispatch at its meeting on 15 January 2025. Individuals who are unable to extricate themselves from…",
+      "src": "de",
+      "h": "b14cd138b317"
+    },
+    "36546": {
+      "t": "Federal Council press release of 30 April 2025 Federal Council adopts amendments relating to political rights At its meeting on 30 April 2025, the Federal Council adopted the dispatch on various amendments to the Federal Act on Political Rights (BPR) and set the date for an amendment to the Ordinance on Political Rights (VPR) to come into force on 1 July 2027. The legislative amendments relate, amongst other things, to the conduct of federal referendums, the appeal process for election and referendum complaints, and the creation of a legal basis for…",
+      "src": "de",
+      "h": "9fed6786114e"
+    },
+    "36547": {
+      "t": "Federal Council press release of 13 August 2025: ‘Stop the Blackout’ initiative – Federal Council adopts dispatch on the indirect counter-proposal On 13 August 2025, the Federal Council adopted the dispatch on the indirect counter-proposal to the popular initiative ‘Electricity for everyone at all times (Stop the Blackout)’. It rejects the popular initiative but, through the counter-proposal, intends to amend the Nuclear Energy Act so that new nuclear power stations can once again be authorised in Switzerland. This will ensure that nuclear energy remains an option for the long-term security of Switzerland’s energy supply…",
+      "src": "de",
+      "h": "be1c2af74cb7"
+    },
+    "36548": {
+      "t": "Federal Council press release of 13 August 2025: ‘Stop the Blackout’ initiative – Federal Council adopts dispatch on the indirect counter-proposal On 13 August 2025, the Federal Council adopted the dispatch on the indirect counter-proposal to the popular initiative ‘Electricity for everyone at all times (Stop the Blackout)’. It rejects the popular initiative but, through the counter-proposal, intends to amend the Nuclear Energy Act so that new nuclear power stations can once again be authorised in Switzerland. This will ensure that nuclear energy remains an option for the long-term security of Switzerland’s energy supply…",
+      "src": "de",
+      "h": "be1c2af74cb7"
+    },
+    "36549": {
+      "t": "Federal Council press release dated 12 September2025 Federal Council adopts dispatch on amendments to the Financial Market Supervision Act and other legislation relating to international cooperation At its meeting on 12 September 2025, the Federal Council adopted the dispatch on amendments to the Financial Market Supervision Act and other legislation. The aim of the legislative amendments is to adapt the Swiss legal framework for international cooperation in the financial markets sector to the current requirements of cross-border financial transactions. International cooperation between…",
+      "src": "de",
+      "h": "188c12131429"
+    },
+    "36550": {
+      "t": "Federal Council press release of 12 November 2025: Modernised free trade agreement with Ukraine: Federal Council submits message to Parliament On 12 November 2025, the Federal Council adopted the message on the modernised free trade agreement between the EFTA states and Ukraine. With this agreement, Switzerland is demonstrating its solidarity with Ukraine at this critical time and strengthening its competitiveness in the Ukrainian market. Ukraine is an important partner for Switzerland in Eastern Europe. Since the current Free Trade Agreement (FTA) came into force in 2012 and until…",
+      "src": "de",
+      "h": "4a2b0311d877"
+    },
+    "36551": {
+      "t": "Federal Council press release of 12 November 2025 Federal Council adopts dispatch: legislative revision to strengthen national economic supply At its meeting on 12 November 2025, the Federal Council approved amendments to the National Economic Supply Act (NESA). At the same time, it adopted the dispatch to Parliament. The partial revision of its legal basis is intended to adapt the National Economic Supply (NES) to current requirements and strengthen it for future crises. The completely revised NES Act came into force in June 2017. Since then, insights and experience gained from…",
+      "src": "de",
+      "h": "0709a26e536c"
+    },
+    "36552": {
+      "t": "Federal Council press release dated 26 November2025 The Federal Council adopts a dispatch on the amendment to the Double Taxation Agreement with Croatia At its meeting on 26 November 2025, the Federal Council adopted the dispatch on the Protocol amending the Double Taxation Agreement (DTA) with Croatia. The Protocol implements the minimum standards for double taxation agreements. In particular, the Protocol of Amendment contains an anti-abuse clause which focuses on the principal purpose of an arrangement or transaction, thereby ensuring that the DTA is not misused.…",
+      "src": "de",
+      "h": "033834acd643"
+    },
+    "36553": {
+      "t": "Federal Council press release of 26 November 2025 The Federal Council adopts a dispatch on the amendment to the double taxation agreement with Belgium At its meeting on 26 November 2025, the Federal Council adopted the dispatch on the supplementary agreement to the double taxation agreement (DTA) with Belgium. The agreement implements the minimum standards for double taxation agreements. In particular, the supplementary agreement contains an anti-abuse clause which focuses on the principal purpose of an arrangement or transaction, thereby ensuring that the DTA is not misused. It amends the…",
+      "src": "de",
+      "h": "0ac27a8f6cfe"
+    },
+    "36554": {
+      "t": "Federal Council press release dated 5 December2025 Federal Council adopts dispatch on the investment protection agreement with Chile On 5 December 2025, the Federal Council adopted the dispatch to the Federal Assembly on the new Agreement on the Promotion and Protection of Investments between Switzerland and Chile. Drawn up in accordance with the new negotiating approach, this agreement replaces and updates the agreement between the two countries that has been in force since 2002. The Switzerland–Chile Investment Protection Agreement (ISA) grants Swiss investments in Chile – and vice versa –…",
+      "src": "de",
+      "h": "f3aedb5087e9"
+    },
+    "36555": {
+      "t": "Press release from the National Council’s Committee on Science, Education and Culture dated 24 October 2025. The WBK-N has adopted its indirect counter-proposal (25.402) to the popular initiative ‘For a restriction on fireworks’. Prior to deliberating on the counter-proposal, the Committee took note of the consultation report. It adopted the consultation draft with an additional minority opinion, which wishes to retain the current law regarding the permit for the use of pyrotechnic articles intended for recreational purposes (Art. 14(2) of the…",
+      "src": "de",
+      "h": "d877f84eac0b"
+    },
+    "36556": {
+      "t": "Press release from the National Council’s Committee on the Environment, Spatial Planning and Energy dated 21 October 2025. The Committee unanimously approved a draft amendment to the Environmental Protection Act (25.440). For the remediation of sites contaminated by PFAS fire-fighting foams, financial support from the VASA Contaminated Sites Fund will also be made available retrospectively during a two-year transitional period. This means that cantons and municipalities that have already taken or completed remediation measures will benefit from compensation for lost revenue. Press release from…",
+      "src": "de",
+      "h": "a70ee8f74366"
+    },
+    "36557": {
+      "t": "Federal Council press release of 28 January 2026 Free Trade Agreement with Malaysia: Federal Council submits message to Parliament On 28 January 2026, the Federal Council adopted the message on the Economic Partnership Agreement between the EFTA states and Malaysia. It will enable Swiss companies to further diversify their markets. Within the ASEAN region, Malaysia is Switzerland’s fourth most important trading partner after Singapore, Thailand and Vietnam. The agreement increases legal certainty in economic relations with Malaysia and improves access to the Malaysian…",
+      "src": "de",
+      "h": "35e247b0703c"
+    },
+    "36558": {
+      "t": "Federal Council press release of 6 March 2026 Ukraine: Federal Council adopts dispatch on a bilateral agreement on reconstruction On 6 March 2026, the Federal Council adopted the dispatch on a bilateral agreement on the reconstruction of Ukraine. This agreement establishes the legal basis for greater involvement of the Swiss private sector. In the reconstruction of Ukraine, greater engagement by private companies is particularly necessary in the energy and infrastructure sectors. A bilateral agreement with Ukraine provides the legal basis for this. The agreement…",
+      "src": "de",
+      "h": "047a503bf945"
+    },
+    "38947": {
+      "t": "Press release from the Council of States’ Legal Affairs Committee dated 8 October 2024 The Council of States’ Legal Affairs Committee has decided, by 5 votes to 4, to submit to its Council a draft bill to enshrine the non-applicability of the statute of limitations for murder in the Criminal Code. This proposal stems from a cantonal initiative by the Canton of St. Gallen (19.300), on which a consultation was held in the first half of 2024. The Committee has taken note of the report on the results and, on the whole, endorsed the arguments in favour of making this offence not subject to a statute of limitations…",
+      "src": "de",
+      "h": "e7a1ea9ed823"
+    },
+    "38948": {
+      "t": "Press release from the Council of States’ Commission on State Policy dated 18 February 2026 Severance payments for senior executives in the Federal Administration have repeatedly been the subject of debate in recent years. The Committee on Constitutional Affairs (SPK) of the Council of States now intends to prohibit such severance payments by amending federal civil service law. Amendments to the Federal Personnel Act have been drawn up in response to a parliamentary initiative by former Member of the Council of States Thomas Minder, which was taken up by Member of the Council of States Jakob Stark (23.432). Under these amendments, the…",
+      "src": "de",
+      "h": "ced573643099"
+    },
+    "38949": {
+      "t": "Press release from the Council of States’ Commission on Constitutional Affairs dated 16 January 2026. The Commission has unanimously approved the draft bill drawn up in connection with the Caroni Initiative 23.439. Under this draft, the Federal Council would be required, when issuing an ordinance pursuant to Article 184(3) or Article 185(3) of the Federal Constitution, to set out in a report that the legal requirements for doing so have been met. This obligation to provide a statement of reasons also applies to ordinances issued by the Federal Council on the basis of a statutory authorisation to manage a crisis. In…",
+      "src": "de",
+      "h": "29495851dda2"
+    },
+    "38950": {
+      "t": "Federal Council press release of 20 November 2024: Federal Council recommends rejecting the ‘Foie Gras Initiative’ At its meeting on 20 November 2024, the Federal Council adopted the dispatch on the popular initiative ‘Yes to a ban on the import of foie gras’. It recommends that Parliament reject the initiative without a direct counter-proposal or an indirect counter-proposal. However, it wishes to take the concerns of the initiators into account: in future, products derived from force-feeding must be labelled in order to ensure transparency for consumers. The Federal Council intends to implement this in a…",
+      "src": "de",
+      "h": "875add4df5da"
+    },
+    "38951": {
+      "t": "Federal Council press release dated 21 May 2025 Federal Council submits dispatch on accelerating the expansion of the electricity grids At its meeting on 21 May 2025, the Federal Council adopted the dispatch on a revision of the Electricity Act. The revision is intended to further speed up the authorisation procedures for the expansion and upgrading of electricity grids. More than 60 per cent of Switzerland’s extra-high-voltage power lines are now between 50 and 80 years old. The technical service life of these lines (transmission grid) is around 80 years. A large part of this transmission grid must therefore…",
+      "src": "de",
+      "h": "a6f4663de8fe"
+    },
+    "38952": {
+      "t": "Federal Council press release of 28 May 2025: Federal Council adopts dispatch on the further development of the LSVA The performance-based heavy goods vehicle charge (LSVA) is to be levied on electrically powered lorries from 2029 onwards. In this way, the Federal Council aims to ensure that heavy goods vehicles continue to bear their costs and that the shift of freight transport to rail is supported in the future. With a discount scheme limited to 2035, the Federal Council aims to encourage transport companies to continue investing in electric lorries and to provide them with planning certainty. The…",
+      "src": "de",
+      "h": "1de58bdc645b"
+    },
+    "38953": {
+      "t": "Federal Council press release of 28 May 2025: Ban on the import and trade of fur produced through cruelty to animals: Federal Council adopts dispatch At its meeting on 28 May 2025, the Federal Council adopted the dispatch on the popular initiative ‘Yes to a ban on the import of fur products produced through cruelty to animals’. It recommends rejecting the popular initiative and is submitting an indirect counter-proposal. The aim of this counter-proposal is to prohibit the import, transit and trade of furs and fur products produced using methods involving cruelty to animals. This ban is to be enshrined in the Animal Welfare Act…",
+      "src": "de",
+      "h": "c78670340795"
+    },
+    "38954": {
+      "t": "Federal Council press release of 28 May 2025: Ban on the import and trade of fur produced through cruelty to animals: Federal Council adopts dispatch At its meeting on 28 May 2025, the Federal Council adopted the dispatch on the popular initiative ‘Yes to a ban on the import of fur products produced through cruelty to animals’. It recommends rejecting the popular initiative and is submitting an indirect counter-proposal. The aim of this counter-proposal is to prohibit the import, transit and trade of furs and fur products produced using methods involving cruelty to animals. This ban is to be enshrined in the Animal Welfare Act…",
+      "src": "de",
+      "h": "c78670340795"
+    },
+    "38955": {
+      "t": "Federal Council press release dated 5 November 2025 The Federal Council recommends rejecting the ‘Democracy Initiative’ The Federal Council recommends rejecting the popular initiative ‘For modern citizenship rights (Democracy Initiative)’ to be rejected, without a direct counter-proposal or an indirect counter-draft. In its view, the initiative significantly encroaches on cantonal powers. At its meeting on 5 November 2025, it also approved reports on parliamentary motions concerning the naturalisation of second-generation foreign nationals and the recording of naturalisation interviews. The findings are to be incorporated into the…",
+      "src": "de",
+      "h": "66af837572cd"
+    },
+    "38956": {
+      "t": "Federal Council press release of 5 December 2025 Federal Supreme Court Act: Federal Council adopts dispatch The Federal Council intends to implement those aspects of the failed 2018 revision to the Federal Supreme Court Act (BGG) that are technically sound and likely to secure a political majority. The aim is to improve the legal situation and thereby strengthen legal certainty. At its meeting on 5 December 2025, it took note of the results of the consultation process and adopted the dispatch for submission to Parliament. The Federal Council wishes to address specific shortcomings in the current…",
+      "src": "de",
+      "h": "0bb05f3a3542"
+    },
+    "38971": {
+      "t": "Federal Council press release of 28 May 2025: Ban on the import and trade of fur produced through cruelty to animals: Federal Council adopts dispatch At its meeting on 28 May 2025, the Federal Council adopted the dispatch on the popular initiative ‘Yes to a ban on the import of fur products produced through cruelty to animals’. It recommends rejecting the popular initiative and is submitting an indirect counter-proposal. The aim of this counter-proposal is to prohibit the import, transit and trade of furs and fur products produced using methods involving cruelty to animals. This ban is to be enshrined in the Animal Welfare Act…",
+      "src": "de",
+      "h": "c78670340795"
+    },
+    "38957": {
+      "t": "Federal Council press release dated 5 December 2025 Federal Council adopts dispatch on amendments to the Insurance Supervision Act At its meeting on 5 December 2025, the Federal Council adopted the dispatch on amendments to the Insurance Supervision Act. With this proposal, the Federal Council aims to strengthen Switzerland’s position as a centre for reinsurance. As has become apparent in practice, the new Insurance Supervision Act (ISA), which came into force on 1 January 2024 with the aim of improving consumer protection, is inadvertently leading to a deterioration in…",
+      "src": "de",
+      "h": "2400dc13031f"
+    },
+    "38958": {
+      "t": "Press release from the National Council’s Committee on Science, Education and Culture dated 3 November 2025 The National Council’s Committee on Science, Education and Culture (WBK-N) is launching a consultation on an indirect counter-proposal to the popular initiative ‘Yes to a ban on the import of foie gras (Foie Gras Initiative)’. The aim of this counter-proposal is to restrict imports of foie gras into Switzerland. Popular initiative 24.089 ‘Yes to a ban on the import of foie gras (Foie Gras Initiative)’ calls for a ban on the import of foie gras and foie gras products. The Committee on Science…",
+      "src": "de",
+      "h": "87f430fa178c"
+    },
+    "38959": {
+      "t": "Press release from the National Council’s Committee on Social Security and Health dated 13 February 2026. The Committee has adopted the draft legislation implementing the parliamentary initiative Iv. SGK-N ‘Temporary extension of the exemptions from the three-year duty to practise under Article 37(1) of the Health Insurance Act’ (25.465) by 17 votes to 7. In view of the continuing strain on healthcare provision in certain regions and specialist fields, the Committee considers an extension of the exemption to remain justified. The Committee voted 12 to 12, with the Chairperson casting the deciding vote (Sauter…",
+      "src": "de",
+      "h": "405221f4ee1e"
+    },
+    "38960": {
+      "t": "Press release from the National Council’s Committee on the Environment, Spatial Planning and Energy dated 24 February 2026. By 17 votes to 8, the Committee adopted a draft decree amending an article of the Electricity Supply Act as part of Parliamentary Initiative 25.482, with the aim of enabling distribution system operators to offset losses arising from electricity procurement against basic supply tariffs. Under current law, they are obliged to procure electricity as far in advance as possible. Unexpected electricity surpluses (e.g. as a result of increased production from photovoltaic systems)…",
+      "src": "de",
+      "h": "5bced980b59b"
+    },
+    "38961": {
+      "t": "Federal Council press release of 25 February 2026: Crans-Montana fire disaster: Solidarity payment and support for out-of-court settlements and the cantons The seriously injured victims and the relatives of those who died in the Crans-Montana fire disaster are to receive a one-off solidarity payment of 50,000 Swiss francs from the Confederation. Furthermore, the Confederation intends to convene a round-table discussion to support those affected in reaching out-of-court settlements. At its meeting on 25 February 2026, the Federal Council adopted the dispatch for a corresponding…",
+      "src": "de",
+      "h": "59fd88ed87ec"
+    },
+    "38962": {
+      "t": "Federal Council press release dated 15 April 2026 Federal Council adopts dispatch on the special VAT rate for accommodation services At its meeting on 15 April, the Federal Council adopted the dispatch on the special VAT rate for accommodation services. In doing so, it is implementing a parliamentary motion calling for the continuation of the special VAT rate of 3.8 per cent. The Federal Council has decided not to submit a request for Parliament’s approval. Since 1996, the Constitution has granted Parliament the power to set a rate for the taxation of accommodation services…",
+      "src": "de",
+      "h": "5a7a046a2f63"
+    },
+    "38963": {
+      "t": "Federal Council press release dated 25 February2026 Federal Council adopts dispatch on the free trade agreement between the EFTA states and Mercosur On 25 February 2026, the Federal Council adopted the dispatch on the free trade agreement between the EFTA states and Mercosur. The agreement gives Swiss companies access to a market of 270 million people, thereby strengthening the competitiveness of the Swiss economy. The successful conclusion of the free trade agreement (FTA) between the four EFTA states – Switzerland, Iceland, Liechtenstein and Norway – and Mercosur…",
+      "src": "de",
+      "h": "56b6ac027098"
     }
   }
 }

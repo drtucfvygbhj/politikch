@@ -5,7 +5,7 @@
     "attribution": "Swiss Federal Audit Office (EFK), political financing register",
     "commercialReuse": "yes",
     "source": "Federal Audit Office (EFK) — https://politikfinanzierung.efk.admin.ch",
-    "fetchedAt": "2026-10-12T11:39:24Z",
+    "fetchedAt": "2026-10-19T09:37:03Z",
     "note": "Figures are self-reported by parties and campaign committees under Swiss law (BPR/VPofi) and republished here as-is; the EFK does not guarantee their accuracy, and neither do we."
   },
   "parties": {
@@ -1157,24 +1157,217 @@
     }
   },
   "initiatives": {
-    "vote-20261129-6930": {
+    "vote-20261129-6900": {
       "pro": {
-        "totalRevenue": 750000.0,
+        "totalRevenue": 581000.0,
+        "actorCount": 2,
+        "largeDonors": []
+      },
+      "contra": {
+        "totalRevenue": 1034590.0,
+        "actorCount": 3,
+        "largeDonors": [
+          {
+            "name": "Aktionskomitee für Freiheit und Verantwortung",
+            "type": "organization",
+            "location": "3011 Bern",
+            "amount": 250000.0,
+            "date": "2026-10-12"
+          },
+          {
+            "name": "Swiss Life AG",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 75000.0,
+            "date": "2026-09-28"
+          },
+          {
+            "name": "Swissmem",
+            "type": "organization",
+            "location": "8005 Zürich",
+            "amount": 50000.0,
+            "date": "2026-09-11"
+          },
+          {
+            "name": "Swiss Life AG",
+            "type": "organization",
+            "location": "8002 Zürich",
+            "amount": 50000.0,
+            "date": "2026-09-28"
+          },
+          {
+            "name": "Swissmem",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 50000.0,
+            "date": "2026-10-14"
+          },
+          {
+            "name": "Zürcher Handelskammer",
+            "type": "organization",
+            "location": "8021 Zürich",
+            "amount": 40000.0,
+            "date": "2026-09-15"
+          },
+          {
+            "name": "Bonny Stiftung für die Freiheit",
+            "type": "organization",
+            "location": "3001 Bern",
+            "amount": 40000.0,
+            "date": "2026-09-16"
+          },
+          {
+            "type": "individual",
+            "amount": 25000.0,
+            "date": "2026-08-31"
+          },
+          {
+            "name": "Buru Holding AG",
+            "type": "organization",
+            "location": "6330 Cham",
+            "amount": 25000.0,
+            "date": "2026-09-25"
+          },
+          {
+            "name": "Swiss Life AG",
+            "type": "organization",
+            "location": "8002 Zürich",
+            "amount": 25000.0,
+            "date": "2026-10-09"
+          }
+        ]
+      }
+    },
+    "vote-20261129-6910": {
+      "pro": {
+        "totalRevenue": 875000.0,
+        "actorCount": 2,
+        "largeDonors": [
+          {
+            "name": "VIER PFOTEN",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 210000.0,
+            "date": "2026-10-01"
+          },
+          {
+            "name": "Schweizer Tierschutz STS",
+            "type": "organization",
+            "location": "Basel",
+            "amount": 150000.0,
+            "date": "2026-10-01"
+          }
+        ]
+      },
+      "contra": {
+        "totalRevenue": 100000.0,
         "actorCount": 1,
         "largeDonors": [
+          {
+            "name": "Bugano AG",
+            "type": "organization",
+            "location": "Beromünster",
+            "amount": 25000.0,
+            "date": "2026-09-30"
+          },
+          {
+            "name": "Schweizerische Koordinationsstelle Feuerwerk",
+            "type": "organization",
+            "location": "Herisau",
+            "amount": 20000.0,
+            "date": "2026-07-10"
+          }
+        ]
+      }
+    },
+    "vote-20261129-6920": {
+      "pro": {
+        "totalRevenue": 150000.0,
+        "actorCount": 1,
+        "largeDonors": []
+      },
+      "contra": {
+        "totalRevenue": 150000.0,
+        "actorCount": 1,
+        "largeDonors": [
+          {
+            "name": "FDP.Die Liberalen",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 50000.0,
+            "date": "2026-10-06"
+          },
+          {
+            "name": "Zürcher Handelskammer",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 20000.0,
+            "date": "2026-09-15"
+          },
+          {
+            "name": "alliance F",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 20000.0,
+            "date": "2026-10-06"
+          }
+        ]
+      }
+    },
+    "vote-20261129-6930": {
+      "pro": {
+        "totalRevenue": 3052500.0,
+        "actorCount": 3,
+        "largeDonors": [
+          {
+            "name": "economiesuisse",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 1250000.0,
+            "date": "2026-07-06"
+          },
           {
             "name": "Economiesuisse",
             "type": "organization",
             "location": "Zürich",
             "amount": 250000.0,
             "date": "2026-09-01"
+          },
+          {
+            "name": "Swissmem",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 200000.0,
+            "date": "2026-06-08"
+          },
+          {
+            "name": "Kantonale St.Gallische Winkelriedstiftung",
+            "type": "organization",
+            "location": "St. Gallen",
+            "amount": 100000.0,
+            "date": "2026-09-28"
+          },
+          {
+            "name": "Zürcher Handelskammer",
+            "type": "organization",
+            "location": "Zürich",
+            "amount": 20000.0,
+            "date": "2026-10-07"
           }
         ]
       },
       "contra": {
-        "totalRevenue": 0,
-        "actorCount": 0,
-        "largeDonors": []
+        "totalRevenue": 580000.0,
+        "actorCount": 2,
+        "largeDonors": [
+          {
+            "name": "Gruppe für eine Schweiz ohne Armee",
+            "type": "organization",
+            "location": "Bern",
+            "amount": 40000.0,
+            "date": "2026-10-12"
+          }
+        ]
       }
     },
     "vote-20260927-6880": {
