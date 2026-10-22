@@ -1,6 +1,6 @@
 {
   "_about": "Site version, shown in the footer. Change it only with scripts/version.py; the scheme is in VERSIONING.md. Not the design name (1.0 / 1.1).",
-  "version": "1.1073",
+  "version": "1.1083",
   "history": [
     {
       "version": "1.1",
@@ -81,6 +81,14 @@
         "rules"
       ],
       "note": "Private donors' names removed from the git history (Q11); cited hashes updated"
+    },
+    {
+      "version": "1.1083",
+      "date": "2026-10-22",
+      "types": [
+        "rules"
+      ],
+      "note": "Q11 closed: GitHub purge of the old history confirmed"
     }
   ]
 }

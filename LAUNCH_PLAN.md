@@ -60,7 +60,7 @@ From the Stage 1 audit (`audit/reports/stage-1-2026-09-21/findings.json`) and
 | A13 | Municipality boundaries: current swissBOUNDARIES3D release | S1-F-07 | C | — |
 | A14 | Decide: headless-browser checks in CI (OPS-02/05/06) need a new dependency | §14 | O | — |
 | A15 | ~~Swiss cross in the logo~~ — removed 2026-10-16 | S1-F-06, Q2 | C | — |
-| A16 | Donor names in old git history: rewritten 2026-10-16; GitHub purge of the old commits and PR #2 pending | Q11 | C + O | — |
+| A16 | ~~Donor names in old git history~~ — rewritten 2026-10-16; purged by GitHub Support, confirmed 2026-10-22 | Q11 | C + O | — |
 | A17 | ~~Analytics and EU visitors~~ — nothing read on the device, no city, 2026-10-16; worker redeploy + clean-up of old fields | Q13 | O | — |
 
 ## Stage B — legal foundation (during the free phase)
@@ -159,7 +159,7 @@ is done before `PAID_PRODUCT_LIVE` goes on, and before the Stage 2 audit
 | L5 | **Press Council code declared**: the editorial policy page and About say Politikch follows it, and how to complain | Q18 | O (+C draft) |
 | L6 | **Privacy for subscribers**: DPIA, record of processing and processor list in `COMPLIANCE.md` extended to accounts, payments and hosting (D7); every **confirm** line there checked | Q5, Q10 | C drafts, O |
 | L7 | **ED-14 and ED-15 in force**: no paid promotion of an Analysis; quotes short and sourced; both on the article checklist (`EDITORIAL.md` §12) | Q16, Q17 | O |
-| L8 | **Donor history purged** from public git history (A16) and the GitHub purge confirmed | Q11 | C + O |
+| L8 | ~~**Donor history purged** from public git history (A16) and the GitHub purge confirmed~~ — done 2026-10-22 | Q11 | C + O |
 | L9 | **Description claims reviewed**: every donor/party description says only what its `source` supports | Q4, Q14 | O |
 
 ## Stage E — launch gate and launch
