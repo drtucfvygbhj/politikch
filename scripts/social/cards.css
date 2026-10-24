@@ -1,0 +1,69 @@
+/* Social cards — 1080 x 1350 (Instagram) and 1600 x 900 (X).
+   Fonts come from the site's own css/fonts.css (OFL, self-hosted): DM Sans 300–600,
+   Playfair Display 400–700. No other font is loaded. */
+html, body { margin: 0; background: #fff; }
+.card { width: 1080px; height: 1350px; box-sizing: border-box; display: flex; flex-direction: column; background: #fff; color: #161616; font-family: 'DM Sans', system-ui, sans-serif; overflow: hidden; }
+.card.x { width: 1600px; height: 900px; }
+
+/* Section band: heavier = higher priority (see the canvas legend) */
+.band { display: flex; align-items: center; justify-content: space-between; padding: 0 72px; box-sizing: border-box; flex: none; }
+.x .band { padding: 0 64px; height: 116px; }
+.sec { font-size: 28px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; line-height: 1.1; }
+.t0 { height: 150px; background: #161616; color: #fff; }
+.t5 { height: 150px; background: #7A1C2A; color: #fff; }
+.t4 { height: 136px; background: #F2E5E7; color: #7A1C2A; border-top: 12px solid #7A1C2A; }
+.t3 { height: 124px; background: #fff; color: #7A1C2A; border-top: 12px solid #7A1C2A; border-bottom: 2px solid #E7D3D6; }
+.t2 { height: 112px; background: #fff; color: #161616; border-top: 5px solid #161616; border-bottom: 1px solid #DCDAD3; }
+.t1 { height: 100px; background: #fff; color: #5F5E5A; border-bottom: 1px solid #DCDAD3; }
+.ladder { display: flex; align-items: flex-end; gap: 7px; height: 44px; }
+.ladder i { display: block; width: 12px; border-radius: 2px; background: currentColor; }
+.ladder i.off { opacity: .2; }
+.stamp { font-size: 18px; font-weight: 600; letter-spacing: .1em; padding: 8px 14px; border: 2px solid #fff; border-radius: 4px; }
+
+.body { flex: 1; min-height: 0; padding: 52px 72px 28px; display: flex; flex-direction: column; gap: 26px; }
+.x .body { padding: 48px 64px 36px; }
+.kicker { font-size: 22px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #7A1C2A; white-space: pre-line; }
+.h { margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.06; color: #161616; }
+.vt { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.22; color: #161616; }
+.p { margin: 0; font-size: 22px; line-height: 1.4; color: #161616; }
+.muted { color: #5F5E5A; }
+.lbl { font-size: 17px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #5F5E5A; }
+.chip { display: inline-block; font-size: 16px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 5px 10px; border: 2px solid currentColor; border-radius: 4px; color: #5F5E5A; }
+.maj { display: inline-block; font-size: 16px; font-weight: 600; padding: 6px 10px; border-radius: 4px; background: #F6F4F0; color: #161616; }
+.rule { border-top: 1px solid #DCDAD3; }
+.mt { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .06em; padding: 2px 6px; border: 1.5px solid #5F5E5A; border-radius: 3px; color: #5F5E5A; margin-left: 8px; vertical-align: middle; text-transform: uppercase; font-family: 'DM Sans', sans-serif; }
+.num { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; color: #7A1C2A; line-height: 1; flex: none; }
+.big { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: .95; }
+/* Playfair's default figures are old-style (the 3 drops below the line); cards use lining figures */
+.big, .h, .num, .vt { font-variant-numeric: lining-nums; }
+
+/* Yes / No: the site's official-result colours (design 1.1) */
+.yes { background: #534AB7; } .no { background: #0F6E56; } .abs { background: #B9B5AC; }
+.cy { color: #3C3489; } .cn { color: #085041; }
+.pill { display: inline-flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 600; border-radius: 4px; padding: 8px 14px; color: #fff; }
+.bar { position: relative; height: 48px; display: flex; border-radius: 3px; overflow: hidden; background: #F6F4F0; }
+.bar .mid { position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; background: #161616; }
+.stk { display: flex; height: 18px; border-radius: 2px; overflow: hidden; background: #F6F4F0; }
+.trk { height: 24px; background: #F6F4F0; border-radius: 2px; }
+.trk > span { display: block; height: 100%; border-radius: 2px; }
+.pct { display: flex; justify-content: space-between; font-size: 24px; font-weight: 600; }
+
+/* Footer: logo, the language's own domain + disclaimer, source; page indicator right */
+.foot { flex: none; height: 132px; margin: 0 72px; border-top: 2px solid #161616; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.x .foot { margin: 0 64px; height: 120px; }
+.brand { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 32px; line-height: 1; }
+.dom { font-size: 16px; font-weight: 600; color: #7A1C2A; margin-top: 6px; }
+.src { font-size: 14px; line-height: 1.35; color: #5F5E5A; margin-top: 4px; max-width: 700px; }
+.pager { display: flex; align-items: center; gap: 14px; flex: none; }
+.pg { font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; color: #161616; }
+.arrow { width: 56px; height: 56px; border-radius: 50%; background: #161616; display: flex; align-items: center; justify-content: center; }
+.endcta { font-size: 16px; font-weight: 600; letter-spacing: .03em; color: #7A1C2A; text-align: right; line-height: 1.35; }
+
+/* Tables of votes and parties */
+.grid5 { display: grid; grid-template-columns: 200px repeat(4, minmax(0, 1fr)); gap: 6px; align-items: center; }
+.cell { height: 52px; display: flex; align-items: center; justify-content: center; font-size: 19px; font-weight: 600; border-radius: 3px; }
+.dot { width: 14px; height: 14px; border-radius: 50%; flex: none; display: inline-block; }
+.vr { display: grid; grid-template-columns: 66px minmax(0, 1fr) 190px 190px; gap: 14px; align-items: center; font-size: 19px; padding: 5px 0; }
+.vr.lbl { font-size: 15px; }
+.ct { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.ph { border: 3px dashed #B9B5AC; border-radius: 6px; background: #F6F4F0; color: #5F5E5A; font-size: 20px; padding: 12px 16px; }

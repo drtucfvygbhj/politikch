@@ -38,3 +38,6 @@ admin/.backup/
 # Session ticker data lives on the ticker-data branch only (GUARDRAILS.md OPS-10);
 # local replays (scripts/fetch_session_ticker.py --date …) stay out of main.
 data/sessions/days/
+
+# Social cards rendered by scripts/social/dry_run.py (local review only, never committed)
+social-out/

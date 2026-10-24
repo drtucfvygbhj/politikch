@@ -530,6 +530,66 @@ def check_claims():
 
 
 # =========================================================================
+# Social cards (scripts/social/, phase 1: local dry run only — GUARDRAILS §13.1c)
+# =========================================================================
+SOCIAL = ROOT / "scripts" / "social"
+LIVE_WORDS = {"de": ["live", "Echtzeit"], "fr": ["en direct", "temps réel", "live"],
+              "it": ["in diretta", "tempo reale", "live"], "en": ["live", "real-time", "real time"]}
+
+
+def _leaf_keys(d, prefix=""):
+    out = set()
+    for k, v in d.items():
+        if isinstance(v, dict):
+            out |= _leaf_keys(v, prefix + k + ".")
+        else:
+            out.add(prefix + k)
+    return out
+
+
+def check_social():
+    p = SOCIAL / "strings.json"
+    if not p.exists():
+        return
+    strings = json.loads(p.read_text("utf-8"))
+    langs = [l for l in ("de", "fr", "it", "en") if l in strings]
+    if len(langs) < 4:
+        block("POL-13", "scripts/social/strings.json: every account language (de, fr, it, en) needs its wording")
+    base = _leaf_keys(strings.get("de", {}))
+    i18n = json.loads(read("data/i18n.json") or "{}")
+    for lang in langs:
+        s = strings[lang]
+        if _leaf_keys(s) != base:
+            block("POL-13", f"scripts/social/strings.json: {lang} doesn't have the same keys as de")
+        # Every card carries the site's own independence line (POL-10), word for word.
+        if not s.get("disclaimer") or s["disclaimer"] not in (i18n.get(lang) or {}).get("news.copy", ""):
+            block("POL-10", f"scripts/social/strings.json: {lang} disclaimer differs from the site's news.copy")
+        text = json.dumps(s, ensure_ascii=False)
+        for w in LIVE_WORDS[lang]:
+            if re.search(r"(?i)(?<![\wÀ-ÿ])" + re.escape(w) + r"(?![\wÀ-ÿ])", text):
+                block("POL-14", f"scripts/social/strings.json: {lang} says '{w}' — the data is never live")
+        low = text.lower()
+        for phrase in CFG["claimPhrases"]["phrases"]:
+            for m in re.finditer(r"(?<!\w)" + re.escape(phrase.lower()) + r"(?!\w)", low):
+                if not re.search(r"\b(not|no|keine?|nicht|pas|non|n[’']est)\b", low[max(0, m.start() - 30):m.start()]):
+                    block("POL-12", f"scripts/social/strings.json: {lang} says '{phrase}'")
+    if not strings.get("_approved"):
+        notes.append("scripts/social/strings.json: the social wording is a draft the owner hasn't approved yet (POL-13)")
+    src = read("scripts/social/cards.py")
+    if 'class="dom"' not in src or 's["disclaimer"]' not in src:
+        block("POL-10", "scripts/social/cards.py: the card footer no longer shows the language domain and disclaimer")
+    if src.count('badge("mt"') < 1 or "mt_title" not in src or '"mt": True' not in read("scripts/social/sitedata.py"):
+        block("POL-13", "scripts/social/cards.py: machine translations are no longer badged on the cards")
+    # Phase 1 contacts nothing: no network code until phase 2 has its own review (SRC-01).
+    for f in sorted(SOCIAL.glob("*.py")):
+        code = f.read_text("utf-8")
+        if re.search(r"^\s*(import|from)\s+(urllib|http\.client|requests|socket|httpx|aiohttp)\b", code, re.M):
+            block("SRC-01", f"scripts/social/{f.name}: network code — the social poster has no approved external contact yet")
+        for h in set(HOST_RE.findall(code)):
+            block("SRC-01", f"scripts/social/{f.name}: names a URL host ({h}) — phase 1 contacts nothing")
+
+
+# =========================================================================
 # Session ticker and parlament.ch download times (adopted 2026-10-05)
 # =========================================================================
 def i18n_langs():
@@ -909,6 +969,7 @@ def main(argv):
     check_licensing()
     check_both_sides()
     check_claims()
+    check_social()
     check_parl_fetched()
     check_ticker()
     check_paywalled_paths(files)
