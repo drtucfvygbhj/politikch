@@ -5,7 +5,7 @@
     "attribution": "Federal Statistical Office and Federal Chancellery (VoteInfo, LINDAS); party recommendations and English short titles: Swissvotes (Année Politique Suisse, University of Bern), CC BY 4.0",
     "commercialReuse": "ask the source: VoteInfo results are published under 'ask for permission' terms for commercial use (Federal Statistical Office)",
     "source": "Decided federal votes: VoteInfo (Federal Chancellery / Federal Statistical Office), opendata.swiss dataset 'echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen'. Upcoming scheduled votes and pending/signature-gathering initiatives: Federal Chancellery linked-data cubes (politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party recommendations (Parolen) and Parliament's handling of each ballot (business number, recommendation, National Council final vote): Swissvotes (Année Politique Suisse, Uni Bern), CC BY 4.0, modified (the link to the Federal Assembly's final vote is added by scripts/fetch_sessions.py). Official authority texts are not subject to copyright (Art. 5 URG).",
-    "fetchedAt": "2026-10-19T09:28:40Z",
+    "fetchedAt": "2026-10-26T09:32:32Z",
     "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive."
   },
   "initiatives": [
@@ -503,7 +503,7 @@
       "type": "initiative",
       "title": {
         "en": "Federal popular initiative «Für die Gleichstellung von Menschen mit Behinderungen (Inklusions-Initiative)»",
-        "de": "Eidgenössische Volksinitiative «Für die Gleichstellung von Menschen mit Behinderungen (Inklusions-Initiative)»",
+        "de": "Eidgenössische Volksinitiative 'Für die Gleichstellung von Menschen mit Behinderungen (Inklusions-Initiative)'",
         "fr": "Initiative populaire fédérale 'Pour l’égalité des personnes handicapées (initiative pour l’inclusion)'",
         "it": "Iniziativa popolare federale 'Per l’uguaglianza delle persone con disabilità (Iniziativa per l’inclusione)'"
       },
@@ -905,7 +905,7 @@
       "type": "initiative",
       "title": {
         "en": "Federal popular initiative «Wer vertreibt, muss zahlen (Initiative für eine Kostenverantwortung der Herkunftsstaaten)»",
-        "de": "Eidgenössische Volksinitiative \"Wer vertreibt, muss zahlen (Initiative für eine Kostenverantwortung der Herkunftsstaaten)\"\r\n",
+        "de": "Eidgenössische Volksinitiative 'Wer vertreibt, muss zahlen (Initiative für eine Kostenverantwortung der Herkunftsstaaten)'\r\n",
         "fr": "Initiative populaire fédérale \"Qui fait fuir doit payer (initiative pour une responsabilité financière de l’État de provenance)\"",
         "it": "Iniziativa popolare federale \"Chi costringe a fuggire deve pagare (Iniziativa per una responsabilità finanziaria dello Stato di provenienza)\""
       },

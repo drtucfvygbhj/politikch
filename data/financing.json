@@ -5,7 +5,7 @@
     "attribution": "Swiss Federal Audit Office (EFK), political financing register",
     "commercialReuse": "yes",
     "source": "Federal Audit Office (EFK) — https://politikfinanzierung.efk.admin.ch",
-    "fetchedAt": "2026-10-19T09:37:03Z",
+    "fetchedAt": "2026-10-26T09:39:32Z",
     "note": "Figures are self-reported by parties and campaign committees under Swiss law (BPR/VPofi) and republished here as-is; the EFK does not guarantee their accuracy, and neither do we."
   },
   "parties": {
@@ -1164,7 +1164,7 @@
         "largeDonors": []
       },
       "contra": {
-        "totalRevenue": 1034590.0,
+        "totalRevenue": 1074590.0,
         "actorCount": 3,
         "largeDonors": [
           {
@@ -1215,6 +1215,13 @@
             "location": "3001 Bern",
             "amount": 40000.0,
             "date": "2026-09-16"
+          },
+          {
+            "name": "auto-schweiz",
+            "type": "organization",
+            "location": "3006 Bern",
+            "amount": 40000.0,
+            "date": "2026-10-15"
           },
           {
             "type": "individual",
