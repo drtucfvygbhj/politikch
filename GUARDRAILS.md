@@ -420,7 +420,8 @@ The owner approves; then the edit, `check.sh`, local preview, change-log entry.
 | `scripts/fetch_session_ticker.py` | SRC-01/05/06/12/13/14, PRIV-13, POL-15, SEC-09 |
 | `.github/workflows/session-ticker.yml` | SEC-07, SRC-10/14, OPS-10 |
 | `scripts/social/strings.json` (social card and caption wording, DE/FR/IT/EN) | POL-01/05/10/12/13/14 — drafted wording is the owner's to approve before anything is posted |
-| `scripts/social/**` (planner, cards, renderer; phase 1 = local dry run only, §13.1c) | POL-01/09/13/14/15/16, PRIV-13, SRC-01/12, SEC-01 (every data value escaped), SEC-10 |
+| `scripts/social/**` (planner, cards, renderer, X pack; local only, §13.1c) | POL-01/09/13/14/15/16, PRIV-13, SRC-01/12, SEC-01 (every data value escaped), SEC-10 |
+| `Prepare Social Week.command` (local launcher for the X pack) | SEC-10 (reads the maintenance switch for a warning, never changes it), POL-13 |
 | `js/ticker.js` (and the ticker strip in `js/news.js`) | POL-03 (flag), POL-10/14/15/16, SRC-12, SEC-01, OPS-03 |
 | ticker data (`data/sessions/days/`, `ticker-data` branch only) | SRC-12/13, PRIV-13, POL-15, OPS-10 |
 | `js/glossary.js`, `js/select-tools.js`, `js/report.js` | SEC-01, PRIV-01/02/05 (nothing about a highlight is sent, stored or counted; Report only opens a `mailto:` draft in the visitor's own email app), OPS-03/05/06 |
@@ -534,14 +535,20 @@ Not automated yet: phase 1 runs only when someone types `python3 scripts/social/
 on their own machine, and posts nothing. It plans a week of posts for the four
 language accounts (DE/FR/IT/EN, one account per language) and renders them to
 `social-out/` (git-ignored) for review. Posting, the approval queue and the
-accounts are phase 2, which needs its own review (new hosts: X, Instagram, GitHub;
-OPS-07 for X's paid API; HOST-02; a Privacy-page decision) before it gets rows here.
+accounts are phase 2, which needs its own review (new hosts: Instagram, GitHub;
+HOST-02; a Privacy-page decision) before it gets rows here.
+
+X is scheduled by hand, not through its API, which charges per post (decided
+2026-10-30, so no OPS-07 cost): the owner double-clicks `Prepare Social Week.command`
+on the weekend and schedules the week's posts on x.com from one page. Seeing each
+post while scheduling it is the owner's approval. Instagram stays automated (phase 2).
 
 | Step | Contacts | Personal data | Status |
 |---|---|---|---|
 | `plan.py` — the week: results (P5) · ballot run-up from the Monday 41 days before (P4) · 100-day spotlight for every collecting initiative/referendum, monthly pipeline (P3) · session summary, seats changed, daily votes (P2) · evergreen fill in a strict order with cooldowns and a weekly cap per kind (P1) | nothing (reads `data/`; daily votes read the `ticker-data` branch with `git show`) | none | ✅ quiet period: in the 10 days before a ballot only the reminder goes out about it (POL-09) |
 | `cards.py` — one builder per post type, one language per post | nothing | group tallies only (PRIV-13); no names of private people | ✅ every data value escaped; all proposals of a ballot in one post (POL-01); outcomes as the official data states them; Parliament votes complete and in the official order (POL-16); Parliament data credited with its download time (SRC-12); DeepL and Politikch translations badged (POL-13); every card shows the language's domain and "not an official government site" (POL-10) |
 | `render.py` — HTML to PNG with the installed Chrome (Playwright, `scripts/requirements-social.txt`) | nothing (local files only: the site's own fonts and `cards.css`) | none | ✅ |
+| `pack.py` (run by `Prepare Social Week.command`, whose `git pull` is the one contact) — the coming week's X posts in `social-out/x-pack/<monday>/pack.html`, per language, with images and text | nothing (the page loads nothing from outside; ticks stay in the owner's browser) | none | ✅ planned once, so scheduled posts stay right; weekend planning never uses data that isn't in yet: results are added after Monday's data job and Monday stays free for them, a session summary waits for the session's last day, daily votes and corrections are left out; at most 4 images, and a longer post goes as its summary page or is held for the owner, never cut (POL-01/16); warns about draft wording and maintenance mode, and such a pack is practice only (no cooldowns move on) |
 | `check.py` → `check_social()` | nothing | — | ✅ wording parity in all four languages, the site's disclaimer word for word, no "live"/"official" claims, DeepL badge present, no network code or URL hosts in `scripts/social/` until phase 2 |
 | `test_social.py` — replays real weeks (27 Sept 2026 results, autumn session, run-up to 29 Nov 2026, quiet summer week) | nothing | — | ✅ |
 

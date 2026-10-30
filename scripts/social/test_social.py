@@ -17,11 +17,13 @@ import datetime as dt
 import json
 import re
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import cards  # noqa: E402
+import pack as pack_mod  # noqa: E402
 import plan  # noqa: E402
 import sitedata as sd  # noqa: E402
 
@@ -192,6 +194,154 @@ class Wording(unittest.TestCase):
         i18n = sd.site()["i18n"]
         for lang in sd.LANGS:
             self.assertIn(sd.S(lang)["disclaimer"], i18n[lang]["news.copy"])
+
+
+class Pack(unittest.TestCase):
+    """The weekend X pack: nothing planned from data that isn't in yet, and a pack that stays as it is."""
+
+    def weekend(self, monday, state=None):
+        return plan.plan_week(D(monday), state if state is not None else {}, weekend=True)
+
+    def test_results_left_out_and_monday_free(self):
+        slots = self.weekend("2026-09-28")
+        self.assertFalse([s for s in slots if s.item.type == "results"])
+        self.assertFalse([s for s in slots if s.day == D("2026-09-28")])
+
+    def test_results_added_once_with_every_proposal(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            pack = {"monday": "2026-09-28", "posts": []}
+            self.assertTrue(pack_mod.add_results(D("2026-09-28"), pack, Path(tmp), None))
+            self.assertFalse(pack_mod.add_results(D("2026-09-28"), pack, Path(tmp), None))
+            r = pack["posts"][0]
+            self.assertEqual((r["day"], r["time"], r["type"]), ("2026-09-28", plan.RESULTS_TIME, "results"))
+            self.assertEqual(len(pack["posts"]), 1)
+
+    def test_no_results_on_an_ordinary_week(self):
+        self.assertIsNone(plan.results_item(D("2026-10-05")))
+
+    def test_summary_waits_for_the_last_day(self):
+        self.assertFalse([s for s in self.weekend("2026-10-05") if s.item.type == "session_summary"])
+        r = [s for s in self.weekend("2026-10-12") if s.item.type == "session_summary"]
+        self.assertEqual([s.day for s in r], [D("2026-10-13")])
+        self.assertFalse([s for s in self.weekend("2026-10-12", {"posted": {"session:5215": "2026-10-13"}})
+                          if s.item.type == "session_summary"])
+
+    def test_quiet_period_kept(self):
+        for s in self.weekend("2026-11-23"):
+            if s.item.args.get("ballot"):
+                self.assertTrue(s.item.args.get("sunday"), s.item.key)
+
+    def test_at_most_four_images_and_the_text_fits(self):
+        state = {}
+        for monday in ("2026-10-19", "2026-10-26", "2026-11-02", "2026-11-09", "2026-11-16", "2026-11-23"):
+            for slot in plan.plan_week(D(monday), state, weekend=True):
+                for lang in sd.LANGS:
+                    ig, x = plan.build(slot.item, lang)
+                    self.assertLessEqual(len(plan.x_pages(x or ig)), 4, slot.item.key)
+                    text, link = plan.x_text(x or ig).rsplit("\n", 1)
+                    self.assertLessEqual(len(text) + 1 + 23, 280, slot.item.key)   # X counts every link as 23
+
+    def test_long_ballot_posts_keep_every_proposal(self):   # POL-01
+        ballot = D("2026-11-29")
+        votes = [sd.site()["votes"][v["id"]] for v in plan.ballots()[ballot]]
+        self.assertGreaterEqual(len(votes), 4)
+        for lang in sd.LANGS:
+            for post in (cards.runup_overview(ballot, votes, lang), cards.runup_money(ballot, votes, lang)):
+                self.assertGreater(len(post.pages), 4)
+                page = plan.x_pages(post)
+                self.assertEqual(len(page), 1)
+                self.assertNotIn('class="pg"', page[0])
+                for v in votes:
+                    self.assertIn(cards.e(sd.vote_title(v, lang)[0]), page[0], (post.type, lang))
+
+    def test_a_post_with_no_summary_page_is_not_cut(self):
+        ballot = D("2026-11-29")
+        votes = [sd.site()["votes"][v["id"]] for v in plan.ballots()[ballot]]
+        post = cards.runup_args(ballot, votes + votes[:1], "de")
+        self.assertEqual(len(post.pages), 5)
+        self.assertIsNone(plan.x_pages(post))
+        with tempfile.TemporaryDirectory() as tmp:
+            item = plan.Item("runup_args", 4, ballot, "runup:test", {"ballot": ballot, "votes": [v["id"] for v in votes + votes[:1]]})
+            made = pack_mod.make_post(plan.Slot(ballot, "07:30", item), Path(tmp), None)
+            self.assertTrue(made["langs"]["de"]["problem"])
+            self.assertEqual(made["langs"]["de"]["images"], [])
+
+    def test_long_summary_goes_as_its_cover(self):   # POL-16: no selection of votes on X
+        sess = next(s for s in sd.site()["sessionsIndex"]["sessions"] if s["id"] == 5215)
+        post = cards.session_summary(sess, "en", per_page=2)
+        self.assertGreater(len(post.pages), 4)
+        page = plan.x_pages(post)[0]
+        self.assertNotIn(cards.e(sd.S("en")["parliament"]["summaryNext"][:20]), page)
+        self.assertIn(">18<", page)
+        self.assertNotIn("colItem", page)
+
+    def test_rebuild_gives_the_same_week_and_state_moves_once(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state = root / "state.json"
+            state.write_text("{}", "utf-8")
+            folder = root / "2026-11-02"
+            folder.mkdir()
+            first = pack_mod.build_week(D("2026-11-02"), folder, None, state)
+            again = pack_mod.build_week(D("2026-11-02"), folder, None, state)
+            self.assertTrue(first)
+            self.assertEqual(first, again)
+            self.assertEqual(json.loads((folder / "state-before.json").read_text("utf-8")), {})
+            self.assertIn(first[0]["key"], json.loads(state.read_text("utf-8"))["posted"])
+
+    def test_an_older_week_doesnt_move_the_state_back(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state = root / "state.json"
+            for monday in ("2026-11-09", "2026-11-02"):
+                (root / monday).mkdir()
+            pack_mod.build_week(D("2026-11-09"), root / "2026-11-09", None, state)
+            (root / "2026-11-09" / "posts.json").write_text("{}", "utf-8")
+            kept = state.read_text("utf-8")
+            pack_mod.build_week(D("2026-11-02"), root / "2026-11-02", None, state)
+            self.assertEqual(state.read_text("utf-8"), kept)
+
+    def test_practice_moves_no_cooldowns_on(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state = root / "state.json"
+            (root / "2026-11-02").mkdir()
+            pack_mod.build_week(D("2026-11-02"), root / "2026-11-02", None, state, practice=True)
+            self.assertFalse(state.exists())
+
+    def test_which_week(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.assertEqual(pack_mod.target_week(D("2026-10-31"), root), D("2026-11-02"))   # Saturday
+            self.assertEqual(pack_mod.target_week(D("2026-11-01"), root), D("2026-11-02"))   # Sunday
+            self.assertEqual(pack_mod.target_week(D("2026-09-28"), root), D("2026-09-28"))   # Monday after a ballot
+            (root / "2026-09-28").mkdir()
+            (root / "2026-09-28" / "posts.json").write_text(json.dumps({"posts": [{"type": "results"}]}), "utf-8")
+            self.assertEqual(pack_mod.target_week(D("2026-09-28"), root), D("2026-10-05"))   # results are in
+
+    def test_page(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            pack = {"monday": "2026-11-02", "posts": pack_mod.build_week(D("2026-11-02"), folder, None, folder / "state.json")}
+            pack["posts"][0]["langs"]["de"]["text"] = "<script>alert(1)</script>"
+            html = pack_mod.page_html(D("2026-11-02"), pack, folder, site_offline=True)
+            self.assertNotIn("<script>alert", html)
+            self.assertIn("maintenance mode", html)
+            for lang in sd.LANGS:
+                self.assertIn(f'id="{lang}"', html)
+                self.assertEqual(html.count(f'lang="{lang}" aria-label'), len(pack["posts"]))
+            self.assertNotIn("http", html.replace("http-equiv", ""))   # the page itself loads nothing from outside
+
+    def test_draft_wording_is_shown(self):
+        pack = {"posts": []}
+        warn, _ = pack_mod.notices(D("2026-11-02"), pack, False)
+        self.assertEqual(bool(warn), not sd.strings().get("_approved"))
+
+    def test_results_notice(self):
+        _, note = pack_mod.notices(D("2026-09-28"), {"posts": []}, False)
+        self.assertTrue([n for n in note if "Results" in n])
+        _, note = pack_mod.notices(D("2026-09-28"), {"posts": [{"type": "results"}]}, False)
+        self.assertFalse([n for n in note if "Results" in n])
 
 
 if __name__ == "__main__":

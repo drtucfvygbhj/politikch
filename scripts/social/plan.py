@@ -12,6 +12,11 @@ Run-up, for a ballot on Sunday B (the official documents come out about six
 weeks before):  B-41 overview + Yes/No pages (Mon) · B-34 recommendations (Tue) ·
 B-27 arguments (Wed) · B-20 campaign money (Thu) · B-6 reminder (Mon).
 Quiet period (POL-09): in the 10 days before B only the reminder goes out for B.
+
+X is scheduled by hand on the weekend before the week (pack.py), before Monday's
+data job, so plan_week(weekend=True) never plans from data that isn't in yet:
+results are left out and Monday stays free for them, and a session summary waits
+until the session's last day is in the data.
 """
 from __future__ import annotations
 
@@ -23,6 +28,7 @@ import sitedata as sd
 
 WEEKDAY_SLOTS = ["07:30", "12:15"]
 WEEKEND_SLOTS = ["10:00"]
+RESULTS_TIME = "14:00"     # X only: Monday after a ballot, once the data job is through
 QUIET_DAYS = 10
 COOLDOWN = {"how": 182, "party": 182, "glossary": 365, "canton": 365, "history": 300}
 # At most this many posts of one evergreen kind per week, so a quiet week doesn't
@@ -66,15 +72,34 @@ def ballots():
     return out
 
 
-def events(monday, state):
+def results_item(monday):
+    """The results of yesterday's ballot, once every proposal has its outcome (POL-01)."""
+    yesterday = monday - dt.timedelta(days=1)
+    votes = ballots().get(yesterday, [])
+    decided = [v for v in votes if sd.outcome(v, "en")[1] is not None]
+    if decided and len(decided) == len(votes):
+        return Item("results", 5, monday, f"results:{yesterday}", {"votes": [v["id"] for v in decided]})
+    return None
+
+
+def summary_due(sess, monday, state, weekend):
+    """Tuesday after a session. Planned on a weekend, it waits for the session's last day to be in the data."""
+    end = dt.date.fromisoformat(sess["end"])
+    if not weekend:
+        return monday - dt.timedelta(days=7) <= end < monday
+    return (monday - dt.timedelta(days=21) <= end < monday - dt.timedelta(days=7)
+            and f"session:{sess['id']}" not in state.get("posted", {})
+            and sd.session(sess["id"])["_meta"]["fetchedAt"][:10] > sess["end"])
+
+
+def events(monday, state, weekend=False):
     days, sunday = week_days(monday), monday + dt.timedelta(days=6)
     items = []
     B = ballots()
     # 5 · results of yesterday's ballot
-    yesterday = monday - dt.timedelta(days=1)
-    decided = [v for v in B.get(yesterday, []) if sd.outcome(v, "en")[1] is not None]
-    if decided and len(decided) == len(B.get(yesterday, [])):
-        items.append(Item("results", 5, monday, f"results:{yesterday}", {"votes": [v["id"] for v in decided]}))
+    results = None if weekend else results_item(monday)
+    if results:
+        items.append(results)
     # 4 · ballot run-up
     for ballot, votes in sorted(B.items()):
         ids = [v["id"] for v in votes]
@@ -96,8 +121,7 @@ def events(monday, state):
         items.append(Item("pipeline", 3, friday, f"pipeline:{friday:%Y-%m}", {"on": friday}))
     # 2 · session summary on the Tuesday after a session ends
     for sess in sd.site()["sessionsIndex"]["sessions"]:
-        end = dt.date.fromisoformat(sess["end"])
-        if monday - dt.timedelta(days=7) <= end < monday and sess.get("voteCount"):
+        if summary_due(sess, monday, state, weekend) and sess.get("voteCount"):
             items.append(Item("session_summary", 2, monday + dt.timedelta(days=1), f"session:{sess['id']}", {"session": sess["id"]}))
     # 2 · seats changed (only when they do)
     now = {k: p.get("ncSeats", 0) for k, p in sd.site()["parties"]["parties"].items()}
@@ -173,12 +197,13 @@ def evergreen(day, posted, used=None):
 
 
 # ---------------------------------------------------------------- the week
-def plan_week(monday, state, extra=()):
-    """The week's slots. `extra` = same-day items (daily votes, a correction)."""
+def plan_week(monday, state, extra=(), weekend=False):
+    """The week's slots. `extra` = same-day items (daily votes, a correction).
+    `weekend` = planned before Monday's data job (see the top of this file)."""
     assert monday.weekday() == 0, "the planner runs for a week starting on Monday"
     posted = dict(state.get("posted", {}))
     taken, slots = set(), []
-    planned = list(events(monday, state))
+    planned = list(events(monday, state, weekend))
     evs = sorted(planned + list(extra), key=lambda i: (i.day, -i.priority))
     for it in evs:
         for day in [d for d in week_days(monday) if d >= it.day]:
@@ -190,8 +215,9 @@ def plan_week(monday, state, extra=()):
                 break
     quiet = len(planned) <= 1      # same-day posts (daily votes, corrections) don't make a week busy
     used = {}
+    held = {monday} if weekend and monday - dt.timedelta(days=1) in ballots() else set()
     for day in week_days(monday):
-        if day.weekday() < 4 and not quiet:
+        if (day.weekday() < 4 and not quiet) or day in held:
             continue
         first = slots_for(day)[0]
         if (day, first) in taken:
@@ -247,6 +273,14 @@ def build(item, lang):
     if t == "correction":
         return cards.correction(a["info"], lang), None
     raise ValueError(f"unknown post type {t}")
+
+
+def x_pages(post):
+    """The pages for X, which takes 4 images: a longer post goes as its summary page,
+    or not at all if it has none (every proposal stays in the post, POL-01)."""
+    if len(post.pages) <= 4:
+        return post.pages
+    return [post.x_single] if post.x_single else None
 
 
 def x_text(post):

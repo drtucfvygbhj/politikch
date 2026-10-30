@@ -41,6 +41,7 @@ class Post:
     caption: str
     pages: list = field(default_factory=list)
     x: bool = False           # 16:9 image for X instead of an Instagram carousel
+    x_single: str = ""        # one page that can stand for the whole post on X (4 images at most)
 
     @property
     def url(self):
@@ -223,7 +224,7 @@ def runup_overview(ballot, votes, lang, sunday=False):
     src = src_line(lang, "chancellery", "swissvotes", asof=data_date())
     return Post("runup_overview", f"runup:{ballot}:{'sunday' if sunday else 'w6'}", "runup", lang, route,
                 caption(lang, "runupOverview", f"{s['domain']}/#/{route}", date=sd.date_long(ballot, lang)),
-                paginate(lang, "runup", bodies, src))
+                paginate(lang, "runup", bodies, src), x_single=frame(lang, "runup", bodies[0], src))
 
 
 def runup_recs(ballot, votes, lang):
@@ -325,7 +326,7 @@ def runup_money(ballot, votes, lang):
     src = src_line(lang, "sfao", fetched=sd.fetched(fin["_meta"]["fetchedAt"], lang))
     return Post("runup_money", f"runup:{ballot}:money", "runup", lang, route,
                 caption(lang, "runupMoney", f"{s['domain']}/#/{route}", date=sd.date_long(ballot, lang)),
-                paginate(lang, "runup", bodies, src))
+                paginate(lang, "runup", bodies, src), x_single=frame(lang, "runup", bodies[0], src))
 
 
 # ---------------------------------------------------------------- 3 Initiatives & referendums
@@ -406,9 +407,9 @@ def session_summary(sess, lang, per_page=6):
     cover = (f'<div class="kicker">{e(session_name(sess, lang))} · {sd.date_num(dt.date.fromisoformat(sess["start"]))} – {sd.date_num(dt.date.fromisoformat(sess["end"]))}</div>'
              f'<div style="display:flex;align-items:flex-end;gap:30px"><div class="big" style="font-size:240px">{len(votes)}</div>'
              f'<h1 class="h" style="font-size:60px;padding-bottom:28px">{e(P["finalVotes"])}</h1></div>'
-             f'<div class="rule" style="padding-top:22px"><p class="p" style="font-size:25px">{e(P["summaryText"])}</p></div>'
-             f'<p class="p muted" style="margin-top:auto;font-size:21px">{e(fill(P["summaryNext"], n=len(votes)))}</p>')
-    bodies, any_mt = [cover], False
+             f'<div class="rule" style="padding-top:22px"><p class="p" style="font-size:25px">{e(P["summaryText"])}</p></div>')
+    next_pages = f'<p class="p muted" style="margin-top:auto;font-size:21px">{e(fill(P["summaryNext"], n=len(votes)))}</p>'
+    bodies, any_mt = [cover + next_pages], False
     for i in range(0, len(votes), per_page):
         chunk = votes[i:i + per_page]
         rows = ""
@@ -427,7 +428,7 @@ def session_summary(sess, lang, per_page=6):
     src = src_line(lang, "parliament", fetched=sd.fetched(data["_meta"]["fetchedAt"], lang), extra=s["mtNote"] if any_mt else "")
     return Post("session_summary", f"session:{sess['id']}", "parliament", lang, route,
                 caption(lang, "sessionSummary", f"{s['domain']}/#/{route}", session=session_name(sess, lang), n=len(votes)),
-                paginate(lang, "parliament", bodies, src))
+                paginate(lang, "parliament", bodies, src), x_single=frame(lang, "parliament", cover, src))
 
 
 def daily_votes(day, lang, per_page=8):

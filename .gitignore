@@ -39,5 +39,6 @@ admin/.backup/
 # local replays (scripts/fetch_session_ticker.py --date …) stay out of main.
 data/sessions/days/
 
-# Social cards rendered by scripts/social/dry_run.py (local review only, never committed)
+# Social cards rendered by scripts/social/ (local only, never committed) and their renderer
 social-out/
+.venv-social/

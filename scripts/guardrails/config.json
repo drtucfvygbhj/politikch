@@ -163,7 +163,8 @@
       ["images/*", ["LIC-01", "POL-10", "PRIV-09"]],
       ["admin/server.py", ["PROC-02"]],
       ["scripts/social/strings.json", ["POL-05", "POL-13"]],
-      ["scripts/social/**", ["POL-13"]]
+      ["scripts/social/**", ["POL-13"]],
+      ["Prepare Social Week.command", ["POL-13", "SEC-10"]]
     ],
     "reviewOnly": ["js/app.js", "js/map-data.js", "css/*", "index.html", "404.html", "maintenance.html", "robots.txt", "data/*.json", "data/sessions/*", "data/overviews/**", "data/municipalities/*", "data/brochures/README.md", "*.md", "scripts/validate.py", "scripts/check_translations.py", "guides", ".gitignore", ".claude/launch.json", "Start Politikch.command", "CLAUDE.md", "TRANSLATIONS_TODO.md", "js/news.js", "js/design.js", "js/site-settings.js", "js/site-images.js", "admin/index.html", "admin/admin.js", "admin/admin.css", "Start Admin.command", "js/glossary.js", "js/select-tools.js", "js/report.js"]
   }
