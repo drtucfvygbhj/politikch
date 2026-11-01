@@ -201,8 +201,18 @@ export function mountNewsChrome() {
   wireTooltips();
   wireTicker();
   fitTitle();
-  window.addEventListener('resize', fitTitle);
-  if (document.fonts) document.fonts.ready.then(fitTitle);
+  window.addEventListener('resize', () => { fitTitle(); fitMenu(); });
+  if (document.fonts) document.fonts.ready.then(() => { fitTitle(); fitMenu(); });
+}
+
+// The menu stays a row while all of it fits in this language; otherwise the
+// hamburger beside the profile link opens it instead.
+function fitMenu() {
+  const head = document.getElementById('news-header'), nav = document.getElementById('n-nav'), menu = document.getElementById('n-menu');
+  if (!head || !menu) return;
+  head.classList.remove('n-burger');
+  const need = [...menu.children].reduce((w, li) => w + li.offsetWidth + 6, 0);
+  head.classList.toggle('n-burger', need > nav.clientWidth);
 }
 
 // The nameplate can be stretched in the admin (--n-titleSX / --n-titleSY). A CSS
@@ -276,7 +286,7 @@ export async function renderNewsChrome() {
   document.getElementById('n-date').textContent = line;
   document.getElementById('n-langs').innerHTML = langButtons();
   document.getElementById('n-tag').textContent = t('news.tagline');
-  document.getElementById('n-menu-btn').textContent = t('news.menu');
+  document.getElementById('n-menu-btn').setAttribute('aria-label', t('news.menu'));
   document.getElementById('n-acct-t').textContent = t('nav.profile');
 
   // Menu: categories with their sub-categories (shown on hover / focus)
@@ -287,6 +297,7 @@ export async function renderNewsChrome() {
       `<div class="n-sub${escapeAttr(size)}" id="n-sub-${escapeAttr(n)}"><div class="n-sub-h">${escapeAttr(cat.title)}</div><ul>` +
       cat.items.map(it => '<li>' + linkHTML(it) + '</li>').join('') + '</ul></div></li>';
   }).join('');
+  fitMenu();
 
   renderTicker(L);
   renderFooter(model);

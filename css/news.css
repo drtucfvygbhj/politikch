@@ -49,10 +49,13 @@ html[data-design="1.1"] .n-search .search-results { border-radius: 0; right: 0; 
 
 /* ---- menu with sub-categories ---- */
 .n-nav { border-bottom: 1px solid var(--n-rule-c); position: relative; z-index: 50; }
-.n-menu-btn { display: none; }
+.n-menu-btn { display: none; flex: none; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; background: none; border: 0; color: var(--n-ink); cursor: pointer; }
+.n-menu-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.n-menu-btn:hover { color: var(--n-accent); }
+.n-menu-btn:focus-visible { outline: 2px solid var(--n-accent); outline-offset: 1px; }
 .n-menu { list-style: none; display: flex; justify-content: center; gap: 6px; margin: 0; padding: 0; }
-.n-top { position: relative; }
-.n-cat { display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; padding: 13px 16px; border-bottom: 2px solid transparent; text-decoration: none; }
+.n-top { position: relative; flex: none; }
+.n-cat { display: block; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; white-space: nowrap; padding: 13px 16px; border-bottom: 2px solid transparent; text-decoration: none; }
 .n-top:hover > .n-cat, .n-top:focus-within > .n-cat { color: var(--n-accent); border-bottom-color: var(--n-accent); }
 .n-sub { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); min-width: 240px; background: #fff; border-top: 2px solid var(--n-ink);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); padding: 14px 18px 16px; visibility: hidden; opacity: 0; transition: opacity 0.15s 0.08s, visibility 0s 0.23s; text-align: left; }
@@ -67,6 +70,20 @@ html[data-design="1.1"] .n-search .search-results { border-radius: 0; right: 0; 
 .n-top:first-child .n-sub { left: 0; transform: none; }
 .n-live { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--n-live); margin-left: 6px; vertical-align: 2px; animation: n-blink 1.2s ease-in-out infinite; }
 @keyframes n-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }
+
+/* The whole menu doesn't fit in this language (fitMenu in news.js): the hamburger
+   by the profile link opens it under the masthead instead. */
+.n-burger .n-menu-btn { display: inline-flex; }
+.n-burger .n-nav { border-bottom: 0; }
+.n-burger .n-nav.open { border-bottom: 1px solid var(--n-rule-c); }
+.n-burger .n-menu { display: none; flex-direction: column; gap: 0; padding: 4px 0 12px; }
+.n-burger .n-nav.open .n-menu { display: flex; }
+.n-burger .n-cat { padding: 10px 0 4px; border: 0; }
+.n-burger .n-sub, .n-burger .n-top:last-child .n-sub, .n-burger .n-top:nth-last-child(2) .n-sub, .n-burger .n-top:first-child .n-sub { position: static; transform: none; visibility: visible; opacity: 1; box-shadow: none; border: 0; padding: 0 0 8px; min-width: 0; }
+.n-burger .n-sub-h { display: none; }
+.n-burger .n-sub.mid, .n-burger .n-sub.wide { min-width: 0; }
+.n-burger .n-sub.mid ul, .n-burger .n-sub.wide ul { columns: 2; }
+.n-burger .n-sub li a { white-space: normal; }
 
 /* ---- live row ---- */
 .n-ticker { display: flex; align-items: stretch; border-bottom: 1px solid var(--n-rule-c); font-size: 12px; }
@@ -490,23 +507,16 @@ html[data-design="1.1"] .votes-open-btn { border-radius: 2px !important; }
 /* ---- phones and small tablets ---- */
 @media (max-width: 900px) {
   .n-wrap { padding: 0 16px; }
-  .n-topline { flex-wrap: wrap; }
-  .n-date { width: 100%; }
-  .n-tools { width: 100%; justify-content: space-between; }
-  html[data-design="1.1"] .n-search .nav-search-input { width: 100%; min-width: 0; }
-  .n-search { flex: 1; min-width: 0; max-width: 60%; }
+  /* One line while it all fits; the date takes its own line when it doesn't. */
+  .n-topline { flex-wrap: wrap; gap: 8px 16px; }
+  .n-tools { flex: 1 1 320px; min-width: 0; justify-content: flex-end; gap: 10px; }
+  html[data-design="1.1"] .n-search .nav-search { flex: 1 1 auto; }
+  html[data-design="1.1"] .n-search .nav-search, html[data-design="1.1"] .n-search .nav-search-input { width: 100%; max-width: none; min-width: 0; }
+  .n-search { flex: 1 1 150px; min-width: 0; max-width: 220px; }
+  /* The wide drop-down (cantons) spans the page width here, so it can't run off the edge. */
+  .n-top:has(.n-sub.wide) { position: static; }
+  .n-sub.wide { left: 0; right: 0; transform: none; min-width: 0; }
   .n-name { font-size: min(var(--n-titleSize, 58px), 11vw); }
-  .n-menu-btn { display: block; width: 100%; background: none; border: 0; font: inherit; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 11px 0; text-align: left; cursor: pointer; color: var(--n-ink); }
-  .n-menu-btn::after { content: ' +'; }
-  .n-nav.open .n-menu-btn::after { content: ' –'; }
-  .n-menu { display: none; flex-direction: column; gap: 0; padding-bottom: 12px; }
-  .n-nav.open .n-menu { display: flex; }
-  .n-cat { padding: 10px 0 4px; border: 0; }
-  .n-sub, .n-top:last-child .n-sub, .n-top:nth-last-child(2) .n-sub, .n-top:first-child .n-sub { position: static; transform: none; visibility: visible; opacity: 1; box-shadow: none; border: 0; padding: 0 0 8px; min-width: 0; }
-  .n-sub-h { display: none; }
-  .n-sub.mid, .n-sub.wide { min-width: 0; }
-  .n-sub.mid ul, .n-sub.wide ul { columns: 2; }
-  .n-sub li a { white-space: normal; }
   .n-col { padding: 0 !important; border: none !important; }
   .n-story.lead .n-hl { font-size: 32px; } .n-hl { font-size: 26px; } .n-hl.long, .n-story.lead .n-hl.long { font-size: 23px; }
   .n-parl { grid-template-columns: 1fr; } .n-big { font-size: 22px; }
