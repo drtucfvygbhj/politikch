@@ -8,7 +8,7 @@
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const LANGS = ['en', 'de', 'fr', 'it', 'rm'];
   const SLIDERS = [   // [key, label, step, unit, group]
-    ['left', 'Left column', 0.25, '', 'sliders'], ['centre', 'Centre column', 0.25, '', 'sliders'], ['right', 'Right column', 0.25, '', 'sliders'],
+    ['left', 'Story: title part', 0.25, '', 'sliders'], ['centre', 'Story: image part', 0.25, '', 'sliders'], ['right', 'Side column', 0.25, '', 'sliders'],
     ['gutter', 'Space beside the column lines', 1, 'px', 'sliders'], ['sectionGap', 'Space between sections', 1, 'px', 'sliders'],
     ['maxWidth', 'Page width', 10, 'px', 'sliders'], ['rule', 'Section line thickness', 1, 'px', 'sliders'], ['baseSize', 'Base text size', 1, 'px', 'sliders'],
     ['mastPad', 'Size of the title section', 1, 'px', 'title-sliders'], ['titleSize', 'Title text size', 1, 'px', 'title-sliders'],

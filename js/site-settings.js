@@ -6,14 +6,14 @@ window.PCH_SETTINGS = {
   "design": "1.1",
   "fonts": {
     "headline": "playfair",
-    "body": "playfair"
+    "body": "dmsans"
   },
   "layout": {
-    "left": 1.0,
-    "centre": 2.0,
-    "right": 1.0,
-    "gutter": 8,
-    "sectionGap": 8,
+    "left": 0.75,
+    "centre": 1.75,
+    "right": 0.75,
+    "gutter": 28,
+    "sectionGap": 32,
     "maxWidth": 1800,
     "rule": 2,
     "baseSize": 15,

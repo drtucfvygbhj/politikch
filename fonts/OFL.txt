@@ -5,6 +5,8 @@ Version 1.1.
     (https://github.com/clauseggers/Playfair-Display)
   - DM Sans — Copyright © the DM Sans Project Authors
     (https://github.com/googlefonts/dm-fonts)
+  - Gloock — Copyright 2022 The Gloock Project Authors
+    (https://github.com/duartp/gloock)
 
 Full license text: https://openfontlicense.org  (SIL OFL 1.1)
 

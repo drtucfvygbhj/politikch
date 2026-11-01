@@ -458,11 +458,10 @@ function sessionVoteTitle(v) {
 
 /* ---- block ids ----
    Every front-page block carries data-pos="<id>" so the admin can rearrange
-   them (Edit positioning); the order is kept in PCH_SETTINGS.positions. The
-   three parts of one proposal's story share an id and move together. */
+   them (Edit positioning); the order is kept in PCH_SETTINGS.positions. */
 function pos(id, html) { return html.replace(/^<(\w+)/, (m, tag) => '<' + tag + ' data-pos="' + escapeAttr(id) + '"'); }
 
-/* ---- centre: one story per proposal on the next ballot ---- */
+/* ---- main column: one story per proposal on the next ballot ---- */
 function storyImage(i, n) {
   const img = window.PCH_IMAGES || {};
   const lib = img.library || {};
@@ -499,19 +498,20 @@ function moneyFig(i) {
     `<div data-k="against" class="n-right"><span class="n-lbl" style="color:${escapeAttr(NO)}">${escapeAttr(t('news.against'))}</span><span class="n-big">${escapeAttr(money(cv))}</span></div></div>` +
     `<a class="n-bar tall" href="#/initiative/${escapeAttr(i.id)}"><span data-k="for" data-ntip="${escapeAttr(t('news.for') + ': ' + money(pv))}" style="flex:${escapeAttr(pv)};background:${escapeAttr(YES)}"></span>` +
     `<span data-k="against" data-ntip="${escapeAttr(t('news.against') + ': ' + money(cv))}" style="flex:${escapeAttr(cv)};background:${escapeAttr(NO)}"></span></a>` +
-    `<div class="n-split n-meta"><span data-k="for">${escapeAttr(side(p))}</span><span data-k="against">${escapeAttr(side(c))}</span></div>` +
-    `<p class="n-src">${escapeAttr(t('news.money.src'))}</p></div>`;
+    `<div class="n-split n-meta"><span data-k="for">${escapeAttr(side(p))}</span><span data-k="against">${escapeAttr(side(c))}</span></div></div>`;
 }
 
 function parlFig(i, files) {
   const link = C.parliamentLink(i);
   const file = link && files[link.session];
   const v = file && (file.votes || []).find(x => x.id === link.vote);
-  return v ? parlFigHTML(i, v) : '';
+  return v ? parlFigHTML(i, v, true) : '';
 }
 // "What Parliament decided" for proposal i and its linked National Council
-// final vote v: the vote as a hemicycle, the tally and what a yes means.
-export function parlFigHTML(i, raw) {
+// final vote v: the vote as a hemicycle, the tally and what a yes means. brief
+// (front page) leaves out that note and keeps only the source with its download
+// time (SRC-12); the proposal's own page shows both in full.
+export function parlFigHTML(i, raw, brief) {
   // A decree on an initiative is counted for / against the initiative (see
   // voteFrame in app.js); anything else is Yes / No to the act.
   const f = C.voteFrame(raw);
@@ -546,22 +546,24 @@ export function parlFigHTML(i, raw) {
     `<span data-k="v-abstain"><b>${escapeAttr(tly.abstain || 0)}</b> ${escapeAttr(t('news.tally.abst'))}</span></div>` +
     (f.initiative && raw.passed ? `<p class="n-rec">${escapeAttr(res.text)}</p>` : '') +
     legend([['v-yes', YES, yesL], ['v-no', NO, noL], ['v-abstain', '#fff;box-shadow:inset 0 0 0 1px #8a877e', t('news.tally.abst')], ['v-absent', ABSENT, t('news.absent')]]) +
-    `<p class="n-note">${escapeAttr(note)}</p></div></div>` +
-    `<p class="n-src">${escapeAttr(tf(f.initiative ? 'news.parl.srcInit' : 'news.parl.src', { date: longDate(v.voteEnd), fetched: C.formatFetched(C.voteFetchedAt(raw)) }))}</p></div>`;
+    (brief ? '' : `<p class="n-note">${escapeAttr(note)}</p>`) + '</div></div>' +
+    `<p class="n-src">${escapeAttr(brief ? tf('share.src.votes', { fetched: C.formatFetched(C.voteFetchedAt(raw)) }) : tf(f.initiative ? 'news.parl.srcInit' : 'news.parl.src', { date: longDate(v.voteEnd), fetched: C.formatFetched(C.voteFetchedAt(raw)) }))}</p></div>`;
 }
 
 function stories(nb, files) {
   if (!nb) return [];
   const out = [];
+  // Wide: title and Parliament's vote on the left, the image and the rest beside
+  // them. Narrow: one column, in the order set in css/news.css.
   nb.items.forEach((i, n) => {
     const d = dayDiff(i.voteDate);
     const kind = t(i.type === 'initiative' ? 'type.initiative' : 'type.referendum');
-    out.push(pos('story:' + i.id, `<article class="n-blk n-story${escapeAttr(n === 0 ? ' lead' : '')}"><div class="n-kicker">${escapeAttr(t('news.tick.vote') + ' · ' + longDate(i.voteDate) + ' · ' + inDays(d))} <span class="n-dim">· ${escapeAttr(kind)}</span></div>` +
-      `<h2 class="n-hl${escapeAttr(C.initTitlePlain(i).length > 70 ? ' long' : '')}"><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h2>' + storyImage(i, n) + '</article>'));
-    out.push(pos('story:' + i.id, '<div class="n-blk n-part">' + moneyFig(i) + '</div>'));
     const parl = parlFig(i, files);
-    out.push(pos('story:' + i.id, '<div class="n-blk n-part end">' + (parl ? '<div class="n-no-phone">' + parl + '</div>' : '') +
-      `<a class="n-more" href="#/initiative/${escapeAttr(i.id)}">${escapeAttr(t('news.more'))}</a></div>`));
+    out.push(pos('story:' + i.id, `<article class="n-blk n-story${escapeAttr(n === 0 ? ' lead' : '')}"><div class="n-story-l"><div class="n-story-head"><div class="n-kicker">${escapeAttr(t('news.tick.vote') + ' · ' + longDate(i.voteDate) + ' · ' + inDays(d))} <span class="n-dim">· ${escapeAttr(kind)}</span></div>` +
+      `<h2 class="n-hl${escapeAttr(C.initTitlePlain(i).length > 70 ? ' long' : '')}"><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h2></div>' +
+      (parl ? '<div class="n-story-parl n-no-phone">' + parl + '</div>' : '') + '</div>' +
+      '<div class="n-story-r"><div class="n-story-img">' + storyImage(i, n) + '</div><div class="n-story-data">' + moneyFig(i) + '</div>' +
+      `<div class="n-story-more"><a class="n-more" href="#/initiative/${escapeAttr(i.id)}">${escapeAttr(t('news.more'))}</a></div></div></article>`));
   });
   // The note names the ordering rule only while the stories follow it; once the
   // order has been changed in the admin it no longer claims one (POL-12).
@@ -615,6 +617,13 @@ function watchTickerStrip() {
   }, 5 * 60 * 1000);
 }
 
+// A list title cut to two lines. Its label (machine translation, unofficial,
+// language) stays outside the cut so it is always visible (POL-13).
+function clampedTitle(href, html) {
+  const at = html.search(/<(span class="(unofficial|mt)-badge|abbr )/);
+  return `<h4><a class="n-clamp" href="${escapeAttr(href)}">` + (at < 0 ? html : html.slice(0, at)) + '</a>' + (at < 0 ? '' : html.slice(at)) + '</h4>';
+}
+
 function leftBlocks(files, last) {
   const out = [];
   const cur = currentSession(sessionsCache);
@@ -641,7 +650,7 @@ function leftBlocks(files, last) {
         const yes = m ? (m[2] === 'yes' ? Number(m[1]) : 100 - Number(m[1])) : null;
         const bar = yes === null ? '' : `<div class="n-bar"><span style="flex:${escapeAttr(yes.toFixed(1))};background:${escapeAttr(YES)}" data-ntip="${escapeAttr(num(yes) + '% ' + t('news.tally.yes'))}"></span><span style="flex:${escapeAttr((100 - yes).toFixed(1))};background:${escapeAttr(NO)}" data-ntip="${escapeAttr(num(100 - yes) + '% ' + t('news.tally.no'))}"></span></div>`;
         const date = voteDateOf(i.id);
-        return `<li class="n-row" data-href="#/initiative/${escapeAttr(i.id)}"><h4 class="n-clamp"><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h4>' + bar +
+        return `<li class="n-row" data-href="#/initiative/${escapeAttr(i.id)}">` + clampedTitle('#/initiative/' + i.id, C.initTitleHTML(i, false)) + bar +
           `<p class="n-meta">${escapeAttr(C.localized(i.outcome) + (date ? ' · ' + longDate(date) : ''))}</p></li>`;
       }).join('') + `</ul><a class="n-more" href="#/ballots/decided">${escapeAttr(t('news.res.all'))}</a></section>`));
   }
@@ -656,7 +665,7 @@ function leftBlocks(files, last) {
       const y = v.tally?.yes || 0, n = v.tally?.no || 0;
       const yl = f.initiative ? f.yes : t('news.tally.yes'), nl = f.initiative ? f.no : t('news.tally.no');
       const result = f.initiative ? C.voteResult(raw).text : t(v.passed ? 'status.adopted' : 'status.rejected');
-      return `<li class="n-row" data-href="#/session/${escapeAttr(last.id)}"><h4 class="n-clamp"><a href="#/session/${escapeAttr(last.id)}">` + sessionVoteTitle(raw) + '</a></h4>' +
+      return `<li class="n-row" data-href="#/session/${escapeAttr(last.id)}">` + clampedTitle('#/session/' + last.id, sessionVoteTitle(raw)) +
         `<div class="n-bar"><span style="flex:${escapeAttr(y)};background:${escapeAttr(YES)}" data-ntip="${escapeAttr(y + ' ' + yl)}"></span><span style="flex:${escapeAttr(n)};background:${escapeAttr(NO)}" data-ntip="${escapeAttr(n + ' ' + nl)}"></span></div>` +
         `<p class="n-meta">${escapeAttr(t('parl.nc') + ' · ' + (f.initiative ? y + ' ' + yl + ', ' + n + ' ' + nl : y + '–' + n) + ' · ' + result + ' · ' + shortDate(v.voteEnd))}</p></li>`;
     }).join('');
@@ -675,7 +684,7 @@ function leftBlocks(files, last) {
   const coll = collecting();
   if (coll.length) {
     out.push(pos('signatures', `<section class="n-blk n-mod"><div class="n-k">${escapeAttr(t('news.sig.k'))}</div><p class="n-meta">${escapeAttr(t('news.sig.meta'))}</p><ul class="n-list">` +
-      coll.slice(0, 5).map(i => `<li class="n-row" data-href="#/initiative/${escapeAttr(i.id)}"><h4><a href="#/initiative/${escapeAttr(i.id)}">` + C.initTitleHTML(i, false) + '</a></h4>' +
+      coll.slice(0, 5).map(i => `<li class="n-row" data-href="#/initiative/${escapeAttr(i.id)}">` + clampedTitle('#/initiative/' + i.id, C.initTitleHTML(i, false)) +
         `<p class="n-meta">${escapeAttr(tf('news.sig.row', { date: longDate(i.deadline), left: daysLeft(dayDiff(i.deadline)) }))}</p></li>`).join('') +
       `</ul><a class="n-more" href="#/ballots/collecting">${escapeAttr(tf('news.sig.all', { n: coll.length }))}</a></section>`));
   }
@@ -694,68 +703,12 @@ function leftBlocks(files, last) {
   return out;
 }
 
-/* ---- right column: the lasting picture ---- */
 function chamberDots(key, chamber) {
   const out = [];
   partyOrder().forEach(k => {
     const n = party(k)[key] || 0;
     for (let x = 0; x < n; x++) out.push({ fill: pColor(k), k: 'p-' + k, tip: pName(k) + ' · ' + tf('news.seats', { n }) + ' · ' + chamber });
   });
-  return out;
-}
-
-function rightBlocks() {
-  const out = [];
-  const order = partyOrder();
-  const leg = (key) => legend(order.filter(k => party(k)[key]).map(k => ['p-' + k, pColor(k), pShort(k) + ' ' + party(k)[key], '#/party/' + k]));
-  out.push(pos('assembly', `<section class="n-blk n-mod" id="news-assembly" data-hl><div class="n-k">${escapeAttr(t('parl.label'))}</div>` +
-    `<h3 class="n-mh n-cs-h"><span>${escapeAttr(t('parl.nc') + ' · ' + tf('news.seats', { n: 200 }))}</span><a class="n-cs-more" href="#/assembly/nc">${escapeAttr(t('news.cs.detail'))}</a></h3>` + '<div class="n-g" data-nshare="' + escapeAttr(shareId(hemiShare('ncSeats', t('parl.nc'), 200, 'assembly/nc'))) + '">' + hemicycle(chamberDots('ncSeats', t('parl.nc')), 8, t('parl.nc')) + '</div>' + leg('ncSeats') +
-    `<h3 class="n-mh n-mt">${escapeAttr(t('parl.cs') + ' · ' + tf('news.seats', { n: 46 }))}</h3>` + '<div class="n-g" data-nshare="' + escapeAttr(shareId(hemiShare('csSeats', t('parl.cs'), 46, 'assembly/cs'))) + '">' + hemicycle(chamberDots('csSeats', t('parl.cs')), 4, t('parl.cs')) + '</div>' + leg('csSeats') +
-    `<p class="n-src">${escapeAttr(t('share.src.parliament'))}</p></section>`));
-
-  const members = (D().council && D().council.members) || [];
-  if (members.length) {
-    const arc = members.map((m, n) => [m, n]).sort((a, b) => (party(a[0].party)?.spectrum?.x ?? 50) - (party(b[0].party)?.spectrum?.x ?? 50));
-    const pres = members.find(m => m.role === 'president');
-    const counts = {};
-    members.forEach(m => { counts[m.party] = (counts[m.party] || 0) + 1; });
-    out.push(pos('council', `<section class="n-blk n-mod" id="news-council" data-hl><div class="n-k">${escapeAttr(t('council.title'))}</div>` +
-      `<h3 class="n-mh n-cs-h"><span>${escapeAttr(pres ? tf('news.fc.h', { name: pres.name }) : t('council.sub'))}</span><a class="n-cs-more" href="#/assembly/fc">${escapeAttr(t('news.cs.detail'))}</a></h3>` +
-      '<div class="n-g" data-nshare="' + escapeAttr(shareId(councilShare('assembly/fc'))) + '">' + hemicycle(arc.map(([m, n]) => ({ fill: pColor(m.party), k: `m-${n} p-${m.party}`, tip: m.name + ' · ' + pShort(m.party) })), 1, t('council.title')) + '</div>' +
-      legend(order.filter(k => counts[k]).map(k => ['p-' + k, pColor(k), pShort(k) + ' ' + counts[k], '#/party/' + k])) +
-      '<ul class="n-plain">' + members.map((m, n) => `<li data-k="m-${escapeAttr(n)} p-${escapeAttr(m.party)}" tabindex="0"><i style="background:${escapeAttr(pColor(m.party))}"></i>${escapeAttr(m.name)}<span>${escapeAttr(pShort(m.party) + (m.role === 'president' ? ' · ' + t('news.president') : ''))}</span></li>`).join('') +
-      `</ul><p class="n-src">${escapeAttr(t('council.source'))}</p></section>`));
-  }
-
-  out.push(pos('spectrum', `<section class="n-blk n-mod" id="news-spectrum" data-hl data-nshare="${escapeAttr(shareId(spectrumShare('assembly/spectrum')))}"><div class="n-k">${escapeAttr(t('spec.title'))}</div>` +
-    `<h3 class="n-mh n-cs-h"><span>${escapeAttr(t('news.sp.h'))}</span><a class="n-cs-more" href="#/assembly/spectrum">${escapeAttr(t('news.cs.detail'))}</a></h3>` +
-    spectrumSVG({}) +
-    `<p class="n-src">${escapeAttr(t('news.sp.src'))} · <a href="#/page/methodology">${escapeAttr(t('footer.method'))}</a></p></section>`));
-
-  const fp = D().financing?.parties || {};
-  const pf = Object.keys(fp).filter(k => party(k) && fp[k].totalRevenue).sort((a, b) => fp[b].totalRevenue - fp[a].totalRevenue);
-  if (pf.length) {
-    const max = fp[pf[0]].totalRevenue;
-    const year = Math.max(...pf.map(k => fp[k].year || 0));
-    const pfShare = shareId(() => ({ kind: 'bars', kicker: tf('news.pf.k', { year }), title: t('news.pf.h'), route: 'financing', source: shareSrc('financing'),
-      rows: pf.map(k => ({ label: pName(k), value: fp[k].totalRevenue, valueText: money(fp[k].totalRevenue), color: pColor(k) })) }));
-    out.push(pos('partyfinances', `<section class="n-blk n-mod" data-hl data-nshare="${escapeAttr(pfShare)}"><div class="n-k">${escapeAttr(tf('news.pf.k', { year }))}</div><h3 class="n-mh"><a href="#/financing">${escapeAttr(t('news.pf.h'))}</a></h3><ul class="n-hbars">` +
-      pf.map(k => `<li><a href="#/party/${escapeAttr(k)}" data-k="p-${escapeAttr(k)}" data-ntip="${escapeAttr(pName(k) + ' · ' + money(fp[k].totalRevenue))}"><span class="n">${escapeAttr(pShort(k))}</span>` +
-        `<span class="b"><i style="width:${escapeAttr((fp[k].totalRevenue / max * 100).toFixed(1))}%;background:${escapeAttr(pColor(k))}"></i></span><span class="v">${escapeAttr(money(fp[k].totalRevenue))}</span></a></li>`).join('') +
-      `</ul><p class="n-src">${escapeAttr(t('news.pf.src'))}</p></section>`));
-  }
-
-  // Canton spotlight: rotates; the map and the first canton are drawn here, the rotator fills later ones.
-  const bounds = mapBounds();
-  out.push(pos('canton', `<section class="n-blk n-mod n-rot" id="n-canton" data-hl data-nshare="${escapeAttr(shareId(() => cantonNow && cantonShare(cantonNow, 'cantons/' + cantonNow)))}"><div class="n-k">${escapeAttr(t('news.cs.k'))}</div><div class="n-tbar" aria-hidden="true"><i></i><b class="n-pz"></b></div>` +
-    `<h3 class="n-mh n-cs-h"><a id="n-c-name" href="#/"></a><a class="n-cs-more" id="n-c-detail" href="#/cantons">${escapeAttr(t('news.cs.detail'))}</a></h3>` +
-    `<svg class="n-chart n-map" viewBox="${escapeAttr(bounds)}" role="group" aria-label="${escapeAttr(t('nav.cantons'))}">` +
-    Object.keys(MAP_PATHS).map(c => `<path d="${escapeAttr(MAP_PATHS[c].d)}" data-c="${escapeAttr(c)}" data-ntip="${escapeAttr(C.localized(D().cantons[c]?.name) || c)}" tabindex="0" role="button" aria-label="${escapeAttr(C.localized(D().cantons[c]?.name) || c)}"/>`).join('') +
-    '</svg><p class="n-meta" id="n-c-meta"></p><div class="n-bar tall" id="n-c-bar"></div><ul class="n-cleg" id="n-c-leg"></ul>' +
-    `<p class="n-src" id="n-c-src"></p></section>`));
-
-  out.push(pos('explainer', `<section class="n-blk n-mod n-rot" id="n-expl"><div class="n-k">${escapeAttr(t('news.ex.k'))}</div><div class="n-tbar" aria-hidden="true"><i></i><b class="n-pz"></b></div>` +
-    '<h3 class="n-mh" id="n-e-title"></h3><p class="n-body" id="n-e-body"></p><p class="n-src" id="n-e-count"></p></section>'));
   return out;
 }
 
@@ -859,13 +812,6 @@ function mapBounds() {
   return boundsCache;
 }
 
-const EXPLAINERS = [
-  ['init.label', 'directDemocracy'], ['type.initiative', 'initiative'], ['type.referendum', 'referendum'],
-  ['news.ex.doubleMajority', 'doubleMajority'], ['news.ex.parole', 'parole'], ['news.ex.stimmfreigabe', 'stimmfreigabe'],
-  ['status.collecting', 'collecting'], ['parl.label', 'federalAssembly'], ['parl.nc', 'nationalCouncil'],
-  ['parl.cs', 'councilOfStates'], ['council.title', 'federalCouncil'], ['news.ex.president', 'president'],
-  ['nav.sessions', 'session'], ['session.votesTitle', 'finalVote'], ['nav.cantons', 'canton'],
-];
 
 // Highlights and share buttons for 1.1 graphics placed on other pages.
 export function wireNewsGraphics(root) { wireHighlights(root); wireNewsShares(root); }
@@ -911,9 +857,9 @@ export async function renderNewsHome() {
   if (tickerIdx) watchTickerStrip();
   if (token !== homeToken) return;          // a newer render (e.g. language change) took over
 
-  const left = leftBlocks(files, last), centre = stories(nb, files), right = rightBlocks();
-  host.innerHTML = '<div class="n-wrap"><div class="n-flow" id="n-flow"><div class="n-band"><div class="n-col n-col-l">' + left.join('') +
-    '</div><div class="n-col n-col-c">' + centre.join('') + '</div><div class="n-col n-col-r">' + right.join('') + '</div></div></div></div>';
+  const side = leftBlocks(files, last), main = stories(nb, files);
+  host.innerHTML = '<div class="n-wrap"><div class="n-flow" id="n-flow"><div class="n-band"><div class="n-col n-col-c">' + main.join('') +
+    '</div><div class="n-col n-col-l">' + side.join('') + '</div></div></div></div>';
   // Each block remembers its own column and place, so the columns can be rebuilt
   // after the page has been one column (phone width) and is wide again.
   host.querySelectorAll('#n-flow .n-col').forEach(col => {
@@ -923,7 +869,6 @@ export async function renderNewsHome() {
   wireHighlights(host);
   wireRows(host);
   wireNewsShares(host);
-  startRotators();
   layout();
 }
 
@@ -973,7 +918,10 @@ function wireTooltips() {
   window.addEventListener('scroll', () => tip.classList.remove('on'), { passive: true });
 }
 
-/* Columns side by side. All three run to the end of the longest one. A shorter
+/* The main column (the stories, blocks marked c) with the side column (l) to its
+   right. The admin's left and centre widths share out the title and image parts
+   of each story, its right width is the side column. Both run to the end of the
+   longest one. A shorter
    column scrolls with the page until its own end reaches the bottom of the
    window, then stops there while the others go on; scrolling back up, it starts
    moving again at the same point. Done with position: sticky on each column's
@@ -992,23 +940,23 @@ function layout() {
   const lay = SETTINGS().layout || {};
   const W = { l: Number(lay.left) || 1, c: Number(lay.centre) || 2, r: Number(lay.right) || 1 };
   flow.innerHTML = '';
-  // In the three-column band no column may get narrower than its graphics need
-  // (sides 170 px, centre 380 px of content), whatever the admin sliders say.
-  const MIN = { l: 'calc(170px + var(--n-gutter))', c: 'calc(380px + 2 * var(--n-gutter))', r: 'calc(170px + var(--n-gutter))' };
+  // No column may get narrower than its graphics need, whatever the admin sliders say.
   const band = document.createElement('div'); band.className = 'n-band';
   flow.appendChild(band);
-  if (window.innerWidth < oneColumnBelow(flow, lay, W)) {
+  blocks.l.push(...blocks.r);
+  if (!blocks.c.length || window.innerWidth < oneColumnBelow(flow)) {
     band.classList.add('one');
     band.style.gridTemplateColumns = 'minmax(0,1fr)';
     const col = document.createElement('div'); col.className = 'n-col n-col-c';
     band.appendChild(col);
-    ['c', 'l', 'r'].forEach(k => blocks[k].forEach(b => col.appendChild(b)));
+    ['c', 'l'].forEach(k => blocks[k].forEach(b => col.appendChild(b)));
     stickObserver.disconnect();
     return;
   }
-  band.style.gridTemplateColumns = ['l', 'c', 'r'].map(k => `minmax(${MIN[k]},${W[k]}fr)`).join(' ');
+  band.style.gridTemplateColumns = `minmax(calc(${MIN_MAIN}px + var(--n-gutter)),${W.l + W.c}fr) minmax(calc(${MIN_SIDE}px + var(--n-gutter)),${W.r}fr)`;
+  band.style.setProperty('--n-story-cols', `minmax(0,${W.l}fr) minmax(0,${W.c}fr)`);
   stickObserver.disconnect();
-  ['l', 'c', 'r'].forEach(k => {
+  ['c', 'l'].forEach(k => {
     const col = document.createElement('div'); col.className = 'n-col n-col-' + k;
     const inner = document.createElement('div'); inner.className = 'n-stick';
     blocks[k].forEach(b => inner.appendChild(b));
@@ -1042,16 +990,13 @@ function arrange(blocks) {
   });
 }
 
-// One column once the window is narrower than the centre column normally is
-// (its width at the full page width set in the admin), and never while the three
-// columns wouldn't fit at their minimum widths.
-function oneColumnBelow(flow, lay, W) {
+// One column once the two columns wouldn't fit at their minimum widths.
+const MIN_MAIN = 640, MIN_SIDE = 240;
+function oneColumnBelow(flow) {
   const wrap = getComputedStyle(flow.closest('.n-wrap') || flow);
   const pad = (parseFloat(wrap.paddingLeft) || 0) + (parseFloat(wrap.paddingRight) || 0);
   const gutter = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--n-gutter')) || 0;
-  const normalCentre = ((Number(lay.maxWidth) || 1320) - pad) * W.c / (W.l + W.c + W.r);
-  const threeMin = 170 + 380 + 170 + 4 * gutter + pad;
-  return Math.max(normalCentre, threeMin);
+  return MIN_MAIN + MIN_SIDE + 2 * gutter + pad;
 }
 
 // Recomputed whenever a column changes height (rotating panels, images, fonts).
@@ -1063,7 +1008,7 @@ function setStickTops() {
 const stickObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(setStickTops) : { observe() {}, disconnect() {} };
 export function relayoutNews() { layout(); }
 
-/* Rotating panels (canton spotlight, explainer) with a timer bar. Paused while
+/* Rotating panel (canton spotlight page) with a timer bar. Paused while
    hovered or focused; a canton clicked on the map stays until the visitor clicks
    elsewhere or scrolls the panel out of view. */
 let rotators = [];
@@ -1093,56 +1038,12 @@ function rotator(el, n, render, ms, start, group) {
 }
 function fade(el) { el.classList.remove('n-fade'); void el.offsetWidth; el.classList.add('n-fade'); }
 
-let outsideWired = false, cantonRot = null, cantonNow = null, spotNow = null;
-function startRotators() {
-  stopRotators('home');
-  const rot = SETTINGS().rotation || {};
-  const cantonMs = Math.max(4, Number(rot.canton) || 9) * 1000, explMs = Math.max(4, Number(rot.explainer) || 12) * 1000;
-  const cEl = document.getElementById('n-canton');
-  const cd = (D().cantonData && D().cantonData.cantons) || {};
-  const codes = Object.keys(D().cantons).filter(c => cd[c] && cd[c].nc).sort();
-  const dayOfYear = Math.floor((todayDate() - new Date(todayDate().getFullYear(), 0, 0)) / 864e5);
-  if (cEl && codes.length) {
-    cEl.querySelector('#n-c-src').textContent = tf('news.cs.src', { s: Math.round(cantonMs / 1000) });
-    cantonRot = rotator(cEl, codes.length, (j, anim) => {
-      const code = codes[j], nc = cd[code].nc;
-      cantonNow = code;
-      const a = cEl.querySelector('#n-c-name');
-      a.textContent = C.localized(D().cantons[code].name); a.href = '#/canton/' + code;
-      cEl.querySelector('#n-c-detail').href = '#/cantons/' + code;
-      cEl.querySelectorAll('.n-map path').forEach(p => p.classList.toggle('on', p.dataset.c === code));
-      cEl.querySelector('#n-c-meta').textContent = tf(nc.totalSeats === 1 ? 'news.cs.meta1' : 'news.cs.meta', { year: nc.year, n: nc.totalSeats });
-      const ps = (nc.parties || []).filter(p => p.strength);
-      cEl.querySelector('#n-c-bar').innerHTML = ps.map(p => `<span data-k="c-${escapeAttr(p.key)}" data-ntip="${escapeAttr(C.localized(p.name) + ' · ' + num(p.strength) + '%')}" style="flex:${escapeAttr(p.strength)};background:${escapeAttr(pColor(p.key))}"></span>`).join('');
-      cEl.querySelector('#n-c-leg').innerHTML = ps.slice(0, 5).map(p => `<li data-k="c-${escapeAttr(p.key)}"><i style="background:${escapeAttr(pColor(p.key))}"></i>${escapeAttr(C.localized(p.name))}<span>${escapeAttr(num(p.strength))}%</span></li>`).join('');
-      if (anim) ['#n-c-name', '#n-c-meta', '#n-c-bar', '#n-c-leg'].forEach(s => fade(cEl.querySelector(s)));
-    }, cantonMs, dayOfYear);
-    cEl.querySelectorAll('.n-map path').forEach(p => {
-      const pick = (e) => { e.stopPropagation(); const j = codes.indexOf(p.dataset.c); if (j >= 0) cantonRot.pin(j); };
-      p.addEventListener('click', pick);
-      p.addEventListener('dblclick', () => { location.hash = '#/canton/' + p.dataset.c; });
-      p.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(e); } });
-    });
-    if (!outsideWired) {
-      outsideWired = true;
-      document.addEventListener('click', (e) => { const el = document.getElementById('n-canton'); if (cantonRot && el && !el.contains(e.target)) cantonRot.unpin(); });
-    }
-  }
-  const eEl = document.getElementById('n-expl');
-  if (eEl) {
-    rotator(eEl, EXPLAINERS.length, (j, anim) => {
-      eEl.querySelector('#n-e-title').textContent = t(EXPLAINERS[j][0]);
-      eEl.querySelector('#n-e-body').textContent = t('gloss.' + EXPLAINERS[j][1]);
-      eEl.querySelector('#n-e-count').textContent = tf('news.ex.count', { i: j + 1, n: EXPLAINERS.length, s: Math.round(explMs / 1000) });
-      if (anim) ['#n-e-title', '#n-e-body'].forEach(s => fade(eEl.querySelector(s)));
-    }, explMs, dayOfYear);
-  }
-}
+let spotNow = null;
 
 /* ============================================================
    Canton spotlight page (#/cantons/<code>): the spotlight graphic in big,
    with the facts and the full 2023 National Council result of the canton
-   on show. Same rotation and pausing as on the front page; a click keeps a
+   on show. With a rotation that pauses on hover; a click keeps a
    canton, a double click opens its canton page.
    ============================================================ */
 let spotRot = null, spotOutsideWired = false;
