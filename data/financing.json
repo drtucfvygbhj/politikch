@@ -5,7 +5,7 @@
     "attribution": "Swiss Federal Audit Office (EFK), political financing register",
     "commercialReuse": "yes",
     "source": "Federal Audit Office (EFK) — https://politikfinanzierung.efk.admin.ch",
-    "fetchedAt": "2026-10-26T09:39:32Z",
+    "fetchedAt": "2026-11-02T12:03:01Z",
     "note": "Figures are self-reported by parties and campaign committees under Swiss law (BPR/VPofi) and republished here as-is; the EFK does not guarantee their accuracy, and neither do we."
   },
   "parties": {
@@ -1460,13 +1460,13 @@
     },
     "vote-20260927-6890": {
       "pro": {
-        "totalRevenue": 720000.0,
+        "totalRevenue": 749663.28,
         "actorCount": 1,
         "largeDonors": [
           {
             "type": "individual",
-            "amount": 275000.0,
-            "date": "2026-07-21"
+            "amount": 415000.0,
+            "date": "2026-10-02"
           },
           {
             "name": "Visempio Stiftung",
@@ -1474,13 +1474,6 @@
             "location": "8805 Richterswil",
             "amount": 205000.0,
             "date": "2026-07-21"
-          },
-          {
-            "name": "Visempio Stiftung",
-            "type": "organization",
-            "location": "8805 Richterswil",
-            "amount": 200000.0,
-            "date": "2026-08-11"
           }
         ]
       },

@@ -5,7 +5,7 @@
     "attribution": "Federal Statistical Office and Federal Chancellery (VoteInfo, LINDAS); party recommendations and English short titles: Swissvotes (Année Politique Suisse, University of Bern), CC BY 4.0",
     "commercialReuse": "ask the source: VoteInfo results are published under 'ask for permission' terms for commercial use (Federal Statistical Office)",
     "source": "Decided federal votes: VoteInfo (Federal Chancellery / Federal Statistical Office), opendata.swiss dataset 'echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen'. Upcoming scheduled votes and pending/signature-gathering initiatives: Federal Chancellery linked-data cubes (politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party recommendations (Parolen) and Parliament's handling of each ballot (business number, recommendation, National Council final vote): Swissvotes (Année Politique Suisse, Uni Bern), CC BY 4.0, modified (the link to the Federal Assembly's final vote is added by scripts/fetch_sessions.py). Official authority texts are not subject to copyright (Art. 5 URG).",
-    "fetchedAt": "2026-10-26T09:32:32Z",
+    "fetchedAt": "2026-11-02T11:53:47Z",
     "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive."
   },
   "initiatives": [
@@ -36,10 +36,14 @@
       "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
       "voteDate": "2026-11-29",
       "recommendations": {
+        "SVP": "no",
         "SP": "yes",
         "MITTE": "yes",
         "FDP": "no",
-        "GPS": "yes"
+        "GPS": "yes",
+        "GLP": "yes",
+        "EVP": "yes",
+        "EDU": "no"
       },
       "parliament": {
         "business": "24.073",
@@ -81,8 +85,14 @@
       "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
       "voteDate": "2026-11-29",
       "recommendations": {
+        "SVP": "no",
+        "SP": "yes",
+        "MITTE": "no",
         "FDP": "no",
-        "GPS": "yes"
+        "GPS": "yes",
+        "GLP": "yes",
+        "EVP": "yes",
+        "EDU": "no"
       },
       "parliament": {
         "business": "24.080",
@@ -124,9 +134,14 @@
       "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
       "voteDate": "2026-11-29",
       "recommendations": {
+        "SVP": "yes",
+        "SP": "no",
         "MITTE": "yes",
         "FDP": "no",
-        "GPS": "no"
+        "GPS": "no",
+        "GLP": "no",
+        "EVP": "yes",
+        "EDU": "yes"
       },
       "parliament": {
         "business": "25.018",
@@ -168,10 +183,14 @@
       "url": "https://www.bk.admin.ch/ch/d/pore/va/20261129/index.html",
       "voteDate": "2026-11-29",
       "recommendations": {
+        "SVP": "yes",
         "SP": "no",
         "MITTE": "yes",
         "FDP": "yes",
-        "GPS": "no"
+        "GPS": "no",
+        "GLP": "yes",
+        "EVP": "no",
+        "EDU": "yes"
       },
       "parliament": {
         "business": "25.024",
@@ -183,6 +202,201 @@
         "link": {
           "session": 5211,
           "vote": 35460
+        }
+      }
+    },
+    {
+      "id": "vote-20270228-6940",
+      "type": "initiative",
+      "title": {
+        "en": "Initiative to ban the import of foie gras",
+        "de": "Volksinitiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»",
+        "fr": "Initiative populaire «Oui à l’interdiction d’importer du foie gras (initiative foie gras)»",
+        "it": "Iniziativa popolare «Sì al divieto di importazione di foie gras (Iniziativa foie gras)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative scheduled for a nationwide vote on 28 February 2027.",
+        "de": "Eine eidgenössische Volksinitiative, die am 28. Februar 2027 zur Abstimmung kommt.",
+        "fr": "Une initiative populaire fédérale soumise à la votation du 28 février 2027.",
+        "it": "Un'iniziativa popolare federale in votazione il 28 febbraio 2027.",
+        "rm": "Ina iniziativa dal pievel federala che vegn suttamessa a la votaziun ils 28 da favrer 2027."
+      },
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 28 February 2027",
+        "de": "Abstimmung am 28. Februar 2027",
+        "fr": "Votation du 28 février 2027",
+        "it": "Votazione del 28 febbraio 2027",
+        "rm": "Votaziun federala ils 28 da favrer 2027"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20270228/index.html",
+      "voteDate": "2027-02-28",
+      "parliament": {
+        "business": "24.089",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 51,
+        "ncAgainst": 119,
+        "link": {
+          "session": 5215,
+          "vote": 38950
+        }
+      }
+    },
+    {
+      "id": "vote-20270228-6950",
+      "type": "initiative",
+      "title": {
+        "en": "Initiative «For Modern Citizenship Rights (Democracy Initiative)»",
+        "de": "Volksinitiative «Für ein modernes Bürgerrecht (Demokratie-Initiative)»",
+        "fr": "Initiative populaire «Pour un droit de la nationalité moderne (initiative pour la démocratie)»",
+        "it": "Iniziativa popolare «Per un diritto di cittadinanza moderno (Iniziativa per la democrazia)»"
+      },
+      "desc": {
+        "en": "A federal popular initiative scheduled for a nationwide vote on 28 February 2027.",
+        "de": "Eine eidgenössische Volksinitiative, die am 28. Februar 2027 zur Abstimmung kommt.",
+        "fr": "Une initiative populaire fédérale soumise à la votation du 28 février 2027.",
+        "it": "Un'iniziativa popolare federale in votazione il 28 febbraio 2027.",
+        "rm": "Ina iniziativa dal pievel federala che vegn suttamessa a la votaziun ils 28 da favrer 2027."
+      },
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 28 February 2027",
+        "de": "Abstimmung am 28. Februar 2027",
+        "fr": "Votation du 28 février 2027",
+        "it": "Votazione del 28 febbraio 2027",
+        "rm": "Votaziun federala ils 28 da favrer 2027"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20270228/index.html",
+      "voteDate": "2027-02-28",
+      "parliament": {
+        "business": "25.081",
+        "form": "initiative",
+        "position": "reject",
+        "bill": 1,
+        "ncFor": 63,
+        "ncAgainst": 133,
+        "link": {
+          "session": 5215,
+          "vote": 38955
+        }
+      }
+    },
+    {
+      "id": "vote-20270228-6960",
+      "type": "referendum",
+      "title": {
+        "en": "Free trade agreement with Malaysia",
+        "de": "Bundesbeschluss über die Genehmigung des Wirtschaftspartnerschaftsabkommens zwischen den EFTA-Staaten und Malaysia",
+        "fr": "Arrêté fédéral portant approbation de l’Accord de partenariat économique entre les États de l’AELE et la Malaisie",
+        "it": "Decreto federale che approva l’Accordo di partenariato economico tra gli Stati dell’AELS e la Malaysia"
+      },
+      "desc": {
+        "en": "A federal referendum scheduled for a nationwide vote on 28 February 2027.",
+        "de": "Eine eidgenössische Referendumsvorlage, die am 28. Februar 2027 zur Abstimmung kommt.",
+        "fr": "Une objet soumis au référendum fédérale soumise à la votation du 28 février 2027.",
+        "it": "Un'oggetto in referendum federale in votazione il 28 febbraio 2027.",
+        "rm": "In object da referendum federal che vegn suttamess a la votaziun ils 28 da favrer 2027."
+      },
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 28 February 2027",
+        "de": "Abstimmung am 28. Februar 2027",
+        "fr": "Votation du 28 février 2027",
+        "it": "Votazione del 28 febbraio 2027",
+        "rm": "Votaziun federala ils 28 da favrer 2027"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20270228/index.html",
+      "voteDate": "2027-02-28",
+      "parliament": {
+        "business": "26.018",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 130,
+        "ncAgainst": 64,
+        "link": {
+          "session": 5214,
+          "vote": 36557
+        }
+      }
+    },
+    {
+      "id": "vote-20270228-6970",
+      "type": "referendum",
+      "title": {
+        "en": "Nuclear Energy Act (lifting of the ban on the construction of new nuclear power plants)",
+        "de": "Änderung des Kernenergiegesetzes (KEG)",
+        "fr": "Modification de la loi sur l'énergie nucléaire (LENu)",
+        "it": "Modifica della legge federale sull'energia nucleare (LENu)"
+      },
+      "desc": {
+        "en": "A federal referendum scheduled for a nationwide vote on 28 February 2027.",
+        "de": "Eine eidgenössische Referendumsvorlage, die am 28. Februar 2027 zur Abstimmung kommt.",
+        "fr": "Une objet soumis au référendum fédérale soumise à la votation du 28 février 2027.",
+        "it": "Un'oggetto in referendum federale in votazione il 28 febbraio 2027.",
+        "rm": "In object da referendum federal che vegn suttamess a la votaziun ils 28 da favrer 2027."
+      },
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 28 February 2027",
+        "de": "Abstimmung am 28. Februar 2027",
+        "fr": "Votation du 28 février 2027",
+        "it": "Votazione del 28 febbraio 2027",
+        "rm": "Votaziun federala ils 28 da favrer 2027"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20270228/index.html",
+      "voteDate": "2027-02-28",
+      "parliament": {
+        "business": "25.068",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 106,
+        "ncAgainst": 88,
+        "link": {
+          "session": 5214,
+          "vote": 36547
+        }
+      }
+    },
+    {
+      "id": "vote-20270228-6980",
+      "type": "referendum",
+      "title": {
+        "en": "Priority of collective employment agreements over cantonal minimum wages",
+        "de": "Änderung des Bundesgesetzes über die Allgemeinverbindlicherklärung von Gesamtarbeitsverträgen (Allgemeinverbindlicherklärung von Mindestlöhnen, die unter kantonalen Mindestlöhnen liegen)",
+        "fr": "Modification de la loi fédérale permettant d’étendre le champ d’application de la convention collective de travail (extension de salaires minimaux inférieurs aux salaires minimaux cantonaux)",
+        "it": "Modifica del 19 giugno 2026 della legge federale concernente il conferimento del carattere obbligatorio generale al contratto collettivo di lavoro (Conferimento del carattere obbligatorio generale ai salari minimi inferiori ai salari minimi cantonali)"
+      },
+      "desc": {
+        "en": "A federal referendum scheduled for a nationwide vote on 28 February 2027.",
+        "de": "Eine eidgenössische Referendumsvorlage, die am 28. Februar 2027 zur Abstimmung kommt.",
+        "fr": "Une objet soumis au référendum fédérale soumise à la votation du 28 février 2027.",
+        "it": "Un'oggetto in referendum federale in votazione il 28 febbraio 2027.",
+        "rm": "In object da referendum federal che vegn suttamess a la votaziun ils 28 da favrer 2027."
+      },
+      "status": "upcoming",
+      "date": {
+        "en": "Federal vote on 28 February 2027",
+        "de": "Abstimmung am 28. Februar 2027",
+        "fr": "Votation du 28 février 2027",
+        "it": "Votazione del 28 febbraio 2027",
+        "rm": "Votaziun federala ils 28 da favrer 2027"
+      },
+      "url": "https://www.bk.admin.ch/ch/d/pore/va/20270228/index.html",
+      "voteDate": "2027-02-28",
+      "parliament": {
+        "business": "24.096",
+        "form": "optional",
+        "position": "accept",
+        "bill": 1,
+        "ncFor": 115,
+        "ncAgainst": 78,
+        "link": {
+          "session": 5214,
+          "vote": 36543
         }
       }
     },
@@ -447,32 +661,6 @@
       "url": "https://www.bk.admin.ch/de/details-volksinitiativen?initiative=559"
     },
     {
-      "id": "initiative-549",
-      "type": "initiative",
-      "title": {
-        "en": "Federal popular initiative «Für ein modernes Bürgerrecht (Demokratie-Initiative)»",
-        "de": "Eidgenössische Volksinitiative 'Für ein modernes Bürgerrecht (Demokratie-Initiative)'",
-        "fr": "Initiative populaire fédérale 'Pour un droit de la nationalité moderne (initiative pour la démocratie)'",
-        "it": "Iniziativa popolare federale 'Per un diritto di cittadinanza moderno (Iniziativa per la democrazia)'"
-      },
-      "desc": {
-        "en": "Popular initiative that has qualified and is now pending (ready to be put to a vote), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (abstimmungsreif), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (prête pour la votation), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (pronta per la votazione), prima della votazione popolare.",
-        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pronta per la votaziun), avant la votaziun dal pievel."
-      },
-      "status": "pending",
-      "date": {
-        "en": "Launched 23 May 2023",
-        "de": "Lanciert am 23. Mai 2023",
-        "fr": "Lancée le 23 mai 2023",
-        "it": "Lanciata il 23 maggio 2023",
-        "rm": "Lantschada ils 23 da matg 2023"
-      },
-      "url": "https://www.bk.admin.ch/de/details-volksinitiativen?initiative=549"
-    },
-    {
       "id": "initiative-547",
       "type": "initiative",
       "title": {
@@ -549,32 +737,6 @@
         "rm": "Lantschada ils 4 d'avrigl 2023"
       },
       "url": "https://www.bk.admin.ch/de/details-volksinitiativen?initiative=548"
-    },
-    {
-      "id": "initiative-529",
-      "type": "initiative",
-      "title": {
-        "en": "Federal popular initiative «Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)»",
-        "de": "Eidgenössische Volksinitiative 'Ja zum Importverbot für Stopfleber (Stopfleber-Initiative)'",
-        "fr": "Initiative populaire fédérale 'Oui à l’interdiction d’importer du foie gras (initiative foie gras)'",
-        "it": "Iniziativa popolare federale 'Sì al divieto di importazione di foie gras (Iniziativa foie gras)'"
-      },
-      "desc": {
-        "en": "Popular initiative that has qualified and is now pending (ready to be put to a vote), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (abstimmungsreif), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (prête pour la votation), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (pronta per la votazione), prima della votazione popolare.",
-        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pronta per la votaziun), avant la votaziun dal pievel."
-      },
-      "status": "pending",
-      "date": {
-        "en": "Launched 28 June 2022",
-        "de": "Lanciert am 28. Juni 2022",
-        "fr": "Lancée le 28 juin 2022",
-        "it": "Lanciata il 28 giugno 2022",
-        "rm": "Lantschada ils 28 da zercladur 2022"
-      },
-      "url": "https://www.bk.admin.ch/de/details-volksinitiativen?initiative=529"
     },
     {
       "id": "initiative-574",
