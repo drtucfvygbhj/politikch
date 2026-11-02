@@ -729,6 +729,32 @@ def check_paywalled_paths(files):
                 block("ED-13", f"{f}: PolitikCH+ article text may not be in the repo — the backend serves it")
 
 
+def check_plus_marking():
+    # ED-02: every PolitikCH+ card keeps its border, both labels and its own red.
+    # Dormant until the card renderer exists.
+    news, css = read("js/news.js"), read("css/news.css")
+    m = re.search(r"function plusCardHTML.*?\n}\n", news, re.S)
+    if not m:
+        return
+    for token in ("t('plus.label')", "plus.analysis", "plus.explainer", "t('plus.byline')"):
+        if token not in m.group(0):
+            block("ED-02", f"a PolitikCH+ card no longer shows {token}")
+    if not re.search(r"\.n-plus-card\s*\{[^}]*border:[^;}]*var\(--n-plus\)", css):
+        block("ED-02", "a PolitikCH+ card no longer has its red border")
+    rgb = lambda h: tuple(int(h[i:i + 2], 16) for i in (1, 3, 5))
+    plus, live = re.search(r"--n-plus:\s*(#[0-9A-Fa-f]{6})", css), re.search(r"--n-live:\s*(#[0-9A-Fa-f]{6})", css)
+    if not plus or not live:
+        block("ED-02", "the --n-plus or --n-live colour is missing from css/news.css")
+        return
+    parties = json.loads(read("data/parties.json"))
+    colours = [("the live dot", live.group(1))] + [(k, v["color"]) for k, v in parties.get("parties", parties).items() if isinstance(v, dict) and v.get("color")]
+    for name, colour in colours:
+        if sum((a - b) ** 2 for a, b in zip(rgb(plus.group(1)), rgb(colour))) < 60 ** 2:
+            block("ED-02", f"the PolitikCH+ red is too close to {name} ({colour})")
+    if re.search(r"\.n-top-plus[^{]*\{[^}]*background:\s*var\(--n-plus\)", css):
+        block("ED-02", "the PolitikCH+ menu button may not be filled red: a white + on red reads as a Swiss cross")
+
+
 def registered_images():
     """Photos under images/ with a complete licence record in images/LICENSES.json
     (written by the admin tool): 'images/<id>-800.webp' / '-1600.webp' whose entry
@@ -973,6 +999,7 @@ def main(argv):
     check_parl_fetched()
     check_ticker()
     check_paywalled_paths(files)
+    check_plus_marking()
     check_hosting_and_media(files)
 
     base = resolve_base(args.base)

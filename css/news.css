@@ -15,6 +15,7 @@ html[data-design="1.1"] #home-content { display: none !important; }
 
 html[data-design="1.1"] {
   --n-side: clamp(28px, 6vw, 130px);
+  --n-plus: #A00F50;   /* PolitikCH+ only: apart from the live dot and every party colour (ED-02) */
   --n-accent: #7A1C2A; --n-accent-dark: #5e1520; --n-ink: #161616; --n-mid: #5f5e5a; --n-muted: #7d7a72;
   --n-rule-c: #dcdad3; --n-hover: #f6f4f0; --n-live: #E0162B;
   /* 1.0 tokens re-pointed, so the existing subpages take the 1.1 look */
@@ -158,6 +159,17 @@ html[data-design="1.1"] .n-search .search-results { border-radius: 0; right: 0; 
 .n-story.lead { border-top: none; padding-top: 0; }
 /* One column by default: title, image, money, Parliament. Side by side further down. */
 .n-story-l, .n-story-r { display: contents; }
+/* ---- PolitikCH+: a card keeps its own border, so no bar above or below it ---- */
+.n-story.n-plus-card { border: 3px solid var(--n-plus); padding: 20px; margin-bottom: 28px; }
+.n-plus-card + .n-story:not(.n-plus-card) { border-top: none; padding-top: 0; }
+.n-kicker.n-plus-k { color: var(--n-plus); }
+.n-plus-teaser { font-size: 14px; color: var(--n-mid); margin: 0 0 14px; }
+.n-plus-card .n-photo { margin: 0; }
+.n-plus-by { order: 6; margin: 12px 0 0; }
+.n-plus-list { container-type: inline-size; }
+.n-top-plus > .n-cat { color: var(--n-plus); border: 2px solid var(--n-plus); padding: 8px 12px; margin: 3px 0 0 6px; }
+.n-top-plus:hover > .n-cat, .n-top-plus:focus-within > .n-cat { color: var(--n-plus); border-color: var(--n-plus); background: var(--n-hover); }
+.n-burger .n-top-plus > .n-cat { display: inline-block; margin: 10px 0 4px; padding: 6px 10px; }
 .n-story-head { order: 1; } .n-story-img { order: 2; } .n-story-data { order: 3; } .n-story-parl { order: 4; } .n-story-more { order: 5; }
 .n-kicker { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--n-accent); }
 .n-dim { color: var(--n-mid); }
@@ -302,6 +314,7 @@ html:not([data-design="1.1"]) #n-tip { display: none; }
   .n-story-parl .n-tally b { font-size: 20px; }
   .n-story-parl .n-legend { font-size: 11px; }
   .n-story-parl .n-src { font-size: 10px; margin-top: auto; }
+  .n-plus-by { margin-top: auto; padding-top: 12px; }
   .n-story-head .n-kicker { font-size: 11px; }
 }
 
@@ -374,7 +387,7 @@ html[data-design="1.1"] .back-btn, html[data-design="1.1"] .back-btn.dark {
   background: none; border: 0; border-bottom: 1px solid currentColor; color: var(--n-accent); padding: 0 0 1px; margin-bottom: 22px; font-size: 13px;
 }
 html[data-design="1.1"] .back-btn::before { content: '← '; }
-html[data-design="1.1"] .canton-content { max-width: var(--n-maxWidth); padding: 34px 28px 60px; }
+html[data-design="1.1"] .canton-content { max-width: var(--n-maxWidth); padding: 34px var(--n-side) 60px; }
 html[data-design="1.1"] #ballots-slot #initiatives { padding: 0; background: none; }
 html[data-design="1.1"] #ballots-slot #initiatives .section-inner { max-width: none; padding: 0; }
 html[data-design="1.1"] #ballots-slot #initiatives .section-label,

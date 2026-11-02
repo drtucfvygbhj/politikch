@@ -782,7 +782,17 @@
     "report.mail.type": "Type of problem",
     "report.mail.page": "Page",
     "report.mail.lang": "Site language",
-    "report.mail.quote": "Text concerned"
+    "report.mail.quote": "Text concerned",
+    "plus.label": "PolitikCH+",
+    "plus.all": "All articles",
+    "plus.explainer": "Explainer",
+    "plus.explainers": "Explainers",
+    "plus.analysis": "Analysis",
+    "plus.analyses": "Analyses",
+    "plus.byline": "PolitikCH+ editorial",
+    "plus.manage": "Manage subscription",
+    "plus.empty": "No articles yet.",
+    "plus.manageEmpty": "Subscriptions aren’t available yet."
   },
   "de": {
     "nav.parliament": "Parlament",
@@ -1567,7 +1577,17 @@
     "report.mail.type": "Art des Problems",
     "report.mail.page": "Seite",
     "report.mail.lang": "Sprache der Website",
-    "report.mail.quote": "Betroffener Text"
+    "report.mail.quote": "Betroffener Text",
+    "plus.label": "PolitikCH+",
+    "plus.all": "Alle Artikel",
+    "plus.explainer": "Erklärstück",
+    "plus.explainers": "Erklärstücke",
+    "plus.analysis": "Analyse",
+    "plus.analyses": "Analysen",
+    "plus.byline": "PolitikCH+ Redaktion",
+    "plus.manage": "Abo verwalten",
+    "plus.empty": "Noch keine Artikel.",
+    "plus.manageEmpty": "Abonnemente sind noch nicht verfügbar."
   },
   "fr": {
     "nav.parliament": "Parlement",
@@ -2352,7 +2372,17 @@
     "report.mail.type": "Type de problème",
     "report.mail.page": "Page",
     "report.mail.lang": "Langue du site",
-    "report.mail.quote": "Texte concerné"
+    "report.mail.quote": "Texte concerné",
+    "plus.label": "PolitikCH+",
+    "plus.all": "Tous les articles",
+    "plus.explainer": "Décryptage",
+    "plus.explainers": "Décryptages",
+    "plus.analysis": "Analyse",
+    "plus.analyses": "Analyses",
+    "plus.byline": "Rédaction PolitikCH+",
+    "plus.manage": "Gérer l’abonnement",
+    "plus.empty": "Aucun article pour le moment.",
+    "plus.manageEmpty": "Les abonnements ne sont pas encore disponibles."
   },
   "it": {
     "nav.parliament": "Parlamento",
@@ -3137,7 +3167,17 @@
     "report.mail.type": "Tipo di problema",
     "report.mail.page": "Pagina",
     "report.mail.lang": "Lingua del sito",
-    "report.mail.quote": "Testo interessato"
+    "report.mail.quote": "Testo interessato",
+    "plus.label": "PolitikCH+",
+    "plus.all": "Tutti gli articoli",
+    "plus.explainer": "Approfondimento",
+    "plus.explainers": "Approfondimenti",
+    "plus.analysis": "Analisi",
+    "plus.analyses": "Analisi",
+    "plus.byline": "Redazione PolitikCH+",
+    "plus.manage": "Gestire l’abbonamento",
+    "plus.empty": "Ancora nessun articolo.",
+    "plus.manageEmpty": "Gli abbonamenti non sono ancora disponibili."
   },
   "rm": {
     "nav.parliament": "Parlament",
@@ -3922,6 +3962,16 @@
     "report.mail.type": "Sort da problem",
     "report.mail.page": "Pagina",
     "report.mail.lang": "Lingua da la website",
-    "report.mail.quote": "Text pertutgà"
+    "report.mail.quote": "Text pertutgà",
+    "plus.label": "PolitikCH+",
+    "plus.all": "Tut ils artitgels",
+    "plus.explainer": "Explicaziun",
+    "plus.explainers": "Explicaziuns",
+    "plus.analysis": "Analisa",
+    "plus.analyses": "Analisas",
+    "plus.byline": "Redacziun PolitikCH+",
+    "plus.manage": "Administrar l’abunament",
+    "plus.empty": "Anc nagins artitgels.",
+    "plus.manageEmpty": "Abunaments n’èn anc betg disponibels."
   }
 }

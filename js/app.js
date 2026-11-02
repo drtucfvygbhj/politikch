@@ -3,7 +3,7 @@ import { configureShare, wireShares, mountShare } from './share.js?v=20260925a';
 import { configureVotes, voteWidgetHTML, wireVoteWidgets, getAllVotes, getVote, countVotes, pollEnabled } from './myvotes.js?v=20260925a';
 import { PAID_PRODUCT_LIVE, ANALYTICS_API } from './config.js?v=20260925a';
 import { trackPageview, track, analyticsState, setAnalyticsOptOut } from './analytics.js?v=20260925a';
-import { configureNews, newsActive, mountNewsChrome, renderNewsChrome, renderNewsHome, relayoutNews, renderSpotlightPage, renderAssemblyPage, renderNewsProfile, rmNotice, parlFigHTML, wireNewsGraphics } from './news.js?v=20260925a';
+import { configureNews, newsActive, mountNewsChrome, renderNewsChrome, renderNewsHome, relayoutNews, renderSpotlightPage, renderAssemblyPage, renderPlusPage, renderNewsProfile, rmNotice, parlFigHTML, wireNewsGraphics } from './news.js?v=20260925a';
 import { configureTicker, renderTickerPage, loadTickerIndex, tickerToday } from './ticker.js?v=20260925a';
 import { configureReport, openReport } from './report.js?v=20260925a';
 import { configureGlossary, renderGlossaryPage, closeDefinition } from './glossary.js?v=20260925a';
@@ -285,6 +285,14 @@ function devToday() {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v);
   return m ? new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3])) : null;
 }
+// PolitikCH+ shows only once the product is live. On a development host ?plus=1
+// previews it with placeholder cards; nothing else can switch it on.
+function plusOn() {
+  if (PAID_PRODUCT_LIVE) return true;
+  if (!DEV_HOSTS.includes(location.hostname)) return false;
+  try { return new URLSearchParams(location.search).get('plus') === '1'; } catch (e) { return false; }
+}
+function plusPreview() { return !PAID_PRODUCT_LIVE && plusOn(); }
 function formatInt(n) {
   return new Intl.NumberFormat(NUM_LOCALES[state.lang] || 'en-CH', { maximumFractionDigits: 0 }).format(n || 0);
 }
@@ -930,7 +938,7 @@ function setLang(lang) {
   if (route.view === 'glossary') renderGlossaryPage();
   if (route.view === 'subscribe') renderSubscribePage();
   if (route.view === 'profile') renderProfilePage();
-  if (newsActive()) { renderNewsChrome(); renderNewsHome(); if (route.view === 'cantons') renderSpotlightPage(route.id); if (route.view === 'assembly') renderAssemblyPage(route.id); rmNotice(prev); }
+  if (newsActive()) { renderNewsChrome(); renderNewsHome(); if (route.view === 'cantons') renderSpotlightPage(route.id); if (route.view === 'assembly') renderAssemblyPage(route.id); if (route.view === 'plus' && plusOn()) renderPlusPage(route.id); rmNotice(prev); }
   refreshGlossaryLabels();
 }
 
@@ -4161,6 +4169,7 @@ function showView(name) {
   document.getElementById('privacy-page').classList.toggle('active', name === 'privacy');
   document.getElementById('about-page').classList.toggle('active', name === 'about');
   document.getElementById('subscribe-page').classList.toggle('active', name === 'subscribe');
+  document.getElementById('plus-page').classList.toggle('active', name === 'plus');
   document.getElementById('profile-page').classList.toggle('active', name === 'profile');
   document.getElementById('ticker-page').classList.toggle('active', name === 'ticker');
   document.getElementById('glossary-page').classList.toggle('active', name === 'glossary');
@@ -4271,6 +4280,11 @@ function handleRoute() {
   } else if (view === 'subscribe') {
     renderSubscribePage();
     showView('subscribe');
+  } else if (view === 'plus' && !(newsActive() && plusOn())) {
+    replaceRoute('#/');
+  } else if (view === 'plus') {
+    showView('plus');
+    renderPlusPage(id);
   } else if (view === 'profile') {
     renderProfilePage();
     showView('profile');
@@ -4455,7 +4469,7 @@ async function init() {
       voteTransTitle, mtVoteTitle, unofficialBadge, mtBadge, initTitleHTML, initTitlePlain,
       computeMyLeaning, fillProfileEnrich, wireVoteWidgets, profileMin: PROFILE_MIN_SESSION_VOTES,
       voteFrame, orientVote, voteResult, voteFrameNote, parliamentLink, formatFetched, voteFetchedAt,
-      loadTickerIndex, tickerToday, devToday,
+      loadTickerIndex, tickerToday, devToday, plusOn, plusPreview,
     });
     mountNewsChrome();
     // The votes list (tabs, search, cards) moves to its own page in 1.1.

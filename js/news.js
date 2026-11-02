@@ -257,6 +257,9 @@ function menuModel(L) {
       [t('footer.contact'), '#/page/contact'], [t('footer.feedback'), '#/page/feedback'], [t('footer.glossary'), '#/glossary'],
       [t('nav.profile'), '#/profile'],
     ] },
+    ...(C.plusOn() ? [{ title: t('plus.label'), plus: true, items: [
+      [t('plus.all'), '#/plus'], [t('plus.explainers'), '#/plus/explainer'], [t('plus.analyses'), '#/plus/analysis'], [t('plus.manage'), '#/plus/subscription'],
+    ] }] : []),
   ];
 }
 
@@ -293,14 +296,14 @@ export async function renderNewsChrome() {
   document.getElementById('n-menu').innerHTML = model.map((cat, n) => {
     const live = cat.items.some(it => it[2]);
     const size = cat.items.length > 12 ? ' wide' : cat.items.length > 7 ? ' mid' : '';
-    return `<li class="n-top"><a class="n-cat" href="${escapeAttr(cat.items[0][1])}" aria-haspopup="true" aria-controls="n-sub-${escapeAttr(n)}">${escapeAttr(cat.title)}` + liveDot(live) + '</a>' +
+    return `<li class="n-top${escapeAttr(cat.plus ? ' n-top-plus' : '')}"><a class="n-cat" href="${escapeAttr(cat.items[0][1])}" aria-haspopup="true" aria-controls="n-sub-${escapeAttr(n)}">${escapeAttr(cat.title)}` + liveDot(live) + '</a>' +
       `<div class="n-sub${escapeAttr(size)}" id="n-sub-${escapeAttr(n)}"><div class="n-sub-h">${escapeAttr(cat.title)}</div><ul>` +
       cat.items.map(it => '<li>' + linkHTML(it) + '</li>').join('') + '</ul></div></li>';
   }).join('');
   fitMenu();
 
   renderTicker(L);
-  renderFooter(model);
+  renderFooter(model.filter(cat => !cat.plus));
 }
 
 function renderTicker(L) {
@@ -472,6 +475,39 @@ function sessionVoteTitle(v) {
    them (Edit positioning); the order is kept in PCH_SETTINGS.positions. */
 function pos(id, html) { return html.replace(/^<(\w+)/, (m, tag) => '<' + tag + ' data-pos="' + escapeAttr(id) + '"'); }
 
+/* ---- PolitikCH+ articles ----
+   Article text never reaches the site (ED-13): cards hold only what the backend
+   will send, so until it exists the list is empty. The ?plus=1 preview on a
+   development host fills it with placeholders; articles are written by a person
+   (ED-09), so these stay bracketed stand-ins. */
+function plusArticles() {
+  const list = C.plusPreview() ? [
+    { id: 's1', type: 'analysis', date: '2026-10-30', title: '[Article headline]', teaser: '[Teaser written by the editor]' },
+    { id: 's2', type: 'explainer', date: '2026-10-22', title: '[Article headline]', teaser: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { id: 's3', type: 'analysis', date: '2026-10-12', title: '[Article headline]', teaser: '[Teaser written by the editor]' },
+    { id: 's4', type: 'explainer', date: '2026-09-28', title: '[Article headline]', teaser: '[Teaser written by the editor]' },
+  ] : [];
+  return list.sort((a, b) => (a.date < b.date ? 1 : -1));     // latest first
+}
+// Every card carries the red border, "PolitikCH+" and its type (ED-02), and the
+// byline (ED-11) closes the card however long the teaser is.
+function plusCardHTML(a) {
+  const type = t(a.type === 'analysis' ? 'plus.analysis' : 'plus.explainer');
+  return `<article class="n-blk n-story n-plus-card"><div class="n-story-l"><div class="n-story-head"><div class="n-kicker n-plus-k">${escapeAttr(t('plus.label') + ' · ' + type)}</div>` +
+    `<h2 class="n-hl">${escapeAttr(a.title)}</h2><p class="n-plus-teaser">${escapeAttr(a.teaser)}</p></div>` +
+    `<p class="n-src n-plus-by">${escapeAttr(t('plus.byline') + ' · ' + longDate(a.date))}</p></div>` +
+    `<div class="n-story-r"><div class="n-story-img"><figure class="n-photo"><div class="n-ph"><span class="n-ph-mark">${escapeAttr(t('plus.label'))}</span></div></figure></div></div></article>`;
+}
+export function renderPlusPage(id) {
+  const manage = id === 'subscription';
+  const type = id === 'explainer' || id === 'analysis' ? id : null;
+  document.getElementById('plus-title').textContent = t(manage ? 'plus.manage' : type === 'explainer' ? 'plus.explainers' : type === 'analysis' ? 'plus.analyses' : 'plus.all');
+  const host = document.getElementById('plus-content');
+  if (manage) { host.innerHTML = `<p class="n-lead">${escapeAttr(t('plus.manageEmpty'))}</p>`; return; }
+  const list = plusArticles().filter(a => !type || a.type === type);
+  host.innerHTML = list.length ? '<div class="n-plus-list">' + list.map(plusCardHTML).join('') + '</div>' : `<p class="n-lead">${escapeAttr(t('plus.empty'))}</p>`;
+}
+
 /* ---- main column: one story per proposal on the next ballot ---- */
 function storyImage(i, n) {
   const img = window.PCH_IMAGES || {};
@@ -576,6 +612,10 @@ function stories(nb, files) {
       '<div class="n-story-r"><div class="n-story-img">' + storyImage(i, n) + '</div><div class="n-story-data">' + moneyFig(i) + '</div>' +
       `<div class="n-story-more"><a class="n-more" href="#/initiative/${escapeAttr(i.id)}">${escapeAttr(t('news.more'))}</a></div></div></article>`));
   });
+  // Where cards sit among the proposals is still to be decided (LAUNCH_PLAN D5).
+  const cards = plusArticles().slice(0, 2);
+  if (cards[0]) out.unshift(pos('plus:' + cards[0].id, plusCardHTML(cards[0])));
+  if (cards[1]) out.splice(3, 0, pos('plus:' + cards[1].id, plusCardHTML(cards[1])));
   // The note names the ordering rule only while the stories follow it; once the
   // order has been changed in the admin it no longer claims one (POL-12).
   out.push(pos('ordernote', `<p class="n-blk n-rule-note">${escapeAttr(t(storiesInDefaultOrder(nb) ? 'news.order' : 'news.orderPlain'))} <a href="#/page/methodology">${escapeAttr(t('news.orderLink'))}</a></p>`));
@@ -994,8 +1034,9 @@ function arrange(blocks) {
     ['l', 'c', 'r'].forEach(k => home[k].forEach((id, n) => { if (!used.has(id)) { out[k].splice(Math.min(n, out[k].length), 0, id); used.add(id); } }));
     ['l', 'c', 'r'].forEach(k => { blocks[k] = out[k].flatMap(id => units[id]); });
   }
-  const lead = blocks.c.find(b => b.classList.contains('n-story'));
-  [...blocks.l, ...blocks.c, ...blocks.r].filter(b => b.classList.contains('n-story')).forEach(b => {
+  const isStory = b => b.classList.contains('n-story') && !b.classList.contains('n-plus-card');
+  const lead = blocks.c.find(isStory);
+  [...blocks.l, ...blocks.c, ...blocks.r].filter(isStory).forEach(b => {
     b.classList.toggle('lead', b === lead);
     const ph = b.querySelector('.n-photo'); if (ph) ph.classList.toggle('lead', b === lead);
   });
