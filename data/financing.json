@@ -5,7 +5,7 @@
     "attribution": "Swiss Federal Audit Office (EFK), political financing register",
     "commercialReuse": "yes",
     "source": "Federal Audit Office (EFK) — https://politikfinanzierung.efk.admin.ch",
-    "fetchedAt": "2026-11-09T12:33:12Z",
+    "fetchedAt": "2026-11-16T12:28:38Z",
     "note": "Figures are self-reported by parties and campaign committees under Swiss law (BPR/VPofi) and republished here as-is; the EFK does not guarantee their accuracy, and neither do we."
   },
   "parties": {
@@ -1164,8 +1164,8 @@
         "largeDonors": []
       },
       "contra": {
-        "totalRevenue": 1074590.0,
-        "actorCount": 3,
+        "totalRevenue": 1128811.27,
+        "actorCount": 4,
         "largeDonors": [
           {
             "name": "Aktionskomitee für Freiheit und Verantwortung",
@@ -1294,9 +1294,14 @@
         "largeDonors": []
       },
       "contra": {
-        "totalRevenue": 150000.0,
-        "actorCount": 1,
+        "totalRevenue": 301000.0,
+        "actorCount": 2,
         "largeDonors": [
+          {
+            "type": "individual",
+            "amount": 150000.0,
+            "date": "2026-10-28"
+          },
           {
             "name": "FDP.Die Liberalen",
             "type": "organization",

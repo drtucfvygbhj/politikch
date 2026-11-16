@@ -6,7 +6,7 @@
     "commercialReuse": "yes, with credit",
     "source": "Federal Assembly OData web service (ws.parlament.ch)",
     "channel": "https://www.youtube.com/@ParlCH",
-    "fetchedAt": "2026-11-09T12:33:25+00:00"
+    "fetchedAt": "2026-11-16T12:28:50+00:00"
   },
   "sessions": [
     {
@@ -70,7 +70,7 @@
     },
     {
       "id": 5213,
-      "abbr": "Sonder SS 4. 26",
+      "abbr": "SondS 4. 26",
       "season": "special",
       "year": 2026,
       "start": "2026-04-27",
@@ -206,7 +206,7 @@
     },
     {
       "id": 5208,
-      "abbr": "Sonder SS 5. 25",
+      "abbr": "SondS 5. 25",
       "season": "special",
       "year": 2025,
       "start": "2025-05-05",
@@ -341,7 +341,7 @@
     },
     {
       "id": 5203,
-      "abbr": "Sonder SS 4. 24",
+      "abbr": "SondS 4. 24",
       "season": "special",
       "year": 2024,
       "start": "2024-04-15",

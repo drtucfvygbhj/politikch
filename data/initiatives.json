@@ -5,7 +5,7 @@
     "attribution": "Federal Statistical Office and Federal Chancellery (VoteInfo, LINDAS); party recommendations and English short titles: Swissvotes (Année Politique Suisse, University of Bern), CC BY 4.0",
     "commercialReuse": "ask the source: VoteInfo results are published under 'ask for permission' terms for commercial use (Federal Statistical Office)",
     "source": "Decided federal votes: VoteInfo (Federal Chancellery / Federal Statistical Office), opendata.swiss dataset 'echtzeitdaten-am-abstimmungstag-zu-eidgenoessischen-abstimmungsvorlagen'. Upcoming scheduled votes and pending/signature-gathering initiatives: Federal Chancellery linked-data cubes (politics.ld.admin.ch) via the LINDAS SPARQL endpoint. Party recommendations (Parolen) and Parliament's handling of each ballot (business number, recommendation, National Council final vote): Swissvotes (Année Politique Suisse, Uni Bern), CC BY 4.0, modified (the link to the Federal Assembly's final vote is added by scripts/fetch_sessions.py). Official authority texts are not subject to copyright (Art. 5 URG).",
-    "fetchedAt": "2026-11-09T12:23:39Z",
+    "fetchedAt": "2026-11-16T12:20:06Z",
     "note": "Titles and results are taken verbatim from the official sources. Descriptions are composed from official structured fields (result, turnout, stage, dates), not editorialised. English titles for still-pending initiatives keep the official name in its original language. This is a curated-by-recency selection, not a full archive."
   },
   "initiatives": [
@@ -436,11 +436,11 @@
         "it": "Iniziativa popolare federale 'Società ed economia forti grazie al congedo parentale (Iniziativa per un congedo familiare)'\r\n"
       },
       "desc": {
-        "en": "Popular initiative that has qualified and is now pending (signatures being verified), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (in Auszählung), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (décompte des signatures), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (conteggio delle firme), prima della votazione popolare.",
-        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (las suttascripziuns vegnan dumbradas), avant la votaziun dal pievel."
+        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare.",
+        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pendenta tar il Cussegl federal), avant la votaziun dal pievel."
       },
       "status": "pending",
       "date": {
@@ -566,11 +566,11 @@
         "it": "Iniziativa popolare federale 'Per un approvvigionamento sicuro con le energie rinnovabili (Iniziativa solare)'"
       },
       "desc": {
-        "en": "Popular initiative that has qualified and is now pending (pending before the Federal Council), awaiting its nationwide vote.",
-        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Bundesrat hängig), vor der Volksabstimmung.",
-        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Conseil fédéral), avant la votation populaire.",
-        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Consiglio federale), prima della votazione popolare.",
-        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pendenta tar il Cussegl federal), avant la votaziun dal pievel."
+        "en": "Popular initiative that has qualified and is now pending (pending before Parliament), awaiting its nationwide vote.",
+        "de": "Zustande gekommene Volksinitiative, derzeit hängig (beim Parlament hängig), vor der Volksabstimmung.",
+        "fr": "Initiative populaire aboutie, actuellement pendante (pendante devant le Parlement), avant la votation populaire.",
+        "it": "Iniziativa popolare riuscita, attualmente pendente (pendente davanti al Parlamento), prima della votazione popolare.",
+        "rm": "Iniziativa dal pievel reussida, actualmain pendenta (pendenta tar il parlament), avant la votaziun dal pievel."
       },
       "status": "pending",
       "date": {
