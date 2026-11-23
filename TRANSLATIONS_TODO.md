@@ -1,6 +1,6 @@
 # Translations to do
 
-## 23 title(s) need translation
+## 25 title(s) need translation
 
 Swiss vote/act titles are official only in German, French and Italian. The site shows hand-made **unofficial** English (`en`) and Romansh (`rm`) titles; the ones below are missing and currently fall back to the official German title.
 
@@ -13,6 +13,8 @@ Swiss vote/act titles are official only in German, French and Italian. The site 
 | initiative | `vote-20270228-6960` | rm | Bundesbeschluss über die Genehmigung des Wirtschaftspartnerschaftsabkommens zwischen den EFTA-Staaten und Malaysia |
 | initiative | `vote-20270228-6970` | rm | Änderung des Kernenergiegesetzes (KEG) |
 | initiative | `vote-20270228-6980` | rm | Änderung des Bundesgesetzes über die Allgemeinverbindlicherklärung von Gesamtarbeitsverträgen (Allgemeinverbindlicherklärung von Mindestlöhnen, die unter kantonalen Mindestlöhnen liegen) |
+| initiative | `initiative-587` | en, rm | Eidgenössische Volksinitiative 'Für Wahlfreiheit bei digitaler Identität und gegen digitale Kontrolle oder Überwachung (Digital ja, aber frei!)' |
+| initiative | `initiative-589` | en, rm | Eidgenössische Volksinitiative 'Für tiefere Krankenkassenprämien' |
 | session act | `38947` | en, rm | Bundesgesetz über die Unverjährbarkeit von Mord (Änderung des Strafgesetzbuches und des Militärstrafgesetzes) |
 | session act | `38948` | en, rm | Bundespersonalgesetz (BPG) |
 | session act | `38949` | en, rm | Regierungs- und Verwaltungsorganisationsgesetz (RVOG) |
